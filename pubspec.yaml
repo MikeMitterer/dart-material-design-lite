@@ -1,0 +1,20 @@
+name: wsk_material
+description: >
+  A library useful for applications or for sharing on pub.dartlang.org.
+version: 0.0.1
+#author: <your name> <email@example.com>
+#homepage: https://www.example.com
+
+dependencies:
+  browser: any
+  logging: any
+  logging_handlers: any
+
+  intl: any
+  args: any
+  validate: any
+
+dev_dependencies:
+  unittest: any
+  console_log_handler: any
+

@@ -1,0 +1,15 @@
+@import "packages/wsk_material/sass/styleguide_demo_bp";
+@import "packages/wsk_material/sass/card/card";
+@import "packages/wsk_material/sass/animation/animation";
+@import "packages/wsk_material/sass/shadow/_shadow";
+
+.demo-paper-card {
+  background-color   : #fff;
+  border-radius      : 2px;
+  display            : block;
+  height             : 300px;
+  margin             : 20px;
+  transition-property: opacity, transform;
+  @include material-animation-default(300ms);
+  width              : 300px;
+}
