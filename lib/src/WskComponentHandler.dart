@@ -1,19 +1,26 @@
 part of wskcore;
 
-
+/**
+ * A component handler interface using the revealing module design pattern.
+ * More details on this pattern design here:
+ * https://github.com/jasonmayes/wsk-component-design-pattern
+ * (JS-Version: Jason Mayes.)
+ *
+ * @author Mike Mitterer
+ */
 class ComponentHandler {
     final Logger _logger = new Logger('wskcore.ComponentHandler');
 
     final Map<String, WskConfig> _registeredComponents = new HashMap<String, WskConfig>();
 
-    ComponentHandler() {
-
-    }
-
+    /**
+     * Registers a class for future use and attempts to upgrade existing DOM.
+     * Sample:
+     *      final ComponentHandler componenthandler = new ComponentHandler();
+     *      componenthandler.register(new WskConfig<MaterialButton>("wsk-button"));
+     */
     void register(final WskConfig config) {
         Validate.notNull(config);
-
-        bool _isValidClassName(final String classname) => (classname != "dynamic");
 
         if(!_isValidClassName(config.classAsString)) {
             _logger.severe("(${config.classAsString}) is not a valid component for ${config.cssClass}");
@@ -25,10 +32,39 @@ class ComponentHandler {
         }
     }
 
+    /**
+     * Allows user to be alerted to any upgrades that are performed for a given
+     * component type
+     * [config] The class-config of the WSK component we wish
+     * to hook into for any upgrades performed.
+     * The [callback]-function to call upon an upgrade. This
+     * function should expect 1 parameter - the HTMLElement which got upgraded.
+     */
+    void registerUpgradedCallback(final WskConfig config,final WskCallback callback) {
+
+        if(_isValidClassName(config.classAsString) && _isRegistered(config)) {
+            _registeredComponents[config.classAsString].callbacks.add(callback);
+        }
+    }
+
+    /**
+     * Upgrades all registered components found in the current DOM. This is
+     * automatically called on window load.
+     * At the beginning of the upgrade-process it adds the csss-classes
+     * wsk-js, wsk-dart and wsk-upgrading to the <html>-element.
+     * If all components are ready it remove wsk-upgrading.
+     */
     Future upgradeAllRegistered() {
+        html.querySelector("html")
+            ..classes.add("wsk-js")
+            ..classes.add("wsk-dart")
+            ..classes.add("wsk-upgrading");
+
         final Future future = new Future(() {
             _registeredComponents.forEach((final String key, final WskConfig config) {
-                _upgradeDom(config);
+                _upgradeDom(config).then((_) {
+                    html.querySelector("html").classes.remove("wsk-upgrading");
+                });
             });
         });
 
@@ -37,17 +73,34 @@ class ComponentHandler {
 
     //- private -----------------------------------------------------------------------------------
 
-    bool _isRegistered(final WskConfig config) => _registeredComponents.containsKey(config);
+    bool _isRegistered(final WskConfig config) => _registeredComponents.containsKey(config.classAsString);
 
-    void _upgradeDom(final WskConfig config) {
+    bool _isValidClassName(final String classname) => (classname != "dynamic");
+
+    /**
+     * Searches existing DOM for elements of our component type and upgrades them
+     * if they have not already been upgraded!
+     */
+    Future _upgradeDom(final WskConfig config) {
         Validate.notNull(config);
 
-        final html.ElementList<html.HtmlElement> elements = html.querySelectorAll(".${config.cssClass}");
-        elements.forEach((final html.HtmlElement element) {
-            _upgradeElement(element, config);
+        //final List<Future> futureUpgrade = new List<Future>();
+        return new Future(() {
+            final html.ElementList<html.HtmlElement> elements = html.querySelectorAll(".${config.cssClass}");
+            elements.forEach((final html.HtmlElement element) {
+                _upgradeElement(element, config);
+                // futureUpgrade.add(_upgradeElement(element, config));
+            });
         });
+        //return Future.wait(futureUpgrade);
     }
 
+    /**
+     * Upgrades a specific element rather than all in the DOM.
+     * [element] is the element we wish to upgrade.
+     * [config] the Dart-Class/Css-Class configuration of the class we want to upgrade
+     * the element to.
+     */
     void _upgradeElement(final html.HtmlElement element, final WskConfig config) {
         Validate.notNull(element);
         Validate.notNull(config);
@@ -64,8 +117,9 @@ class ComponentHandler {
             }
 
             try {
-                final ClassMirror cm = reflectClass(config.type);
-                final InstanceMirror im = cm.newInstance(new Symbol(''), [element]);
+                //final ClassMirror cm = reflectClass(config.type);
+                final ClassMirror cm = config.clazz;
+                final InstanceMirror im = cm.newInstance(new Symbol(''), [ element ]);
 
                 Validate.isTrue(im.reflectee is WskComponent);
                 final WskComponent component = im.reflectee;

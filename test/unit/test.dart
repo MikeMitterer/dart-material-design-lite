@@ -20,18 +20,13 @@ main() {
     configLogging();
 
     group('A group of tests', () {
-        final ComponentHandler componenthandler = new ComponentHandler();
 
         setUp(() {
-
-            componenthandler.register(new WskConfig<MaterialButton>("wsk-button"));
-            componenthandler.register(new WskConfig<MaterialButton>("wsk-button"));
-            componenthandler.register(new WskConfig("wsk-button"));
-            componenthandler.register(new WskConfig<MaterialToolBar>("wsk-toolbar"));
+            registerAllWskComponents();
         });
 
         test('First Test', () {
-            componenthandler.upgradeAllRegistered().then(expectAsync((_) {
+            upgradeAllRegistered().then(expectAsync((_) {
 
             }));
         });

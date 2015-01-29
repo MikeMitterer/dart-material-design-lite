@@ -10,6 +10,7 @@ import 'dart:html' as html;
 import 'dart:collection';
 import 'dart:async';
 
+//@MirrorsUsed( targets: const['WskComponent',''], override: "*")
 import 'dart:mirrors';
 
 import 'package:logging/logging.dart';
@@ -18,3 +19,9 @@ import 'package:validate/validate.dart';
 part "src/WskComponentHandler.dart";
 part "src/WskConfig.dart";
 part "src/WskComponent.dart";
+
+/// Component-Annotation
+/// Sample:
+///   @WskCssClass("wsk-button")
+///   class MaterialButton { ... }
+class WskCssClass {  final String name; const WskCssClass(this.name); }

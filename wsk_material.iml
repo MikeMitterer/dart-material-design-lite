@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/bin/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/animation/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/button/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/card.test/.sass-cache/0cb560e1326e2a12c351e8feb025e477eb12e11a/packages" />

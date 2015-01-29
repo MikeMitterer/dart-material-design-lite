@@ -7,6 +7,5 @@ abstract class WskComponent {
         Validate.notNull(element);
     }
 
-    void init();
 }
 
