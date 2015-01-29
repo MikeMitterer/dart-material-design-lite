@@ -6,6 +6,5 @@ abstract class WskComponent {
     WskComponent(this.element) {
         Validate.notNull(element);
     }
-
 }
 

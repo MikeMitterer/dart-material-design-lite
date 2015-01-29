@@ -13,7 +13,10 @@ class _MaterialButtonCssClasses {
 /// Store constants in one place so they can be updated easily.
 class _MaterialButtonConstant { const _MaterialButtonConstant(); }
 
-@WskCssClass("wsk-js-button")
+/// registration-Helper
+void registerMaterialButton() => _componenthandler.register(new WskConfig<MaterialButton>(
+    "wsk-js-button",(final html.HtmlElement element) => new MaterialButton(element)));
+
 class MaterialButton extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialButton');
 

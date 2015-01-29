@@ -40,11 +40,7 @@ hr {
  * Remove the gap between images, videos, audio and canvas and the bottom of
  * their containers: h5bp.com/i/440
  */
-audio,
-canvas,
-img,
-svg,
-video {
+audio, canvas, img, svg, video {
   vertical-align: middle; }
 
 /*
@@ -100,8 +96,7 @@ textarea {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   clip: auto;
   height: auto;
   margin: 0;
@@ -126,8 +121,7 @@ textarea {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.clearfix:before,
-.clearfix:after {
+.clearfix:before, .clearfix:after {
   content: " ";
   /* 1 */
   display: table;
@@ -141,67 +135,45 @@ textarea {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */ }
-@media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */ }
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request: h5bp.com/r
    ========================================================================== */
 @media print {
-  *,
-  *:before,
-  *:after {
+  *, *:before, *:after {
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster: h5bp.com/s */
     box-shadow: none !important;
     text-shadow: none !important; }
-
-  a,
-  a:visited {
+  a, a:visited {
     text-decoration: underline; }
-
   a[href]:after {
     content: " (" attr(href) ")"; }
-
   abbr[title]:after {
     content: " (" attr(title) ")"; }
-
   /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+  a[href^="#"]:after, a[href^="javascript:"]:after {
     content: ""; }
-
-  pre,
-  blockquote {
+  pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
-
   thead {
     display: table-header-group;
     /* h5bp.com/t */ }
-
-  tr,
-  img {
+  tr, img {
     page-break-inside: avoid; }
-
   img {
     max-width: 100% !important; }
-
-  p,
-  h2,
-  h3 {
+  p, h2, h3 {
     orphans: 3;
     widows: 3; }
-
-  h2,
-  h3 {
+  h2, h3 {
     page-break-after: avoid; } }
+
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
    immediately and not wait for the web font load, whereas for other sections,
@@ -213,7 +185,7 @@ textarea {
    widely available.
 */
 html, body {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px; }
@@ -226,7 +198,7 @@ h1, h2, h3, h4, h5, h6, p {
  * Styles for HTML elements
  */
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1;
@@ -235,40 +207,40 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-size: 0.6em; }
 
 h1 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.02em; }
 
 h2 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 48px; }
 
 h3 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 40px; }
 
 h4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
   -moz-osx-font-smoothing: grayscale; }
 
 h5 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.02em; }
 
 h6 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -285,7 +257,7 @@ a {
   font-weight: bold; }
 
 blockquote {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 300;
   font-style: italic;
@@ -308,14 +280,14 @@ dt {
  * Class Name Styles
  */
 .wsk-typography--display-4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 112px;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.04em; }
 
 .wsk-typography--display-4--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 112px;
   font-weight: 300;
   line-height: 1;
@@ -323,14 +295,14 @@ dt {
   opacity: 0.54; }
 
 .wsk-typography--display-3 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.02em; }
 
 .wsk-typography--display-3--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1;
@@ -338,40 +310,40 @@ dt {
   opacity: 0.54; }
 
 .wsk-typography--display-2 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 48px; }
 
 .wsk-typography--display-2--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 48px;
   opacity: 0.54; }
 
 .wsk-typography--display-1 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 40px; }
 
 .wsk-typography--display-1--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 40px;
   opacity: 0.54; }
 
 .wsk-typography--headline {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
   -moz-osx-font-smoothing: grayscale; }
 
 .wsk-typography--headline--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
@@ -379,14 +351,14 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--title {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.02em; }
 
 .wsk-typography--title--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
@@ -394,14 +366,14 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--subhead {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
 .wsk-typography--subhead--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -435,14 +407,14 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--body-2--forcePreferredFont {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
 .wsk-typography--Body-2--forcePreferredFont--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -450,14 +422,14 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--body-1--forcePreferredFont {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
 .wsk-typography--body-1--forcePreferredFont--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
@@ -471,7 +443,7 @@ dt {
   letter-spacing: 0.08em; }
 
 .wsk-typography--caption--forcePreferredFont {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
@@ -485,7 +457,7 @@ dt {
   opacity: 0.54; }
 
 .wsk-typography--caption--forcePreferredFont--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
@@ -493,14 +465,14 @@ dt {
   opacity: 0.54; }
 
 .wsk-typography--menu {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.04em; }
 
 .wsk-typography--menu--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
@@ -508,7 +480,7 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--button {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -516,7 +488,7 @@ dt {
   letter-spacing: 0.04em; }
 
 .wsk-typography--button--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -548,12 +520,10 @@ dt {
 .wsk-typography--textCapitalize {
   text-transform: capitalize; }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td,
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td,
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
 
 /**
@@ -593,7 +563,7 @@ body > h2 {
    widely available.
 */
 html, body {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px; }
@@ -606,7 +576,7 @@ h1, h2, h3, h4, h5, h6, p {
  * Styles for HTML elements
  */
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1;
@@ -615,40 +585,40 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-size: 0.6em; }
 
 h1 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.02em; }
 
 h2 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 48px; }
 
 h3 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 40px; }
 
 h4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
   -moz-osx-font-smoothing: grayscale; }
 
 h5 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.02em; }
 
 h6 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -665,7 +635,7 @@ a {
   font-weight: bold; }
 
 blockquote {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 300;
   font-style: italic;
@@ -688,14 +658,14 @@ dt {
  * Class Name Styles
  */
 .wsk-typography--display-4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 112px;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.04em; }
 
 .wsk-typography--display-4--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 112px;
   font-weight: 300;
   line-height: 1;
@@ -703,14 +673,14 @@ dt {
   opacity: 0.54; }
 
 .wsk-typography--display-3 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.02em; }
 
 .wsk-typography--display-3--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
   line-height: 1;
@@ -718,40 +688,40 @@ dt {
   opacity: 0.54; }
 
 .wsk-typography--display-2 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 48px; }
 
 .wsk-typography--display-2--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
   line-height: 48px;
   opacity: 0.54; }
 
 .wsk-typography--display-1 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 40px; }
 
 .wsk-typography--display-1--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 40px;
   opacity: 0.54; }
 
 .wsk-typography--headline {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
   -moz-osx-font-smoothing: grayscale; }
 
 .wsk-typography--headline--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
@@ -759,14 +729,14 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--title {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.02em; }
 
 .wsk-typography--title--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
@@ -774,14 +744,14 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--subhead {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
 .wsk-typography--subhead--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -815,14 +785,14 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--body-2--forcePreferredFont {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
 .wsk-typography--Body-2--forcePreferredFont--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
@@ -830,14 +800,14 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--body-1--forcePreferredFont {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
 .wsk-typography--body-1--forcePreferredFont--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
@@ -851,7 +821,7 @@ dt {
   letter-spacing: 0.08em; }
 
 .wsk-typography--caption--forcePreferredFont {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
@@ -865,7 +835,7 @@ dt {
   opacity: 0.54; }
 
 .wsk-typography--caption--forcePreferredFont--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
@@ -873,14 +843,14 @@ dt {
   opacity: 0.54; }
 
 .wsk-typography--menu {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.04em; }
 
 .wsk-typography--menu--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
@@ -888,7 +858,7 @@ dt {
   opacity: 0.87; }
 
 .wsk-typography--button {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -896,7 +866,7 @@ dt {
   letter-spacing: 0.04em; }
 
 .wsk-typography--button--colorContrast {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -928,12 +898,10 @@ dt {
 .wsk-typography--textCapitalize {
   text-transform: capitalize; }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td,
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td,
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
 
 /**
@@ -1085,13 +1053,84 @@ dt {
   transform-origin: 165px 25px;
   width: 100%; }
 
-.wsk-card {
-  margin: 20px; }
+.wsk-shadow--z1 {
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
-.wsk-card:nth-child(1) {
-  width: 330px; }
+.wsk-shadow--z2 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
 
-.wsk-card:nth-child(2) {
-  width: 600px; }
+.wsk-shadow--z3 {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
 
-/*# sourceMappingURL=demo.css.map */
+.wsk-shadow--z4 {
+  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
+
+.wsk-shadow--z5 {
+  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
+
+.PreviewBlock {
+  height: 200px;
+  padding: 0;
+  background: none; }
+
+.demo-animate-container {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  height: 100%;
+  text-align: center;
+  background-color: #ddd; }
+
+.demo-animate-container--foreground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100; }
+
+.demo-animate-container--background {
+  line-height: 200px;
+  z-index: -100; }
+
+.demo-position-1 {
+  left: -102px;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
+.demo-position-2 {
+  left: 20px;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.demo-position-3 {
+  left: 180px;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.demo-position-4 {
+  left: 302px;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
+.demo-position-5 {
+  left: 180px;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.demo-position-6 {
+  left: 20px;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.demo-paper-card {
+  background-color: red;
+  border-radius: 2px;
+  display: block;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 50px;
+  transition-property: left; }

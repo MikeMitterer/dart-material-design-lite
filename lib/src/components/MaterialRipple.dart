@@ -21,7 +21,10 @@ class _MaterialRippleConstant {
 
     const _MaterialRippleConstant(); }
 
-@WskCssClass("wsk-js-ripple-effect")
+/// registration-Helper
+void registerMaterialRipple() => _componenthandler.register(new WskConfig<MaterialRipple>(
+    "wsk-js-ripple-effect",(final html.HtmlElement element) => new MaterialRipple(element)));
+
 class MaterialRipple extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialRipple');
 
@@ -75,8 +78,6 @@ class MaterialRipple extends WskComponent {
     void _setRippleXY(final int newX,final int newY) { _x = newX; _y = newY; }
 
     void _downHandler(final html.UIEvent event) {
-        _logger.info("Clicked...");
-
         if (event.type == 'mousedown' && _ignoringMouseDown) {
             _ignoringMouseDown = false;
 
@@ -137,8 +138,7 @@ class MaterialRipple extends WskComponent {
                 scale = _constant.FINAL_SCALE;
                 size = "${_rippleSize}px";
                 if (_recentering) {
-                    offset = 'translate(' + bound.width / 2 + 'px, ' +
-                    bound.height / 2 + 'px)';
+                    offset = "translate(${bound.width / 2}px, ${bound.height / 2}'px)";
                 }
             }
 
@@ -165,4 +165,3 @@ class MaterialRipple extends WskComponent {
         }
     }
 }
-

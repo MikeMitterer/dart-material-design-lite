@@ -8,7 +8,7 @@ part of wskcore;
  *
  * @author Mike Mitterer
  */
-class ComponentHandler {
+class WskComponentHandler {
     final Logger _logger = new Logger('wskcore.ComponentHandler');
 
     final Map<String, WskConfig> _registeredComponents = new HashMap<String, WskConfig>();
@@ -62,8 +62,10 @@ class ComponentHandler {
 
         final Future future = new Future(() {
             _registeredComponents.forEach((final String key, final WskConfig config) {
-                _upgradeDom(config).then((_) {
+                _upgradeDom(config).then( (_) {
                     html.querySelector("html").classes.remove("wsk-upgrading");
+                    html.querySelector("html").classes.add("wsk-upgraded");
+                    _logger.info("All components are upgraded...");
                 });
             });
         });
@@ -117,13 +119,7 @@ class ComponentHandler {
             }
 
             try {
-                //final ClassMirror cm = reflectClass(config.type);
-                final ClassMirror cm = config.clazz;
-                final InstanceMirror im = cm.newInstance(new Symbol(''), [ element ]);
-
-                Validate.isTrue(im.reflectee is WskComponent);
-                final WskComponent component = im.reflectee;
-
+                final WskComponent component = config.newComponent(element);
                 config.callbacks.forEach((final WskCallback callback) => callback(element));
 
                 _markAsUpgraded();
@@ -137,3 +133,4 @@ class ComponentHandler {
         }
     }
 }
+
