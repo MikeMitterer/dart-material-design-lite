@@ -75,7 +75,7 @@ class Application {
                     final File srcJs = new File("${config.sassdir}/${sampleName}/${sampleName}.js");
                     final File srcDartMain = new File("${config.maintemplate}");
                     final File targetDartMain = new File("${sample.path}/main.dart");
-                    final File targetConvertedJS = new File("${sample.path}/_${sampleName}.js.dart");
+                    final File targetConvertedJS = new File("${sample.path}/_${sampleName}.dart.js");
 
                     final Link packages = new Link("${sample.path}/packages");
                     final File targetPackages = new File("../../packages");

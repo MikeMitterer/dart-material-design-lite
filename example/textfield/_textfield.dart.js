@@ -64,7 +64,7 @@ void _expandableIcon(final iconElement) {
 /// Handle input being entered.
 /// @param {Event} event The event that fired.
 /// MaterialTextfield.prototype.onInputChange_ = function(event) {
-void _onInputChange(final html.MouseEvent event) {
+void _onInputChange(final html.Event event) {
 
   if (event.target.value && event.target.value.length > 0) {
     event.target.classes.add(_cssClasses.IS_DIRTY);
@@ -77,7 +77,7 @@ void _onInputChange(final html.MouseEvent event) {
 /// Handle input being entered.
 /// @param {Event} event The event that fired.
 /// MaterialTextfield.prototype.onKeyDown_ = function(event) {
-void _onKeyDown(final html.MouseEvent event) {
+void _onKeyDown(final html.Event event) {
 
   final currentRowCount = event.target.value.split('\n').length;
   if (event.keyCode == 13) {

@@ -56,7 +56,7 @@ class _MaterialRadioCssClasses {
 /// Handle change of state.
 /// @param {Event} event The event that fired.
 /// MaterialRadio.prototype.onChange_ = function(event) {
-void _onChange(final html.MouseEvent event) {
+void _onChange(final html.Event event) {
 
   _updateClasses(_btnElement, element);
 
@@ -78,7 +78,7 @@ void _onChange(final html.MouseEvent event) {
 /// Handle focus.
 /// @param {Event} event The event that fired.
 /// MaterialRadio.prototype.onFocus_ = function(event) {
-void _onFocus(final html.MouseEvent event) {
+void _onFocus(final html.Event event) {
 
   element.classes.add(_cssClasses.IS_FOCUSED);
 }
@@ -86,7 +86,7 @@ void _onFocus(final html.MouseEvent event) {
 /// Handle lost focus.
 /// @param {Event} event The event that fired.
 /// MaterialRadio.prototype.onBlur_ = function(event) {
-void _onBlur(final html.MouseEvent event) {
+void _onBlur(final html.Event event) {
 
   element.classes.remove(_cssClasses.IS_FOCUSED);
 }
@@ -94,7 +94,7 @@ void _onBlur(final html.MouseEvent event) {
 /// Handle mouseup.
 /// @param {Event} event The event that fired.
 /// MaterialRadio.prototype.onMouseup_ = function(event) {
-void _onMouseup(final html.MouseEvent event) {
+void _onMouseup(final html.Event event) {
 
   _blur();
 }
@@ -122,7 +122,7 @@ void _updateClasses(final button, label) {
 
 /// Add blur.
 /// MaterialRadio.prototype.blur_ = function(event) {
-void _blur(final html.MouseEvent event) {
+void _blur(final html.Event event) {
 
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.

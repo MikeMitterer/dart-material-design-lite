@@ -32,7 +32,7 @@ class _MaterialTooltipCssClasses {
 /// Handle mouseenter for tooltip.
 /// @param {Event} event The event that fired.
 /// MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
-void _handleMouseEnter(final html.MouseEvent event) {
+void _handleMouseEnter(final html.Event event) {
 
   event.stopPropagation();
 
@@ -46,7 +46,7 @@ void _handleMouseEnter(final html.MouseEvent event) {
 /// Handle mouseleave for tooltip.
 /// @param {Event} event The event that fired.
 /// MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
-void _handleMouseLeave(final html.MouseEvent event) {
+void _handleMouseLeave(final html.Event event) {
 
   event.stopPropagation();
   element.classes.remove(_cssClasses.IS_ACTIVE);

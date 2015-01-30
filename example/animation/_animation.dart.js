@@ -37,7 +37,7 @@ class _MaterialAnimationCssClasses {
 /// Handle click of element.
 /// @param {Event} event The event that fired.
 /// MaterialAnimation.prototype.handleClick_ = function(event) {
-void _handleClick(final html.MouseEvent event) {
+void _handleClick(final html.Event event) {
 
   _moveable.classes.remove(_cssClasses.DEMO_POSITION_PREFIX +
       _position);

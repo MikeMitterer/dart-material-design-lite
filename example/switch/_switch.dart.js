@@ -1,15 +1,15 @@
 import 'dart:html' as html;
 import 'dart:math' as Math;
 
-/// Class constructor for icon toggle WSK component.
+/// Class constructor for Checkbox WSK component.
 /// Implements WSK component design pattern defined at:
 /// https://github.com/jasonmayes/wsk-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
-class MaterialIconToggle {
+class MaterialSwitch {
 
     final element;
 
-    MaterialIconToggle(this.element);
+    MaterialSwitch(this.element);
 
   // Initialize instance.
   init();
@@ -17,7 +17,7 @@ class MaterialIconToggle {
 
 /// Store constants in one place so they can be updated easily.
 /// @enum {string | number}
-class _MaterialIconToggleConstant {
+class _MaterialSwitchConstant {
     final int TINY_TIMEOUT = 0;
 }
 
@@ -25,46 +25,60 @@ class _MaterialIconToggleConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// @enum {string}
-class _MaterialIconToggleCssClasses {
-    final String INPUT = 'wsk-icon-toggle__input';
-    final String JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String RIPPLE_CONTAINER = 'wsk-icon-toggle__ripple-container';
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
-    final String RIPPLE = 'wsk-ripple';
+class _MaterialSwitchCssClasses {
+    final String WSK_SWITCH_INPUT = 'wsk-switch__input';
+
+    final String WSK_SWITCH_TRACK = 'wsk-switch__track';
+
+    final String WSK_SWITCH_THUMB = 'wsk-switch__thumb';
+
+    final String WSK_SWITCH_FOCUS_HELPER = 'wsk-switch__focus-helper';
+
+    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+
+    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+
+    final String WSK_SWITCH_RIPPLE_CONTAINER = 'wsk-switch__ripple-container';
+
+    final String WSK_RIPPLE_CENTER = 'wsk-ripple--center';
+
+    final String WSK_RIPPLE = 'wsk-ripple';
+
     final String IS_FOCUSED = 'is-focused';
+
     final String IS_DISABLED = 'is-disabled';
+
     final String IS_CHECKED = 'is-checked';
 }
 
 /// Handle change of state.
 /// @param {Event} event The event that fired.
-/// MaterialIconToggle.prototype.onChange_ = function(event) {
-void _onChange(final html.MouseEvent event) {
+/// MaterialSwitch.prototype.onChange_ = function(event) {
+void _onChange(final html.Event event) {
 
   _updateClasses(_btnElement, element);
 }
 
 /// Handle focus of element.
 /// @param {Event} event The event that fired.
-/// MaterialIconToggle.prototype.onFocus_ = function(event) {
-void _onFocus(final html.MouseEvent event) {
+/// MaterialSwitch.prototype.onFocus_ = function(event) {
+void _onFocus(final html.Event event) {
 
   element.classes.add(_cssClasses.IS_FOCUSED);
 }
 
 /// Handle lost focus of element.
 /// @param {Event} event The event that fired.
-/// MaterialIconToggle.prototype.onBlur_ = function(event) {
-void _onBlur(final html.MouseEvent event) {
+/// MaterialSwitch.prototype.onBlur_ = function(event) {
+void _onBlur(final html.Event event) {
 
   element.classes.remove(_cssClasses.IS_FOCUSED);
 }
 
 /// Handle mouseup.
 /// @param {Event} event The event that fired.
-/// MaterialIconToggle.prototype.onMouseUp_ = function(event) {
-void _onMouseUp(final html.MouseEvent event) {
+/// MaterialSwitch.prototype.onMouseUp_ = function(event) {
+void _onMouseUp(final html.Event event) {
 
   _blur();
 }
@@ -72,7 +86,7 @@ void _onMouseUp(final html.MouseEvent event) {
 /// Handle class updates.
 /// @param {HTMLElement} button The button whose classes we should update.
 /// @param {HTMLElement} label The label whose classes we should update.
-/// MaterialIconToggle.prototype.updateClasses_ = function(button, label) {
+/// MaterialSwitch.prototype.updateClasses_ = function(button, label) {
 void _updateClasses(final button, label) {
 
   if (button.disabled) {
@@ -91,8 +105,8 @@ void _updateClasses(final button, label) {
 }
 
 /// Add blur.
-/// MaterialIconToggle.prototype.blur_ = function(event) {
-void _blur(final html.MouseEvent event) {
+/// MaterialSwitch.prototype.blur_ = function(event) {
+void _blur(final html.Event event) {
 
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
@@ -102,24 +116,41 @@ void _blur(final html.MouseEvent event) {
 }
 
 /// Initialize element.
-/// MaterialIconToggle.prototype.init = /*function*/ () {
+/// MaterialSwitch.prototype.init = /*function*/ () {
 void init() {
 
   if (element != null) {
-    _btnElement =
-        element.querySelector('.' + _cssClasses.INPUT);
+    _btnElement = element.querySelector('.' +
+        _cssClasses.WSK_SWITCH_INPUT);
+
+    final track = new html.DivElement();
+    track.classes.add(_cssClasses.WSK_SWITCH_TRACK);
+
+    final thumb = new html.DivElement();
+    thumb.classes.add(_cssClasses.WSK_SWITCH_THUMB);
+
+    final focusHelper = new html.SpanElement();
+    focusHelper.classes.add(_cssClasses.WSK_SWITCH_FOCUS_HELPER);
+
+    thumb.append(focusHelper);
+
+    element.append(track);
+    element.append(thumb);
 
     final rippleContainer;
-    if (element.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
-      element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
+    if (element.classes.contains(
+        _cssClasses.WSK_JS_RIPPLE_EFFECT)) {
+      element.classes.add(
+          _cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
 
       rippleContainer = new html.SpanElement();
-      rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
-      rippleContainer.classes.add(_cssClasses.JS_RIPPLE_EFFECT);
-      rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
+      rippleContainer.classes.add(
+          _cssClasses.WSK_SWITCH_RIPPLE_CONTAINER);
+      rippleContainer.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
+      rippleContainer.classes.add(_cssClasses.WSK_RIPPLE_CENTER);
 
       final ripple = new html.SpanElement();
-      ripple.classes.add(_cssClasses.RIPPLE);
+      ripple.classes.add(_cssClasses.WSK_RIPPLE);
 
       rippleContainer.append(ripple);
       element.append(rippleContainer);
@@ -149,7 +180,7 @@ void init() {
 // // in the global scope.
 
 // componentHandler.register({
-//   constructor: MaterialIconToggle,
-//   classAsString: 'MaterialIconToggle',
-//   cssClass: 'wsk-js-icon-toggle'
+//   constructor: MaterialSwitch,
+//   classAsString: 'MaterialSwitch',
+//   cssClass: 'wsk-js-switch'
 // });

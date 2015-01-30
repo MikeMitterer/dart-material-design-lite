@@ -44,7 +44,7 @@ class _MaterialSliderCssClasses {
 /// Handle input on element.
 /// @param {Event} event The event that fired.
 /// MaterialSlider.prototype.onInput_ = function(event) {
-void _onInput(final html.MouseEvent event) {
+void _onInput(final html.Event event) {
 
   _updateValue();
 }
@@ -52,7 +52,7 @@ void _onInput(final html.MouseEvent event) {
 /// Handle change on element.
 /// @param {Event} event The event that fired.
 /// MaterialSlider.prototype.onChange_ = function(event) {
-void _onChange(final html.MouseEvent event) {
+void _onChange(final html.Event event) {
 
   _updateValue();
 }
@@ -60,7 +60,7 @@ void _onChange(final html.MouseEvent event) {
 /// Handle mouseup on element.
 /// @param {Event} event The event that fired.
 /// MaterialSlider.prototype.onMouseUp_ = function(event) {
-void _onMouseUp(final html.MouseEvent event) {
+void _onMouseUp(final html.Event event) {
 
    event.target.blur();
 }
@@ -68,7 +68,7 @@ void _onMouseUp(final html.MouseEvent event) {
 /// Handle updating of values.
 /// @param {Event} event The event that fired.
 /// MaterialSlider.prototype.updateValue_ = function(event) {
-void _updateValue(final html.MouseEvent event) {
+void _updateValue(final html.Event event) {
 
   // Calculate and apply percentages to div structure behind slider.
 
