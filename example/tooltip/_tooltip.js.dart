@@ -62,12 +62,12 @@ void init() {
 
     final forEl = html.document.getElementById(forElId);
 
-	// -- .onMouseEnter.listen(<MouseEvent>);
-    forEl.addEventListener('mouseenter', _handleMouseEnter,
+	// .addEventListener('mouseenter', -- .onMouseEnter.listen(<MouseEvent>);
+    forEl.onMouseEnter.listen( _handleMouseEnter,
         false);
 
-	// -- .onMouseLeave.listen(<MouseEvent>);
-    forEl.addEventListener('mouseleave', _handleMouseLeave);
+	// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
+    forEl.onMouseLeave.listen( _handleMouseLeave);
   }
 }
 

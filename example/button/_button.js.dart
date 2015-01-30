@@ -59,13 +59,13 @@ void init() {
       ripple.classes.add(_cssClasses.WSK_RIPPLE);
       rippleContainer.append(ripple);
 
-	// -- .onMouseUp.listen(<MouseEvent>);
-      ripple.addEventListener('mouseup', blurHandler);
+	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+      ripple.onMouseUp.listen( blurHandler);
       element.append(rippleContainer);
     }
 
-	// -- .onMouseUp.listen(<MouseEvent>);
-    element.addEventListener('mouseup', blurHandler);
+	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+    element.onMouseUp.listen( blurHandler);
   }
 }
 

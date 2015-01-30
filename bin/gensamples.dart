@@ -207,7 +207,7 @@ class Application {
             newLine = newLine.replaceAllMapped(new RegExp("([^.]+).prototype.([^_]+)(_*) = function\\(([^\\)]+)\\)"),
                 (final Match m) => "/// $line\nvoid ${m[3]}${m[2]}(final ${m[4]})");
 
-            newLine = newLine.replaceAll("(final event)","(final html.MouseEvent event)");
+            newLine = newLine.replaceAll("(final event)","(final html.Event event)");
 
             newLine = newLine.replaceFirst(new RegExp("^ \\* "),"/// ");
 
@@ -217,30 +217,43 @@ class Application {
             newLine = newLine.replaceAllMapped(new RegExp("\\.([a-zA-Z]+)_+(\\.|\\()"),
                 (final Match m) => "._${m[1]}${m[2]}");
 
-            if (line.contains(".addEventListener('click'")) {
-                contents.writeln("\n\t// -- .onClick.listen(<MouseEvent>);");
-                //newLine = newLine.replaceFirst(".addEventListener('click', function",".onClick.listen( ");
+            newLine = newLine.replaceFirst(new RegExp("^function "),"/*function*/\nclass ");
+            newLine = newLine.replaceAll(", function()",", /*function*/ ()");
+            newLine = newLine.replaceAll("(function()","( /*function*/ ()");
+            newLine = newLine.replaceAll(", function(e)",", /*function*/ (e)");
+            newLine = newLine.replaceAll("= function()","= /*function*/ ()");
+
+            if (line.contains(".addEventListener('click',")) {
+                contents.writeln("\n\t// .addEventListener('click', -> .onClick.listen(<MouseEvent>);");
+                newLine = newLine.replaceFirst(".addEventListener('click',",".onClick.listen(");
             }
-            if (line.contains(".addEventListener('scroll'")) {
-                contents.writeln("\n\t// -- .onScroll.listen(<Event>);");
+            if (line.contains(".addEventListener('scroll',")) {
+                contents.writeln("\n\t// .addEventListener('scroll', -- .onScroll.listen(<Event>);");
+                newLine = newLine.replaceFirst(".addEventListener('scroll',",".onScroll.listen(");
             }
-            if (line.contains(".addEventListener('change'")) {
-                contents.writeln("\n\t// -- .onChange.listen(<Event>);");
+            if (line.contains(".addEventListener('change',")) {
+                contents.writeln("\n\t// .addEventListener('change', -- .onChange.listen(<Event>);");
+                newLine = newLine.replaceFirst(".addEventListener('change',",".onChange.listen(");
             }
-            if (line.contains(".addEventListener('focus'")) {
-                contents.writeln("\n\t// -- .onFocus.listen(<Event>);");
+            if (line.contains(".addEventListener('focus',")) {
+                contents.writeln("\n\t// .addEventListener('focus', -- .onFocus.listen(<Event>);");
+                newLine = newLine.replaceFirst(".addEventListener('focus',",".onFocus.listen(");
             }
-            if (line.contains(".addEventListener('blur'")) {
-                contents.writeln("\n\t// -- .onBlur.listen(<Event>);");
+            if (line.contains(".addEventListener('blur',")) {
+                contents.writeln("\n\t// .addEventListener('blur', -- .onBlur.listen(<Event>);");
+                newLine = newLine.replaceFirst(".addEventListener('blur',",".onBlur.listen(");
             }
-            if (line.contains(".addEventListener('mouseup'")) {
-                contents.writeln("\n\t// -- .onMouseUp.listen(<MouseEvent>);");
+            if (line.contains(".addEventListener('mouseup',")) {
+                contents.writeln("\n\t// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);");
+                newLine = newLine.replaceFirst(".addEventListener('mouseup',",".onMouseUp.listen(");
             }
-            if (line.contains(".addEventListener('mouseenter'")) {
-                contents.writeln("\n\t// -- .onMouseEnter.listen(<MouseEvent>);");
+            if (line.contains(".addEventListener('mouseenter',")) {
+                contents.writeln("\n\t// .addEventListener('mouseenter', -- .onMouseEnter.listen(<MouseEvent>);");
+                newLine = newLine.replaceFirst(".addEventListener('mouseenter',",".onMouseEnter.listen(");
             }
-            if (line.contains(".addEventListener('mouseleave'")) {
-                contents.writeln("\n\t// -- .onMouseLeave.listen(<MouseEvent>);");
+            if (line.contains(".addEventListener('mouseleave',")) {
+                contents.writeln("\n\t// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);");
+                newLine = newLine.replaceFirst(".addEventListener('mouseleave',",".onMouseLeave.listen(");
             }
 
             if( line.contains(new RegExp("^function [^{]+{"))) {
@@ -263,12 +276,6 @@ class Application {
                 contents.writeln("    $className(${ptemp.join(",")});");
                 continue;
             }
-            newLine = newLine.replaceFirst(new RegExp("^function "),"/*function*/\nclass ");
-
-            newLine = newLine.replaceAll(", function()",", /*function*/ ()");
-            newLine = newLine.replaceAll("(function()","( /*function*/ ()");
-            newLine = newLine.replaceAll(", function(e)",", /*function*/ (e)");
-            newLine = newLine.replaceAll("= function()","= /*function*/ ()");
 
             newLine = newLine.replaceAll("this.","");
 

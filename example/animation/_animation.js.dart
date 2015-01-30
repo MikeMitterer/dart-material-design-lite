@@ -60,8 +60,8 @@ void init() {
       return;
     }
 
-	// -- .onClick.listen(<MouseEvent>);
-    element.addEventListener('click', _handleClick);
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+    element.onClick.listen( _handleClick);
   }
 }
 

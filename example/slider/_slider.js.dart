@@ -134,11 +134,11 @@ void init() {
 
     element.addEventListener('input', _onInput);
 
-	// -- .onChange.listen(<Event>);
-    element.addEventListener('change', _onChange);
+	// .addEventListener('change', -- .onChange.listen(<Event>);
+    element.onChange.listen( _onChange);
 
-	// -- .onMouseUp.listen(<MouseEvent>);
-    element.addEventListener('mouseup', _onMouseUp);
+	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+    element.onMouseUp.listen( _onMouseUp);
 
     _updateValue();
   }

@@ -108,8 +108,8 @@ class MaterialTab {
       tab.append(rippleContainer);
     }
 
-	// -- .onClick.listen(<MouseEvent>);
-    tab.addEventListener('click', /*function*/ (e) {
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+    tab.onClick.listen( /*function*/ (e) {
       e.preventDefault();
 
       final href = tab.href.split('#')[1];

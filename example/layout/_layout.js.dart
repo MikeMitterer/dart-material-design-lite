@@ -175,8 +175,8 @@ void init() {
         // Also add/remove auxiliary class for styling of the compact version of
         // the header.
 
-	// -- .onScroll.listen(<Event>);
-        _content.addEventListener('scroll',
+	// .addEventListener('scroll', -- .onScroll.listen(<Event>);
+        _content.onScroll.listen(
             _contentScrollHandler);
         _contentScrollHandler();
       }
@@ -188,8 +188,8 @@ void init() {
       final drawerButton = new html.DivElement();
       drawerButton.classes.add(_cssClasses.DRAWER_BTN);
 
-	// -- .onClick.listen(<MouseEvent>);
-      drawerButton.addEventListener('click',
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+      drawerButton.onClick.listen(
           _drawerToggleHandler);
 
       // If we have a fixed header, add the button to the header rather than
@@ -205,8 +205,8 @@ void init() {
       obfuscator.classes.add(_cssClasses.OBFUSCATOR);
       element.append(obfuscator);
 
-	// -- .onClick.listen(<MouseEvent>);
-      obfuscator.addEventListener('click',
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+      obfuscator.onClick.listen(
           _drawerToggleHandler);
     }
 
@@ -222,8 +222,8 @@ void init() {
       leftButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
       leftButton.classes.add(_cssClasses.TAB_BAR_LEFT_BUTTON);
 
-	// -- .onClick.listen(<MouseEvent>);
-      leftButton.addEventListener('click', /*function*/ () {
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+      leftButton.onClick.listen( /*function*/ () {
         _tabBar.scrollLeft -= 100;
       });
 
@@ -231,8 +231,8 @@ void init() {
       rightButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
       rightButton.classes.add(_cssClasses.TAB_BAR_RIGHT_BUTTON);
 
-	// -- .onClick.listen(<MouseEvent>);
-      rightButton.addEventListener('click', /*function*/ () {
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+      rightButton.onClick.listen( /*function*/ () {
         _tabBar.scrollLeft += 100;
       });
 
@@ -259,8 +259,8 @@ void init() {
         }
       };
 
-	// -- .onScroll.listen(<Event>);
-      _tabBar.addEventListener('scroll', tabScrollHandler);
+	// .addEventListener('scroll', -- .onScroll.listen(<Event>);
+      _tabBar.onScroll.listen( tabScrollHandler);
       tabScrollHandler();
 
       if (_tabBar.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
@@ -307,8 +307,8 @@ class MaterialLayoutTab {
       tab.append(rippleContainer);
     }
 
-	// -- .onClick.listen(<MouseEvent>);
-    tab.addEventListener('click', /*function*/ (e) {
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+    tab.onClick.listen( /*function*/ (e) {
       e.preventDefault();
 
       final href = tab.href.split('#')[1];

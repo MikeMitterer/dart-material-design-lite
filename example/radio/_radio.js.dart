@@ -167,20 +167,20 @@ void init() {
       element.append(rippleContainer);
     }
 
-	// -- .onChange.listen(<Event>);
-    _btnElement.addEventListener('change', _onChange);
+	// .addEventListener('change', -- .onChange.listen(<Event>);
+    _btnElement.onChange.listen( _onChange);
 
-	// -- .onFocus.listen(<Event>);
-    _btnElement.addEventListener('focus', _onFocus);
+	// .addEventListener('focus', -- .onFocus.listen(<Event>);
+    _btnElement.onFocus.listen( _onFocus);
 
-	// -- .onBlur.listen(<Event>);
-    _btnElement.addEventListener('blur', _onBlur);
+	// .addEventListener('blur', -- .onBlur.listen(<Event>);
+    _btnElement.onBlur.listen( _onBlur);
 
-	// -- .onMouseUp.listen(<MouseEvent>);
-    element.addEventListener('mouseup', _onMouseup);
+	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+    element.onMouseUp.listen( _onMouseup);
 
-	// -- .onMouseUp.listen(<MouseEvent>);
-    rippleContainer.addEventListener('mouseup', _onMouseup);
+	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+    rippleContainer.onMouseUp.listen( _onMouseup);
 
     _updateClasses(_btnElement, element);
     element.classes.add(_cssClasses.IS_UPGRADED);

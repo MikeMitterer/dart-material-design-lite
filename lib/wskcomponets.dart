@@ -19,6 +19,10 @@ part "src/components/MaterialLayout.dart";
 part "src/components/MaterialRadio.dart";
 part "src/components/MaterialSlider.dart";
 part "src/components/MaterialSpinner.dart";
+part "src/components/MaterialSwitch.dart";
+part "src/components/MaterialTabs.dart";
+part "src/components/MaterialTextfield.dart";
+part "src/components/MaterialTooltip.dart";
 
 final WskComponentHandler _componenthandler = new WskComponentHandler();
 
@@ -34,6 +38,10 @@ void registerAllWskComponents() {
     registerMaterialRadio();
     registerMaterialSlider();
     registerMaterialSpinner();
+    registerMaterialSwitch();
+    registerMaterialTabs();
+    registerMaterialTextfield();
+    registerMaterialTooltip();
 
     registerMaterialRipple();
 }
