@@ -108,7 +108,7 @@ void _drawerToggleHandler() {
 
 /// Reset tab state, dropping active classes
 /// MaterialLayout.prototype.resetTabState_ = function(tabBar) {
-void _resetTabState(var tabBar) {
+void _resetTabState(final tabBar) {
 
   for (final k = 0; k < tabBar.length; k++) {
     tabBar[k].classes.remove(_cssClasses.ACTIVE_CLASS);
@@ -117,7 +117,7 @@ void _resetTabState(var tabBar) {
 
 /// Reset panel state, droping active classes
 /// MaterialLayout.prototype.resetPanelState_ = function(panels) {
-void _resetPanelState(var panels) {
+void _resetPanelState(final panels) {
 
   for (final j = 0; j < panels.length; j++) {
     panels[j].classes.remove(_cssClasses.ACTIVE_CLASS);
@@ -130,7 +130,7 @@ void init() {
 
   if (element) {
 
-    final container = new html.DivElement();
+    final container = document.createElement('div');
     container.classes.add('wsk-layout__container');
     element.parentElement.insertBefore(container, element);
     element.parentElement.removeChild(element);
@@ -175,7 +175,7 @@ void init() {
         // Also add/remove auxiliary class for styling of the compact version of
         // the header.
 
-		// -- .onScroll.listen(<Event>);
+	// -- .onScroll.listen(<Event>);
         _content.addEventListener('scroll',
             _contentScrollHandler);
         _contentScrollHandler();
@@ -185,10 +185,10 @@ void init() {
     // Add drawer toggling button to our layout, if we have an openable drawer.
     if (_drawer) {
 
-      final drawerButton = new html.DivElement();
+      final drawerButton = document.createElement('div');
       drawerButton.classes.add(_cssClasses.DRAWER_BTN);
 
-		// -- .onClick.listen(<MouseEvent>);
+	// -- .onClick.listen(<MouseEvent>);
       drawerButton.addEventListener('click',
           _drawerToggleHandler);
 
@@ -201,11 +201,11 @@ void init() {
         element.insertBefore(drawerButton, _content);
       }
 
-      final obfuscator = new html.DivElement();
+      final obfuscator = document.createElement('div');
       obfuscator.classes.add(_cssClasses.OBFUSCATOR);
       element.append(obfuscator);
 
-		// -- .onClick.listen(<MouseEvent>);
+	// -- .onClick.listen(<MouseEvent>);
       obfuscator.addEventListener('click',
           _drawerToggleHandler);
     }
@@ -213,25 +213,25 @@ void init() {
     // Initialize tabs, if any.
     if (_tabBar) {
 
-      final tabContainer = new html.DivElement();
+      final tabContainer = document.createElement('div');
       tabContainer.classes.add(_cssClasses.TAB_CONTAINER);
       element.insertBefore(tabContainer, _tabBar);
       element.removeChild(_tabBar);
 
-      final leftButton = new html.DivElement();
+      final leftButton = document.createElement('div');
       leftButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
       leftButton.classes.add(_cssClasses.TAB_BAR_LEFT_BUTTON);
 
-		// -- .onClick.listen(<MouseEvent>);
+	// -- .onClick.listen(<MouseEvent>);
       leftButton.addEventListener('click', /*function*/ () {
         _tabBar.scrollLeft -= 100;
       });
 
-      final rightButton = new html.DivElement();
+      final rightButton = document.createElement('div');
       rightButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
       rightButton.classes.add(_cssClasses.TAB_BAR_RIGHT_BUTTON);
 
-		// -- .onClick.listen(<MouseEvent>);
+	// -- .onClick.listen(<MouseEvent>);
       rightButton.addEventListener('click', /*function*/ () {
         _tabBar.scrollLeft += 100;
       });
@@ -259,7 +259,7 @@ void init() {
         }
       };
 
-		// -- .onScroll.listen(<Event>);
+	// -- .onScroll.listen(<Event>);
       _tabBar.addEventListener('scroll', tabScrollHandler);
       tabScrollHandler();
 
@@ -307,7 +307,7 @@ class MaterialLayoutTab {
       tab.append(rippleContainer);
     }
 
-		// -- .onClick.listen(<MouseEvent>);
+	// -- .onClick.listen(<MouseEvent>);
     tab.addEventListener('click', /*function*/ (e) {
       e.preventDefault();
 

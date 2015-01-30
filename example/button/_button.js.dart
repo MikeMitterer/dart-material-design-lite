@@ -36,7 +36,7 @@ class _MaterialButtonCssClasses {
 /// Handle blur of element.
 /// @param {HTMLElement} element The instance of a button we want to blur.
 /// MaterialButton.prototype.blurHandlerGenerator_ = function(element) {
-void _blurHandlerGenerator(var element) {
+void _blurHandlerGenerator(final element) {
 
   return function() {element.blur();}
 }
@@ -59,12 +59,12 @@ void init() {
       ripple.classes.add(_cssClasses.WSK_RIPPLE);
       rippleContainer.append(ripple);
 
-		// -- .onMouseUp.listen(<MouseEvent>);
+	// -- .onMouseUp.listen(<MouseEvent>);
       ripple.addEventListener('mouseup', blurHandler);
       element.append(rippleContainer);
     }
 
-		// -- .onMouseUp.listen(<MouseEvent>);
+	// -- .onMouseUp.listen(<MouseEvent>);
     element.addEventListener('mouseup', blurHandler);
   }
 }

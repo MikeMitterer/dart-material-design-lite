@@ -44,7 +44,7 @@ class _MaterialSliderCssClasses {
 /// Handle input on element.
 /// @param {Event} event The event that fired.
 /// MaterialSlider.prototype.onInput_ = function(event) {
-void _onInput(var event) {
+void _onInput(final html.MouseEvent event) {
 
   _updateValue();
 }
@@ -52,7 +52,7 @@ void _onInput(var event) {
 /// Handle change on element.
 /// @param {Event} event The event that fired.
 /// MaterialSlider.prototype.onChange_ = function(event) {
-void _onChange(var event) {
+void _onChange(final html.MouseEvent event) {
 
   _updateValue();
 }
@@ -60,7 +60,7 @@ void _onChange(var event) {
 /// Handle mouseup on element.
 /// @param {Event} event The event that fired.
 /// MaterialSlider.prototype.onMouseUp_ = function(event) {
-void _onMouseUp(var event) {
+void _onMouseUp(final html.MouseEvent event) {
 
    event.target.blur();
 }
@@ -68,7 +68,7 @@ void _onMouseUp(var event) {
 /// Handle updating of values.
 /// @param {Event} event The event that fired.
 /// MaterialSlider.prototype.updateValue_ = function(event) {
-void _updateValue(var event) {
+void _updateValue(final html.MouseEvent event) {
 
   // Calculate and apply percentages to div structure behind slider.
 
@@ -100,7 +100,7 @@ void init() {
       // implementation limitations, we add a parent here that trims it down to
       // a reasonable size.
 
-      final containerIE = new html.DivElement();
+      final containerIE = document.createElement('div');
       containerIE.classes.add(_cssClasses.WSK_SLIDER_IE_CONTAINER);
       element.parentElement.insertBefore(containerIE, element);
       element.parentElement.removeChild(element);
@@ -111,22 +111,20 @@ void init() {
       // slider and allows us to style the left and right sides of it with
       // different colors.
 
-      final container = new html.DivElement();
+      final container = document.createElement('div');
       container.classes.add(_cssClasses.WSK_SLIDER_CONTAINER);
       element.parentElement.insertBefore(container, element);
       element.parentElement.removeChild(element);
       container.append(element);
 
-      final backgroundFlex = new html.DivElement();
+      final backgroundFlex = document.createElement('div');
       backgroundFlex.classes.add(_cssClasses.WSK_SLIDER_BACKGROUND_FLEX);
       container.append(backgroundFlex);
-
-      _backgroundLower = new html.DivElement();
+      _backgroundLower = document.createElement('div');
       _backgroundLower.classes.add(
           _cssClasses.WSK_SLIDER_BACKGROUND_LOW);
       backgroundFlex.append(_backgroundLower);
-
-      _backgroundUpper = new html.DivElement();
+      _backgroundUpper = document.createElement('div');
       _backgroundUpper.classes.add(
           _cssClasses.WSK_SLIDER_BACKGROUND_UP);
       backgroundFlex.append(_backgroundUpper);
@@ -134,10 +132,10 @@ void init() {
 
     element.addEventListener('input', _onInput);
 
-		// -- .onChange.listen(<Event>);
+	// -- .onChange.listen(<Event>);
     element.addEventListener('change', _onChange);
 
-		// -- .onMouseUp.listen(<MouseEvent>);
+	// -- .onMouseUp.listen(<MouseEvent>);
     element.addEventListener('mouseup', _onMouseUp);
 
     _updateValue();

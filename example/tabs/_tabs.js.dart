@@ -41,7 +41,7 @@ class _MaterialTabsCssClasses {
 
 /// Handle clicks to a tabs component
 /// MaterialTabs.prototype.initTabs_ = function(e) {
-void _initTabs(var e) {
+void _initTabs(final e) {
 
   if (element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT)) {
     element.classes.add(
@@ -108,7 +108,7 @@ class MaterialTab {
       tab.append(rippleContainer);
     }
 
-		// -- .onClick.listen(<MouseEvent>);
+	// -- .onClick.listen(<MouseEvent>);
     tab.addEventListener('click', /*function*/ (e) {
       e.preventDefault();
 

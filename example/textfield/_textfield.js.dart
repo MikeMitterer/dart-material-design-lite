@@ -43,7 +43,7 @@ class _MaterialTextfieldCssClasses {
 /// Handle upgrade of icon element.
 /// @param {HTMLElement} iconElement HTML element to contain icon.
 /// MaterialTextfield.prototype.expandableIcon_ = function(iconElement) {
-void _expandableIcon(var iconElement) {
+void _expandableIcon(final iconElement) {
 
   if (!iconElement.getAttribute('data-upgraded')) {
 
@@ -64,7 +64,7 @@ void _expandableIcon(var iconElement) {
 /// Handle input being entered.
 /// @param {Event} event The event that fired.
 /// MaterialTextfield.prototype.onInputChange_ = function(event) {
-void _onInputChange(var event) {
+void _onInputChange(final html.MouseEvent event) {
 
   if (event.target.value && event.target.value.length > 0) {
     event.target.classes.add(_cssClasses.IS_DIRTY);
@@ -77,7 +77,7 @@ void _onInputChange(var event) {
 /// Handle input being entered.
 /// @param {Event} event The event that fired.
 /// MaterialTextfield.prototype.onKeyDown_ = function(event) {
-void _onKeyDown(var event) {
+void _onKeyDown(final html.MouseEvent event) {
 
   final currentRowCount = event.target.value.split('\n').length;
   if (event.keyCode == 13) {

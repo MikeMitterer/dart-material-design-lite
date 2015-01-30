@@ -37,20 +37,20 @@ class _MaterialSpinnerCssClasses {
 * Auxiliary method to create a spinner layer.
 */
 /// MaterialSpinner.prototype.createLayer = function(index) {
-void createLayer(var index) {
+void createLayer(final index) {
 
-  final layer = new html.DivElement();
+  final layer = document.createElement('div');
   layer.classes.add(_cssClasses.WSK_SPINNER_LAYER);
   layer.classes.add(_cssClasses.WSK_SPINNER_LAYER + '-' + index);
 
-  final leftClipper = new html.DivElement();
+  final leftClipper = document.createElement('div');
   leftClipper.classes.add(_cssClasses.WSK_SPINNER_CIRCLE_CLIPPER);
   leftClipper.classes.add(_cssClasses.WSK_SPINNER_LEFT);
 
-  final gapPatch = new html.DivElement();
+  final gapPatch = document.createElement('div');
   gapPatch.classes.add(_cssClasses.WSK_SPINNER_GAP_PATCH);
 
-  final rightClipper = new html.DivElement();
+  final rightClipper = document.createElement('div');
   rightClipper.classes.add(_cssClasses.WSK_SPINNER_CIRCLE_CLIPPER);
   rightClipper.classes.add(_cssClasses.WSK_SPINNER_RIGHT);
 
@@ -58,7 +58,7 @@ void createLayer(var index) {
 
   for (final i = 0; i < circleOwners.length; i++) {
 
-    final circle = new html.DivElement();
+    final circle = document.createElement('div');
     circle.classes.add(_cssClasses.WSK_SPINNER_CIRCLE);
     circleOwners[i].append(circle);
   }

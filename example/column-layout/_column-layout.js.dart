@@ -44,7 +44,7 @@ void init() {
 
     for (final j = 0; j < _constant.INVISIBLE_WRAPPING_ELEMENT_COUNT ; j++) {
 
-      final hiddenHackDiv = new html.DivElement();
+      final hiddenHackDiv = document.createElement('div');
       hiddenHackDiv.classes.add(_cssClasses.INVISIBLE_WRAPPING_ELEMENT);
       element.append(hiddenHackDiv);
     }

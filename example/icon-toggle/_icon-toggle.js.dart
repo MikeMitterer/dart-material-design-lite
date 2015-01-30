@@ -40,7 +40,7 @@ class _MaterialIconToggleCssClasses {
 /// Handle change of state.
 /// @param {Event} event The event that fired.
 /// MaterialIconToggle.prototype.onChange_ = function(event) {
-void _onChange(var event) {
+void _onChange(final html.MouseEvent event) {
 
   _updateClasses(_btnElement, element);
 }
@@ -48,7 +48,7 @@ void _onChange(var event) {
 /// Handle focus of element.
 /// @param {Event} event The event that fired.
 /// MaterialIconToggle.prototype.onFocus_ = function(event) {
-void _onFocus(var event) {
+void _onFocus(final html.MouseEvent event) {
 
   element.classes.add(_cssClasses.IS_FOCUSED);
 }
@@ -56,7 +56,7 @@ void _onFocus(var event) {
 /// Handle lost focus of element.
 /// @param {Event} event The event that fired.
 /// MaterialIconToggle.prototype.onBlur_ = function(event) {
-void _onBlur(var event) {
+void _onBlur(final html.MouseEvent event) {
 
   element.classes.remove(_cssClasses.IS_FOCUSED);
 }
@@ -64,7 +64,7 @@ void _onBlur(var event) {
 /// Handle mouseup.
 /// @param {Event} event The event that fired.
 /// MaterialIconToggle.prototype.onMouseUp_ = function(event) {
-void _onMouseUp(var event) {
+void _onMouseUp(final html.MouseEvent event) {
 
   _blur();
 }
@@ -73,7 +73,7 @@ void _onMouseUp(var event) {
 /// @param {HTMLElement} button The button whose classes we should update.
 /// @param {HTMLElement} label The label whose classes we should update.
 /// MaterialIconToggle.prototype.updateClasses_ = function(button, label) {
-void _updateClasses(var button, label) {
+void _updateClasses(final button, label) {
 
   if (button.disabled) {
     label.classes.add(_cssClasses.IS_DISABLED);
@@ -92,7 +92,7 @@ void _updateClasses(var button, label) {
 
 /// Add blur.
 /// MaterialIconToggle.prototype.blur_ = function(event) {
-void _blur(var event) {
+void _blur(final html.MouseEvent event) {
 
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
@@ -125,19 +125,19 @@ void init() {
       element.append(rippleContainer);
     }
 
-		// -- .onChange.listen(<Event>);
+	// -- .onChange.listen(<Event>);
     _btnElement.addEventListener('change', _onChange);
 
-		// -- .onFocus.listen(<Event>);
+	// -- .onFocus.listen(<Event>);
     _btnElement.addEventListener('focus', _onFocus);
 
-		// -- .onBlur.listen(<Event>);
+	// -- .onBlur.listen(<Event>);
     _btnElement.addEventListener('blur', _onBlur);
 
-		// -- .onMouseUp.listen(<MouseEvent>);
+	// -- .onMouseUp.listen(<MouseEvent>);
     element.addEventListener('mouseup', _onMouseUp);
 
-		// -- .onMouseUp.listen(<MouseEvent>);
+	// -- .onMouseUp.listen(<MouseEvent>);
     rippleContainer.addEventListener('mouseup', _onMouseUp);
 
     _updateClasses(_btnElement, element);
