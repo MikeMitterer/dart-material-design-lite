@@ -13,6 +13,7 @@ dependencies:
   intl: any
   args: any
   validate: any
+  browser_detect: any
 
 dev_dependencies:
   unittest: any

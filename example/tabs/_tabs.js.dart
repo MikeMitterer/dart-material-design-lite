@@ -83,7 +83,7 @@ void _resetPanelState() {
 /// MaterialTabs.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
     _initTabs();
   }
 }

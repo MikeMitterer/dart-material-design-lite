@@ -94,16 +94,16 @@ void _updateValue(final html.MouseEvent event) {
 /// MaterialSlider.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
     if (_isIE) {
       // Since we need to specify a very large height in IE due to
       // implementation limitations, we add a parent here that trims it down to
       // a reasonable size.
 
-      final containerIE = document.createElement('div');
+      final containerIE = new html.DivElement();
       containerIE.classes.add(_cssClasses.WSK_SLIDER_IE_CONTAINER);
-      element.parentElement.insertBefore(containerIE, element);
-      element.parentElement.removeChild(element);
+      element.parent.insertBefore(containerIE, element);
+      element.parent.removeChild(element);
       containerIE.append(element);
 
     } else {
@@ -111,20 +111,22 @@ void init() {
       // slider and allows us to style the left and right sides of it with
       // different colors.
 
-      final container = document.createElement('div');
+      final container = new html.DivElement();
       container.classes.add(_cssClasses.WSK_SLIDER_CONTAINER);
-      element.parentElement.insertBefore(container, element);
-      element.parentElement.removeChild(element);
+      element.parent.insertBefore(container, element);
+      element.parent.removeChild(element);
       container.append(element);
 
-      final backgroundFlex = document.createElement('div');
+      final backgroundFlex = new html.DivElement();
       backgroundFlex.classes.add(_cssClasses.WSK_SLIDER_BACKGROUND_FLEX);
       container.append(backgroundFlex);
-      _backgroundLower = document.createElement('div');
+
+      _backgroundLower = new html.DivElement();
       _backgroundLower.classes.add(
           _cssClasses.WSK_SLIDER_BACKGROUND_LOW);
       backgroundFlex.append(_backgroundLower);
-      _backgroundUpper = document.createElement('div');
+
+      _backgroundUpper = new html.DivElement();
       _backgroundUpper.classes.add(
           _cssClasses.WSK_SLIDER_BACKGROUND_UP);
       backgroundFlex.append(_backgroundUpper);

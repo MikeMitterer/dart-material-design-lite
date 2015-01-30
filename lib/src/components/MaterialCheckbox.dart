@@ -185,6 +185,8 @@ class MaterialCheckbox extends WskComponent {
     }
 
     void _blur() {
+        // TODO: figure out why there's a focus event being fired after our blur,
+        // so that we can avoid this hack.
         new Timer(new Duration(milliseconds : _constant.TINY_TIMEOUT_IN_MS ), () {
             btnElement.blur();
         });

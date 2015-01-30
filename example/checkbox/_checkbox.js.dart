@@ -129,7 +129,7 @@ void _blur(final html.MouseEvent event) {
 /// MaterialCheckbox.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
     _btnElement = element.querySelector('.' +
         _cssClasses.WSK_CHECKBOX_INPUT);
 

@@ -128,15 +128,15 @@ class MaterialRipple extends WskComponent {
         if (rippleElement != null) {
             String transformString;
             String scale;
-            String size;
+            //String size;
             String offset = "translate(${_x}px,${_y}px)";
 
             if (start) {
                 scale = _constant.INITIAL_SCALE;
-                size = _constant.INITIAL_SIZE;
+                // size = _constant.INITIAL_SIZE;
             } else {
                 scale = _constant.FINAL_SCALE;
-                size = "${_rippleSize}px";
+                // size = "${_rippleSize}px";
                 if (_recentering) {
                     offset = "translate(${bound.width / 2}px, ${bound.height / 2}'px)";
                 }

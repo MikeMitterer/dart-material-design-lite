@@ -104,6 +104,13 @@ class Application {
                         } else {
                             _logger.fine("    ${targetCss.path} created...");
                         }
+
+                        final ProcessResult resultPrefixer = Process.runSync('autoprefixer', [ targetCss.path]);
+                        if(resultPrefixer.exitCode != 0) {
+                            _logger.severe(resultPrefixer.stderr);
+                        } else {
+                            _logger.fine("    ${targetCss.path} prefixed...");
+                        }
                     }
 
                     if(srcJs.existsSync()) {
@@ -170,7 +177,10 @@ class Application {
             newLine = newLine.replaceAll("var ","final ");
             newLine = newLine.replaceAll("document.querySelector(","html.querySelector(");
             newLine = newLine.replaceAll("document.createElement('span')","new html.SpanElement()");
+            newLine = newLine.replaceAll("document.createElement('div')","new html.DivElement()");
             newLine = newLine.replaceAll("document.getElementById","html.document.getElementById");
+            newLine = newLine.replaceAll("if (element) {","if (element != null) {");
+            newLine = newLine.replaceAll(".parentElement.",".parent.");
 
             if(newLine.contains("final ")) { contents.writeln(); }
             if(newLine.contains("= new html.")) { contents.writeln(); }

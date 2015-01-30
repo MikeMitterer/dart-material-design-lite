@@ -45,7 +45,7 @@ void _blurHandlerGenerator(final element) {
 /// MaterialButton.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
 
     final blurHandler = _blurHandlerGenerator(element);
     if (element.classes.contains(

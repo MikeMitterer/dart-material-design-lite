@@ -62,12 +62,14 @@ class WskComponentHandler {
 
         final Future future = new Future(() {
             _registeredComponents.forEach((final String key, final WskConfig config) {
-                _upgradeDom(config).then( (_) {
-                    html.querySelector("html").classes.remove("wsk-upgrading");
-                    html.querySelector("html").classes.add("wsk-upgraded");
-                    _logger.info("All components are upgraded...");
-                });
+                _upgradeDom(config);
+                _logger.info("${config.cssClass} upgraded with ${config.classAsString}...");
             });
+
+            html.querySelector("html").classes.remove("wsk-upgrading");
+            html.querySelector("html").classes.add("wsk-upgraded");
+            _logger.info("All components are upgraded...");
+
         });
 
         return future;
@@ -83,17 +85,17 @@ class WskComponentHandler {
      * Searches existing DOM for elements of our component type and upgrades them
      * if they have not already been upgraded!
      */
-    Future _upgradeDom(final WskConfig config) {
+    void _upgradeDom(final WskConfig config) {
         Validate.notNull(config);
 
         //final List<Future> futureUpgrade = new List<Future>();
-        return new Future(() {
+        //return new Future(() {
             final html.ElementList<html.HtmlElement> elements = html.querySelectorAll(".${config.cssClass}");
             elements.forEach((final html.HtmlElement element) {
                 _upgradeElement(element, config);
                 // futureUpgrade.add(_upgradeElement(element, config));
             });
-        });
+        //});
         //return Future.wait(futureUpgrade);
     }
 

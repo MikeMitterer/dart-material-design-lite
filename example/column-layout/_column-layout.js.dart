@@ -38,13 +38,13 @@ class _MaterialColumnLayoutCssClasses {
 /// MaterialColumnLayout.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
     // Add some hidden elements to make sure everything aligns correctly. See
     // CSS file for details.
 
     for (final j = 0; j < _constant.INVISIBLE_WRAPPING_ELEMENT_COUNT ; j++) {
 
-      final hiddenHackDiv = document.createElement('div');
+      final hiddenHackDiv = new html.DivElement();
       hiddenHackDiv.classes.add(_cssClasses.INVISIBLE_WRAPPING_ELEMENT);
       element.append(hiddenHackDiv);
     }

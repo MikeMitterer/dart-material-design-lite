@@ -53,7 +53,7 @@ void _handleClick(final html.MouseEvent event) {
 /// MaterialAnimation.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
     if (!_moveable) {
       console.error('Was expecting to find an element with class ' +
           'name .demo-js-movable-area in side of: ', element);

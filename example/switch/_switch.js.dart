@@ -119,14 +119,14 @@ void _blur(final html.MouseEvent event) {
 /// MaterialSwitch.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
     _btnElement = element.querySelector('.' +
         _cssClasses.WSK_SWITCH_INPUT);
 
-    final track = document.createElement('div');
+    final track = new html.DivElement();
     track.classes.add(_cssClasses.WSK_SWITCH_TRACK);
 
-    final thumb = document.createElement('div');
+    final thumb = new html.DivElement();
     thumb.classes.add(_cssClasses.WSK_SWITCH_THUMB);
 
     final focusHelper = new html.SpanElement();

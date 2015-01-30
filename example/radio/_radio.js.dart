@@ -135,7 +135,7 @@ void _blur(final html.MouseEvent event) {
 /// MaterialRadio.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
     _btnElement = element.querySelector('.' +
         _cssClasses.WSK_RADIO_BTN);
 

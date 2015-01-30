@@ -91,7 +91,7 @@ void _onKeyDown(final html.MouseEvent event) {
 /// MaterialTextfield.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
 
     final expandableIcons =
         document.querySelectorAll('.wsk-textfield-expandable-icon');

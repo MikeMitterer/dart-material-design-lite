@@ -128,12 +128,12 @@ void _resetPanelState(final panels) {
 /// MaterialLayout.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
 
-    final container = document.createElement('div');
+    final container = new html.DivElement();
     container.classes.add('wsk-layout__container');
-    element.parentElement.insertBefore(container, element);
-    element.parentElement.removeChild(element);
+    element.parent.insertBefore(container, element);
+    element.parent.removeChild(element);
     container.append(element);
 
     _header = element.querySelector('.' + _cssClasses.HEADER);
@@ -185,7 +185,7 @@ void init() {
     // Add drawer toggling button to our layout, if we have an openable drawer.
     if (_drawer) {
 
-      final drawerButton = document.createElement('div');
+      final drawerButton = new html.DivElement();
       drawerButton.classes.add(_cssClasses.DRAWER_BTN);
 
 	// -- .onClick.listen(<MouseEvent>);
@@ -201,7 +201,7 @@ void init() {
         element.insertBefore(drawerButton, _content);
       }
 
-      final obfuscator = document.createElement('div');
+      final obfuscator = new html.DivElement();
       obfuscator.classes.add(_cssClasses.OBFUSCATOR);
       element.append(obfuscator);
 
@@ -213,12 +213,12 @@ void init() {
     // Initialize tabs, if any.
     if (_tabBar) {
 
-      final tabContainer = document.createElement('div');
+      final tabContainer = new html.DivElement();
       tabContainer.classes.add(_cssClasses.TAB_CONTAINER);
       element.insertBefore(tabContainer, _tabBar);
       element.removeChild(_tabBar);
 
-      final leftButton = document.createElement('div');
+      final leftButton = new html.DivElement();
       leftButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
       leftButton.classes.add(_cssClasses.TAB_BAR_LEFT_BUTTON);
 
@@ -227,7 +227,7 @@ void init() {
         _tabBar.scrollLeft -= 100;
       });
 
-      final rightButton = document.createElement('div');
+      final rightButton = new html.DivElement();
       rightButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
       rightButton.classes.add(_cssClasses.TAB_BAR_RIGHT_BUTTON);
 

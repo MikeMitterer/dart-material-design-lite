@@ -39,18 +39,18 @@ class _MaterialSpinnerCssClasses {
 /// MaterialSpinner.prototype.createLayer = function(index) {
 void createLayer(final index) {
 
-  final layer = document.createElement('div');
+  final layer = new html.DivElement();
   layer.classes.add(_cssClasses.WSK_SPINNER_LAYER);
   layer.classes.add(_cssClasses.WSK_SPINNER_LAYER + '-' + index);
 
-  final leftClipper = document.createElement('div');
+  final leftClipper = new html.DivElement();
   leftClipper.classes.add(_cssClasses.WSK_SPINNER_CIRCLE_CLIPPER);
   leftClipper.classes.add(_cssClasses.WSK_SPINNER_LEFT);
 
-  final gapPatch = document.createElement('div');
+  final gapPatch = new html.DivElement();
   gapPatch.classes.add(_cssClasses.WSK_SPINNER_GAP_PATCH);
 
-  final rightClipper = document.createElement('div');
+  final rightClipper = new html.DivElement();
   rightClipper.classes.add(_cssClasses.WSK_SPINNER_CIRCLE_CLIPPER);
   rightClipper.classes.add(_cssClasses.WSK_SPINNER_RIGHT);
 
@@ -58,7 +58,7 @@ void createLayer(final index) {
 
   for (final i = 0; i < circleOwners.length; i++) {
 
-    final circle = document.createElement('div');
+    final circle = new html.DivElement();
     circle.classes.add(_cssClasses.WSK_SPINNER_CIRCLE);
     circleOwners[i].append(circle);
   }
@@ -90,7 +90,7 @@ void stop() {
 /// MaterialSpinner.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
 
     for (final i = 1; i <= _constant.WSK_SPINNER_LAYER_COUNT; i++) {
       createLayer(i);

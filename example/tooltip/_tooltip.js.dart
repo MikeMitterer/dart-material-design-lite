@@ -56,7 +56,7 @@ void _handleMouseLeave(final html.MouseEvent event) {
 /// MaterialTooltip.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
 
     final forElId = element.getAttribute('for');
 

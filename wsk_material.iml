@@ -16,6 +16,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/icon-toggle/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/icons/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/item/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/list/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/packages" />

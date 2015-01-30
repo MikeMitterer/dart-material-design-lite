@@ -35,7 +35,7 @@ class _MaterialItemCssClasses {
 /// MaterialItem.prototype.init = /*function*/ () {
 void init() {
 
-  if (element) {
+  if (element != null) {
 
     final rippleContainer = new html.SpanElement();
     rippleContainer.classes.add(_cssClasses.WSK_ITEM_RIPPLE_CONTAINER);
