@@ -1,6 +1,9 @@
-# wsk_material
+# Web Starter Kit - Material Design
 
-A library for Dart developers. It is awesome.
+A port of Google Web Starter Kit (Material branch) to Dart<br>
+You find the original version here on [GitHub][wskmaterial]
+
+[Demo][wskdemo] (transpiled JS-Version)
 
 ## Usage
 
@@ -30,4 +33,6 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.at/) me.
 
-[tracker]: http://example.com/issues/replaceme
+[tracker]: https://github.com/MikeMitterer/dart-wsk-material/issues
+[wskmaterial]: https://github.com/google/web-starter-kit/tree/material-sprint
+[wskdemo]: http://wsk.mikemitterer.at/

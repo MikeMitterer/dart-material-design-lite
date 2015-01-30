@@ -1,9 +1,8 @@
 name: wsk_material
-description: >
-  A library useful for applications or for sharing on pub.dartlang.org.
+description: Web Starter Kit - Material Design
 version: 0.0.1
-#author: <your name> <email@example.com>
-#homepage: https://www.example.com
+author: Mike Mitterer <office@mikemitterer.at>
+homepage: https://www.mikemitterer.at
 
 dependencies:
   browser: any
