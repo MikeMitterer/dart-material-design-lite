@@ -5,6 +5,8 @@ You find the original version here on [GitHub][wskmaterial]
 
 [Demo][wskdemo] (transpiled JS-Version)
 
+![DartPowered LOGO](/lib/images/wsk-material-dart-powered.png?raw=true "DartPowered LOGO")
+
 ## Usage
 
 ...here to come
