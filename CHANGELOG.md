@@ -1,5 +1,8 @@
-###v0.0.2###
+wsk_material ChangeLog
 
+###v0.0.3###
+* Full URL for Logo in README [00ea299](http://github.com/MikeMitterer/wsk_material/commit/00ea299f4694635eca585399588e8801bf81894c)
+* build.gradle added [a70f97c](http://github.com/MikeMitterer/wsk_material/commit/a70f97c4a9faa710321af9521d706705756b2cc5)
 
 ###v0.0.2###
 * console_log_handler added to dependencies [e9ccd0b](http://github.com/MikeMitterer/wsk_material/commit/e9ccd0b7c81252b37e00558624725e2b00c5fea5)

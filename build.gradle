@@ -62,14 +62,25 @@ task showVersion() << {
     print version
 }
 
-task writeChangeLog {
+task setVersionInYaml << {
+    final File yamlfile = file(yamlFilename)
+
+    String contents = yamlfile.text;
+    contents = contents.replaceFirst(/version: .*/,"version: $version");
+
+    yamlfile.write(contents, 'UTF-8')
+}
+
+task writeChangeLog(dependsOn: setVersionInYaml) {
     def linksForChangeLog = "";
     def tags = readTags();
 
     if(tags.size > 1) {
-        linksForChangeLog += "###v$version###\n"
+        linksForChangeLog += "$ghproject ChangeLog\n"
+        // linksForChangeLog += "$ghproject ChangeLog ###v$version###\n"
+
         linksForChangeLog += getChangeLog("...${tags[0]}")
-        linksForChangeLog += "\n\n"
+        linksForChangeLog += "\n"
 
         for (int i = 0; i < tags.size - 1; i++) {
             def changes = getChangeLog("${tags[i]}...${tags[i+1]}")
@@ -101,14 +112,7 @@ task writeChangeLog {
     }
 }
 
-task setVersionInYaml << {
-    final File yamlfile = file(yamlFilename)
 
-    String contents = yamlfile.text;
-    contents = contents.replaceFirst(/version: .*/,"version: $version");
-
-    yamlfile.write(contents, 'UTF-8')
-}
 
 /*
 // Maybe... in the future
