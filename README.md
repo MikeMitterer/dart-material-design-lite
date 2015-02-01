@@ -5,7 +5,7 @@ You find the original version here on [GitHub][wskmaterial]
 
 [Demo][wskdemo] (transpiled JS-Version)
 
-![DartPowered LOGO](/lib/images/wsk-material-dart-powered.png?raw=true "DartPowered LOGO")
+![DartPowered LOGO](https://github.com/MikeMitterer/dart-wsk-material/blob/master/lib/images/wsk-material-dart-powered.png?raw=true "DartPowered LOGO")
 
 ## Usage
 
