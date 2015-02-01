@@ -1,6 +1,6 @@
 name: wsk_material
 description: Web Starter Kit - Material Design
-version: 0.0.1
+version: 0.0.2
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-material
 
@@ -13,8 +13,8 @@ dependencies:
   args: any
   validate: any
   browser_detect: any
+  console_log_handler: any
 
 dev_dependencies:
   unittest: any
-  console_log_handler: any
 
