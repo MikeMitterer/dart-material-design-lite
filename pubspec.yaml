@@ -14,9 +14,8 @@ dependencies:
   validate: any
   browser_detect: any
 
-  #console_log_handler: any
-  console_log_handler:
-    path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
+  console_log_handler: any
+  #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
 dev_dependencies:
   unittest: any
