@@ -1,6 +1,13 @@
 wsk_material ChangeLog
-
+* Changed path to console_log_handler [5252bb8](http://github.com/MikeMitterer/wsk_material/commit/5252bb8bf40ad9a571c9add1410159eaab5288fb)
+* Changedlog updated [c8426b7](http://github.com/MikeMitterer/wsk_material/commit/c8426b78e6e7a3f81a4e40dd364436c77d385d7b)
 ###v0.1.0###
+* Changed path to console_log_handler [5252bb8](http://github.com/MikeMitterer/wsk_material/commit/5252bb8bf40ad9a571c9add1410159eaab5288fb)
+* Changedlog updated [c8426b7](http://github.com/MikeMitterer/wsk_material/commit/c8426b78e6e7a3f81a4e40dd364436c77d385d7b)
+
+###v0.1###
+* Changed path to console_log_handler [5252bb8](http://github.com/MikeMitterer/wsk_material/commit/5252bb8bf40ad9a571c9add1410159eaab5288fb)
+* Changedlog updated [c8426b7](http://github.com/MikeMitterer/wsk_material/commit/c8426b78e6e7a3f81a4e40dd364436c77d385d7b)
 * Styleguide (sample) works [09df0e8](http://github.com/MikeMitterer/wsk_material/commit/09df0e89338dce3643deb657186bf9d7a6ba7ddb)
 * Projectname added to build.gradle (ChangeLog) [d4fd5d2](http://github.com/MikeMitterer/wsk_material/commit/d4fd5d296cc397b998b53fa095abbbce5b46df87)
 
