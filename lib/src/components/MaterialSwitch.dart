@@ -62,7 +62,7 @@ class MaterialSwitch extends WskComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialSwitch - init");
+        _logger.info("MaterialSwitch - init");
 
         if (element != null) {
 

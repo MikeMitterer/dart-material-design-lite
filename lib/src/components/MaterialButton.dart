@@ -24,6 +24,7 @@ class MaterialButton extends WskComponent {
     static const _MaterialButtonCssClasses _cssClasses = const _MaterialButtonCssClasses();
 
     MaterialButton(final html.HtmlElement element) : super(element) {
+        _logger.fine("MaterialButton - CTOR");
         _init();
     }
 
@@ -42,11 +43,14 @@ class MaterialButton extends WskComponent {
 
             ripple.onMouseUp.listen(_blurHandleGenerator);
             element.append(rippleContainer);
+
+            _logger.fine("MaterialButton - init done...");
         }
         element.onMouseUp.listen(_blurHandleGenerator);
     }
 
     void _blurHandleGenerator(final html.MouseEvent event) {
+        _logger.fine("blur...");
         element.blur();
     }
 }

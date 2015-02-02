@@ -21,6 +21,7 @@ class Application {
     static const _ARG_SETTINGS      = 'settings';
     static const _ARG_GENERATE      = 'gen';
     static const _ARG_MK_BACKUP     = 'makebackup';
+    static const _ARG_SHOW_DIRS     = 'showdirs';
 
     ArgParser _parser;
 
@@ -40,10 +41,16 @@ class Application {
             else if(argResults[_ARG_SETTINGS]) {
                 _printSettings(config.settings);
             }
+            else if(argResults[_ARG_SHOW_DIRS]) {
+                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final File file) {
+                    _logger.info(file.path);
+                });
+            }
             else if(argResults[_ARG_GENERATE]) {
                 final List<_LinkInfo> links = new List<_LinkInfo>();
+                final List<String> foldersToExclude = config.folderstoexclude.split("[,;]");
 
-                _iterateThroughDirSync(config.sassdir,(final File file) {
+                _iterateThroughDirSync(config.sassdir,foldersToExclude,(final File file) {
                     final String sampleName = file.parent.path.replaceFirst("${config.sassdir}/","");
                     //_logger.info("   Found: $file in $sampleName");
 
@@ -61,6 +68,10 @@ class Application {
                     if(sample.existsSync() && config.mkbackup ) {
                         sample.renameSync(backup.path);
                         _logger.fine("made ${sample.path}} -> ${backup.path} backup...");
+
+                    } else if(sample.existsSync()) {
+                        sample.deleteSync(recursive: true);
+                        _logger.fine("${sample.path} deleted...");
                     }
 
                     sample.createSync();
@@ -84,7 +95,9 @@ class Application {
 
                     if(srcDemo.existsSync()) {
                         srcDemo.copySync(targetDemo.path);
-                        _addDartMain(targetDemo);
+                        // wird angelegt auch wenn im SRC kein JS da ist - main.dart gibt es immer
+                        srcDartMain.copySync(targetDartMain.path);
+                        _addDartMainToIndexHTML(targetDemo);
 
                         if(!packages.existsSync()) {
                             packages.createSync(targetPackages.path);
@@ -115,10 +128,11 @@ class Application {
 
                     if(srcJs.existsSync()) {
                         _logger.fine("    ${srcDartMain.path} -> ${targetDartMain.path} copied...");
-                        srcDartMain.copySync(targetDartMain.path);
                         srcJs.copySync(targetConvertedJS.path);
                         _Js2Dart(targetConvertedJS);
                     }
+
+                    _copySubdirs(new File("${config.sassdir}/${sampleName}"),new File(sample.path));
 
                 });
                 _writeIndexHtml(config,links);
@@ -135,6 +149,46 @@ class Application {
     }
 
     // -- private -------------------------------------------------------------
+    void _copySubdirs(final File sourceDir, final File targetDir, { int level: 0 } ) {
+        Validate.notNull(sourceDir);
+        Validate.notNull(targetDir);
+
+        _logger.fine("Start!!!! ${sourceDir.path} -> ${targetDir.path} , Level: $level");
+        final Directory directory = new Directory(sourceDir.path);
+        directory.listSync(recursive: false).where((final FileSystemEntity entity) {
+            // _logger.info("Check ${entity.path}");
+
+            if(entity.path.startsWith(".") || entity.path.contains("/.")) {
+                return false;
+            }
+            if(FileSystemEntity.isLinkSync(entity.path)) {
+                return false;
+            }
+
+            return true;
+
+        }).forEach((final FileSystemEntity entity) {
+            //_logger.info("D ${entity.path}");
+
+            if (FileSystemEntity.isDirectorySync(entity.path)) {
+                final File src = new File(entity.path);
+                final File target = new File(entity.path.replaceFirst(sourceDir.path,""));
+                _copySubdirs(new File("${entity.path}"),new File("${targetDir.path}${target.path}"),level: ++level);
+
+            } else {
+                if(level > 0) {
+                    final File src = new File(entity.path);
+                    final File target = new File("${targetDir.path}${entity.path.replaceFirst(sourceDir.path,"")}");
+                    if(!target.existsSync()) {
+                        target.createSync(recursive: true);
+                    }
+                    _logger.info("    copy ${src.path} -> ${target.path} (Level $level)...");
+                    src.copySync(target.path);
+                }
+            }
+        });
+    }
+
     void _Js2Dart(final File jsToConvert) {
         Validate.notNull(jsToConvert);
         Validate.notNull(jsToConvert.existsSync());
@@ -307,7 +361,7 @@ class Application {
         targetIndexHtml.writeAsString(contents.replaceFirst("{samples}",buffer.toString()));
     }
 
-    void _addDartMain(final File indexFile) {
+    void _addDartMainToIndexHTML(final File indexFile) {
         Validate.notNull(indexFile);
         Validate.isTrue(indexFile.existsSync());
 
@@ -363,7 +417,9 @@ class Application {
     }
 
        /// Goes through the files
-    void _iterateThroughDirSync(final String dir, void callback(final File file)) {
+    void _iterateThroughDirSync(final String dir,final List<String> foldersToExclude, void callback(final File file)) {
+        Validate.notNull(foldersToExclude);
+
         _logger.info("Scanning: $dir");
 
         // its OK if the path starts with packages but not if the path contains packages (avoid recursion)
@@ -371,6 +427,7 @@ class Application {
 
         final Directory directory = new Directory(dir);
         if (directory.existsSync()) {
+
             directory.listSync(recursive: true).where((final FileSystemEntity entity) {
                 _logger.fine("Entity: ${entity}");
 
@@ -380,6 +437,13 @@ class Application {
                 if(!isUsableFile) {
                     return false;
                 }
+
+                for(final String folder in foldersToExclude) {
+                    if(entity.path.contains(folder)) {
+                        return false;
+                    }
+                }
+
                 if(entity.path.contains("packages")) {
                     // return only true if the path starts!!!!! with packages
                     return entity.path.contains(regexp);
@@ -431,6 +495,7 @@ class Application {
             ..addFlag(_ARG_SETTINGS,        abbr: 's', negatable: false, help: "Prints settings")
             ..addFlag(_ARG_GENERATE,        abbr: 'g', negatable: false, help: "Generate samples")
             ..addFlag(_ARG_MK_BACKUP,       abbr: 'b', negatable: false, help: "Make backup")
+            ..addFlag(_ARG_SHOW_DIRS,       abbr: 'd', negatable: false, help: "Show source-Dirs")
 
             ..addOption(_ARG_LOGLEVEL,      abbr: 'v', help: "[ info | debug | warning ]")
             ;
@@ -476,6 +541,7 @@ class Config {
     static const String _KEY_MK_BACKUP      = "mkbackup";
     static const String _KEY_MAIN_TEMPLATE  = "maintemplate";
     static const String _KEY_INDEX_TEMPLATE = "indextemplate";
+    static const String _KEY_FOLDERS_TO_EXCLUDE = "excludefolder";
 
     final ArgResults _argResults;
     final Map<String,dynamic> _settings = new Map<String,dynamic>();
@@ -488,6 +554,7 @@ class Config {
         _settings[_KEY_MK_BACKUP]       = false;
         _settings[_KEY_MAIN_TEMPLATE]   = "bin/main.tmpl.dart";
         _settings[_KEY_INDEX_TEMPLATE]  = "bin/index.tmpl.html";
+        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "icons";   // Liste durch , getrennt
 
         _overwriteSettingsWithArgResults();
     }
@@ -506,15 +573,18 @@ class Config {
 
     String get indextemplate => _settings[_KEY_INDEX_TEMPLATE];
 
+    String get folderstoexclude => _settings[_KEY_FOLDERS_TO_EXCLUDE];
+
     Map<String,String> get settings {
         final Map<String,String> settings = new Map<String,String>();
 
-        settings["SASS-Dir"]        = sassdir;
-        settings["Samples-Dir"]     = samplesdir;
-        settings["loglevel"]        = loglevel;
-        settings["make backup"]     = mkbackup ? "yes" : "no";
-        settings["Main-Template"]   = maintemplate;
-        settings["Index-Template"]  = indextemplate;
+        settings["SASS-Dir"]            = sassdir;
+        settings["Samples-Dir"]         = samplesdir;
+        settings["loglevel"]            = loglevel;
+        settings["make backup"]         = mkbackup ? "yes" : "no";
+        settings["Main-Template"]       = maintemplate;
+        settings["Index-Template"]      = indextemplate;
+        settings["Folders to exclude"]  = folderstoexclude;
 
         if(dirstoscan.length > 0) {
             settings["Dirs to scan"] = dirstoscan.join(", ");
