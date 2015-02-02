@@ -1,5 +1,9 @@
 wsk_material ChangeLog
 
+###v0.1.0###
+* Styleguide (sample) works [09df0e8](http://github.com/MikeMitterer/wsk_material/commit/09df0e89338dce3643deb657186bf9d7a6ba7ddb)
+* Projectname added to build.gradle (ChangeLog) [d4fd5d2](http://github.com/MikeMitterer/wsk_material/commit/d4fd5d296cc397b998b53fa095abbbce5b46df87)
+
 ###v0.0.3###
 * Full URL for Logo in README [00ea299](http://github.com/MikeMitterer/wsk_material/commit/00ea299f4694635eca585399588e8801bf81894c)
 * build.gradle added [a70f97c](http://github.com/MikeMitterer/wsk_material/commit/a70f97c4a9faa710321af9521d706705756b2cc5)
