@@ -1,5 +1,7 @@
-###wsk_material ChangeLog v0.2.1###
+###wsk_material ChangeLog v0.2.3###
 
+* Remove wsk-upgrading on upgraded element [c3aabaa](http://github.com/MikeMitterer/wsk_material/commit/c3aabaabf43182141c6edf6475c5a657c4a3b55e)
+* Changelog... [f60451d](http://github.com/MikeMitterer/wsk_material/commit/f60451dd472550b6ab1784c98c7083dedf804a0d)
 * Preparation for wsk-angular, made sparate config for each component [dc4e67a](http://github.com/MikeMitterer/wsk_material/commit/dc4e67a9641cb288acc91b664afa05f1a72121cd)
 
 ###v0.2###
