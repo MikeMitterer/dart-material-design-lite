@@ -89,6 +89,7 @@ class WskComponentHandler {
         });
 
         element.classes.add("wsk-upgraded");
+        element.classes.remove("wsk-upgrading");
     }
 
     //- private -----------------------------------------------------------------------------------
