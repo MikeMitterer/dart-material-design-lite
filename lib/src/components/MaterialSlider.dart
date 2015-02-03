@@ -24,9 +24,12 @@ class _MaterialSliderConstant {
     const _MaterialSliderConstant();
 }
 
+/// creates WskConfig for MaterialSlider
+WskConfig materialSliderConfig() => new WskConfig<MaterialSlider>(
+    "wsk-js-slider", (final html.HtmlElement element) => new MaterialSlider(element));
+
 /// registration-Helper
-void registerMaterialSlider() => _componenthandler.register(new WskConfig<MaterialSlider>(
-    "wsk-js-slider", (final html.HtmlElement element) => new MaterialSlider(element)));
+void registerMaterialSlider() => componenthandler.register(materialSliderConfig());
 
 class MaterialSlider extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialSlider');

@@ -14,9 +14,12 @@ class _MaterialTooltipConstant {
     const _MaterialTooltipConstant();
 }
 
+/// creates WskConfig for MaterialButton
+WskConfig materialTooltipConfig() => new WskConfig<MaterialTooltip>(
+    "wsk-tooltip", (final html.HtmlElement element) => new MaterialTooltip(element));
+
 /// registration-Helper
-void registerMaterialTooltip() => _componenthandler.register(new WskConfig<MaterialTooltip>(
-    "wsk-tooltip", (final html.HtmlElement element) => new MaterialTooltip(element)));
+void registerMaterialTooltip() => componenthandler.register(materialTooltipConfig());
 
 class MaterialTooltip extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialTooltip');

@@ -24,7 +24,7 @@ part "src/components/MaterialTabs.dart";
 part "src/components/MaterialTextfield.dart";
 part "src/components/MaterialTooltip.dart";
 
-final WskComponentHandler _componenthandler = new WskComponentHandler();
+final WskComponentHandler componenthandler = new WskComponentHandler();
 
 void registerAllWskComponents() {
 
@@ -47,5 +47,5 @@ void registerAllWskComponents() {
 }
 
 Future upgradeAllRegistered() {
-    return _componenthandler.upgradeAllRegistered();
+    return componenthandler.upgradeAllRegistered();
 }

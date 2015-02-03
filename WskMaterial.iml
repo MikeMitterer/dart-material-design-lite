@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bin/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/animation/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/button/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/card/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/checkbox/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/column-layout/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/dropdown-menu/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/footer/images/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/footer/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/icon-toggle/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/item/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout/images/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/list/images/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/list/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/palette/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/radio/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/shadow/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/slider/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/spinner/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/switch/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/tabs/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/textfield/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/tooltip/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/typography/images/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/typography/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/console_log_handler" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/wsk_material" />
+      <excludeFolder url="file://$MODULE_DIR$/test/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/test/unit/packages" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="application" />
+  </component>
+</module>

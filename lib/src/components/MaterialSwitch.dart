@@ -39,9 +39,12 @@ class _MaterialSwitchConstant {
     const _MaterialSwitchConstant();
 }
 
+/// creates WskConfig for MaterialSwitch
+WskConfig materialSwitchConfig() => new WskConfig<MaterialSwitch>(
+    "wsk-js-switch", (final html.HtmlElement element) => new MaterialSwitch(element));
+
 /// registration-Helper
-void registerMaterialSwitch() => _componenthandler.register(new WskConfig<MaterialSwitch>(
-    "wsk-js-switch", (final html.HtmlElement element) => new MaterialSwitch(element)));
+void registerMaterialSwitch() => componenthandler.register(materialSwitchConfig());
 
 class MaterialSwitch extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialSwitch');

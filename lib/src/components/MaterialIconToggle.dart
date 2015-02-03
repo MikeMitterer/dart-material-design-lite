@@ -26,9 +26,12 @@ class _MaterialIconToggleConstant {
     const _MaterialIconToggleConstant();
 }
 
+/// creates WskConfig for IconToggle
+WskConfig materialIconToggleConfig() => new WskConfig<MaterialIconToggle>(
+    "wsk-js-icon-toggle", (final html.HtmlElement element) => new MaterialIconToggle(element));
+
 /// registration-Helper
-void registerMaterialIconToggle() => _componenthandler.register(new WskConfig<MaterialIconToggle>(
-    "wsk-js-icon-toggle", (final html.HtmlElement element) => new MaterialIconToggle(element)));
+void registerMaterialIconToggle() => componenthandler.register(materialIconToggleConfig());
 
 class MaterialIconToggle extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialIconToggle');

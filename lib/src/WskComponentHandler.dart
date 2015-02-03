@@ -75,6 +75,22 @@ class WskComponentHandler {
         return future;
     }
 
+    void upgradeElement(final html.HtmlElement element, List<WskConfig> wskcomponents() ) {
+        Validate.notNull(wskcomponents,"Callback for WskConfig-List must not be null!");
+
+        final List<WskConfig> components = wskcomponents();
+        if(components == null || components.isEmpty) {
+            _logger.warning("No WskConfig provided for ${element}");
+            return;
+        }
+
+        components.forEach((final WskConfig config) {
+            _upgradeElement(element,config);
+        });
+
+        element.classes.add("wsk-upgraded");
+    }
+
     //- private -----------------------------------------------------------------------------------
 
     bool _isRegistered(final WskConfig config) => _registeredComponents.containsKey(config.classAsString);

@@ -49,9 +49,12 @@ class _MaterialCheckboxConstant {
     const _MaterialCheckboxConstant();
 }
 
+/// creates WskConfig for MaterialCheckbox
+WskConfig materialCheckboxConfig() => new WskConfig<MaterialCheckbox>(
+    "wsk-js-checkbox", (final html.HtmlElement element) => new MaterialCheckbox(element));
+
 /// registration-Helper
-void registerMaterialCheckbox() => _componenthandler.register(new WskConfig<MaterialCheckbox>(
-    "wsk-js-checkbox", (final html.HtmlElement element) => new MaterialCheckbox(element)));
+void registerMaterialCheckbox() => componenthandler.register(materialCheckboxConfig());
 
 class MaterialCheckbox extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialCheckbox');

@@ -59,9 +59,12 @@ class _MaterialLayoutMode {
     const _MaterialLayoutMode();
 }
 
+/// creates WskConfig for MaterialLayout
+WskConfig materialLayoutConfig() => new WskConfig<MaterialLayout>(
+    "wsk-js-layout", (final html.HtmlElement element) => new MaterialLayout(element));
+
 /// registration-Helper
-void registerMaterialLayout() => _componenthandler.register(new WskConfig<MaterialLayout>(
-    "wsk-js-layout", (final html.HtmlElement element) => new MaterialLayout(element)));
+void registerMaterialLayout() => componenthandler.register(materialLayoutConfig());
 
 class MaterialLayout extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialLayout');

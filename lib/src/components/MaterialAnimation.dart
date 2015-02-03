@@ -18,9 +18,12 @@ class _MaterialAnimationConstant {
 
     const _MaterialAnimationConstant(); }
 
+/// creates WskConfig for MaterialAnimation
+WskConfig materialAnimationConfig() => new WskConfig<MaterialAnimation>(
+    "demo-js-clickable-area", (final html.HtmlElement element) => new MaterialAnimation(element));
+
 /// registration-Helper
-void registerMaterialAnimation() => _componenthandler.register(new WskConfig<MaterialAnimation>(
-    "demo-js-clickable-area", (final html.HtmlElement element) => new MaterialAnimation(element)));
+void registerMaterialAnimation() => componenthandler.register(materialAnimationConfig());
 
 class MaterialAnimation extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialAnimation');

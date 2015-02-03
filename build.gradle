@@ -76,11 +76,11 @@ task writeChangeLog(dependsOn: setVersionInYaml) {
     def tags = readTags();
 
     if(tags.size > 1) {
-        linksForChangeLog += "$ghproject ChangeLog\n"
+        linksForChangeLog += "###$ghproject ChangeLog v$version###\n\n"
         // linksForChangeLog += "$ghproject ChangeLog ###v$version###\n"
 
         linksForChangeLog += getChangeLog("...${tags[0]}")
-        linksForChangeLog += "\n"
+        linksForChangeLog += "\n\n"
 
         for (int i = 0; i < tags.size - 1; i++) {
             def changes = getChangeLog("${tags[i]}...${tags[i+1]}")

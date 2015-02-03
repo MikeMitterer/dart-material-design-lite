@@ -38,9 +38,12 @@ class _MaterialRadioConstant {
     const _MaterialRadioConstant();
 }
 
+/// creates WskConfig for RadioConfig
+WskConfig materialRadioConfig() => new WskConfig<MaterialRadio>(
+    "wsk-js-radio", (final html.HtmlElement element) => new MaterialRadio(element));
+
 /// registration-Helper
-void registerMaterialRadio() => _componenthandler.register(new WskConfig<MaterialRadio>(
-    "wsk-js-radio", (final html.HtmlElement element) => new MaterialRadio(element)));
+void registerMaterialRadio() => componenthandler.register(materialRadioConfig());
 
 class MaterialRadio extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialRadio');

@@ -535,12 +535,12 @@ class Application {
 class Config {
     final Logger _logger = new Logger("gensamples.Config");
 
-    static const String _KEY_SASS_DIR       = "sassdir";
-    static const String _KEY_SAMPLES_DIR    = "example";
-    static const String _KEY_LOGLEVEL       = "loglevel";
-    static const String _KEY_MK_BACKUP      = "mkbackup";
-    static const String _KEY_MAIN_TEMPLATE  = "maintemplate";
-    static const String _KEY_INDEX_TEMPLATE = "indextemplate";
+    static const String _KEY_SASS_DIR           = "sassdir";
+    static const String _KEY_SAMPLES_DIR        = "example";
+    static const String _KEY_LOGLEVEL           = "loglevel";
+    static const String _KEY_MK_BACKUP          = "mkbackup";
+    static const String _KEY_MAIN_TEMPLATE      = "maintemplate";
+    static const String _KEY_INDEX_TEMPLATE     = "indextemplate";
     static const String _KEY_FOLDERS_TO_EXCLUDE = "excludefolder";
 
     final ArgResults _argResults;
@@ -548,12 +548,12 @@ class Config {
 
     Config(this._argResults) {
 
-        _settings[_KEY_SASS_DIR]        = 'lib/sass';
-        _settings[_KEY_SAMPLES_DIR]     = 'example';
-        _settings[_KEY_LOGLEVEL]        = 'info';
-        _settings[_KEY_MK_BACKUP]       = false;
-        _settings[_KEY_MAIN_TEMPLATE]   = "bin/main.tmpl.dart";
-        _settings[_KEY_INDEX_TEMPLATE]  = "bin/index.tmpl.html";
+        _settings[_KEY_SASS_DIR]            = 'lib/sass';
+        _settings[_KEY_SAMPLES_DIR]         = 'example';
+        _settings[_KEY_LOGLEVEL]            = 'info';
+        _settings[_KEY_MK_BACKUP]           = false;
+        _settings[_KEY_MAIN_TEMPLATE]       = "bin/main.tmpl.dart";
+        _settings[_KEY_INDEX_TEMPLATE]      = "bin/index.tmpl.html";
         _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "icons";   // Liste durch , getrennt
 
         _overwriteSettingsWithArgResults();

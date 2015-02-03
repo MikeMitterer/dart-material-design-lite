@@ -27,9 +27,12 @@ class _MaterialTextfieldConstant {
     const _MaterialTextfieldConstant();
 }
 
+/// creates WskConfig for MaterialButton
+WskConfig materialTextfieldConfig() => new WskConfig<MaterialTextfield>(
+    "wsk-js-textfield", (final html.HtmlElement element) => new MaterialTextfield(element));
+
 /// registration-Helper
-void registerMaterialTextfield() => _componenthandler.register(new WskConfig<MaterialTextfield>(
-    "wsk-js-textfield", (final html.HtmlElement element) => new MaterialTextfield(element)));
+void registerMaterialTextfield() => componenthandler.register(materialTextfieldConfig());
 
 class MaterialTextfield extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialTextfield');

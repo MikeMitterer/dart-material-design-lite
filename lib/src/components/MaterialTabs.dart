@@ -21,9 +21,12 @@ class _MaterialTabsConstant {
     const _MaterialTabsConstant();
 }
 
+/// creates WskConfig for MaterialTabs
+WskConfig materialTabsConfig() => new WskConfig<MaterialTabs>(
+    "wsk-js-tabs", (final html.HtmlElement element) => new MaterialTabs(element));
+
 /// registration-Helper
-void registerMaterialTabs() => _componenthandler.register(new WskConfig<MaterialTabs>(
-    "wsk-js-tabs", (final html.HtmlElement element) => new MaterialTabs(element)));
+void registerMaterialTabs() => componenthandler.register(materialTabsConfig());
 
 class MaterialTabs extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialTabs');

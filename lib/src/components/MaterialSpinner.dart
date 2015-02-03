@@ -22,9 +22,12 @@ class _MaterialSpinnerConstant {
     const _MaterialSpinnerConstant();
 }
 
+/// creates WskConfig for MaterialSpinner
+WskConfig materialSpinnerConfig() => new WskConfig<MaterialSpinner>(
+    "wsk-js-spinner", (final html.HtmlElement element) => new MaterialSpinner(element));
+
 /// registration-Helper
-void registerMaterialSpinner() => _componenthandler.register(new WskConfig<MaterialSpinner>(
-    "wsk-js-spinner", (final html.HtmlElement element) => new MaterialSpinner(element)));
+void registerMaterialSpinner() => componenthandler.register(materialSpinnerConfig());
 
 class MaterialSpinner extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialSpinner');

@@ -21,9 +21,12 @@ class _MaterialRippleConstant {
 
     const _MaterialRippleConstant(); }
 
+/// creates WskConfig for MaterialRipple
+WskConfig materialRippleConfig() => new WskConfig<MaterialRipple>(
+    "wsk-js-ripple-effect",(final html.HtmlElement element) => new MaterialRipple(element));
+
 /// registration-Helper
-void registerMaterialRipple() => _componenthandler.register(new WskConfig<MaterialRipple>(
-    "wsk-js-ripple-effect",(final html.HtmlElement element) => new MaterialRipple(element)));
+void registerMaterialRipple() => componenthandler.register(materialRippleConfig());
 
 class MaterialRipple extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialRipple');

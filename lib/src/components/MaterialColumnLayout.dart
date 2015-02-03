@@ -16,9 +16,12 @@ class _MaterialColumnLayoutConstant {
     const _MaterialColumnLayoutConstant();
 }
 
+/// creates WskConfig for MaterialColumnLayout
+WskConfig materialColumnsLayoutConfig() => new WskConfig<MaterialColumnLayout>(
+    "wsk-column-layout", (final html.HtmlElement element) => new MaterialColumnLayout(element));
+
 /// registration-Helper
-void registerMaterialColumnLayout() => _componenthandler.register(new WskConfig<MaterialColumnLayout>(
-    "wsk-column-layout", (final html.HtmlElement element) => new MaterialColumnLayout(element)));
+void registerMaterialColumnLayout() => componenthandler.register(materialColumnsLayoutConfig());
 
 class MaterialColumnLayout extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialColumnLayout');

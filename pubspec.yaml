@@ -1,19 +1,19 @@
 name: wsk_material
 description: Web Starter Kit - Material Design
-version: 0.1
+version: 0.1.1
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-material
 
 dependencies:
   browser: any
-  logging: any
-  logging_handlers: any
 
   intl: any
   args: any
   validate: any
   browser_detect: any
 
+  logging: any
+  logging_handlers: any
   console_log_handler: any
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
