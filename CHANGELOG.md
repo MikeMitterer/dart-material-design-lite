@@ -1,5 +1,8 @@
-###wsk_material ChangeLog v0.1.1###
+###wsk_material ChangeLog v0.2.1###
 
+* Preparation for wsk-angular, made sparate config for each component [dc4e67a](http://github.com/MikeMitterer/wsk_material/commit/dc4e67a9641cb288acc91b664afa05f1a72121cd)
+
+###v0.2###
 * again CHANGELOG [b0ff87a](http://github.com/MikeMitterer/wsk_material/commit/b0ff87a86b4ac52132918a62e55521f933beaf3e)
 * Changed path to console_log_handler [5252bb8](http://github.com/MikeMitterer/wsk_material/commit/5252bb8bf40ad9a571c9add1410159eaab5288fb)
 * Changedlog updated [c8426b7](http://github.com/MikeMitterer/wsk_material/commit/c8426b78e6e7a3f81a4e40dd364436c77d385d7b)
