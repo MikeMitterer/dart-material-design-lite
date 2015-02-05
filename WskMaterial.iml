@@ -33,7 +33,6 @@
       <excludeFolder url="file://$MODULE_DIR$/example/tooltip/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/typography/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/typography/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/packages/console_log_handler" />
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />
       <excludeFolder url="file://$MODULE_DIR$/test/unit/packages" />

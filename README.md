@@ -7,6 +7,8 @@ You find the original version here on [GitHub][wskmaterial]
 
 ![DartPowered LOGO](https://github.com/MikeMitterer/dart-wsk-material/blob/master/lib/images/wsk-material-dart-powered.png?raw=true "DartPowered LOGO")
 
+If you work with AngularDart the [wsk-angular-Version][[wskangular]] could be interesting for you.
+
 ## Usage
 
 ...here to come
@@ -38,3 +40,5 @@ If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.
 [tracker]: https://github.com/MikeMitterer/dart-wsk-material/issues
 [wskmaterial]: https://github.com/google/web-starter-kit/tree/material-sprint
 [wskdemo]: http://wsk.mikemitterer.at/
+[wskangular]: https://github.com/MikeMitterer/dart-wsk-angular
+
