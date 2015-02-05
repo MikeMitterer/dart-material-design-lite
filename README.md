@@ -13,7 +13,7 @@ If you work with AngularDart the [wsk-angular-Version][wskangular] could be inte
 
 ...here to come
 
-Just a very basic theming-sample can be found [here][https://github.com/MikeMitterer/dart-wsk-angular/tree/master/example/styleguide/assets/scss]
+Just a very basic theming-sample can be found [here][themingsample]
 ```shell
     assets$ sassc scss/styleguide.scss css/styleguide.css
     assets$ autoprefixer css/styleguide.css
@@ -47,4 +47,5 @@ If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.
 [wskmaterial]: https://github.com/google/web-starter-kit/tree/material-sprint
 [wskdemo]: http://wsk.mikemitterer.at/
 [wskangular]: https://github.com/MikeMitterer/dart-wsk-angular
+[themingsample]: https://github.com/MikeMitterer/dart-wsk-angular/tree/master/example/styleguide/assets/scss
 
