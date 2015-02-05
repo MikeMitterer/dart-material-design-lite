@@ -13,6 +13,12 @@ If you work with AngularDart the [wsk-angular-Version][wskangular] could be inte
 
 ...here to come
 
+Just a very basic theming-sample can be found [here][https://github.com/MikeMitterer/dart-wsk-angular/tree/master/example/styleguide/assets/scss]
+```shell
+    assets$ sassc scss/styleguide.scss css/styleguide.css
+    assets$ autoprefixer css/styleguide.css
+```
+
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
