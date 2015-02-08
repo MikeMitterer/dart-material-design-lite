@@ -34,7 +34,7 @@ class MaterialTabs extends WskComponent {
     static const _MaterialTabsConstant _constant = const _MaterialTabsConstant();
     static const _MaterialTabsCssClasses _cssClasses = const _MaterialTabsCssClasses();
 
-    final List<html.AnchorElement> _tabs = new List<html.AnchorElement>();
+    final List<html.HtmlElement> _tabs = new List<html.HtmlElement>();
     final List<html.HtmlElement> _panels = new List<html.HtmlElement>();
 
     MaterialTabs(final html.HtmlElement element) : super(element) {
@@ -89,7 +89,7 @@ class MaterialTabs extends WskComponent {
 }
 
 class MaterialTab {
-    final html.AnchorElement tab;
+    final html.Element tab;
     final MaterialTabs ctx;
 
     static const _MaterialTabsCssClasses _cssClasses = const _MaterialTabsCssClasses();
@@ -112,7 +112,8 @@ class MaterialTab {
             tab.onClick.listen( (final html.Event event) {
                 event.preventDefault();
 
-                final String href = tab.href.split('#')[1];
+                final String attribHref = tab.attributes["href"];
+                final String href = attribHref.split('#')[1];
                 final html.HtmlElement panel = html.querySelector('#' + href);
 
                 ctx._resetTabState();

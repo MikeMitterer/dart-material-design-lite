@@ -238,7 +238,7 @@ class MaterialLayout extends WskComponent {
                 }
 
                 // Select element tabs, document panels
-                final List<html.AnchorElement> tabs = tabBar.querySelectorAll('.' + _cssClasses.TAB);
+                final List<html.Element> tabs = tabBar.querySelectorAll('.' + _cssClasses.TAB);
                 final List<html.HtmlElement> panels = content.querySelectorAll('.' + _cssClasses.PANEL);
 
                 // Create new tabs for each tab element
@@ -307,7 +307,7 @@ class MaterialLayout extends WskComponent {
 
 class MaterialLayoutTab {
 
-    final html.AnchorElement tab;
+    final html.Element tab;  // using Element instead of AnchorElement makes wsk-layout-tab-Tag with href attrib possible
     final List<html.AnchorElement> tabs;
     final List<html.HtmlElement> panels;
     final MaterialLayout layout;
@@ -332,7 +332,8 @@ class MaterialLayoutTab {
             tab.onClick.listen( (final html.MouseEvent event) {
                 event.preventDefault();
 
-                final href = tab.href.split('#')[1];
+                final String attribHref = tab.attributes["href"];
+                final href = attribHref.split('#')[1];
 
                 final panel = layout.content.querySelector('#' + href);
                 layout._resetTabState(tabs);
@@ -344,6 +345,5 @@ class MaterialLayoutTab {
 
         }
     }
-
 }
 
