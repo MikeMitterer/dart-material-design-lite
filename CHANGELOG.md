@@ -1,5 +1,11 @@
-###wsk_material ChangeLog v0.2.3###
+###wsk_material ChangeLog v0.2.9###
 
+* Some minor update for WskAngular [888fbae](http://github.com/MikeMitterer/wsk_material/commit/888fbae314430707058f83c70228aa7046449cea)
+* Link to short theming-sample [16be532](http://github.com/MikeMitterer/wsk_material/commit/16be5329c52bfcd31d16a68e2adacfd5c76f4c40)
+* Link to short theming-sample [90eacc0](http://github.com/MikeMitterer/wsk_material/commit/90eacc05150d264eebaf05229b374df062134526)
+* styleguide.scss added + link to wsk-angular [8259dc4](http://github.com/MikeMitterer/wsk_material/commit/8259dc4265ff5442ad7f7f12f5c5ec99977a4b6b)
+* styleguide.scss added + link to wsk-angular [39e96d4](http://github.com/MikeMitterer/wsk_material/commit/39e96d460a9e9354210138a90ca82f324f2dd910)
+* Remove wsk-upgrading on upgraded element [fc86f9f](http://github.com/MikeMitterer/wsk_material/commit/fc86f9f6fc5daaf732c0aec0758b0e9fcec940da)
 * Remove wsk-upgrading on upgraded element [c3aabaa](http://github.com/MikeMitterer/wsk_material/commit/c3aabaabf43182141c6edf6475c5a657c4a3b55e)
 * Changelog... [f60451d](http://github.com/MikeMitterer/wsk_material/commit/f60451dd472550b6ab1784c98c7083dedf804a0d)
 * Preparation for wsk-angular, made sparate config for each component [dc4e67a](http://github.com/MikeMitterer/wsk_material/commit/dc4e67a9641cb288acc91b664afa05f1a72121cd)
