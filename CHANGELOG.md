@@ -1,5 +1,6 @@
-###wsk_material ChangeLog v0.2.10###
+###wsk_material ChangeLog v0.2.11###
 
+* Bin (gensamples) removed [bc1c4e6](http://github.com/MikeMitterer/wsk_material/commit/bc1c4e6ebefe77714f8c9ee4dd7764b1fa677d3b)
 * Changelog changed... [b5daa64](http://github.com/MikeMitterer/wsk_material/commit/b5daa6417c363dc29407845048a54c82b01d347a)
 * Some minor update for WskAngular [888fbae](http://github.com/MikeMitterer/wsk_material/commit/888fbae314430707058f83c70228aa7046449cea)
 * Link to short theming-sample [16be532](http://github.com/MikeMitterer/wsk_material/commit/16be5329c52bfcd31d16a68e2adacfd5c76f4c40)

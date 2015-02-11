@@ -123,7 +123,11 @@ class MaterialRipple extends WskComponent {
 
             _setRippleXY(x, y);
             _setRippleStyles(true);
+
             html.window.requestAnimationFrame(_animFrameHandler);
+            // new Future.delayed(new Duration(milliseconds: 50), () {
+            //    _setRippleStyles(false);
+            // }).then((_) => _frameCount = 0);
         }
     }
 

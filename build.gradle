@@ -49,7 +49,7 @@ version = gitExtendedVersionX() // Sample: 0.5.4-19
 
 ext {
     ghaccount = "MikeMitterer"
-    ghproject = "wsk_material"
+    ghproject = "dart-wsk-material"
 
     // pretty-format: http://opensource.apple.com/source/Git/Git-19/src/git-htmldocs/pretty-formats.txt
     //changelogformat = "<li>%s (<a href=\"http://github.com/$ghaccount/$ghproject/commit/%H\">%h</a>)</li>"

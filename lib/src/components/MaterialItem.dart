@@ -18,7 +18,7 @@ class _MaterialItemConstant {
 
 /// creates WskConfig for MaterialItem
 WskConfig materialItemConfig() => new WskConfig<MaterialItem>(
-    "wsk-js-ripple-effect", (final html.HtmlElement element) => new MaterialItem(element));
+    "wsk-item", (final html.HtmlElement element) => new MaterialItem(element));
 
 /// registration-Helper
 void registerMaterialItem() => componenthandler.register(materialItemConfig());

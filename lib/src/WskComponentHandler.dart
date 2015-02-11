@@ -142,7 +142,7 @@ class WskComponentHandler {
                 config.callbacks.forEach((final WskCallback callback) => callback(element));
 
                 _markAsUpgraded();
-                _logger.info("${config.classAsString} -> ${component}");
+                _logger.fine("${config.classAsString} -> ${component}");
 
             }
             catch (exception, stacktrace) {
