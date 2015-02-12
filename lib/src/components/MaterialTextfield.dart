@@ -104,11 +104,12 @@ class MaterialTextfield extends WskComponent {
     void _onInputChange(final html.MouseEvent event) {
         final input = element;
 
-        if (input.value != null && input.value.length > 0) {
+        if (input.attributes["value"] != null && input.attributes["value"].length > 0) {
             input.classes.add(_cssClasses.IS_DIRTY);
 
         } else {
             input.classes.remove(_cssClasses.IS_DIRTY);
+            _logger.warning("Element $element width class ${element.classes} is not a Texfield...");
         }
     }
 
