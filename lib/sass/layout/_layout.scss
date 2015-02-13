@@ -282,10 +282,6 @@ $layout-tab-highlight-thickness: 2px;
 
     & .wsk-layout-title {
       display: block;
-
-      @media screen and (max-width: $layout-screen-size-threshold) {
-          margin-left : $layout-header-basic-mobile-indent * 2;
-      }
     }
 
     & .wsk-navigation {
