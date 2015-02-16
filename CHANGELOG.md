@@ -1,5 +1,9 @@
-###dart-wsk-material ChangeLog v0.2.16###
+###dart-wsk-material ChangeLog v0.6.0###
 
+
+
+###v0.6.0###
+* publish to pub [6cd365c](http://github.com/MikeMitterer/dart-wsk-material/commit/6cd365c0183ba7a3d3ffa5b91bc9e43d9049e1dc)
 * Updated SCSS to WSK Material 0.6.0, Bug: Dirty-Check in MaterialTextfield [16af3c4](http://github.com/MikeMitterer/dart-wsk-material/commit/16af3c45710e10163bbbef4eab51e7e0771a9eb2)
 * Syncronized with wsk 0.6.0 (GH) [18d7037](http://github.com/MikeMitterer/dart-wsk-material/commit/18d70374e84e2eb187d0f13fc054571b20c4f9d6)
 * Readme updated [8c3bc52](http://github.com/MikeMitterer/dart-wsk-material/commit/8c3bc5218ca78709a35e5a88db8b17d53c7a8316)
