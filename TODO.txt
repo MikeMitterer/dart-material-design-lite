@@ -1,0 +1,34 @@
+Updating 8c3bc52..18d7037
+Fast-forward
+ .gitignore                                                                                     |    1 +
+ lib/sass/README.txt                                                                            |    2 +
+ lib/sass/animation/demo.css                                                                    | 1136 ----------------------------------------------
+ lib/sass/button/_button.scss                                                                   |    7 +
+ lib/sass/checkbox/.sass-cache/068317394feb3faaae3423e96132e10f443232e8/_palette.scssc          |  Bin 33818 -> 0 bytes
+ lib/sass/checkbox/.sass-cache/3ec21d9a1b359fefd97dbda0f419d231579c9ddb/_ripple.scssc           |  Bin 7280 -> 0 bytes
+ lib/sass/checkbox/.sass-cache/509d76b48de6cde45eb54d1f3c55651fde870b8e/_typography.scssc       |  Bin 82604 -> 0 bytes
+ lib/sass/checkbox/.sass-cache/538ba9309859bdc766fe04ddf39e1b0771aa3a3f/_colors.scssc           |  Bin 42207 -> 0 bytes
+ .../checkbox/.sass-cache/538ba9309859bdc766fe04ddf39e1b0771aa3a3f/_styleguide_demo_bp.scssc    |  Bin 6441 -> 0 bytes
+ lib/sass/checkbox/.sass-cache/a65cd1dd554499e26599506c1df23bfaa3d25e9e/_checkbox.scssc         |  Bin 46904 -> 0 bytes
+ lib/sass/checkbox/.sass-cache/a65cd1dd554499e26599506c1df23bfaa3d25e9e/demo.scssc              |  Bin 816 -> 0 bytes
+ lib/sass/checkbox/.sass-cache/a692832b5f42bc79e891d16c81e84743c87afec9/_animation.scssc        |  Bin 7288 -> 0 bytes
+ lib/sass/checkbox/.sass-cache/ffd11264d0d4456d3a7888f8a5796a222de61c8c/_h5bp.scssc             |  Bin 35461 -> 0 bytes
+ lib/sass/checkbox/demo.css                                                                     |  828 ---------------------------------
+ lib/sass/checkbox/demo.css.map                                                                 |    7 -
+ lib/sass/layout/_layout.scss                                                                   |    4 -
+ lib/sass/ripple/ripple.js                                                                      |  266 +++++------
+ lib/sass/tabs/_tabs.scss                                                                       |    1 -
+ 18 files changed, 143 insertions(+), 2109 deletions(-)
+ create mode 100644 lib/sass/README.txt
+ delete mode 100644 lib/sass/animation/demo.css
+ delete mode 100644 lib/sass/checkbox/.sass-cache/068317394feb3faaae3423e96132e10f443232e8/_palette.scssc
+ delete mode 100644 lib/sass/checkbox/.sass-cache/3ec21d9a1b359fefd97dbda0f419d231579c9ddb/_ripple.scssc
+ delete mode 100644 lib/sass/checkbox/.sass-cache/509d76b48de6cde45eb54d1f3c55651fde870b8e/_typography.scssc
+ delete mode 100644 lib/sass/checkbox/.sass-cache/538ba9309859bdc766fe04ddf39e1b0771aa3a3f/_colors.scssc
+ delete mode 100644 lib/sass/checkbox/.sass-cache/538ba9309859bdc766fe04ddf39e1b0771aa3a3f/_styleguide_demo_bp.scssc
+ delete mode 100644 lib/sass/checkbox/.sass-cache/a65cd1dd554499e26599506c1df23bfaa3d25e9e/_checkbox.scssc
+ delete mode 100644 lib/sass/checkbox/.sass-cache/a65cd1dd554499e26599506c1df23bfaa3d25e9e/demo.scssc
+ delete mode 100644 lib/sass/checkbox/.sass-cache/a692832b5f42bc79e891d16c81e84743c87afec9/_animation.scssc
+ delete mode 100644 lib/sass/checkbox/.sass-cache/ffd11264d0d4456d3a7888f8a5796a222de61c8c/_h5bp.scssc
+ delete mode 100644 lib/sass/checkbox/demo.css
+ delete mode 100644 lib/sass/checkbox/demo.css.map
