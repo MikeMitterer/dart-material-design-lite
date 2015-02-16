@@ -8,9 +8,14 @@ body {
 }
 
 .preview-block {
-  background: #eee;
-  padding   : 20px;
-  height: 120px;
+    background : #eee;
+    padding    : 20px;
+    height     : 120px;
+    margin-top : 20px;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
 }
 
 .icon {

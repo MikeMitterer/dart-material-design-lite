@@ -1108,6 +1108,10 @@ dt {
   width: 32px;
   padding: 0;
   overflow: hidden; }
+  .wsk-button--icon.wsk-button--mini-icon {
+    height: 24px;
+    min-width: 24px;
+    width: 24px; }
   .wsk-button--icon .wsk-button__ripple-container {
     border-radius: 50%;
     -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }

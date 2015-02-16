@@ -59,7 +59,10 @@ class MaterialTextfield extends WskComponent {
                 _expandableIcon(expandableIcons[i]);
             }
 
-            if (element.attributes.containsKey(_constant.MAX_ROWS_ATTRIBUTE)) {
+            if (element.attributes.containsKey(_constant.MAX_ROWS_ATTRIBUTE) &&
+                element.attributes[_constant.MAX_ROWS_ATTRIBUTE] != null &&
+                element.attributes[_constant.MAX_ROWS_ATTRIBUTE].isNotEmpty ) {
+
                 _maxRows = int.parse(element.getAttribute(_constant.MAX_ROWS_ATTRIBUTE),
                     onError: (final String value) {
                         _logger.severe('maxrows attribute provided, but wasn\'t a number: $value');
@@ -104,12 +107,17 @@ class MaterialTextfield extends WskComponent {
     void _onInputChange(final html.MouseEvent event) {
         final input = element;
 
-        if (input.attributes["value"] != null && input.attributes["value"].length > 0) {
+        if (input.value != null && (input.value as String).isNotEmpty) {
+            input.classes.add(_cssClasses.IS_DIRTY);
+
+        } else if(element is html.TextAreaElement && (element as html.TextAreaElement).value != null &&
+            (element as html.TextAreaElement).value.isNotEmpty ) {
+
             input.classes.add(_cssClasses.IS_DIRTY);
 
         } else {
             input.classes.remove(_cssClasses.IS_DIRTY);
-            _logger.warning("Element $element width class ${element.classes} is not a Texfield...");
+            // _logger.warning("Element $element width class ${element.classes} is not a Texfield...");
         }
     }
 
