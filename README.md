@@ -15,6 +15,7 @@ If you work with AngularDart the [wsk-angular-Version][wskangular] could be inte
 ## Usage
 
 Please check out my [samples][samples]. They are short and easy to read.
+Since v0.6.1 every [sample][samples] shows a little "Load indicator"!
 
 Just a very basic theming-sample can be found [here][themingsample]
 ```shell
