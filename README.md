@@ -14,7 +14,7 @@ If you work with AngularDart the [wsk-angular-Version][wskangular] could be inte
 
 ## Usage
 
-...here to come
+Please check out my [samples][samples]. They are short and easy to read.
 
 Just a very basic theming-sample can be found [here][themingsample]
 ```shell
@@ -51,4 +51,5 @@ If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.
 [wskdemo]: http://wsk.mikemitterer.at/
 [wskangular]: https://github.com/MikeMitterer/dart-wsk-angular
 [themingsample]: https://github.com/MikeMitterer/dart-wsk-angular/tree/master/example/styleguide/assets/scss
+[samples]: https://github.com/MikeMitterer/dart-wsk-material/tree/master/example
 
