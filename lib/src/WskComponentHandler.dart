@@ -57,16 +57,18 @@ class WskComponentHandler {
     Future upgradeAllRegistered() {
         html.querySelector("html")
             ..classes.add("wsk-js")
-            ..classes.add("wsk-dart")
-            ..classes.add("wsk-upgrading");
+            ..classes.add("wsk-dart");
+
+        html.querySelector("body").classes.add("wsk-upgrading");
 
         final Future future = new Future(() {
+
             _registeredComponents.forEach((final String key, final WskConfig config) {
                 _upgradeDom(config);
                 _logger.info("${config.cssClass} upgraded with ${config.classAsString}...");
             });
 
-            html.querySelector("html").classes.remove("wsk-upgrading");
+            html.querySelector("body").classes.remove("wsk-upgrading");
             html.querySelector("html").classes.add("wsk-upgraded");
             _logger.info("All components are upgraded...");
 
