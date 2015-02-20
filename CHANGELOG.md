@@ -1,5 +1,10 @@
 #Change Log for wsk_material#
-Web Starter Kit - Material Design
+Web Starter Kit - Material Design with Dart
+
+##[v0.6.3](http://github.com/mikemitterer/dart-wsk-material/commits/v0.6.3) - 2015-02-20##
+
+###Docs###
+* Description for pubspec.yaml [7c6451d](http://github.com/mikemitterer/dart-wsk-material/commit/7c6451d5df3c1a9b0b3fdcc9cad74d03828c1548)
 
 ##[v0.6.2](http://github.com/mikemitterer/dart-wsk-material/commits/v0.6.2) - 2015-02-20##
 
