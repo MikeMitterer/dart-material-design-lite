@@ -2,6 +2,8 @@
 @import "packages/wsk_material/sass/accordion/accordion";
 
 .accordion.sample {
+    margin-bottom: 500px;
+
     .preview-block {
         & > h1, & > h2,& > h3,& > h4,& > h5,& > h6 {
             padding-bottom: 0.5em;

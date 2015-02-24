@@ -57,7 +57,7 @@ void loadDemos() {
     }
 
     void _sizeDemos() {
-        final List<html.HtmlElement> demos = html.querySelectorAll('.styleguide-demo');
+        final List<html.Element> demos = html.querySelectorAll('.styleguide-demo');
         totalDemosPendingLoading = demos.length;
 
         _setLoaderInfo(totalDemosPendingLoading);
