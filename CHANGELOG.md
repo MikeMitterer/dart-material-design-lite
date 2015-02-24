@@ -1,6 +1,14 @@
 #Change Log for wsk_material#
 Web Starter Kit - Material Design with Dart
 
+##[v0.6.4](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.3...v0.6.4) - 2015-02-24##
+
+###Feature###
+* Accordion works [5d8e7dc](http://github.com/mikemitterer/dart-wsk-material/commit/5d8e7dc965aeec88bc2b2869aa98542297b8a4de)
+
+###Docs###
+* Accordion added to styleguide [8aa5874](http://github.com/mikemitterer/dart-wsk-material/commit/8aa587452bc850777f0d2ea46cfe01c608c3eb95)
+
 ##[v0.6.3](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.2...v0.6.3) - 2015-02-20##
 
 ###Docs###
