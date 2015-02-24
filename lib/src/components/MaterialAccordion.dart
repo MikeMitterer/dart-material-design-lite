@@ -70,6 +70,12 @@ class MaterialAccordion extends WskComponent {
                     label.append(rippleContainer);
 
                 });
+
+//                element.querySelectorAll("input[type=radio]").forEach((final html.RadioButtonInputElement element) {
+//                    element.onClick.listen((final html.MouseEvent event) {
+//
+//                    });
+//                });
             }
 
             element.classes.add(_cssClasses.UPGRADED_CLASS);
