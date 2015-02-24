@@ -76,7 +76,7 @@ void loadDemos() {
             navAnchor.onClick.listen((final html.MouseEvent event) {
                 print("Test");
                 if(getDrawer() != null) {
-                    getDrawer().classes.toggle("is-visible");
+                    getDrawer().classes.remove("is-visible");
                 }
             });
 

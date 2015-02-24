@@ -184,7 +184,7 @@ class MaterialLayout extends WskComponent {
                 _logger.info("Check: .${_cssClasses.NAVI_LINK}");
                 element.querySelectorAll(".${_cssClasses.NAVI_LINK}").forEach((final html.Element element) {
                     _logger.info("click $element");
-                    element.onClick.listen( _drawerToggleHandler );
+                    element.onClick.listen( (_) => drawer.classes.remove(_cssClasses.DRAWER_OPEN_CLASS) );
                 });
 
                 final html.DivElement obfuscator = new html.DivElement();
