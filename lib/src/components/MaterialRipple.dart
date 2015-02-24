@@ -22,8 +22,13 @@ class _MaterialRippleConstant {
     const _MaterialRippleConstant(); }
 
 /// creates WskConfig for MaterialRipple
-WskConfig materialRippleConfig() => new WskConfig<MaterialRipple>(
+WskConfig materialRippleConfig() {
+    final WskConfig<MaterialRipple> config = new WskConfig<MaterialRipple>(
     "wsk-js-ripple-effect",(final html.HtmlElement element) => new MaterialRipple(element));
+
+    config.priority = 10;
+    return config;
+}
 
 /// registration-Helper
 void registerMaterialRipple() => componenthandler.register(materialRippleConfig());

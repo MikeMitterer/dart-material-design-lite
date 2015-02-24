@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/accordion/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/animation/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/animation/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/button/packages/wsk_material" />
@@ -55,9 +56,8 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />
       <excludeFolder url="file://$MODULE_DIR$/test/unit/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/tool/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/tool/portbase/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/tool/templates/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/tools/portbase" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

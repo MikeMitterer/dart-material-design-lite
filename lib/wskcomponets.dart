@@ -23,6 +23,7 @@ part "src/components/MaterialSwitch.dart";
 part "src/components/MaterialTabs.dart";
 part "src/components/MaterialTextfield.dart";
 part "src/components/MaterialTooltip.dart";
+part "src/components/MaterialAccordion.dart";
 
 final WskComponentHandler componenthandler = new WskComponentHandler();
 
@@ -42,7 +43,9 @@ void registerAllWskComponents() {
     registerMaterialTabs();
     registerMaterialTextfield();
     registerMaterialTooltip();
+    registerMaterialAccordion();
 
+    // should be the last registration
     registerMaterialRipple();
 }
 

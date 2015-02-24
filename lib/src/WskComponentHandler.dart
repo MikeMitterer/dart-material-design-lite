@@ -63,7 +63,13 @@ class WskComponentHandler {
 
         final Future future = new Future(() {
 
-            _registeredComponents.forEach((final String key, final WskConfig config) {
+            // The component with the highest priority comes last
+            final List<WskConfig> configs = new List<WskConfig>.from(_registeredComponents.values);
+            configs.sort((final WskConfig a, final WskConfig b) {
+                return a.priority.compareTo(b.priority);
+            });
+
+            configs.forEach((final WskConfig config) {
                 _upgradeDom(config);
                 _logger.info("${config.cssClass} upgraded with ${config.classAsString}...");
             });

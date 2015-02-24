@@ -1,6 +1,6 @@
-name: wsk_material
-description: Web Starter Kit - Material Design with Dart
-version: 0.6.3
+name: wsk_material_accordion_sample
+description: WSK Sample 'accordion' - Material Design
+version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-material
 
@@ -8,6 +8,7 @@ dependencies:
   browser: any
 
   intl: any
+  args: any
   validate: any
   browser_detect: any
 
@@ -16,7 +17,7 @@ dependencies:
   console_log_handler: any
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
-dev_dependencies:
-  unittest: any
-  args: any
+  wsk_material:
+    path: ../../
+
 
