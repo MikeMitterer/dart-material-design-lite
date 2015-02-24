@@ -22,6 +22,12 @@ main() {
 void loadDemos() {
     final html.HtmlElement navList = html.querySelector('#main-navigation');
     int totalDemosPendingLoading = 0;
+    html.HtmlElement _drawer = null;
+
+    html.HtmlElement getDrawer() {
+        if(_drawer == null) { _drawer = html.querySelector('.wsk-layout__drawer'); }
+        return _drawer;
+    }
 
     void _sizeDemo(final html.HtmlElement rootDemoElement) {
         final html.IFrameElement iframe = rootDemoElement.querySelector("iframe");
@@ -38,7 +44,7 @@ void loadDemos() {
             // contentDocument.documentElement is not implemented in Dart!!!!!
             final int contentHeight = jsIFrame["contentDocument"]["documentElement"]["scrollHeight"];
 
-            iframe.style.height = "${contentHeight * 1.5}px";
+            iframe.style.height = "${contentHeight * 1.2}px";
             iframe.classes.add("heightSet");
             totalDemosPendingLoading--;
             _setLoaderInfo(totalDemosPendingLoading);
@@ -66,6 +72,14 @@ void loadDemos() {
             navAnchor.href = '#' + anchorLink;
             navAnchor.append(new html.Text("${demoTitle}"));
             navList.append(navAnchor);
+
+            navAnchor.onClick.listen((final html.MouseEvent event) {
+                print("Test");
+                if(getDrawer() != null) {
+                    getDrawer().classes.toggle("is-visible");
+                }
+            });
+
 
             final html.AnchorElement anchor = new html.AnchorElement();
             anchor.id = anchorLink;

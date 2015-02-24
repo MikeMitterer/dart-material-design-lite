@@ -30,6 +30,8 @@ class _MaterialLayoutCssClasses {
     final String TAB_BAR_RIGHT_BUTTON = 'wsk-layout__tab-bar-right-button';
     final String PANEL = 'wsk-layout__tab-panel';
 
+    final String NAVI_LINK = "wsk-navigation__link";
+
     final String SHADOW_CLASS = 'is-casting-shadow';
     final String COMPACT_CLASS = 'is-compact';
     final String SMALL_SCREEN_CLASS = 'is-small-screen';
@@ -179,11 +181,19 @@ class MaterialLayout extends WskComponent {
                     element.insertBefore(drawerButton, content);
                 }
 
+                _logger.info("Check: .${_cssClasses.NAVI_LINK}");
+                element.querySelectorAll(".${_cssClasses.NAVI_LINK}").forEach((final html.Element element) {
+                    _logger.info("click $element");
+                    element.onClick.listen( _drawerToggleHandler );
+                });
+
                 final html.DivElement obfuscator = new html.DivElement();
                 obfuscator.classes.add(_cssClasses.OBFUSCATOR);
                 element.append(obfuscator);
 
                 obfuscator.onClick.listen( _drawerToggleHandler );
+
+
             }
 
             // Initialize tabs, if any.

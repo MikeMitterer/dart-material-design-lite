@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/accordion/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/accordion/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/animation/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/animation/web/packages" />
