@@ -1,4 +1,5 @@
 import 'dart:html' as html;
+import "dart:async";
 import 'dart:js';
 
 import 'package:logging/logging.dart';
@@ -7,6 +8,8 @@ import 'package:console_log_handler/console_log_handler.dart';
 import 'package:wsk_material/wskcomponets.dart';
 
 final Logger _logger = new Logger('example.Styleguide');
+
+const String LOADER_TEXT = "Wait! Loading {{nrofiframes}} iframes...";
 
 main() {
     configLogging();
@@ -27,17 +30,22 @@ void loadDemos() {
             return;
         }
 
+        _setLoaderInfo(totalDemosPendingLoading);
         iframe.onLoad.listen((final html.Event event) {
+            _setLoaderInfo(totalDemosPendingLoading);
 
             var jsIFrame = new JsObject.fromBrowserObject(iframe);
             // contentDocument.documentElement is not implemented in Dart!!!!!
             final int contentHeight = jsIFrame["contentDocument"]["documentElement"]["scrollHeight"];
 
-            iframe.style.height = "${contentHeight}px";
+            iframe.style.height = "${contentHeight * 1.5}px";
             iframe.classes.add("heightSet");
             totalDemosPendingLoading--;
+            _setLoaderInfo(totalDemosPendingLoading);
+
             if (totalDemosPendingLoading <= 0) {
                 html.querySelector("body").classes.add("demosLoaded");
+                html.querySelector("body").classes.remove("loadingDemos");
             }
         });
     }
@@ -46,7 +54,9 @@ void loadDemos() {
         final List<html.HtmlElement> demos = html.querySelectorAll('.styleguide-demo');
         totalDemosPendingLoading = demos.length;
 
+        _setLoaderInfo(totalDemosPendingLoading);
         for (int i = 0;i < demos.length;i++) {
+            new Future.delayed(new Duration(milliseconds: 200),() {
             final String demoTitle = (demos[i].querySelector('h1') as html.HtmlElement).text ;
             final String anchorLink = 'demo-$i';
 
@@ -63,10 +73,20 @@ void loadDemos() {
 
             // Size iframe
             _sizeDemo(demos[i]);
+            });
         }
     }
 
     _sizeDemos();
+}
+
+void _setLoaderInfo(final int nrOfFramesLeft) {
+    new Future(() {
+        final html.HtmlElement element = html.querySelector('div.loader') as html.HtmlElement;
+        if(element != null) {
+            element.text = LOADER_TEXT.replaceFirst("{{nrofiframes}}","$nrOfFramesLeft");
+        }
+    });
 }
 
 void configLogging() {

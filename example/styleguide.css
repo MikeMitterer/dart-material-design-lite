@@ -1365,7 +1365,7 @@ body {
     font-weight: 300; }
 
 .wsk-styleguide .wsk-layout__drawer .wsk-navigation__link {
-  padding: 10px 24px; }
+  padding: 8px 24px 5px; }
 
 .demosLoaded .styleguide-demo {
   opacity: 1; }
@@ -1382,3 +1382,9 @@ iframe.heightSet {
   margin: 24px; }
   .demo-wrapper iframe {
     border: 1px solid rgba(0, 0, 0, 0.5); }
+
+.loader {
+  display: none; }
+  .loadingDemos .loader {
+    display: block;
+    padding: 24px; }

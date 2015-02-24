@@ -18,12 +18,14 @@
           rel=stylesheet type=text/css>
     <link rel=stylesheet href=./styleguide.css>
 </head>
-<body>
+<body class="loadingDemos">
 <div class="wsk-layout wsk-js-layout wsk-layout--fixed-drawer wsk-styleguide">
     <div class=wsk-layout__drawer><span class=wsk-layout-title>WSK <strong>Style Guide</strong></span>
         <nav id=main-navigation class=wsk-navigation></nav>
     </div>
     <div class=wsk-layout__content>
+        <div class="loader">Wait! Loading more than 20 iframes...</div>
+
         <div class=styleguide-demo><h1>Typography</h1>
             <iframe src=./typography/web/index.html scrolling=no></iframe>
         </div>
@@ -62,6 +64,9 @@
         </div>
         <div class=styleguide-demo><h1>Switch</h1>
             <iframe src=./switch/web/index.html scrolling=no></iframe>
+        </div>
+        <div class=styleguide-demo><h1>Accordion</h1>
+          <iframe src=./accordion/web/index.html scrolling=no></iframe>
         </div>
         <div class=styleguide-demo><h1>Icon Toggle</h1>
             <iframe src=./icon-toggle/web/index.html scrolling=no></iframe>

@@ -85,3 +85,12 @@ iframe.heightSet {
     border: 1px solid rgba(0,0,0,0.5);
   }
 }
+
+.loader {
+    display: none;
+
+    .loadingDemos & {
+        display: block;
+        padding: 24px;
+    }
+}
