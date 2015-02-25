@@ -1,7 +1,7 @@
 #Change Log for wsk_material#
 Web Starter Kit - Material Design with Dart
 
-##[Unreleased](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.4...HEAD)##
+##[v0.6.5](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.4...v0.6.5) - 2015-02-25##
 
 ###Fixes###
 * Drawer closes now like expected (Styleguide) [23a7c58](http://github.com/mikemitterer/dart-wsk-material/commit/23a7c58f49dda390205ef6cb5a3e431054187fda)
