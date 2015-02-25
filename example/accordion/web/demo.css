@@ -1067,7 +1067,5 @@ input[name='wsk-accordion']:checked ~ .wsk-accordion--content {
   -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
           transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
 
-.accordion.sample {
-  margin-bottom: 500px; }
-  .accordion.sample .preview-block > h1, .accordion.sample .preview-block > h2, .accordion.sample .preview-block > h3, .accordion.sample .preview-block > h4, .accordion.sample .preview-block > h5, .accordion.sample .preview-block > h6 {
-    padding-bottom: 0.5em; }
+.accordion.sample .preview-block > h1, .accordion.sample .preview-block > h2, .accordion.sample .preview-block > h3, .accordion.sample .preview-block > h4, .accordion.sample .preview-block > h5, .accordion.sample .preview-block > h6 {
+  padding-bottom: 0.5em; }

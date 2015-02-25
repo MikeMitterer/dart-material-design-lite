@@ -170,12 +170,12 @@ class Application {
         .then((final Process process) {
 
             process.stdout.transform(UTF8.decoder).listen((final String data) {
-                print(data);
+                _logger.info(data);
             });
 
             // Get the exit code from the new process.
             process.exitCode.then((exitCode) {
-                print('Exit code: $exitCode'); // Prints 'exit code: 0'.
+                _logger.info('Exit code: $exitCode'); // Prints 'exit code: 0'.
             });
 
         });
@@ -398,7 +398,9 @@ class Application {
             targetIndexHtml.delete();
         }
 
-        final String contents = srcIndexHtml.readAsStringSync();
+        String contents = srcIndexHtml.readAsStringSync();
+        contents = contents.replaceAll("{{lastupdate}}",new DateTime.now().toIso8601String());
+
         final StringBuffer buffer = new StringBuffer();
         links.forEach((final _LinkInfo linkinfo) {
             final String script = linkinfo.hasScript ? '<span class="script">[ with main.dart ]</span>' : '';
