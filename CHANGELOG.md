@@ -1,6 +1,11 @@
 #Change Log for wsk_material#
 Web Starter Kit - Material Design with Dart
 
+##[v0.6.6](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.5...v0.6.6) - 2015-02-26##
+
+###Fixes###
+* Ripple updates its size now more often. Works better now with loadchecker [a263034](http://github.com/mikemitterer/dart-wsk-material/commit/a263034f8857b29ab4c38f53b5497ca73c0d5c0b)
+
 ##[v0.6.5](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.4...v0.6.5) - 2015-02-25##
 
 ###Fixes###
