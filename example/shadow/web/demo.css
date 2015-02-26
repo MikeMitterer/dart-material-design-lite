@@ -968,16 +968,10 @@ dt {
   height: 186px; }
 
 .wsk-card--heading {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   background: #1976d2 none repeat scroll 0 0/auto padding-box border-box;
   border: 0 none white;
   color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   font-size: 24px;
   height: 96px;
@@ -985,23 +979,15 @@ dt {
   line-height: normal;
   outline: white none 0;
   padding: 8px 16px;
-  -webkit-perspective-origin: 165px 56px;
-          perspective-origin: 165px 56px;
+  perspective-origin: 165px 56px;
   text-decoration: none solid white;
-  -webkit-transform-origin: 165px 56px;
-      -ms-transform-origin: 165px 56px;
-          transform-origin: 165px 56px;
+  transform-origin: 165px 56px;
   width: 100%; }
 
 .wsk-card--heading-text {
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
+  align-self: center;
   border: 0 none white;
   color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   font-size: inherit;
   font-weight: 300;
@@ -1011,9 +997,7 @@ dt {
   outline: white none 0;
   overflow: hidden;
   text-decoration: none solid white;
-  -webkit-transform-origin: 149px 48px;
-      -ms-transform-origin: 149px 48px;
-          transform-origin: 149px 48px;
+  transform-origin: 149px 48px;
   width: 90%; }
 
 .wsk-card--caption {
@@ -1025,8 +1009,7 @@ dt {
   line-height: normal;
   outline: white none 0;
   padding: 8px 16px;
-  -webkit-perspective-origin: 165px 16px;
-          perspective-origin: 165px 16px;
+  perspective-origin: 165px 16px;
   text-decoration: none solid white;
   width: 100%; }
 
@@ -1064,13 +1047,10 @@ dt {
   line-height: 50px;
   outline: #303f9f none 0;
   padding: 0 16px;
-  -webkit-perspective-origin: 165px 25px;
-          perspective-origin: 165px 25px;
+  perspective-origin: 165px 25px;
   text-decoration: none solid #303f9f;
   text-transform: uppercase;
-  -webkit-transform-origin: 165px 25px;
-      -ms-transform-origin: 165px 25px;
-          transform-origin: 165px 25px;
+  transform-origin: 165px 25px;
   width: 100%; }
 
 .wsk-shadow--z1 {
@@ -1094,10 +1074,7 @@ dt {
   display: block;
   height: 300px;
   margin: 20px;
-  -webkit-transition-property: opacity, -webkit-transform;
-          transition-property: opacity, transform;
-  -webkit-transition-duration: 300ms;
-          transition-duration: 300ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: opacity, transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 300px; }
