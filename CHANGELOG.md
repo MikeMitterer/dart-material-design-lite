@@ -1,7 +1,7 @@
 #Change Log for wsk_material#
 Web Starter Kit - Material Design with Dart
 
-##[Unreleased](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.6...HEAD)##
+##[v0.6.7](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.6...v0.6.7) - 2015-02-26##
 
 ###Fixes###
 * Indicator (Chevron by default) in AccordionComponent has on indicator-cssClass now [f63a862](http://github.com/mikemitterer/dart-wsk-material/commit/f63a862fff3339be1db24041febdca99c1b2cb45)
