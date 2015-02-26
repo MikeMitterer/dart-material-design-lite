@@ -63,11 +63,7 @@ class MaterialRipple extends WskComponent {
         _recentering = element.classes.contains(_cssClasses.WSK_RIPPLE_CENTER);
         if(!element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS)) {
 
-            if (rippleElement != null) {
-                _rippleSize = (Math.max(bound.width, bound.height) * 2).toInt();
-                rippleElement.style.width = "${_rippleSize}px";
-                rippleElement.style.height = "${_rippleSize}px";
-            }
+            _updateDimension();
 
             element.onMouseDown.listen(_downHandler);
             element.onTouchStart.listen(_downHandler);
@@ -84,6 +80,14 @@ class MaterialRipple extends WskComponent {
     Math.Rectangle get bound => element.getBoundingClientRect();
 
     void _setRippleXY(final int newX,final int newY) { _x = newX; _y = newY; }
+
+    void _updateDimension() {
+        if (rippleElement != null) {
+            _rippleSize = (Math.max(bound.width, bound.height) * 2).toInt();
+            rippleElement.style.width = "${_rippleSize}px";
+            rippleElement.style.height = "${_rippleSize}px";
+        }
+    }
 
     void _downHandler(final html.UIEvent event) {
         if (event.type == 'mousedown' && _ignoringMouseDown) {
@@ -126,6 +130,7 @@ class MaterialRipple extends WskComponent {
                 y = (client.y - bound.top).round();
             }
 
+            _updateDimension();
             _setRippleXY(x, y);
             _setRippleStyles(true);
 

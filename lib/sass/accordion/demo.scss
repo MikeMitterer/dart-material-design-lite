@@ -1,10 +1,4 @@
 @import "../styleguide_demo_bp";
+@import "../demo/demo";
 @import "accordion";
 
-.accordion.sample {
-    .preview-block {
-        & > h1, & > h2,& > h3,& > h4,& > h5,& > h6 {
-            padding-bottom: 0.5em;
-        }
-    }
-}

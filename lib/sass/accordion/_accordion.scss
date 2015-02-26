@@ -30,7 +30,7 @@ $accordion-padding: 16px !default;
 
     border-top: 1px solid $accordion-divider-color;
 
-    input[name='wsk-accordion'] {
+    input[name^='wsk-accordion'] {
         display: none;
     }
 
@@ -78,8 +78,8 @@ $accordion-padding: 16px !default;
             position: absolute;
             height: 100%;
             width: 100%;
-            left: 0px;
-            top: 0px;
+            left: 0;
+            top: 0;
             z-index: 1;
             overflow: hidden;
 
@@ -105,6 +105,7 @@ $accordion-padding: 16px !default;
     .wsk-accordion--content {
         overflow: auto;
         max-height: 0;
+
         position: relative;
         padding: 0 $accordion-padding;
         transition: max-height $accordion-timing $accordion-ease;
@@ -124,7 +125,7 @@ $accordion-padding: 16px !default;
     }
 }
 
-input[name='wsk-accordion']:checked ~ .wsk-accordion--content {
+input[name^='wsk-accordion']:checked ~ .wsk-accordion--content {
     max-height: 500px;
     border-bottom: 1px solid $accordion-divider-color;
     transition: max-height $accordion-timing $accordion-ease;

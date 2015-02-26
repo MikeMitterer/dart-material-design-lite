@@ -1,10 +1,4 @@
 @import "packages/wsk_material/sass/styleguide_demo_bp";
+@import "packages/wsk_material/sass/demo/demo";
 @import "packages/wsk_material/sass/accordion/accordion";
 
-.accordion.sample {
-    .preview-block {
-        & > h1, & > h2,& > h3,& > h4,& > h5,& > h6 {
-            padding-bottom: 0.5em;
-        }
-    }
-}

@@ -588,18 +588,11 @@ body > h2 {
   .wsk-spinner:not(.is-upgraded):after {
     content: "Loading..."; }
   .wsk-spinner.is-upgraded.is-active {
-    -webkit-animation: wsk-spinner__container-rotate 1568.23529ms linear infinite;
-            animation: wsk-spinner__container-rotate 1568.23529ms linear infinite; }
-
-@-webkit-keyframes wsk-spinner__container-rotate{
-  to{
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    animation: wsk-spinner__container-rotate 1568.23529ms linear infinite; }
 
 @keyframes wsk-spinner__container-rotate {
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    transform: rotate(360deg); } }
 
 .wsk-spinner__layer {
   position: absolute;
@@ -612,91 +605,53 @@ body > h2 {
   .wsk-spinner--single-color .wsk-spinner__layer-1 {
     border-color: #2196f3; }
   .wsk-spinner.is-active .wsk-spinner__layer-1 {
-    -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-            animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
+    animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .wsk-spinner__layer-2 {
   border-color: #db4437; }
   .wsk-spinner--single-color .wsk-spinner__layer-2 {
     border-color: #2196f3; }
   .wsk-spinner.is-active .wsk-spinner__layer-2 {
-    -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-            animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
+    animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .wsk-spinner__layer-3 {
   border-color: #f4b400; }
   .wsk-spinner--single-color .wsk-spinner__layer-3 {
     border-color: #2196f3; }
   .wsk-spinner.is-active .wsk-spinner__layer-3 {
-    -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-            animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
+    animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .wsk-spinner__layer-4 {
   border-color: #0f9d58; }
   .wsk-spinner--single-color .wsk-spinner__layer-4 {
     border-color: #2196f3; }
   .wsk-spinner.is-active .wsk-spinner__layer-4 {
-    -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-            animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
-
-@-webkit-keyframes wsk-spinner__fill-unfill-rotate{
-  12.5%{
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg); }
-  25%{
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg); }
-  37.5%{
-    -webkit-transform: rotate(405deg);
-            transform: rotate(405deg); }
-  50%{
-    -webkit-transform: rotate(540deg);
-            transform: rotate(540deg); }
-  62.5%{
-    -webkit-transform: rotate(675deg);
-            transform: rotate(675deg); }
-  75%{
-    -webkit-transform: rotate(810deg);
-            transform: rotate(810deg); }
-  87.5%{
-    -webkit-transform: rotate(945deg);
-            transform: rotate(945deg); }
-  to{
-    -webkit-transform: rotate(1080deg);
-            transform: rotate(1080deg); } }
+    animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 @keyframes wsk-spinner__fill-unfill-rotate {
   12.5% {
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg); }
+    transform: rotate(135deg); }
 
   25% {
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg); }
+    transform: rotate(270deg); }
 
   37.5% {
-    -webkit-transform: rotate(405deg);
-            transform: rotate(405deg); }
+    transform: rotate(405deg); }
 
   50% {
-    -webkit-transform: rotate(540deg);
-            transform: rotate(540deg); }
+    transform: rotate(540deg); }
 
   62.5% {
-    -webkit-transform: rotate(675deg);
-            transform: rotate(675deg); }
+    transform: rotate(675deg); }
 
   75% {
-    -webkit-transform: rotate(810deg);
-            transform: rotate(810deg); }
+    transform: rotate(810deg); }
 
   87.5% {
-    -webkit-transform: rotate(945deg);
-            transform: rotate(945deg); }
+    transform: rotate(945deg); }
 
   to {
-    -webkit-transform: rotate(1080deg);
-            transform: rotate(1080deg); } }
+    transform: rotate(1080deg); } }
 
 /**
 * HACK: Even though the intention is to have the current .wsk-spinner__layer-N
@@ -707,19 +662,6 @@ body > h2 {
 * - https://github.com/Polymer/paper-spinner/issues/9
 * - https://code.google.com/p/chromium/issues/detail?id=436255
 */
-@-webkit-keyframes wsk-spinner__layer-1-fade-in-out{
-  from{
-    opacity: 0.99; }
-  25%{
-    opacity: 0.99; }
-  26%{
-    opacity: 0; }
-  89%{
-    opacity: 0; }
-  90%{
-    opacity: 0.99; }
-  100%{
-    opacity: 0.99; } }
 @keyframes wsk-spinner__layer-1-fade-in-out {
   from {
     opacity: 0.99; }
@@ -739,18 +681,6 @@ body > h2 {
   100% {
     opacity: 0.99; } }
 
-@-webkit-keyframes wsk-spinner__layer-2-fade-in-out{
-  from{
-    opacity: 0; }
-  15%{
-    opacity: 0; }
-  25%{
-    opacity: 0.99; }
-  50%{
-    opacity: 0.99; }
-  51%{
-    opacity: 0; } }
-
 @keyframes wsk-spinner__layer-2-fade-in-out {
   from {
     opacity: 0; }
@@ -767,18 +697,6 @@ body > h2 {
   51% {
     opacity: 0; } }
 
-@-webkit-keyframes wsk-spinner__layer-3-fade-in-out{
-  from{
-    opacity: 0; }
-  40%{
-    opacity: 0; }
-  50%{
-    opacity: 0.99; }
-  75%{
-    opacity: 0.99; }
-  76%{
-    opacity: 0; } }
-
 @keyframes wsk-spinner__layer-3-fade-in-out {
   from {
     opacity: 0; }
@@ -793,18 +711,6 @@ body > h2 {
     opacity: 0.99; }
 
   76% {
-    opacity: 0; } }
-
-@-webkit-keyframes wsk-spinner__layer-4-fade-in-out{
-  from{
-    opacity: 0; }
-  65%{
-    opacity: 0; }
-  75%{
-    opacity: 0.99; }
-  90%{
-    opacity: 0.99; }
-  100%{
     opacity: 0; } }
 
 @keyframes wsk-spinner__layer-4-fade-in-out {
@@ -862,8 +768,7 @@ body > h2 {
   border-color: inherit;
   border-bottom-color: transparent !important;
   border-radius: 50%;
-  -webkit-animation: none;
-          animation: none;
+  animation: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -871,66 +776,32 @@ body > h2 {
   left: 0; }
   .wsk-spinner__left .wsk-spinner__circle {
     border-right-color: transparent !important;
-    -webkit-transform: rotate(129deg);
-        -ms-transform: rotate(129deg);
-            transform: rotate(129deg); }
+    transform: rotate(129deg); }
     .wsk-spinner.is-active .wsk-spinner__left .wsk-spinner__circle {
-      -webkit-animation: wsk-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-              animation: wsk-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
+      animation: wsk-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
   .wsk-spinner__right .wsk-spinner__circle {
     left: -100%;
     border-left-color: transparent !important;
-    -webkit-transform: rotate(-129deg);
-        -ms-transform: rotate(-129deg);
-            transform: rotate(-129deg); }
+    transform: rotate(-129deg); }
     .wsk-spinner.is-active .wsk-spinner__right .wsk-spinner__circle {
-      -webkit-animation: wsk-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-              animation: wsk-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
-
-@-webkit-keyframes wsk-spinner__left-spin{
-  from{
-    -webkit-transform: rotate(130deg);
-            transform: rotate(130deg); }
-  50%{
-    -webkit-transform: rotate(-5deg);
-            transform: rotate(-5deg); }
-  to{
-    -webkit-transform: rotate(130deg);
-            transform: rotate(130deg); } }
+      animation: wsk-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 @keyframes wsk-spinner__left-spin {
   from {
-    -webkit-transform: rotate(130deg);
-            transform: rotate(130deg); }
+    transform: rotate(130deg); }
 
   50% {
-    -webkit-transform: rotate(-5deg);
-            transform: rotate(-5deg); }
+    transform: rotate(-5deg); }
 
   to {
-    -webkit-transform: rotate(130deg);
-            transform: rotate(130deg); } }
-
-@-webkit-keyframes wsk-spinner__right-spin{
-  from{
-    -webkit-transform: rotate(-130deg);
-            transform: rotate(-130deg); }
-  50%{
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg); }
-  to{
-    -webkit-transform: rotate(-130deg);
-            transform: rotate(-130deg); } }
+    transform: rotate(130deg); } }
 
 @keyframes wsk-spinner__right-spin {
   from {
-    -webkit-transform: rotate(-130deg);
-            transform: rotate(-130deg); }
+    transform: rotate(-130deg); }
 
   50% {
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg); }
+    transform: rotate(5deg); }
 
   to {
-    -webkit-transform: rotate(-130deg);
-            transform: rotate(-130deg); } }
+    transform: rotate(-130deg); } }
