@@ -1007,7 +1007,7 @@ dt {
       border: 1px solid red; }
     .wsk-accordion label:hover {
       color: black; }
-    .wsk-accordion label i {
+    .wsk-accordion label i.indicator {
       position: absolute;
       top: 20.8px;
       right: 16px;
@@ -1015,7 +1015,7 @@ dt {
       font-weight: 100;
       font-size: 60%;
       color: rgba(0, 0, 0, 0.6); }
-      .debug .wsk-accordion label i {
+      .debug .wsk-accordion label i.indicator {
         border: 1px solid green; }
     .wsk-accordion label .wsk-accordion__ripple-container {
       display: block;
@@ -1030,11 +1030,11 @@ dt {
         background: #2196f3; }
   .wsk-accordion input:checked + label {
     color: black; }
-    .wsk-accordion input:checked + label i {
+    .wsk-accordion input:checked + label i.indicator {
       transform: rotate(90deg);
       transition: 0.3s ease-in-out;
       color: #1e88e5; }
-      .debug .wsk-accordion input:checked + label i {
+      .debug .wsk-accordion input:checked + label i.indicator {
         border: 1px solid red; }
   .wsk-accordion .wsk-accordion--content {
     overflow: auto;

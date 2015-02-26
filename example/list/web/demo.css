@@ -588,7 +588,8 @@ body > h2 {
 
 .wsk-list--styled-view {
   background: white;
-  transition: background 0.3s 0.1s;
+  -webkit-transition: background 0.3s 0.1s;
+          transition: background 0.3s 0.1s;
   z-index: 1; }
 
 .wsk-list--styled-view ul {
