@@ -45,7 +45,9 @@ Please file feature requests and bugs at the [issue tracker][tracker].
     governing permissions and limitations under the License.
 
 
-If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.at/) me.
+If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.at/) me
+or **star** this repo here on GitHub
+
 
 [tracker]: https://github.com/MikeMitterer/dart-wsk-material/issues
 [wskmaterial]: https://github.com/google/web-starter-kit/tree/material-sprint
