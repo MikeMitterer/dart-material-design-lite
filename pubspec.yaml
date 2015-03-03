@@ -1,5 +1,5 @@
 name: wsk_material
-description: Web Starter Kit - Material Design with Dart
+description: Material Design for your Application. Based on Googles Web Starter Kit
 version: 0.6.7
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-material
