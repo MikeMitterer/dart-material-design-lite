@@ -331,9 +331,10 @@ $layout-tab-highlight-thickness: 2px;
       }
 
       .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > & {
-            & > .wsk-layout-icon {
+           & > .wsk-layout-icon {
                 left: $layout-header-basic-mobile-indent + 32px;
-            }
+           }
+
            & .wsk-layout-title {
                 margin-left: 12px;
            }

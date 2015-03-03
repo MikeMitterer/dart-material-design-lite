@@ -1,5 +1,10 @@
 #Change Log for wsk_material#
-Web Starter Kit - Material Design with Dart
+Material Design for your Application. Based on Googles Web Starter Kit
+
+##[v0.6.8](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.7...v0.6.8) - 2015-03-03##
+
+###Fixes###
+* Fixed-header-layout shows burger-button correct [0c822d4](http://github.com/mikemitterer/dart-wsk-material/commit/0c822d492412df5194b07f2ae03da103fd5762c8)
 
 ##[v0.6.7](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.6...v0.6.7) - 2015-02-26##
 
