@@ -7,3 +7,4 @@ packages
 pubspec.lock
 .sass-cache
 lib/sass/*/*.css
+.bs

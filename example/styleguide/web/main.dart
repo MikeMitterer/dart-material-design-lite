@@ -1,6 +1,7 @@
 import 'dart:html' as html;
 import "dart:async";
 import 'dart:js';
+import "dart:math" as Math;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
@@ -42,7 +43,9 @@ void loadDemos() {
 
             var jsIFrame = new JsObject.fromBrowserObject(iframe);
             // contentDocument.documentElement is not implemented in Dart!!!!!
-            final int contentHeight = jsIFrame["contentDocument"]["documentElement"]["scrollHeight"];
+            int contentHeight = jsIFrame["contentDocument"]["documentElement"]["scrollHeight"];
+            // Durch den Loader stimmt die Höhe nicht mehr - default auf 4500!
+            contentHeight = Math.max(4500,contentHeight);
 
             iframe.style.height = "${contentHeight * 1.2}px";
             iframe.classes.add("heightSet");

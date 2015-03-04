@@ -43,6 +43,9 @@
       <excludeFolder url="file://$MODULE_DIR$/example/slider/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/spinner/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/spinner/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages/wsk_material" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/switch/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/switch/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/tabs/packages/wsk_material" />

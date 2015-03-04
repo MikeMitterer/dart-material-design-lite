@@ -22,7 +22,6 @@ class Application {
     static const _ARG_GENERATE      = 'gen';
     static const _ARG_MK_BACKUP     = 'makebackup';
     static const _ARG_SHOW_DIRS     = 'showdirs';
-    static const _ARG_RSYNC         = 'rsync';
 
     ArgParser _parser;
 
@@ -46,9 +45,6 @@ class Application {
                 _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final File file) {
                     _logger.info(file.path);
                 });
-            }
-            else if(argResults[_ARG_RSYNC]) {
-                rsyncBuildExample();
             }
             else if(argResults[_ARG_GENERATE]) {
                 final List<_LinkInfo> links = new List<_LinkInfo>();
@@ -162,24 +158,6 @@ class Application {
         }
     }
 
-    void rsyncBuildExample() {
-        _logger.info("RSync build/web...");
-
-        // rsync -avz -e ssh build/example/ bcadmin@vhost2.mikemitterer.at:/home/wskan82301/www/
-        Process.start("rsync", [ '-avz', '-e', 'ssh', 'build/example/', 'bcadmin@vhost2.mikemitterer.at:/home/wskmt81408/www/' ])
-        .then((final Process process) {
-
-            process.stdout.transform(UTF8.decoder).listen((final String data) {
-                _logger.info(data);
-            });
-
-            // Get the exit code from the new process.
-            process.exitCode.then((exitCode) {
-                _logger.info('Exit code: $exitCode'); // Prints 'exit code: 0'.
-            });
-
-        });
-    }
 
     // -- private -------------------------------------------------------------
     void _copySubdirs(final File sourceDir, final File targetDir, { int level: 0 } ) {
@@ -559,7 +537,6 @@ class Application {
             ..addFlag(_ARG_GENERATE,        abbr: 'g', negatable: false, help: "Generate samples")
             ..addFlag(_ARG_MK_BACKUP,       abbr: 'b', negatable: false, help: "Make backup")
             ..addFlag(_ARG_SHOW_DIRS,       abbr: 'd', negatable: false, help: "Show source-Dirs")
-            ..addFlag(_ARG_RSYNC,           abbr: 'r', negatable: false, help: "RSync's build/example")
 
             ..addOption(_ARG_LOGLEVEL,      abbr: 'v', help: "[ info | debug | warning ]")
             ;
