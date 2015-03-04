@@ -1,7 +1,14 @@
 #Change Log for wsk_material#
 Material Design for your Application. Based on Googles Web Starter Kit
 
-##[Unreleased](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.9...HEAD)##
+##[v0.7.0](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.9...v0.7.0) - 2015-03-05##
+
+###Feature###
+* bottombar added [026adfe](http://github.com/mikemitterer/dart-wsk-material/commit/026adfeede0188abc4671d2cc67930ee1b08c1b6)
+
+###Bugs###
+* z-index for back-to-top buttun changed to 1 [21fd281](http://github.com/mikemitterer/dart-wsk-material/commit/21fd281b08e21d91bec8f259e7e26d9defe79d98)
+* Sample layout-header-drawer-footer did not show a scroll shadow [6b7927d](http://github.com/mikemitterer/dart-wsk-material/commit/6b7927d453c53895f11de9122fdcef759a9acb5a)
 
 ###Docs###
 * Two new sample-layouts [c4f1be8](http://github.com/mikemitterer/dart-wsk-material/commit/c4f1be8f37b832ff0e369480ffa8c0c5606c4e9f)
