@@ -1,6 +1,11 @@
 #Change Log for wsk_material#
 Material Design for your Application. Based on Googles Web Starter Kit
 
+##[Unreleased](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.9...HEAD)##
+
+###Docs###
+* Two new sample-layouts [c4f1be8](http://github.com/mikemitterer/dart-wsk-material/commit/c4f1be8f37b832ff0e369480ffa8c0c5606c4e9f)
+
 ##[v0.6.9](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.8...v0.6.9) - 2015-03-04##
 
 ###Docs###
@@ -42,9 +47,45 @@ Material Design for your Application. Based on Googles Web Starter Kit
 ###Docs###
 * Description for pubspec.yaml [7c6451d](http://github.com/mikemitterer/dart-wsk-material/commit/7c6451d5df3c1a9b0b3fdcc9cad74d03828c1548)
 
-##[v0.6.2](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.1...v0.6.2) - 2015-02-20##
+##[v0.6.2](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.10...v0.6.2) - 2015-02-20##
+
+###Feature###
+* Accordion works [5d8e7dc](http://github.com/mikemitterer/dart-wsk-material/commit/5d8e7dc965aeec88bc2b2869aa98542297b8a4de)
+
+###Fixes###
+* Fixed-header-layout shows burger-button correct [0c822d4](http://github.com/mikemitterer/dart-wsk-material/commit/0c822d492412df5194b07f2ae03da103fd5762c8)
+* Indicator (Chevron by default) in AccordionComponent has on indicator-cssClass now [f63a862](http://github.com/mikemitterer/dart-wsk-material/commit/f63a862fff3339be1db24041febdca99c1b2cb45)
+* Ripple updates its size now more often. Works better now with loadchecker [a263034](http://github.com/mikemitterer/dart-wsk-material/commit/a263034f8857b29ab4c38f53b5497ca73c0d5c0b)
+* Drawer closes now like expected (Styleguide) [23a7c58](http://github.com/mikemitterer/dart-wsk-material/commit/23a7c58f49dda390205ef6cb5a3e431054187fda)
+
+###Bugs###
+* Drawer closes now like expected (Styleguide) [df1d34c](http://github.com/mikemitterer/dart-wsk-material/commit/df1d34cf2a5e45a062010f88bf69d0f4fef722b8)
 
 ###Docs###
+* Two new sample-layouts [c4f1be8](http://github.com/mikemitterer/dart-wsk-material/commit/c4f1be8f37b832ff0e369480ffa8c0c5606c4e9f)
+* Stylguide got its own dir in example [8e609ef](http://github.com/mikemitterer/dart-wsk-material/commit/8e609ef48b11ab90dc63d18c41b3f281a861521f)
+* Accordion added to styleguide [8aa5874](http://github.com/mikemitterer/dart-wsk-material/commit/8aa587452bc850777f0d2ea46cfe01c608c3eb95)
+* Description for pubspec.yaml [7c6451d](http://github.com/mikemitterer/dart-wsk-material/commit/7c6451d5df3c1a9b0b3fdcc9cad74d03828c1548)
+
+##[v0.6.10](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.1...v0.6.10) - 2015-03-04##
+
+###Feature###
+* Accordion works [5d8e7dc](http://github.com/mikemitterer/dart-wsk-material/commit/5d8e7dc965aeec88bc2b2869aa98542297b8a4de)
+
+###Fixes###
+* Fixed-header-layout shows burger-button correct [0c822d4](http://github.com/mikemitterer/dart-wsk-material/commit/0c822d492412df5194b07f2ae03da103fd5762c8)
+* Indicator (Chevron by default) in AccordionComponent has on indicator-cssClass now [f63a862](http://github.com/mikemitterer/dart-wsk-material/commit/f63a862fff3339be1db24041febdca99c1b2cb45)
+* Ripple updates its size now more often. Works better now with loadchecker [a263034](http://github.com/mikemitterer/dart-wsk-material/commit/a263034f8857b29ab4c38f53b5497ca73c0d5c0b)
+* Drawer closes now like expected (Styleguide) [23a7c58](http://github.com/mikemitterer/dart-wsk-material/commit/23a7c58f49dda390205ef6cb5a3e431054187fda)
+
+###Bugs###
+* Drawer closes now like expected (Styleguide) [df1d34c](http://github.com/mikemitterer/dart-wsk-material/commit/df1d34cf2a5e45a062010f88bf69d0f4fef722b8)
+
+###Docs###
+* Two new sample-layouts [c4f1be8](http://github.com/mikemitterer/dart-wsk-material/commit/c4f1be8f37b832ff0e369480ffa8c0c5606c4e9f)
+* Stylguide got its own dir in example [8e609ef](http://github.com/mikemitterer/dart-wsk-material/commit/8e609ef48b11ab90dc63d18c41b3f281a861521f)
+* Accordion added to styleguide [8aa5874](http://github.com/mikemitterer/dart-wsk-material/commit/8aa587452bc850777f0d2ea46cfe01c608c3eb95)
+* Description for pubspec.yaml [7c6451d](http://github.com/mikemitterer/dart-wsk-material/commit/7c6451d5df3c1a9b0b3fdcc9cad74d03828c1548)
 * Hint to 'Load indicator' in Readme [f98429b](http://github.com/mikemitterer/dart-wsk-material/commit/f98429bc61b9c87261b56283bb8034debdaca919)
 
 ##[v0.6.1](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.0...v0.6.1) - 2015-02-19##
