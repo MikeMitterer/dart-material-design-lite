@@ -2827,8 +2827,8 @@ dt {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 64px;
-  min-height: 64px;
+  height: 56px;
+  min-height: 56px;
   color: #eeeeee;
   background-color: #607d8b; }
   .wsk-bottom-bar .wsk-bottom-bar--left-section {
@@ -2888,8 +2888,8 @@ dt {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     border-radius: 100%;
     color: white;
     padding: 0;
