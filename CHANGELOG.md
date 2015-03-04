@@ -1,6 +1,11 @@
 #Change Log for wsk_material#
 Material Design for your Application. Based on Googles Web Starter Kit
 
+##[v0.6.9](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.8...v0.6.9) - 2015-03-04##
+
+###Docs###
+* Stylguide got its own dir in example [8e609ef](http://github.com/mikemitterer/dart-wsk-material/commit/8e609ef48b11ab90dc63d18c41b3f281a861521f)
+
 ##[v0.6.8](http://github.com/mikemitterer/dart-wsk-material/compare/v0.6.7...v0.6.8) - 2015-03-03##
 
 ###Fixes###
