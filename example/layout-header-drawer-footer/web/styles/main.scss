@@ -1,5 +1,6 @@
 @import "packages/wsk_material/sass/resets/h5bp";
 @import "colors";
+
 @import 'packages/wsk_material/sass/typography/typography';
 @import 'packages/wsk_material/sass/layout/layout';
 @import 'packages/wsk_material/sass/textfield/textfield';
@@ -11,6 +12,7 @@
 @import "packages/wsk_material/sass/footer/mega_footer";
 @import "packages/wsk_material/sass/footer/mini_footer";
 @import "packages/wsk_material/sass/footer/mini_footer-flex";
+@import "packages/wsk_material/sass/bottombar/bottom_bar";
 
 html, body {
     width            : 100%;
@@ -41,12 +43,11 @@ body {
     h3 ~ h4 {
         padding-top : 20px;
     }
-
 }
 
-footer.wsk-mini-footer {
-    min-height : 68px;
-    max-height : 68px;
+footer.wsk-mini-footer-flex, footer.wsk-bottom-bar {
+    min-height : 58px;
+    max-height : 58px;
 }
 
 .back-to-top {
@@ -65,7 +66,16 @@ footer.wsk-mini-footer {
     transition : all 0.3s ease-in;
 }
 
+footer.wsk-bottom-bar {
+    display: none;
+
+    @media screen and (max-width : $layout-screen-size-threshold) { display: flex; }
+}
+
 @media screen and (max-width : $layout-screen-size-threshold) {
+    footer.wsk-mini-footer-flex {
+        display: none;
+    }
 
     .back-to-top {
         left  : auto;

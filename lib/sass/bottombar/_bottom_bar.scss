@@ -1,0 +1,90 @@
+@import "../colors";
+
+// -
+// Sizes
+// ----------------------------------------------------------------------------
+
+$padding : 16px !default;
+$bottom-bar-heading-font-size : 24px !default;
+$bottom-bar-heading-line-height : (1.5 * $bottom-bar-heading-font-size) !default;
+$bottom-bar-btn-size : 36px !default;
+
+.wsk-bottom-bar {
+    display          : flex;
+    flex-direction   : row;
+    justify-content  : space-around;
+    align-items      : center;
+
+    //padding          : $padding;
+    color            : $layout-header-text-color;
+    background-color : $layout-header-bg-color;
+
+    min-height       : $bottom-bar-btn-size;
+    box-sizing       : border-box;
+
+    .wsk-bottom-bar--left-section {
+        display       : flex;
+        align-content : flex-start;
+        align-items   : center;
+        flex-grow     : 1;
+
+        .wsk-logo {
+            line-height   : $footer-btn-size;
+            margin-bottom : 0;
+            margin-right  : $padding;
+        }
+    }
+
+    .wsk-bottom-bar--right-section {
+        float         : none;
+        display       : flex;
+        align-content : flex-start;
+        align-items   : center;
+    }
+
+    .wsk-bottom-bar--link-list {
+        list-style : none;
+        margin     : 0;
+        padding    : 0;
+
+        a {
+            color           : inherit;
+            text-decoration : none;
+        }
+
+        li {
+            float         : left;
+            margin-bottom : 0;
+            margin-right  : $padding;
+        }
+    }
+
+    .wsk-bottom-bar--btn {
+        display          : flex;
+        justify-content  : center;
+        align-items      : center;
+        width            : $footer-btn-size;
+        height           : $footer-btn-size;
+        border-radius    : 100%;
+        color            : white;
+        padding          : 0;
+        // margin           : 0 $padding 0 0;
+        background-color : $footer-button-fill-color;
+        border           : none;
+
+        //&:last-child {
+        //    margin-right : 0;
+        //}
+    }
+
+}
+
+@media screen and (min-width : 760px) {
+    .wsk-bottom-bar--link-list {
+        clear : none;
+    }
+
+    .wsk-bottom-bar--link-list li {
+        line-height : $footer-btn-size;
+    }
+}
