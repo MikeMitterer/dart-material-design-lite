@@ -377,7 +377,7 @@ class Application {
         }
 
         String contents = srcIndexHtml.readAsStringSync();
-        contents = contents.replaceAll("{{lastupdate}}",new DateTime.now().toIso8601String());
+        //contents = contents.replaceAll("{{lastupdate}}",new DateTime.now().toIso8601String());
 
         final StringBuffer buffer = new StringBuffer();
         links.forEach((final _LinkInfo linkinfo) {
