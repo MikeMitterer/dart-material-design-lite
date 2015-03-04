@@ -25,11 +25,6 @@ body {
     flex-direction : column;
 }
 
-
-//.wsk-layout {
-//    //min-height: 100vh;
-//}
-
 .wsk-layout__content {
     display        : flex;
     flex-direction : row;
@@ -50,7 +45,8 @@ body {
 }
 
 footer.wsk-mini-footer {
-    padding: 16px;
+    min-height : 68px;
+    max-height : 68px;
 }
 
 .back-to-top {
@@ -59,11 +55,11 @@ footer.wsk-mini-footer {
 }
 
 .add-back-to-top-button .back-to-top {
-    bottom     : 15px; right : 15px;
+    right      : 24px;
+    bottom     : 82px;
     opacity    : 1;
     transition : all 0.3s ease-in;
 }
-
 
 @media screen and (max-width : $layout-screen-size-threshold) {
 
@@ -72,9 +68,7 @@ footer.wsk-mini-footer {
         right : -100px;
     }
     .add-back-to-top-button .back-to-top {
-        left   : auto;
-        right  : 15px;
-        bottom : 15px;
+        left : auto;
     }
 
     .hide-on-mobile {

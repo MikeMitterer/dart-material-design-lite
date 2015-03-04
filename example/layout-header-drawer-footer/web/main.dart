@@ -5,15 +5,15 @@ import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:wsk_material/wskcomponets.dart';
 
+final Logger _logger = new Logger('layout-header-drawer-footer');
+
 void main() {
-    html.querySelector("body").classes.add("update-theme");
     configLogging();
 
     scrollChecker();
 
     registerAllWskComponents();
     upgradeAllRegistered();
-    html.querySelector("body").classes.remove("update-theme");
 }
 
 void configLogging() {
@@ -27,10 +27,14 @@ void configLogging() {
 
 void scrollChecker() {
     final html.HtmlElement body = html.querySelector("body");
-    final html.HtmlElement content = html.querySelector(".wsk-layout__content");
+
+    // .wsk-layout__content section hat overflow: scroll - kein scroll event
+    final html.HtmlElement content = html.querySelector(".wsk-layout__content section");
+
     final html.HtmlElement shadow = html.querySelector(".addscrollshadow");
     final html.ButtonElement button = html.querySelector("#totop");
 
+    _logger.info(button);
     if(content == null || shadow == null || button == null) {
         return;
     }
@@ -41,7 +45,7 @@ void scrollChecker() {
 
     content.onScroll.listen((final html.Event event) {
         final int top = content.scrollTop;
-
+        print(top);
         if(top > 25) {
             shadow.classes.add("wsk-shadow--z2");
         } else {

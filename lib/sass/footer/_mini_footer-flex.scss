@@ -17,6 +17,7 @@ $footer-btn-size : 36px !default;
     color            : $footer-color;
     background-color : $footer-bg-color;
     min-height       : $footer-btn-size;
+    box-sizing       : border-box;
 
     .wsk-mini-footer--left-section {
         display       : flex;

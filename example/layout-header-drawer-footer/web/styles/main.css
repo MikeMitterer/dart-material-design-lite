@@ -2715,7 +2715,8 @@ dt {
   padding: 16px;
   color: #A0A0A0;
   background-color: #454545;
-  min-height: 36px; }
+  min-height: 36px;
+  box-sizing: border-box; }
   .wsk-mini-footer-flex .wsk-mini-footer--left-section {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2826,7 +2827,8 @@ body {
     padding-top: 20px; }
 
 footer.wsk-mini-footer {
-  padding: 16px; }
+  min-height: 68px;
+  max-height: 68px; }
 
 .back-to-top {
   position: fixed;
@@ -2838,8 +2840,8 @@ footer.wsk-mini-footer {
   z-index: 99; }
 
 .add-back-to-top-button .back-to-top {
-  bottom: 15px;
-  right: 15px;
+  right: 24px;
+  bottom: 82px;
   opacity: 1;
   -webkit-transition: all 0.3s ease-in;
           transition: all 0.3s ease-in; }
@@ -2849,8 +2851,6 @@ footer.wsk-mini-footer {
     left: auto;
     right: -100px; }
   .add-back-to-top-button .back-to-top {
-    left: auto;
-    right: 15px;
-    bottom: 15px; }
+    left: auto; }
   .hide-on-mobile {
     display: none; } }
