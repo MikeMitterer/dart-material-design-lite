@@ -26,6 +26,17 @@
       <excludeFolder url="file://$MODULE_DIR$/example/icon-toggle/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/item/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/item/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/packages/wsk_material" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/web/images/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/web/styles/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/packages/wsk_material" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/web/images/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/web/styles/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout/web/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout/web/packages" />

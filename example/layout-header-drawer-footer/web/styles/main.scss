@@ -1,0 +1,85 @@
+@import "packages/wsk_material/sass/resets/h5bp";
+@import "colors";
+@import 'packages/wsk_material/sass/typography/typography';
+@import 'packages/wsk_material/sass/layout/layout';
+@import 'packages/wsk_material/sass/textfield/textfield';
+@import 'packages/wsk_material/sass/animation/animation';
+@import 'packages/wsk_material/sass/palette/palette';
+@import 'packages/wsk_material/sass/list/list';
+@import "packages/wsk_material/sass/shadow/shadow";
+@import "packages/wsk_material/sass/button/button";
+@import "packages/wsk_material/sass/footer/mega_footer";
+@import "packages/wsk_material/sass/footer/mini_footer";
+@import "packages/wsk_material/sass/footer/mini_footer-flex";
+
+html, body {
+    width            : 100%;
+    height           : 100%;
+    margin           : 0;
+    padding          : 0;
+    background-color : #F4F4F4;
+}
+
+body {
+    display        : flex;
+    flex-direction : column;
+}
+
+
+//.wsk-layout {
+//    //min-height: 100vh;
+//}
+
+.wsk-layout__content {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+    align-content  : space-between;
+    padding        : 0;
+
+    section {
+        padding   : 24px;
+        flex-grow : 1;
+        overflow  : scroll;
+    }
+
+    h3 ~ h4 {
+        padding-top : 20px;
+    }
+
+}
+
+footer.wsk-mini-footer {
+    padding: 16px;
+}
+
+.back-to-top {
+    position : fixed; bottom : 500px; right : -100px; transition : all 0.3s ease-out; opacity : 0;
+    z-index  : 99;
+}
+
+.add-back-to-top-button .back-to-top {
+    bottom     : 15px; right : 15px;
+    opacity    : 1;
+    transition : all 0.3s ease-in;
+}
+
+
+@media screen and (max-width : $layout-screen-size-threshold) {
+
+    .back-to-top {
+        left  : auto;
+        right : -100px;
+    }
+    .add-back-to-top-button .back-to-top {
+        left   : auto;
+        right  : 15px;
+        bottom : 15px;
+    }
+
+    .hide-on-mobile {
+        display : none;
+    }
+}
+
+

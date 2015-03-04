@@ -1,0 +1,20 @@
+name: layout-header-drawer-footer
+version: 0.0.1
+description: An absolute bare-bones web app.
+#author: <your name> <email@example.com>
+#homepage: https://www.example.com
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+dependencies:
+  browser: any
+
+  wsk_material:
+    path: ../..
+
+  logging: any
+  logging_handlers: any
+  console_log_handler: any
+
+
