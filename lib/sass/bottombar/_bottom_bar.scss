@@ -7,20 +7,24 @@
 $padding : 16px !default;
 $bottom-bar-heading-font-size : 24px !default;
 $bottom-bar-heading-line-height : (1.5 * $bottom-bar-heading-font-size) !default;
-$bottom-bar-btn-size : 36px !default;
+$bottom-bar-btn-size : 48px !default;
+$bottom-bar-height: 64px;
 
 .wsk-bottom-bar {
+    box-sizing       : border-box;
+
     display          : flex;
     flex-direction   : row;
     justify-content  : space-around;
     align-items      : center;
 
+    height: $bottom-bar-height;
+    min-height: $bottom-bar-height;
+
     //padding          : $padding;
     color            : $layout-header-text-color;
     background-color : $layout-header-bg-color;
 
-    min-height       : $bottom-bar-btn-size;
-    box-sizing       : border-box;
 
     .wsk-bottom-bar--left-section {
         display       : flex;
@@ -63,8 +67,8 @@ $bottom-bar-btn-size : 36px !default;
         display          : flex;
         justify-content  : center;
         align-items      : center;
-        width            : $footer-btn-size;
-        height           : $footer-btn-size;
+        width            : $bottom-bar-btn-size;
+        height           : $bottom-bar-btn-size;
         border-radius    : 100%;
         color            : white;
         padding          : 0;

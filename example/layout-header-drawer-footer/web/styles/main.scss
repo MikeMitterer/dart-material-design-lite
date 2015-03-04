@@ -1,6 +1,7 @@
 @import "packages/wsk_material/sass/resets/h5bp";
 @import "colors";
 
+
 @import 'packages/wsk_material/sass/typography/typography';
 @import 'packages/wsk_material/sass/layout/layout';
 @import 'packages/wsk_material/sass/textfield/textfield';
@@ -21,6 +22,7 @@ html, body {
     padding          : 0;
     background-color : #F4F4F4;
 }
+
 
 body {
     display        : flex;
@@ -45,7 +47,7 @@ body {
     }
 }
 
-footer.wsk-mini-footer-flex, footer.wsk-bottom-bar {
+footer.wsk-mini-footer-flex {
     min-height : 58px;
     max-height : 58px;
 }
