@@ -2837,7 +2837,7 @@ footer.wsk-mini-footer {
   -webkit-transition: all 0.3s ease-out;
           transition: all 0.3s ease-out;
   opacity: 0;
-  z-index: 99; }
+  z-index: 1; }
 
 .add-back-to-top-button .back-to-top {
   right: 24px;

@@ -50,8 +50,12 @@ footer.wsk-mini-footer {
 }
 
 .back-to-top {
-    position : fixed; bottom : 500px; right : -100px; transition : all 0.3s ease-out; opacity : 0;
-    z-index  : 99;
+    position   : fixed;
+    bottom     : 500px;
+    right      : -100px;
+    transition : all 0.3s ease-out;
+    opacity    : 0;
+    z-index    : 1;
 }
 
 .add-back-to-top-button .back-to-top {

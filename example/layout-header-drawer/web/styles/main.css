@@ -2630,7 +2630,8 @@ dt {
   padding: 16px;
   color: #A0A0A0;
   background-color: #454545;
-  min-height: 36px; }
+  min-height: 36px;
+  box-sizing: border-box; }
   .wsk-mini-footer-flex .wsk-mini-footer--left-section {
     display: -webkit-box;
     display: -webkit-flex;
