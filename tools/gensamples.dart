@@ -152,6 +152,8 @@ class Application {
                     _writeYaml(sampleName,config);
 
                 });
+
+                // wird nicht mehr benötigt - überschreibt immer das index.html in example!
                 _writeIndexHtml(config,links);
             }
             else {
