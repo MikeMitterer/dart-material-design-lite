@@ -12,12 +12,16 @@
           body {
               font-family: "Roboto", Arial, "sans-serif";
               font-size: 15px;;
+              margin: 0;
+              padding: 24px;
+              color: #2d2d2d;
           }
 
-          a { text-decoration: none; }
+          a, a:visited { text-decoration: none; color: #00254b }
+          a:hover { text-decoration: underline; }
 
           ol a {
-              min-width: 230px;
+              min-width: 220px;
               display: inline-block;
           }
           .links { padding: 2em; }
@@ -28,10 +32,13 @@
               flex-direction: row;
               flex-wrap: wrap;
           }
-          .cols > div:first-child { margin-right: 1em;}
+          .cols > div:first-child {
+              margin-right: 2em;
+              min-width: 380px;
+          }
 
-          .layouts li {
-              padding-bottom: 0.5em;;
+          .layouts div {
+              padding-bottom: 0.25em;;
           }
 
           .layouts img {
@@ -40,8 +47,12 @@
               border: 1px solid darkgray;
           }
 
-          ol li,.script {
+          .script {
               white-space: nowrap;
+          }
+
+          .samples li {
+              margin-bottom: 0.5em;
           }
       </style>
   </head>
@@ -65,44 +76,42 @@
   <div class="samples">
         <h2>WSK-Material-Samples</h2>
         <ol>
-            <li><a href="accordion/web/index.html">accordion/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="animation/web/index.html">animation/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="button/web/index.html">button/web/index.html</a><span class="script">[ with main.dart ]</span></li>
+            <li><a href="accordion/web/index.html">accordion/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="animation/web/index.html">animation/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="button/web/index.html">button/web/index.html</a><span class="script">[ main.dart ]</span></li>
             <li><a href="card/web/index.html">card/web/index.html</a></li>
-            <li><a href="checkbox/web/index.html">checkbox/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="column-layout/web/index.html">column-layout/web/index.html</a><span class="script">[ with main.dart ]</span></li>
+            <li><a href="checkbox/web/index.html">checkbox/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="column-layout/web/index.html">column-layout/web/index.html</a><span class="script">[ main.dart ]</span></li>
             <li><a href="dropdown-menu/web/index.html">dropdown-menu/web/index.html</a></li>
             <li><a href="footer/web/index.html">footer/web/index.html</a></li>
-            <li><a href="icon-toggle/web/index.html">icon-toggle/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="item/web/index.html">item/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="layout/web/index.html">layout/web/index.html</a><span class="script">[ with main.dart ]</span></li>
+            <li><a href="icon-toggle/web/index.html">icon-toggle/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="item/web/index.html">item/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="layout/web/index.html">layout/web/index.html</a><span class="script">[ main.dart ]</span></li>
             <li><a href="list/web/index.html">list/web/index.html</a></li>
             <li><a href="palette/web/index.html">palette/web/index.html</a></li>
-            <li><a href="radio/web/index.html">radio/web/index.html</a><span class="script">[ with main.dart ]</span></li>
+            <li><a href="radio/web/index.html">radio/web/index.html</a><span class="script">[ main.dart ]</span></li>
             <li><a href="shadow/web/index.html">shadow/web/index.html</a></li>
-            <li><a href="slider/web/index.html">slider/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="spinner/web/index.html">spinner/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="switch/web/index.html">switch/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="tabs/web/index.html">tabs/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="textfield/web/index.html">textfield/web/index.html</a><span class="script">[ with main.dart ]</span></li>
-            <li><a href="tooltip/web/index.html">tooltip/web/index.html</a><span class="script">[ with main.dart ]</span></li>
+            <li><a href="slider/web/index.html">slider/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="spinner/web/index.html">spinner/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="switch/web/index.html">switch/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="tabs/web/index.html">tabs/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="textfield/web/index.html">textfield/web/index.html</a><span class="script">[ main.dart ]</span></li>
+            <li><a href="tooltip/web/index.html">tooltip/web/index.html</a><span class="script">[ main.dart ]</span></li>
             <li><a href="typography/web/index.html">typography/web/index.html</a></li>
 
         </ol>
     </div>
       <div class="layouts">
           <h2>Layouts</h2>
-          <ol>
-              <li><a href="layout-header-drawer/web/index.html">layout-header-drawer<br>
+              <div><a href="layout-header-drawer/web/index.html">layout-header-drawer<br>
                   - Fixed header, footer scrolls<br>
                   <img src="_images/headerfooter-300.jpg"></a>
-              </li>
+              </div>
 
-              <li><a href="layout-header-drawer-footer/web/index.html">layout-header-drawer-footer<br>
+              <div><a href="layout-header-drawer-footer/web/index.html">layout-header-drawer-footer<br>
                   - Fixed header, fixed footer and bottom-bar<br>
                   <img src="_images/bottombar-300.jpg"></a>
-              </li>
-          </ol>
+              </div>
       </div>
   </div>
   <p>There is also a AngularDart version available. Check it out on
