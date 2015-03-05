@@ -2715,7 +2715,8 @@ dt {
   padding: 16px;
   color: #A0A0A0;
   background-color: #454545;
-  min-height: 36px;
+  height: 56px;
+  min-height: 56px;
   box-sizing: border-box; }
   .wsk-mini-footer-flex .wsk-mini-footer--left-section {
     display: -webkit-box;
@@ -2830,7 +2831,8 @@ dt {
   height: 56px;
   min-height: 56px;
   color: #eeeeee;
-  background-color: #607d8b; }
+  background-color: #607d8b;
+  width: 100%; }
   .wsk-bottom-bar .wsk-bottom-bar--left-section {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2847,10 +2849,6 @@ dt {
     -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
             flex-grow: 1; }
-    .wsk-bottom-bar .wsk-bottom-bar--left-section .wsk-logo {
-      line-height: 36px;
-      margin-bottom: 0;
-      margin-right: 16px; }
   .wsk-bottom-bar .wsk-bottom-bar--right-section {
     float: none;
     display: -webkit-box;
@@ -2891,16 +2889,14 @@ dt {
     width: 36px;
     height: 36px;
     border-radius: 100%;
-    color: white;
+    color: #111111;
     padding: 0;
-    background-color: #A0A0A0;
+    background-color: #eeeeee;
     border: none; }
 
 @media screen and (min-width: 760px) {
   .wsk-bottom-bar--link-list {
-    clear: none; }
-  .wsk-bottom-bar--link-list li {
-    line-height: 36px; } }
+    clear: none; } }
 
 html, body {
   width: 100%;

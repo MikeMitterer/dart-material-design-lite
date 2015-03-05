@@ -25,6 +25,7 @@ $bottom-bar-height: 56px;
     color            : $layout-header-text-color;
     background-color : $layout-header-bg-color;
 
+    width: 100%;
 
     .wsk-bottom-bar--left-section {
         display       : flex;
@@ -32,11 +33,6 @@ $bottom-bar-height: 56px;
         align-items   : center;
         flex-grow     : 1;
 
-        .wsk-logo {
-            line-height   : $footer-btn-size;
-            margin-bottom : 0;
-            margin-right  : $padding;
-        }
     }
 
     .wsk-bottom-bar--right-section {
@@ -70,10 +66,10 @@ $bottom-bar-height: 56px;
         width            : $bottom-bar-btn-size;
         height           : $bottom-bar-btn-size;
         border-radius    : 100%;
-        color            : white;
         padding          : 0;
-        // margin           : 0 $padding 0 0;
-        background-color : $footer-button-fill-color;
+
+        color            : invert($layout-header-text-color);
+        background-color : $layout-header-text-color;
         border           : none;
 
         //&:last-child {
@@ -86,9 +82,5 @@ $bottom-bar-height: 56px;
 @media screen and (min-width : 760px) {
     .wsk-bottom-bar--link-list {
         clear : none;
-    }
-
-    .wsk-bottom-bar--link-list li {
-        line-height : $footer-btn-size;
     }
 }

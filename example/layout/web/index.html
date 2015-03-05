@@ -191,6 +191,70 @@
     </div>
   </div>
 
+    <h3>Fixed header with bottom bar</h3>
+    <p>Always shows a header, even in smaller screens.</p>
+
+    <div class="demo-container">
+        <div class="wsk-layout wsk-js-layout wsk-layout--fixed-header wsk-layout--overlay-drawer-button">
+            <div class="wsk-layout__header">
+                <!-- Icon -->
+                <img class="wsk-layout-icon" src="images/app-icon.png"/>
+                <!-- Title -->
+                <span class="wsk-layout-title">Web Starter Kit</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="wsk-layout-spacer"></div>
+                <!-- Navigation. We use CSS to hide it in small screens. -->
+                <nav class="wsk-navigation" id="fixed_header_nav">
+                    <a class="wsk-navigation__link" href="">Hello</a>
+                    <a class="wsk-navigation__link" href="">World.</a>
+                    <a class="wsk-navigation__link" href="">How</a>
+                    <a class="wsk-navigation__link" href="">Are</a>
+                    <a class="wsk-navigation__link" href="">You?</a>
+                </nav>
+            </div>
+            <div class="wsk-layout__drawer">
+                <span class="wsk-layout-title">Web Starter Kit</span>
+                <nav class="wsk-navigation">
+                    <a class="wsk-navigation__link" href="">Hello</a>
+                    <a class="wsk-navigation__link" href="">World.</a>
+                    <a class="wsk-navigation__link" href="">How</a>
+                    <a class="wsk-navigation__link" href="">Are</a>
+                    <a class="wsk-navigation__link" href="">You?</a>
+                </nav>
+            </div>
+            <div class="wsk-layout__content wsk-layout--bottom-bar">
+                <div class="demo-content">
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </div>
+                <footer class="wsk-bottom-bar">
+                    <div class="wsk-bottom-bar--btn">I</div>
+                    <div class="wsk-bottom-bar--btn">II</div>
+                    <div class="wsk-bottom-bar--btn">II</div>
+                    <div class="wsk-bottom-bar--btn">IV</div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
 
   <h3>Fixed drawer and fixed header</h3>
   <p>The drawer is always open in large screens. The header is always shown,

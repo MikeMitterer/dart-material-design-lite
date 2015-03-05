@@ -10,13 +10,16 @@ $footer-heading-font-size : 24px !default;
 $footer-heading-line-height : (1.5 * $footer-heading-font-size) !default;
 $footer-btn-size : 36px !default;
 
+$mini-footer-flex-height : 56px !default;
+
 .wsk-mini-footer-flex {
     display          : flex;
     flex-direction   : row;
     padding          : $padding;
     color            : $footer-color;
     background-color : $footer-bg-color;
-    min-height       : $footer-btn-size;
+    height           : $mini-footer-flex-height;
+    min-height       : $mini-footer-flex-height;
     box-sizing       : border-box;
 
     .wsk-mini-footer--left-section {

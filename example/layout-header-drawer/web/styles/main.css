@@ -2630,7 +2630,8 @@ dt {
   padding: 16px;
   color: #A0A0A0;
   background-color: #454545;
-  min-height: 36px;
+  height: 56px;
+  min-height: 56px;
   box-sizing: border-box; }
   .wsk-mini-footer-flex .wsk-mini-footer--left-section {
     display: -webkit-box;
@@ -2743,6 +2744,8 @@ body {
   .wsk-layout__content footer {
     padding: 16px;
     width: 100%; }
+    .wsk-layout__content footer .wsk-logo {
+      white-space: nowrap; }
 
 .back-to-top {
   position: fixed;
@@ -2751,11 +2754,11 @@ body {
   -webkit-transition: all 0.3s ease-out;
           transition: all 0.3s ease-out;
   opacity: 0;
-  z-index: 99; }
+  z-index: 1; }
 
 .add-back-to-top-button .back-to-top {
-  bottom: 15px;
-  right: 15px;
+  bottom: 68px;
+  right: 24px;
   opacity: 1;
   -webkit-transition: all 0.3s ease-in;
           transition: all 0.3s ease-in; }
@@ -2764,9 +2767,5 @@ body {
   .back-to-top {
     left: auto;
     right: -100px; }
-  .add-back-to-top-button .back-to-top {
-    left: auto;
-    bottom: 40px;
-    right: 24px; }
   .hide-on-mobile {
     display: none; } }

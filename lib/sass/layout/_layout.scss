@@ -473,6 +473,23 @@ $layout-tab-highlight-thickness: 2px;
       overflow: visible;
     }
 
+    &.wsk-layout--bottom-bar {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      > *:first-child {
+          flex-grow: 1;
+          overflow: scroll;
+
+          // bug??? otherwise flexbox-calculation (grow 1) fails and
+          // does not show the wsk-bottom-bar
+          height: 1px;
+      }
+    }
+
     @media screen and (max-width: $layout-screen-size-threshold) {
       .wsk-layout--fixed-drawer > & {
         margin-left: 0;
@@ -658,3 +675,5 @@ $layout-tab-highlight-thickness: 2px;
       display: block;
     }
   }
+
+
