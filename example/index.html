@@ -17,7 +17,7 @@
           a { text-decoration: none; }
 
           ol a {
-              min-width: 200px;
+              min-width: 230px;
               display: inline-block;
           }
           .links { padding: 2em; }
@@ -28,10 +28,20 @@
               flex-direction: row;
               flex-wrap: wrap;
           }
-          .cols > div:first-child { margin-right: 2em;}
+          .cols > div:first-child { margin-right: 1em;}
 
           .layouts li {
               padding-bottom: 0.5em;;
+          }
+
+          .layouts img {
+              width: 300px;
+              margin-top: 10px;
+              border: 1px solid darkgray;
+          }
+
+          ol li,.script {
+              white-space: nowrap;
           }
       </style>
   </head>
@@ -83,11 +93,15 @@
       <div class="layouts">
           <h2>Layouts</h2>
           <ol>
-              <li><a href="layout-header-drawer/web/index.html">layout-header-drawer</a><br>
-                  - Fixed header, footer scrolls</li>
+              <li><a href="layout-header-drawer/web/index.html">layout-header-drawer<br>
+                  - Fixed header, footer scrolls<br>
+                  <img src="_images/headerfooter-300.jpg"></a>
+              </li>
 
-              <li><a href="layout-header-drawer-footer/web/index.html">layout-header-drawer-footer</a><br>
-                  - Fixed header, fixed footer and bottom-bar</li>
+              <li><a href="layout-header-drawer-footer/web/index.html">layout-header-drawer-footer<br>
+                  - Fixed header, fixed footer and bottom-bar<br>
+                  <img src="_images/bottombar-300.jpg"></a>
+              </li>
           </ol>
       </div>
   </div>
