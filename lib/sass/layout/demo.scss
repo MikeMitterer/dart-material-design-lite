@@ -1,8 +1,9 @@
 @import '../styleguide_demo_bp';
-@import '_layout';
+@import 'layout';
 @import '../textfield/_textfield';
 @import '../animation/animation';
 @import '../palette/palette';
+@import '../bottombar/bottombar';
 
 .demo-container {
   width: 100%;

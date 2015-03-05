@@ -54,14 +54,36 @@ class Application {
                     final String sampleName = file.parent.path.replaceFirst("${config.sassdir}/","");
                     //_logger.info("   Found: $file in $sampleName");
 
+                    final Directory sampleDir = new Directory("${config.samplesdir}/${sampleName}");
+                    final Directory webDir = new Directory("${config.samplesdir}/${sampleName}/web");
+                    final Directory backupDir = new Directory("${config.samplesdir}/${sampleName}.backup");
+                    final Directory portBaseDir = new Directory(config.portbase);
+
+                    final File srcDemo = new File("${config.sassdir}/${sampleName}/demo.html");
+                    final File srcScss = new File("${config.sassdir}/${sampleName}/demo.scss");
+                    final File targetDemo = new File("${webDir.path}/index.html");
+                    final File targetScss = new File("${webDir.path}/demo.scss");
+                    final File targetCss = new File("${webDir.path}/demo.css");
+
+                    final File srcJs = new File("${config.sassdir}/${sampleName}/${sampleName}.js");
+                    final File srcDartMain = new File("${config.maintemplate}");
+                    final File targetDartMain = new File("${webDir.path}/main.dart");
+                    final File targetConvertedJS = new File("${portBaseDir.path}/_${sampleName}.dart.js");
+
+                    final Link targetPackages = new Link("${webDir.path}/packages");
+                    final File srcPackages = new File("../../../packages");
+
+                    // wenn es keine demo.html gibt dann ist das eine eigene Erweiterung!
+                    // sample ist in example schon angelegt
+                    if(!srcDemo.existsSync()) {
+                        return;
+                    }
+
                     final Directory samplesDir = new Directory(config.samplesdir);
                     if(!samplesDir.existsSync()) {
                         samplesDir.createSync();
                     }
 
-                    final Directory sampleDir = new Directory("${config.samplesdir}/${sampleName}");
-                    final Directory webDir = new Directory("${config.samplesdir}/${sampleName}/web");
-                    final Directory backupDir = new Directory("${config.samplesdir}/${sampleName}.backup");
                     if(sampleDir.existsSync() && backupDir.existsSync()) {
                         backupDir.deleteSync(recursive: true);
                         _logger.fine("${backupDir.path} removed...");
@@ -81,24 +103,9 @@ class Application {
                     webDir.createSync();
                     _logger.info("${webDir.path} created...");
 
-                    final Directory portBaseDir = new Directory(config.portbase);
                     if(!portBaseDir.existsSync()) {
                         portBaseDir.createSync(recursive: true);
                     }
-
-                    final File srcDemo = new File("${config.sassdir}/${sampleName}/demo.html");
-                    final File srcScss = new File("${config.sassdir}/${sampleName}/demo.scss");
-                    final File targetDemo = new File("${webDir.path}/index.html");
-                    final File targetScss = new File("${webDir.path}/demo.scss");
-                    final File targetCss = new File("${webDir.path}/demo.css");
-
-                    final File srcJs = new File("${config.sassdir}/${sampleName}/${sampleName}.js");
-                    final File srcDartMain = new File("${config.maintemplate}");
-                    final File targetDartMain = new File("${webDir.path}/main.dart");
-                    final File targetConvertedJS = new File("${portBaseDir.path}/_${sampleName}.dart.js");
-
-                    final Link targetPackages = new Link("${webDir.path}/packages");
-                    final File srcPackages = new File("../../../packages");
 
                     links.add(new _LinkInfo(targetDemo.path,srcJs.existsSync()));
 
