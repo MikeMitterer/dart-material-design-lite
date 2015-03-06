@@ -8,7 +8,7 @@ Responsive layout is included with the kit that adapts to fit the device your us
 
 [Demo][wskdemo] (transpiled JS-Version)
 
-![DartPowered LOGO](https://github.com/MikeMitterer/dart-wsk-material/blob/master/lib/images/wsk-material-dart-powered.png?raw=true "DartPowered LOGO")
+![WSK-Material-Site-Screenshot](https://github.com/MikeMitterer/dart-wsk-material/blob/master/lib/images/wsk.mikemitterer.at-720px.jpg?raw=true "WSK-Material-Site")
 
 If you work with AngularDart the [wsk-angular-Version][wskangular] could be interesting for you.
 
