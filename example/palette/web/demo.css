@@ -911,6 +911,12 @@ dt {
 .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
 
+body {
+  padding: 0; }
+
+.PreviewBlock {
+  padding: 20px 15px; }
+
 .PreviewBlock {
   display: inline-block; }
 

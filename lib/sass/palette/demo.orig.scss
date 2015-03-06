@@ -1,14 +1,6 @@
-@import "packages/wsk_material/sass/styleguide_demo_bp";
-@import 'packages/wsk_material/sass/palette/palette';
-@import "packages/wsk_material/sass/typography/typography";
-
-body {
-    padding: 0;
-}
-
-.PreviewBlock {
-    padding: 20px 15px;
-}
+@import "../styleguide_demo_bp";
+@import 'palette';
+@import "../typography/typography";
 
 @mixin colorGroups($palette) {
   .demo-palette-color--50 {

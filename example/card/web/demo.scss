@@ -1,6 +1,14 @@
 @import "packages/wsk_material/sass/styleguide_demo_bp";
 @import "packages/wsk_material/sass/card/_card";
 
+body {
+    padding: 0;
+}
+
+.PreviewBlock {
+    padding: 0;
+}
+
 .wsk-card {
   margin: 20px;
 }

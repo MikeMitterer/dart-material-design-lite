@@ -1073,6 +1073,12 @@ dt {
           transform-origin: 165px 25px;
   width: 100%; }
 
+body {
+  padding: 0; }
+
+.PreviewBlock {
+  padding: 0; }
+
 .wsk-card {
   margin: 20px; }
 
