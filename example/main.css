@@ -1233,8 +1233,10 @@ dt {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex; }
-    .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header > .wsk-layout-icon {
-      left: 48px; } }
+    .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header {
+      padding-left: 90px; }
+      .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header > .wsk-layout-icon {
+        left: 48px; } }
 
 .wsk-layout__header--multi-row {
   -webkit-box-orient: vertical;
@@ -2723,3 +2725,7 @@ html, body {
     margin: 12px 24px 24px 24px;
     background-color: #e8eaf6;
     border-radius: 5px; }
+
+@media screen and (max-width: 850px) {
+  .hide-on-mobile {
+    display: none; } }

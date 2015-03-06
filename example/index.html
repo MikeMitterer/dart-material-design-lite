@@ -15,32 +15,34 @@
 </head>
 
 <body>
-<div class="wsk-layout wsk-js-layout wsk-layout--fixed-header">
+<div class="wsk-layout wsk-layout--fixed-header wsk-layout--overlay-drawer-button">
     <div class="wsk-layout__header addscrollshadow">
         <!-- Icon -->
         <svg class="wsk-layout-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
 
         <!-- Title -->
         <span class="wsk-layout-title">Web Starter Kit - Material style</span>
+
         <!-- Add spacer, to align navigation to the right -->
         <div class="wsk-layout-spacer"></div>
+
         <!-- Navigation -->
-        <!--<nav class="wsk-navigation">-->
-            <!--<a class="wsk-navigation__link hide-on-mobile" href="#">Item 1</a>-->
-            <!--<a class="wsk-navigation__link hide-on-mobile" href="#">Item 2</a>-->
-            <!--<a class="wsk-navigation__link hide-on-mobile" href="#">Item 3</a>-->
-            <!--<a class="wsk-navigation__link hide-on-mobile" href="#">Item 4</a>-->
-        <!--</nav>-->
+        <nav class="wsk-navigation">
+            <a class="wsk-navigation__link hide-on-mobile" href="#components">Components</a>
+            <a class="wsk-navigation__link hide-on-mobile" href="#sample_layouts">Sample layouts</a>
+            <a class="wsk-navigation__link hide-on-mobile" href="#theming">Theming</a>
+            <a class="wsk-navigation__link hide-on-mobile" href="#links">Links</a>
+        </nav>
     </div>
-    <!--<div class="wsk-layout__drawer">-->
-        <!--<span class="wsk-layout-title">Sample layout</span>-->
-        <!--<nav class="wsk-navigation">-->
-            <!--<a class="wsk-navigation__link" href="#">Item 1</a>-->
-            <!--<a class="wsk-navigation__link" href="#">Item 2</a>-->
-            <!--<a class="wsk-navigation__link" href="#">Item 3</a>-->
-            <!--<a class="wsk-navigation__link" href="#">Item 4</a>-->
-        <!--</nav>-->
-    <!--</div>-->
+    <div class="wsk-layout__drawer">
+        <span class="wsk-layout-title">Sample layout</span>
+        <nav class="wsk-navigation">
+            <a class="wsk-navigation__link" href="#">Components</a>
+            <a class="wsk-navigation__link" href="#">Sample layouts</a>
+            <a class="wsk-navigation__link" href="#">Theming</a>
+            <a class="wsk-navigation__link" href="#">Links</a>
+        </nav>
+    </div>
     <div class="wsk-layout__content" id="top">
         <section>
             <header><h3>Web Starter Kit - Material Design, Dart version</h3></header>
@@ -56,7 +58,7 @@
                 Issues, ideas: <a href="https://github.com/MikeMitterer/dart-wsk-material/issues">Issue-Tracker on GitHub</a>
             </p>
 
-            <section class="components">
+            <section class="components" id="components">
                 <h4>Components</h4>
                 <article>
                     <div class="wsk-list--styled-view">
@@ -163,7 +165,7 @@
                 </article>
             </section>
 
-            <section class="cards">
+            <section class="cards" id="sample_layouts">
                 <h4>Sample layouts</h4>
                 <article>
                     <div class="wsk-card wsk-shadow--z1">
@@ -209,7 +211,7 @@
                 </article>
             </section>
 
-            <section class="theming">
+            <section class="theming" id="theming">
                 <h4>Theming</h4>
                 <p>Theming is very easy. This is your basic SCSS file:<br>
                     main.scss:
@@ -250,7 +252,7 @@
 
             </section>
 
-            <section class="links">
+            <section class="links" id="links">
                 <h6>Project based on wsk_material</h6>
                 <p>There is a AngularDart version available. Check it out:
                     <a href="http://wsk.angular.mikemitterer.at">http://wsk.angular.mikemitterer.at</a>

@@ -135,3 +135,9 @@ html, body {
         }
     }
 }
+
+@media screen and (max-width : $layout-screen-size-threshold) {
+    .hide-on-mobile {
+        display : none;
+    }
+}

@@ -327,18 +327,16 @@ $layout-tab-highlight-thickness: 2px;
       }
 
       // - added by mike, not in original file
-      //& .wsk-layout-title {
+      //> .wsk-layout-title {
       //  margin-left: 24px;
       //}
 
       .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > & {
-           & > .wsk-layout-icon {
+          padding-left: 90px;
+
+           > .wsk-layout-icon {
                 left: $layout-header-basic-mobile-indent + 32px;
            }
-
-           //& .wsk-layout-title {
-           //     margin-left: 12px;
-           //}
       }
       // -- end of insert
 
