@@ -19,13 +19,9 @@
       <excludeFolder url="file://$MODULE_DIR$/example/card/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/card/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/checkbox/build" />
-      <excludeFolder url="file://$MODULE_DIR$/example/checkbox/build/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/checkbox/build/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/checkbox/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/checkbox/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/column-layout/build" />
-      <excludeFolder url="file://$MODULE_DIR$/example/column-layout/build/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/column-layout/build/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/column-layout/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/column-layout/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/dropdown-menu/build" />
@@ -36,8 +32,6 @@
       <excludeFolder url="file://$MODULE_DIR$/example/footer/web/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/footer/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/icon-toggle/build" />
-      <excludeFolder url="file://$MODULE_DIR$/example/icon-toggle/build/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/icon-toggle/build/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/icon-toggle/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/icon-toggle/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/item/build" />
@@ -56,9 +50,6 @@
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/web/styles/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout/build" />
-      <excludeFolder url="file://$MODULE_DIR$/example/layout/build/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/layout/build/web/images/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/layout/build/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout/web/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout/web/packages" />
@@ -74,8 +65,6 @@
       <excludeFolder url="file://$MODULE_DIR$/example/radio/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/radio/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/shadow/build" />
-      <excludeFolder url="file://$MODULE_DIR$/example/shadow/build/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/shadow/build/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/shadow/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/shadow/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/slider/build" />
@@ -95,8 +84,6 @@
       <excludeFolder url="file://$MODULE_DIR$/example/tabs/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/tabs/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/textfield/build" />
-      <excludeFolder url="file://$MODULE_DIR$/example/textfield/build/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/textfield/build/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/textfield/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/textfield/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/tooltip/build" />
