@@ -1,6 +1,12 @@
 #Change Log for wsk_material#
 Material Design for your Application. Based on Googles Web Starter Kit
 
+##[v0.7.2](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.1...v0.7.2) - 2015-03-06##
+
+###Docs###
+* index.html comes now with material-style [710369d](http://github.com/mikemitterer/dart-wsk-material/commit/710369dbada71069aee9932b23f216635f183c3f)
+* Preview-Images added to index.html [4cc217b](http://github.com/mikemitterer/dart-wsk-material/commit/4cc217b86c6e3b84f950bcd499e5d32cbfa96e63)
+
 ##[v0.7.1](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.0...v0.7.1) - 2015-03-05##
 
 ###Docs###
