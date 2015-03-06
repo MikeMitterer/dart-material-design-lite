@@ -90,8 +90,8 @@ class MaterialRipple extends WskComponent {
     }
 
     void _downHandler(final html.UIEvent event) {
-        // event.preventDefault();
-        // event.stopPropagation();
+        //event.preventDefault();
+        //event.stopPropagation();
 
         if (event.type == 'mousedown' && _ignoringMouseDown) {
             _ignoringMouseDown = false;
