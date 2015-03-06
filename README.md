@@ -8,7 +8,7 @@ Responsive layout is included with the kit that adapts to fit the device your us
 
 [Demo][wskdemo] (transpiled JS-Version)
 
-![WSK-Material-Site-Screenshot](https://github.com/MikeMitterer/dart-wsk-material/blob/master/lib/images/wsk.mikemitterer.at-720px.jpg?raw=true "WSK-Material-Site")
+[promoimage][wskdemo]
 
 If you work with AngularDart the [wsk-angular-Version][wskangular] could be interesting for you.
 
@@ -55,4 +55,5 @@ or **star** this repo here on GitHub
 [wskangular]: https://github.com/MikeMitterer/dart-wsk-angular
 [themingsample]: https://github.com/MikeMitterer/dart-wsk-angular/tree/master/example/styleguide/assets/scss
 [samples]: https://github.com/MikeMitterer/dart-wsk-material/tree/master/example
+[promoimage]: https://github.com/MikeMitterer/dart-wsk-material/blob/master/lib/images/wsk.mikemitterer.at-720px.jpg?raw=true
 
