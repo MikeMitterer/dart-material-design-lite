@@ -30,6 +30,10 @@ html, body {
     background-color : $background-color;
 }
 
+.wsk-layout__header {
+    padding-left: 60px;
+}
+
 .wsk-layout__content {
     display         : flex;
     flex-direction  : row;
@@ -129,9 +133,10 @@ html, body {
 
         pre {
             padding: 12px 12px 0 12px;
-            margin:  12px 24px 24px 24px;
+            margin:  12px 12px 12px 24px;
             background-color: nth($palette-primary,1);
             border-radius: 5px;
+            overflow: scroll;
         }
     }
 }

@@ -2598,6 +2598,9 @@ html, body {
   padding: 0;
   background-color: #F9F9F9; }
 
+.wsk-layout__header {
+  padding-left: 60px; }
+
 .wsk-layout__content {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2722,9 +2725,10 @@ html, body {
     font-style: italic; }
   .wsk-layout__content .theming pre {
     padding: 12px 12px 0 12px;
-    margin: 12px 24px 24px 24px;
+    margin: 12px 12px 12px 24px;
     background-color: #e8eaf6;
-    border-radius: 5px; }
+    border-radius: 5px;
+    overflow: scroll; }
 
 @media screen and (max-width: 850px) {
   .hide-on-mobile {
