@@ -8,7 +8,7 @@ Responsive layout is included with the kit that adapts to fit the device your us
 
 [Demo][wskdemo] (transpiled JS-Version)
 
-![promoimage][wskdemo]
+[![promoimage]][wskdemo]
 
 If you work with AngularDart the [wsk-angular-Version][wskangular] could be interesting for you.
 
