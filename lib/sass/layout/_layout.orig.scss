@@ -325,23 +325,6 @@ $layout-tab-highlight-thickness: 2px;
       .wsk-layout--fixed-header > & {
         display: flex;
       }
-
-      // - added by mike, not in original file
-      //& .wsk-layout-title {
-      //  margin-left: 24px;
-      //}
-
-      .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > & {
-           & > .wsk-layout-icon {
-                left: $layout-header-basic-mobile-indent + 32px;
-           }
-
-           //& .wsk-layout-title {
-           //     margin-left: 12px;
-           //}
-      }
-      // -- end of insert
-
     }
   }
 
@@ -475,25 +458,6 @@ $layout-tab-highlight-thickness: 2px;
     .wsk-layout__header--scroll ~ & {
       overflow: visible;
     }
-
-    // - added by mike, not in original file
-    &.wsk-layout--bottom-bar {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: flex-start;
-
-      > *:first-child {
-          flex-grow: 1;
-          overflow: scroll;
-
-          // bug??? otherwise flexbox-calculation (grow 1) fails and
-          // does not show the wsk-bottom-bar
-          height: 1px;
-      }
-    }
-    // -- end of insert
 
     @media screen and (max-width: $layout-screen-size-threshold) {
       .wsk-layout--fixed-drawer > & {
@@ -680,5 +644,3 @@ $layout-tab-highlight-thickness: 2px;
       display: block;
     }
   }
-
-

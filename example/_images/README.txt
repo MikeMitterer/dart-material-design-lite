@@ -1,6 +1,11 @@
 Basis für SS:
     847 x 656 ( Dart-Playground settings)
 
+    900 x 507
+
+wsk-card-img-container:
+    330 x 186 (1,774)
+
 ImageMagick
     convert bottombar.png -resize 300x bottombar-300.png
 
