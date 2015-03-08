@@ -540,7 +540,6 @@ html, body {
   padding: 0; }
 
 body {
-  padding: 24px;
   box-sizing: border-box;
   background: #FFF; }
 
@@ -1015,7 +1014,10 @@ dt {
   -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  /* For some Androids */ }
   .wsk-button::-moz-focus-inner {
     border: 0; }
   .wsk-button:hover {

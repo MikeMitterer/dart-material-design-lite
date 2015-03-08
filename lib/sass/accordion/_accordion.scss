@@ -126,7 +126,7 @@ $accordion-padding: 16px !default;
 }
 
 input[name^='wsk-accordion']:checked ~ .wsk-accordion--content {
-    max-height: 500px;
+    max-height: 1500px;
     border-bottom: 1px solid $accordion-divider-color;
     transition: max-height $accordion-timing $accordion-ease;
 }
