@@ -1226,12 +1226,10 @@ dt {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex; }
-    .wsk-layout__header .wsk-layout-title {
-      margin-left: 24px; }
-    .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header > .wsk-layout-icon {
-      left: 48px; }
-    .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header .wsk-layout-title {
-      margin-left: 12px; } }
+    .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header {
+      padding-left: 90px; }
+      .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header > .wsk-layout-icon {
+        left: 48px; } }
 
 .wsk-layout__header--multi-row {
   -webkit-box-orient: vertical;

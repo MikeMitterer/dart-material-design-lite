@@ -174,6 +174,11 @@ textarea {
   h2, h3 {
     page-break-after: avoid; } }
 
+a, .wsk-accordion, .wsk-button, .wsk-card, .wsk-checkbox, .wsk-dropdown-menu, .wsk-icon-toggle, .wsk-item, .wsk-radio, .wsk-slider, .wsk-switch, .wsk-tabs__tab {
+  -webkit-tap-highlight-color: transparent;
+  /* For some Androids */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
    immediately and not wait for the web font load, whereas for other sections,
@@ -540,7 +545,6 @@ html, body {
   padding: 0; }
 
 body {
-  padding: 24px;
   box-sizing: border-box;
   background: #FFF; }
 
@@ -1224,12 +1228,10 @@ dt {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex; }
-    .wsk-layout__header .wsk-layout-title {
-      margin-left: 24px; }
-    .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header > .wsk-layout-icon {
-      left: 48px; }
-    .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header .wsk-layout-title {
-      margin-left: 12px; } }
+    .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header {
+      padding-left: 90px; }
+      .wsk-layout--fixed-header.wsk-layout--overlay-drawer-button > .wsk-layout__header > .wsk-layout-icon {
+        left: 48px; } }
 
 .wsk-layout__header--multi-row {
   -webkit-box-orient: vertical;

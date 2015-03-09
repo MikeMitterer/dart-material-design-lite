@@ -174,6 +174,11 @@ textarea {
   h2, h3 {
     page-break-after: avoid; } }
 
+a, .wsk-accordion, .wsk-button, .wsk-card, .wsk-checkbox, .wsk-dropdown-menu, .wsk-icon-toggle, .wsk-item, .wsk-radio, .wsk-slider, .wsk-switch, .wsk-tabs__tab {
+  -webkit-tap-highlight-color: transparent;
+  /* For some Androids */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
    immediately and not wait for the web font load, whereas for other sections,
@@ -1014,10 +1019,7 @@ dt {
   -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
-  cursor: pointer;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-tap-highlight-color: transparent;
-  /* For some Androids */ }
+  cursor: pointer; }
   .wsk-button::-moz-focus-inner {
     border: 0; }
   .wsk-button:hover {

@@ -81,11 +81,6 @@ $button-icon-size-mini: 24px !default;
       background-color: $button-focus-color-alt;
     }
   }
-
-  // removes this ugly box around the buttons!
-  // More: http://goo.gl/IPwKi
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-  -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
 

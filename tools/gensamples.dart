@@ -20,6 +20,7 @@ class Application {
     static const _ARG_LOGLEVEL      = 'loglevel';
     static const _ARG_SETTINGS      = 'settings';
     static const _ARG_GENERATE      = 'gen';
+    static const _ARG_GENINDEX      = 'genindex';
     static const _ARG_MK_BACKUP     = 'makebackup';
     static const _ARG_SHOW_DIRS     = 'showdirs';
 
@@ -47,7 +48,6 @@ class Application {
                 });
             }
             else if(argResults[_ARG_GENERATE]) {
-                final List<_LinkInfo> links = new List<_LinkInfo>();
                 final List<String> foldersToExclude = config.folderstoexclude.split("[,;]");
 
                 _iterateThroughDirSync(config.sassdir,foldersToExclude,(final File file) {
@@ -107,8 +107,6 @@ class Application {
                         portBaseDir.createSync(recursive: true);
                     }
 
-                    links.add(new _LinkInfo(targetDemo.path,srcJs.existsSync()));
-
                     if(srcDemo.existsSync()) {
                         srcDemo.copySync(targetDemo.path);
                         // wird angelegt auch wenn im SRC kein JS da ist - main.dart gibt es immer
@@ -153,9 +151,23 @@ class Application {
 
                 });
 
-                // wird nicht mehr benötigt - überschreibt immer das index.html in example!
+            }  else if(argResults[_ARG_GENINDEX]) {
+                final List<_LinkInfo> links = new List<_LinkInfo>();
+                final List<String> foldersToExclude = config.folderstoexclude.split("[,;]");
+
+                _iterateThroughExamplesDirSync(config.samplesdir,foldersToExclude,(final Directory dir) {
+                    final String sampleName = dir.path.replaceFirst("${config.samplesdir}/","");
+
+                    final Directory webDir = new Directory("${config.samplesdir}/${sampleName}/web");
+                    final File targetDemo = new File("${webDir.path}/index.html");
+                    final File srcJs = new File("${config.sassdir}/${sampleName}/${sampleName}.js");
+
+                    links.add(new _LinkInfo(sampleName,targetDemo.path,srcJs.existsSync()));
+
+                },recursive: false);
                 _writeIndexHtml(config,links);
             }
+
             else {
                 _showUsage();
             }
@@ -380,23 +392,24 @@ class Application {
 
 
         final File srcIndexHtml = new File("${config.indextemplate}");
-        final File targetIndexHtml = new File("${config.samplesdir}/index.html");
+        final File targetIndexHtml = new File("${config.samplesdir}/localindex.html");
         if(targetIndexHtml.existsSync()) {
             targetIndexHtml.delete();
         }
 
         String contents = srcIndexHtml.readAsStringSync();
-        //contents = contents.replaceAll("{{lastupdate}}",new DateTime.now().toIso8601String());
+        contents = contents.replaceAll("{{lastupdate}}",new DateTime.now().toIso8601String());
 
         final StringBuffer buffer = new StringBuffer();
         links.forEach((final _LinkInfo linkinfo) {
-            final String script = linkinfo.hasScript ? '<span class="script">[ with main.dart ]</span>' : '';
+            final String script = linkinfo.hasScript ? '<span class="script">[ main.dart ]</span>' : '';
             final String link = linkinfo.link.replaceFirst("${config.samplesdir}/","");
 
-            buffer.writeln('            <li><a href="${link}">${link}</a>$script</li>');
+            buffer.writeln('            <li><a href="${link}">${linkinfo.sampleName}</a>$script</li>');
         });
 
         targetIndexHtml.writeAsString(contents.replaceFirst("{samples}",buffer.toString()));
+        _logger.info("${targetIndexHtml.path} updated!");
     }
 
     void _addDartMainToIndexHTML(final File indexFile) {
@@ -466,8 +479,8 @@ class Application {
         scssFile.writeAsStringSync(contents.toString());
     }
 
-       /// Goes through the files
-    void _iterateThroughDirSync(final String dir,final List<String> foldersToExclude, void callback(final File file)) {
+    /// Goes through the files
+    void _iterateThroughDirSync(final String dir,final List<String> foldersToExclude, void callback(final File file),{ final bool recursive: true }) {
         Validate.notNull(foldersToExclude);
 
         _logger.info("Scanning: $dir");
@@ -478,8 +491,8 @@ class Application {
         final Directory directory = new Directory(dir);
         if (directory.existsSync()) {
 
-            directory.listSync(recursive: true).where((final FileSystemEntity entity) {
-                _logger.fine("Entity: ${entity}");
+            directory.listSync(recursive: recursive).where((final FileSystemEntity entity) {
+                _logger.info("Entity: ${entity}");
 
                 bool isUsableFile = (entity != null && FileSystemEntity.isFileSync(entity.path) &&
                     ( entity.path.endsWith(".dart") || entity.path.endsWith(".DART")) || entity.path.endsWith(".html") );
@@ -504,6 +517,49 @@ class Application {
             }).any((final File file) {
                 //_logger.fine("  Found: ${file}");
                 callback(file);
+            });
+        }
+    }
+
+    void _iterateThroughExamplesDirSync(final String dir,final List<String> foldersToExclude, void callback(final Directory dir),{ final bool recursive: false }) {
+        Validate.notNull(foldersToExclude);
+
+        _logger.info("Scanning: $dir");
+
+        // its OK if the path starts with packages but not if the path contains packages (avoid recursion)
+        final RegExp regexp = new RegExp("^/*packages/*");
+
+        final Directory directory = new Directory(dir);
+        if (directory.existsSync()) {
+
+            directory.listSync(recursive: recursive).where((final FileSystemEntity entity) {
+                _logger.fine("Entity: ${entity}");
+
+                if(!FileSystemEntity.isDirectorySync(entity.path)) {
+                    return false;
+                }
+
+                // ignoriert _images...
+                if(entity.path.contains("/_")) {
+                    return false;
+                }
+
+                for(final String folder in foldersToExclude) {
+                    if(entity.path.contains(folder)) {
+                        return false;
+                    }
+                }
+
+                if(entity.path.contains("packages")) {
+                    // return only true if the path starts!!!!! with packages
+                    return entity.path.contains(regexp);
+                }
+
+                return true;
+
+            }).any((final Directory dir) {
+                //_logger.fine("  Found: ${file}");
+                callback(dir);
             });
         }
     }
@@ -544,6 +600,7 @@ class Application {
             ..addFlag(_ARG_HELP,            abbr: 'h', negatable: false, help: "Shows this message")
             ..addFlag(_ARG_SETTINGS,        abbr: 's', negatable: false, help: "Prints settings")
             ..addFlag(_ARG_GENERATE,        abbr: 'g', negatable: false, help: "Generate samples")
+            ..addFlag(_ARG_GENINDEX,        abbr: 'i', negatable: false, help: "Generate localindex.html")
             ..addFlag(_ARG_MK_BACKUP,       abbr: 'b', negatable: false, help: "Make backup")
             ..addFlag(_ARG_SHOW_DIRS,       abbr: 'd', negatable: false, help: "Show source-Dirs")
 
@@ -677,9 +734,10 @@ class Config {
 }
 
 class _LinkInfo {
+    final String sampleName;
     final String link;
     final bool hasScript;
-    _LinkInfo(this.link, this.hasScript);
+    _LinkInfo(this.sampleName,this.link, this.hasScript);
 }
 
 void main(List<String> arguments) {
