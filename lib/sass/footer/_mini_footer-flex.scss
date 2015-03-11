@@ -10,16 +10,21 @@ $footer-heading-font-size : 24px !default;
 $footer-heading-line-height : (1.5 * $footer-heading-font-size) !default;
 $footer-btn-size : 36px !default;
 
-$mini-footer-flex-height : 56px !default;
+//$mini-footer-flex-height : 56px !default;
 
 .wsk-mini-footer-flex {
     display          : flex;
     flex-direction   : row;
+    //flex-wrap: wrap;
+    justify-content  : flex-start; // ⇾
+    align-content    : space-between; // ||
+    align-items      : center; // ↓
+    //padding          : 0 $padding 0 $padding;
     padding          : $padding;
     color            : $footer-color;
     background-color : $footer-bg-color;
-    height           : $mini-footer-flex-height;
-    min-height       : $mini-footer-flex-height;
+    //height           : $mini-footer-flex-height;
+    //min-height       : $mini-footer-flex-height;
     box-sizing       : border-box;
 
     .wsk-mini-footer--left-section {
@@ -27,19 +32,31 @@ $mini-footer-flex-height : 56px !default;
         align-content : flex-start;
         align-items   : center;
         flex-grow     : 1;
+        flex-wrap     : wrap;
 
         .wsk-logo {
             line-height   : $footer-btn-size;
             margin-bottom : 0;
             margin-right  : $padding;
         }
+
+        .wsk-mini-footer--social-btn {
+            &:last-child { margin-right : 0; }
+        }
     }
 
     .wsk-mini-footer--right-section {
-        float         : none;
-        display       : flex;
-        align-content : flex-start;
-        align-items   : center;
+        float           : none;
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : flex-end; // ⇾
+        align-content   : space-between; // ||
+        align-items     : flex-start; // ↓
+
+        .wsk-mini-footer--social-btn {
+            &:first-child { margin-left : 0; }
+        }
     }
 
     .wsk-mini-footer--link-list {
@@ -63,13 +80,11 @@ $mini-footer-flex-height : 56px !default;
         width            : $footer-btn-size;
         height           : $footer-btn-size;
         padding          : 0;
-        margin           : 0 $padding 0 0;
+        margin           : 2px;
+
         background-color : $footer-button-fill-color;
         border           : none;
-
-        &:last-child {
-            margin-right : 0;
-        }
+        flex-shrink      : 0;
     }
 
     &:after {
