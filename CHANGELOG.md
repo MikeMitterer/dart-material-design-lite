@@ -1,6 +1,14 @@
 #Change Log for wsk_material#
 Material Design for your Application. Based on Googles Web Starter Kit
 
+##[v0.7.6](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.5...v0.7.6) - 2015-03-12##
+
+###Feature###
+* mini-footer-flex optimized with flexbox-settings [f5d8dc3](http://github.com/mikemitterer/dart-wsk-material/commit/f5d8dc3928a8c206c9a506098e1249d58ebe64d6)
+
+###Bugs###
+* Accordions border-top is now OK [9d94c97](http://github.com/mikemitterer/dart-wsk-material/commit/9d94c97d78089ee067ff357136d7e47315892660)
+
 ##[v0.7.2](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.1...v0.7.2) - 2015-03-06##
 
 ###Docs###
