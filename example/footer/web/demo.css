@@ -834,6 +834,264 @@ body > h2 {
   .wsk-mini-footer--link-list li {
     line-height: 36px; } }
 
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/**************
+ *
+ * Sizes
+ *
+ *************/
+.wsk-mini-footer-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-content: space-between;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 24px;
+  color: #A0A0A0;
+  background-color: #454545;
+  box-sizing: border-box; }
+  .wsk-mini-footer-flex .wsk-mini-footer--left-section {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+            align-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+    .wsk-mini-footer-flex .wsk-mini-footer--left-section .wsk-logo {
+      line-height: 36px;
+      margin-bottom: 0;
+      margin-right: 24px; }
+    .wsk-mini-footer-flex .wsk-mini-footer--left-section .wsk-mini-footer--social-btn:last-child {
+      margin-right: 0; }
+  .wsk-mini-footer-flex .wsk-mini-footer--right-section {
+    float: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+    .wsk-mini-footer-flex .wsk-mini-footer--right-section .wsk-mini-footer--social-btn:first-child {
+      margin-left: 0; }
+  .wsk-mini-footer-flex .wsk-mini-footer--link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .wsk-mini-footer-flex .wsk-mini-footer--link-list a {
+      color: inherit;
+      text-decoration: none; }
+    .wsk-mini-footer-flex .wsk-mini-footer--link-list li {
+      float: left;
+      margin-bottom: 0;
+      margin-right: 24px; }
+  .wsk-mini-footer-flex .wsk-mini-footer--social-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    margin: 2px;
+    background-color: #A0A0A0;
+    border: none;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0; }
+  .wsk-mini-footer-flex:after {
+    content: '';
+    display: block;
+    clear: both; }
+
+@media screen and (min-width: 760px) {
+  .wsk-mini-footer--link-list {
+    clear: none; }
+  .wsk-mini-footer--link-list li {
+    line-height: 36px; } }
+
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+.wsk-bottom-bar {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 56px;
+  min-height: 56px;
+  color: #eeeeee;
+  background-color: #2196f3;
+  width: 100%; }
+  .wsk-bottom-bar .wsk-bottom-bar--left-section {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+            align-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
+  .wsk-bottom-bar .wsk-bottom-bar--right-section {
+    float: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+            align-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .wsk-bottom-bar .wsk-bottom-bar--link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .wsk-bottom-bar .wsk-bottom-bar--link-list a {
+      color: inherit;
+      text-decoration: none; }
+    .wsk-bottom-bar .wsk-bottom-bar--link-list li {
+      float: left;
+      margin-bottom: 0;
+      margin-right: 24px; }
+  .wsk-bottom-bar .wsk-bottom-bar--btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    padding: 0;
+    color: #111111;
+    background-color: #eeeeee;
+    border: none; }
+
+@media screen and (min-width: 760px) {
+  .wsk-bottom-bar--link-list {
+    clear: none; } }
+
 body {
   padding: 0; }
 

@@ -12,6 +12,9 @@
       <excludeFolder url="file://$MODULE_DIR$/example/animation/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/animation/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/animation/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/badge/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/badge/packages/wsk_material" />
+      <excludeFolder url="file://$MODULE_DIR$/example/badge/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/button/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/button/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/button/web/packages" />
