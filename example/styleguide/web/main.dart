@@ -66,7 +66,7 @@ void loadDemos() {
         _setLoaderInfo(totalDemosPendingLoading);
         for (int i = 0;i < demos.length;i++) {
             new Future.delayed(new Duration(milliseconds: 200),() {
-            final String demoTitle = (demos[i].querySelector('h1') as html.HtmlElement).text ;
+            final String demoTitle = (demos[i].querySelector('h5') as html.HtmlElement).text ;
             final String anchorLink = 'demo-$i';
 
             // Add list item
@@ -86,7 +86,7 @@ void loadDemos() {
 
             final html.AnchorElement anchor = new html.AnchorElement();
             anchor.id = anchorLink;
-            demos[i].insertBefore(anchor, demos[i].querySelector('h1'));
+            demos[i].insertBefore(anchor, demos[i].querySelector('h5'));
 
             // Size iframe
             _sizeDemo(demos[i]);
