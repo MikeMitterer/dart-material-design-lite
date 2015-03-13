@@ -1,6 +1,11 @@
 #Change Log for wsk_material#
 Material Design for your Application. Based on Googles Web Starter Kit
 
+##[v0.7.7](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.6...v0.7.7) - 2015-03-13##
+
+###Feature###
+* badge added, bottom-bar and mini-footer-flex added to samples [90fd951](http://github.com/mikemitterer/dart-wsk-material/commit/90fd9515d10ab5066b77016aa0047ca7bf27341f)
+
 ##[v0.7.6](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.5...v0.7.6) - 2015-03-12##
 
 ###Feature###
