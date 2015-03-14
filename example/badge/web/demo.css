@@ -584,9 +584,40 @@ body > h2 {
 /* ==========  Dropdown menu ========== */
 /* ==========  Tooltips  ========== */
 /* ==========  Footer  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
 .wsk-badge {
   position: relative;
-  white-space: nowrap; }
+  white-space: nowrap;
+  margin-right: 22px; }
+  .wsk-badge:not([data-badge]) {
+    margin-right: auto; }
   .wsk-badge[data-badge]:after {
     content: attr(data-badge);
     display: -webkit-box;
@@ -1211,7 +1242,9 @@ body {
 
 .sample.badge section {
   margin-bottom: 30px; }
-.sample.badge .toolbar {
+  .sample.badge section h5 {
+    margin-bottom: 15px; }
+.sample.badge div.toolbar {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1239,7 +1272,7 @@ body {
   padding: 10px 10px 0 10px;
   height: 40px;
   border-radius: 5px; }
-  .sample.badge .toolbar .wrapper {
+  .sample.badge div.toolbar .wrapper {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
@@ -1267,7 +1300,7 @@ body {
     -webkit-align-items: flex-start;
         -ms-flex-align: start;
             align-items: flex-start; }
-    .sample.badge .toolbar .wrapper .icon {
+    .sample.badge div.toolbar .wrapper .icon {
       background-color: transparent;
       border: none;
       display: inline-block;
@@ -1278,17 +1311,16 @@ body {
       padding: 0;
       position: relative;
       width: 21px; }
-      .sample.badge .toolbar .wrapper .icon.wsk-badge {
+      .sample.badge div.toolbar .wrapper .icon.wsk-badge {
         opacity: 1; }
-      .sample.badge .toolbar .wrapper .icon:hover {
+      .sample.badge div.toolbar .wrapper .icon:hover {
         opacity: 1; }
 .sample.badge .links {
   margin-top: 25px; }
   .sample.badge .links a {
     text-decoration: none;
     font-weight: normal;
-    margin-top: 10px;
-    margin-right: 2em; }
+    margin-top: 10px; }
   .sample.badge .links .dark {
     display: block;
     border-radius: 5px;

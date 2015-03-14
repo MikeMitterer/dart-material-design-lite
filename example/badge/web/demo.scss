@@ -16,9 +16,14 @@ body {
 
 .sample.badge {
     section {
+        h5 {
+            margin-bottom: 15px;
+        }
+
         margin-bottom: 30px;
     }
-    .toolbar {
+
+    div.toolbar {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -72,8 +77,6 @@ body {
             font-weight: normal;
 
             margin-top: 10px;
-            margin-right: 2em;
-
         }
         .dark {
             display: block;

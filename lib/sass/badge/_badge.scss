@@ -1,11 +1,20 @@
+@import "../colors";
+
 $badge-color: #fff !default;
 $badge-color-inverse: nth($palette-accent, 5) !default;
 $badge-background: nth($palette-accent, 5) !default;
 $badge-background-inverse: #fff !default;
+$badge-size : 20px;
+$badge-padding: 2px;
 
 .wsk-badge {
     position : relative;
     white-space: nowrap;
+    margin-right: ($badge-size + $badge-padding);
+
+    &:not([data-badge]) {
+        margin-right: auto;
+    }
 
     &[data-badge]:after {
         content       : attr(data-badge);
@@ -18,8 +27,8 @@ $badge-background-inverse: #fff !default;
         align-items: center; // ↓
 
         position    : absolute;
-        top         : -10px;
-        right       : -22px;
+        top         : -($badge-size / 2);
+        right       : -($badge-size + $badge-padding);
 
         .wsk-button & {
             top           : -10px;
@@ -27,8 +36,8 @@ $badge-background-inverse: #fff !default;
         }
 
         font-size     : 10px;
-        width         : 20px;
-        height        : 20px;
+        width         : $badge-size;
+        height        : $badge-size;
         border-radius : 50%;
 
         background    : $badge-background;
