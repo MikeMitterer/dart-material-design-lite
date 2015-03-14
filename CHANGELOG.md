@@ -1,6 +1,14 @@
 #Change Log for wsk_material#
 Material Design for your Application. Based on Googles Web Starter Kit
 
+##[v0.7.8](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.7...v0.7.8) - 2015-03-14##
+
+###Bugs###
+* h1 -> h5 in main.dart - faild to generate drawer [b0ae4ba](http://github.com/mikemitterer/dart-wsk-material/commit/b0ae4ba8664074703b79e81b14c3da70641cb3a2)
+
+###Docs###
+* Improved 'badge' sample [1f0dcfb](http://github.com/mikemitterer/dart-wsk-material/commit/1f0dcfb3423effe32619ed260d890f2230fb51ae)
+
 ##[v0.7.7](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.6...v0.7.7) - 2015-03-13##
 
 ###Feature###
