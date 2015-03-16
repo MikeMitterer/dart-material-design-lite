@@ -1,6 +1,11 @@
 #Change Log for wsk_material#
 Material Design for your Application. Based on Googles Web Starter Kit
 
+##[v0.7.9](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.8...v0.7.9) - 2015-03-16##
+
+###Feature###
+* Panel added [6255ff1](http://github.com/mikemitterer/dart-wsk-material/commit/6255ff192d9ffec9a2a6116b7f0ef04b05e325d0)
+
 ##[v0.7.8](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.7...v0.7.8) - 2015-03-14##
 
 ###Bugs###
