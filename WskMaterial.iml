@@ -64,6 +64,8 @@
       <excludeFolder url="file://$MODULE_DIR$/example/palette/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/palette/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/palette/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/panel/packages/wsk_material" />
+      <excludeFolder url="file://$MODULE_DIR$/example/panel/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/radio/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/radio/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/radio/web/packages" />
