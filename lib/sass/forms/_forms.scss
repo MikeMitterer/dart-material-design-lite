@@ -161,7 +161,12 @@ form, .wsk-form {
 
             input {
                 flex-grow  : 0;
-                margin-top : ($_form_default_font_size / 3);
+                margin-top : 3px;
+                margin-left: 1em;
+
+                &:first-child {
+                    margin-left: 0;
+                }
             }
 
             > * {

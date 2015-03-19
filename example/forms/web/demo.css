@@ -734,7 +734,10 @@ form, .wsk-form {
         -webkit-flex-grow: 0;
             -ms-flex-positive: 0;
                 flex-grow: 0;
-        margin-top: 5px; }
+        margin-top: 3px;
+        margin-left: 1em; }
+        form .wsk-form__group.wsk-form__group--checkbox input:first-child, form .wsk-form__group.wsk-form__group--radio input:first-child, .wsk-form .wsk-form__group.wsk-form__group--checkbox input:first-child, .wsk-form .wsk-form__group.wsk-form__group--radio input:first-child {
+          margin-left: 0; }
       form .wsk-form__group.wsk-form__group--checkbox > *, form .wsk-form__group.wsk-form__group--radio > *, .wsk-form .wsk-form__group.wsk-form__group--checkbox > *, .wsk-form .wsk-form__group.wsk-form__group--radio > * {
         margin-right: 6px; }
     form .wsk-form__group.help, .wsk-form .wsk-form__group.help {
