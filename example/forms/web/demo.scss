@@ -1,0 +1,18 @@
+@import "packages/wsk_material/sass/styleguide_demo_bp";
+@import "packages/wsk_material/sass/forms/forms";
+
+.forms.sample {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start; // ⇾
+    align-content: space-between; // ||
+    align-items: flex-start; // ↓
+
+    > * {
+        margin-right: 12px;
+        margin-bottom: 24px;
+    }
+}
+
+
