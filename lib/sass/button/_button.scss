@@ -140,6 +140,7 @@ $button-icon-size-mini: 24px !default;
     padding: 0;
     overflow: hidden;
     background: $button-primary-color;
+
     @include shadow-z1();
 
     &.wsk-button--mini-fab {
@@ -165,7 +166,7 @@ $button-icon-size-mini: 24px !default;
     }
 
     &.wsk-button--colored {
-      background: $button-fab-color-alt;
+      background-color: $button-fab-color-alt;
       color: $button-secondary-color-alt;
 
       &:hover {

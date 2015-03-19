@@ -6,3 +6,23 @@
   display: inline-block;
   margin: 20px 20px 20px 0;
 }
+
+
+.svg-gps-fixed {
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: 50% 50%;
+    background-image: svgShapeComponent(nth($palette-primary, 2));
+
+    background-image: url(assets/svgs/ic_gps_fixed_24px.svg);
+    &.wsk-button--colored {
+        background-image: url(assets/svgs/ic_gps_fixed_24px-white.svg);
+    }
+
+    &:after {
+        content: ".";
+        color : transparent;
+    }
+
+
+}

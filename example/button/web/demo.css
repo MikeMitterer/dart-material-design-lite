@@ -554,7 +554,7 @@ body > h2 {
 
 .PreviewBlock {
   background: #f5f5f5;
-  padding: 20px; }
+  padding: 24px; }
 
 .wsk-shadow--z1 {
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
@@ -1087,7 +1087,7 @@ dt {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
     background-color: rgba(153, 153, 153, 0.4); }
   .wsk-button--fab.wsk-button--colored {
-    background: #ec407a;
+    background-color: #ec407a;
     color: #fff; }
     .wsk-button--fab.wsk-button--colored:hover {
       background-color: #e91e63; }
@@ -1135,3 +1135,15 @@ dt {
 .button-block {
   display: inline-block;
   margin: 20px 20px 20px 0; }
+
+.svg-gps-fixed {
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: 50% 50%;
+  background-image: svgShapeComponent(#bbdefb);
+  background-image: url(assets/svgs/ic_gps_fixed_24px.svg); }
+  .svg-gps-fixed.wsk-button--colored {
+    background-image: url(assets/svgs/ic_gps_fixed_24px-white.svg); }
+  .svg-gps-fixed:after {
+    content: ".";
+    color: transparent; }
