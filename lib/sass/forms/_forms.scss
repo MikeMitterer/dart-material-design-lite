@@ -19,9 +19,9 @@ $_form_default_label_padding : 12px !default;
 $_form_default_label_width : 130px !default;
 $_form_default_button_width : $_form_default_label_width !default;
 
-// Material design: http://www.google.com/design/spec/material-design/introduction.html
-form, .wsk-form {
+form.wsk-basic-form {
     box-sizing       : border-box;
+
     display          : flex;
     flex-direction   : column;
     width            : $_form_default_width;
@@ -83,18 +83,18 @@ form, .wsk-form {
         }
     }
 
-    .wsk-form__group {
+    .wsk-basic-form__group {
         display        : flex;
         flex-direction : row;
         padding-top    : ($_form_default_font_size / 2);
         padding-bottom : ($_form_default_font_size / 2);
 
-        &.wsk-form__group--last-row {
+        &.wsk-basic-form__group--last-row {
             padding    : 0;
             margin-top : 16px;
         }
 
-        > .wsk-form__group { padding-top : 0; }
+        > .wsk-basic-form__group { padding-top : 0; }
 
         label {
             width       : $_form_default_label_width;
@@ -124,7 +124,7 @@ form, .wsk-form {
             padding-top   : ($_form_default_font_size / 2);
         }
 
-        &.wsk-form__group--right {
+        &.wsk-basic-form__group--right {
             justify-content : flex-end;
 
             input, button {
@@ -155,7 +155,7 @@ form, .wsk-form {
             }
         }
 
-        &.wsk-form__group--checkbox, &.wsk-form__group--radio {
+        &.wsk-basic-form__group--checkbox, &.wsk-basic-form__group--radio {
             justify-content : flex-start;
             font-size       : $_form_default_font_size;
 
@@ -213,8 +213,8 @@ form, .wsk-form {
             margin-right : 0;
         }
 
-        &.wsk-form__control--maxsize { width : 100%;}
-        &.wsk-form__control {
+        &.wsk-basic-form__control--maxsize { width : 100%;}
+        &.wsk-basic-form__control {
             &--last-row {
                 margin-top : 20px;
             }
@@ -231,7 +231,7 @@ form, .wsk-form {
         color            : $form-color-accent;
     }
 
-    .wsk-form__control {
+    .wsk-basic-form__control {
         &--last-row {
             margin-top : 20px;
         }
@@ -244,20 +244,60 @@ form, .wsk-form {
     @include shadow-z2();
 }
 
-/* Spezielle Formular - Registrierung
------------------------------------------------------------------------------ */
+//-----------------------------------------------------------------------------
+// Material style
+//   More: http://www.google.com/design/spec/material-design/introduction.html
+//
+form.wsk-form {
+    box-sizing: border-box;
 
-//form.register {
-//  color            : $textWhite;
-//
-//  background-color : $_form_colorMain;
-//  background-color : rgba($_form_colorMain, 0.7);
-//
-//  input {
-//    border: 1px solid $colorGrayLighter;
-//  }
-//
-//}
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start; // ↓
+    align-content: space-between; // =
+    align-items: flex-start; // ⇾
+
+    padding          : 24px 0 8px 0;
+
+    color            : $form-color;
+    background-color : $form-background-color;
+
+    h1, h2, h3, h4, h5, h6, h6 {
+        padding-top : 0; font-size : 24px; line-height : 24px;
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    > .wsk-input, .wsk-checkbox {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .wsk-form__group {
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end; // ⇾
+        align-content: space-between; // ||
+        align-items: center; // ↓
+
+        width: 100%;
+        min-height: 48px;
+        max-height: 48px;
+        padding-right: 16px;
+
+        &.wsk-form__group--left {
+            justify-content: flex-start; // ⇾
+        }
+    }
+
+
+    @include shadow-z2();
+
+}
 
 
 

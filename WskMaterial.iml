@@ -36,6 +36,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/footer/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/footer/web/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/footer/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/forms/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/forms/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/forms/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/icon-toggle/build" />

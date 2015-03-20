@@ -1,0 +1,10 @@
+@import 'packages/material_icons/sass/action/svg/production/ic_extension_48px';
+.bg-ic_extension_48px {
+    @include svg-background("48");
+    background-image: svg-ic_extension_48px($icon-color);
+}
+
+.bg-ic_extension_48px.script {
+    @include svg-background("48");
+    background-image: svg-ic_extension_48px(darken($icon-color,20%));
+}

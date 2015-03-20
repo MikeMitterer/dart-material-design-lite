@@ -11,6 +11,9 @@
 @import "packages/wsk_material/sass/footer/mini_footer-flex";
 @import "packages/wsk_material/sass/list/list";
 
+$icon-color: nth($palette-primary, 2);
+@import "packages/material_icons/sass/svg-utils";
+@import "material_icons";
 
 $background-color : #F9F9F9 !default;
 $headline-color: nth($palette-primary, 7) !default;

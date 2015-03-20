@@ -19,4 +19,5 @@ dependencies:
 dev_dependencies:
   unittest: any
   args: any
+  material_icons: any
 

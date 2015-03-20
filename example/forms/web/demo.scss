@@ -1,6 +1,12 @@
 @import "packages/wsk_material/sass/styleguide_demo_bp";
 @import "packages/wsk_material/sass/forms/forms";
 
+// Extended - Material, form
+@import "packages/wsk_material/sass/button/button";
+@import "packages/wsk_material/sass/checkbox/checkbox";
+@import "packages/wsk_material/sass/radio/_radio";
+@import "packages/wsk_material/sass/textfield/_textfield";
+
 .forms.sample {
     display: flex;
     flex-direction: row;
@@ -9,10 +15,18 @@
     align-content: space-between; // ||
     align-items: flex-start; // ↓
 
+    .linklist {
+        width: 100%;
+    }
     > * {
         margin-right: 12px;
         margin-bottom: 24px;
     }
+
+    form {
+        max-width: 512px;
+    }
 }
+
 
 
