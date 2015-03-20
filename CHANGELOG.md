@@ -1,6 +1,13 @@
 #Change Log for wsk_material#
 Material Design for your Application. Based on Googles Web Starter Kit
 
+##[v0.8.0](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.9...v0.8.0) - 2015-03-20##
+
+###Feature###
+* form added to components and samples [687e689](http://github.com/mikemitterer/dart-wsk-material/commit/687e6896db1f7422893ee0948b761a7f6856e36e)
+* Form added [24f55a1](http://github.com/mikemitterer/dart-wsk-material/commit/24f55a17d00122986880b2224edd0a0ad0c2d9e2)
+* nav-pills added [21cf50b](http://github.com/mikemitterer/dart-wsk-material/commit/21cf50b85e0f644105ec8a7d93f21fba33462b82)
+
 ##[v0.7.9](http://github.com/mikemitterer/dart-wsk-material/compare/v0.7.8...v0.7.9) - 2015-03-16##
 
 ###Feature###
