@@ -554,7 +554,7 @@ body > h2 {
 
 .PreviewBlock {
   background: #f5f5f5;
-  padding: 20px; }
+  padding: 24px; }
 
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load

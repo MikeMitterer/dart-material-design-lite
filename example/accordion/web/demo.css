@@ -554,7 +554,7 @@ body > h2 {
 
 .PreviewBlock {
   background: #f5f5f5;
-  padding: 20px; }
+  padding: 24px; }
 
 /*
     Some global styles for all the samples
@@ -989,15 +989,20 @@ dt {
 
 /* Animation Variables */
 /* Accordion */
+wsk-accordion-group, wsk-accordion {
+  display: block; }
+
+wsk-accordion-group wsk-accordion:first-of-type .wsk-accordion {
+  border-top: 1px solid #ddd; }
+
 /* Basic Accordion Styles */
-.wsk-accordion {
+.wsk-accordion-group .wsk-accordion {
   /* For Demo Positioning Only */
-  border-top: 1px solid #ddd;
   /* Labels */
   /* Panel Content */ }
-  .wsk-accordion input[name^='wsk-accordion'] {
+  .wsk-accordion-group .wsk-accordion input[name^='wsk-accordion'] {
     display: none; }
-  .wsk-accordion label {
+  .wsk-accordion-group .wsk-accordion label {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1024,11 +1029,11 @@ dt {
     font-size: 16px;
     -webkit-transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
             transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
-    .debug .wsk-accordion label {
+    .debug .wsk-accordion-group .wsk-accordion label {
       border: 1px solid red; }
-    .wsk-accordion label:hover {
+    .wsk-accordion-group .wsk-accordion label:hover {
       color: black; }
-    .wsk-accordion label i.indicator {
+    .wsk-accordion-group .wsk-accordion label i.indicator {
       position: absolute;
       top: 20.8px;
       right: 16px;
@@ -1037,9 +1042,9 @@ dt {
       font-weight: 100;
       font-size: 60%;
       color: rgba(0, 0, 0, 0.6); }
-      .debug .wsk-accordion label i.indicator {
+      .debug .wsk-accordion-group .wsk-accordion label i.indicator {
         border: 1px solid green; }
-    .wsk-accordion label .wsk-accordion__ripple-container {
+    .wsk-accordion-group .wsk-accordion label .wsk-accordion__ripple-container {
       display: block;
       position: absolute;
       height: 100%;
@@ -1048,31 +1053,31 @@ dt {
       top: 0;
       z-index: 1;
       overflow: hidden; }
-      .wsk-accordion label .wsk-accordion__ripple-container .wsk-ripple {
+      .wsk-accordion-group .wsk-accordion label .wsk-accordion__ripple-container .wsk-ripple {
         background: #2196f3; }
-  .wsk-accordion input:checked + label {
+  .wsk-accordion-group .wsk-accordion input:checked + label {
     color: black; }
-    .wsk-accordion input:checked + label i.indicator {
+    .wsk-accordion-group .wsk-accordion input:checked + label i.indicator {
       -webkit-transform: rotate(90deg);
           -ms-transform: rotate(90deg);
               transform: rotate(90deg);
       -webkit-transition: 0.3s ease-in-out;
               transition: 0.3s ease-in-out;
       color: #1e88e5; }
-      .debug .wsk-accordion input:checked + label i.indicator {
+      .debug .wsk-accordion-group .wsk-accordion input:checked + label i.indicator {
         border: 1px solid red; }
-  .wsk-accordion .wsk-accordion--content {
+  .wsk-accordion-group .wsk-accordion .wsk-accordion--content {
     overflow: auto;
     max-height: 0;
     position: relative;
     padding: 0 16px;
     -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
             transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
-    .wsk-accordion .wsk-accordion--content .wsk-accordion--header {
+    .wsk-accordion-group .wsk-accordion .wsk-accordion--content .wsk-accordion--header {
       padding: 8px 0;
       color: rgba(0, 0, 0, 0.8);
       margin: 0; }
-    .wsk-accordion .wsk-accordion--content .wsk-accordion--body {
+    .wsk-accordion-group .wsk-accordion .wsk-accordion--content .wsk-accordion--body {
       padding: 0;
       color: rgba(0, 0, 0, 0.6); }
 
