@@ -1,6 +1,6 @@
 name: wsk_material
 description: Material Design for your Application. Based on Googles Web Starter Kit
-version: 0.8.0
+version: 0.8.1
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-material
 
