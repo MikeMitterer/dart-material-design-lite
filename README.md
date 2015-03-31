@@ -1,4 +1,4 @@
-# Web Starter Kit - Material Design
+# Web Starter Kit - Material Design Light
 
 A port of Googles Web Starter Kit (Material branch) to Dart<br>
 You can find the original version here on [GitHub][wskmaterial].
