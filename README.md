@@ -1,7 +1,7 @@
 # Web Starter Kit - Material Design
 
 A port of Googles Web Starter Kit (Material branch) to Dart<br>
-You can find the original version here on [GitHub][wskmaterial]
+You can find the original version here on [GitHub][wskmaterial].
 
 Web Starter Kit strives to give you a high performance starting point out of the box
 Responsive layout is included with the kit that adapts to fit the device your user is viewing it on. 
@@ -46,7 +46,7 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 
 If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.at/) me
-or **star** this repo here on GitHub
+or **star** this repo here on GitHub.
 
 
 [tracker]: https://github.com/MikeMitterer/dart-wsk-material/issues
