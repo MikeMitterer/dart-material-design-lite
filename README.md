@@ -46,7 +46,7 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 
 If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.at/) me
-or **star** this repo here on GitHub.
+or **star** this repo here on GitHub
 
 
 [tracker]: https://github.com/MikeMitterer/dart-wsk-material/issues
