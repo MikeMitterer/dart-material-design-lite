@@ -661,11 +661,11 @@ class Config {
         _settings[_KEY_SAMPLES_DIR]         = 'example';
         _settings[_KEY_LOGLEVEL]            = 'info';
         _settings[_KEY_MK_BACKUP]           = false;
-        _settings[_KEY_MAIN_TEMPLATE]       = "tools/templates/main.tmpl.dart";
-        _settings[_KEY_INDEX_TEMPLATE]      = "tools/templates/index.tmpl.html";
-        _settings[_KEY_YAML_TEMPLATE]       = "tools/templates/pubspec.tmpl.yaml";
+        _settings[_KEY_MAIN_TEMPLATE]       = "tool/templates/main.tmpl.dart";
+        _settings[_KEY_INDEX_TEMPLATE]      = "tool/templates/index.tmpl.html";
+        _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
         _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "icons";   // Liste durch , getrennt
-        _settings[_KEY_PORT_BASE]           = "tools/portbase"; // Ziel für die konvertierten JS-Files
+        _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
 
         _overwriteSettingsWithArgResults();
     }

@@ -5,15 +5,15 @@ author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-material
 
 dependencies:
-  browser: any
+  browser: ">=0.10.0+2 <0.11.0"
 
-  intl: any
-  validate: any
-  browser_detect: any
+  intl: ">=0.8.10+4 <0.9.0"
+  validate: ">=1.4.2 <2.0.0"
+  browser_detect: ">=1.0.3 <2.0.0"
 
-  logging: any
-  logging_handlers: any
-  console_log_handler: any
+  logging: ">=0.9.3 <0.10.0"
+  logging_handlers: ">=0.8.0 <0.9.0"
+  console_log_handler: ">=0.1.4 <0.2.0"
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
 dev_dependencies:

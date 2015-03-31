@@ -127,8 +127,8 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />
       <excludeFolder url="file://$MODULE_DIR$/test/unit/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/tools/portbase" />
+      <excludeFolder url="file://$MODULE_DIR$/tool/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/tool/portbase" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
