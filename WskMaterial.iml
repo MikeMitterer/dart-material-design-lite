@@ -36,6 +36,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/button/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/card/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/card/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/checkbox/.sitegen/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/checkbox/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/checkbox/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/column-layout/packages/wsk_material" />
