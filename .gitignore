@@ -11,3 +11,4 @@ lib/sass/*/*.css
 *.css.map
 example/*/*.css
 example/**/*.css
+*.applescript

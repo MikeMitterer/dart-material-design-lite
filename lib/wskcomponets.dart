@@ -10,7 +10,6 @@ import "package:wsk_material/wskcore.dart";
 
 part "src/components/MaterialButton.dart";
 part "src/components/MaterialRipple.dart";
-part "src/components/MaterialAnimation.dart";
 part "src/components/MaterialCheckbox.dart";
 part "src/components/MaterialColumnLayout.dart";
 part "src/components/MaterialIconToggle.dart";
@@ -30,7 +29,6 @@ final WskComponentHandler componenthandler = new WskComponentHandler();
 void registerAllWskComponents() {
 
     registerMaterialButton();
-    registerMaterialAnimation();
     registerMaterialCheckbox();
     registerMaterialColumnLayout();
     registerMaterialIconToggle();

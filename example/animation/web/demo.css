@@ -2237,20 +2237,16 @@ dt {
   box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
 
 .wsk-animation--default {
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 
 .wsk-animation--fast-out-slow-in {
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 
 .wsk-animation--linear-out-slow-in {
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
 
 .wsk-animation--fast-out-linear-in {
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 .demo-animation {
   height: 200px;
@@ -2282,45 +2278,33 @@ dt {
 
 .demo-animation--position-1 {
   left: -102px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 .demo-animation--position-2 {
   left: 20px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
 
 .demo-animation--position-3 {
   left: 180px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 
 .demo-animation--position-4 {
   left: 302px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 .demo-animation--position-5 {
   left: 180px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
 
 .demo-animation--position-6 {
   left: 20px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 
 .demo-animation__movable {
   background-color: red;
@@ -2330,5 +2314,4 @@ dt {
   width: 100px;
   position: absolute;
   top: 50px;
-  -webkit-transition-property: left;
-          transition-property: left; }
+  transition-property: left; }
