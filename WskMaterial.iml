@@ -129,6 +129,7 @@
       <excludeFolder url="file://$MODULE_DIR$/test/unit/packages" />
       <excludeFolder url="file://$MODULE_DIR$/tool/packages" />
       <excludeFolder url="file://$MODULE_DIR$/tool/portbase" />
+      <excludeFolder url="file://$MODULE_DIR$/tool/templates/packages" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
