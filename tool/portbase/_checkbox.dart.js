@@ -26,39 +26,19 @@ class _MaterialCheckboxConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialCheckboxCssClasses {
-    final String WSK_CHECKBOX_INPUT = 'wsk-checkbox__input';
-
-    final String WSK_CHECKBOX_BOX_OUTLINE = 'wsk-checkbox__box-outline';
-
-    final String WSK_CHECKBOX_FOCUS_HELPER = 'wsk-checkbox__focus-helper';
-
-    final String WSK_CHECKBOX_TICK_OUTLINE = 'wsk-checkbox__tick-outline';
-
-    final String WSK_CHECKBOX_BOT_RIGHT = 'wsk-checkbox__bottom-right';
-
-    final String WSK_CHECKBOX_BOT_LEFT = 'wsk-checkbox__bottom-left';
-
-    final String WSK_CHECKBOX_BOTTOM = 'wsk-checkbox__bottom';
-
-    final String WSK_CHECKBOX_TOP_LEFT = 'wsk-checkbox__top-left';
-
-    final String WSK_CHECKBOX_TOP_RIGHT = 'wsk-checkbox__top-right';
-
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-
-    final String WSK_CHECKBOX_RIPPLE_CONTAINER = 'wsk-checkbox__ripple-container';
-
-    final String WSK_RIPPLE_CENTER = 'wsk-ripple--center';
-
-    final String WSK_RIPPLE = 'wsk-ripple';
-
+    final String INPUT = 'wsk-checkbox__input';
+    final String BOX_OUTLINE = 'wsk-checkbox__box-outline';
+    final String FOCUS_HELPER = 'wsk-checkbox__focus-helper';
+    final String TICK_OUTLINE = 'wsk-checkbox__tick-outline';
+    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String RIPPLE_CONTAINER = 'wsk-checkbox__ripple-container';
+    final String RIPPLE_CENTER = 'wsk-ripple--center';
+    final String RIPPLE = 'wsk-ripple';
     final String IS_FOCUSED = 'is-focused';
-
     final String IS_DISABLED = 'is-disabled';
-
     final String IS_CHECKED = 'is-checked';
+    final String IS_UPGRADED = 'is-upgraded';
 }
 
 /// Handle change of state.
@@ -125,62 +105,80 @@ void _blur(final html.Event event) {
   }, _constant.TINY_TIMEOUT);
 }
 
+// Public methods.
+
+/// Disable checkbox.
+/// @public
+/// MaterialCheckbox.prototype.disable = /*function*/ () {
+void disable() {
+
+  _btnElement.disabled = true;
+  _updateClasses();
+}
+
+/// Enable checkbox.
+/// @public
+/// MaterialCheckbox.prototype.enable = /*function*/ () {
+void enable() {
+
+  _btnElement.disabled = false;
+  _updateClasses();
+}
+
+/// Check checkbox.
+/// @public
+/// MaterialCheckbox.prototype.check = /*function*/ () {
+void check() {
+
+  _btnElement.checked = true;
+  _updateClasses();
+}
+
+/// Uncheck checkbox.
+/// @public
+/// MaterialCheckbox.prototype.uncheck = /*function*/ () {
+void uncheck() {
+
+  _btnElement.checked = false;
+  _updateClasses();
+}
+
 /// Initialize element.
 /// MaterialCheckbox.prototype.init = /*function*/ () {
 void init() {
 
   if (element != null) {
     _btnElement = element.querySelector('.' +
-        _cssClasses.WSK_CHECKBOX_INPUT);
+        _cssClasses.INPUT);
 
     final boxOutline = new html.SpanElement();
-    boxOutline.classes.add(_cssClasses.WSK_CHECKBOX_BOX_OUTLINE);
+    boxOutline.classes.add(_cssClasses.BOX_OUTLINE);
 
     final tickContainer = new html.SpanElement();
-    tickContainer.classes.add(_cssClasses.WSK_CHECKBOX_FOCUS_HELPER);
+    tickContainer.classes.add(_cssClasses.FOCUS_HELPER);
 
     final tickOutline = new html.SpanElement();
-    tickOutline.classes.add(_cssClasses.WSK_CHECKBOX_TICK_OUTLINE);
-
-    final bottomRight = new html.SpanElement();
-    bottomRight.classes.add(_cssClasses.WSK_CHECKBOX_BOT_RIGHT);
-
-    final bottomLeft = new html.SpanElement();
-    bottomLeft.classes.add(_cssClasses.WSK_CHECKBOX_BOT_LEFT);
-
-    final bottom = new html.SpanElement();
-    bottom.classes.add(_cssClasses.WSK_CHECKBOX_BOTTOM);
-
-    final topLeft = new html.SpanElement();
-    topLeft.classes.add(_cssClasses.WSK_CHECKBOX_TOP_LEFT);
-
-    final topRight = new html.SpanElement();
-    topRight.classes.add(_cssClasses.WSK_CHECKBOX_TOP_RIGHT);
+    tickOutline.classes.add(_cssClasses.TICK_OUTLINE);
 
     boxOutline.append(tickOutline);
-    boxOutline.append(topLeft);
-    boxOutline.append(topRight);
-    boxOutline.append(bottomRight);
-    boxOutline.append(bottomLeft);
-    boxOutline.append(bottom);
 
     element.append(tickContainer);
     element.append(boxOutline);
 
     final rippleContainer;
-    if (element.classes.contains(
-        _cssClasses.WSK_JS_RIPPLE_EFFECT)) {
-      element.classes.add(
-          _cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+    if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
+      element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
       rippleContainer = new html.SpanElement();
-      rippleContainer.classes.add(
-          _cssClasses.WSK_CHECKBOX_RIPPLE_CONTAINER);
-      rippleContainer.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
-      rippleContainer.classes.add(_cssClasses.WSK_RIPPLE_CENTER);
+      rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
+      rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
+      rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
+
+	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+      rippleContainer.onMouseUp.listen( _onMouseUp);
 
       final ripple = new html.SpanElement();
-      ripple.classes.add(_cssClasses.WSK_RIPPLE);
+      ripple.classes.add(_cssClasses.RIPPLE);
 
       rippleContainer.append(ripple);
       element.append(rippleContainer);
@@ -198,11 +196,8 @@ void init() {
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
     element.onMouseUp.listen( _onMouseUp);
 
-	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-    rippleContainer.onMouseUp.listen( _onMouseUp);
-
     _updateClasses(_btnElement, element);
-    element.classes.add('is-upgraded');
+    element.classes.add(_cssClasses.IS_UPGRADED);
   }
 }
 

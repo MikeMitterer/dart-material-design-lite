@@ -4,39 +4,31 @@ part of wskcomponents;
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialCheckboxCssClasses {
-    final String WSK_CHECKBOX_INPUT = 'wsk-checkbox__input';
+    final String INPUT = 'wsk-checkbox__input';
 
-    final String WSK_CHECKBOX_BOX_OUTLINE = 'wsk-checkbox__box-outline';
+    final String BOX_OUTLINE = 'wsk-checkbox__box-outline';
 
-    final String WSK_CHECKBOX_FOCUS_HELPER = 'wsk-checkbox__focus-helper';
+    final String FOCUS_HELPER = 'wsk-checkbox__focus-helper';
 
-    final String WSK_CHECKBOX_TICK_OUTLINE = 'wsk-checkbox__tick-outline';
+    final String TICK_OUTLINE = 'wsk-checkbox__tick-outline';
 
-    final String WSK_CHECKBOX_BOT_RIGHT = 'wsk-checkbox__bottom-right';
+    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
 
-    final String WSK_CHECKBOX_BOT_LEFT = 'wsk-checkbox__bottom-left';
+    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
 
-    final String WSK_CHECKBOX_BOTTOM = 'wsk-checkbox__bottom';
+    final String RIPPLE_CONTAINER = 'wsk-checkbox__ripple-container';
 
-    final String WSK_CHECKBOX_TOP_LEFT = 'wsk-checkbox__top-left';
+    final String RIPPLE_CENTER = 'wsk-ripple--center';
 
-    final String WSK_CHECKBOX_TOP_RIGHT = 'wsk-checkbox__top-right';
-
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-
-    final String WSK_CHECKBOX_RIPPLE_CONTAINER = 'wsk-checkbox__ripple-container';
-
-    final String WSK_RIPPLE_CENTER = 'wsk-ripple--center';
-
-    final String WSK_RIPPLE = 'wsk-ripple';
+    final String RIPPLE = 'wsk-ripple';
 
     final String IS_FOCUSED = 'is-focused';
 
     final String IS_DISABLED = 'is-disabled';
 
     final String IS_CHECKED = 'is-checked';
+
+    final String IS_UPGRADED = 'is-upgraded';
 
     const _MaterialCheckboxCssClasses();
 }
@@ -56,6 +48,7 @@ WskConfig materialCheckboxConfig() => new WskConfig<MaterialCheckbox>(
 /// registration-Helper
 void registerMaterialCheckbox() => componenthandler.register(materialCheckboxConfig());
 
+// ToDo: OrigJS-Version defines public functions like disable, enable, check, uncheck
 class MaterialCheckbox extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialCheckbox');
 
@@ -70,7 +63,7 @@ class MaterialCheckbox extends WskComponent {
 
     html.CheckboxInputElement get btnElement {
         if(_btnElement == null) {
-            _btnElement = element.querySelector(".${_cssClasses.WSK_CHECKBOX_INPUT}");
+            _btnElement = element.querySelector(".${_cssClasses.INPUT}");
         }
         return _btnElement;
     }
@@ -81,55 +74,35 @@ class MaterialCheckbox extends WskComponent {
         _logger.fine("MaterialCheckbox - init");
 
         final html.SpanElement boxOutline = new html.SpanElement();
-        boxOutline.classes.add(_cssClasses.WSK_CHECKBOX_BOX_OUTLINE);
+        boxOutline.classes.add(_cssClasses.BOX_OUTLINE);
 
         final html.SpanElement tickContainer = new html.SpanElement();
-        tickContainer.classes.add(_cssClasses.WSK_CHECKBOX_FOCUS_HELPER);
+        tickContainer.classes.add(_cssClasses.FOCUS_HELPER);
 
         final html.SpanElement tickOutline = new html.SpanElement();
-        tickOutline.classes.add(_cssClasses.WSK_CHECKBOX_TICK_OUTLINE);
-
-        final html.SpanElement bottomRight = new html.SpanElement();
-        bottomRight.classes.add(_cssClasses.WSK_CHECKBOX_BOT_RIGHT);
-
-        final html.SpanElement bottomLeft = new html.SpanElement();
-        bottomLeft.classes.add(_cssClasses.WSK_CHECKBOX_BOT_LEFT);
-
-        final html.SpanElement bottom = new html.SpanElement();
-        bottom.classes.add(_cssClasses.WSK_CHECKBOX_BOTTOM);
-
-        final html.SpanElement topLeft = new html.SpanElement();
-        topLeft.classes.add(_cssClasses.WSK_CHECKBOX_TOP_LEFT);
-
-        final html.SpanElement topRight = new html.SpanElement();
-        topRight.classes.add(_cssClasses.WSK_CHECKBOX_TOP_RIGHT);
+        tickOutline.classes.add(_cssClasses.TICK_OUTLINE);
 
         boxOutline.append(tickOutline);
-        boxOutline.append(topLeft);
-        boxOutline.append(topRight);
-        boxOutline.append(bottomRight);
-        boxOutline.append(bottomLeft);
-        boxOutline.append(bottom);
 
         element.append(tickContainer);
         element.append(boxOutline);
 
         html.SpanElement rippleContainer;
-        if (element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT)) {
-            element.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+        if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
+            element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
             rippleContainer = new html.SpanElement();
-            rippleContainer.classes.add(_cssClasses.WSK_CHECKBOX_RIPPLE_CONTAINER);
-            rippleContainer.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
-            rippleContainer.classes.add(_cssClasses.WSK_RIPPLE_CENTER);
+            rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
+            rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
+            rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
+
+            rippleContainer.onMouseUp.listen(_onMouseUp);
 
             final html.SpanElement ripple = new html.SpanElement();
-            ripple.classes.add(_cssClasses.WSK_RIPPLE);
+            ripple.classes.add(_cssClasses.RIPPLE);
 
             rippleContainer.append(ripple);
             element.append(rippleContainer);
-
-            //rippleContainer.onMouseUp.listen(_onMouseUp);
         }
 
         btnElement.onChange.listen(_onChange);
@@ -140,10 +113,8 @@ class MaterialCheckbox extends WskComponent {
 
         element.onMouseUp.listen(_onMouseUp);
 
-        rippleContainer.onMouseUp.listen(_onMouseUp);
-
         _updateClasses(btnElement, element);
-        element.classes.add('is-upgraded');        
+        element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
     /// Handle change of state.
