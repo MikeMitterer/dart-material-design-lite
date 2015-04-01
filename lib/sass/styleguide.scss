@@ -1,0 +1,111 @@
+/* Material Design Lite */
+
+@import "resets/_h5bp";
+@import "colors";
+@import "typography/typography";
+@import "palette/palette";
+@import "shadow/shadow";
+@import "ripple/ripple";
+@import "animation/animation";
+@import "button/button";
+@import "card/card";
+@import "checkbox/checkbox";
+@import "column-layout/column-layout";
+@import "footer/mega_footer";
+@import "footer/mini_footer";
+@import "icon-toggle/icon-toggle";
+@import "menu/menu";
+@import "layout/layout";
+@import "list/list";
+@import "radio/radio";
+@import "slider/slider";
+@import "spinner/spinner";
+@import "switch/switch";
+@import "tabs/tabs";
+@import "textfield/textfield";
+@import "tooltip/tooltip";
+
+
+$padding: 24px;
+
+body {
+  margin: 0px;
+}
+
+.styleguide-demo h1 {
+  margin: ($padding * 2) $padding 0 $padding;
+}
+
+.styleguide-demo h1:after {
+  content: '';
+
+  display: block;
+  width: 100%;
+
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  margin-top: $padding;
+}
+
+.styleguide-demo {
+  opacity: 0;
+
+  transition: opacity 0.6s ease;
+}
+
+.styleguide-masthead {
+  height: 256px;
+  background: unquote("rgb(#{nth($palette-grey, 10)})");
+  padding: 115px 16px 0;
+}
+
+.styleguide-container {
+  position: relative;
+  max-width: 960px;
+  width: 100%;
+}
+
+.styleguide-title {
+  color: #fff;
+  bottom: auto;
+  position: relative;
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
+  &:after {
+    border-bottom: 0px;
+  }
+
+  span {
+    font-weight: 300;
+  }
+}
+
+.wsk-styleguide .wsk-layout__drawer .wsk-navigation__link {
+  padding: 10px 24px;
+}
+
+.demosLoaded .styleguide-demo {
+  opacity: 1;
+}
+
+iframe {
+  display: block;
+
+  width: 100%;
+
+  border: none;
+}
+
+iframe.heightSet {
+  overflow: hidden;
+}
+
+.demo-wrapper {
+  margin: $padding;
+
+  iframe {
+    border: 1px solid rgba(0,0,0,0.5);
+  }
+}

@@ -1,0 +1,304 @@
+@import "../colors";
+@import "../shadow/shadow";
+
+$form-color : $text-color-primary !default;
+$form-color-help : $text-color-secondary !default;
+$form-color-accent : white !default;
+$form-active-input-border-color : $input-text-highlight-color !default;
+$form-background-color : white !default;
+$form-background-color-accent : nth($palette-accent, 5) !default;
+$form-button-radius : 2px !default;
+$form-default-button-color : $text-color-primary !default;
+$form-default-button-background-color : $button-primary-color !default;
+
+//$input-text-bottom-border-color: rgba(0, 0, 0, 0.12) !default;
+
+$_form_default_width : 320px !default;
+$_form_default_font_size : 15px !default;
+$_form_default_label_padding : 12px !default;
+$_form_default_label_width : 130px !default;
+$_form_default_button_width : $_form_default_label_width !default;
+
+form.wsk-basic-form {
+    box-sizing       : border-box;
+
+    display          : flex;
+    flex-direction   : column;
+    width            : $_form_default_width;
+    font-weight      : 300;
+    color            : $form-color;
+    background-color : $form-background-color;
+    padding          : 24px 24px 8px 24px;
+
+    h1, h2, h3, h4, h5, h6, h6 { padding-top : 0; font-size : 24px; line-height : 24px; }
+
+    &.right { float : right; }
+
+    label {
+        flex-shrink : 0;
+        padding-top : $_form_default_label_padding;
+
+        &:first-child {
+            padding-top : 0;
+        }
+
+        font-size   : $_form_default_font_size; }
+
+    // Material design:
+    //    http://codepen.io/sevilayha/pen/IdGKH
+    //    https://scotch.io/tutorials/google-material-design-input-boxes-in-css3
+    input, button {
+        box-sizing    : border-box;
+        border-radius : $form-button-radius;
+        border        : 1px solid #000000;;
+
+        &.large { width : 10em; }
+        &.normal { width : 8em; }
+        &.small { width : 6em; }
+    }
+
+    input {
+        width         : 100%;
+        font-size     : $_form_default_font_size;
+        padding       : ($_form_default_font_size / 2);
+        color         : $form-color;
+        border        : none;
+
+        &:last-child {
+            margin-right : 0;
+        }
+
+        //&[type=text],&[type=password],&[type=email],&[type=number],&[type=date],&[type=time],
+        //&[type=month],&[type=week],&[type=time],&[type=datetime], &[type=datetime-local],
+        //&[type=search],&[type=tel],&[type=url]
+        border-bottom : 1px solid $input-text-bottom-border-color;
+        outline       : none;
+
+        &:focus {
+            border-bottom : 1px solid $form-active-input-border-color;
+        }
+
+        &[type=submit] {
+            border : none;
+        }
+    }
+
+    .wsk-basic-form__group {
+        display        : flex;
+        flex-direction : row;
+        padding-top    : ($_form_default_font_size / 2);
+        padding-bottom : ($_form_default_font_size / 2);
+
+        &.wsk-basic-form__group--last-row {
+            padding    : 0;
+            margin-top : 16px;
+        }
+
+        > .wsk-basic-form__group { padding-top : 0; }
+
+        label {
+            width       : $_form_default_label_width;
+            padding-top : ($_form_default_font_size / 2);
+        }
+
+        input {
+            flex-grow : 1;
+            width     : auto;
+        }
+
+        input[type=submit] { flex-grow : 0; width : $_form_default_button_width; }
+
+        ul.vertical li {
+            &:first-child { padding-top : ($_form_default_font_size / 4); }
+            &:last-child { padding-top : 0; }
+
+            padding-top : 0;
+        }
+
+        ul.horizontal li {
+            padding-right : $_form_default_label_padding;
+
+            &:first-child { padding-top : ($_form_default_font_size / 2); }
+            &:last-child { padding-top : ($_form_default_font_size / 2); }
+
+            padding-top   : ($_form_default_font_size / 2);
+        }
+
+        &.wsk-basic-form__group--right {
+            justify-content : flex-end;
+
+            input, button {
+                margin-left : 10px;
+
+                &:first-child {
+                    margin-left : 0;
+                }
+            }
+
+        }
+
+        &.equal {
+            &.with-offset {
+                margin-left : $_form_default_label_width;
+            }
+
+            justify-content : space-between;
+
+            > *, > input[type=submit] {
+                flex-grow   : 1;
+                margin-left : 10px;
+
+                &:first-child {
+                    margin-left : 0;
+                }
+
+            }
+        }
+
+        &.wsk-basic-form__group--checkbox, &.wsk-basic-form__group--radio {
+            justify-content : flex-start;
+            font-size       : $_form_default_font_size;
+
+            input {
+                flex-grow  : 0;
+                margin-top : 3px;
+                margin-left: 1em;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+
+            > * {
+                margin-right : ($_form_default_label_padding / 2);
+            }
+        }
+
+        &.help {
+            flex-grow      : 1;
+            display        : flex;
+            flex-direction : column;
+
+            .help-block {
+                padding : 0;
+            }
+        }
+
+        .help-block {
+            color       : $form-color-help;
+            font-weight : 600;
+        }
+    }
+
+
+    input[type=submit], button {
+        width            : $_form_default_button_width;
+
+        &.maxsize {
+            width : 100%;
+        }
+
+        // Spec - Material Design
+        // Kein Margin rundherum da 6px Margin auch rechts einen Rand erzeugen -
+        // ist bei flexbox nicht optimal
+        height           : 36px; // 6px bei button und 24px Abstand von Buttons zu Text nach oben
+        margin           : 4px;
+        padding          : 6px;
+        border           : none;
+        font-size        : ($_form_default_font_size * 1.1);
+        color            : $form-default-button-color;
+        background-color : $form-default-button-background-color;
+
+        &:last-of-type {
+            margin-right : 0;
+        }
+
+        &.wsk-basic-form__control--maxsize { width : 100%;}
+        &.wsk-basic-form__control {
+            &--last-row {
+                margin-top : 20px;
+            }
+
+            &--right {
+                align-self : flex-end;
+            }
+        }
+    }
+
+    input[type=submit], button[type=submit], button.submit, button.primary {
+        //background-color : darken($_form_colorAccent,20%);
+        background-color : $form-background-color-accent;
+        color            : $form-color-accent;
+    }
+
+    .wsk-basic-form__control {
+        &--last-row {
+            margin-top : 20px;
+        }
+
+        &--right {
+            align-self : flex-end;
+        }
+    }
+
+    @include shadow-z2();
+}
+
+//-----------------------------------------------------------------------------
+// Material style
+//   More: http://www.google.com/design/spec/material-design/introduction.html
+//
+form.wsk-form {
+    box-sizing: border-box;
+
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start; // ↓
+    align-content: space-between; // =
+    align-items: flex-start; // ⇾
+
+    padding          : 24px 0 8px 0;
+
+    color            : $form-color;
+    background-color : $form-background-color;
+
+    h1, h2, h3, h4, h5, h6, h6 {
+        padding-top : 0; font-size : 24px; line-height : 24px;
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    > .wsk-input, .wsk-checkbox {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .wsk-form__group {
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end; // ⇾
+        align-content: space-between; // ||
+        align-items: center; // ↓
+
+        width: 100%;
+        min-height: 48px;
+        max-height: 48px;
+        padding-right: 16px;
+
+        &.wsk-form__group--left {
+            justify-content: flex-start; // ⇾
+        }
+    }
+
+
+    @include shadow-z2();
+
+}
+
+
+
+

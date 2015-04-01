@@ -492,7 +492,7 @@ class Application {
         if (directory.existsSync()) {
 
             directory.listSync(recursive: recursive).where((final FileSystemEntity entity) {
-                _logger.info("Entity: ${entity}");
+                _logger.fine("Entity: ${entity}");
 
                 bool isUsableFile = (entity != null && FileSystemEntity.isFileSync(entity.path) &&
                     ( entity.path.endsWith(".dart") || entity.path.endsWith(".DART")) || entity.path.endsWith(".html") );

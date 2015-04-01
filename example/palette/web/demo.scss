@@ -2,155 +2,151 @@
 @import 'packages/wsk_material/sass/palette/palette';
 @import "packages/wsk_material/sass/typography/typography";
 
-body {
-    padding: 0;
-}
-
-.PreviewBlock {
-    padding: 20px 15px;
-}
-
-@mixin colorGroups($palette) {
+@mixin demo-palette-color-groups($palette) {
   .demo-palette-color--50 {
-    background-color: #{nth($palette, 1)};
+    background-color: unquote("rgb(#{nth($palette, 1)})");
 
     &:after {
-      content: '#{nth($palette, 1)}';
+      content: 'rgb(#{nth($palette, 1)})';
       float: right;
     }
   }
 
   .demo-palette-color--100 {
-    background-color: #{nth($palette, 2)};
+    background-color: unquote("rgb(#{nth($palette, 2)})");
 
     &:after {
-      content: '#{nth($palette, 2)}';
+      content: 'rgb(#{nth($palette, 2)})';
       float: right;
     }
   }
 
   .demo-palette-color--200 {
-    background-color: #{nth($palette, 3)};
+    background-color: unquote("rgb(#{nth($palette, 3)})");
 
     &:after {
-      content: '#{nth($palette, 3)}';
+      content: 'rgb(#{nth($palette, 3)})';
       float: right;
     }
   }
 
   .demo-palette-color--300 {
-    background-color: #{nth($palette, 4)};
+    background-color: unquote("rgb(#{nth($palette, 4)})");
 
     &:after {
-      content: '#{nth($palette, 4)}';
+      content: 'rgb(#{nth($palette, 4)})';
       float: right;
     }
   }
 
   .demo-palette-color--400 {
-    background-color: #{nth($palette, 5)};
+    background-color: unquote("rgb(#{nth($palette, 5)})");
 
     &:after {
-      content: '#{nth($palette, 5)}';
+      content: 'rgb(#{nth($palette, 5)})';
       float: right;
     }
   }
 
   .demo-palette-color--500 {
-    background-color: #{nth($palette, 6)};
+    background-color: unquote("rgb(#{nth($palette, 6)})");
 
     &:after {
-      content: '#{nth($palette, 6)}';
+      content: 'rgb(#{nth($palette, 6)})';
       float: right;
     }
   }
 
   .demo-palette-color--600 {
-    background-color: #{nth($palette, 7)};
+    background-color: unquote("rgb(#{nth($palette, 7)})");
 
     &:after {
-      content: '#{nth($palette, 7)}';
+      content: 'rgb(#{nth($palette, 7)})';
       float: right;
     }
   }
 
   .demo-palette-color--700 {
-    background-color: #{nth($palette, 8)};
+    background-color: unquote("rgb(#{nth($palette, 8)})");
 
     &:after {
-      content: '#{nth($palette, 8)}';
+      content: 'rgb(#{nth($palette, 8)})';
       float: right;
     }
   }
 
   .demo-palette-color--800 {
-    background-color: #{nth($palette, 9)};
+    background-color: unquote("rgb(#{nth($palette, 9)})");
 
     &:after {
-      content: '#{nth($palette, 9)}';
+      content: 'rgb(#{nth($palette, 9)})';
       float: right;
     }
   }
 
   .demo-palette-color--900 {
-    background-color: #{nth($palette, 10)};
+    background-color: unquote("rgb(#{nth($palette, 10)})");
 
     &:after {
-      content: '#{nth($palette, 10)}';
+      content: 'rgb(#{nth($palette, 10)})';
       float: right;
     }
   }
 
   @if length($palette) > 10 {
     .demo-palette-color--A100 {
-      background-color: #{nth($palette, 11)};
+      background-color: unquote("rgb(#{nth($palette, 11)})");
 
       &:after {
-        content: '#{nth($palette, 11)}';
+        content: 'rgb(#{nth($palette, 11)})';
         float: right;
       }
     }
 
     .demo-palette-color--A200 {
-      background-color: #{nth($palette, 12)};
+      background-color: unquote("rgb(#{nth($palette, 12)})");
 
       &:after {
-        content: '#{nth($palette, 12)}';
+        content: 'rgb(#{nth($palette, 12)})';
         float: right;
       }
     }
 
     .demo-palette-color--A400 {
-      background-color: #{nth($palette, 13)};
+      background-color: unquote("rgb(#{nth($palette, 13)})");
 
       &:after {
-        content: '#{nth($palette, 13)}';
+        content: 'rgb(#{nth($palette, 13)})';
         float: right;
       }
     }
 
     .demo-palette-color--A700 {
-      background-color: #{nth($palette, 14)};
+      background-color: unquote("rgb(#{nth($palette, 14)})");
 
       &:after {
-        content: '#{nth($palette, 14)}';
+        content: 'rgb(#{nth($palette, 14)})';
         float: right;
       }
     }
   }
 }
 
-.PreviewBlock {
-  display: inline-block;  
+.demo-page--palette .demo-preview-block {
+  display: inline-block;
 }
 
-.demo-palette-group {
+.demo-palette {
   margin-top: 15px;
   width: 360px;
   float: left;
+
+    @media screen and (max-width: 360px ) {
+        width: 272px;
+    }
 }
 
-.demo-palette-group--color, .demo-palette-group--heading {
+.demo-palette-color, .demo-palette-heading {
   @include typo-caption();
 
   max-width: 300px;
@@ -158,86 +154,113 @@ body {
   color: white;
 }
 
-.demo-palette-group .dark-text, .demo-palette-group-heading.dark-text .demo-palette-group-name {
+.demo-palette .demo-palette--dark-text,
+.demo-palette-heading.demo-palette--dark-text .demo-palette-name {
   color: #000;
 }
 
-.demo-palette-group--name {
+.demo-palette-name {
   padding: 0 0 60px 0;
 }
 
-.demo-palette-group__red {
-  @include colorGroups($palette-red);
+.demo-palette-single {
+  padding: 15px 15px 25px;
+
+  .demo-palette-name {
+    padding: 0;
+    float: left;
+  }
 }
 
-.demo-palette-group__pink {
-  @include colorGroups($palette-pink);
+.demo-palette--red {
+  @include demo-palette-color-groups($palette-red);
 }
 
-.demo-palette-group__purple {
-  @include colorGroups($palette-purple);
+.demo-palette--pink {
+  @include demo-palette-color-groups($palette-pink);
 }
 
-.demo-palette-group__deep-purple {
-  @include colorGroups($palette-deep-purple);
+.demo-palette--purple {
+  @include demo-palette-color-groups($palette-purple);
 }
 
-.demo-palette-group__indigo {
-  @include colorGroups($palette-indigo);
+.demo-palette--deep-purple {
+  @include demo-palette-color-groups($palette-deep-purple);
 }
 
-.demo-palette-group__blue {
-  @include colorGroups($palette-blue);
+.demo-palette--indigo {
+  @include demo-palette-color-groups($palette-indigo);
 }
 
-.demo-palette-group__light-blue {
-  @include colorGroups($palette-light-blue);
+.demo-palette--blue {
+  @include demo-palette-color-groups($palette-blue);
 }
 
-.demo-palette-group__cyan {
-  @include colorGroups($palette-cyan);
+.demo-palette--light-blue {
+  @include demo-palette-color-groups($palette-light-blue);
 }
 
-.demo-palette-group__teal {
-  @include colorGroups($palette-teal);
+.demo-palette--cyan {
+  @include demo-palette-color-groups($palette-cyan);
 }
 
-.demo-palette-group__green {
-  @include colorGroups($palette-green);
+.demo-palette--teal {
+  @include demo-palette-color-groups($palette-teal);
 }
 
-.demo-palette-group__light-green {
-  @include colorGroups($palette-light-green);
+.demo-palette--green {
+  @include demo-palette-color-groups($palette-green);
 }
 
-.demo-palette-group__lime {
-  @include colorGroups($palette-lime);
+.demo-palette--light-green {
+  @include demo-palette-color-groups($palette-light-green);
 }
 
-.demo-palette-group__yellow {
-  @include colorGroups($palette-yellow);
+.demo-palette--lime {
+  @include demo-palette-color-groups($palette-lime);
 }
 
-.demo-palette-group__amber {
-  @include colorGroups($palette-amber);
+.demo-palette--yellow {
+  @include demo-palette-color-groups($palette-yellow);
 }
 
-.demo-palette-group__orange {
-  @include colorGroups($palette-orange);
+.demo-palette--amber {
+  @include demo-palette-color-groups($palette-amber);
 }
 
-.demo-palette-group__deep-orange {
-  @include colorGroups($palette-deep-orange);
+.demo-palette--orange {
+  @include demo-palette-color-groups($palette-orange);
 }
 
-.demo-palette-group__brown {
-  @include colorGroups($palette-brown);
+.demo-palette--deep-orange {
+  @include demo-palette-color-groups($palette-deep-orange);
 }
 
-.demo-palette-group__grey {
-  @include colorGroups($palette-grey);
+.demo-palette--brown {
+  @include demo-palette-color-groups($palette-brown);
+}
 
-  .demo-palette-color--1000 {
+.demo-palette--grey {
+  @include demo-palette-color-groups($palette-grey);
+}
+
+.demo-palette--blue-grey {
+  @include demo-palette-color-groups($palette-blue-grey);
+}
+
+.demo-palette--black {
+  .demo-palette-color {
+    background-color: #000000;
+
+    &:after {
+      content: '#000000';
+      float: right;
+    }
+  }
+}
+
+.demo-palette--black-text {
+  .demo-palette-color {
     background-color: #000000;
 
     &:after {
@@ -246,16 +269,95 @@ body {
     }
   }
 
-  .demo-palette-color--1000-inverse {
-    background-color: #ffffff;
+  .demo-palette-color--100 {
+    background-color: unquote("rgb(#{nth($palette-black, 1)})");
 
     &:after {
-      content: '#ffffff';
+      content: '#000000';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--12 {
+    background-color: unquote("rgba(#{nth($palette-black, 5)})");
+
+    &:after {
+      content: 'Dividers';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--26 {
+    background-color: unquote("rgba(#{nth($palette-black, 4)})");
+
+    &:after {
+      content: 'Disabled / Hint Text';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--54 {
+    background-color: unquote("rgba(#{nth($palette-black, 3)})");
+
+    &:after {
+      content: 'Secondary Text / Icons';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--87 {
+    background-color: unquote("rgba(#{nth($palette-black, 2)})");
+
+    &:after {
+      content: 'Text';
       float: right;
     }
   }
 }
 
-.demo-palette-group__blue-grey {
-  @include colorGroups($palette-blue-grey);
+.demo-palette--white-text {
+  .demo-palette-color {
+    background-color: #ffffff;
+
+    &:after {
+      content: '#FFFFFF';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--12 {
+    background-color: unquote("rgba(#{nth($palette-white, 4)})");
+
+    &:after {
+      content: 'Dividers';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--30 {
+    background-color: unquote("rgba(#{nth($palette-white, 3)})");
+
+    &:after {
+      content: 'Disabled / Hint Text';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--70 {
+    background-color: unquote("rgba(#{nth($palette-white, 2)})");
+
+    &:after {
+      content: 'Secondary Text';
+      float: right;
+    }
+  }
+
+  .demo-palette-color--100 {
+    background-color: unquote("rgba(#{nth($palette-white, 1)})");
+
+    &:after {
+      content: 'Text / Icons';
+      float: right;
+    }
+  }
 }

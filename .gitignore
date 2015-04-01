@@ -9,3 +9,5 @@ pubspec.lock
 lib/sass/*/*.css
 .bs
 *.css.map
+example/*/*.css
+example/**/*.css

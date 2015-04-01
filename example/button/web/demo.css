@@ -174,11 +174,6 @@ textarea {
   h2, h3 {
     page-break-after: avoid; } }
 
-a, .wsk-accordion, .wsk-button, .wsk-card, .wsk-checkbox, .wsk-dropdown-menu, .wsk-icon-toggle, .wsk-item, .wsk-radio, .wsk-slider, .wsk-switch, .wsk-tabs__tab {
-  -webkit-tap-highlight-color: transparent;
-  /* For some Androids */
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
-
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
    immediately and not wait for the web font load, whereas for other sections,
@@ -545,6 +540,7 @@ html, body {
   padding: 0; }
 
 body {
+  padding: 24px;
   box-sizing: border-box;
   background: #FFF; }
 
@@ -554,7 +550,7 @@ body > h2 {
 
 .PreviewBlock {
   background: #f5f5f5;
-  padding: 24px; }
+  padding: 20px; }
 
 .wsk-shadow--z1 {
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
@@ -982,14 +978,11 @@ dt {
   pointer-events: none;
   position: absolute;
   top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   width: 50px;
   overflow: hidden; }
   .wsk-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
 
 /**
  *
@@ -1016,8 +1009,7 @@ dt {
   letter-spacing: 0.04em;
   overflow: hidden;
   will-change: box-shadow, transform;
-  -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
   cursor: pointer; }
   .wsk-button::-moz-focus-inner {
@@ -1087,7 +1079,7 @@ dt {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
     background-color: rgba(153, 153, 153, 0.4); }
   .wsk-button--fab.wsk-button--colored {
-    background-color: #ec407a;
+    background: #ec407a;
     color: #fff; }
     .wsk-button--fab.wsk-button--colored:hover {
       background-color: #e91e63; }
@@ -1135,15 +1127,3 @@ dt {
 .button-block {
   display: inline-block;
   margin: 20px 20px 20px 0; }
-
-.svg-gps-fixed {
-  background-repeat: no-repeat;
-  background-size: 24px 24px;
-  background-position: 50% 50%;
-  background-image: svgShapeComponent(#bbdefb);
-  background-image: url(assets/svgs/ic_gps_fixed_24px.svg); }
-  .svg-gps-fixed.wsk-button--colored {
-    background-image: url(assets/svgs/ic_gps_fixed_24px-white.svg); }
-  .svg-gps-fixed:after {
-    content: ".";
-    color: transparent; }
