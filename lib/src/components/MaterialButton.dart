@@ -4,9 +4,11 @@ part of wskcomponents;
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialButtonCssClasses {
-    final String WSK_JS_RIPPLE_EFFECT =          'wsk-js-ripple-effect';
-    final String WSK_BUTTON_RIPPLE_CONTAINER =   'wsk-button__ripple-container';
-    final String WSK_RIPPLE =                    'wsk-ripple';
+
+    final String RIPPLE_EFFECT =      'wsk-js-ripple-effect';
+    final String RIPPLE_CONTAINER =   'wsk-button__ripple-container';
+    final String RIPPLE =             'wsk-ripple';
+
     const _MaterialButtonCssClasses();
 }
 
@@ -36,23 +38,26 @@ class MaterialButton extends WskComponent {
     void _init() {
         _logger.fine("MaterialButton - init");
 
-        if(element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT)) {
+        if(element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
             final html.SpanElement rippleContainer = new html.Element.span();
-            rippleContainer.classes.add(_cssClasses.WSK_BUTTON_RIPPLE_CONTAINER);
+            rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
 
             final html.SpanElement ripple = new html.Element.span();
-            ripple.classes.add(_cssClasses.WSK_RIPPLE);
+            ripple.classes.add(_cssClasses.RIPPLE);
             rippleContainer.append(ripple);
 
-            ripple.onMouseUp.listen(_blurHandleGenerator);
+            ripple.onMouseUp.listen(_blurHandler);
             element.append(rippleContainer);
 
             _logger.fine("MaterialButton - init done...");
         }
-        element.onMouseUp.listen(_blurHandleGenerator);
+
+        element.onMouseUp.listen(_blurHandler);
+
+        element.onMouseLeave.listen(_blurHandler);
     }
 
-    void _blurHandleGenerator(final html.MouseEvent event) {
+    void _blurHandler(final html.MouseEvent event) {
         _logger.fine("blur...");
         element.blur();
     }

@@ -26,19 +26,37 @@ class _MaterialButtonConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialButtonCssClasses {
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-
-    final String WSK_BUTTON_RIPPLE_CONTAINER = 'wsk-button__ripple-container';
-
-    final String WSK_RIPPLE = 'wsk-ripple';
+    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+    final String RIPPLE_CONTAINER = 'wsk-button__ripple-container';
+    final String RIPPLE = 'wsk-ripple';
 }
 
 /// Handle blur of element.
 /// @param {HTMLElement} element The instance of a button we want to blur.
-/// MaterialButton.prototype.blurHandlerGenerator_ = function(element) {
-void _blurHandlerGenerator(final element) {
+/// MaterialButton.prototype.blurHandler = function(event) {
+void blurHandler(final html.Event event) {
 
-  return function() {element.blur();}
+  if (event) {
+    element.blur();
+  }
+}
+
+// Public methods.
+
+/// Disable button.
+/// @public
+/// MaterialButton.prototype.disable = /*function*/ () {
+void disable() {
+
+  element.disabled = true;
+}
+
+/// Enable button.
+/// @public
+/// MaterialButton.prototype.enable = /*function*/ () {
+void enable() {
+
+  element.disabled = false;
 }
 
 /// Initialize element.
@@ -46,17 +64,13 @@ void _blurHandlerGenerator(final element) {
 void init() {
 
   if (element != null) {
-
-    final blurHandler = _blurHandlerGenerator(element);
-    if (element.classes.contains(
-        _cssClasses.WSK_JS_RIPPLE_EFFECT)) {
+    if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
 
       final rippleContainer = new html.SpanElement();
-      rippleContainer.classes.add(
-          _cssClasses.WSK_BUTTON_RIPPLE_CONTAINER);
+      rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
 
       final ripple = new html.SpanElement();
-      ripple.classes.add(_cssClasses.WSK_RIPPLE);
+      ripple.classes.add(_cssClasses.RIPPLE);
       rippleContainer.append(ripple);
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
@@ -66,6 +80,9 @@ void init() {
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
     element.onMouseUp.listen( blurHandler);
+
+	// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
+    element.onMouseLeave.listen( blurHandler);
   }
 }
 

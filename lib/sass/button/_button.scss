@@ -140,13 +140,24 @@ $button-icon-size-mini: 24px !default;
     padding: 0;
     overflow: hidden;
     background: $button-primary-color;
-
     @include shadow-z1();
+    position: relative;
+
+    & .wsk-icon {
+      position: absolute;
+      top: ($button-fab-size - $button-fab-font-size) / 2;
+      left: ($button-fab-size - $button-fab-font-size) / 2;
+    }
 
     &.wsk-button--mini-fab {
       height: $button-fab-size-mini;
       min-width: $button-fab-size-mini;
       width: $button-fab-size-mini;
+
+      & .wsk-icon {
+        top: ($button-fab-size-mini - $button-fab-font-size) / 2;
+        left: ($button-fab-size-mini - $button-fab-font-size) / 2;
+      }
     }
 
     & .wsk-button__ripple-container {
@@ -166,8 +177,8 @@ $button-icon-size-mini: 24px !default;
     }
 
     &.wsk-button--colored {
-      background-color: $button-fab-color-alt;
-      color: $button-secondary-color-alt;
+      background: $button-fab-color-alt;
+      color: $button-fab-text-color-alt;
 
       &:hover {
         background-color: $button-fab-hover-color-alt;
@@ -182,7 +193,7 @@ $button-icon-size-mini: 24px !default;
       }
 
       & .wsk-ripple {
-        background: $button-ripple-color-alt;
+        background: $button-fab-ripple-color-alt;
       }
     }
 
@@ -206,11 +217,23 @@ $button-icon-size-mini: 24px !default;
     width: $button-icon-size;
     padding: 0;
     overflow: hidden;
+    color: inherit;
+
+    & .wsk-icon {
+      position: absolute;
+      top: ($button-icon-size - $button-fab-font-size) / 2;
+      left: ($button-icon-size - $button-fab-font-size) / 2;
+    }
 
     &.wsk-button--mini-icon {
       height: $button-icon-size-mini;
       min-width: $button-icon-size-mini;
       width: $button-icon-size-mini;
+
+      & .wsk-icon {
+        top: ($button-icon-size-mini - $button-fab-font-size) / 2;
+        left: ($button-icon-size-mini - $button-fab-font-size) / 2;
+      }
     }
 
     & .wsk-button__ripple-container {

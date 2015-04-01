@@ -197,6 +197,10 @@ class Application {
                 return false;
             }
 
+            if(entity.path.endsWith(".js") || entity.path.endsWith("/demo.html") || entity.path.endsWith("/demo.scss")) {
+                return false;
+            }
+
             return true;
 
         }).forEach((final FileSystemEntity entity) {

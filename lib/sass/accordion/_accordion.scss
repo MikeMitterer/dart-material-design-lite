@@ -9,7 +9,7 @@
 $accordion-header-color : rgba(0, 0, 0, 0.8) !default; // like tabs
 $accordion-text-color : rgba(0, 0, 0, 0.6) !default; // like tabs
 $accordion-active-text-color : black !default;
-$accordion-highlight-color : nth($palette-primary, 7) !default;
+$accordion-highlight-color : unquote("rgb(#{$color-primary})") !default;
 $accordion-divider-color : #ddd !default;
 
 /* Animation Variables */

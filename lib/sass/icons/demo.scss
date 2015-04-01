@@ -1,37 +1,32 @@
 @import "../styleguide_demo_bp";
 @import "../typography/typography";
+@import "_icons";
 
-$icon-border-color: #ccc;
-
-h2 {
-  clear: both;
-  display: block;
-}
-
-.preview {
-  min-width: 85px;
-  min-height: 85px;
-  max-width: 80px;
-  margin: 10px;
+.demo-icon-block {
   display: flex;
+  min-height: 24px;
+  height: 24px;
+  min-width: 30em;
+  margin: 0;
+  padding: 0;
   align-items: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  float: left;
-  text-align: center;
-  border: 1px solid $icon-border-color;
 }
 
-.preview a {
-  display: block;
-  text-transform: capitalize;
-  position: relative;
-  max-width: 80px;
-  overflow: hidden;
-}
-
-.preview img {
-  width: 48px;
-  position: relative;
+.demo-page--icon .wsk-icon {
   display: inline-block;
+  font-size: 24px;
+  min-width: 24px;
+  height: 24px;
+  line-height: 24px;
+  margin-right: 1em;
+}
+
+.demo-category {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.demo-icon-name {
+  height: 24px;
 }

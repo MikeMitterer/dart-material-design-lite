@@ -25,7 +25,6 @@
       <excludeFolder url="file://$MODULE_DIR$/example/_images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/accordion/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/accordion/web/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/animation/.sitegen/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/animation/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/animation/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/badge/build" />
@@ -75,7 +74,6 @@
       <excludeFolder url="file://$MODULE_DIR$/example/nav-pills/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/nav-pills/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/palette/.sitegen/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/palette/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/palette/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/panel/build" />

@@ -11,74 +11,44 @@
 
     <link rel="stylesheet" href="demo.css">
   </head>
-  <body>
+  <body class="demo-page demo-page--button">
 
-  <div class="PreviewBlock">
+  <div class="demo-preview-block">
 
-      <div class="button-block">Flat: <button class="wsk-button wsk-js-button">Flat</button></div>
-      <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised">Raised</button></div>
-      <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab">♥</button></div>
-      <div class="button-block">Icon: <button class="wsk-button wsk-js-button wsk-button--icon">♥</button></div>
+    <div class="demo-button">Flat: <button class="wsk-button wsk-js-button">Flat</button></div>
+    <div class="demo-button">Raised: <button class="wsk-button wsk-js-button wsk-button--raised">Raised</button></div>
+    <div class="demo-button">FAB: <button class="wsk-button wsk-js-button wsk-button--fab"><span class="wsk-icon wsk-icon--add"/></button></div>
+    <div class="demo-button">Icon: <button class="wsk-button wsk-js-button wsk-button--icon"><span class="wsk-icon wsk-icon--create"/></button></div>
 
-      <h3>With Ripples</h3>
+    <h2>With Ripples</h2>
 
-      <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-js-ripple-effect">Flat</button></div>
-      <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect">Raised</button></div>
-      <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect">♥</button></div>
-      <div class="button-block">Icon: <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect">♥</button></div>
+    <div class="demo-button">Flat: <button class="wsk-button wsk-js-button wsk-js-ripple-effect">Flat</button></div>
+    <div class="demo-button">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect">Raised</button></div>
+    <div class="demo-button">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--add"/></button></div>
+    <div class="demo-button">Icon: <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--create"/></button></div>
 
-      <h3>.wsk-button--colored</h3>
+    <h2>.wsk-button--colored</h2>
 
-      <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-button--colored">Flat</button></div>
-      <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-button--colored">Raised</button></div>
-      <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored">♥</button></div>
+    <div class="demo-button">Flat: <button class="wsk-button wsk-js-button wsk-button--colored">Flat</button></div>
+    <div class="demo-button">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-button--colored">Raised</button></div>
+    <div class="demo-button">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored"><span class="wsk-icon wsk-icon--add"/></button></div>
 
-      <h3>With Ripples</h3>
+    <h2>With Ripples</h2>
 
-      <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-button--colored wsk-js-ripple-effect">Flat</button></div>
-      <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-button--colored wsk-js-ripple-effect">Raised</button></div>
-      <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-js-ripple-effect">♥</button></div>
+    <div class="demo-button">Flat: <button class="wsk-button wsk-js-button wsk-button--colored wsk-js-ripple-effect">Flat</button></div>
+    <div class="demo-button">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-button--colored wsk-js-ripple-effect">Raised</button></div>
+    <div class="demo-button">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--add"/></button></div>
 
-      <h3>.wsk-button--mini-fab</h3>
+    <h2>.wsk-button--mini-fab</h2>
 
-      <div class="button-block"><button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-button--mini-fab wsk-js-ripple-effect">♥</button></div>
+    <div class="demo-button"><button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-button--mini-fab wsk-js-ripple-effect"><span class="wsk-icon wsk-icon--add"/></button></div>
 
-      <h3>FAB SVG's</h3>
-      <div class="button-block">
-          <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-js-ripple-effect">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-          </button>
-          <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-          </button>
+    <h2>Disabled</h2>
 
-          <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-js-ripple-effect svg-gps-fixed"></button>
-
-          <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect svg-gps-fixed"></button>
-      </div>
-
-      <h3>Mini-FAB SVG's</h3>
-      <div class="button-block">
-          <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--mini-fab wsk-js-ripple-effect">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#000000" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-          </button>
-
-          <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--mini-fab wsk-js-ripple-effect svg-gps-fixed"></button>
-
-          <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-button--mini-fab wsk-js-ripple-effect">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-          </button>
-
-          <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-button--mini-fab wsk-js-ripple-effect svg-gps-fixed"></button>
-
-      </div>
-
-      <h3>Disabled</h3>
-
-      <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-js-ripple-effect" disabled>Flat</button></div>
-      <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect" disabled>Raised</button></div>
-      <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect" disabled>♥</button></div>
-      <div class="button-block">Icon: <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect" disabled>♥</button></div>
+    <div class="demo-button">Flat: <button class="wsk-button wsk-js-button wsk-js-ripple-effect" disabled>Flat</button></div>
+    <div class="demo-button">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect" disabled>Raised</button></div>
+    <div class="demo-button">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect" disabled><span class="wsk-icon wsk-icon--add"/></button></div>
+    <div class="demo-button">Icon: <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect" disabled><span class="wsk-icon wsk-icon--add"/></button></div>
   </div>
     <!-- build:js(app/styleguide/button/) ../../scripts/main.min.js -->
     <script src="../wskComponentHandler.js"></script>

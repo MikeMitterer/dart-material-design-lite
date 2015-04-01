@@ -1,8 +1,17 @@
 @import "../styleguide_demo_bp";
-@import "../shadow/_shadow";
+@import "../icons/_icons";
 @import "_button";
 
-.button-block {
+// ToDo: Not really ideal here
+@font-face {
+    font-family: 'Material-Design-Iconic-Font';
+    src: url('packages/wsk_material/sass/fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
+    src: url('packages/wsk_material/sass/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('packages/wsk_material/sass/fonts/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('packages/wsk_material/sass/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.demo-button {
   display: inline-block;
   margin: 20px 20px 20px 0;
 }
