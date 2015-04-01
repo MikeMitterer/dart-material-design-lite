@@ -1,8 +1,8 @@
 @import "../colors";
 
 $badge-color: #fff !default;
-$badge-color-inverse: nth($palette-accent, 5) !default;
-$badge-background: nth($palette-accent, 5) !default;
+$badge-color-inverse: unquote("rgb(#{$color-accent})") !default;
+$badge-background: unquote("rgb(#{$color-accent})") !default;
 $badge-background-inverse: #fff !default;
 $badge-size : 20px;
 $badge-padding: 2px;
