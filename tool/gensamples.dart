@@ -453,11 +453,14 @@ class Application {
             body.wsk-upgrading > * { display: none; }
             body.wsk-upgrading div.loading { display: block; }\n\t</style>""";
 
-        final String newBody = '\t<body class="wsk-upgrading"> <div class="loading">Loading...</div>';
+        //final String newBody = '\t<body class="wsk-upgrading"> <div class="loading">Loading...</div>';
 
         String contents = buffer.toString();
         contents = contents.replaceFirst(new RegExp(r".*</head>"),"\n$style\n  </head>");
-        contents = contents.replaceFirst(new RegExp(r".*<body>"),newBody);
+
+        //contents = contents.replaceFirst(new RegExp(r".*<body>"),newBody);
+        contents = contents.replaceAllMapped(new RegExp(r'<body class="([^"]*)"[^>]*>'),
+            (final Match m) => '<body class="${m[1]} wsk-upgrading">  <div class="loading">Loading...</div>');
 
         indexFile.writeAsStringSync(contents);
     }

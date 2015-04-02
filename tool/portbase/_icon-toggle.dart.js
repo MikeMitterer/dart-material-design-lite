@@ -101,6 +101,44 @@ void _blur(final html.Event event) {
   }, _constant.TINY_TIMEOUT);
 }
 
+// Public methods.
+
+/// Disable icon toggle.
+/// @public
+/// MaterialIconToggle.prototype.disable = /*function*/ () {
+void disable() {
+
+  _btnElement.disabled = true;
+  _updateClasses();
+}
+
+/// Enable icon toggle.
+/// @public
+/// MaterialIconToggle.prototype.enable = /*function*/ () {
+void enable() {
+
+  _btnElement.disabled = false;
+  _updateClasses();
+}
+
+/// Check icon toggle.
+/// @public
+/// MaterialIconToggle.prototype.check = /*function*/ () {
+void check() {
+
+  _btnElement.checked = true;
+  _updateClasses();
+}
+
+/// Uncheck icon toggle.
+/// @public
+/// MaterialIconToggle.prototype.uncheck = /*function*/ () {
+void uncheck() {
+
+  _btnElement.checked = false;
+  _updateClasses();
+}
+
 /// Initialize element.
 /// MaterialIconToggle.prototype.init = /*function*/ () {
 void init() {
@@ -117,6 +155,9 @@ void init() {
       rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
       rippleContainer.classes.add(_cssClasses.JS_RIPPLE_EFFECT);
       rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
+
+	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+      rippleContainer.onMouseUp.listen( _onMouseUp);
 
       final ripple = new html.SpanElement();
       ripple.classes.add(_cssClasses.RIPPLE);
@@ -136,9 +177,6 @@ void init() {
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
     element.onMouseUp.listen( _onMouseUp);
-
-	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-    rippleContainer.onMouseUp.listen( _onMouseUp);
 
     _updateClasses(_btnElement, element);
     element.classes.add('is-upgraded');

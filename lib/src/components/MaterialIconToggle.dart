@@ -14,6 +14,8 @@ class _MaterialIconToggleCssClasses {
     final String IS_FOCUSED = 'is-focused';
     final String IS_DISABLED = 'is-disabled';
     final String IS_CHECKED = 'is-checked';
+    final String IS_UPGRADED = 'is-upgraded';
+
 
     const _MaterialIconToggleCssClasses();
 }
@@ -33,6 +35,7 @@ WskConfig materialIconToggleConfig() => new WskConfig<MaterialIconToggle>(
 /// registration-Helper
 void registerMaterialIconToggle() => componenthandler.register(materialIconToggleConfig());
 
+// ToDo: JS-Version defines public functions like disable, enable, check, uncheck
 class MaterialIconToggle extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialIconToggle');
 
@@ -67,13 +70,13 @@ class MaterialIconToggle extends WskComponent {
                 rippleContainer.classes.add(_cssClasses.JS_RIPPLE_EFFECT);
                 rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
 
+                rippleContainer.onMouseUp.listen(_onMouseUp);
+
                 final ripple = new html.SpanElement();
                 ripple.classes.add(_cssClasses.RIPPLE);
 
                 rippleContainer.append(ripple);
                 element.append(rippleContainer);
-
-                rippleContainer.onMouseUp.listen(_onMouseUp);
             }
 
             buttonElement.onChange.listen(_onChange);
@@ -85,7 +88,7 @@ class MaterialIconToggle extends WskComponent {
             element.onMouseUp.listen(_onMouseUp);
 
             _updateClasses(_btnElement, element);
-            element.classes.add('is-upgraded');
+            element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
 
