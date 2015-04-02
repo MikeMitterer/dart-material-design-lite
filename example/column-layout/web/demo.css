@@ -3900,22 +3900,10 @@ dt {
   background-color: rgb(255,255,255" "255,255,255,.70" "255,255,255,.30" "255,255,255,.12); }
 
 .wsk-column-layout {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 0;
   box-sizing: border-box;
   padding: 20px; }
@@ -3970,16 +3958,16 @@ dt {
       width: calc(100% - 16px);
       min-width: calc(100% - 16px); } }
 
-.wsk-column-layout {
-  background-color: "245,245,245"; }
+.demo-page--column-layout .wsk-column-layout {
+  background-color: #eee; }
 
-.wsk-column-layout__child {
+.demo-page--column-layout .wsk-column-layout__child {
   min-height: 300px;
-  background-color: "200,230,201";
+  background-color: #c8e6c9;
   padding: 16px; }
 
-.wsk-column-layout__child:nth-of-type(3n+1) {
-  background-color: "255,205,210"; }
+.demo-page--column-layout .wsk-column-layout__child:nth-of-type(3n+1) {
+  background-color: #ffcdd2; }
 
-.wsk-column-layout__child:nth-of-type(3n+2) {
-  background-color: "187,222,251"; }
+.demo-page--column-layout .wsk-column-layout__child:nth-of-type(3n+2) {
+  background-color: #bbdefb; }

@@ -2,20 +2,20 @@
 @import 'packages/wsk_material/sass/palette/palette';
 @import 'packages/wsk_material/sass/column-layout/_column-layout';
 
-.wsk-column-layout {
-  background-color: nth($palette-grey, 2);
+.demo-page--column-layout .wsk-column-layout {
+  background-color: #eee;
 }
 
-.wsk-column-layout__child {
+.demo-page--column-layout .wsk-column-layout__child {
   min-height: 300px;
-  background-color: nth($palette-green, 2);
+  background-color: rgb(200,230,201);
   padding: 16px;
 }
 
-.wsk-column-layout__child:nth-of-type(3n+1) {
-  background-color: nth($palette-red, 2);
+.demo-page--column-layout .wsk-column-layout__child:nth-of-type(3n+1) {
+  background-color: rgb(255,205,210);
 }
 
-.wsk-column-layout__child:nth-of-type(3n+2) {
-  background-color: nth($palette-blue, 2);
+.demo-page--column-layout .wsk-column-layout__child:nth-of-type(3n+2) {
+  background-color: rgb(187,222,251);
 }
