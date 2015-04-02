@@ -60,25 +60,32 @@ class _MaterialLayoutCssClasses {
     final String TAB_BAR_RIGHT_BUTTON = 'wsk-layout__tab-bar-right-button';
     final String PANEL = 'wsk-layout__tab-panel';
 
+    final String HAS_DRAWER_CLASS = 'has-drawer';
     final String SHADOW_CLASS = 'is-casting-shadow';
     final String COMPACT_CLASS = 'is-compact';
     final String SMALL_SCREEN_CLASS = 'is-small-screen';
     final String DRAWER_OPEN_CLASS = 'is-visible';
     final String ACTIVE_CLASS = 'is-active';
     final String UPGRADED_CLASS = 'is-upgraded';
+    final String ANIMATING_CLASS = 'is-animating';
 }
 
 /// Handles scrolling on the content.
 /// MaterialLayout.prototype.contentScrollHandler_ = /*function*/ () {
 void _contentScrollHandler() {
 
-  if (_content.scrollTop > 0) {
+  if(_header.classes.contains(_cssClasses.ANIMATING_CLASS)) {
+    return;
+  }
+
+  if (_content.scrollTop > 0 && !_header.classes.contains(_cssClasses.COMPACT_CLASS)) {
     _header.classes.add(_cssClasses.SHADOW_CLASS);
     _header.classes.add(_cssClasses.COMPACT_CLASS);
-
-  } else {
+    _header.classes.add(_cssClasses.ANIMATING_CLASS);
+  } else if (_content.scrollTop <= 0 && _header.classes.contains(_cssClasses.COMPACT_CLASS)) {
     _header.classes.remove(_cssClasses.SHADOW_CLASS);
     _header.classes.remove(_cssClasses.COMPACT_CLASS);
+    _header.classes.add(_cssClasses.ANIMATING_CLASS);
   }
 }
 
@@ -88,8 +95,8 @@ void _screenSizeHandler() {
 
   if (_screenSizeMediaQuery.matches) {
     element.classes.add(_cssClasses.SMALL_SCREEN_CLASS);
-  }
-  else {
+
+  } else {
     element.classes.remove(_cssClasses.SMALL_SCREEN_CLASS);
     // Collapse drawer (if any) when moving to a large screen size.
     if (_drawer) {
@@ -104,6 +111,23 @@ void _screenSizeHandler() {
 void _drawerToggleHandler() {
 
   _drawer.classes.toggle(_cssClasses.DRAWER_OPEN_CLASS);
+}
+
+/// Handles (un)setting the `is-animating` class
+/// MaterialLayout.prototype.headerTransitionEndHandler = /*function*/ () {
+void headerTransitionEndHandler() {
+
+  _header.classes.remove(_cssClasses.ANIMATING_CLASS);
+}
+
+/// Handles expanding the header on click
+/// MaterialLayout.prototype.headerClickHandler = /*function*/ () {
+void headerClickHandler() {
+
+  if (_header.classes.contains(_cssClasses.COMPACT_CLASS)) {
+    _header.classes.remove(_cssClasses.COMPACT_CLASS);
+    _header.classes.add(_cssClasses.ANIMATING_CLASS);
+  }
 }
 
 /// Reset tab state, dropping active classes
@@ -155,6 +179,12 @@ void init() {
       } else if (_header.classes.contains(
           _cssClasses.HEADER_WATERFALL)) {
         mode = _Mode.WATERFALL;
+        _header.addEventListener('transitionend',
+          headerTransitionEndHandler);
+
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+        _header.onClick.listen(
+          headerClickHandler);
       } else if (element.classes.contains(
           _cssClasses.HEADER_SCROLL)) {
         mode = _Mode.SCROLL;
@@ -191,6 +221,11 @@ void init() {
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       drawerButton.onClick.listen(
           _drawerToggleHandler);
+
+      // Add a class if the layout has a drawer, for altering the left padding.
+      // Adds the HAS_DRAWER_CLASS to the elements since _header may or may
+      // not be present.
+      element.classes.add(_cssClasses.HAS_DRAWER_CLASS);
 
       // If we have a fixed header, add the button to the header rather than
       // the layout.

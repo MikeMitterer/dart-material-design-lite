@@ -32,12 +32,14 @@ class _MaterialLayoutCssClasses {
 
     final String NAVI_LINK = "wsk-navigation__link";
 
+    final String HAS_DRAWER_CLASS = 'has-drawer';
     final String SHADOW_CLASS = 'is-casting-shadow';
     final String COMPACT_CLASS = 'is-compact';
     final String SMALL_SCREEN_CLASS = 'is-small-screen';
     final String DRAWER_OPEN_CLASS = 'is-visible';
     final String ACTIVE_CLASS = 'is-active';
     final String UPGRADED_CLASS = 'is-upgraded';
+    final String ANIMATING_CLASS = 'is-animating';
 
     const _MaterialLayoutCssClasses();
 }
@@ -134,6 +136,12 @@ class MaterialLayout extends WskComponent {
                 else if (header.classes.contains(
                     _cssClasses.HEADER_WATERFALL)) {
                     mode = _mode.WATERFALL;
+
+                    header.addEventListener('transitionend', _headerTransitionEndHandler);
+
+                    // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+                    header.onClick.listen( _headerClickHandler);
+
                 }
                 else if (element.classes.contains(
                         _cssClasses.HEADER_SCROLL)) {
@@ -171,6 +179,11 @@ class MaterialLayout extends WskComponent {
                 drawerButton.classes.add(_cssClasses.DRAWER_BTN);
 
                 drawerButton.onClick.listen( _drawerToggleHandler );
+
+                // Add a class if the layout has a drawer, for altering the left padding.
+                // Adds the HAS_DRAWER_CLASS to the elements since _header may or may
+                // not be present.
+                element.classes.add(_cssClasses.HAS_DRAWER_CLASS);
 
                 // If we have a fixed header, add the button to the header rather than
                 // the layout.
@@ -249,7 +262,7 @@ class MaterialLayout extends WskComponent {
 
                 // Select element tabs, document panels
                 final List<html.Element> tabs = tabBar.querySelectorAll('.' + _cssClasses.TAB);
-                final List<html.HtmlElement> panels = content.querySelectorAll('.' + _cssClasses.PANEL);
+                final List<html.Element> panels = content.querySelectorAll('.' + _cssClasses.PANEL);
 
                 // Create new tabs for each tab element
                 for (int i = 0; i < tabs.length; i++) {
@@ -264,14 +277,19 @@ class MaterialLayout extends WskComponent {
     /// Handles scrolling on the content.
     void _contentScrollHandler(final dynamic _ ) {
 
-        if (content.scrollTop > 0) {
+        if(header.classes.contains(_cssClasses.ANIMATING_CLASS)) {
+            return;
+        }
+
+        if (content.scrollTop > 0 && !header.classes.contains(_cssClasses.COMPACT_CLASS)) {
             header.classes.add(_cssClasses.SHADOW_CLASS);
             header.classes.add(_cssClasses.COMPACT_CLASS);
-
+            header.classes.add(_cssClasses.ANIMATING_CLASS);
         }
-        else {
+        else if (content.scrollTop <= 0 && header.classes.contains(_cssClasses.COMPACT_CLASS)) {
             header.classes.remove(_cssClasses.SHADOW_CLASS);
             header.classes.remove(_cssClasses.COMPACT_CLASS);
+            header.classes.add(_cssClasses.ANIMATING_CLASS);
         }
     }
 
@@ -293,8 +311,25 @@ class MaterialLayout extends WskComponent {
 
     /// Handles toggling of the drawer.
     /// The [drawer] container element.
-    void _drawerToggleHandler(final html.MouseEvent event) {
+    void _drawerToggleHandler(final html.MouseEvent _) {
         drawer.classes.toggle(_cssClasses.DRAWER_OPEN_CLASS);
+    }
+
+    /// Handles (un)setting the `is-animating` class
+    /// MaterialLayout.prototype.headerTransitionEndHandler = /*function*/ () {
+    void _headerTransitionEndHandler(final html.Event event) {
+
+        header.classes.remove(_cssClasses.ANIMATING_CLASS);
+    }
+
+    /// Handles expanding the header on click
+    /// MaterialLayout.prototype.headerClickHandler = /*function*/ () {
+    void _headerClickHandler(final html.MouseEvent _) {
+
+        if (header.classes.contains(_cssClasses.COMPACT_CLASS)) {
+            header.classes.remove(_cssClasses.COMPACT_CLASS);
+            header.classes.add(_cssClasses.ANIMATING_CLASS);
+        }
     }
 
     /// Reset tab state, dropping active classes
