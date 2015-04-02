@@ -61,9 +61,11 @@ class Application {
 
                     final File srcDemo = new File("${config.sassdir}/${sampleName}/demo.html");
                     final File srcScss = new File("${config.sassdir}/${sampleName}/demo.scss");
+                    final File srcREADME = new File("${config.sassdir}/${sampleName}/README.md");
                     final File targetDemo = new File("${webDir.path}/index.html");
                     final File targetScss = new File("${webDir.path}/demo.scss");
                     final File targetCss = new File("${webDir.path}/demo.css");
+                    final File targetREADME = new File("${webDir.path}/README.md");
 
                     final File srcJs = new File("${config.sassdir}/${sampleName}/${sampleName}.js");
                     final File srcDartMain = new File("${config.maintemplate}");
@@ -144,6 +146,11 @@ class Application {
                         _logger.fine("    ${srcDartMain.path} -> ${targetDartMain.path} copied...");
                         srcJs.copySync(targetConvertedJS.path);
                         _Js2Dart(targetConvertedJS);
+                    }
+
+                    if(srcREADME.existsSync()) {
+                        _logger.fine("    ${srcREADME.path} -> ${targetREADME.path} copied...");
+                        srcREADME.copySync(targetREADME.path);
                     }
 
                     _copySubdirs(new File("${config.sassdir}/${sampleName}"),new File(webDir.path));
