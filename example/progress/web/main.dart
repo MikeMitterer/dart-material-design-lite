@@ -36,7 +36,6 @@ main() {
 //        (e["widget"] as MaterialProgress).setProgress(44);
 
     });
-
 }
 
 void configLogging() {
