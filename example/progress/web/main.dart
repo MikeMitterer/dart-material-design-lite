@@ -38,7 +38,8 @@ main() {
             final int value = int.parse((event.target as dom.RangeInputElement).value);
 
             final component = new MaterialProgress(dom.querySelector("#p1"))
-                ..progress = value;
+                ..progress = value
+                ..classes.toggle("test");
 
             _logger.info("Value: ${component.progress}");
         });

@@ -32,7 +32,7 @@ class MaterialProgress extends WskComponent {
 
     factory MaterialProgress(final html.HtmlElement element) =>  wskComponent(element) as MaterialProgress;
 
-//    factory MaterialProgress() =>  new html.Element.tag('wsk-progress');
+    //    factory MaterialProgress() =>  new html.Element.tag('wsk-progress');
 //
 //    MaterialProgress.created() : super.created() {
 //        _logger.info("created");
@@ -101,6 +101,5 @@ class MaterialProgress extends WskComponent {
             element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
-
 }
 

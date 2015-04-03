@@ -12,6 +12,10 @@ abstract class WskComponent {
     html.Element element;
 
     WskComponent(this.element);
+
+    html.CssClassSet get classes => element.classes;
+
+    Map<String, String> get attributes => element.attributes;
 }
 
 /// CustomComponents...
@@ -19,6 +23,7 @@ abstract class WskHtmlComponent extends html.HtmlElement implements WskComponent
     html.Element element;
 
     WskHtmlComponent(this.element) : super.created();
+
     WskHtmlComponent.created() : super.created();
 
     @override
