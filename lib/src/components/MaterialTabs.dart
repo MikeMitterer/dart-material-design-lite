@@ -34,8 +34,8 @@ class MaterialTabs extends WskComponent {
     static const _MaterialTabsConstant _constant = const _MaterialTabsConstant();
     static const _MaterialTabsCssClasses _cssClasses = const _MaterialTabsCssClasses();
 
-    final List<html.HtmlElement> _tabs = new List<html.HtmlElement>();
-    final List<html.HtmlElement> _panels = new List<html.HtmlElement>();
+    final List<html.Element> _tabs = new List<html.Element>();
+    final List<html.Element> _panels = new List<html.Element>();
 
     MaterialTabs(final html.HtmlElement element) : super(element) {
         _init();

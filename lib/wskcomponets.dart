@@ -15,6 +15,7 @@ part "src/components/MaterialColumnLayout.dart";
 part "src/components/MaterialIconToggle.dart";
 part "src/components/MaterialItem.dart";
 part "src/components/MaterialLayout.dart";
+part "src/components/MaterialMenu.dart";
 part "src/components/MaterialRadio.dart";
 part "src/components/MaterialSlider.dart";
 part "src/components/MaterialSpinner.dart";
@@ -34,6 +35,7 @@ void registerAllWskComponents() {
     registerMaterialIconToggle();
     registerMaterialItem();
     registerMaterialLayout();
+    registerMaterialMenu();
     registerMaterialRadio();
     registerMaterialSlider();
     registerMaterialSpinner();
