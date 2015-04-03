@@ -30,6 +30,8 @@ class MaterialProgress extends WskComponent {
     html.DivElement _bufferbar;
     html.DivElement _auxbar;
 
+    factory MaterialProgress(final html.HtmlElement element) =>  wskComponent(element) as MaterialProgress;
+
 //    factory MaterialProgress() =>  new html.Element.tag('wsk-progress');
 //
 //    MaterialProgress.created() : super.created() {
@@ -51,7 +53,7 @@ class MaterialProgress extends WskComponent {
     static MaterialProgress widget(final html.HtmlElement element) => wskComponent(element) as MaterialProgress;
 
     /// MaterialProgress.prototype.setProgress = function(p) {
-    void setProgress(final int width) {
+    void set progress(final int width) {
 
         if (element.classes.contains(_cssClasses.INDETERMINATE_CLASS)) {
             return;
@@ -60,9 +62,15 @@ class MaterialProgress extends WskComponent {
         _progressbar.style.width = "${width}%";
     }
 
-    /// MaterialProgress.prototype.setBuffer = function(p) {
-    void setBuffer(final int width) {
+    int get progress {
+        if (element.classes.contains(_cssClasses.INDETERMINATE_CLASS)) {
+            return 0;
+        }
+        return int.parse(_progressbar.style.width.replaceFirst("%",""));
+    }
 
+    /// MaterialProgress.prototype.setBuffer = function(p) {
+    void set buffer(final int width) {
         _bufferbar.style.width = "${width}%";
         _auxbar.style.width = "${100 - width}%";
     }

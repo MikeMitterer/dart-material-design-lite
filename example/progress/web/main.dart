@@ -27,13 +27,21 @@ main() {
     upgradeAllRegistered().then((_) {
         _logger.info("All components upgraded");
 
-        MaterialProgress.widget(dom.querySelector("#p1")).setProgress(44);
-        MaterialProgress.widget(dom.querySelector("#p3")).setProgress(33);
-        MaterialProgress.widget(dom.querySelector("#p3")).setBuffer(87);
-//        _logger.info(p1);
+        // 1
+        new MaterialProgress(dom.querySelector("#p1")).progress = 44;
 
-//        var e = new JsObject.fromBrowserObject(p1);
-//        (e["widget"] as MaterialProgress).setProgress(44);
+        // 2
+        MaterialProgress.widget(dom.querySelector("#p3")).progress = 33;
+        MaterialProgress.widget(dom.querySelector("#p3")).buffer = 87;
+
+        (dom.querySelector("#slider") as dom.RangeInputElement).onInput.listen((final dom.Event event) {
+            final int value = int.parse((event.target as dom.RangeInputElement).value);
+
+            final component = new MaterialProgress(dom.querySelector("#p1"))
+                ..progress = value;
+
+            _logger.info("Value: ${component.progress}");
+        });
 
     });
 }
