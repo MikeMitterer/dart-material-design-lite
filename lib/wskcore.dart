@@ -9,6 +9,7 @@ library wskcore;
 import 'dart:html' as html;
 import 'dart:collection';
 import 'dart:async';
+import 'dart:js';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';

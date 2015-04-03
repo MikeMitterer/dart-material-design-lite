@@ -152,6 +152,10 @@ class WskComponentHandler {
                 _markAsUpgraded();
                 _logger.fine("${config.classAsString} -> ${component}");
 
+                //element.xtag = component as html.Element;
+                var jsElement = new JsObject.fromBrowserObject(element);
+                jsElement["widget"] = component;
+
             }
             catch (exception, stacktrace) {
                 _logger.severe("Registration for: ${config.cssClass} not possible. Check if ${config.classAsString} is correctly imported");

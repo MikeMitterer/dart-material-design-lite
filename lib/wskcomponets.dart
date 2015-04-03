@@ -4,6 +4,8 @@ import 'dart:html' as html;
 import 'dart:math' as Math;
 import 'dart:async';
 import 'package:logging/logging.dart';
+import 'dart:js';
+
 import 'package:browser_detect/browser_detect.dart';
 
 import "package:wsk_material/wskcore.dart";
@@ -16,6 +18,7 @@ part "src/components/MaterialIconToggle.dart";
 part "src/components/MaterialItem.dart";
 part "src/components/MaterialLayout.dart";
 part "src/components/MaterialMenu.dart";
+part "src/components/MaterialProgress.dart";
 part "src/components/MaterialRadio.dart";
 part "src/components/MaterialSlider.dart";
 part "src/components/MaterialSpinner.dart";
@@ -36,6 +39,7 @@ void registerAllWskComponents() {
     registerMaterialItem();
     registerMaterialLayout();
     registerMaterialMenu();
+    registerMaterialProgress();
     registerMaterialRadio();
     registerMaterialSlider();
     registerMaterialSpinner();
