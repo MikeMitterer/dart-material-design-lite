@@ -27,30 +27,18 @@ class _MaterialRadioConstant {
 /// @enum {string}
 class _MaterialRadioCssClasses {
     final String IS_FOCUSED = 'is-focused';
-
     final String IS_DISABLED = 'is-disabled';
-
     final String IS_CHECKED = 'is-checked';
-
     final String IS_UPGRADED = 'is-upgraded';
-
-    final String WSK_JS_RADIO = 'wsk-js-radio';
-
-    final String WSK_RADIO_BTN = 'wsk-radio__button';
-
-    final String WSK_RADIO_OUTER_CIRCLE = 'wsk-radio__outer-circle';
-
-    final String WSK_RADIO_INNER_CIRCLE = 'wsk-radio__inner-circle';
-
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-
-    final String WSK_RADIO_RIPPLE_CONTAINER = 'wsk-radio__ripple-container';
-
-    final String WSK_RIPPLE_CENTER = 'wsk-ripple--center';
-
-    final String WSK_RIPPLE = 'wsk-ripple';
+    final String JS_RADIO = 'wsk-js-radio';
+    final String RADIO_BTN = 'wsk-radio__button';
+    final String RADIO_OUTER_CIRCLE = 'wsk-radio__outer-circle';
+    final String RADIO_INNER_CIRCLE = 'wsk-radio__inner-circle';
+    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String RIPPLE_CONTAINER = 'wsk-radio__ripple-container';
+    final String RIPPLE_CENTER = 'wsk-ripple--center';
+    final String RIPPLE = 'wsk-ripple';
 }
 
 /// Handle change of state.
@@ -63,11 +51,11 @@ void _onChange(final html.Event event) {
   // Since other radio buttons don't get change events, we need to look for
   // them to update their classes.
 
-  final radios = document.getElementsByClassName(_cssClasses.WSK_JS_RADIO);
+  final radios = document.getElementsByClassName(_cssClasses.JS_RADIO);
 
   for (final i = 0; i < radios.length; i++) {
 
-    final button = radios[i].querySelector('.' + _cssClasses.WSK_RADIO_BTN);
+    final button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
     // Different name == different group, so no point updating those.
     if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
       _updateClasses(button, radios[i]);
@@ -131,37 +119,78 @@ void _blur(final html.Event event) {
   }, _constant.TINY_TIMEOUT);
 }
 
+// Public methods.
+
+/// Disable radio.
+/// @public
+/// MaterialRadio.prototype.disable = /*function*/ () {
+void disable() {
+
+  _btnElement.disabled = true;
+  _updateClasses(_btnElement, element);
+}
+
+/// Enable radio.
+/// @public
+/// MaterialRadio.prototype.enable = /*function*/ () {
+void enable() {
+
+  _btnElement.disabled = false;
+  _updateClasses(_btnElement, element);
+}
+
+/// Check radio.
+/// @public
+/// MaterialRadio.prototype.check = /*function*/ () {
+void check() {
+
+  _btnElement.checked = true;
+  _updateClasses(_btnElement, element);
+}
+
+/// Uncheck radio.
+/// @public
+/// MaterialRadio.prototype.uncheck = /*function*/ () {
+void uncheck() {
+
+  _btnElement.checked = false;
+  _updateClasses(_btnElement, element);
+}
+
 /// Initialize element.
 /// MaterialRadio.prototype.init = /*function*/ () {
 void init() {
 
   if (element != null) {
     _btnElement = element.querySelector('.' +
-        _cssClasses.WSK_RADIO_BTN);
+        _cssClasses.RADIO_BTN);
 
     final outerCircle = new html.SpanElement();
-    outerCircle.classes.add(_cssClasses.WSK_RADIO_OUTER_CIRCLE);
+    outerCircle.classes.add(_cssClasses.RADIO_OUTER_CIRCLE);
 
     final innerCircle = new html.SpanElement();
-    innerCircle.classes.add(_cssClasses.WSK_RADIO_INNER_CIRCLE);
+    innerCircle.classes.add(_cssClasses.RADIO_INNER_CIRCLE);
 
     element.append(outerCircle);
     element.append(innerCircle);
 
     final rippleContainer;
     if (element.classes.contains(
-        _cssClasses.WSK_JS_RIPPLE_EFFECT)) {
+        _cssClasses.RIPPLE_EFFECT)) {
       element.classes.add(
-          _cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+          _cssClasses.RIPPLE_IGNORE_EVENTS);
 
       rippleContainer = new html.SpanElement();
       rippleContainer.classes.add(
-          _cssClasses.WSK_RADIO_RIPPLE_CONTAINER);
-      rippleContainer.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
-      rippleContainer.classes.add(_cssClasses.WSK_RIPPLE_CENTER);
+          _cssClasses.RIPPLE_CONTAINER);
+      rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
+      rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
+
+	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+      rippleContainer.onMouseUp.listen( _onMouseup);
 
       final ripple = new html.SpanElement();
-      ripple.classes.add(_cssClasses.WSK_RIPPLE);
+      ripple.classes.add(_cssClasses.RIPPLE);
 
       rippleContainer.append(ripple);
       element.append(rippleContainer);
@@ -178,9 +207,6 @@ void init() {
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
     element.onMouseUp.listen( _onMouseup);
-
-	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-    rippleContainer.onMouseUp.listen( _onMouseup);
 
     _updateClasses(_btnElement, element);
     element.classes.add(_cssClasses.IS_UPGRADED);

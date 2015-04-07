@@ -12,23 +12,24 @@ class _MaterialRadioCssClasses {
 
     final String IS_UPGRADED = 'is-upgraded';
 
-    final String WSK_JS_RADIO = 'wsk-js-radio';
+    final String JS_RADIO = 'wsk-js-radio';
 
-    final String WSK_RADIO_BTN = 'wsk-radio__button';
+    final String RADIO_BTN = 'wsk-radio__button';
 
-    final String WSK_RADIO_OUTER_CIRCLE = 'wsk-radio__outer-circle';
+    final String RADIO_OUTER_CIRCLE = 'wsk-radio__outer-circle';
 
-    final String WSK_RADIO_INNER_CIRCLE = 'wsk-radio__inner-circle';
+    final String RADIO_INNER_CIRCLE = 'wsk-radio__inner-circle';
 
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
 
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
 
-    final String WSK_RADIO_RIPPLE_CONTAINER = 'wsk-radio__ripple-container';
+    final String RIPPLE_CONTAINER = 'wsk-radio__ripple-container';
 
-    final String WSK_RIPPLE_CENTER = 'wsk-ripple--center';
+    final String RIPPLE_CENTER = 'wsk-ripple--center';
 
-    final String WSK_RIPPLE = 'wsk-ripple';
+    final String RIPPLE = 'wsk-ripple';
+
     const _MaterialRadioCssClasses();
 }
 
@@ -39,8 +40,8 @@ class _MaterialRadioConstant {
 }
 
 /// creates WskConfig for RadioConfig
-WskConfig materialRadioConfig() => new WskConfig<MaterialRadio>(
-    "wsk-js-radio", (final html.HtmlElement element) => new MaterialRadio(element));
+WskConfig materialRadioConfig() => new WskWidgetConfig<MaterialRadio>(
+    "wsk-js-radio", (final html.HtmlElement element) => new MaterialRadio.fromElement(element));
 
 /// registration-Helper
 void registerMaterialRadio() => componenthandler.register(materialRadioConfig());
@@ -53,15 +54,56 @@ class MaterialRadio extends WskComponent {
 
     html.RadioButtonInputElement _btnElement = null;
 
-    MaterialRadio(final html.HtmlElement element) : super(element) {
+    factory MaterialRadio(final html.HtmlElement element) =>  wskComponent(element) as MaterialRadio;
+
+    MaterialRadio.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
 
+    static MaterialRadio widget(final html.HtmlElement element) => wskComponent(element) as MaterialRadio;
+
     html.RadioButtonInputElement get btnElement {
         if(_btnElement == null) {
-            _btnElement = element.querySelector(".${_cssClasses.WSK_RADIO_BTN}");
+            _btnElement = element.querySelector(".${_cssClasses.RADIO_BTN}");
         }
         return _btnElement;
+    }
+
+
+    /// Disable radio.
+    /// @public
+    /// MaterialRadio.prototype.disable = /*function*/ () {
+    void disable() {
+
+        btnElement.disabled = true;
+        _updateClasses(btnElement, element);
+    }
+
+    /// Enable radio.
+    /// @public
+    /// MaterialRadio.prototype.enable = /*function*/ () {
+    void enable() {
+
+        btnElement.disabled = false;
+        _updateClasses(btnElement, element);
+    }
+
+    /// Check radio.
+    /// @public
+    /// MaterialRadio.prototype.check = /*function*/ () {
+    void check() {
+
+        btnElement.checked = true;
+        _updateClasses(btnElement, element);
+    }
+
+    /// Uncheck radio.
+    /// @public
+    /// MaterialRadio.prototype.uncheck = /*function*/ () {
+    void uncheck() {
+
+        btnElement.checked = false;
+        _updateClasses(btnElement, element);
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -72,32 +114,31 @@ class MaterialRadio extends WskComponent {
         if (element != null) {
 
             final outerCircle = new html.SpanElement();
-            outerCircle.classes.add(_cssClasses.WSK_RADIO_OUTER_CIRCLE);
+            outerCircle.classes.add(_cssClasses.RADIO_OUTER_CIRCLE);
 
             final innerCircle = new html.SpanElement();
-            innerCircle.classes.add(_cssClasses.WSK_RADIO_INNER_CIRCLE);
+            innerCircle.classes.add(_cssClasses.RADIO_INNER_CIRCLE);
 
             element.append(outerCircle);
             element.append(innerCircle);
 
             if (element.classes.contains(
-                _cssClasses.WSK_JS_RIPPLE_EFFECT)) {
+                _cssClasses.RIPPLE_EFFECT)) {
                 element.classes.add(
-                    _cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+                    _cssClasses.RIPPLE_IGNORE_EVENTS);
 
                 final html.SpanElement rippleContainer = new html.SpanElement();
-                rippleContainer.classes.add(_cssClasses.WSK_RADIO_RIPPLE_CONTAINER);
-                rippleContainer.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
-                rippleContainer.classes.add(_cssClasses.WSK_RIPPLE_CENTER);
-
-                final html.SpanElement ripple = new html.SpanElement();
-                ripple.classes.add(_cssClasses.WSK_RIPPLE);
-
-                rippleContainer.append(ripple);
-                element.append(rippleContainer);
+                rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
+                rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
+                rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
 
                 rippleContainer.onMouseUp.listen( _onMouseUp );
 
+                final html.SpanElement ripple = new html.SpanElement();
+                ripple.classes.add(_cssClasses.RIPPLE);
+
+                rippleContainer.append(ripple);
+                element.append(rippleContainer);
             }
 
             btnElement.onChange.listen( _onChange );
@@ -121,11 +162,11 @@ class MaterialRadio extends WskComponent {
 
         // Since other radio buttons don't get change events, we need to look for
         // them to update their classes.
-        final List<html.HtmlElement> radios = html.querySelectorAll('.' + _cssClasses.WSK_JS_RADIO);
+        final List<html.Element> radios = html.querySelectorAll('.' + _cssClasses.JS_RADIO);
 
         for (int i = 0; i < radios.length; i++) {
 
-            final html.RadioButtonInputElement button = radios[i].querySelector('.' + _cssClasses.WSK_RADIO_BTN);
+            final html.RadioButtonInputElement button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
             // Different name == different group, so no point updating those.
             if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
                 _updateClasses(button, radios[i]);

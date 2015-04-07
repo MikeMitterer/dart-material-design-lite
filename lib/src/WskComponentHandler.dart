@@ -152,9 +152,11 @@ class WskComponentHandler {
                 _markAsUpgraded();
                 _logger.fine("${config.classAsString} -> ${component}");
 
-                //element.xtag = component as html.Element;
-                var jsElement = new JsObject.fromBrowserObject(element);
-                jsElement["widget"] = component;
+                if(config.isWidget) {
+                    var jsElement = new JsObject.fromBrowserObject(element);
+                    jsElement["widget"] = component;
+                    //element.xtag = component as html.Element;
+                }
 
             }
             catch (exception, stacktrace) {

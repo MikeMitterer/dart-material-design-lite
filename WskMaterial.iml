@@ -35,6 +35,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/button/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/card/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/card/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/checkbox/.sitegen/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/checkbox/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/checkbox/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/column-layout/packages/wsk_material" />
@@ -68,7 +69,6 @@
       <excludeFolder url="file://$MODULE_DIR$/example/list/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/list/web/demo-images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/list/web/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/menu/.sitegen/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/menu/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/menu/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/nav-pills/build" />
@@ -81,9 +81,9 @@
       <excludeFolder url="file://$MODULE_DIR$/example/panel/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/panel/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/progress/.sitegen/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/progress/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/progress/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/progress/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/radio/.sitegen/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/radio/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/radio/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/shadow/packages/wsk_material" />

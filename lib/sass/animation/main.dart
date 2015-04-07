@@ -1,5 +1,3 @@
-import "dart:html" as dom;
-
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
@@ -9,11 +7,11 @@ import 'package:wsk_material/wskdemo.dart';
 main() {
     configLogging();
 
+    // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
+    registerDemoAnimation();
     registerAllWskComponents();
 
-    upgradeAllRegistered().then((_) {
-        MaterialRadio.widget(dom.querySelector("#wifi2comp")).disable();
-    });
+    upgradeAllRegistered();
 }
 
 void configLogging() {

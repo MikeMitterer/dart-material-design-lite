@@ -7,8 +7,6 @@ import 'package:wsk_material/wskdemo.dart';
 main() {
     configLogging();
 
-    // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
-    registerDemoAnimation();
     registerAllWskComponents();
 
     upgradeAllRegistered();
