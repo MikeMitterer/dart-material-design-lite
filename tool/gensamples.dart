@@ -43,16 +43,16 @@ class Application {
                 _printSettings(config.settings);
             }
             else if(argResults[_ARG_SHOW_DIRS]) {
-                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final File file) {
-                    _logger.info(file.path);
+                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final Directory dir) {
+                    _logger.info(dir.path);
                 });
             }
             else if(argResults[_ARG_GENERATE]) {
                 final List<String> foldersToExclude = config.folderstoexclude.split("[,;]");
 
-                _iterateThroughDirSync(config.sassdir,foldersToExclude,(final File file) {
-                    final String sampleName = file.parent.path.replaceFirst("${config.sassdir}/","");
-                    //_logger.info("   Found: $file in $sampleName");
+                _iterateThroughDirSync(config.sassdir,foldersToExclude,(final Directory dir) {
+                    final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
+                    _logger.info("   Found: $dir in $sampleName");
 
                     final Directory sampleDir = new Directory("${config.samplesdir}/${sampleName}");
                     final Directory webDir = new Directory("${config.samplesdir}/${sampleName}/web");
@@ -75,6 +75,12 @@ class Application {
 
                     final Link targetPackages = new Link("${webDir.path}/packages");
                     final File srcPackages = new File("../../../packages");
+
+                    if(srcJs.existsSync()) {
+                        _logger.info("    ${srcJs.path} -> ${targetConvertedJS.path} copied...");
+                        srcJs.copySync(targetConvertedJS.path);
+                        _Js2Dart(targetConvertedJS);
+                    }
 
                     // wenn es keine demo.html gibt dann ist das eine eigene Erweiterung!
                     // sample ist in example schon angelegt
@@ -131,6 +137,7 @@ class Application {
 
                         _logger.fine("    ${targetDemo.path} created...");
                     }
+
                     if(srcScss.existsSync()) {
                         srcScss.copySync(targetScss.path);
                         _logger.fine("    ${targetScss.path} created...");
@@ -149,12 +156,6 @@ class Application {
                         } else {
                             _logger.fine("    ${targetCss.path} prefixed...");
                         }
-                    }
-
-                    if(srcJs.existsSync()) {
-                        _logger.fine("    ${srcJs.path} -> ${targetConvertedJS.path} copied...");
-                        srcJs.copySync(targetConvertedJS.path);
-                        _Js2Dart(targetConvertedJS);
                     }
 
                     if(srcREADME.existsSync()) {
@@ -223,7 +224,7 @@ class Application {
             //_logger.info("D ${entity.path}");
 
             if (FileSystemEntity.isDirectorySync(entity.path)) {
-                final File src = new File(entity.path);
+                //final File src = new File(entity.path);
                 final File target = new File(entity.path.replaceFirst(sourceDir.path,""));
                 _copySubdirs(new File("${entity.path}"),new File("${targetDir.path}${target.path}"),level: ++level);
 
@@ -395,7 +396,7 @@ class Application {
         Validate.notBlank(sampleName);
         Validate.notNull(config);
 
-        final Directory sampleDir = new Directory("${config.samplesdir}/${sampleName}");
+        //final Directory sampleDir = new Directory("${config.samplesdir}/${sampleName}");
 
         final File srcYaml = new File("${config.yamltemplate}");
         final File targetYaml = new File("${config.samplesdir}/${sampleName}/pubspec.yaml");
@@ -515,7 +516,7 @@ class Application {
     }
 
     /// Goes through the files
-    void _iterateThroughDirSync(final String dir,final List<String> foldersToExclude, void callback(final File file),{ final bool recursive: true }) {
+    void _iterateThroughDirSync(final String dir,final List<String> foldersToExclude, void callback(final Directory dir)) {
         Validate.notNull(foldersToExclude);
 
         _logger.info("Scanning: $dir");
@@ -526,15 +527,25 @@ class Application {
         final Directory directory = new Directory(dir);
         if (directory.existsSync()) {
 
-            directory.listSync(recursive: recursive).where((final FileSystemEntity entity) {
-                _logger.fine("Entity: ${entity}");
+            directory.listSync(recursive: false).where((final FileSystemEntity entity) {
+                _logger.fine("Entity: ${entity.path}");
 
-                bool isUsableFile = (entity != null && FileSystemEntity.isFileSync(entity.path) &&
-                    ( entity.path.endsWith(".dart") || entity.path.endsWith(".DART")) || entity.path.endsWith(".html") );
-
-                if(!isUsableFile) {
+                if(entity is File) {
                     return false;
                 }
+
+//                bool isUsableFile = (entity != null && FileSystemEntity.isFileSync(entity.path) &&
+//                    ( entity.path.endsWith(".dart") || entity.path.endsWith(".html") || entity.path.endsWith(".js"))
+//                );
+//
+////                bool isUsableFile = (entity != null && FileSystemEntity.isFileSync(entity.path) &&
+////                 entity.path.endsWith(".scss") && entity.path.contains("/_") &&
+////                    (( entity.path.endsWith(".dart") || entity.path.endsWith(".html") || entity.path.endsWith(".js"))
+////                );
+//
+//                if(!isUsableFile) {
+//                    return false;
+//                }
 
                 for(final String folder in foldersToExclude) {
                     if(entity.path.contains(folder)) {
@@ -549,9 +560,9 @@ class Application {
 
                 return true;
 
-            }).any((final File file) {
+            }).any((final Directory dir) {
                 //_logger.fine("  Found: ${file}");
-                callback(file);
+                callback(dir);
             });
         }
     }

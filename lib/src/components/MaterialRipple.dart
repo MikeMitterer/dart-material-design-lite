@@ -8,6 +8,7 @@ class _MaterialRippleCssClasses {
     final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
     final String WSK_RIPPLE                         = 'wsk-ripple';
     final String IS_ANIMATING                       = 'is-animating';
+    final String IS_VISIBLE                         = 'is-visible';
 
     const _MaterialRippleCssClasses();}
 
@@ -22,6 +23,7 @@ class _MaterialRippleConstant {
     const _MaterialRippleConstant(); }
 
 /// creates WskConfig for MaterialRipple
+/// Important!!!! Ripple uses WskConfig and not WskWidgetConfig
 WskConfig materialRippleConfig() {
     final WskConfig<MaterialRipple> config = new WskConfig<MaterialRipple>(
     "wsk-js-ripple-effect",(final html.HtmlElement element) => new MaterialRipple.fromElement(element));
@@ -57,21 +59,6 @@ class MaterialRipple extends WskComponent {
 
     static MaterialRipple widget(final html.HtmlElement element) => wskComponent(element) as MaterialRipple;
 
-    //- private -----------------------------------------------------------------------------------
-
-    void _init() {
-        _logger.fine("MaterialRipple - init");
-
-        _recentering = element.classes.contains(_cssClasses.WSK_RIPPLE_CENTER);
-        if(!element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS)) {
-
-            _updateDimension();
-
-            element.onMouseDown.listen(_downHandler);
-            element.onTouchStart.listen(_downHandler);
-        }
-    }
-
     html.HtmlElement get rippleElement {
         if(_rippleElement == null) {
             _rippleElement = element.querySelector(".${_cssClasses.WSK_RIPPLE}");
@@ -81,19 +68,46 @@ class MaterialRipple extends WskComponent {
 
     Math.Rectangle get bound => element.getBoundingClientRect();
 
-    void _setRippleXY(final int newX,final int newY) { _x = newX; _y = newY; }
+    //- private -----------------------------------------------------------------------------------
 
-    void _updateDimension() {
-        if (rippleElement != null) {
-            _rippleSize = (Math.max(bound.width, bound.height) * 2).toInt();
-            rippleElement.style.width = "${_rippleSize}px";
-            rippleElement.style.height = "${_rippleSize}px";
+    void _init() {
+        _logger.fine("MaterialRipple - init");
+
+        _recentering = element.classes.contains(_cssClasses.WSK_RIPPLE_CENTER);
+        if(!element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS)) {
+
+            _frameCount = 0;
+            _rippleSize = 0;
+            _x = 0;
+            _y = 0;
+
+            // Touch start produces a compat mouse down event, which would cause a
+            // second ripples. To avoid that, we use this property to ignore the first
+            // mouse down after a touch start.
+            _ignoringMouseDown = false;
+
+            _updateDimension();
+
+            element.onMouseDown.listen(_downHandler);
+            element.onTouchStart.listen(_downHandler);
+
+            // .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+            element.onMouseUp.listen( _upHandler);
+
+            // .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
+            element.onMouseLeave.listen( _upHandler);
+            element.onTouchEnd.listen( _upHandler);
+
+            // .addEventListener('blur', -- .onBlur.listen(<Event>);
+            element.onBlur.listen( _upHandler);
         }
     }
 
-    void _downHandler(final html.UIEvent event) {
+    void _downHandler(final html.Event event) {
         //event.preventDefault();
         //event.stopPropagation();
+
+        rippleElement.classes.add(_cssClasses.IS_VISIBLE);
 
         if (event.type == 'mousedown' && _ignoringMouseDown) {
             _ignoringMouseDown = false;
@@ -108,41 +122,69 @@ class MaterialRipple extends WskComponent {
                 return;
             }
             _frameCount = 1;
+
             int x;
             int y;
 
-            bool _isKeyboardClick() {
-                return (event is html.TouchEvent ||
-                ((event as html.MouseEvent).client.x == 0 && (event as html.MouseEvent).client.y == 0));
-            }
-
             // Check if we are handling a keyboard click.
-            if (_isKeyboardClick()) {
-                x = (bound.width / 2).round();
-                y = (bound.height / 2).round();
+            if (event == html.MouseEvent &&
+                (event as html.MouseEvent).client.x == 0 && (event as html.MouseEvent).client.y == 0) {
 
-            }
-            else {
-                Math.Point _getPoint() {
-                    if(event is html.MouseEvent) {
-                        return (event as html.MouseEvent).client;
-                    } else {
-                        return (event as html.TouchEvent).touches[0].client;
-                    }
+                x = ((bound.width / 2) as double).round();
+                y = ((bound.height / 2) as double).round();
+
+            } else {
+
+                int clientX;
+                int clientY;
+
+                if(event is html.MouseEvent) {
+
+                    clientX = (event as html.MouseEvent).client.x;
+                    clientY = (event as html.MouseEvent).client.y;
+
+                } else if(event is html.TouchEvent) {
+
+                    clientX = (event as html.TouchEvent).touches.first.client.x;
+                    clientY = (event as html.TouchEvent).touches.first.client.y;
+
+                } else {
+                    throw "$event must bei either MouseEvent or TouchEvent!";
                 }
-                final Math.Point client = _getPoint();
-                x = (client.x - bound.left).round();
-                y = (client.y - bound.top).round();
+
+                x = ((clientX - bound.left) as double).round();
+                y = ((clientY - bound.top) as double).round();
             }
 
+            //
             _updateDimension();
             _setRippleXY(x, y);
             _setRippleStyles(true);
 
             html.window.requestAnimationFrame(_animFrameHandler);
-            // new Future.delayed(new Duration(milliseconds: 50), () {
-            //    _setRippleStyles(false);
-            // }).then((_) => _frameCount = 0);
+        }
+    }
+
+    /// Handle mouse / finger up on element.
+    /// @param {Event} event The event that fired.
+    /// MaterialRipple.prototype.upHandler_ = function(event) {
+    void _upHandler(final html.Event event) {
+
+        // Don't fire for the artificial "mouseup" generated by a double-click.
+        //if (event != null && event is event.detail != 2) {
+            _rippleElement.classes.remove(_cssClasses.IS_VISIBLE);
+        //}
+    }
+
+
+    void _setRippleXY(final int newX,final int newY) { _x = newX; _y = newY; }
+
+    /// Necessary if element is hidden when page is diplayed
+    void _updateDimension() {
+        if (rippleElement != null) {
+            _rippleSize = (Math.sqrt(bound.width * bound.width + bound.height * bound.height) * 2 + 2).toInt();
+            _rippleElement.style.width = "${_rippleSize}px";
+            _rippleElement.style.height = "${_rippleSize}px";
         }
     }
 
@@ -169,10 +211,8 @@ class MaterialRipple extends WskComponent {
             rippleElement.style.transform = transformString;
 
             if (start) {
-                rippleElement.style.opacity = _constant.INITIAL_OPACITY;
                 rippleElement.classes.remove(_cssClasses.IS_ANIMATING);
             } else {
-                rippleElement.style.opacity = _constant.FINAL_OPACITY;
                 rippleElement.classes.add(_cssClasses.IS_ANIMATING);
             }
         }
