@@ -22,8 +22,8 @@ class _MaterialTabsConstant {
 }
 
 /// creates WskConfig for MaterialTabs
-WskConfig materialTabsConfig() => new WskConfig<MaterialTabs>(
-    "wsk-js-tabs", (final html.HtmlElement element) => new MaterialTabs(element));
+WskConfig materialTabsConfig() => new WskWidgetConfig<MaterialTabs>(
+    "wsk-js-tabs", (final html.HtmlElement element) => new MaterialTabs.fromElement(element));
 
 /// registration-Helper
 void registerMaterialTabs() => componenthandler.register(materialTabsConfig());
@@ -37,10 +37,11 @@ class MaterialTabs extends WskComponent {
     final List<html.Element> _tabs = new List<html.Element>();
     final List<html.Element> _panels = new List<html.Element>();
 
-    MaterialTabs(final html.HtmlElement element) : super(element) {
+    MaterialTabs.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
 
+    static MaterialTabs widget(final html.HtmlElement element) => wskComponent(element) as MaterialTabs;
 
     //- private -----------------------------------------------------------------------------------
 

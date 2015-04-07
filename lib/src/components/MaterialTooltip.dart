@@ -15,8 +15,8 @@ class _MaterialTooltipConstant {
 }
 
 /// creates WskConfig for MaterialButton
-WskConfig materialTooltipConfig() => new WskConfig<MaterialTooltip>(
-    "wsk-tooltip", (final html.HtmlElement element) => new MaterialTooltip(element));
+WskConfig materialTooltipConfig() => new WskWidgetConfig<MaterialTooltip>(
+    "wsk-tooltip", (final html.HtmlElement element) => new MaterialTooltip.fromElement(element));
 
 /// registration-Helper
 void registerMaterialTooltip() => componenthandler.register(materialTooltipConfig());
@@ -29,9 +29,11 @@ class MaterialTooltip extends WskComponent {
 
     html.HtmlElement _forEl = null;
 
-    MaterialTooltip(final html.HtmlElement element) : super(element) {
+    MaterialTooltip.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialTooltip widget(final html.HtmlElement element) => wskComponent(element) as MaterialTooltip;
 
     //- private -----------------------------------------------------------------------------------
 

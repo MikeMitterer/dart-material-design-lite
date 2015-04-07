@@ -24,7 +24,7 @@ class _MaterialRippleConstant {
 /// creates WskConfig for MaterialRipple
 WskConfig materialRippleConfig() {
     final WskConfig<MaterialRipple> config = new WskConfig<MaterialRipple>(
-    "wsk-js-ripple-effect",(final html.HtmlElement element) => new MaterialRipple(element));
+    "wsk-js-ripple-effect",(final html.HtmlElement element) => new MaterialRipple.fromElement(element));
 
     config.priority = 10;
     return config;
@@ -51,9 +51,11 @@ class MaterialRipple extends WskComponent {
     // mouse down after a touch start.
     bool _ignoringMouseDown = false;
 
-    MaterialRipple(final html.HtmlElement element) : super(element) {
+    MaterialRipple.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialRipple widget(final html.HtmlElement element) => wskComponent(element) as MaterialRipple;
 
     //- private -----------------------------------------------------------------------------------
 

@@ -17,8 +17,8 @@ class _MaterialColumnLayoutConstant {
 }
 
 /// creates WskConfig for MaterialColumnLayout
-WskConfig materialColumnsLayoutConfig() => new WskConfig<MaterialColumnLayout>(
-    "wsk-column-layout", (final html.HtmlElement element) => new MaterialColumnLayout(element));
+WskConfig materialColumnsLayoutConfig() => new WskWidgetConfig<MaterialColumnLayout>(
+    "wsk-column-layout", (final html.HtmlElement element) => new MaterialColumnLayout.fromElement(element));
 
 /// registration-Helper
 void registerMaterialColumnLayout() => componenthandler.register(materialColumnsLayoutConfig());
@@ -29,9 +29,11 @@ class MaterialColumnLayout extends WskComponent {
     static const _MaterialColumnLayoutConstant _constant = const _MaterialColumnLayoutConstant();
     static const _MaterialColumnLayoutCssClasses _cssClasses = const _MaterialColumnLayoutCssClasses();
 
-    MaterialColumnLayout(final html.HtmlElement element) : super(element) {
+    MaterialColumnLayout.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialColumnLayout widget(final html.HtmlElement element) => wskComponent(element) as MaterialColumnLayout;
 
     //- private -----------------------------------------------------------------------------------
 

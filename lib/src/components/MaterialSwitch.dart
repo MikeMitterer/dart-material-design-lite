@@ -40,8 +40,8 @@ class _MaterialSwitchConstant {
 }
 
 /// creates WskConfig for MaterialSwitch
-WskConfig materialSwitchConfig() => new WskConfig<MaterialSwitch>(
-    "wsk-js-switch", (final html.HtmlElement element) => new MaterialSwitch(element));
+WskConfig materialSwitchConfig() => new WskWidgetConfig<MaterialSwitch>(
+    "wsk-js-switch", (final html.HtmlElement element) => new MaterialSwitch.fromElement(element));
 
 /// registration-Helper
 void registerMaterialSwitch() => componenthandler.register(materialSwitchConfig());
@@ -54,9 +54,11 @@ class MaterialSwitch extends WskComponent {
 
     html.CheckboxInputElement _btnElement = null;
 
-    MaterialSwitch(final html.HtmlElement element) : super(element) {
+    MaterialSwitch.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialSwitch widget(final html.HtmlElement element) => wskComponent(element) as MaterialSwitch;
 
     html.CheckboxInputElement get btnElement {
         if(_btnElement == null) { _btnElement = element.querySelector(".${_cssClasses.WSK_SWITCH_INPUT}"); }

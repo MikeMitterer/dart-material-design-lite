@@ -20,7 +20,7 @@ class _DemoAnimationConstant {
 
 /// creates WskConfig for DemoAnimation
 WskConfig demoAnimationConfig() => new WskConfig<DemoAnimation>(
-    "demo-js-animation", (final html.HtmlElement element) => new DemoAnimation(element));
+    "demo-js-animation", (final html.HtmlElement element) => new DemoAnimation.fromElement(element));
 
 /// registration-Helper
 void registerDemoAnimation() => componenthandler.register(demoAnimationConfig());
@@ -34,9 +34,11 @@ class DemoAnimation extends WskComponent {
     int _position = _constant.STARTING_POSITION;
     html.HtmlElement _moveable = null;
 
-    DemoAnimation(final html.HtmlElement element) : super(element) {
+    DemoAnimation.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static DemoAnimation widget(final html.HtmlElement element) => wskComponent(element) as DemoAnimation;
 
     html.HtmlElement get movable {
         if(_moveable == null) {

@@ -23,8 +23,8 @@ class _MaterialSpinnerConstant {
 }
 
 /// creates WskConfig for MaterialSpinner
-WskConfig materialSpinnerConfig() => new WskConfig<MaterialSpinner>(
-    "wsk-js-spinner", (final html.HtmlElement element) => new MaterialSpinner(element));
+WskConfig materialSpinnerConfig() => new WskWidgetConfig<MaterialSpinner>(
+    "wsk-js-spinner", (final html.HtmlElement element) => new MaterialSpinner.fromElement(element));
 
 /// registration-Helper
 void registerMaterialSpinner() => componenthandler.register(materialSpinnerConfig());
@@ -35,9 +35,11 @@ class MaterialSpinner extends WskComponent {
     static const _MaterialSpinnerConstant _constant = const _MaterialSpinnerConstant();
     static const _MaterialSpinnerCssClasses _cssClasses = const _MaterialSpinnerCssClasses();
 
-    MaterialSpinner(final html.HtmlElement element) : super(element) {
+    MaterialSpinner.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialSpinner widget(final html.HtmlElement element) => wskComponent(element) as MaterialSpinner;
 
     //- private -----------------------------------------------------------------------------------
 

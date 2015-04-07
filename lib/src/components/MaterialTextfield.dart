@@ -28,8 +28,8 @@ class _MaterialTextfieldConstant {
 }
 
 /// creates WskConfig for MaterialButton
-WskConfig materialTextfieldConfig() => new WskConfig<MaterialTextfield>(
-    "wsk-js-textfield", (final html.HtmlElement element) => new MaterialTextfield(element));
+WskConfig materialTextfieldConfig() => new WskWidgetConfig<MaterialTextfield>(
+    "wsk-js-textfield", (final html.HtmlElement element) => new MaterialTextfield.fromElement(element));
 
 /// registration-Helper
 void registerMaterialTextfield() => componenthandler.register(materialTextfieldConfig());
@@ -42,9 +42,11 @@ class MaterialTextfield extends WskComponent {
 
     int _maxRows = _constant.NO_MAX_ROWS;
 
-    MaterialTextfield(final html.HtmlElement element) : super(element) {
+    MaterialTextfield.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialTextfield widget(final html.HtmlElement element) => wskComponent(element) as MaterialTextfield;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -53,7 +55,7 @@ class MaterialTextfield extends WskComponent {
 
         if (element != null) {
 
-            final List<html.HtmlElement> expandableIcons = html.querySelectorAll('.wsk-textfield-expandable-icon');
+            final List<html.Element> expandableIcons = html.querySelectorAll('.wsk-textfield-expandable-icon');
 
             for (int i = 0; i < expandableIcons.length; ++i) {
                 _expandableIcon(expandableIcons[i]);

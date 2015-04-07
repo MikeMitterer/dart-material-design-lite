@@ -17,7 +17,7 @@ class _MaterialProgressConstant {
 }
 
 /// registration-Helper
-void registerMaterialProgress() => componenthandler.register(new WskConfig<MaterialProgress>(
+void registerMaterialProgress() => componenthandler.register(new WskWidgetConfig<MaterialProgress>(
     "wsk-js-progress", (final html.HtmlElement element) => new MaterialProgress.fromElement(element)));
 
 class MaterialProgress extends WskComponent {

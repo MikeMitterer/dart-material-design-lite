@@ -16,8 +16,8 @@ class _MaterialButtonCssClasses {
 class _MaterialButtonConstant { const _MaterialButtonConstant(); }
 
 /// creates WskConfig for MaterialButton
-WskConfig materialButtonConfig() => new WskConfig<MaterialButton>(
-    "wsk-js-button",(final html.HtmlElement element) => new MaterialButton(element));
+WskConfig materialButtonConfig() => new WskWidgetConfig<MaterialButton>(
+    "wsk-js-button",(final html.HtmlElement element) => new MaterialButton.fromElement(element));
 
 /// registration-Helper
 void registerMaterialButton() => componenthandler.register(materialButtonConfig());
@@ -28,10 +28,12 @@ class MaterialButton extends WskComponent {
     static const _MaterialButtonConstant _constant = const _MaterialButtonConstant();
     static const _MaterialButtonCssClasses _cssClasses = const _MaterialButtonCssClasses();
 
-    MaterialButton(final html.HtmlElement element) : super(element) {
+    MaterialButton.fromElement(final html.HtmlElement element) : super(element) {
         _logger.fine("MaterialButton - CTOR");
         _init();
     }
+
+    static MaterialButton widget(final html.HtmlElement element) => wskComponent(element) as MaterialButton;
 
     //- private -----------------------------------------------------------------------------------
 

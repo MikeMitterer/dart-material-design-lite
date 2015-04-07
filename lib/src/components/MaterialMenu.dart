@@ -59,8 +59,8 @@ class _KeyCode {
 }
 
 /// registration-Helper
-void registerMaterialMenu() => componenthandler.register(new WskConfig<MaterialMenu>(
-    "wsk-js-menu", (final html.HtmlElement element) => new MaterialMenu(element)));
+void registerMaterialMenu() => componenthandler.register(new WskWidgetConfig<MaterialMenu>(
+    "wsk-js-menu", (final html.HtmlElement element) => new MaterialMenu.fromElement(element)));
 
 class MaterialMenu extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialMenu');
@@ -74,9 +74,11 @@ class MaterialMenu extends WskComponent {
 
     bool _closing = false;
 
-    MaterialMenu(final html.HtmlElement element) : super(element) {
+    MaterialMenu.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialMenu widget(final html.HtmlElement element) => wskComponent(element) as MaterialMenu;
 
     /// Displays the menu.
     /// @public
@@ -411,7 +413,7 @@ class MaterialMenu extends WskComponent {
     /// it), and applies it. This allows us to animate from or to the correct point,
     /// that is, the point it's aligned to in the "for" element.
     /// MaterialMenu.prototype.applyClip_ = function(height, width) {
-    void _applyClip(final int height,final int width) {
+    void _applyClip(final double height,final double width) {
 
         if (element.classes.contains(_cssClasses.UNALIGNED)) {
             // Do not clip.

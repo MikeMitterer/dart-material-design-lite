@@ -42,8 +42,8 @@ class _MaterialCheckboxConstant {
 }
 
 /// creates WskConfig for MaterialCheckbox
-WskConfig materialCheckboxConfig() => new WskConfig<MaterialCheckbox>(
-    "wsk-js-checkbox", (final html.HtmlElement element) => new MaterialCheckbox(element));
+WskConfig materialCheckboxConfig() => new WskWidgetConfig<MaterialCheckbox>(
+    "wsk-js-checkbox", (final html.HtmlElement element) => new MaterialCheckbox.fromElement(element));
 
 /// registration-Helper
 void registerMaterialCheckbox() => componenthandler.register(materialCheckboxConfig());
@@ -57,9 +57,11 @@ class MaterialCheckbox extends WskComponent {
 
     html.CheckboxInputElement _btnElement = null;
 
-    MaterialCheckbox(final html.HtmlElement element) : super(element) {
+    MaterialCheckbox.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialCheckbox widget(final html.HtmlElement element) => wskComponent(element) as MaterialCheckbox;
 
     html.CheckboxInputElement get btnElement {
         if(_btnElement == null) {

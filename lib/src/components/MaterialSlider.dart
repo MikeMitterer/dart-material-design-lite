@@ -25,8 +25,8 @@ class _MaterialSliderConstant {
 }
 
 /// creates WskConfig for MaterialSlider
-WskConfig materialSliderConfig() => new WskConfig<MaterialSlider>(
-    "wsk-js-slider", (final html.HtmlElement element) => new MaterialSlider(element));
+WskConfig materialSliderConfig() => new WskWidgetConfig<MaterialSlider>(
+    "wsk-js-slider", (final html.HtmlElement element) => new MaterialSlider.fromElement(element));
 
 /// registration-Helper
 void registerMaterialSlider() => componenthandler.register(materialSliderConfig());
@@ -43,9 +43,11 @@ class MaterialSlider extends WskComponent {
     html.DivElement _backgroundLower = null;
     html.DivElement _backgroundUpper = null;
 
-    MaterialSlider(final html.HtmlElement element) : super(element) {
+    MaterialSlider.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialSlider widget(final html.HtmlElement element) => wskComponent(element) as MaterialSlider;
 
     html.RangeInputElement get slider => super.element as html.RangeInputElement;
 

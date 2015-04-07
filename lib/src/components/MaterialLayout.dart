@@ -64,8 +64,8 @@ class _MaterialLayoutMode {
 }
 
 /// creates WskConfig for MaterialLayout
-WskConfig materialLayoutConfig() => new WskConfig<MaterialLayout>(
-    "wsk-js-layout", (final html.HtmlElement element) => new MaterialLayout(element));
+WskConfig materialLayoutConfig() => new WskWidgetConfig<MaterialLayout>(
+    "wsk-js-layout", (final html.HtmlElement element) => new MaterialLayout.fromElement(element));
 
 /// registration-Helper
 void registerMaterialLayout() => componenthandler.register(materialLayoutConfig());
@@ -82,9 +82,11 @@ class MaterialLayout extends WskComponent {
     html.HtmlElement _tabBar = null;
     html.HtmlElement _content = null;
 
-    MaterialLayout(final html.HtmlElement element) : super(element) {
+    MaterialLayout.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialLayout widget(final html.HtmlElement element) => wskComponent(element) as MaterialLayout;
 
     html.HtmlElement get header {
         if(_header == null) { _header = element.querySelector('.' + _cssClasses.HEADER); }

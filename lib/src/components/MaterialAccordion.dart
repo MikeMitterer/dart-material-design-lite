@@ -23,8 +23,8 @@ class _MaterialAccordionConstant {
 }
 
 /// creates WskConfig for MaterialAccordion
-WskConfig materialAccordionConfig() => new WskConfig<MaterialAccordion>(
-    "wsk-js-accordion", (final html.HtmlElement element) => new MaterialAccordion(element));
+WskConfig materialAccordionConfig() => new WskWidgetConfig<MaterialAccordion>(
+    "wsk-js-accordion", (final html.HtmlElement element) => new MaterialAccordion.fromElement(element));
 
 /// registration-Helper
 void registerMaterialAccordion() => componenthandler.register(materialAccordionConfig());
@@ -35,11 +35,13 @@ class MaterialAccordion extends WskComponent {
     static const _MaterialAccordionConstant _constant = const _MaterialAccordionConstant();
     static const _MaterialAccordionCssClasses _cssClasses = const _MaterialAccordionCssClasses();
 
-    final List<html.HtmlElement> _labels = new List<html.HtmlElement>();
+    //final List<html.HtmlElement> _labels = new List<html.HtmlElement>();
 
-    MaterialAccordion(final html.HtmlElement element) : super(element) {
+    MaterialAccordion.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
+
+    static MaterialAccordion widget(final html.HtmlElement element) => wskComponent(element) as MaterialAccordion;
 
 
     //- private -----------------------------------------------------------------------------------
