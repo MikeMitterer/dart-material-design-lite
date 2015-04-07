@@ -153,8 +153,11 @@ class WskComponentHandler {
                 _logger.fine("${config.classAsString} -> ${component}");
 
                 if(config.isWidget) {
-                    var jsElement = new JsObject.fromBrowserObject(element);
-                    jsElement["widget"] = component;
+
+                    // Makes it possible to query for the main element in this component.
+                    var jsElement = new JsObject.fromBrowserObject(component.hub);
+                    jsElement[WSK_WIDGET_PROPERTY] = component;
+
                     //element.xtag = component as html.Element;
                 }
 

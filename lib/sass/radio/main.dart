@@ -12,7 +12,7 @@ main() {
     registerAllWskComponents();
 
     upgradeAllRegistered().then((_) {
-        MaterialRadio.widget(dom.querySelector("#wifi2comp")).disable();
+        MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
     });
 }
 

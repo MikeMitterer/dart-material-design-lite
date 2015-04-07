@@ -85,6 +85,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/radio/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/shadow/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/shadow/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/slider/.sitegen/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/slider/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/slider/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/spinner/packages/wsk_material" />

@@ -46,6 +46,13 @@ WskConfig materialRadioConfig() => new WskWidgetConfig<MaterialRadio>(
 /// registration-Helper
 void registerMaterialRadio() => componenthandler.register(materialRadioConfig());
 
+/**
+ * Sample:
+ *      <label class="wsk-radio wsk-js-radio wsk-js-ripple-effect" for="wifi1">
+ *          <input type="radio" id="wifi1" class="wsk-radio__button" name="wifi[]" value="1" checked />
+ *          <span class="wsk-radio__label">Always</span>
+ *      </label>
+ */
 class MaterialRadio extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialRadio');
 
@@ -61,6 +68,9 @@ class MaterialRadio extends WskComponent {
     }
 
     static MaterialRadio widget(final html.HtmlElement element) => wskComponent(element) as MaterialRadio;
+
+
+    html.Element get hub => btnElement;
 
     html.RadioButtonInputElement get btnElement {
         if(_btnElement == null) {
