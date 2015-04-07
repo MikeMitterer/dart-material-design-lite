@@ -16,6 +16,8 @@ abstract class WskComponent {
     html.CssClassSet get classes => element.classes;
 
     Map<String, String> get attributes => element.attributes;
+
+    html.ElementStream<html.Event> get onChange => element.onChange;
 }
 
 /// CustomComponents...

@@ -28,17 +28,13 @@ class _MaterialSliderConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialSliderCssClasses {
-    final String WSK_SLIDER_IE_CONTAINER = 'wsk-slider__ie-container';
-
-    final String WSK_SLIDER_CONTAINER = 'wsk-slider__container';
-
-    final String WSK_SLIDER_BACKGROUND_FLEX = 'wsk-slider__background-flex';
-
-    final String WSK_SLIDER_BACKGROUND_LOW = 'wsk-slider__background-lower';
-
-    final String WSK_SLIDER_BACKGROUND_UP = 'wsk-slider__background-upper';
-
+    final String IE_CONTAINER = 'wsk-slider__ie-container';
+    final String SLIDER_CONTAINER = 'wsk-slider__container';
+    final String BACKGROUND_FLEX = 'wsk-slider__background-flex';
+    final String BACKGROUND_LOWER = 'wsk-slider__background-lower';
+    final String BACKGROUND_UPPER = 'wsk-slider__background-upper';
     final String IS_LOWEST_VALUE = 'is-lowest-value';
+    final String IS_UPGRADED = 'is-upgraded';
 }
 
 /// Handle input on element.
@@ -46,7 +42,7 @@ class _MaterialSliderCssClasses {
 /// MaterialSlider.prototype.onInput_ = function(event) {
 void _onInput(final html.Event event) {
 
-  _updateValue();
+  _updateValueStyles();
 }
 
 /// Handle change on element.
@@ -54,7 +50,7 @@ void _onInput(final html.Event event) {
 /// MaterialSlider.prototype.onChange_ = function(event) {
 void _onChange(final html.Event event) {
 
-  _updateValue();
+  _updateValueStyles();
 }
 
 /// Handle mouseup on element.
@@ -62,13 +58,13 @@ void _onChange(final html.Event event) {
 /// MaterialSlider.prototype.onMouseUp_ = function(event) {
 void _onMouseUp(final html.Event event) {
 
-   event.target.blur();
+  event.target.blur();
 }
 
 /// Handle updating of values.
 /// @param {Event} event The event that fired.
-/// MaterialSlider.prototype.updateValue_ = function(event) {
-void _updateValue(final html.Event event) {
+/// MaterialSlider.prototype.updateValueStyles_ = function(event) {
+void _updateValueStyles(final html.Event event) {
 
   // Calculate and apply percentages to div structure behind slider.
 
@@ -90,6 +86,36 @@ void _updateValue(final html.Event event) {
   }
 }
 
+// Public methods.
+
+/// Disable slider.
+/// @public
+/// MaterialSlider.prototype.disable = /*function*/ () {
+void disable() {
+
+  element.disabled = true;
+}
+
+/// Enable slider.
+/// @public
+/// MaterialSlider.prototype.enable = /*function*/ () {
+void enable() {
+
+  element.disabled = false;
+}
+
+/// Update slider value.
+/// @param {Number} value The value to which to set the control (optional).
+/// @public
+/// MaterialSlider.prototype.change = function(value) {
+void change(final value) {
+
+  if (value) {
+    element.value = value;
+  }
+  _updateValueStyles();
+}
+
 /// Initialize element.
 /// MaterialSlider.prototype.init = /*function*/ () {
 void init() {
@@ -101,7 +127,7 @@ void init() {
       // a reasonable size.
 
       final containerIE = new html.DivElement();
-      containerIE.classes.add(_cssClasses.WSK_SLIDER_IE_CONTAINER);
+      containerIE.classes.add(_cssClasses.IE_CONTAINER);
       element.parent.insertBefore(containerIE, element);
       element.parent.removeChild(element);
       containerIE.append(element);
@@ -112,23 +138,21 @@ void init() {
       // different colors.
 
       final container = new html.DivElement();
-      container.classes.add(_cssClasses.WSK_SLIDER_CONTAINER);
+      container.classes.add(_cssClasses.SLIDER_CONTAINER);
       element.parent.insertBefore(container, element);
       element.parent.removeChild(element);
       container.append(element);
 
       final backgroundFlex = new html.DivElement();
-      backgroundFlex.classes.add(_cssClasses.WSK_SLIDER_BACKGROUND_FLEX);
+      backgroundFlex.classes.add(_cssClasses.BACKGROUND_FLEX);
       container.append(backgroundFlex);
 
       _backgroundLower = new html.DivElement();
-      _backgroundLower.classes.add(
-          _cssClasses.WSK_SLIDER_BACKGROUND_LOW);
+      _backgroundLower.classes.add(_cssClasses.BACKGROUND_LOWER);
       backgroundFlex.append(_backgroundLower);
 
       _backgroundUpper = new html.DivElement();
-      _backgroundUpper.classes.add(
-          _cssClasses.WSK_SLIDER_BACKGROUND_UP);
+      _backgroundUpper.classes.add(_cssClasses.BACKGROUND_UPPER);
       backgroundFlex.append(_backgroundUpper);
     }
 
@@ -140,7 +164,8 @@ void init() {
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
     element.onMouseUp.listen( _onMouseUp);
 
-    _updateValue();
+    _updateValueStyles();
+    element.classes.add(_cssClasses.IS_UPGRADED);
   }
 }
 

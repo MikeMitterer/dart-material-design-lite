@@ -5,17 +5,20 @@ part of wskcomponents;
 /// decide to modify at a later date.
 class _MaterialSliderCssClasses {
 
-    final String WSK_SLIDER_IE_CONTAINER = 'wsk-slider__ie-container';
+    final String IE_CONTAINER = 'wsk-slider__ie-container';
 
-    final String WSK_SLIDER_CONTAINER = 'wsk-slider__container';
+    final String SLIDER_CONTAINER = 'wsk-slider__container';
 
-    final String WSK_SLIDER_BACKGROUND_FLEX = 'wsk-slider__background-flex';
+    final String BACKGROUND_FLEX = 'wsk-slider__background-flex';
 
-    final String WSK_SLIDER_BACKGROUND_LOW = 'wsk-slider__background-lower';
+    final String BACKGROUND_LOWER = 'wsk-slider__background-lower';
 
-    final String WSK_SLIDER_BACKGROUND_UP = 'wsk-slider__background-upper';
+    final String BACKGROUND_UPPER = 'wsk-slider__background-upper';
 
     final String IS_LOWEST_VALUE = 'is-lowest-value';
+
+    final String IS_UPGRADED = 'is-upgraded';
+
     const _MaterialSliderCssClasses();
 }
 
@@ -51,6 +54,26 @@ class MaterialSlider extends WskComponent {
 
     html.RangeInputElement get slider => super.element as html.RangeInputElement;
 
+    /// Disable slider.
+    void disable() {
+
+        slider.disabled = true;
+    }
+
+    /// Enable slider.
+    void enable() {
+
+        slider.disabled = false;
+    }
+
+    /// Update slider value.
+    void set value(final int value) {
+        slider.value = value.toString();
+        _updateValueStyles();
+    }
+
+    int get value => int.parse(slider.value);
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
@@ -63,7 +86,7 @@ class MaterialSlider extends WskComponent {
                 // implementation limitations, we add a parent here that trims it down to
                 // a reasonable size.
                 final html.DivElement containerIE = new html.DivElement();
-                containerIE.classes.add(_cssClasses.WSK_SLIDER_IE_CONTAINER);
+                containerIE.classes.add(_cssClasses.IE_CONTAINER);
                 element.parent.insertBefore(containerIE, element);
                 element.remove();
                 containerIE.append(element);
@@ -74,21 +97,21 @@ class MaterialSlider extends WskComponent {
                 // different colors.
 
                 final html.DivElement container = new html.DivElement();
-                container.classes.add(_cssClasses.WSK_SLIDER_CONTAINER);
+                container.classes.add(_cssClasses.SLIDER_CONTAINER);
                 element.parent.insertBefore(container, element);
                 element.remove();
                 container.append(element);
 
                 final html.DivElement backgroundFlex = new html.DivElement();
-                backgroundFlex.classes.add(_cssClasses.WSK_SLIDER_BACKGROUND_FLEX);
+                backgroundFlex.classes.add(_cssClasses.BACKGROUND_FLEX);
                 container.append(backgroundFlex);
 
                 _backgroundLower = new html.DivElement();
-                _backgroundLower.classes.add(_cssClasses.WSK_SLIDER_BACKGROUND_LOW);
+                _backgroundLower.classes.add(_cssClasses.BACKGROUND_LOWER);
                 backgroundFlex.append(_backgroundLower);
 
                 _backgroundUpper = new html.DivElement();
-                _backgroundUpper.classes.add(_cssClasses.WSK_SLIDER_BACKGROUND_UP);
+                _backgroundUpper.classes.add(_cssClasses.BACKGROUND_UPPER);
                 backgroundFlex.append(_backgroundUpper);
             }
 
@@ -98,19 +121,19 @@ class MaterialSlider extends WskComponent {
 
             element.onMouseUp.listen( _onMouseUp );
 
-            _updateValue();
-            element.classes.add('is-upgraded');
+            _updateValueStyles();
+            element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
 
     /// Handle input on element.
     void _onInput(final html.Event event) {
-        _updateValue();
+        _updateValueStyles();
     }
 
     /// Handle change on element.
     void _onChange(final html.Event event) {
-        _updateValue();
+        _updateValueStyles();
     }
 
     /// Handle mouseup on element.
@@ -119,7 +142,7 @@ class MaterialSlider extends WskComponent {
     }
 
     /// Handle updating of values.
-    void _updateValue() {
+    void _updateValueStyles() {
 
         // Calculate and apply percentages to div structure behind slider.
         final num fraction = (int.parse(slider.value) - int.parse(slider.min)) /

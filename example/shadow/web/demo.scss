@@ -14,7 +14,7 @@
   @include material-animation-default(300ms);
   width              : 300px;
 
-    @media screen and (max-width: 360px ) {
-        width: 272px;
-    }
+  @media screen and (max-width: 360px ) {
+      width: 272px;
+  }
 }
