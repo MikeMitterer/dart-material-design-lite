@@ -6,5 +6,5 @@
 
 .bg-ic_extension_48px.script {
     @include svg-background("48");
-    background-image: svg-ic_extension_48px(darken($icon-color,20%));
+    background-image: svg-ic_extension_48px($icon-color-dark);
 }

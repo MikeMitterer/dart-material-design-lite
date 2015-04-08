@@ -2,7 +2,7 @@
 @import "../shadow/shadow";
 
 $form-color : $text-color-primary !default;
-$form-color-help : $text-color-secondary !default;
+$form-color-help : $input-text-error-color !default;
 $form-color-accent : white !default;
 $form-active-input-border-color : $input-text-highlight-color !default;
 $form-background-color : white !default;

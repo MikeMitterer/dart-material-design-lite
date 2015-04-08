@@ -6,8 +6,7 @@ $checkbox-label-height: 24px;
 $checkbox-button-size: 16px;
 $checkbox-inner-margin: 2px;
 $checkbox-padding: 8px;
-$checkbox-top-offset:
-  ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
+$checkbox-top-offset: ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
 $checkbox-ripple-size: $checkbox-label-height * 1.5;
 
 @function svg-tick() {
@@ -123,7 +122,7 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
   left: 0;
   height: 100%;
   width: 100%;
-  mask: svg-tickmask();
+  //mask: svg-tickmask();
 
   background: transparent;
   @include material-animation-default(0.28s);

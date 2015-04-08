@@ -1,6 +1,6 @@
 @import "packages/wsk_material/sass/resets/h5bp";
-@import "colors";
-
+@import "packages/wsk_material/sass/colors";
+//@import "colors";
 
 @import 'packages/wsk_material/sass/typography/typography';
 @import 'packages/wsk_material/sass/layout/layout';
@@ -12,7 +12,6 @@
 @import "packages/wsk_material/sass/button/button";
 @import "packages/wsk_material/sass/footer/mega_footer";
 @import "packages/wsk_material/sass/footer/mini_footer";
-@import "packages/wsk_material/sass/footer/mini_footer-flex";
 @import "packages/wsk_material/sass/bottombar/bottombar";
 
 html, body {

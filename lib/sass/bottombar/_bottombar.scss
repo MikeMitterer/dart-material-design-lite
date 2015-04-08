@@ -8,6 +8,7 @@ $padding : 16px !default;
 $bottom-bar-heading-font-size : 24px !default;
 $bottom-bar-heading-line-height : (1.5 * $bottom-bar-heading-font-size) !default;
 $bottom-bar-btn-size : 36px !default;
+$bottom-bar-btn-color: $layout-header-bg-color !default;
 $bottom-bar-height: 56px;
 
 .wsk-bottom-bar {
@@ -68,7 +69,7 @@ $bottom-bar-height: 56px;
         border-radius    : 100%;
         padding          : 0;
 
-        color            : invert($layout-header-text-color);
+        color            : $bottom-bar-btn-color;
         background-color : $layout-header-text-color;
         border           : none;
 

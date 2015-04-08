@@ -1,3 +1,8 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Compile me with:
+//  sass main.scss main.css -r ../packages/material_icons/sassext/urlencode.rb
+//
+
 @import 'packages/wsk_material/sass/resets/h5bp';
 @import 'packages/wsk_material/sass/typography/typography';
 @import 'packages/wsk_material/sass/palette/palette';
@@ -8,10 +13,13 @@
 @import 'packages/wsk_material/sass/animation/animation';
 @import "packages/wsk_material/sass/card/card";
 @import 'packages/wsk_material/sass/bottombar/bottombar';
-@import "packages/wsk_material/sass/footer/mini_footer-flex";
+@import "packages/wsk_material/sass/footer/mini_footer";
 @import "packages/wsk_material/sass/list/list";
 
-$icon-color: nth($palette-primary, 2);
+$palette-primary: $palette-indigo;
+$icon-color: $palette-indigo-500;
+$icon-color-dark: $palette-indigo-700;
+
 @import "packages/material_icons/sass/svg-utils";
 @import "material_icons";
 
