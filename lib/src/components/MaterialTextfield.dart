@@ -5,15 +5,19 @@ part of wskcomponents;
 /// decide to modify at a later date.
 class _MaterialTextfieldCssClasses {
 
-    final String WSK_TEXT_EXP_ICO_RIP_CONTAINER = 'wsk-textfield-expandable-icon__ripple__container';
+    final String LABEL = 'wsk-textfield__label';
 
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-
-    final String WSK_RIPPLE_CENTER = 'wsk-ripple--center';
-
-    final String WSK_RIPPLE = 'wsk-ripple';
+    final String INPUT = 'wsk-textfield__input';
 
     final String IS_DIRTY = 'is-dirty';
+
+    final String IS_FOCUSED = 'is-focused';
+
+    final String IS_DISABLED = 'is-disabled';
+
+    final String IS_INVALID = 'is-invalid';
+
+    final String IS_UPGRADED = 'is-upgraded';
 
     const _MaterialTextfieldCssClasses();
 }
@@ -42,11 +46,51 @@ class MaterialTextfield extends WskComponent {
 
     int _maxRows = _constant.NO_MAX_ROWS;
 
+    html.InputElement _input;
+    html.LabelElement _label;
+
     MaterialTextfield.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
 
     static MaterialTextfield widget(final html.HtmlElement element) => wskComponent(element) as MaterialTextfield;
+
+    html.Element get hub => input;
+
+    html.HtmlElement get input {
+        if(_input == null) {
+            _input = element.querySelector(".${_cssClasses.INPUT}") as html.HtmlElement;
+        }
+        return _input;
+    }
+
+    html.LabelElement get label {
+        if(_label == null) {
+            _label = element.querySelector(".${_cssClasses.LABEL}") as html.LabelElement;
+        }
+        return _label;
+    }
+
+    /// Disable text field.
+    void disable() {
+        _relaxedInput.disabled = true;
+        _updateClasses();
+    }
+
+    /// Enable text field.
+    void enable() {
+        _relaxedInput.disabled = false;
+        _updateClasses();
+    }
+
+    /// Update text field value.
+    void change(final String value) {
+
+        if (value != null) {
+            _relaxedInput.value = value;
+        }
+        _updateClasses();
+    }
 
     //- private -----------------------------------------------------------------------------------
 
@@ -55,71 +99,35 @@ class MaterialTextfield extends WskComponent {
 
         if (element != null) {
 
-            final List<html.Element> expandableIcons = html.querySelectorAll('.wsk-textfield-expandable-icon');
+            if (input != null) {
+                if (element.attributes.containsKey(_constant.MAX_ROWS_ATTRIBUTE) &&
+                    element.attributes[_constant.MAX_ROWS_ATTRIBUTE] != null &&
+                    element.attributes[_constant.MAX_ROWS_ATTRIBUTE].isNotEmpty ) {
 
-            for (int i = 0; i < expandableIcons.length; ++i) {
-                _expandableIcon(expandableIcons[i]);
-            }
-
-            if (element.attributes.containsKey(_constant.MAX_ROWS_ATTRIBUTE) &&
-                element.attributes[_constant.MAX_ROWS_ATTRIBUTE] != null &&
-                element.attributes[_constant.MAX_ROWS_ATTRIBUTE].isNotEmpty ) {
-
-                _maxRows = int.parse(element.getAttribute(_constant.MAX_ROWS_ATTRIBUTE),
+                    _maxRows = int.parse(element.getAttribute(_constant.MAX_ROWS_ATTRIBUTE),
                     onError: (final String value) {
                         _logger.severe('maxrows attribute provided, but wasn\'t a number: $value');
                         _maxRows = _constant.NO_MAX_ROWS;
                     });
+                }
+
+                input.onInput.listen( (_) => _updateClasses() );
+
+                // .addEventListener('focus', -- .onFocus.listen(<Event>);
+                input.onFocus.listen( _onFocus);
+
+                // .addEventListener('blur', -- .onBlur.listen(<Event>);
+                input.onBlur.listen( _onBlur);
+
+                if (_maxRows != _constant.NO_MAX_ROWS) {
+                    // TODO: This should handle pasting multi line text.
+                    // Currently doesn't.
+                    element.onKeyDown.listen( _onKeyDown );
+                }
+
+                _updateClasses();
+                element.classes.add(_cssClasses.IS_UPGRADED);
             }
-
-            element.onInput.listen( _onInputChange );
-
-            if (_maxRows != _constant.NO_MAX_ROWS) {
-
-                // TODO: This should handle pasting multi line text.
-                // Currently doesn't.
-                element.onKeyDown.listen( _onKeyDown );
-            }
-        }
-    }
-
-    /// Handle upgrade of icon element.
-    /// iconElement HTML element to contain icon.
-    void _expandableIcon(final html.HtmlElement iconElement) {
-
-        if (! iconElement.attributes.containsKey('data-upgraded')) {
-
-            final html.SpanElement container = new html.SpanElement();
-            container.classes.add(_cssClasses.WSK_TEXT_EXP_ICO_RIP_CONTAINER);
-            container.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
-            container.classes.add(_cssClasses.WSK_RIPPLE_CENTER);
-
-            final html.SpanElement ripple = new html.SpanElement();
-            ripple.classes.add(_cssClasses.WSK_RIPPLE);
-            container.append(ripple);
-
-            iconElement.append(container);
-            iconElement.setAttribute('data-upgraded', '');
-
-
-        }
-    }
-
-    /// Handle input being entered.
-    void _onInputChange(final html.MouseEvent event) {
-        final input = element;
-
-        if (input.value != null && (input.value as String).isNotEmpty) {
-            input.classes.add(_cssClasses.IS_DIRTY);
-
-        } else if(element is html.TextAreaElement && (element as html.TextAreaElement).value != null &&
-            (element as html.TextAreaElement).value.isNotEmpty ) {
-
-            input.classes.add(_cssClasses.IS_DIRTY);
-
-        } else {
-            input.classes.remove(_cssClasses.IS_DIRTY);
-            // _logger.warning("Element $element width class ${element.classes} is not a Texfield...");
         }
     }
 
@@ -134,5 +142,44 @@ class MaterialTextfield extends WskComponent {
             }
         }
     }
+
+    /// Handle focus.
+    void _onFocus(final html.Event event) {
+        element.classes.add(_cssClasses.IS_FOCUSED);
+    }
+
+    /// Handle lost focus.
+    void _onBlur(final html.Event event) {
+        element.classes.remove(_cssClasses.IS_FOCUSED);
+    }
+
+    /// Handle class updates.
+    void _updateClasses() {
+
+        if (_relaxedInput.disabled) {
+            element.classes.add(_cssClasses.IS_DISABLED);
+
+        } else {
+            element.classes.remove(_cssClasses.IS_DISABLED);
+        }
+
+        if (_relaxedInput.validity.valid) {
+            element.classes.remove(_cssClasses.IS_INVALID);
+
+        } else {
+            element.classes.add(_cssClasses.IS_INVALID);
+        }
+
+        if (_relaxedInput.value != null && _relaxedInput.value.isNotEmpty) {
+            element.classes.add(_cssClasses.IS_DIRTY);
+
+        } else {
+            element.classes.remove(_cssClasses.IS_DIRTY);
+        }
+    }
+
+    /// We have two different elements - InputElement and TextAreaElement
+    dynamic get _relaxedInput => input;
+
 }
 

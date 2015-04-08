@@ -1,9 +1,14 @@
 @import "packages/wsk_material/sass/styleguide_demo_bp";
+@import "packages/wsk_material/sass/button/button";
+@import "packages/wsk_material/sass/icons/icons";
 @import "packages/wsk_material/sass/textfield/_textfield";
 
-
-
-textarea {
+.demo-page--textfield textarea {
   overflow: auto;
-  resize  : none;
+  resize: none;
+}
+
+.demo-page--textfield .wsk-textfield {
+  display: block;
+  margin: 30px 0;
 }

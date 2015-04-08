@@ -28,50 +28,13 @@ class _MaterialTextfieldConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialTextfieldCssClasses {
-    final String WSK_TEXT_EXP_ICO_RIP_CONTAINER = 'wsk-textfield-expandable-icon__ripple__';
-      'container',
-
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-
-    final String WSK_RIPPLE_CENTER = 'wsk-ripple--center';
-
-    final String WSK_RIPPLE = 'wsk-ripple';
-
+    final String LABEL = 'wsk-textfield__label';
+    final String INPUT = 'wsk-textfield__input';
     final String IS_DIRTY = 'is-dirty';
-}
-
-/// Handle upgrade of icon element.
-/// @param {HTMLElement} iconElement HTML element to contain icon.
-/// MaterialTextfield.prototype.expandableIcon_ = function(iconElement) {
-void _expandableIcon(final iconElement) {
-
-  if (!iconElement.getAttribute('data-upgraded')) {
-
-    final container = new html.SpanElement();
-    container.classes.add(_cssClasses.WSK_TEXT_EXP_ICO_RIP_CONTAINER);
-    container.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
-    container.classes.add(_cssClasses.WSK_RIPPLE_CENTER);
-
-    final ripple = new html.SpanElement();
-    ripple.classes.add(_cssClasses.WSK_RIPPLE);
-    container.append(ripple);
-
-    iconElement.append(container);
-    iconElement.setAttribute('data-upgraded', '');
-  }
-}
-
-/// Handle input being entered.
-/// @param {Event} event The event that fired.
-/// MaterialTextfield.prototype.onInputChange_ = function(event) {
-void _onInputChange(final html.Event event) {
-
-  if (event.target.value && event.target.value.length > 0) {
-    event.target.classes.add(_cssClasses.IS_DIRTY);
-
-  } else {
-    event.target.classes.remove(_cssClasses.IS_DIRTY);
-  }
+    final String IS_FOCUSED = 'is-focused';
+    final String IS_DISABLED = 'is-disabled';
+    final String IS_INVALID = 'is-invalid';
+    final String IS_UPGRADED = 'is-upgraded';
 }
 
 /// Handle input being entered.
@@ -87,35 +50,115 @@ void _onKeyDown(final html.Event event) {
   }
 }
 
+/// Handle focus.
+/// @param {Event} event The event that fired.
+/// MaterialTextfield.prototype.onFocus_ = function(event) {
+void _onFocus(final html.Event event) {
+
+  element.classes.add(_cssClasses.IS_FOCUSED);
+}
+
+/// Handle lost focus.
+/// @param {Event} event The event that fired.
+/// MaterialTextfield.prototype.onBlur_ = function(event) {
+void _onBlur(final html.Event event) {
+
+  element.classes.remove(_cssClasses.IS_FOCUSED);
+}
+
+/// Handle class updates.
+/// @param {HTMLElement} button The button whose classes we should update.
+/// @param {HTMLElement} label The label whose classes we should update.
+/// MaterialTextfield.prototype.updateClasses_ = /*function*/ () {
+void _updateClasses() {
+
+  if (_input.disabled) {
+    element.classes.add(_cssClasses.IS_DISABLED);
+
+  } else {
+    element.classes.remove(_cssClasses.IS_DISABLED);
+  }
+
+  if (_input.validity.valid) {
+    element.classes.remove(_cssClasses.IS_INVALID);
+
+  } else {
+    element.classes.add(_cssClasses.IS_INVALID);
+  }
+
+  if (_input.value && _input.value.length > 0) {
+    element.classes.add(_cssClasses.IS_DIRTY);
+
+  } else {
+    element.classes.remove(_cssClasses.IS_DIRTY);
+  }
+}
+
+// Public methods.
+
+/// Disable text field.
+/// @public
+/// MaterialTextfield.prototype.disable = /*function*/ () {
+void disable() {
+
+  _input.disabled = true;
+  _updateClasses();
+}
+
+/// Enable text field.
+/// @public
+/// MaterialTextfield.prototype.enable = /*function*/ () {
+void enable() {
+
+  _input.disabled = false;
+  _updateClasses();
+}
+
+/// Update text field value.
+/// @param {String} value The value to which to set the control (optional).
+/// @public
+/// MaterialTextfield.prototype.change = function(value) {
+void change(final value) {
+
+  if (value) {
+    _input.value = value;
+  }
+  _updateValueStyles();
+}
+
 /// Initialize element.
 /// MaterialTextfield.prototype.init = /*function*/ () {
 void init() {
 
   if (element != null) {
+    _label = element.querySelector('.' + _cssClasses.LABEL);
+    _input = element.querySelector('.' + _cssClasses.INPUT);
 
-    final expandableIcons =
-        document.querySelectorAll('.wsk-textfield-expandable-icon');
-
-    for (final i = 0; i < expandableIcons.length; ++i) {
-      _expandableIcon(expandableIcons[i]);
-    }
-
-    if (element.hasAttribute(_constant.MAX_ROWS_ATTRIBUTE)) {
-      maxRows = parseInt(element.getAttribute(
-          _constant.MAX_ROWS_ATTRIBUTE), 10);
-      if (isNaN(maxRows)) {
-        console.log(
-            'maxrows attribute provided, but wasn\'t a number: ' +
-            maxRows);
-        _maxRows = constant.NO_MAX_ROWS;
+    if (_input) {
+      if (_input.hasAttribute(_constant.MAX_ROWS_ATTRIBUTE)) {
+        _maxRows = parseInt(input.getAttribute(
+            _constant.MAX_ROWS_ATTRIBUTE), 10);
+        if (isNaN(maxRows)) {
+          _maxRows = constant.NO_MAX_ROWS;
+        }
       }
-    }
 
-    element.addEventListener('input', _onInputChange);
-    if (_maxRows !== constant.NO_MAX_ROWS) {
-      // TODO: This should handle pasting multi line text.
-      // Currently doesn't.
-      element.addEventListener('keydown', _onKeyDown);
+      _input.addEventListener('input', _updateClasses);
+
+	// .addEventListener('focus', -- .onFocus.listen(<Event>);
+      _input.onFocus.listen( _onFocus);
+
+	// .addEventListener('blur', -- .onBlur.listen(<Event>);
+      _input.onBlur.listen( _onBlur);
+
+      if (_maxRows !== constant.NO_MAX_ROWS) {
+        // TODO: This should handle pasting multi line text.
+        // Currently doesn't.
+        _input.addEventListener('keydown', _onKeyDown);
+      }
+
+      _updateClasses();
+      element.classes.add(_cssClasses.IS_UPGRADED);
     }
   }
 }
