@@ -15,7 +15,7 @@ main() {
         final MaterialSpinner spinner = MaterialSpinner.widget(dom.querySelector("#first"));
         final MaterialButton button = MaterialButton.widget(dom.querySelector("#button"));
 
-        button.hub.onClick.listen((_) {
+        button.onClick.listen((_) {
             spinner.active = !spinner.active;
         });
     });
