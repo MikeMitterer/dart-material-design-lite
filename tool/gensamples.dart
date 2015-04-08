@@ -52,7 +52,7 @@ class Application {
 
                 _iterateThroughDirSync(config.sassdir,foldersToExclude,(final Directory dir) {
                     final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
-                    _logger.info("   Found: $dir in $sampleName");
+                    //_logger.info("   Found: $dir in $sampleName");
 
                     final Directory sampleDir = new Directory("${config.samplesdir}/${sampleName}");
                     final Directory webDir = new Directory("${config.samplesdir}/${sampleName}/web");

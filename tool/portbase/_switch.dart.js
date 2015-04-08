@@ -26,28 +26,17 @@ class _MaterialSwitchConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialSwitchCssClasses {
-    final String WSK_SWITCH_INPUT = 'wsk-switch__input';
-
-    final String WSK_SWITCH_TRACK = 'wsk-switch__track';
-
-    final String WSK_SWITCH_THUMB = 'wsk-switch__thumb';
-
-    final String WSK_SWITCH_FOCUS_HELPER = 'wsk-switch__focus-helper';
-
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-
-    final String WSK_SWITCH_RIPPLE_CONTAINER = 'wsk-switch__ripple-container';
-
-    final String WSK_RIPPLE_CENTER = 'wsk-ripple--center';
-
-    final String WSK_RIPPLE = 'wsk-ripple';
-
+    final String INPUT = 'wsk-switch__input';
+    final String TRACK = 'wsk-switch__track';
+    final String THUMB = 'wsk-switch__thumb';
+    final String FOCUS_HELPER = 'wsk-switch__focus-helper';
+    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String RIPPLE_CONTAINER = 'wsk-switch__ripple-container';
+    final String RIPPLE_CENTER = 'wsk-ripple--center';
+    final String RIPPLE = 'wsk-ripple';
     final String IS_FOCUSED = 'is-focused';
-
     final String IS_DISABLED = 'is-disabled';
-
     final String IS_CHECKED = 'is-checked';
 }
 
@@ -56,7 +45,7 @@ class _MaterialSwitchCssClasses {
 /// MaterialSwitch.prototype.onChange_ = function(event) {
 void _onChange(final html.Event event) {
 
-  _updateClasses(_btnElement, element);
+  _updateClasses();
 }
 
 /// Handle focus of element.
@@ -86,21 +75,21 @@ void _onMouseUp(final html.Event event) {
 /// Handle class updates.
 /// @param {HTMLElement} button The button whose classes we should update.
 /// @param {HTMLElement} label The label whose classes we should update.
-/// MaterialSwitch.prototype.updateClasses_ = function(button, label) {
-void _updateClasses(final button, label) {
+/// MaterialSwitch.prototype.updateClasses_ = /*function*/ () {
+void _updateClasses() {
 
-  if (button.disabled) {
-    label.classes.add(_cssClasses.IS_DISABLED);
+  if (_inputElement.disabled) {
+    element.classes.add(_cssClasses.IS_DISABLED);
 
   } else {
-    label.classes.remove(_cssClasses.IS_DISABLED);
+    element.classes.remove(_cssClasses.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classes.add(_cssClasses.IS_CHECKED);
+  if (_inputElement.checked) {
+    element.classes.add(_cssClasses.IS_CHECKED);
 
   } else {
-    label.classes.remove(_cssClasses.IS_CHECKED);
+    element.classes.remove(_cssClasses.IS_CHECKED);
   }
 }
 
@@ -111,8 +100,46 @@ void _blur(final html.Event event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout( /*function*/ () {
-    _btnElement.blur();
+    _inputElement.blur();
   }, _constant.TINY_TIMEOUT);
+}
+
+// Public methods.
+
+/// Disable switch.
+/// @public
+/// MaterialSwitch.prototype.disable = /*function*/ () {
+void disable() {
+
+  _inputElement.disabled = true;
+  _updateClasses();
+}
+
+/// Enable switch.
+/// @public
+/// MaterialSwitch.prototype.enable = /*function*/ () {
+void enable() {
+
+  _inputElement.disabled = false;
+  _updateClasses();
+}
+
+/// Activate switch.
+/// @public
+/// MaterialSwitch.prototype.on = /*function*/ () {
+void on() {
+
+  _inputElement.checked = true;
+  _updateClasses();
+}
+
+/// Deactivate switch.
+/// @public
+/// MaterialSwitch.prototype.off = /*function*/ () {
+void off() {
+
+  _inputElement.checked = false;
+  _updateClasses();
 }
 
 /// Initialize element.
@@ -120,17 +147,17 @@ void _blur(final html.Event event) {
 void init() {
 
   if (element != null) {
-    _btnElement = element.querySelector('.' +
-        _cssClasses.WSK_SWITCH_INPUT);
+    _inputElement = element.querySelector('.' +
+        _cssClasses.INPUT);
 
     final track = new html.DivElement();
-    track.classes.add(_cssClasses.WSK_SWITCH_TRACK);
+    track.classes.add(_cssClasses.TRACK);
 
     final thumb = new html.DivElement();
-    thumb.classes.add(_cssClasses.WSK_SWITCH_THUMB);
+    thumb.classes.add(_cssClasses.THUMB);
 
     final focusHelper = new html.SpanElement();
-    focusHelper.classes.add(_cssClasses.WSK_SWITCH_FOCUS_HELPER);
+    focusHelper.classes.add(_cssClasses.FOCUS_HELPER);
 
     thumb.append(focusHelper);
 
@@ -139,39 +166,39 @@ void init() {
 
     final rippleContainer;
     if (element.classes.contains(
-        _cssClasses.WSK_JS_RIPPLE_EFFECT)) {
+        _cssClasses.RIPPLE_EFFECT)) {
       element.classes.add(
-          _cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+          _cssClasses.RIPPLE_IGNORE_EVENTS);
 
       rippleContainer = new html.SpanElement();
       rippleContainer.classes.add(
-          _cssClasses.WSK_SWITCH_RIPPLE_CONTAINER);
-      rippleContainer.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
-      rippleContainer.classes.add(_cssClasses.WSK_RIPPLE_CENTER);
+          _cssClasses.RIPPLE_CONTAINER);
+      rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
+      rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
+
+	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
+      rippleContainer.onMouseUp.listen( _onMouseUp);
 
       final ripple = new html.SpanElement();
-      ripple.classes.add(_cssClasses.WSK_RIPPLE);
+      ripple.classes.add(_cssClasses.RIPPLE);
 
       rippleContainer.append(ripple);
       element.append(rippleContainer);
     }
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
-    _btnElement.onChange.listen( _onChange);
+    _inputElement.onChange.listen( _onChange);
 
 	// .addEventListener('focus', -- .onFocus.listen(<Event>);
-    _btnElement.onFocus.listen( _onFocus);
+    _inputElement.onFocus.listen( _onFocus);
 
 	// .addEventListener('blur', -- .onBlur.listen(<Event>);
-    _btnElement.onBlur.listen( _onBlur);
+    _inputElement.onBlur.listen( _onBlur);
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
     element.onMouseUp.listen( _onMouseUp);
 
-	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-    rippleContainer.onMouseUp.listen( _onMouseUp);
-
-    _updateClasses(_btnElement, element);
+    _updateClasses();
     element.classes.add('is-upgraded');
   }
 }

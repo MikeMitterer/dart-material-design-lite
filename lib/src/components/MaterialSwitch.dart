@@ -5,29 +5,31 @@ part of wskcomponents;
 /// decide to modify at a later date.
 class _MaterialSwitchCssClasses {
 
-    final String WSK_SWITCH_INPUT = 'wsk-switch__input';
+    final String INPUT = 'wsk-switch__input';
 
-    final String WSK_SWITCH_TRACK = 'wsk-switch__track';
+    final String TRACK = 'wsk-switch__track';
 
-    final String WSK_SWITCH_THUMB = 'wsk-switch__thumb';
+    final String THUMB = 'wsk-switch__thumb';
 
-    final String WSK_SWITCH_FOCUS_HELPER = 'wsk-switch__focus-helper';
+    final String FOCUS_HELPER = 'wsk-switch__focus-helper';
 
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
 
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
 
-    final String WSK_SWITCH_RIPPLE_CONTAINER = 'wsk-switch__ripple-container';
+    final String RIPPLE_CONTAINER = 'wsk-switch__ripple-container';
 
-    final String WSK_RIPPLE_CENTER = 'wsk-ripple--center';
+    final String RIPPLE_CENTER = 'wsk-ripple--center';
 
-    final String WSK_RIPPLE = 'wsk-ripple';
+    final String RIPPLE = 'wsk-ripple';
 
     final String IS_FOCUSED = 'is-focused';
 
     final String IS_DISABLED = 'is-disabled';
 
     final String IS_CHECKED = 'is-checked';
+
+    final String IS_UPGRADED = 'is-upgraded';
 
     const _MaterialSwitchCssClasses();
 }
@@ -52,7 +54,7 @@ class MaterialSwitch extends WskComponent {
     static const _MaterialSwitchConstant _constant = const _MaterialSwitchConstant();
     static const _MaterialSwitchCssClasses _cssClasses = const _MaterialSwitchCssClasses();
 
-    html.CheckboxInputElement _btnElement = null;
+    html.CheckboxInputElement _inputElement = null;
 
     MaterialSwitch.fromElement(final html.HtmlElement element) : super(element) {
         _init();
@@ -60,10 +62,35 @@ class MaterialSwitch extends WskComponent {
 
     static MaterialSwitch widget(final html.HtmlElement element) => wskComponent(element) as MaterialSwitch;
 
-    html.CheckboxInputElement get btnElement {
-        if(_btnElement == null) { _btnElement = element.querySelector(".${_cssClasses.WSK_SWITCH_INPUT}"); }
-        return _btnElement;
+    html.CheckboxInputElement get inputElement {
+        if(_inputElement == null) { _inputElement = element.querySelector(".${_cssClasses.INPUT}"); }
+        return _inputElement;
     }
+
+    /// Disable switch.
+    void disable() {
+        inputElement.disabled = true;
+        _updateClasses();
+    }
+
+    /// Enable switch.
+    void enable() {
+        inputElement.disabled = false;
+        _updateClasses();
+    }
+
+    /// Activate switch.
+    void on() {
+        inputElement.checked = true;
+        _updateClasses();
+    }
+
+    /// Deactivate switch.
+    void off() {
+        inputElement.checked = false;
+        _updateClasses();
+    }
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
@@ -72,13 +99,13 @@ class MaterialSwitch extends WskComponent {
         if (element != null) {
 
             final html.DivElement track = new html.DivElement();
-            track.classes.add(_cssClasses.WSK_SWITCH_TRACK);
+            track.classes.add(_cssClasses.TRACK);
 
             final html.DivElement thumb = new html.DivElement();
-            thumb.classes.add(_cssClasses.WSK_SWITCH_THUMB);
+            thumb.classes.add(_cssClasses.THUMB);
 
             final html.SpanElement focusHelper = new html.SpanElement();
-            focusHelper.classes.add(_cssClasses.WSK_SWITCH_FOCUS_HELPER);
+            focusHelper.classes.add(_cssClasses.FOCUS_HELPER);
 
             thumb.append(focusHelper);
 
@@ -87,40 +114,39 @@ class MaterialSwitch extends WskComponent {
 
 
             if (element.classes.contains(
-                _cssClasses.WSK_JS_RIPPLE_EFFECT)) {
-                element.classes.add(
-                    _cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+                _cssClasses.RIPPLE_EFFECT)) {
+                element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
                 final html.SpanElement rippleContainer = new html.SpanElement();
-                rippleContainer.classes.add(_cssClasses.WSK_SWITCH_RIPPLE_CONTAINER);
-                rippleContainer.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
-                rippleContainer.classes.add(_cssClasses.WSK_RIPPLE_CENTER);
+                rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
+                rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
+                rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
+
+                rippleContainer.onMouseUp.listen( _onMouseUp);
 
                 final html.SpanElement ripple = new html.SpanElement();
-                ripple.classes.add(_cssClasses.WSK_RIPPLE);
+                ripple.classes.add(_cssClasses.RIPPLE);
 
                 rippleContainer.append(ripple);
                 element.append(rippleContainer);
-
-                rippleContainer.onMouseUp.listen( _onMouseUp);
             }
 
-            btnElement.onChange.listen( _onChange );
+            inputElement.onChange.listen( _onChange );
 
-            btnElement.onFocus.listen( _onFocus );
+            inputElement.onFocus.listen( _onFocus );
 
-            btnElement.onBlur.listen( _onBlur );
+            inputElement.onBlur.listen( _onBlur );
 
             element.onMouseUp.listen( _onMouseUp );
 
-            _updateClasses(btnElement, element);
-            element.classes.add('is-upgraded');
+            _updateClasses();
+            element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
 
     /// Handle change of state.
     void _onChange(final html.Event event) {
-        _updateClasses(btnElement, element);
+        _updateClasses();
     }
 
     /// Handle focus of element.
@@ -139,20 +165,20 @@ class MaterialSwitch extends WskComponent {
     }
 
     /// Handle class updates.
-    void _updateClasses(final html.CheckboxInputElement button, final html.HtmlElement label) {
+    void _updateClasses() {
 
-        if (button.disabled) {
-            label.classes.add(_cssClasses.IS_DISABLED);
+        if (inputElement.disabled) {
+            element.classes.add(_cssClasses.IS_DISABLED);
 
         } else {
-            label.classes.remove(_cssClasses.IS_DISABLED);
+            element.classes.remove(_cssClasses.IS_DISABLED);
         }
 
-        if (button.checked) {
-            label.classes.add(_cssClasses.IS_CHECKED);
+        if (inputElement.checked) {
+            element.classes.add(_cssClasses.IS_CHECKED);
 
         } else {
-            label.classes.remove(_cssClasses.IS_CHECKED);
+            element.classes.remove(_cssClasses.IS_CHECKED);
         }
     }
 
@@ -160,7 +186,7 @@ class MaterialSwitch extends WskComponent {
         // TODO: figure out why there's a focus event being fired after our blur,
         // so that we can avoid this hack.
         new Timer(new Duration(milliseconds : _constant.TINY_TIMEOUT_IN_MS ), () {
-            btnElement.blur();
+            inputElement.blur();
         });
     }
 }
