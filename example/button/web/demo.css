@@ -291,7 +291,7 @@ dt {
   line-height: 1;
   letter-spacing: -0.04em; }
 
-.wsk-typography--display-4--colorContrast {
+.wsk-typography--display-4-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 112px;
   font-weight: 300;
@@ -306,7 +306,7 @@ dt {
   line-height: 1;
   letter-spacing: -0.02em; }
 
-.wsk-typography--display-3--colorContrast {
+.wsk-typography--display-3-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
@@ -320,7 +320,7 @@ dt {
   font-weight: 400;
   line-height: 48px; }
 
-.wsk-typography--display-2--colorContrast {
+.wsk-typography--display-2-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
@@ -333,7 +333,7 @@ dt {
   font-weight: 400;
   line-height: 40px; }
 
-.wsk-typography--display-1--colorContrast {
+.wsk-typography--display-1-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
@@ -347,7 +347,7 @@ dt {
   line-height: 32px;
   -moz-osx-font-smoothing: grayscale; }
 
-.wsk-typography--headline--colorContrast {
+.wsk-typography--headline-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
@@ -362,7 +362,7 @@ dt {
   line-height: 1;
   letter-spacing: 0.02em; }
 
-.wsk-typography--title--colorContrast {
+.wsk-typography--title-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
@@ -377,7 +377,7 @@ dt {
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--subhead--colorContrast {
+.wsk-typography--subhead-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -391,7 +391,7 @@ dt {
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--Body-2--colorContrast {
+.wsk-typography--body-2-color-contrast {
   font-size: 14px;
   font-weight: bold;
   line-height: 24px;
@@ -404,21 +404,21 @@ dt {
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--body-1--colorContrast {
+.wsk-typography--body-1-color-contrast {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em;
   opacity: 0.87; }
 
-.wsk-typography--body-2--forcePreferredFont {
+.wsk-typography--body-2-force-preferred-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--Body-2--forcePreferredFont--colorContrast {
+.wsk-typography--body-2-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -426,14 +426,14 @@ dt {
   letter-spacing: 0.04em;
   opacity: 0.87; }
 
-.wsk-typography--body-1--forcePreferredFont {
+.wsk-typography--body-1-force-preferred-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--body-1--forcePreferredFont--colorContrast {
+.wsk-typography--body-1-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -447,21 +447,21 @@ dt {
   line-height: 1;
   letter-spacing: 0.08em; }
 
-.wsk-typography--caption--forcePreferredFont {
+.wsk-typography--caption-force-preferred-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.08em; }
 
-.wsk-typography--caption--colorContrast {
+.wsk-typography--caption-color-contrast {
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.08em;
   opacity: 0.54; }
 
-.wsk-typography--caption--forcePreferredFont--colorContrast {
+.wsk-typography--caption-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -476,7 +476,7 @@ dt {
   line-height: 1;
   letter-spacing: 0.04em; }
 
-.wsk-typography--menu--colorContrast {
+.wsk-typography--menu-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -492,7 +492,7 @@ dt {
   line-height: 1;
   letter-spacing: 0.04em; }
 
-.wsk-typography--button--colorContrast {
+.wsk-typography--button-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -501,35 +501,53 @@ dt {
   letter-spacing: 0.04em;
   opacity: 0.87; }
 
-.wsk-typography--textLeft {
+.wsk-typography--text-left {
   text-align: left; }
 
-.wsk-typography--textRight {
+.wsk-typography--text-right {
   text-align: right; }
 
-.wsk-typography--textCenter {
+.wsk-typography--text-center {
   text-align: center; }
 
-.wsk-typography--textJustify {
+.wsk-typography--text-justify {
   text-align: justify; }
 
-.wsk-typography--textNowrap {
+.wsk-typography--text-nowrap {
   white-space: nowrap; }
 
-.wsk-typography--textLowercase {
+.wsk-typography--text-lowercase {
   text-transform: lowercase; }
 
-.wsk-typography--textUppercase {
+.wsk-typography--text-uppercase {
   text-transform: uppercase; }
 
-.wsk-typography--textCapitalize {
+.wsk-typography--text-capitalize {
   text-transform: capitalize; }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
+
+.wsk-typography--font-thin {
+  font-weight: 200 !important; }
+
+.wsk-typography--font-light {
+  font-weight: 300 !important; }
+
+.wsk-typography--font-regular {
+  font-weight: 400 !important; }
+
+.wsk-typography--font-medium {
+  font-weight: 500 !important; }
+
+.wsk-typography--font-bold {
+  font-weight: 700 !important; }
+
+.wsk-typography--font-black {
+  font-weight: 900 !important; }
 
 /**
 *
@@ -4627,7 +4645,7 @@ dt {
   line-height: 1;
   letter-spacing: -0.04em; }
 
-.wsk-typography--display-4--colorContrast {
+.wsk-typography--display-4-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 112px;
   font-weight: 300;
@@ -4642,7 +4660,7 @@ dt {
   line-height: 1;
   letter-spacing: -0.02em; }
 
-.wsk-typography--display-3--colorContrast {
+.wsk-typography--display-3-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
   font-weight: 400;
@@ -4656,7 +4674,7 @@ dt {
   font-weight: 400;
   line-height: 48px; }
 
-.wsk-typography--display-2--colorContrast {
+.wsk-typography--display-2-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 45px;
   font-weight: 400;
@@ -4669,7 +4687,7 @@ dt {
   font-weight: 400;
   line-height: 40px; }
 
-.wsk-typography--display-1--colorContrast {
+.wsk-typography--display-1-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 34px;
   font-weight: 400;
@@ -4683,7 +4701,7 @@ dt {
   line-height: 32px;
   -moz-osx-font-smoothing: grayscale; }
 
-.wsk-typography--headline--colorContrast {
+.wsk-typography--headline-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: 400;
@@ -4698,7 +4716,7 @@ dt {
   line-height: 1;
   letter-spacing: 0.02em; }
 
-.wsk-typography--title--colorContrast {
+.wsk-typography--title-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 20px;
   font-weight: 500;
@@ -4713,7 +4731,7 @@ dt {
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--subhead--colorContrast {
+.wsk-typography--subhead-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -4727,7 +4745,7 @@ dt {
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--Body-2--colorContrast {
+.wsk-typography--body-2-color-contrast {
   font-size: 14px;
   font-weight: bold;
   line-height: 24px;
@@ -4740,21 +4758,21 @@ dt {
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--body-1--colorContrast {
+.wsk-typography--body-1-color-contrast {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em;
   opacity: 0.87; }
 
-.wsk-typography--body-2--forcePreferredFont {
+.wsk-typography--body-2-force-preferred-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--Body-2--forcePreferredFont--colorContrast {
+.wsk-typography--body-2-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -4762,14 +4780,14 @@ dt {
   letter-spacing: 0.04em;
   opacity: 0.87; }
 
-.wsk-typography--body-1--forcePreferredFont {
+.wsk-typography--body-1-force-preferred-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.04em; }
 
-.wsk-typography--body-1--forcePreferredFont--colorContrast {
+.wsk-typography--body-1-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -4783,21 +4801,21 @@ dt {
   line-height: 1;
   letter-spacing: 0.08em; }
 
-.wsk-typography--caption--forcePreferredFont {
+.wsk-typography--caption-force-preferred-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.08em; }
 
-.wsk-typography--caption--colorContrast {
+.wsk-typography--caption-color-contrast {
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.08em;
   opacity: 0.54; }
 
-.wsk-typography--caption--forcePreferredFont--colorContrast {
+.wsk-typography--caption-force-preferred-font-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -4812,7 +4830,7 @@ dt {
   line-height: 1;
   letter-spacing: 0.04em; }
 
-.wsk-typography--menu--colorContrast {
+.wsk-typography--menu-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -4828,7 +4846,7 @@ dt {
   line-height: 1;
   letter-spacing: 0.04em; }
 
-.wsk-typography--button--colorContrast {
+.wsk-typography--button-color-contrast {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -4837,35 +4855,53 @@ dt {
   letter-spacing: 0.04em;
   opacity: 0.87; }
 
-.wsk-typography--textLeft {
+.wsk-typography--text-left {
   text-align: left; }
 
-.wsk-typography--textRight {
+.wsk-typography--text-right {
   text-align: right; }
 
-.wsk-typography--textCenter {
+.wsk-typography--text-center {
   text-align: center; }
 
-.wsk-typography--textJustify {
+.wsk-typography--text-justify {
   text-align: justify; }
 
-.wsk-typography--textNowrap {
+.wsk-typography--text-nowrap {
   white-space: nowrap; }
 
-.wsk-typography--textLowercase {
+.wsk-typography--text-lowercase {
   text-transform: lowercase; }
 
-.wsk-typography--textUppercase {
+.wsk-typography--text-uppercase {
   text-transform: uppercase; }
 
-.wsk-typography--textCapitalize {
+.wsk-typography--text-capitalize {
   text-transform: capitalize; }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
 
-.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+.wsk-typography--table-striped > tbody > tr:nth-child(odd) > td, .wsk-typography--table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9; }
+
+.wsk-typography--font-thin {
+  font-weight: 200 !important; }
+
+.wsk-typography--font-light {
+  font-weight: 300 !important; }
+
+.wsk-typography--font-regular {
+  font-weight: 400 !important; }
+
+.wsk-typography--font-medium {
+  font-weight: 500 !important; }
+
+.wsk-typography--font-bold {
+  font-weight: 700 !important; }
+
+.wsk-typography--font-black {
+  font-weight: 900 !important; }
 
 /**
 *
