@@ -115,7 +115,7 @@ class MaterialTab {
 
                 final String attribHref = tab.attributes["href"];
                 final String href = attribHref.split('#')[1];
-                final html.HtmlElement panel = html.querySelector('#' + href);
+                final html.HtmlElement panel = ctx.element.querySelector('#' + href);
 
                 ctx._resetTabState();
                 ctx._resetPanelState();

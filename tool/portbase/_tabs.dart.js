@@ -114,7 +114,7 @@ class MaterialTab {
 
       final href = tab.href.split('#')[1];
 
-      final panel = html.querySelector('#' + href);
+      final panel = ctx._element.querySelector('#' + href);
       ctx._resetTabState();
       ctx._resetPanelState();
       tab.classes.add(ctx._cssClasses.ACTIVE_CLASS);
