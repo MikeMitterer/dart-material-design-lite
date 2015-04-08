@@ -43,11 +43,16 @@ class MaterialTooltip extends WskComponent {
         if (element != null) {
 
             final String forElId = element.getAttribute('for');
-            _forEl = html.querySelector("#${forElId}");
 
-            _forEl.onMouseEnter.listen( _handleMouseEnter );
+            if(forElId != null ) {
+                _forEl = html.querySelector("#${forElId}");
 
-            _forEl.onMouseLeave.listen( _handleMouseLeave);
+                if(_forEl != null) {
+                    _forEl.onMouseEnter.listen( _handleMouseEnter );
+
+                    _forEl.onMouseLeave.listen( _handleMouseLeave);
+                }
+            }
         }
     }
 

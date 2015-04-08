@@ -60,14 +60,21 @@ void init() {
 
     final forElId = element.getAttribute('for');
 
-    final forEl = html.document.getElementById(forElId);
+    final forEl = null;
+
+    if (forElId) {
+      forEl = html.document.getElementById(forElId);
+    }
+
+    if (forEl) {
 
 	// .addEventListener('mouseenter', -- .onMouseEnter.listen(<MouseEvent>);
-    forEl.onMouseEnter.listen( _handleMouseEnter,
-        false);
+      forEl.onMouseEnter.listen( _handleMouseEnter,
+          false);
 
 	// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
-    forEl.onMouseLeave.listen( _handleMouseLeave);
+      forEl.onMouseLeave.listen( _handleMouseLeave);
+    }
   }
 }
 
