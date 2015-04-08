@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 // Compile me with:
-//  sass main.scss main.css -r ../packages/material_icons/sassext/urlencode.rb
+//  sass main.scss main.css -r ../packages/material_icons/sassext/urlencode.rb && autoprefixer main.css
 //
 
 @import 'packages/wsk_material/sass/resets/h5bp';
@@ -17,8 +17,8 @@
 @import "packages/wsk_material/sass/list/list";
 
 $palette-primary: $palette-indigo;
-$icon-color: $palette-indigo-500;
-$icon-color-dark: $palette-indigo-700;
+$icon-color: lighten(rgb(63,81,181),20%);
+$icon-color-dark: darken($icon-color,10%);
 
 @import "packages/material_icons/sass/svg-utils";
 @import "material_icons";
