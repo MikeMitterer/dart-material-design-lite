@@ -174,9 +174,10 @@ textarea {
   h2, h3 {
     page-break-after: avoid; } }
 
+/* Remove the unwanted box around FAB buttons */
+/* More info: http://goo.gl/IPwKi */
 a, .wsk-accordion, .wsk-button, .wsk-card, .wsk-checkbox, .wsk-dropdown-menu, .wsk-icon-toggle, .wsk-item, .wsk-radio, .wsk-slider, .wsk-switch, .wsk-tabs__tab {
   -webkit-tap-highlight-color: transparent;
-  /* For some Androids */
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
@@ -8329,7 +8330,7 @@ dt {
           transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 .wsk-ripple {
-  background: rgb(66,66,66);
+  background: rgba(0,0,0,.87);
   border-radius: 50%;
   height: 50px;
   left: 0;
@@ -8357,7 +8358,7 @@ dt {
   background: transparent;
   border: none;
   border-radius: 2px;
-  color: #000;
+  color: rgb(0,0,0);
   display: block;
   position: relative;
   height: 36px;
@@ -8376,33 +8377,37 @@ dt {
   -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
-  cursor: pointer; }
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: middle; }
   .wsk-button::-moz-focus-inner {
     border: 0; }
   .wsk-button:hover {
-    background-color: rgba(153, 153, 153, 0.2); }
+    background-color: rgba(158,158,158, 0.20); }
   .wsk-button:focus:not(:active) {
-    background-color: rgba(0, 0, 0, 0.12); }
+    background-color: rgba(0,0,0,.12); }
   .wsk-button:active {
-    background-color: rgba(153, 153, 153, 0.4); }
+    background-color: rgba(158,158,158, 0.40); }
   .wsk-button[disabled][disabled] {
-    color: rgba(0, 0, 0, 0.26);
+    color: rgb(0,0,0,.26);
     cursor: auto;
     background-color: transparent; }
   .wsk-button.wsk-button--colored {
     color: rgb(63,81,181); }
     .wsk-button.wsk-button--colored:focus:not(:active) {
-      background-color: rgba(0, 0, 0, 0.12); }
+      background-color: rgba(0,0,0,.12); }
 
 .wsk-button--raised {
-  background: rgba(153, 153, 153, 0.2);
+  background: rgba(158,158,158, 0.20);
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
   .wsk-button--raised:active {
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
-    background-color: rgba(153, 153, 153, 0.4); }
+    background-color: rgba(158,158,158, 0.40); }
   .wsk-button--raised:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-    background-color: rgba(153, 153, 153, 0.4); }
+    background-color: rgba(158,158,158, 0.40); }
   .wsk-button--raised.wsk-button--colored {
     background: rgb(63,81,181);
     color: rgb(255,255,255); }
@@ -8415,8 +8420,8 @@ dt {
     .wsk-button--raised.wsk-button--colored .wsk-ripple {
       background: rgb(255,255,255); }
   .wsk-button--raised[disabled][disabled] {
-    background-color: rgba(0, 0, 0, 0.12);
-    color: rgba(0, 0, 0, 0.26);
+    background-color: rgba(0,0,0,.12);
+    color: rgb(0,0,0,.26);
     box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
 .wsk-button--fab {
@@ -8428,9 +8433,10 @@ dt {
   width: 56px;
   padding: 0;
   overflow: hidden;
-  background: rgba(153, 153, 153, 0.2);
+  background: rgba(158,158,158, 0.20);
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
-  position: relative; }
+  position: relative;
+  line-height: normal; }
   .wsk-button--fab .wsk-icon {
     position: absolute;
     top: 16px;
@@ -8447,10 +8453,10 @@ dt {
     -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
   .wsk-button--fab:active {
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
-    background-color: rgba(153, 153, 153, 0.4); }
+    background-color: rgba(158,158,158, 0.40); }
   .wsk-button--fab:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-    background-color: rgba(153, 153, 153, 0.4); }
+    background-color: rgba(158,158,158, 0.40); }
   .wsk-button--fab.wsk-button--colored {
     background: rgb(255,64,129);
     color: rgb(255,255,255); }
@@ -8463,8 +8469,8 @@ dt {
     .wsk-button--fab.wsk-button--colored .wsk-ripple {
       background: rgb(255,255,255); }
   .wsk-button--fab[disabled][disabled] {
-    background-color: rgba(0, 0, 0, 0.12);
-    color: rgba(0, 0, 0, 0.26);
+    background-color: rgba(0,0,0,.12);
+    color: rgb(0,0,0,.26);
     box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
 .wsk-button--icon {
@@ -8477,7 +8483,8 @@ dt {
   width: 32px;
   padding: 0;
   overflow: hidden;
-  color: inherit; }
+  color: inherit;
+  line-height: normal; }
   .wsk-button--icon .wsk-icon {
     position: absolute;
     top: 4px;
@@ -8504,13 +8511,6 @@ dt {
   overflow: hidden; }
   .wsk-button[disabled] .wsk-button__ripple-container .wsk-ripple {
     background-color: transparent; }
-
-@font-face {
-  font-family: 'Material-Design-Iconic-Font';
-  src: url('packages/wsk_material/sass/fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
-  src: url('packages/wsk_material/sass/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('packages/wsk_material/sass/fonts/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('packages/wsk_material/sass/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
-  font-weight: normal;
-  font-style: normal; }
 
 .demo-button {
   display: inline-block;

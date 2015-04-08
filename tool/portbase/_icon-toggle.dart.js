@@ -42,7 +42,7 @@ class _MaterialIconToggleCssClasses {
 /// MaterialIconToggle.prototype.onChange_ = function(event) {
 void _onChange(final html.Event event) {
 
-  _updateClasses(_btnElement, element);
+  _updateClasses();
 }
 
 /// Handle focus of element.
@@ -72,21 +72,21 @@ void _onMouseUp(final html.Event event) {
 /// Handle class updates.
 /// @param {HTMLElement} button The button whose classes we should update.
 /// @param {HTMLElement} label The label whose classes we should update.
-/// MaterialIconToggle.prototype.updateClasses_ = function(button, label) {
-void _updateClasses(final button, label) {
+/// MaterialIconToggle.prototype.updateClasses_ = /*function*/ () {
+void _updateClasses() {
 
-  if (button.disabled) {
-    label.classes.add(_cssClasses.IS_DISABLED);
+  if (_inputElement.disabled) {
+    element.classes.add(_cssClasses.IS_DISABLED);
 
   } else {
-    label.classes.remove(_cssClasses.IS_DISABLED);
+    element.classes.remove(_cssClasses.IS_DISABLED);
   }
 
-  if (button.checked) {
-    label.classes.add(_cssClasses.IS_CHECKED);
+  if (_inputElement.checked) {
+    element.classes.add(_cssClasses.IS_CHECKED);
 
   } else {
-    label.classes.remove(_cssClasses.IS_CHECKED);
+    element.classes.remove(_cssClasses.IS_CHECKED);
   }
 }
 
@@ -97,7 +97,7 @@ void _blur(final html.Event event) {
   // TODO: figure out why there's a focus event being fired after our blur,
   // so that we can avoid this hack.
   window.setTimeout( /*function*/ () {
-    _btnElement.blur();
+    _inputElement.blur();
   }, _constant.TINY_TIMEOUT);
 }
 
@@ -108,7 +108,7 @@ void _blur(final html.Event event) {
 /// MaterialIconToggle.prototype.disable = /*function*/ () {
 void disable() {
 
-  _btnElement.disabled = true;
+  _inputElement.disabled = true;
   _updateClasses();
 }
 
@@ -117,7 +117,7 @@ void disable() {
 /// MaterialIconToggle.prototype.enable = /*function*/ () {
 void enable() {
 
-  _btnElement.disabled = false;
+  _inputElement.disabled = false;
   _updateClasses();
 }
 
@@ -126,7 +126,7 @@ void enable() {
 /// MaterialIconToggle.prototype.check = /*function*/ () {
 void check() {
 
-  _btnElement.checked = true;
+  _inputElement.checked = true;
   _updateClasses();
 }
 
@@ -135,7 +135,7 @@ void check() {
 /// MaterialIconToggle.prototype.uncheck = /*function*/ () {
 void uncheck() {
 
-  _btnElement.checked = false;
+  _inputElement.checked = false;
   _updateClasses();
 }
 
@@ -144,7 +144,7 @@ void uncheck() {
 void init() {
 
   if (element != null) {
-    _btnElement =
+    _inputElement =
         element.querySelector('.' + _cssClasses.INPUT);
 
     final rippleContainer;
@@ -167,18 +167,18 @@ void init() {
     }
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
-    _btnElement.onChange.listen( _onChange);
+    _inputElement.onChange.listen( _onChange);
 
 	// .addEventListener('focus', -- .onFocus.listen(<Event>);
-    _btnElement.onFocus.listen( _onFocus);
+    _inputElement.onFocus.listen( _onFocus);
 
 	// .addEventListener('blur', -- .onBlur.listen(<Event>);
-    _btnElement.onBlur.listen( _onBlur);
+    _inputElement.onBlur.listen( _onBlur);
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
     element.onMouseUp.listen( _onMouseUp);
 
-    _updateClasses(_btnElement, element);
+    _updateClasses();
     element.classes.add('is-upgraded');
   }
 }

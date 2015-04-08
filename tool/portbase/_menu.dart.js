@@ -397,8 +397,8 @@ void show(final evt) {
 
 /// Hides the menu.
 /// @public
-/// MaterialMenu.prototype.hide = function(evt) {
-void hide(final evt) {
+/// MaterialMenu.prototype.hide = /*function*/ () {
+void hide() {
 
   if (element && _container && _outline) {
 
@@ -433,7 +433,7 @@ void hide(final evt) {
 void toggle(final evt) {
 
   if (_container.classes.contains(_cssClasses.IS_VISIBLE)) {
-    hide(evt);
+    hide();
 
   } else {
     show(evt);

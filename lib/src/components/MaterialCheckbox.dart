@@ -48,14 +48,20 @@ WskConfig materialCheckboxConfig() => new WskWidgetConfig<MaterialCheckbox>(
 /// registration-Helper
 void registerMaterialCheckbox() => componenthandler.register(materialCheckboxConfig());
 
-// ToDo: OrigJS-Version defines public functions like disable, enable, check, uncheck
+/**
+ * Sample:
+ *     <label class="wsk-checkbox wsk-js-checkbox wsk-js-ripple-effect" for="checkbox-1">
+ *          <input type="checkbox" id="checkbox-1" class="wsk-checkbox__input" />
+ *          <span class="wsk-checkbox__label">Check me out</span>
+ *    </label>
+ */
 class MaterialCheckbox extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialCheckbox');
 
     static const _MaterialCheckboxConstant _constant = const _MaterialCheckboxConstant();
     static const _MaterialCheckboxCssClasses _cssClasses = const _MaterialCheckboxCssClasses();
 
-    html.CheckboxInputElement _btnElement = null;
+    html.CheckboxInputElement _inputElement = null;
 
     MaterialCheckbox.fromElement(final html.HtmlElement element) : super(element) {
         _init();
@@ -63,13 +69,49 @@ class MaterialCheckbox extends WskComponent {
 
     static MaterialCheckbox widget(final html.HtmlElement element) => wskComponent(element) as MaterialCheckbox;
 
-    html.CheckboxInputElement get btnElement {
-        if(_btnElement == null) {
-            _btnElement = element.querySelector(".${_cssClasses.INPUT}");
+    html.Element get hub => inputElement;
+
+    html.CheckboxInputElement get inputElement {
+        if(_inputElement == null) {
+            _inputElement = element.querySelector(".${_cssClasses.INPUT}");
         }
-        return _btnElement;
+        return _inputElement;
     }
-    
+
+    /// Disable checkbox.
+    void disable() {
+
+        inputElement.disabled = true;
+        _updateClasses();
+    }
+
+    /// Enable checkbox.
+    void enable() {
+
+        inputElement.disabled = false;
+        _updateClasses();
+    }
+
+    /// Check checkbox.
+    void check() {
+
+        inputElement.checked = true;
+        _updateClasses();
+    }
+
+    /// Uncheck checkbox.
+    void uncheck() {
+
+        inputElement.checked = false;
+        _updateClasses();
+    }
+
+    void set checked(final bool _checked) => _checked ? check() : uncheck();
+    bool get checked => inputElement.checked;
+
+    void set disabled(final bool _disabled) => _disabled ? disable() : enable();
+    bool get disabled => inputElement.disabled;
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
@@ -107,21 +149,21 @@ class MaterialCheckbox extends WskComponent {
             element.append(rippleContainer);
         }
 
-        btnElement.onChange.listen(_onChange);
+        inputElement.onChange.listen(_onChange);
 
-        btnElement.onFocus.listen(_onFocus);
+        inputElement.onFocus.listen(_onFocus);
 
-        btnElement.onBlur.listen(_onBlur);
+        inputElement.onBlur.listen(_onBlur);
 
         element.onMouseUp.listen(_onMouseUp);
 
-        _updateClasses(btnElement, element);
+        _updateClasses();
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
     /// Handle change of state.
     void _onChange(final html.Event event) {
-        _updateClasses(btnElement, element);
+        _updateClasses();
     }
 
     /// Handle focus of element.
@@ -144,19 +186,19 @@ class MaterialCheckbox extends WskComponent {
      * The [button] whose classes we should update.
      * The [label] whose classes we should update.
      */
-    void _updateClasses(final html.CheckboxInputElement button, final html.HtmlElement label) {
-        if (button.disabled) {
-            label.classes.add(_cssClasses.IS_DISABLED);
+    void _updateClasses() {
+        if (inputElement.disabled) {
+            element.classes.add(_cssClasses.IS_DISABLED);
         }
         else {
-            label.classes.remove(_cssClasses.IS_DISABLED);
+            element.classes.remove(_cssClasses.IS_DISABLED);
         }
 
-        if (button.checked) {
-            label.classes.add(_cssClasses.IS_CHECKED);
+        if (inputElement.checked) {
+            element.classes.add(_cssClasses.IS_CHECKED);
         }
         else {
-            label.classes.remove(_cssClasses.IS_CHECKED);
+            element.classes.remove(_cssClasses.IS_CHECKED);
         }
     }
 
@@ -164,7 +206,7 @@ class MaterialCheckbox extends WskComponent {
         // TODO: figure out why there's a focus event being fired after our blur,
         // so that we can avoid this hack.
         new Timer(new Duration(milliseconds : _constant.TINY_TIMEOUT_IN_MS ), () {
-            btnElement.blur();
+            inputElement.blur();
         });
     }
 }

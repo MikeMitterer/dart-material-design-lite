@@ -102,7 +102,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/tooltip/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/tooltip/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/typography/packages/wsk_material" />
-      <excludeFolder url="file://$MODULE_DIR$/example/typography/web/images/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/typography/web/demo-images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/typography/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />

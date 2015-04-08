@@ -35,14 +35,20 @@ WskConfig materialIconToggleConfig() => new WskWidgetConfig<MaterialIconToggle>(
 /// registration-Helper
 void registerMaterialIconToggle() => componenthandler.register(materialIconToggleConfig());
 
-// ToDo: JS-Version defines public functions like disable, enable, check, uncheck
+/**
+ * Sample:
+ *       <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="checkbox-1">
+ *           <input type="checkbox" id="checkbox-1" class="wsk-icon-toggle__input" />
+ *           <span class="wsk-icon-toggle__label wsk-icon wsk-icon--format-bold"></span>
+ *       </label>
+ */
 class MaterialIconToggle extends WskComponent {
     final Logger _logger = new Logger('wskcomponents.MaterialIconToggle');
 
     static const _MaterialIconToggleConstant _constant = const _MaterialIconToggleConstant();
     static const _MaterialIconToggleCssClasses _cssClasses = const _MaterialIconToggleCssClasses();
 
-    html.InputElement _btnElement = null;
+    html.InputElement _inputElement = null;
 
     MaterialIconToggle.fromElement(final html.HtmlElement element) : super(element) {
         _init();
@@ -50,12 +56,47 @@ class MaterialIconToggle extends WskComponent {
 
     static MaterialIconToggle widget(final html.HtmlElement element) => wskComponent(element) as MaterialIconToggle;
 
-    html.InputElement get buttonElement {
-        if(_btnElement == null) {
-            _btnElement = element.querySelector('.${_cssClasses.INPUT}');
+    html.InputElement get inputElement {
+        if(_inputElement == null) {
+            _inputElement = element.querySelector('.${_cssClasses.INPUT}');
         }
-        return _btnElement;
+        return _inputElement;
     }
+
+
+    /// Disable icon toggle
+    void disable() {
+
+        inputElement.disabled = true;
+        _updateClasses();
+    }
+
+    /// Enable icon toggle.
+    void enable() {
+
+        inputElement.disabled = false;
+        _updateClasses();
+    }
+
+    /// Check icon toggle.
+    void check() {
+
+        inputElement.checked = true;
+        _updateClasses();
+    }
+
+    /// Uncheck icon toggle.
+    void uncheck() {
+
+        inputElement.checked = false;
+        _updateClasses();
+    }
+
+    void set checked(final bool _checked) => _checked ? check() : uncheck();
+    bool get checked => inputElement.checked;
+
+    void set disabled(final bool _disabled) => _disabled ? disable() : enable();
+    bool get disabled => inputElement.disabled;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -81,22 +122,22 @@ class MaterialIconToggle extends WskComponent {
                 element.append(rippleContainer);
             }
 
-            buttonElement.onChange.listen(_onChange);
+            inputElement.onChange.listen(_onChange);
 
-            buttonElement.onFocus.listen( _onFocus);
+            inputElement.onFocus.listen( _onFocus);
 
-            buttonElement.onBlur.listen( _onBlur);
+            inputElement.onBlur.listen( _onBlur);
 
             element.onMouseUp.listen(_onMouseUp);
 
-            _updateClasses(_btnElement, element);
+            _updateClasses();
             element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
 
     /// Handle change of state.
-    void _onChange(final html.Event event) {
-        _updateClasses(buttonElement, element);
+    void _onChange(_) {
+        _updateClasses();
     }
 
     /// Handle focus of element.
@@ -119,20 +160,20 @@ class MaterialIconToggle extends WskComponent {
     /// Handle class updates.
     /// The [button] whose classes we should update.
     /// The [label] whose classes we should update.
-    void _updateClasses(final button, label) {
+    void _updateClasses() {
 
-        if (button.disabled) {
-            label.classes.add(_cssClasses.IS_DISABLED);
+        if (inputElement.disabled) {
+            element.classes.add(_cssClasses.IS_DISABLED);
 
         } else {
-            label.classes.remove(_cssClasses.IS_DISABLED);
+            element.classes.remove(_cssClasses.IS_DISABLED);
         }
 
-        if (button.checked) {
-            label.classes.add(_cssClasses.IS_CHECKED);
+        if (inputElement.checked) {
+            element.classes.add(_cssClasses.IS_CHECKED);
 
         } else {
-            label.classes.remove(_cssClasses.IS_CHECKED);
+            element.classes.remove(_cssClasses.IS_CHECKED);
         }
     }
 
@@ -142,7 +183,7 @@ class MaterialIconToggle extends WskComponent {
         // TODO: figure out why there's a focus event being fired after our blur,
         // so that we can avoid this hack.
         new Timer(new Duration(milliseconds : _constant.TINY_TIMEOUT_IN_MS ), () {
-            buttonElement.blur();
+            inputElement.blur();
         });
     }
 }
