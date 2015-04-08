@@ -11,20 +11,21 @@
 
   <link rel="stylesheet" href="demo.css">
 </head>
-<body>
+<body class="demo-page demo-page--spinner">
 
-  <div class="PreviewBlock">
+<div class="demo-preview-block">
 
     <p>
-      Default:
-      <div class="wsk-spinner wsk-js-spinner is-active"></div>
+        Default:
+    <div class="wsk-spinner wsk-js-spinner is-active" id="first"></div>
     </p>
     <p>
-      Single color (uses primary palette):
-      <div class="wsk-spinner wsk-spinner--single-color wsk-js-spinner is-active"></div>
+        Single color (uses primary palette):
+    <div class="wsk-spinner wsk-spinner--single-color wsk-js-spinner is-active"></div>
     </p>
 
-  </div>
+    <button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect" id="button">On/Off</button>
+</div>
   <!-- build:js(app/styleguide/spinner/) ../../scripts/main.min.js -->
   <script src="../wskComponentHandler.js"></script>
   <script src="spinner.js"></script>

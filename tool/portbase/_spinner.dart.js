@@ -71,19 +71,24 @@ void createLayer(final index) {
 }
 
 * Stops the spinner animation.
+* Public method for users who need to stop the spinner for any reason.
+* @public
 */
 /// MaterialSpinner.prototype.stop = /*function*/ () {
 void stop() {
 
-  element.classlist.remove('is-active');
+  element.classes.remove('is-active');
 }
 
 * Starts the spinner animation.
+* Public method for users who need to manually start the spinner for any reason
+* (instead of just adding the 'is-active' class to their markup).
+* @public
 */
-/// MaterialSpinner.prototype.stop = /*function*/ () {
-void stop() {
+/// MaterialSpinner.prototype.start = /*function*/ () {
+void start() {
 
-  element.classlist.add('is-active');
+  element.classes.add('is-active');
 }
 
 /// Initialize element.
