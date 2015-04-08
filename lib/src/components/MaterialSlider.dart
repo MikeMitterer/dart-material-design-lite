@@ -41,7 +41,7 @@ class MaterialSlider extends WskComponent {
     static const _MaterialSliderCssClasses _cssClasses = const _MaterialSliderCssClasses();
 
     // Browser feature detection.
-    final bool _isIE = false; // browser.isIe;
+    final bool _isIE = browser.isIe;
 
     html.DivElement _backgroundLower = null;
     html.DivElement _backgroundUpper = null;
