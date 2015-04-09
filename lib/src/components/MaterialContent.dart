@@ -31,6 +31,15 @@ class MaterialContent extends WskComponent {
     static const _MaterialContentConstant _constant = const _MaterialContentConstant();
     static const _MaterialContentCssClasses _cssClasses = const _MaterialContentCssClasses();
 
+    MaterialContent.fromElement(final html.HtmlElement element) : super(element) {
+        _init();
+    }
+
+    static MaterialContent widget(final html.HtmlElement element) => wskComponent(element) as MaterialContent;
+
+    // Central Element - by default this is where wsk-js-content was found (element)
+    // html.Element get hub => inputElement;
+
     Future setContent(final String content) {
         _logger.info("Content: $content");
 
@@ -66,15 +75,6 @@ class MaterialContent extends WskComponent {
 
         return completer.future;
     }
-
-    MaterialContent.fromElement(final html.HtmlElement element) : super(element) {
-        _init();
-    }
-
-    static MaterialContent widget(final html.HtmlElement element) => wskComponent(element) as MaterialContent;
-
-    // Central Element - by default this is where wsk-js-content was found (element)
-    // html.Element get hub => inputElement;
 
     //- private -----------------------------------------------------------------------------------
 
