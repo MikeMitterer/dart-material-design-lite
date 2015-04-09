@@ -35,6 +35,19 @@ class MaterialButton extends WskComponent {
 
     static MaterialButton widget(final html.HtmlElement element) => wskComponent(element) as MaterialButton;
 
+    /// Disable button.
+    void disable() {
+        element.disabled = true;
+    }
+
+    /// Enable button.
+    void enable() {
+        element.disabled = false;
+    }
+
+    void set disabled(final bool _disabled) => _disabled ? disable() : enable();
+    bool get disabled => element.disabled;
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
