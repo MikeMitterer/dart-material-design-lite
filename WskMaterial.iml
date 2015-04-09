@@ -49,6 +49,8 @@
       <excludeFolder url="file://$MODULE_DIR$/example/column-layout/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/column-layout/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/column-layout/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/content/packages/wsk_material" />
+      <excludeFolder url="file://$MODULE_DIR$/example/content/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/dropdown-menu/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/example/footer/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/footer/packages/wsk_material" />

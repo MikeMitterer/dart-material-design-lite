@@ -10,6 +10,7 @@ import "package:wsk_material/wskcore.dart";
 
 part "src/components/MaterialAccordion.dart";
 part "src/components/MaterialBadge.dart";
+part "src/components/MaterialContent.dart";
 part "src/components/MaterialButton.dart";
 part "src/components/MaterialRipple.dart";
 part "src/components/MaterialCheckbox.dart";
@@ -33,6 +34,7 @@ void registerAllWskComponents() {
 
     registerMaterialAccordion();
     registerMaterialBadge();
+    registerMaterialContent();
     registerMaterialButton();
     registerMaterialCheckbox();
     registerMaterialColumnLayout();
