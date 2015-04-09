@@ -83,7 +83,7 @@ class MaterialMenu extends WskComponent {
     /// Displays the menu.
     /// @public
     /// MaterialMenu.prototype.show = function(evt) {
-    void show(final html.MouseEvent event) {
+    void show() {
 
         if (element != null && _container != null && _outline != null ) {
             // Measure the inner element.
@@ -130,17 +130,17 @@ class MaterialMenu extends WskComponent {
             _addAnimationEndListener();
 
             // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-            StreamSubscription subscription;
-            subscription = html.document.onClick.listen( (final html.MouseEvent e) {
-                // Check to see if the document is processing the same event that
-                // displayed the menu in the first place. If so, do nothing.
-                // Also check to see if the menu is in the process of closing itself, and
-                // do nothing in that case.
-                if (e != event && !_closing) {
-                    subscription.cancel();
-                    hide();
-                }
-            });
+//            StreamSubscription subscription;
+//            subscription = html.document.onClick.listen( (final html.MouseEvent e) {
+//                // Check to see if the document is processing the same event that
+//                // displayed the menu in the first place. If so, do nothing.
+//                // Also check to see if the menu is in the process of closing itself, and
+//                // do nothing in that case.
+//                if (e != event && !_closing) {
+//                    subscription.cancel();
+//                    hide();
+//                }
+//            });
         }
     }
 
@@ -178,13 +178,13 @@ class MaterialMenu extends WskComponent {
     /// Displays or hides the menu, depending on current state.
     /// @public
     /// MaterialMenu.prototype.toggle = function(evt) {
-    void toggle(final html.MouseEvent event) {
+    void toggle() {
 
         if (_container.classes.contains(_cssClasses.IS_VISIBLE)) {
             hide();
 
         } else {
-            show(event);
+            show();
         }
     }
 
@@ -274,6 +274,20 @@ class MaterialMenu extends WskComponent {
                 _outline.classes.add(_cssClasses.UNALIGNED);
             }
 
+            void _closeMenu(final html.Event event) {
+                event.preventDefault();
+                if(!_closing) {
+                    hide();
+                }
+            }
+
+            html.document.onClick.listen( (final html.Event event) => _closeMenu(event));
+            html.document.onKeyDown.listen((final html.KeyboardEvent event) {
+                if(event.keyCode == _KeyCode.ESCAPE.value ) {
+                    _closeMenu(event);
+                }
+            });
+
             container.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
@@ -317,7 +331,7 @@ class MaterialMenu extends WskComponent {
             }
         }
 
-        toggle(evt);
+        toggle();
     }
 
     /// Handles a keyboard event on the "for" element.
@@ -395,8 +409,9 @@ class MaterialMenu extends WskComponent {
     /// Handles a click event on an item.
     /// MaterialMenu.prototype.handleItemClick_ = function(evt) {
     void _handleItemClick(final html.MouseEvent event) {
+        event.stopPropagation();
 
-        if ((event.target as html.Element).attributes.containsKey('disabled')) {
+        if ((event.target as html.Element).attributes.containsKey('disabled') ) {
             event.stopPropagation();
 
         } else {
