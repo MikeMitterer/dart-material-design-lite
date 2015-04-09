@@ -8,6 +8,8 @@ import 'package:browser_detect/browser_detect.dart';
 
 import "package:wsk_material/wskcore.dart";
 
+part "src/components/MaterialAccordion.dart";
+part "src/components/MaterialBadge.dart";
 part "src/components/MaterialButton.dart";
 part "src/components/MaterialRipple.dart";
 part "src/components/MaterialCheckbox.dart";
@@ -24,12 +26,13 @@ part "src/components/MaterialSwitch.dart";
 part "src/components/MaterialTabs.dart";
 part "src/components/MaterialTextfield.dart";
 part "src/components/MaterialTooltip.dart";
-part "src/components/MaterialAccordion.dart";
 
 final WskComponentHandler componenthandler = new WskComponentHandler();
 
 void registerAllWskComponents() {
 
+    registerMaterialAccordion();
+    registerMaterialBadge();
     registerMaterialButton();
     registerMaterialCheckbox();
     registerMaterialColumnLayout();
@@ -45,7 +48,6 @@ void registerAllWskComponents() {
     registerMaterialTabs();
     registerMaterialTextfield();
     registerMaterialTooltip();
-    registerMaterialAccordion();
 
     // should be the last registration
     registerMaterialRipple();

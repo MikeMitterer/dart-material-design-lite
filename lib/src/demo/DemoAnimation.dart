@@ -19,12 +19,22 @@ class _DemoAnimationConstant {
     const _DemoAnimationConstant(); }
 
 /// creates WskConfig for DemoAnimation
-WskConfig demoAnimationConfig() => new WskConfig<DemoAnimation>(
+WskConfig demoAnimationConfig() => new WskWidgetConfig<DemoAnimation>(
     "demo-js-animation", (final html.HtmlElement element) => new DemoAnimation.fromElement(element));
 
 /// registration-Helper
 void registerDemoAnimation() => componenthandler.register(demoAnimationConfig());
 
+/**
+ * Sample:
+ *   <div class="demo-preview-block demo-animation demo-js-animation">
+ *       <div class="demo-animation__container">
+ *           <div class="demo-animation__container-background">Click me to animate</div>
+ *           <div class="demo-animation__container-foreground"></div>
+ *           <div class="demo-animation__movable demo-animation--position-1 wsk-shadow--z1"></div>
+ *       </div>
+ *   </div>
+*/
 class DemoAnimation extends WskComponent {
     final Logger _logger = new Logger('wskdemo.DemoAnimation');
 

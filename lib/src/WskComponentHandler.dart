@@ -71,7 +71,7 @@ class WskComponentHandler {
 
             configs.forEach((final WskConfig config) {
                 _upgradeDom(config);
-                _logger.info("${config.cssClass} upgraded with ${config.classAsString}...");
+                _logger.fine("${config.cssClass} upgraded with ${config.classAsString}...");
             });
 
             html.querySelector("body").classes.remove("wsk-upgrading");
