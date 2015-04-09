@@ -56,6 +56,9 @@ class MaterialIconToggle extends WskComponent {
 
     static MaterialIconToggle widget(final html.HtmlElement element) => wskComponent(element) as MaterialIconToggle;
 
+    // Central Element - by default this is where wsk-icon-toggle was found (element)
+    html.Element get hub => inputElement;
+
     html.InputElement get inputElement {
         if(_inputElement == null) {
             _inputElement = element.querySelector('.${_cssClasses.INPUT}');
