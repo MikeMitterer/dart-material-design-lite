@@ -11,7 +11,7 @@ $bottom-bar-btn-size : 36px !default;
 $bottom-bar-btn-color: $layout-header-bg-color !default;
 $bottom-bar-height: 56px;
 
-.wsk-bottom-bar {
+.mdl-bottom-bar {
     box-sizing       : border-box;
 
     display          : flex;
@@ -28,7 +28,7 @@ $bottom-bar-height: 56px;
 
     width: 100%;
 
-    .wsk-bottom-bar--left-section {
+    .mdl-bottom-bar--left-section {
         display       : flex;
         align-content : flex-start;
         align-items   : center;
@@ -36,14 +36,14 @@ $bottom-bar-height: 56px;
 
     }
 
-    .wsk-bottom-bar--right-section {
+    .mdl-bottom-bar--right-section {
         float         : none;
         display       : flex;
         align-content : flex-start;
         align-items   : center;
     }
 
-    .wsk-bottom-bar--link-list {
+    .mdl-bottom-bar--link-list {
         list-style : none;
         margin     : 0;
         padding    : 0;
@@ -60,7 +60,7 @@ $bottom-bar-height: 56px;
         }
     }
 
-    .wsk-bottom-bar--btn {
+    .mdl-bottom-bar--btn {
         display          : flex;
         justify-content  : center;
         align-items      : center;
@@ -81,7 +81,7 @@ $bottom-bar-height: 56px;
 }
 
 @media screen and (min-width : 760px) {
-    .wsk-bottom-bar--link-list {
+    .mdl-bottom-bar--link-list {
         clear : none;
     }
 }

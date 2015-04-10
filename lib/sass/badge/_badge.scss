@@ -7,7 +7,7 @@ $badge-background-inverse: #fff !default;
 $badge-size : 20px;
 $badge-padding: 2px;
 
-.wsk-badge {
+.mdl-badge {
     position : relative;
     white-space: nowrap;
     margin-right: ($badge-size + $badge-padding);
@@ -30,7 +30,7 @@ $badge-padding: 2px;
         top         : -($badge-size / 2);
         right       : -($badge-size + $badge-padding);
 
-        .wsk-button & {
+        .mdl-button & {
             top           : -10px;
             right         : -5px;
         }
@@ -44,7 +44,7 @@ $badge-padding: 2px;
         color         : $badge-color;
     }
 
-    &.wsk-badge--no-background {
+    &.mdl-badge--no-background {
         &[data-badge]:after {
             color         : $badge-color-inverse;
             background    : rgba($badge-background-inverse,0.2);
