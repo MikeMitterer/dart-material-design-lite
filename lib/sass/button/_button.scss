@@ -1,36 +1,7 @@
-@import "../typography/typography";
-@import "../colors";
-@import "../shadow/shadow";
-@import "../animation/animation";
-@import "../ripple/ripple";
-
-
-/**
- *
- * Dimensions
- *
- */
-$button-min-width: 64px !default;
-$button-height: 36px !default;
-$button-padding: 8px !default;
-$button-margin: 4px !default;
-$button-border-radius: 2px !default;
-
-$button-fab-size: 56px !default;
-$button-fab-size-mini: 40px !default;
-$button-fab-font-size: 24px !default;
-
-$button-icon-size: 32px !default;
-$button-icon-size-mini: 24px !default;
-
-// Focus shadow mixin.
-@mixin focus-shadow() {
-  box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
-}
-
+@import "../variables";
 
 // The button component. Defaults to a flat button.
-.wsk-button {
+.mdl-button {
   background: transparent;
   border: none;
   border-radius: $button-border-radius;
@@ -78,7 +49,7 @@ $button-icon-size-mini: 24px !default;
     background-color: transparent;
   }
 
-  &.wsk-button--colored {
+  &.mdl-button--colored {
     color: $button-primary-color-alt;
 
     &:focus:not(:active) {
@@ -89,7 +60,7 @@ $button-icon-size-mini: 24px !default;
 
 
   // Raised buttons
-  .wsk-button--raised {
+  .mdl-button--raised {
     background: $button-primary-color;
     @include shadow-z1();
 
@@ -103,7 +74,7 @@ $button-icon-size-mini: 24px !default;
       background-color: $button-active-color;
     }
 
-    &.wsk-button--colored {
+    &.mdl-button--colored {
       background: $button-primary-color-alt;
       color: $button-secondary-color-alt;
 
@@ -119,7 +90,7 @@ $button-icon-size-mini: 24px !default;
         background-color: $button-active-color-alt;
       }
 
-      & .wsk-ripple {
+      & .mdl-ripple {
         background: $button-ripple-color-alt;
       }
     }
@@ -134,7 +105,7 @@ $button-icon-size-mini: 24px !default;
 
 
   // FABs
-  .wsk-button--fab {
+  .mdl-button--fab {
     border-radius: 50%;
     font-size: $button-fab-font-size;
     height: $button-fab-size;
@@ -144,28 +115,28 @@ $button-icon-size-mini: 24px !default;
     padding: 0;
     overflow: hidden;
     background: $button-primary-color;
-    @include shadow-z1();
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
     position: relative;
     line-height: normal;
 
-    & .wsk-icon {
+    & .mdl-icon {
       position: absolute;
-      top: ($button-fab-size - $button-fab-font-size) / 2;
-      left: ($button-fab-size - $button-fab-font-size) / 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(- $button-fab-font-size / 2, - $button-fab-font-size / 2);
+      /*top: ($button-fab-size - $button-fab-font-size) / 2;
+      left: ($button-fab-size - $button-fab-font-size) / 2;*/
+      line-height: $button-fab-font-size;
+      width: $button-fab-font-size;
     }
 
-    &.wsk-button--mini-fab {
+    &.mdl-button--mini-fab {
       height: $button-fab-size-mini;
       min-width: $button-fab-size-mini;
       width: $button-fab-size-mini;
-
-      & .wsk-icon {
-        top: ($button-fab-size-mini - $button-fab-font-size) / 2;
-        left: ($button-fab-size-mini - $button-fab-font-size) / 2;
-      }
     }
 
-    & .wsk-button__ripple-container {
+    & .mdl-button__ripple-container {
       border-radius: 50%;
       // Fixes clipping bug in Safari.
       -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
@@ -181,7 +152,7 @@ $button-icon-size-mini: 24px !default;
       background-color: $button-active-color;
     }
 
-    &.wsk-button--colored {
+    &.mdl-button--colored {
       background: $button-fab-color-alt;
       color: $button-fab-text-color-alt;
 
@@ -197,7 +168,7 @@ $button-icon-size-mini: 24px !default;
         background-color: $button-fab-active-color-alt;
       }
 
-      & .wsk-ripple {
+      & .mdl-ripple {
         background: $button-fab-ripple-color-alt;
       }
     }
@@ -212,7 +183,7 @@ $button-icon-size-mini: 24px !default;
 
 
   // Icon buttons
-  .wsk-button--icon {
+  .mdl-button--icon {
     border-radius: 50%;
     font-size: $button-fab-font-size;
     height: $button-icon-size;
@@ -225,24 +196,24 @@ $button-icon-size-mini: 24px !default;
     color: inherit;
     line-height: normal;
 
-    & .wsk-icon {
+    & .mdl-icon {
       position: absolute;
       top: ($button-icon-size - $button-fab-font-size) / 2;
       left: ($button-icon-size - $button-fab-font-size) / 2;
     }
 
-    &.wsk-button--mini-icon {
+    &.mdl-button--mini-icon {
       height: $button-icon-size-mini;
       min-width: $button-icon-size-mini;
       width: $button-icon-size-mini;
 
-      & .wsk-icon {
+      & .mdl-icon {
         top: ($button-icon-size-mini - $button-fab-font-size) / 2;
         left: ($button-icon-size-mini - $button-fab-font-size) / 2;
       }
     }
 
-    & .wsk-button__ripple-container {
+    & .mdl-button__ripple-container {
       border-radius: 50%;
       // Fixes clipping bug in Safari.
       -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
@@ -251,7 +222,7 @@ $button-icon-size-mini: 24px !default;
 
 
   // Ripples
-  .wsk-button__ripple-container {
+  .mdl-button__ripple-container {
     display: block;
     height: 100%;
     left: 0px;
@@ -261,7 +232,7 @@ $button-icon-size-mini: 24px !default;
     z-index: 0;
     overflow: hidden;
 
-    .wsk-button[disabled] & .wsk-ripple {
+    .mdl-button[disabled] & .mdl-ripple {
       background-color: transparent;
     }
   }

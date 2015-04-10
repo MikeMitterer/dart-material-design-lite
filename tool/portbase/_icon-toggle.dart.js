@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for icon toggle WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialIconToggle {
 
@@ -26,12 +26,12 @@ class _MaterialIconToggleConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialIconToggleCssClasses {
-    final String INPUT = 'wsk-icon-toggle__input';
-    final String JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String RIPPLE_CONTAINER = 'wsk-icon-toggle__ripple-container';
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
-    final String RIPPLE = 'wsk-ripple';
+    final String INPUT = 'mdl-icon-toggle__input';
+    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_CONTAINER = 'mdl-icon-toggle__ripple-container';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+    final String RIPPLE = 'mdl-ripple';
     final String IS_FOCUSED = 'is-focused';
     final String IS_DISABLED = 'is-disabled';
     final String IS_CHECKED = 'is-checked';
@@ -189,5 +189,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialIconToggle,
 //   classAsString: 'MaterialIconToggle',
-//   cssClass: 'wsk-js-icon-toggle'
+//   cssClass: 'mdl-js-icon-toggle'
 // });

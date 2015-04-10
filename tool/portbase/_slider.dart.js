@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Slider WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialSlider {
 
@@ -28,11 +28,11 @@ class _MaterialSliderConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialSliderCssClasses {
-    final String IE_CONTAINER = 'wsk-slider__ie-container';
-    final String SLIDER_CONTAINER = 'wsk-slider__container';
-    final String BACKGROUND_FLEX = 'wsk-slider__background-flex';
-    final String BACKGROUND_LOWER = 'wsk-slider__background-lower';
-    final String BACKGROUND_UPPER = 'wsk-slider__background-upper';
+    final String IE_CONTAINER = 'mdl-slider__ie-container';
+    final String SLIDER_CONTAINER = 'mdl-slider__container';
+    final String BACKGROUND_FLEX = 'mdl-slider__background-flex';
+    final String BACKGROUND_LOWER = 'mdl-slider__background-lower';
+    final String BACKGROUND_UPPER = 'mdl-slider__background-upper';
     final String IS_LOWEST_VALUE = 'is-lowest-value';
     final String IS_UPGRADED = 'is-upgraded';
 }
@@ -175,5 +175,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialSlider,
 //   classAsString: 'MaterialSlider',
-//   cssClass: 'wsk-js-slider'
+//   cssClass: 'mdl-js-slider'
 // });

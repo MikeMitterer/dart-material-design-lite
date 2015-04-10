@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Animation WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class DemoAnimation {
 

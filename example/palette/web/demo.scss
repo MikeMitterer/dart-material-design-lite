@@ -1,6 +1,4 @@
-@import "packages/mdl/sass/styleguide_demo_bp";
-@import 'packages/mdl/sass/palette/palette';
-@import "packages/mdl/sass/typography/typography";
+@import "packages/mdl/sass/material-design-lite";
 
 @mixin demo-palette-color-groups($palette) {
   .demo-palette-color--50 {

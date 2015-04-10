@@ -1,7 +1,6 @@
-@import "packages/mdl/sass/styleguide_demo_bp";
-@import "packages/mdl/sass/list/_list";
+@import "packages/mdl/sass/material-design-lite";
 
-.demo-page--list .wsk-list-view--avatar {
-  background: url("demo-images/avatar.png");
+.demo-page--list .mdl-list-view--avatar {
+  background: url("../demo-images/avatar.png");
   background-size: 100%;
 }

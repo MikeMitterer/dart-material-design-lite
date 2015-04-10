@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Layout WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialLayout {
 
@@ -35,30 +35,30 @@ class _MaterialLayoutMode {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialLayoutCssClasses {
-    final String HEADER = 'wsk-layout__header';
-    final String DRAWER = 'wsk-layout__drawer';
-    final String CONTENT = 'wsk-layout__content';
-    final String DRAWER_BTN = 'wsk-layout__drawer-button';
+    final String HEADER = 'mdl-layout__header';
+    final String DRAWER = 'mdl-layout__drawer';
+    final String CONTENT = 'mdl-layout__content';
+    final String DRAWER_BTN = 'mdl-layout__drawer-button';
 
-    final String JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_CONTAINER = 'wsk-layout__tab-ripple-container';
-    final String RIPPLE = 'wsk-ripple';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_CONTAINER = 'mdl-layout__tab-ripple-container';
+    final String RIPPLE = 'mdl-ripple';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
 
-    final String HEADER_SEAMED = 'wsk-layout__header--seamed';
-    final String HEADER_WATERFALL = 'wsk-layout__header--waterfall';
-    final String HEADER_SCROLL = 'wsk-layout__header--scroll';
+    final String HEADER_SEAMED = 'mdl-layout__header--seamed';
+    final String HEADER_WATERFALL = 'mdl-layout__header--waterfall';
+    final String HEADER_SCROLL = 'mdl-layout__header--scroll';
 
-    final String FIXED_HEADER = 'wsk-layout--fixed-header';
-    final String OBFUSCATOR = 'wsk-layout__obfuscator';
+    final String FIXED_HEADER = 'mdl-layout--fixed-header';
+    final String OBFUSCATOR = 'mdl-layout__obfuscator';
 
-    final String TAB_BAR = 'wsk-layout__tab-bar';
-    final String TAB_CONTAINER = 'wsk-layout__tab-bar-container';
-    final String TAB = 'wsk-layout__tab';
-    final String TAB_BAR_BUTTON = 'wsk-layout__tab-bar-button';
-    final String TAB_BAR_LEFT_BUTTON = 'wsk-layout__tab-bar-left-button';
-    final String TAB_BAR_RIGHT_BUTTON = 'wsk-layout__tab-bar-right-button';
-    final String PANEL = 'wsk-layout__tab-panel';
+    final String TAB_BAR = 'mdl-layout__tab-bar';
+    final String TAB_CONTAINER = 'mdl-layout__tab-bar-container';
+    final String TAB = 'mdl-layout__tab';
+    final String TAB_BAR_BUTTON = 'mdl-layout__tab-bar-button';
+    final String TAB_BAR_LEFT_BUTTON = 'mdl-layout__tab-bar-left-button';
+    final String TAB_BAR_RIGHT_BUTTON = 'mdl-layout__tab-bar-right-button';
+    final String PANEL = 'mdl-layout__tab-panel';
 
     final String HAS_DRAWER_CLASS = 'has-drawer';
     final String SHADOW_CLASS = 'is-casting-shadow';
@@ -155,7 +155,7 @@ void init() {
   if (element != null) {
 
     final container = new html.DivElement();
-    container.classes.add('wsk-layout__container');
+    container.classes.add('mdl-layout__container');
     element.parent.insertBefore(container, element);
     element.parent.removeChild(element);
     container.append(element);
@@ -364,5 +364,5 @@ class MaterialLayoutTab {
 // componentHandler.register({
 //   constructor: MaterialLayout,
 //   classAsString: 'MaterialLayout',
-//   cssClass: 'wsk-js-layout'
+//   cssClass: 'mdl-js-layout'
 // });

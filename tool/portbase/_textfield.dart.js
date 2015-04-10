@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Textfield WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialTextfield {
 
@@ -28,8 +28,8 @@ class _MaterialTextfieldConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialTextfieldCssClasses {
-    final String LABEL = 'wsk-textfield__label';
-    final String INPUT = 'wsk-textfield__input';
+    final String LABEL = 'mdl-textfield__label';
+    final String INPUT = 'mdl-textfield__input';
     final String IS_DIRTY = 'is-dirty';
     final String IS_FOCUSED = 'is-focused';
     final String IS_DISABLED = 'is-disabled';
@@ -123,7 +123,7 @@ void change(final value) {
   if (value) {
     _input.value = value;
   }
-  _updateValueStyles();
+  _updateClasses();
 }
 
 /// Initialize element.
@@ -169,5 +169,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialTextfield,
 //   classAsString: 'MaterialTextfield',
-//   cssClass: 'wsk-js-textfield'
+//   cssClass: 'mdl-js-textfield'
 // });

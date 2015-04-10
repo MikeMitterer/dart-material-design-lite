@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Spinner WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialSpinner {
 
@@ -26,12 +26,12 @@ class _MaterialSpinnerConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialSpinnerCssClasses {
-    final String WSK_SPINNER_LAYER = 'wsk-spinner__layer';
-    final String WSK_SPINNER_CIRCLE_CLIPPER = 'wsk-spinner__circle-clipper';
-    final String WSK_SPINNER_CIRCLE = 'wsk-spinner__circle';
-    final String WSK_SPINNER_GAP_PATCH = 'wsk-spinner__gap-patch';
-    final String WSK_SPINNER_LEFT = 'wsk-spinner__left';
-    final String WSK_SPINNER_RIGHT = 'wsk-spinner__right';
+    final String WSK_SPINNER_LAYER = 'mdl-spinner__layer';
+    final String WSK_SPINNER_CIRCLE_CLIPPER = 'mdl-spinner__circle-clipper';
+    final String WSK_SPINNER_CIRCLE = 'mdl-spinner__circle';
+    final String WSK_SPINNER_GAP_PATCH = 'mdl-spinner__gap-patch';
+    final String WSK_SPINNER_LEFT = 'mdl-spinner__left';
+    final String WSK_SPINNER_RIGHT = 'mdl-spinner__right';
 }
 
 * Auxiliary method to create a spinner layer.
@@ -111,5 +111,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialSpinner,
 //   classAsString: 'MaterialSpinner',
-//   cssClass: 'wsk-js-spinner'
+//   cssClass: 'mdl-js-spinner'
 // });

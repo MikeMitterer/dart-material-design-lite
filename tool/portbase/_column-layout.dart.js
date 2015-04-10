@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Column Layout WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialColumnLayout {
 
@@ -31,7 +31,7 @@ class _MaterialColumnLayoutCssClasses {
 
   // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
   // reduce conflict and convert to camelCase for consistency.
-    final String INVISIBLE_WRAPPING_ELEMENT = 'wsk-column-layout__wrap-hack';
+    final String INVISIBLE_WRAPPING_ELEMENT = 'mdl-column-layout__wrap-hack';
 }
 
 /// Initialize element.
@@ -56,5 +56,5 @@ void init() {
 componentHandler.register({
   constructor: MaterialColumnLayout,
   classAsString: 'MaterialColumnLayout',
-  cssClass: 'wsk-column-layout'
+  cssClass: 'mdl-column-layout'
 });

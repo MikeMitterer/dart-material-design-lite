@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Tabs WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialTabs {
 
@@ -28,15 +28,15 @@ class _MaterialTabsConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialTabsCssClasses {
-    final String TAB_CLASS = 'wsk-tabs__tab';
-    final String PANEL_CLASS = 'wsk-tabs__panel';
+    final String TAB_CLASS = 'mdl-tabs__tab';
+    final String PANEL_CLASS = 'mdl-tabs__panel';
     final String ACTIVE_CLASS = 'is-active';
     final String UPGRADED_CLASS = 'is-upgraded';
 
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String WSK_RIPPLE_CONTAINER = 'wsk-tabs__ripple-container';
-    final String WSK_RIPPLE = 'wsk-ripple';
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String WSK_JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String WSK_RIPPLE_CONTAINER = 'mdl-tabs__ripple-container';
+    final String WSK_RIPPLE = 'mdl-ripple';
+    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
 }
 
 /// Handle clicks to a tabs component
@@ -130,5 +130,5 @@ class MaterialTab {
 // componentHandler.register({
 //   constructor: MaterialTabs,
 //   classAsString: 'MaterialTabs',
-//   cssClass: 'wsk-js-tabs'
+//   cssClass: 'mdl-js-tabs'
 // });

@@ -1,10 +1,4 @@
-@import '../styleguide_demo_bp';
-@import '_layout';
-@import '../textfield/textfield';
-@import '../animation/animation';
-@import '../palette/palette';
-@import '../icons/icons';
-@import '../button/button';
+@import "../material-design-lite";
 
 .demo-layout {
   width: 100%;
@@ -40,7 +34,7 @@
 }
 
 // Styles for fixed header demo.
-.demo-page--layout .wsk-layout.is-small-screen #fixed_header_nav {
+.demo-page--layout .mdl-layout.is-small-screen #fixed_header_nav {
   visibility: hidden;
 }
 
@@ -59,26 +53,26 @@
   visibility: visible;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #my_text_changes {
+.demo-page--layout .mdl-layout__header.is-compact #my_text_changes {
   @include typo-title;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #compact_navigation {
+.demo-page--layout .mdl-layout__header.is-compact #compact_navigation {
   visibility: visible;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #expanded_navigation {
+.demo-page--layout .mdl-layout__header.is-compact #expanded_navigation {
   visibility: hidden;
 }
 
-.demo-page--layout .wsk-layout__header.is-compact #my_text_changes:after {
+.demo-page--layout .mdl-layout__header.is-compact #my_text_changes:after {
   content: " \0000a0 > \0000a0 Multi-row layout demo";
 }
 
 // Styles for transparent header demo.
 .demo-page--layout #transparent_demo {
   background-color: #948d85;
-  background-image: url('demo-images/desktop-handsfree-hero.jpg');
+  background-image: url('../demo-images/desktop-handsfree-hero.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
 

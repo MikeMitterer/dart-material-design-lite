@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Radio WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialRadio {
 
@@ -30,15 +30,15 @@ class _MaterialRadioCssClasses {
     final String IS_DISABLED = 'is-disabled';
     final String IS_CHECKED = 'is-checked';
     final String IS_UPGRADED = 'is-upgraded';
-    final String JS_RADIO = 'wsk-js-radio';
-    final String RADIO_BTN = 'wsk-radio__button';
-    final String RADIO_OUTER_CIRCLE = 'wsk-radio__outer-circle';
-    final String RADIO_INNER_CIRCLE = 'wsk-radio__inner-circle';
-    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String RIPPLE_CONTAINER = 'wsk-radio__ripple-container';
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
-    final String RIPPLE = 'wsk-ripple';
+    final String JS_RADIO = 'mdl-js-radio';
+    final String RADIO_BTN = 'mdl-radio__button';
+    final String RADIO_OUTER_CIRCLE = 'mdl-radio__outer-circle';
+    final String RADIO_INNER_CIRCLE = 'mdl-radio__inner-circle';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_CONTAINER = 'mdl-radio__ripple-container';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+    final String RIPPLE = 'mdl-ripple';
 }
 
 /// Handle change of state.
@@ -219,5 +219,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialRadio,
 //   classAsString: 'MaterialRadio',
-//   cssClass: 'wsk-js-radio'
+//   cssClass: 'mdl-js-radio'
 // });

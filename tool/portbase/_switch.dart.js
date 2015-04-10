@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Checkbox WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialSwitch {
 
@@ -26,15 +26,15 @@ class _MaterialSwitchConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialSwitchCssClasses {
-    final String INPUT = 'wsk-switch__input';
-    final String TRACK = 'wsk-switch__track';
-    final String THUMB = 'wsk-switch__thumb';
-    final String FOCUS_HELPER = 'wsk-switch__focus-helper';
-    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String RIPPLE_CONTAINER = 'wsk-switch__ripple-container';
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
-    final String RIPPLE = 'wsk-ripple';
+    final String INPUT = 'mdl-switch__input';
+    final String TRACK = 'mdl-switch__track';
+    final String THUMB = 'mdl-switch__thumb';
+    final String FOCUS_HELPER = 'mdl-switch__focus-helper';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_CONTAINER = 'mdl-switch__ripple-container';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+    final String RIPPLE = 'mdl-ripple';
     final String IS_FOCUSED = 'is-focused';
     final String IS_DISABLED = 'is-disabled';
     final String IS_CHECKED = 'is-checked';
@@ -209,5 +209,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialSwitch,
 //   classAsString: 'MaterialSwitch',
-//   cssClass: 'wsk-js-switch'
+//   cssClass: 'mdl-js-switch'
 // });

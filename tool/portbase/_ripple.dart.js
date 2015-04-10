@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Ripple WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialRipple {
 
@@ -30,9 +30,9 @@ class _MaterialRippleConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialRippleCssClasses {
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
-    final String RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String RIPPLE = 'wsk-ripple';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+    final String RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE = 'mdl-ripple';
     final String IS_ANIMATING = 'is-animating';
     final String IS_VISIBLE = 'is-visible';
 }
@@ -212,5 +212,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialRipple,
 //   classAsString: 'MaterialRipple',
-//   cssClass: 'wsk-js-ripple-effect'
+//   cssClass: 'mdl-js-ripple-effect'
 // });

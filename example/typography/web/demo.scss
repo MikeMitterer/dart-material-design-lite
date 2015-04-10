@@ -1,6 +1,4 @@
-@import "packages/mdl/sass/styleguide_demo_bp";
-@import "packages/mdl/sass/colors";
-@import 'packages/mdl/sass/typography/typography';
+@import "packages/mdl/sass/material-design-lite";
 
 .demo-page--typography {
   color: $text-color-primary;
@@ -37,11 +35,11 @@
 }
 
 .demo-typography--img-1 {
-  background-image: url(demo-images/img-1.png);
+  background-image: url(../demo-images/img-1.png);
   color: white;
 }
 
 .demo-typography--img-2 {
-  background-image: url(demo-images/img-2.png);
+  background-image: url(../demo-images/img-2.png);
   color: white;
 }

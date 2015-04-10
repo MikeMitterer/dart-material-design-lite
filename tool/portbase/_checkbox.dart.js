@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Checkbox WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialCheckbox {
 
@@ -26,15 +26,15 @@ class _MaterialCheckboxConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialCheckboxCssClasses {
-    final String INPUT = 'wsk-checkbox__input';
-    final String BOX_OUTLINE = 'wsk-checkbox__box-outline';
-    final String FOCUS_HELPER = 'wsk-checkbox__focus-helper';
-    final String TICK_OUTLINE = 'wsk-checkbox__tick-outline';
-    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String RIPPLE_CONTAINER = 'wsk-checkbox__ripple-container';
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
-    final String RIPPLE = 'wsk-ripple';
+    final String INPUT = 'mdl-checkbox__input';
+    final String BOX_OUTLINE = 'mdl-checkbox__box-outline';
+    final String FOCUS_HELPER = 'mdl-checkbox__focus-helper';
+    final String TICK_OUTLINE = 'mdl-checkbox__tick-outline';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_CONTAINER = 'mdl-checkbox__ripple-container';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+    final String RIPPLE = 'mdl-ripple';
     final String IS_FOCUSED = 'is-focused';
     final String IS_DISABLED = 'is-disabled';
     final String IS_CHECKED = 'is-checked';
@@ -207,5 +207,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialCheckbox,
 //   classAsString: 'MaterialCheckbox',
-//   cssClass: 'wsk-js-checkbox'
+//   cssClass: 'mdl-js-checkbox'
 // });

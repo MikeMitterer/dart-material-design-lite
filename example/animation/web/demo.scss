@@ -1,6 +1,5 @@
-@import "packages/mdl/sass/styleguide_demo_bp";
-@import "packages/mdl/sass/shadow/shadow";
-@import "packages/mdl/sass/animation/animation";
+@import "packages/mdl/sass/variables";
+@import "packages/mdl/sass/mixins";
 
 .demo-animation {
   height: 200px;

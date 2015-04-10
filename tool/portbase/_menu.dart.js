@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for dropdown WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialMenu {
 
@@ -42,23 +42,23 @@ MaterialMenu.prototype.Keycodes_ = {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialMenuCssClasses {
-    final String CONTAINER = 'wsk-menu__container';
-    final String OUTLINE = 'wsk-menu__outline';
-    final String ITEM = 'wsk-menu__item';
-    final String ITEM_RIPPLE_CONTAINER = 'wsk-menu__item-ripple-container';
-    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String RIPPLE = 'wsk-ripple';
+    final String CONTAINER = 'mdl-menu__container';
+    final String OUTLINE = 'mdl-menu__outline';
+    final String ITEM = 'mdl-menu__item';
+    final String ITEM_RIPPLE_CONTAINER = 'mdl-menu__item-ripple-container';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE = 'mdl-ripple';
   // Statuses
     final String IS_UPGRADED = 'is-upgraded';
     final String IS_VISIBLE = 'is-visible';
     final String IS_ANIMATING = 'is-animating';
   // Alignment options
-    final String BOTTOM_LEFT = 'wsk-menu--bottom-left';
-    final String BOTTOM_RIGHT = 'wsk-menu--bottom-right';
-    final String TOP_LEFT = 'wsk-menu--top-left';
-    final String TOP_RIGHT = 'wsk-menu--top-right';
-    final String UNALIGNED = 'wsk-menu--unaligned';
+    final String BOTTOM_LEFT = 'mdl-menu--bottom-left';
+    final String BOTTOM_RIGHT = 'mdl-menu--bottom-right';
+    final String TOP_LEFT = 'mdl-menu--top-left';
+    final String TOP_RIGHT = 'mdl-menu--top-right';
+    final String UNALIGNED = 'mdl-menu--unaligned';
 }
 
 /// Initialize element.
@@ -446,5 +446,5 @@ void toggle(final evt) {
 // componentHandler.register({
 //   constructor: MaterialMenu,
 //   classAsString: 'MaterialMenu',
-//   cssClass: 'wsk-js-menu'
+//   cssClass: 'mdl-js-menu'
 // });

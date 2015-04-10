@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Progress WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialProgress {
 
@@ -25,7 +25,7 @@ class _MaterialProgressConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialProgressCssClasses {
-    final String INDETERMINATE_CLASS = 'wsk-progress__indeterminate';
+    final String INDETERMINATE_CLASS = 'mdl-progress__indeterminate';
 }
 
 /// MaterialProgress.prototype.setProgress = function(p) {
@@ -80,5 +80,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialProgress,
 //   classAsString: 'MaterialProgress',
-//   cssClass: 'wsk-js-progress'
+//   cssClass: 'mdl-js-progress'
 // });

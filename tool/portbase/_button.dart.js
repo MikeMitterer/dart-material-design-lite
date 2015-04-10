@@ -3,7 +3,7 @@ import 'dart:math' as Math;
 
 /// Class constructor for Button WSK component.
 /// Implements WSK component design pattern defined at:
-/// https://github.com/jasonmayes/wsk-component-design-pattern
+/// https://github.com/jasonmayes/mdl-component-design-pattern
 /// @param {HTMLElement} element The element that will be upgraded.
 class MaterialButton {
 
@@ -26,9 +26,9 @@ class _MaterialButtonConstant {
 /// decide to modify at a later date.
 /// @enum {string}
 class _MaterialButtonCssClasses {
-    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_CONTAINER = 'wsk-button__ripple-container';
-    final String RIPPLE = 'wsk-ripple';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_CONTAINER = 'mdl-button__ripple-container';
+    final String RIPPLE = 'mdl-ripple';
 }
 
 /// Handle blur of element.
@@ -92,5 +92,5 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialButton,
 //   classAsString: 'MaterialButton',
-//   cssClass: 'wsk-js-button'
+//   cssClass: 'mdl-js-button'
 // });
