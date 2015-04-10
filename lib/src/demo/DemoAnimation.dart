@@ -1,4 +1,4 @@
-part of wskdemo;
+part of mdldemo;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -18,8 +18,8 @@ class _DemoAnimationConstant {
 
     const _DemoAnimationConstant(); }
 
-/// creates WskConfig for DemoAnimation
-WskConfig demoAnimationConfig() => new WskWidgetConfig<DemoAnimation>(
+/// creates MdlConfig for DemoAnimation
+MdlConfig demoAnimationConfig() => new MdlWidgetConfig<DemoAnimation>(
     "demo-js-animation", (final html.HtmlElement element) => new DemoAnimation.fromElement(element));
 
 /// registration-Helper
@@ -31,12 +31,12 @@ void registerDemoAnimation() => componenthandler.register(demoAnimationConfig())
  *       <div class="demo-animation__container">
  *           <div class="demo-animation__container-background">Click me to animate</div>
  *           <div class="demo-animation__container-foreground"></div>
- *           <div class="demo-animation__movable demo-animation--position-1 wsk-shadow--z1"></div>
+ *           <div class="demo-animation__movable demo-animation--position-1 mdl-shadow--z1"></div>
  *       </div>
  *   </div>
 */
-class DemoAnimation extends WskComponent {
-    final Logger _logger = new Logger('wskdemo.DemoAnimation');
+class DemoAnimation extends MdlComponent {
+    final Logger _logger = new Logger('mdl.DemoAnimation');
 
     static const _DemoAnimationConstant _constant = const _DemoAnimationConstant();
     static const _DemoAnimationCssClasses _cssClasses = const _DemoAnimationCssClasses();
@@ -48,7 +48,7 @@ class DemoAnimation extends WskComponent {
         _init();
     }
 
-    static DemoAnimation widget(final html.HtmlElement element) => wskComponent(element) as DemoAnimation;
+    static DemoAnimation widget(final html.HtmlElement element) => mdlComponent(element) as DemoAnimation;
 
     html.HtmlElement get movable {
         if(_moveable == null) {

@@ -1,12 +1,12 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialRippleCssClasses {
-    final String WSK_RIPPLE_CENTER                  = 'wsk-ripple--center';
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String WSK_RIPPLE                         = 'wsk-ripple';
+    final String MDL_RIPPLE_CENTER                  = 'mdl-ripple--center';
+    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String MDL_RIPPLE                         = 'mdl-ripple';
     final String IS_ANIMATING                       = 'is-animating';
     final String IS_VISIBLE                         = 'is-visible';
 
@@ -22,11 +22,11 @@ class _MaterialRippleConstant {
 
     const _MaterialRippleConstant(); }
 
-/// creates WskConfig for MaterialRipple
-/// Important!!!! Ripple uses WskConfig and not WskWidgetConfig
-WskConfig materialRippleConfig() {
-    final WskConfig<MaterialRipple> config = new WskConfig<MaterialRipple>(
-    "wsk-js-ripple-effect",(final html.HtmlElement element) => new MaterialRipple.fromElement(element));
+/// creates MdlConfig for MaterialRipple
+/// Important!!!! Ripple uses MdlConfig and not MdlWidgetConfig
+MdlConfig materialRippleConfig() {
+    final MdlConfig<MaterialRipple> config = new MdlConfig<MaterialRipple>(
+    "mdl-js-ripple-effect",(final html.HtmlElement element) => new MaterialRipple.fromElement(element));
 
     config.priority = 10;
     return config;
@@ -35,8 +35,8 @@ WskConfig materialRippleConfig() {
 /// registration-Helper
 void registerMaterialRipple() => componenthandler.register(materialRippleConfig());
 
-class MaterialRipple extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialRipple');
+class MaterialRipple extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialRipple');
 
     static const _MaterialRippleConstant _constant = const _MaterialRippleConstant();
     static const _MaterialRippleCssClasses _cssClasses = const _MaterialRippleCssClasses();
@@ -57,11 +57,11 @@ class MaterialRipple extends WskComponent {
         _init();
     }
 
-    static MaterialRipple widget(final html.HtmlElement element) => wskComponent(element) as MaterialRipple;
+    static MaterialRipple widget(final html.HtmlElement element) => mdlComponent(element) as MaterialRipple;
 
     html.HtmlElement get rippleElement {
         if(_rippleElement == null) {
-            _rippleElement = element.querySelector(".${_cssClasses.WSK_RIPPLE}");
+            _rippleElement = element.querySelector(".${_cssClasses.MDL_RIPPLE}");
         }
         return _rippleElement;
     }
@@ -73,8 +73,8 @@ class MaterialRipple extends WskComponent {
     void _init() {
         _logger.fine("MaterialRipple - init");
 
-        _recentering = element.classes.contains(_cssClasses.WSK_RIPPLE_CENTER);
-        if(!element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS)) {
+        _recentering = element.classes.contains(_cssClasses.MDL_RIPPLE_CENTER);
+        if(!element.classes.contains(_cssClasses.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS)) {
 
             _frameCount = 0;
             _rippleSize = 0;

@@ -1,19 +1,19 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialSliderCssClasses {
 
-    final String IE_CONTAINER = 'wsk-slider__ie-container';
+    final String IE_CONTAINER = 'mdl-slider__ie-container';
 
-    final String SLIDER_CONTAINER = 'wsk-slider__container';
+    final String SLIDER_CONTAINER = 'mdl-slider__container';
 
-    final String BACKGROUND_FLEX = 'wsk-slider__background-flex';
+    final String BACKGROUND_FLEX = 'mdl-slider__background-flex';
 
-    final String BACKGROUND_LOWER = 'wsk-slider__background-lower';
+    final String BACKGROUND_LOWER = 'mdl-slider__background-lower';
 
-    final String BACKGROUND_UPPER = 'wsk-slider__background-upper';
+    final String BACKGROUND_UPPER = 'mdl-slider__background-upper';
 
     final String IS_LOWEST_VALUE = 'is-lowest-value';
 
@@ -27,15 +27,15 @@ class _MaterialSliderConstant {
     const _MaterialSliderConstant();
 }
 
-/// creates WskConfig for MaterialSlider
-WskConfig materialSliderConfig() => new WskWidgetConfig<MaterialSlider>(
-    "wsk-js-slider", (final html.HtmlElement element) => new MaterialSlider.fromElement(element));
+/// creates MdlConfig for MaterialSlider
+MdlConfig materialSliderConfig() => new MdlWidgetConfig<MaterialSlider>(
+    "mdl-js-slider", (final html.HtmlElement element) => new MaterialSlider.fromElement(element));
 
 /// registration-Helper
 void registerMaterialSlider() => componenthandler.register(materialSliderConfig());
 
-class MaterialSlider extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialSlider');
+class MaterialSlider extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialSlider');
 
     static const _MaterialSliderConstant _constant = const _MaterialSliderConstant();
     static const _MaterialSliderCssClasses _cssClasses = const _MaterialSliderCssClasses();
@@ -50,7 +50,7 @@ class MaterialSlider extends WskComponent {
         _init();
     }
 
-    static MaterialSlider widget(final html.HtmlElement element) => wskComponent(element) as MaterialSlider;
+    static MaterialSlider widget(final html.HtmlElement element) => mdlComponent(element) as MaterialSlider;
 
     html.RangeInputElement get slider => super.element as html.RangeInputElement;
 

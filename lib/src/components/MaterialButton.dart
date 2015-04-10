@@ -1,13 +1,13 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialButtonCssClasses {
 
-    final String RIPPLE_EFFECT =      'wsk-js-ripple-effect';
-    final String RIPPLE_CONTAINER =   'wsk-button__ripple-container';
-    final String RIPPLE =             'wsk-ripple';
+    final String RIPPLE_EFFECT =      'mdl-js-ripple-effect';
+    final String RIPPLE_CONTAINER =   'mdl-button__ripple-container';
+    final String RIPPLE =             'mdl-ripple';
 
     const _MaterialButtonCssClasses();
 }
@@ -15,15 +15,15 @@ class _MaterialButtonCssClasses {
 /// Store constants in one place so they can be updated easily.
 class _MaterialButtonConstant { const _MaterialButtonConstant(); }
 
-/// creates WskConfig for MaterialButton
-WskConfig materialButtonConfig() => new WskWidgetConfig<MaterialButton>(
-    "wsk-js-button",(final html.HtmlElement element) => new MaterialButton.fromElement(element));
+/// creates MdlConfig for MaterialButton
+MdlConfig materialButtonConfig() => new MdlWidgetConfig<MaterialButton>(
+    "mdl-js-button",(final html.HtmlElement element) => new MaterialButton.fromElement(element));
 
 /// registration-Helper
 void registerMaterialButton() => componenthandler.register(materialButtonConfig());
 
-class MaterialButton extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialButton');
+class MaterialButton extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialButton');
 
     static const _MaterialButtonConstant _constant = const _MaterialButtonConstant();
     static const _MaterialButtonCssClasses _cssClasses = const _MaterialButtonCssClasses();
@@ -33,7 +33,7 @@ class MaterialButton extends WskComponent {
         _init();
     }
 
-    static MaterialButton widget(final html.HtmlElement element) => wskComponent(element) as MaterialButton;
+    static MaterialButton widget(final html.HtmlElement element) => mdlComponent(element) as MaterialButton;
 
     /// Disable button.
     void disable() {

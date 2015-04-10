@@ -1,13 +1,13 @@
-part of wskcore;
+part of mdlcore;
 
-typedef void WskCallback(final html.HtmlElement element);
+typedef void MdlCallback(final html.HtmlElement element);
 
-typedef WskComponent WskComponentFactory(final html.HtmlElement element);
+typedef MdlComponent MdlComponentFactory(final html.HtmlElement element);
 
-class WskConfig<T extends WskComponent> {
-    final List<WskCallback> callbacks = new List<WskCallback>();
+class MdlConfig<T extends MdlComponent> {
+    final List<MdlCallback> callbacks = new List<MdlCallback>();
 
-    final WskComponentFactory _componentFactory;
+    final MdlComponentFactory _componentFactory;
     String cssClass;
 
     /// The higher the priority the later the component will be upgraded.
@@ -18,10 +18,10 @@ class WskConfig<T extends WskComponent> {
     /// Avoids problems with Components and Helpers like MaterialRipple
     final bool isWidget;
 
-    WskConfig(this.cssClass, T componentFactory(final html.HtmlElement element), { final bool isWidget: false })
+    MdlConfig(this.cssClass, T componentFactory(final html.HtmlElement element), { final bool isWidget: false })
     : _componentFactory = componentFactory, this.isWidget = isWidget {
 
-        Validate.isTrue(T != "dynamic", "Add a type-information to your WscConfig like new WskConfig<MaterialButton>()");
+        Validate.isTrue(T != "dynamic", "Add a type-information to your MdlConfig like new MdlConfig<MaterialButton>()");
         Validate.notBlank(cssClass, "cssClass must not be blank.");
         Validate.notNull(_componentFactory);
     }
@@ -30,7 +30,7 @@ class WskConfig<T extends WskComponent> {
 
     Type get type => T;
 
-    WskComponent newComponent(final html.HtmlElement element) {
+    MdlComponent newComponent(final html.HtmlElement element) {
         return _componentFactory(element);
     }
 
@@ -38,7 +38,7 @@ class WskConfig<T extends WskComponent> {
 
 }
 
-class WskWidgetConfig<T extends WskComponent> extends WskConfig<T> {
-    WskWidgetConfig(final String cssClass, T componentFactory(final html.HtmlElement element)) :
+class MdlWidgetConfig<T extends MdlComponent> extends MdlConfig<T> {
+    MdlWidgetConfig(final String cssClass, T componentFactory(final html.HtmlElement element)) :
     super(cssClass, componentFactory, isWidget: true);
 }

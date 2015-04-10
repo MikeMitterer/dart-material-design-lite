@@ -1,4 +1,4 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -16,11 +16,11 @@ class _MaterialBadgeConstant {
 }
 
 /// registration-Helper
-void registerMaterialBadge() => componenthandler.register(new WskWidgetConfig<MaterialBadge>(
-    "wsk-js-badge", (final html.HtmlElement element) => new MaterialBadge.fromElement(element)));
+void registerMaterialBadge() => componenthandler.register(new MdlWidgetConfig<MaterialBadge>(
+    "mdl-js-badge", (final html.HtmlElement element) => new MaterialBadge.fromElement(element)));
 
-class MaterialBadge extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialBadge');
+class MaterialBadge extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialBadge');
 
     static const _MaterialBadgeConstant _constant = const _MaterialBadgeConstant();
     static const _MaterialBadgeCssClasses _cssClasses = const _MaterialBadgeCssClasses();
@@ -29,9 +29,9 @@ class MaterialBadge extends WskComponent {
         _init();
     }
 
-    static MaterialBadge widget(final html.HtmlElement element) => wskComponent(element) as MaterialBadge;
+    static MaterialBadge widget(final html.HtmlElement element) => mdlComponent(element) as MaterialBadge;
 
-    // Central Element - by default this is where wsk-js-badge was found (element)
+    // Central Element - by default this is where mdl-js-badge was found (element)
     // html.Element get hub => element;
 
     void set value(final String value) {

@@ -1,16 +1,16 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialIconToggleCssClasses {
 
-    final String INPUT = 'wsk-icon-toggle__input';
-    final String JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String RIPPLE_CONTAINER = 'wsk-icon-toggle__ripple-container';
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
-    final String RIPPLE = 'wsk-ripple';
+    final String INPUT = 'mdl-icon-toggle__input';
+    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_CONTAINER = 'mdl-icon-toggle__ripple-container';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+    final String RIPPLE = 'mdl-ripple';
     final String IS_FOCUSED = 'is-focused';
     final String IS_DISABLED = 'is-disabled';
     final String IS_CHECKED = 'is-checked';
@@ -28,22 +28,22 @@ class _MaterialIconToggleConstant {
     const _MaterialIconToggleConstant();
 }
 
-/// creates WskConfig for IconToggle
-WskConfig materialIconToggleConfig() => new WskWidgetConfig<MaterialIconToggle>(
-    "wsk-js-icon-toggle", (final html.HtmlElement element) => new MaterialIconToggle.fromElement(element));
+/// creates MdlConfig for IconToggle
+MdlConfig materialIconToggleConfig() => new MdlWidgetConfig<MaterialIconToggle>(
+    "mdl-js-icon-toggle", (final html.HtmlElement element) => new MaterialIconToggle.fromElement(element));
 
 /// registration-Helper
 void registerMaterialIconToggle() => componenthandler.register(materialIconToggleConfig());
 
 /**
  * Sample:
- *       <label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" for="checkbox-1">
- *           <input type="checkbox" id="checkbox-1" class="wsk-icon-toggle__input" />
- *           <span class="wsk-icon-toggle__label wsk-icon wsk-icon--format-bold"></span>
+ *       <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-1">
+ *           <input type="checkbox" id="checkbox-1" class="mdl-icon-toggle__input" />
+ *           <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
  *       </label>
  */
-class MaterialIconToggle extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialIconToggle');
+class MaterialIconToggle extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialIconToggle');
 
     static const _MaterialIconToggleConstant _constant = const _MaterialIconToggleConstant();
     static const _MaterialIconToggleCssClasses _cssClasses = const _MaterialIconToggleCssClasses();
@@ -54,9 +54,9 @@ class MaterialIconToggle extends WskComponent {
         _init();
     }
 
-    static MaterialIconToggle widget(final html.HtmlElement element) => wskComponent(element) as MaterialIconToggle;
+    static MaterialIconToggle widget(final html.HtmlElement element) => mdlComponent(element) as MaterialIconToggle;
 
-    // Central Element - by default this is where wsk-icon-toggle was found (element)
+    // Central Element - by default this is where mdl-icon-toggle was found (element)
     html.Element get hub => inputElement;
 
     html.InputElement get inputElement {

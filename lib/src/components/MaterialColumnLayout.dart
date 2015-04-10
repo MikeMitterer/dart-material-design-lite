@@ -1,10 +1,10 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialColumnLayoutCssClasses {
-    final String INVISIBLE_WRAPPING_ELEMENT = 'wsk-column-layout__wrap-hack';
+    final String INVISIBLE_WRAPPING_ELEMENT = 'mdl-column-layout__wrap-hack';
 
     const _MaterialColumnLayoutCssClasses();
 }
@@ -16,15 +16,15 @@ class _MaterialColumnLayoutConstant {
     const _MaterialColumnLayoutConstant();
 }
 
-/// creates WskConfig for MaterialColumnLayout
-WskConfig materialColumnsLayoutConfig() => new WskWidgetConfig<MaterialColumnLayout>(
-    "wsk-column-layout", (final html.HtmlElement element) => new MaterialColumnLayout.fromElement(element));
+/// creates MdlConfig for MaterialColumnLayout
+MdlConfig materialColumnsLayoutConfig() => new MdlWidgetConfig<MaterialColumnLayout>(
+    "mdl-column-layout", (final html.HtmlElement element) => new MaterialColumnLayout.fromElement(element));
 
 /// registration-Helper
 void registerMaterialColumnLayout() => componenthandler.register(materialColumnsLayoutConfig());
 
-class MaterialColumnLayout extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialColumnLayout');
+class MaterialColumnLayout extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialColumnLayout');
 
     static const _MaterialColumnLayoutConstant _constant = const _MaterialColumnLayoutConstant();
     static const _MaterialColumnLayoutCssClasses _cssClasses = const _MaterialColumnLayoutCssClasses();
@@ -33,7 +33,7 @@ class MaterialColumnLayout extends WskComponent {
         _init();
     }
 
-    static MaterialColumnLayout widget(final html.HtmlElement element) => wskComponent(element) as MaterialColumnLayout;
+    static MaterialColumnLayout widget(final html.HtmlElement element) => mdlComponent(element) as MaterialColumnLayout;
 
     //- private -----------------------------------------------------------------------------------
 

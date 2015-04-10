@@ -1,17 +1,17 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialMenuCssClasses {
 
-    final String CONTAINER = 'wsk-menu__container';
-    final String OUTLINE = 'wsk-menu__outline';
-    final String ITEM = 'wsk-menu__item';
-    final String ITEM_RIPPLE_CONTAINER = 'wsk-menu__item-ripple-container';
-    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
-    final String RIPPLE = 'wsk-ripple';
+    final String CONTAINER = 'mdl-menu__container';
+    final String OUTLINE = 'mdl-menu__outline';
+    final String ITEM = 'mdl-menu__item';
+    final String ITEM_RIPPLE_CONTAINER = 'mdl-menu__item-ripple-container';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE = 'mdl-ripple';
 
     // Statuses
     final String IS_UPGRADED = 'is-upgraded';
@@ -19,11 +19,11 @@ class _MaterialMenuCssClasses {
     final String IS_ANIMATING = 'is-animating';
 
     // Alignment options
-    final String BOTTOM_LEFT = 'wsk-menu--bottom-left';
-    final String BOTTOM_RIGHT = 'wsk-menu--bottom-right';
-    final String TOP_LEFT = 'wsk-menu--top-left';
-    final String TOP_RIGHT = 'wsk-menu--top-right';
-    final String UNALIGNED = 'wsk-menu--unaligned';
+    final String BOTTOM_LEFT = 'mdl-menu--bottom-left';
+    final String BOTTOM_RIGHT = 'mdl-menu--bottom-right';
+    final String TOP_LEFT = 'mdl-menu--top-left';
+    final String TOP_RIGHT = 'mdl-menu--top-right';
+    final String UNALIGNED = 'mdl-menu--unaligned';
 
     const _MaterialMenuCssClasses();
 }
@@ -59,11 +59,11 @@ class _KeyCode {
 }
 
 /// registration-Helper
-void registerMaterialMenu() => componenthandler.register(new WskWidgetConfig<MaterialMenu>(
-    "wsk-js-menu", (final html.HtmlElement element) => new MaterialMenu.fromElement(element)));
+void registerMaterialMenu() => componenthandler.register(new MdlWidgetConfig<MaterialMenu>(
+    "mdl-js-menu", (final html.HtmlElement element) => new MaterialMenu.fromElement(element)));
 
-class MaterialMenu extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialMenu');
+class MaterialMenu extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialMenu');
 
     static const _MaterialMenuConstant _constant = const _MaterialMenuConstant();
     static const _MaterialMenuCssClasses _cssClasses = const _MaterialMenuCssClasses();
@@ -78,7 +78,7 @@ class MaterialMenu extends WskComponent {
         _init();
     }
 
-    static MaterialMenu widget(final html.HtmlElement element) => wskComponent(element) as MaterialMenu;
+    static MaterialMenu widget(final html.HtmlElement element) => mdlComponent(element) as MaterialMenu;
 
     /// Displays the menu.
     /// @public

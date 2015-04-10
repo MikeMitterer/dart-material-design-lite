@@ -1,27 +1,27 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialSwitchCssClasses {
 
-    final String INPUT = 'wsk-switch__input';
+    final String INPUT = 'mdl-switch__input';
 
-    final String TRACK = 'wsk-switch__track';
+    final String TRACK = 'mdl-switch__track';
 
-    final String THUMB = 'wsk-switch__thumb';
+    final String THUMB = 'mdl-switch__thumb';
 
-    final String FOCUS_HELPER = 'wsk-switch__focus-helper';
+    final String FOCUS_HELPER = 'mdl-switch__focus-helper';
 
-    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
 
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
 
-    final String RIPPLE_CONTAINER = 'wsk-switch__ripple-container';
+    final String RIPPLE_CONTAINER = 'mdl-switch__ripple-container';
 
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
 
-    final String RIPPLE = 'wsk-ripple';
+    final String RIPPLE = 'mdl-ripple';
 
     final String IS_FOCUSED = 'is-focused';
 
@@ -41,15 +41,15 @@ class _MaterialSwitchConstant {
     const _MaterialSwitchConstant();
 }
 
-/// creates WskConfig for MaterialSwitch
-WskConfig materialSwitchConfig() => new WskWidgetConfig<MaterialSwitch>(
-    "wsk-js-switch", (final html.HtmlElement element) => new MaterialSwitch.fromElement(element));
+/// creates MdlConfig for MaterialSwitch
+MdlConfig materialSwitchConfig() => new MdlWidgetConfig<MaterialSwitch>(
+    "mdl-js-switch", (final html.HtmlElement element) => new MaterialSwitch.fromElement(element));
 
 /// registration-Helper
 void registerMaterialSwitch() => componenthandler.register(materialSwitchConfig());
 
-class MaterialSwitch extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialSwitch');
+class MaterialSwitch extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialSwitch');
 
     static const _MaterialSwitchConstant _constant = const _MaterialSwitchConstant();
     static const _MaterialSwitchCssClasses _cssClasses = const _MaterialSwitchCssClasses();
@@ -60,7 +60,7 @@ class MaterialSwitch extends WskComponent {
         _init();
     }
 
-    static MaterialSwitch widget(final html.HtmlElement element) => wskComponent(element) as MaterialSwitch;
+    static MaterialSwitch widget(final html.HtmlElement element) => mdlComponent(element) as MaterialSwitch;
 
     html.CheckboxInputElement get inputElement {
         if(_inputElement == null) { _inputElement = element.querySelector(".${_cssClasses.INPUT}"); }

@@ -1,26 +1,26 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialCheckboxCssClasses {
-    final String INPUT = 'wsk-checkbox__input';
+    final String INPUT = 'mdl-checkbox__input';
 
-    final String BOX_OUTLINE = 'wsk-checkbox__box-outline';
+    final String BOX_OUTLINE = 'mdl-checkbox__box-outline';
 
-    final String FOCUS_HELPER = 'wsk-checkbox__focus-helper';
+    final String FOCUS_HELPER = 'mdl-checkbox__focus-helper';
 
-    final String TICK_OUTLINE = 'wsk-checkbox__tick-outline';
+    final String TICK_OUTLINE = 'mdl-checkbox__tick-outline';
 
-    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
 
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
 
-    final String RIPPLE_CONTAINER = 'wsk-checkbox__ripple-container';
+    final String RIPPLE_CONTAINER = 'mdl-checkbox__ripple-container';
 
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
 
-    final String RIPPLE = 'wsk-ripple';
+    final String RIPPLE = 'mdl-ripple';
 
     final String IS_FOCUSED = 'is-focused';
 
@@ -41,22 +41,22 @@ class _MaterialCheckboxConstant {
     const _MaterialCheckboxConstant();
 }
 
-/// creates WskConfig for MaterialCheckbox
-WskConfig materialCheckboxConfig() => new WskWidgetConfig<MaterialCheckbox>(
-    "wsk-js-checkbox", (final html.HtmlElement element) => new MaterialCheckbox.fromElement(element));
+/// creates MdlConfig for MaterialCheckbox
+MdlConfig materialCheckboxConfig() => new MdlWidgetConfig<MaterialCheckbox>(
+    "mdl-js-checkbox", (final html.HtmlElement element) => new MaterialCheckbox.fromElement(element));
 
 /// registration-Helper
 void registerMaterialCheckbox() => componenthandler.register(materialCheckboxConfig());
 
 /**
  * Sample:
- *     <label class="wsk-checkbox wsk-js-checkbox wsk-js-ripple-effect" for="checkbox-1">
- *          <input type="checkbox" id="checkbox-1" class="wsk-checkbox__input" />
- *          <span class="wsk-checkbox__label">Check me out</span>
+ *     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+ *          <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" />
+ *          <span class="mdl-checkbox__label">Check me out</span>
  *    </label>
  */
-class MaterialCheckbox extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialCheckbox');
+class MaterialCheckbox extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialCheckbox');
 
     static const _MaterialCheckboxConstant _constant = const _MaterialCheckboxConstant();
     static const _MaterialCheckboxCssClasses _cssClasses = const _MaterialCheckboxCssClasses();
@@ -67,7 +67,7 @@ class MaterialCheckbox extends WskComponent {
         _init();
     }
 
-    static MaterialCheckbox widget(final html.HtmlElement element) => wskComponent(element) as MaterialCheckbox;
+    static MaterialCheckbox widget(final html.HtmlElement element) => mdlComponent(element) as MaterialCheckbox;
 
     html.Element get hub => inputElement;
 

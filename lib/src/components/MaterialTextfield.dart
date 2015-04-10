@@ -1,13 +1,13 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialTextfieldCssClasses {
 
-    final String LABEL = 'wsk-textfield__label';
+    final String LABEL = 'mdl-textfield__label';
 
-    final String INPUT = 'wsk-textfield__input';
+    final String INPUT = 'mdl-textfield__input';
 
     final String IS_DIRTY = 'is-dirty';
 
@@ -31,15 +31,15 @@ class _MaterialTextfieldConstant {
     const _MaterialTextfieldConstant();
 }
 
-/// creates WskConfig for MaterialButton
-WskConfig materialTextfieldConfig() => new WskWidgetConfig<MaterialTextfield>(
-    "wsk-js-textfield", (final html.HtmlElement element) => new MaterialTextfield.fromElement(element));
+/// creates MdlConfig for MaterialButton
+MdlConfig materialTextfieldConfig() => new MdlWidgetConfig<MaterialTextfield>(
+    "mdl-js-textfield", (final html.HtmlElement element) => new MaterialTextfield.fromElement(element));
 
 /// registration-Helper
 void registerMaterialTextfield() => componenthandler.register(materialTextfieldConfig());
 
-class MaterialTextfield extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialTextfield');
+class MaterialTextfield extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialTextfield');
 
     static const _MaterialTextfieldConstant _constant = const _MaterialTextfieldConstant();
     static const _MaterialTextfieldCssClasses _cssClasses = const _MaterialTextfieldCssClasses();
@@ -53,7 +53,7 @@ class MaterialTextfield extends WskComponent {
         _init();
     }
 
-    static MaterialTextfield widget(final html.HtmlElement element) => wskComponent(element) as MaterialTextfield;
+    static MaterialTextfield widget(final html.HtmlElement element) => mdlComponent(element) as MaterialTextfield;
 
     html.Element get hub => input;
 

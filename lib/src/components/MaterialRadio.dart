@@ -1,4 +1,4 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -12,23 +12,23 @@ class _MaterialRadioCssClasses {
 
     final String IS_UPGRADED = 'is-upgraded';
 
-    final String JS_RADIO = 'wsk-js-radio';
+    final String JS_RADIO = 'mdl-js-radio';
 
-    final String RADIO_BTN = 'wsk-radio__button';
+    final String RADIO_BTN = 'mdl-radio__button';
 
-    final String RADIO_OUTER_CIRCLE = 'wsk-radio__outer-circle';
+    final String RADIO_OUTER_CIRCLE = 'mdl-radio__outer-circle';
 
-    final String RADIO_INNER_CIRCLE = 'wsk-radio__inner-circle';
+    final String RADIO_INNER_CIRCLE = 'mdl-radio__inner-circle';
 
-    final String RIPPLE_EFFECT = 'wsk-js-ripple-effect';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
 
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
 
-    final String RIPPLE_CONTAINER = 'wsk-radio__ripple-container';
+    final String RIPPLE_CONTAINER = 'mdl-radio__ripple-container';
 
-    final String RIPPLE_CENTER = 'wsk-ripple--center';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
 
-    final String RIPPLE = 'wsk-ripple';
+    final String RIPPLE = 'mdl-ripple';
 
     const _MaterialRadioCssClasses();
 }
@@ -39,35 +39,35 @@ class _MaterialRadioConstant {
     const _MaterialRadioConstant();
 }
 
-/// creates WskConfig for RadioConfig
-WskConfig materialRadioConfig() => new WskWidgetConfig<MaterialRadio>(
-    "wsk-js-radio", (final html.HtmlElement element) => new MaterialRadio.fromElement(element));
+/// creates MdlConfig for RadioConfig
+MdlConfig materialRadioConfig() => new MdlWidgetConfig<MaterialRadio>(
+    "mdl-js-radio", (final html.HtmlElement element) => new MaterialRadio.fromElement(element));
 
 /// registration-Helper
 void registerMaterialRadio() => componenthandler.register(materialRadioConfig());
 
 /**
  * Sample:
- *      <label class="wsk-radio wsk-js-radio wsk-js-ripple-effect" for="wifi1">
- *          <input type="radio" id="wifi1" class="wsk-radio__button" name="wifi[]" value="1" checked />
- *          <span class="wsk-radio__label">Always</span>
+ *      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi1">
+ *          <input type="radio" id="wifi1" class="mdl-radio__button" name="wifi[]" value="1" checked />
+ *          <span class="mdl-radio__label">Always</span>
  *      </label>
  */
-class MaterialRadio extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialRadio');
+class MaterialRadio extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialRadio');
 
     static const _MaterialRadioConstant _constant = const _MaterialRadioConstant();
     static const _MaterialRadioCssClasses _cssClasses = const _MaterialRadioCssClasses();
 
     html.RadioButtonInputElement _btnElement = null;
 
-    factory MaterialRadio(final html.HtmlElement element) =>  wskComponent(element) as MaterialRadio;
+    factory MaterialRadio(final html.HtmlElement element) => mdlComponent(element) as MaterialRadio;
 
     MaterialRadio.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialRadio widget(final html.HtmlElement element) => wskComponent(element) as MaterialRadio;
+    static MaterialRadio widget(final html.HtmlElement element) => mdlComponent(element) as MaterialRadio;
 
 
     html.Element get hub => btnElement;

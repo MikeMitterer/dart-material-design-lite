@@ -1,25 +1,25 @@
-part of wskcore;
+part of mdlcore;
 
 /**
  * A component handler interface using the revealing module design pattern.
  * More details on this pattern design here:
- * https://github.com/jasonmayes/wsk-component-design-pattern
+ * https://github.com/jasonmayes/mdl-component-design-pattern
  * (JS-Version: Jason Mayes.)
  *
  * @author Mike Mitterer
  */
-class WskComponentHandler {
-    final Logger _logger = new Logger('wskcore.ComponentHandler');
+class MdlComponentHandler {
+    final Logger _logger = new Logger('mdlcore.ComponentHandler');
 
-    final Map<String, WskConfig> _registeredComponents = new HashMap<String, WskConfig>();
+    final Map<String, MdlConfig> _registeredComponents = new HashMap<String, MdlConfig>();
 
     /**
      * Registers a class for future use and attempts to upgrade existing DOM.
      * Sample:
      *      final ComponentHandler componenthandler = new ComponentHandler();
-     *      componenthandler.register(new WskConfig<MaterialButton>("wsk-button"));
+     *      componenthandler.register(new MdlConfig<MaterialButton>("mdl-button"));
      */
-    void register(final WskConfig config) {
+    void register(final MdlConfig config) {
         Validate.notNull(config);
 
         if(!_isValidClassName(config.classAsString)) {
@@ -35,12 +35,12 @@ class WskComponentHandler {
     /**
      * Allows user to be alerted to any upgrades that are performed for a given
      * component type
-     * [config] The class-config of the WSK component we wish
+     * [config] The class-config of the MDL component we wish
      * to hook into for any upgrades performed.
      * The [callback]-function to call upon an upgrade. This
      * function should expect 1 parameter - the HTMLElement which got upgraded.
      */
-    void registerUpgradedCallback(final WskConfig config,final WskCallback callback) {
+    void registerUpgradedCallback(final MdlConfig config,final MdlCallback callback) {
 
         if(_isValidClassName(config.classAsString) && _isRegistered(config)) {
             _registeredComponents[config.classAsString].callbacks.add(callback);
@@ -51,31 +51,31 @@ class WskComponentHandler {
      * Upgrades all registered components found in the current DOM. This is
      * automatically called on window load.
      * At the beginning of the upgrade-process it adds the csss-classes
-     * wsk-js, wsk-dart and wsk-upgrading to the <html>-element.
-     * If all components are ready it remove wsk-upgrading.
+     * mdl-js, mdl-dart and mdl-upgrading to the <html>-element.
+     * If all components are ready it remove mdl-upgrading.
      */
     Future upgradeAllRegistered() {
         html.querySelector("html")
-            ..classes.add("wsk-js")
-            ..classes.add("wsk-dart");
+            ..classes.add("mdl-js")
+            ..classes.add("mdl-dart");
 
-        html.querySelector("body").classes.add("wsk-upgrading");
+        html.querySelector("body").classes.add("mdl-upgrading");
 
         final Future future = new Future(() {
 
             // The component with the highest priority comes last
-            final List<WskConfig> configs = new List<WskConfig>.from(_registeredComponents.values);
-            configs.sort((final WskConfig a, final WskConfig b) {
+            final List<MdlConfig> configs = new List<MdlConfig>.from(_registeredComponents.values);
+            configs.sort((final MdlConfig a, final MdlConfig b) {
                 return a.priority.compareTo(b.priority);
             });
 
-            configs.forEach((final WskConfig config) {
+            configs.forEach((final MdlConfig config) {
                 _upgradeDom(config);
                 _logger.fine("${config.cssClass} upgraded with ${config.classAsString}...");
             });
 
-            html.querySelector("body").classes.remove("wsk-upgrading");
-            html.querySelector("html").classes.add("wsk-upgraded");
+            html.querySelector("body").classes.remove("mdl-upgrading");
+            html.querySelector("html").classes.add("mdl-upgraded");
             _logger.info("All components are upgraded...");
 
         });
@@ -83,26 +83,26 @@ class WskComponentHandler {
         return future;
     }
 
-    void upgradeElement(final html.HtmlElement element, List<WskConfig> wskcomponents() ) {
-        Validate.notNull(wskcomponents,"Callback for WskConfig-List must not be null!");
+    void upgradeElement(final html.HtmlElement element, List<MdlConfig> mdlcomponents() ) {
+        Validate.notNull(mdlcomponents,"Callback for MdlConfig-List must not be null!");
 
-        final List<WskConfig> components = wskcomponents();
+        final List<MdlConfig> components = mdlcomponents();
         if(components == null || components.isEmpty) {
-            _logger.warning("No WskConfig provided for ${element}");
+            _logger.warning("No MdlConfig provided for ${element}");
             return;
         }
 
-        components.forEach((final WskConfig config) {
+        components.forEach((final MdlConfig config) {
             _upgradeElement(element,config);
         });
 
-        element.classes.add("wsk-upgraded");
-        element.classes.remove("wsk-upgrading");
+        element.classes.add("mdl-upgraded");
+        element.classes.remove("mdl-upgrading");
     }
 
     //- private -----------------------------------------------------------------------------------
 
-    bool _isRegistered(final WskConfig config) => _registeredComponents.containsKey(config.classAsString);
+    bool _isRegistered(final MdlConfig config) => _registeredComponents.containsKey(config.classAsString);
 
     bool _isValidClassName(final String classname) => (classname != "dynamic");
 
@@ -110,7 +110,7 @@ class WskComponentHandler {
      * Searches existing DOM for elements of our component type and upgrades them
      * if they have not already been upgraded!
      */
-    void _upgradeDom(final WskConfig config) {
+    void _upgradeDom(final MdlConfig config) {
         Validate.notNull(config);
 
         //final List<Future> futureUpgrade = new List<Future>();
@@ -130,7 +130,7 @@ class WskComponentHandler {
      * [config] the Dart-Class/Css-Class configuration of the class we want to upgrade
      * the element to.
      */
-    void _upgradeElement(final html.HtmlElement element, final WskConfig config) {
+    void _upgradeElement(final html.HtmlElement element, final MdlConfig config) {
         Validate.notNull(element);
         Validate.notNull(config);
 
@@ -146,8 +146,8 @@ class WskComponentHandler {
             }
 
             try {
-                final WskComponent component = config.newComponent(element);
-                config.callbacks.forEach((final WskCallback callback) => callback(element));
+                final MdlComponent component = config.newComponent(element);
+                config.callbacks.forEach((final MdlCallback callback) => callback(element));
 
                 _markAsUpgraded();
                 _logger.fine("${config.classAsString} -> ${component}");
@@ -156,7 +156,7 @@ class WskComponentHandler {
 
                     // Makes it possible to query for the main element in this component.
                     var jsElement = new JsObject.fromBrowserObject(component.hub);
-                    jsElement[WSK_WIDGET_PROPERTY] = component;
+                    jsElement[MDL_WIDGET_PROPERTY] = component;
 
                     //element.xtag = component as html.Element;
                 }

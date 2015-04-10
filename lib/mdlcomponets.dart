@@ -1,4 +1,4 @@
-library wskcomponents;
+library mdlcomponents;
 
 import 'dart:html' as html;
 import 'dart:math' as Math;
@@ -6,7 +6,7 @@ import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:browser_detect/browser_detect.dart';
 
-import "package:wsk_material/wskcore.dart";
+import "package:mdl/mdlcore.dart";
 
 part "src/components/MaterialAccordion.dart";
 part "src/components/MaterialBadge.dart";
@@ -27,7 +27,7 @@ part "src/components/MaterialTabs.dart";
 part "src/components/MaterialTextfield.dart";
 part "src/components/MaterialTooltip.dart";
 
-final WskComponentHandler componenthandler = new WskComponentHandler();
+final MdlComponentHandler componenthandler = new MdlComponentHandler();
 
 void registerAllWskComponents() {
 

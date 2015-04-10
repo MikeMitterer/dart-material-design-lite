@@ -1,11 +1,11 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialProgressCssClasses {
 
-    final String INDETERMINATE_CLASS = 'wsk-progress__indeterminate';
+    final String INDETERMINATE_CLASS = 'mdl-progress__indeterminate';
     final String IS_UPGRADED = 'is-upgraded';
 
     const _MaterialProgressCssClasses();
@@ -17,11 +17,11 @@ class _MaterialProgressConstant {
 }
 
 /// registration-Helper
-void registerMaterialProgress() => componenthandler.register(new WskWidgetConfig<MaterialProgress>(
-    "wsk-js-progress", (final html.HtmlElement element) => new MaterialProgress.fromElement(element)));
+void registerMaterialProgress() => componenthandler.register(new MdlWidgetConfig<MaterialProgress>(
+    "mdl-js-progress", (final html.HtmlElement element) => new MaterialProgress.fromElement(element)));
 
-class MaterialProgress extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialProgress');
+class MaterialProgress extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialProgress');
 
     static const _MaterialProgressConstant _constant = const _MaterialProgressConstant();
     static const _MaterialProgressCssClasses _cssClasses = const _MaterialProgressCssClasses();
@@ -30,13 +30,13 @@ class MaterialProgress extends WskComponent {
     html.DivElement _bufferbar;
     html.DivElement _auxbar;
 
-    factory MaterialProgress(final html.HtmlElement element) =>  wskComponent(element) as MaterialProgress;
+    factory MaterialProgress(final html.HtmlElement element) => mdlComponent(element) as MaterialProgress;
 
-    //    factory MaterialProgress() =>  new html.Element.tag('wsk-progress');
+    //    factory MaterialProgress() =>  new html.Element.tag('mdl-progress');
 //
 //    MaterialProgress.created() : super.created() {
 //        _logger.info("created");
-//        classes.add("wsk-js-progress");
+//        classes.add("mdl-js-progress");
 //        element = this;
 //        _init();
 //    }
@@ -50,7 +50,7 @@ class MaterialProgress extends WskComponent {
 //        _init();
 //    }
 
-    static MaterialProgress widget(final html.HtmlElement element) => wskComponent(element) as MaterialProgress;
+    static MaterialProgress widget(final html.HtmlElement element) => mdlComponent(element) as MaterialProgress;
 
     /// MaterialProgress.prototype.setProgress = function(p) {
     void set progress(final int width) {

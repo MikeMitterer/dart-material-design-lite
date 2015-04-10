@@ -1,36 +1,36 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialLayoutCssClasses {
 
-    final String HEADER = 'wsk-layout__header';
-    final String DRAWER = 'wsk-layout__drawer';
-    final String CONTENT = 'wsk-layout__content';
-    final String DRAWER_BTN = 'wsk-layout__drawer-button';
+    final String HEADER = 'mdl-layout__header';
+    final String DRAWER = 'mdl-layout__drawer';
+    final String CONTENT = 'mdl-layout__content';
+    final String DRAWER_BTN = 'mdl-layout__drawer-button';
 
-    final String JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String RIPPLE_CONTAINER = 'wsk-layout__tab-ripple-container';
-    final String RIPPLE = 'wsk-ripple';
-    final String RIPPLE_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_CONTAINER = 'mdl-layout__tab-ripple-container';
+    final String RIPPLE = 'mdl-ripple';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
 
-    final String HEADER_SEAMED = 'wsk-layout__header--seamed';
-    final String HEADER_WATERFALL = 'wsk-layout__header--waterfall';
-    final String HEADER_SCROLL = 'wsk-layout__header--scroll';
+    final String HEADER_SEAMED = 'mdl-layout__header--seamed';
+    final String HEADER_WATERFALL = 'mdl-layout__header--waterfall';
+    final String HEADER_SCROLL = 'mdl-layout__header--scroll';
 
-    final String FIXED_HEADER = 'wsk-layout--fixed-header';
-    final String OBFUSCATOR = 'wsk-layout__obfuscator';
+    final String FIXED_HEADER = 'mdl-layout--fixed-header';
+    final String OBFUSCATOR = 'mdl-layout__obfuscator';
 
-    final String TAB_BAR = 'wsk-layout__tab-bar';
-    final String TAB_CONTAINER = 'wsk-layout__tab-bar-container';
-    final String TAB = 'wsk-layout__tab';
-    final String TAB_BAR_BUTTON = 'wsk-layout__tab-bar-button';
-    final String TAB_BAR_LEFT_BUTTON = 'wsk-layout__tab-bar-left-button';
-    final String TAB_BAR_RIGHT_BUTTON = 'wsk-layout__tab-bar-right-button';
-    final String PANEL = 'wsk-layout__tab-panel';
+    final String TAB_BAR = 'mdl-layout__tab-bar';
+    final String TAB_CONTAINER = 'mdl-layout__tab-bar-container';
+    final String TAB = 'mdl-layout__tab';
+    final String TAB_BAR_BUTTON = 'mdl-layout__tab-bar-button';
+    final String TAB_BAR_LEFT_BUTTON = 'mdl-layout__tab-bar-left-button';
+    final String TAB_BAR_RIGHT_BUTTON = 'mdl-layout__tab-bar-right-button';
+    final String PANEL = 'mdl-layout__tab-panel';
 
-    final String NAVI_LINK = "wsk-navigation__link";
+    final String NAVI_LINK = "mdl-navigation__link";
 
     final String HAS_DRAWER_CLASS = 'has-drawer';
     final String SHADOW_CLASS = 'is-casting-shadow';
@@ -63,15 +63,15 @@ class _MaterialLayoutMode {
     const _MaterialLayoutMode();
 }
 
-/// creates WskConfig for MaterialLayout
-WskConfig materialLayoutConfig() => new WskWidgetConfig<MaterialLayout>(
-    "wsk-js-layout", (final html.HtmlElement element) => new MaterialLayout.fromElement(element));
+/// creates MdlConfig for MaterialLayout
+MdlConfig materialLayoutConfig() => new MdlWidgetConfig<MaterialLayout>(
+    "mdl-js-layout", (final html.HtmlElement element) => new MaterialLayout.fromElement(element));
 
 /// registration-Helper
 void registerMaterialLayout() => componenthandler.register(materialLayoutConfig());
 
-class MaterialLayout extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialLayout');
+class MaterialLayout extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialLayout');
 
     static const _MaterialLayoutConstant _constant = const _MaterialLayoutConstant();
     static const _MaterialLayoutCssClasses _cssClasses = const _MaterialLayoutCssClasses();
@@ -86,7 +86,7 @@ class MaterialLayout extends WskComponent {
         _init();
     }
 
-    static MaterialLayout widget(final html.HtmlElement element) => wskComponent(element) as MaterialLayout;
+    static MaterialLayout widget(final html.HtmlElement element) => mdlComponent(element) as MaterialLayout;
 
     html.HtmlElement get header {
         if(_header == null) { _header = element.querySelector('.' + _cssClasses.HEADER); }
@@ -121,7 +121,7 @@ class MaterialLayout extends WskComponent {
         if (element != null) {
 
             final html.DivElement container = new html.DivElement();
-            container.classes.add('wsk-layout__container');
+            container.classes.add('mdl-layout__container');
             element.parent.insertBefore(container, element);
             element.remove(); // element.parent.removeChild (element);
             container.append(element);
@@ -354,7 +354,7 @@ class MaterialLayout extends WskComponent {
 
 class MaterialLayoutTab {
 
-    final html.Element tab;  // using Element instead of AnchorElement makes wsk-layout-tab-Tag with href attrib possible
+    final html.Element tab;  // using Element instead of AnchorElement makes mdl-layout-tab-Tag with href attrib possible
     final List<html.AnchorElement> tabs;
     final List<html.HtmlElement> panels;
     final MaterialLayout layout;

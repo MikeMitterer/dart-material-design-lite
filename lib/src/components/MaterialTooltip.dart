@@ -1,4 +1,4 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -14,15 +14,15 @@ class _MaterialTooltipConstant {
     const _MaterialTooltipConstant();
 }
 
-/// creates WskConfig for MaterialButton
-WskConfig materialTooltipConfig() => new WskWidgetConfig<MaterialTooltip>(
-    "wsk-tooltip", (final html.HtmlElement element) => new MaterialTooltip.fromElement(element));
+/// creates MdlConfig for MaterialButton
+MdlConfig materialTooltipConfig() => new MdlWidgetConfig<MaterialTooltip>(
+    "mdl-tooltip", (final html.HtmlElement element) => new MaterialTooltip.fromElement(element));
 
 /// registration-Helper
 void registerMaterialTooltip() => componenthandler.register(materialTooltipConfig());
 
-class MaterialTooltip extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialTooltip');
+class MaterialTooltip extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialTooltip');
 
     static const _MaterialTooltipConstant _constant = const _MaterialTooltipConstant();
     static const _MaterialTooltipCssClasses _cssClasses = const _MaterialTooltipCssClasses();
@@ -33,7 +33,7 @@ class MaterialTooltip extends WskComponent {
         _init();
     }
 
-    static MaterialTooltip widget(final html.HtmlElement element) => wskComponent(element) as MaterialTooltip;
+    static MaterialTooltip widget(final html.HtmlElement element) => mdlComponent(element) as MaterialTooltip;
 
     //- private -----------------------------------------------------------------------------------
 

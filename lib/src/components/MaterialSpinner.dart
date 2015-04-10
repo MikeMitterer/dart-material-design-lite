@@ -1,16 +1,16 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialSpinnerCssClasses {
 
-    final String SPINNER_LAYER = 'wsk-spinner__layer';
-    final String SPINNER_CIRCLE_CLIPPER = 'wsk-spinner__circle-clipper';
-    final String SPINNER_CIRCLE = 'wsk-spinner__circle';
-    final String SPINNER_GAP_PATCH = 'wsk-spinner__gap-patch';
-    final String SPINNER_LEFT = 'wsk-spinner__left';
-    final String SPINNER_RIGHT = 'wsk-spinner__right';
+    final String SPINNER_LAYER = 'mdl-spinner__layer';
+    final String SPINNER_CIRCLE_CLIPPER = 'mdl-spinner__circle-clipper';
+    final String SPINNER_CIRCLE = 'mdl-spinner__circle';
+    final String SPINNER_GAP_PATCH = 'mdl-spinner__gap-patch';
+    final String SPINNER_LEFT = 'mdl-spinner__left';
+    final String SPINNER_RIGHT = 'mdl-spinner__right';
 
     final String IS_UPGRADED = 'is-upgraded';
     final String IS_ACTIVE = 'is-active';
@@ -25,15 +25,15 @@ class _MaterialSpinnerConstant {
     const _MaterialSpinnerConstant();
 }
 
-/// creates WskConfig for MaterialSpinner
-WskConfig materialSpinnerConfig() => new WskWidgetConfig<MaterialSpinner>(
-    "wsk-js-spinner", (final html.HtmlElement element) => new MaterialSpinner.fromElement(element));
+/// creates MdlConfig for MaterialSpinner
+MdlConfig materialSpinnerConfig() => new MdlWidgetConfig<MaterialSpinner>(
+    "mdl-js-spinner", (final html.HtmlElement element) => new MaterialSpinner.fromElement(element));
 
 /// registration-Helper
 void registerMaterialSpinner() => componenthandler.register(materialSpinnerConfig());
 
-class MaterialSpinner extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialSpinner');
+class MaterialSpinner extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialSpinner');
 
     static const _MaterialSpinnerConstant _constant = const _MaterialSpinnerConstant();
     static const _MaterialSpinnerCssClasses _cssClasses = const _MaterialSpinnerCssClasses();
@@ -42,7 +42,7 @@ class MaterialSpinner extends WskComponent {
         _init();
     }
 
-    static MaterialSpinner widget(final html.HtmlElement element) => wskComponent(element) as MaterialSpinner;
+    static MaterialSpinner widget(final html.HtmlElement element) => mdlComponent(element) as MaterialSpinner;
 
     /**
     * Stops the spinner animation.

@@ -1,18 +1,18 @@
-part of wskcomponents;
+part of mdlcomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialTabsCssClasses {
-    final String TAB_CLASS = 'wsk-tabs__tab';
-    final String PANEL_CLASS = 'wsk-tabs__panel';
+    final String TAB_CLASS = 'mdl-tabs__tab';
+    final String PANEL_CLASS = 'mdl-tabs__panel';
     final String ACTIVE_CLASS = 'is-active';
     final String UPGRADED_CLASS = 'is-upgraded';
 
-    final String WSK_JS_RIPPLE_EFFECT = 'wsk-js-ripple-effect';
-    final String WSK_RIPPLE_CONTAINER = 'wsk-tabs__ripple-container';
-    final String WSK_RIPPLE = 'wsk-ripple';
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'wsk-js-ripple-effect--ignore-events';
+    final String MDL_JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String MDL_RIPPLE_CONTAINER = 'mdl-tabs__ripple-container';
+    final String MDL_RIPPLE = 'mdl-ripple';
+    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
     const _MaterialTabsCssClasses();
 }
 
@@ -21,15 +21,15 @@ class _MaterialTabsConstant {
     const _MaterialTabsConstant();
 }
 
-/// creates WskConfig for MaterialTabs
-WskConfig materialTabsConfig() => new WskWidgetConfig<MaterialTabs>(
-    "wsk-js-tabs", (final html.HtmlElement element) => new MaterialTabs.fromElement(element));
+/// creates MdlConfig for MaterialTabs
+MdlConfig materialTabsConfig() => new MdlWidgetConfig<MaterialTabs>(
+    "mdl-js-tabs", (final html.HtmlElement element) => new MaterialTabs.fromElement(element));
 
 /// registration-Helper
 void registerMaterialTabs() => componenthandler.register(materialTabsConfig());
 
-class MaterialTabs extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialTabs');
+class MaterialTabs extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialTabs');
 
     static const _MaterialTabsConstant _constant = const _MaterialTabsConstant();
     static const _MaterialTabsCssClasses _cssClasses = const _MaterialTabsCssClasses();
@@ -41,7 +41,7 @@ class MaterialTabs extends WskComponent {
         _init();
     }
 
-    static MaterialTabs widget(final html.HtmlElement element) => wskComponent(element) as MaterialTabs;
+    static MaterialTabs widget(final html.HtmlElement element) => mdlComponent(element) as MaterialTabs;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -56,8 +56,8 @@ class MaterialTabs extends WskComponent {
     /// Handle clicks to a tabs component
     void _initTabs() {
 
-        if (element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT)) {
-            element.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+        if (element.classes.contains(_cssClasses.MDL_JS_RIPPLE_EFFECT)) {
+            element.classes.add(_cssClasses.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
         }
 
         // Select element tabs, document panels
@@ -98,14 +98,14 @@ class MaterialTab {
     MaterialTab(this.tab,this.ctx) {
 
         if (tab != null) {
-            if (ctx.element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT)) {
+            if (ctx.element.classes.contains(_cssClasses.MDL_JS_RIPPLE_EFFECT)) {
 
                 final html.SpanElement rippleContainer = new html.SpanElement();
-                rippleContainer.classes.add(_cssClasses.WSK_RIPPLE_CONTAINER);
-                rippleContainer.classes.add(_cssClasses.WSK_JS_RIPPLE_EFFECT);
+                rippleContainer.classes.add(_cssClasses.MDL_RIPPLE_CONTAINER);
+                rippleContainer.classes.add(_cssClasses.MDL_JS_RIPPLE_EFFECT);
 
                 final html.SpanElement ripple = new html.SpanElement();
-                ripple.classes.add(_cssClasses.WSK_RIPPLE);
+                ripple.classes.add(_cssClasses.MDL_RIPPLE);
                 rippleContainer.append(ripple);
                 tab.append(rippleContainer);
             }

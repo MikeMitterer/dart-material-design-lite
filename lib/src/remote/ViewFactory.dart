@@ -1,7 +1,7 @@
-part of wskremote;
+part of mdlremote;
 
 class ViewFactory {
-    final Logger _logger = new Logger('wskremote.ViewFactory');
+    final Logger _logger = new Logger('mdlremote.ViewFactory');
 
     RouteEnterEventHandler call(final String url, final MaterialController controller, { final String selector: "#main"}) {
         return (final RouteEnterEvent event) => _enterHandler(event, url, controller, selector);

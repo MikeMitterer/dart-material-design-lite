@@ -1,15 +1,15 @@
-part of wskremote;
+part of mdlremote;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialContentCssClasses {
 
-    final String DYN_CONTENT    = 'wsk-content__adding_content';
+    final String DYN_CONTENT    = 'mdl-content__adding_content';
 
-    final String LAODING        = 'wsk-content__loading';
+    final String LAODING        = 'mdl-content__loading';
 
-    final String LAODED         = 'wsk-content__loaded';
+    final String LAODED         = 'mdl-content__loaded';
 
     final String IS_UPGRADED = 'is-upgraded';
 
@@ -22,11 +22,11 @@ class _MaterialContentConstant {
 }
 
 /// registration-Helper
-void registerMaterialContent() => componenthandler.register(new WskWidgetConfig<MaterialContent>(
-    "wsk-js-content", (final html.HtmlElement element) => new MaterialContent.fromElement(element)));
+void registerMaterialContent() => componenthandler.register(new MdlWidgetConfig<MaterialContent>(
+    "mdl-js-content", (final html.HtmlElement element) => new MaterialContent.fromElement(element)));
 
-class MaterialContent extends WskComponent {
-    final Logger _logger = new Logger('wskcomponents.MaterialContent');
+class MaterialContent extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialContent');
 
     static const _MaterialContentConstant _constant = const _MaterialContentConstant();
     static const _MaterialContentCssClasses _cssClasses = const _MaterialContentCssClasses();
@@ -35,9 +35,9 @@ class MaterialContent extends WskComponent {
         _init();
     }
 
-    static MaterialContent widget(final html.HtmlElement element) => wskComponent(element) as MaterialContent;
+    static MaterialContent widget(final html.HtmlElement element) => mdlComponent(element) as MaterialContent;
 
-    // Central Element - by default this is where wsk-js-content was found (element)
+    // Central Element - by default this is where mdl-js-content was found (element)
     // html.Element get hub => inputElement;
 
     Future setContent(final String content) {
