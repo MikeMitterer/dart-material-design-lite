@@ -1,5 +1,19 @@
 part of mdlcore;
 
+/// Store strings for class names defined by this component that are used in Dart.
+class _MdlComponentHandlerCssClasses {
+
+    final String UPGRADING = "mdl-upgrading";
+
+    final Stirng UPGRADED = "mdl-upgraded";
+
+    final String HTML_JS = "mdl-js";
+
+    final String HTML_DART = "mdl-dart";
+
+    const _MdlComponentHandlerCssClasses();
+}
+
 /**
  * A component handler interface using the revealing module design pattern.
  * More details on this pattern design here:
@@ -10,6 +24,8 @@ part of mdlcore;
  */
 class MdlComponentHandler {
     final Logger _logger = new Logger('mdlcore.ComponentHandler');
+
+    static const _MdlComponentHandlerCssClasses _cssClasses = const _MdlComponentHandlerCssClasses();
 
     final Map<String, MdlConfig> _registeredComponents = new HashMap<String, MdlConfig>();
 
@@ -56,10 +72,10 @@ class MdlComponentHandler {
      */
     Future upgradeAllRegistered() {
         html.querySelector("html")
-            ..classes.add("mdl-js")
-            ..classes.add("mdl-dart");
+            ..classes.add(_cssClasses.HTML_JS)
+            ..classes.add(_cssClasses.HTML_DART);
 
-        html.querySelector("body").classes.add("mdl-upgrading");
+        html.querySelector("body").classes.add(_cssClasses.UPGRADING);
 
         final Future future = new Future(() {
 
@@ -74,8 +90,8 @@ class MdlComponentHandler {
                 _logger.fine("${config.cssClass} upgraded with ${config.classAsString}...");
             });
 
-            html.querySelector("body").classes.remove("mdl-upgrading");
-            html.querySelector("html").classes.add("mdl-upgraded");
+            html.querySelector("body").classes.remove(_cssClasses.UPGRADING);
+            html.querySelector("html").classes.add(_cssClasses.UPGRADED);
             _logger.info("All components are upgraded...");
 
         });
@@ -96,8 +112,8 @@ class MdlComponentHandler {
             _upgradeElement(element,config);
         });
 
-        element.classes.add("mdl-upgraded");
-        element.classes.remove("mdl-upgrading");
+        element.classes.add(_cssClasses.UPGRADED);
+        element.classes.remove(_cssClasses.UPGRADING);
     }
 
     //- private -----------------------------------------------------------------------------------

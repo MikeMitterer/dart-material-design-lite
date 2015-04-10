@@ -1,8 +1,8 @@
-name: wsk_material_list_sample
-description: WSK Sample 'list' - Material Design
+name: mdl_list_sample
+description: Material Design Light 'list' Sample
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-wsk-material
+homepage: https://github.com/MikeMitterer/dart-mdl
 
 dependencies:
   browser: any
@@ -17,7 +17,7 @@ dependencies:
   console_log_handler: any
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
-  wsk_material:
+  mdl:
     path: ../../
 
 
