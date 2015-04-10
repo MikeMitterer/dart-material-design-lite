@@ -22,11 +22,39 @@
 
 <body class="demo-page demo-page--content wsk-upgrading">
 <div class="loading">Loading...</div>
-
+<div class="menu">
+    <a href="#/test">Test</a> | <a href="#/test2">Test II</a> | <a href="#/slider">Slider</a> | <a href="#/error">Error</a>
+</div>
 <div class="demo-preview-block demo-content">
     <div id="main" class="wsk-content wsk-js-content">
         Temp
     </div>
+</div>
+
+<div class="demo-preview-block">
+    <p>I am your main content - I live in index.html</p>
+    <p>
+        <input class="wsk-slider wsk-js-slider" type="range"
+               min="0" max="100" value="0" tabindex="0" id="mainslider1"/>
+    </p>
+
+    <p>
+        <input class="wsk-slider wsk-js-slider" type="range"
+               min="0" max="100" value="10" tabindex="0" id="mainslider2"/>
+    </p>
+
+    <p>
+        <input class="wsk-slider wsk-js-slider" type="range"
+               min="0" max="100" value="0" tabindex="0" disabled id="mainslider3"/>
+    </p>
+
+    <p>
+        <input class="wsk-slider wsk-js-slider" type="range"
+               min="0" max="100" value="10" tabindex="0" disabled id="mainslider4"/>
+    </p>
+    <p>Try to drag the second slider. Click on <a href="#/slider">Slider</a> and you'll see how the dynamically loaded
+    slider.html reflects your changes in the main model! If the "Slider sample" is loaded drag one of the blue sliders.
+    They return their value to the main model and you'll see all three sliders moving.</p>
 </div>
 <!-- build:js(app/styleguide/animation/) ../../scripts/main.min.js -->
 <!-- <script src="../wskComponentHandler.js"></script> -->

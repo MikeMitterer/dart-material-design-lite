@@ -1,4 +1,4 @@
-part of wskcomponents;
+part of wskremote;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we

@@ -16,6 +16,8 @@ dependencies:
   console_log_handler: ">=0.1.4 <0.2.0"
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
+  route_hierarchical: ">=0.6.1+1 <0.7.0"
+
 dev_dependencies:
   unittest: any
   args: any
