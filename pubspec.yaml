@@ -2,7 +2,7 @@ name: mdl
 description: Material Design Light for your Web-Application
 version: 0.8.2
 author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-wsk-material
+homepage: https://github.com/MikeMitterer/dart-mdl
 
 dependencies:
   browser: ">=0.10.0+2 <0.11.0"
