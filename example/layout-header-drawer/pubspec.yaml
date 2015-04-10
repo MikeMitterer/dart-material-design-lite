@@ -10,7 +10,7 @@ environment:
 dependencies:
   browser: any
 
-  wsk_material:
+  mdl:
     path: ../..
 
   logging: any

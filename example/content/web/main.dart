@@ -4,8 +4,8 @@ import "dart:async";
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:wsk_material/wskcomponets.dart';
-import 'package:wsk_material/wskremote.dart';
+import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdlremote.dart';
 
 import 'package:route_hierarchical/client.dart';
 

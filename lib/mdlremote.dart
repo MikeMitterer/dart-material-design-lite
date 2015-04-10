@@ -7,8 +7,8 @@ import 'package:logging/logging.dart';
 import 'package:browser_detect/browser_detect.dart';
 import 'package:route_hierarchical/client.dart';
 
-import 'package:wsk_material/wskcore.dart';
-import 'package:wsk_material/wskcomponets.dart';
+import 'package:mdl/mdlcore.dart';
+import 'package:mdl/mdlcomponets.dart';
 
 part "src/remote/ViewFactory.dart";
 part "src/remote/MaterialContent.dart";

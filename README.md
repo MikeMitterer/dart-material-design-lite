@@ -1,16 +1,16 @@
-# Web Starter Kit - Material Design Light
+# Material Design Light for Dart
 
-A port of Googles Web Starter Kit (Material branch) to Dart<br>
-You can find the original version here on [GitHub][wskmaterial].
+A port of Googles Material Design Light to Dart<br>
+You can find the original version here on [GitHub][mdlmaterial].
 
-Web Starter Kit strives to give you a high performance starting point out of the box
+Material Design Light strives to give you a high performance starting point out of the box
 Responsive layout is included with the kit that adapts to fit the device your user is viewing it on. 
 
-[Demo][wskdemo] (transpiled JS-Version)
+[Demo][mdldemo] (transpiled JS-Version)
 
-[![ScreenShot][promoimage]][wskdemo]
+[![ScreenShot][promoimage]][mdldemo]
 
-If you work with AngularDart the [wsk-angular-Version][wskangular] could be interesting for you.
+If you work with AngularDart the [mdl-angular-Version][mdlangular] could be interesting for you.
 
 ## Usage
 
@@ -49,11 +49,11 @@ If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.
 or **star** this repo here on GitHub.
 
 
-[tracker]: https://github.com/MikeMitterer/dart-wsk-material/issues
-[wskmaterial]: https://github.com/google/web-starter-kit/tree/material-sprint
-[wskdemo]: http://wsk.mikemitterer.at/
-[wskangular]: https://github.com/MikeMitterer/dart-wsk-angular
-[themingsample]: https://github.com/MikeMitterer/dart-wsk-angular/tree/master/example/styleguide/assets/scss
-[samples]: https://github.com/MikeMitterer/dart-wsk-material/tree/master/example
-[promoimage]: https://github.com/MikeMitterer/dart-wsk-material/blob/master/lib/images/wsk.mikemitterer.at-720px.jpg?raw=true
+[tracker]: https://github.com/MikeMitterer/dart-mdl-material/issues
+[mdlmaterial]: https://github.com/google/material-design-lite
+[mdldemo]: http://mdl.mikemitterer.at/
+[mdlangular]: https://github.com/MikeMitterer/dart-mdl-angular
+[themingsample]: https://github.com/MikeMitterer/dart-mdl-angular/tree/master/example/styleguide/assets/scss
+[samples]: https://github.com/MikeMitterer/dart-mdl/tree/master/example
+[promoimage]: https://github.com/MikeMitterer/dart-mdl/blob/master/lib/images/mdl.mikemitterer.at-720px.jpg?raw=true
 

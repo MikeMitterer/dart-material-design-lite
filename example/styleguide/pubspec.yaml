@@ -1,5 +1,5 @@
-name: wsk_material_styleguide
-description: WSK Sample 'styleguide' - Material Design
+name: mdl_styleguide
+description: MDL Sample 'styleguide' - Material Design
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-material
@@ -17,7 +17,7 @@ dependencies:
   console_log_handler: any
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
-  wsk_material:
+  mdl:
     path: ../../
 
 

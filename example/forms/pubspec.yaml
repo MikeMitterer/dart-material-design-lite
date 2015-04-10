@@ -1,5 +1,5 @@
-name: wsk_material_forms_sample
-description: WSK Sample 'forms' - Material Design
+name: mdl_forms_sample
+description: MDL Sample 'forms' - Material Design
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-material
@@ -16,7 +16,7 @@ dependencies:
   logging_handlers: any
   console_log_handler: any
 
-  wsk_material:
+  mdl:
     path: ../../
 
 
