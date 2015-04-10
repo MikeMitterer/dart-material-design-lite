@@ -3229,6 +3229,205 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
+/* Animation Variables */
+/* Accordion */
+mdl-accordion-group, mdl-accordion {
+  display: block; }
+
+mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
+  border-top: 1px solid #ddd; }
+
+/* Basic Accordion Styles */
+.mdl-accordion-group .mdl-accordion {
+  /* For Demo Positioning Only */
+  /* Labels */
+  /* Panel Content */ }
+  .mdl-accordion-group .mdl-accordion input[name^='mdl-accordion'] {
+    display: none; }
+  .mdl-accordion-group .mdl-accordion label {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 48px;
+    padding-left: 16px;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+            transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
+    .debug .mdl-accordion-group .mdl-accordion label {
+      border: 1px solid red; }
+    .mdl-accordion-group .mdl-accordion label:hover {
+      color: black; }
+    .mdl-accordion-group .mdl-accordion label i.indicator {
+      position: absolute;
+      top: 20.8px;
+      right: 16px;
+      -webkit-transition: 0.3s ease-in-out;
+              transition: 0.3s ease-in-out;
+      font-weight: 100;
+      font-size: 60%;
+      color: rgba(0, 0, 0, 0.6); }
+      .debug .mdl-accordion-group .mdl-accordion label i.indicator {
+        border: 1px solid green; }
+    .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container {
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      overflow: hidden; }
+      .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container .mdl-ripple {
+        background: rgb(63,81,181); }
+  .mdl-accordion-group .mdl-accordion input:checked + label {
+    color: black; }
+    .mdl-accordion-group .mdl-accordion input:checked + label i.indicator {
+      -webkit-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+              transform: rotate(90deg);
+      -webkit-transition: 0.3s ease-in-out;
+              transition: 0.3s ease-in-out;
+      color: rgb(63,81,181); }
+      .debug .mdl-accordion-group .mdl-accordion input:checked + label i.indicator {
+        border: 1px solid red; }
+  .mdl-accordion-group .mdl-accordion .mdl-accordion--content {
+    overflow: auto;
+    max-height: 0;
+    position: relative;
+    padding: 0 16px;
+    -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+            transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
+    .mdl-accordion-group .mdl-accordion .mdl-accordion--content .mdl-accordion--header {
+      padding: 8px 0;
+      color: rgba(0, 0, 0, 0.8);
+      margin: 0; }
+    .mdl-accordion-group .mdl-accordion .mdl-accordion--content .mdl-accordion--body {
+      padding: 0;
+      color: rgba(0, 0, 0, 0.6); }
+
+input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
+  max-height: 1500px;
+  border-bottom: 1px solid #ddd;
+  -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+          transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
+
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
 .mdl-color-text--red {
   color: rgb(244,67,54); }
 

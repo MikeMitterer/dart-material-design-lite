@@ -1,7 +1,4 @@
-@import "../typography/typography";
-@import "../colors";
-@import "../shadow/_shadow";
-@import "../ripple/ripple";
+@import "../variables";
 
 // MasterSample: http://codepen.io/MikeMitterer/pen/yyjKPd
 
@@ -21,26 +18,26 @@ $accordion-label-font-size: 16px !default;
 $accordion-padding: 16px !default;
 
 /* Accordion */
-wsk-accordion-group, wsk-accordion {
+mdl-accordion-group, mdl-accordion {
     display: block;
 }
 
-wsk-accordion-group {
-    wsk-accordion:first-of-type {
-        .wsk-accordion {
+mdl-accordion-group {
+    mdl-accordion:first-of-type {
+        .mdl-accordion {
             border-top: 1px solid $accordion-divider-color;
         }
     }
 }
 /* Basic Accordion Styles */
-.wsk-accordion-group {
+.mdl-accordion-group {
 
-    .wsk-accordion {
+    .mdl-accordion {
         /* For Demo Positioning Only */
         // width: 50%;
         // margin: 20px;
 
-        input[name^='wsk-accordion'] {
+        input[name^='mdl-accordion'] {
             display: none;
         }
 
@@ -83,7 +80,7 @@ wsk-accordion-group {
                 .debug & { border: 1px solid green; }
             }
 
-            .wsk-accordion__ripple-container {
+            .mdl-accordion__ripple-container {
                 display: block;
                 position: absolute;
                 height: 100%;
@@ -93,7 +90,7 @@ wsk-accordion-group {
                 z-index: 1;
                 overflow: hidden;
 
-                & .wsk-ripple {
+                & .mdl-ripple {
                     background: $tab-highlight-color;
                 }
             }
@@ -112,7 +109,7 @@ wsk-accordion-group {
         }
 
         /* Panel Content */
-        .wsk-accordion--content {
+        .mdl-accordion--content {
             overflow: auto;
             max-height: 0;
 
@@ -120,13 +117,13 @@ wsk-accordion-group {
             padding: 0 $accordion-padding;
             transition: max-height $accordion-timing $accordion-ease;
 
-            .wsk-accordion--header {
+            .mdl-accordion--header {
                 padding: ($accordion-padding / 2) 0;
                 color: $accordion-header-color;
                 margin: 0;
             }
 
-            .wsk-accordion--body {
+            .mdl-accordion--body {
                 padding: 0;
                 color: $accordion-text-color;
                 //font-size: .825em;
@@ -137,7 +134,7 @@ wsk-accordion-group {
 }
 
 
-input[name^='wsk-accordion']:checked ~ .wsk-accordion--content {
+input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     max-height: 1500px;
     border-bottom: 1px solid $accordion-divider-color;
     transition: max-height $accordion-timing $accordion-ease;

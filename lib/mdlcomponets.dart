@@ -29,7 +29,7 @@ part "src/components/MaterialTooltip.dart";
 
 final MdlComponentHandler componenthandler = new MdlComponentHandler();
 
-void registerAllWskComponents() {
+void registerAllMdlComponents() {
 
     registerMaterialAccordion();
     registerMaterialBadge();
