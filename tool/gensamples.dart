@@ -20,6 +20,7 @@ class Application {
     static const _ARG_LOGLEVEL      = 'loglevel';
     static const _ARG_SETTINGS      = 'settings';
     static const _ARG_GENERATE      = 'gen';
+    static const _ARG_GEN_STYLEGUIDE    = 'genstyleguide';
     static const _ARG_GENINDEX      = 'genindex';
     static const _ARG_MK_BACKUP     = 'makebackup';
     static const _ARG_SHOW_DIRS     = 'showdirs';
@@ -45,6 +46,13 @@ class Application {
             else if(argResults[_ARG_SHOW_DIRS]) {
                 _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final Directory dir) {
                     _logger.info(dir.path);
+                });
+            }
+            else if(argResults[_ARG_GEN_STYLEGUIDE]) {
+                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final Directory dir) {
+                    final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
+                    _copyDemoCss(sampleName, dir,config.samplesdir);
+                    _copySampleView(sampleName, dir,config.samplesdir);
                 });
             }
             else if(argResults[_ARG_GENERATE]) {
@@ -198,6 +206,74 @@ class Application {
 
 
     // -- private -------------------------------------------------------------
+
+    /// {sassDir} -> lib/sass/accordion
+    void _copyDemoCss(final String sampleName,final Directory sassDir,final String samplesDir) {
+        Validate.notBlank(sampleName);
+        Validate.notNull(sassDir);
+        Validate.notBlank(samplesDir);
+
+        final File srcScss = new File("${sassDir.path}/demo.scss");
+        final Directory targetScssDir = new Directory("${samplesDir}/styleguide/web/assets/styles/_demo");
+        final File targetScss = new File("${targetScssDir.path}/_${sampleName}.scss");
+
+        if(!srcScss.existsSync()) {
+            return;
+        }
+
+        if(!targetScssDir.existsSync()) {
+            targetScssDir.createSync(recursive: true);
+        }
+
+        _logger.info("$sampleName: ${srcScss.path} -> ${targetScss.path}");
+
+        String content = srcScss.readAsStringSync();
+        content = content.replaceAll(new RegExp(r"@import[^;]*;(\n|\r)*",caseSensitive: false, multiLine: true),"");
+
+        targetScss.writeAsStringSync(content);
+    }
+
+    void _copySampleView(final String sampleName,final Directory sassDir,final String samplesDir) {
+        Validate.notBlank(sampleName);
+        Validate.notNull(sassDir);
+        Validate.notBlank(samplesDir);
+
+        final File srcSample = new File("${sassDir.path}/demo.html");
+        final Directory targetSampleDir = new Directory("${samplesDir}/styleguide/web/views");
+        final File targetSample = new File("${targetSampleDir.path}/${sampleName}.html");
+
+        if(!srcSample.existsSync()) {
+            return;
+        }
+
+        if(!targetSampleDir.existsSync()) {
+            targetSampleDir.createSync(recursive: true);
+        }
+
+        _logger.info("$sampleName: ${srcSample.path} -> ${targetSample.path}");
+
+        String content = srcSample.readAsStringSync();
+
+        content = content.replaceFirstMapped(
+            new RegExp(
+                r"(?:.|\n|\r)*" +
+                r"<body[^>]*>([^<]*(?:(?!<\/?body)<[^<]*)*)<\/body[^>]*>" +
+                r"(?:.|\n|\r)*",
+                multiLine: true, caseSensitive: false),
+                (final Match m) {
+
+                return '${m[1]}';
+            });
+
+        content = content.replaceAll(new RegExp(r"<script[^>]*>.*</script>(?:\n|\r)*",caseSensitive: false, multiLine: true),"");
+        content = content.replaceAll(new RegExp(r"^<!--[^>]*>.*(?:\n|\r)*",caseSensitive: false, multiLine: true),"");
+
+        content = content.replaceAll(new RegExp(r"^",caseSensitive: false, multiLine: true),"    ");
+        content = '<section class="demo-section demo-section--$sampleName">$content\n</section>';
+
+        targetSample.writeAsStringSync(content);
+    }
+
     void _copySubdirs(final File sourceDir, final File targetDir, { int level: 0 } ) {
         Validate.notNull(sourceDir);
         Validate.notNull(targetDir);
@@ -646,6 +722,7 @@ class Application {
             ..addFlag(_ARG_HELP,            abbr: 'h', negatable: false, help: "Shows this message")
             ..addFlag(_ARG_SETTINGS,        abbr: 's', negatable: false, help: "Prints settings")
             ..addFlag(_ARG_GENERATE,        abbr: 'g', negatable: false, help: "Generate samples")
+            ..addFlag(_ARG_GEN_STYLEGUIDE,  abbr: 'y', negatable: false, help: "Generate styleguide")
             ..addFlag(_ARG_GENINDEX,        abbr: 'i', negatable: false, help: "Generate localindex.html")
             ..addFlag(_ARG_MK_BACKUP,       abbr: 'b', negatable: false, help: "Make backup")
             ..addFlag(_ARG_SHOW_DIRS,       abbr: 'd', negatable: false, help: "Show source-Dirs")

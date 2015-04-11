@@ -14,6 +14,12 @@ class ViewFactory {
                        final MaterialController controller, final String selector) {
 
         final html.HttpRequest request = new html.HttpRequest();
+        final html.Element contentElement = html.querySelector(selector);
+
+        if(contentElement == null) {
+            _logger.severe('Please add <div id="main" class="mdl-content mdl-js-content">Loading...</div> to your index.html');
+            return;
+        }
 
         request.open("GET", url);
         request.onLoadEnd.listen((final html.ProgressEvent progressevent) {
@@ -22,7 +28,7 @@ class ViewFactory {
             if (request.readyState == html.HttpRequest.DONE) {
 
                 final String content = _sanitizeResponseText(request.responseText);
-                final MaterialContent main = MaterialContent.widget(html.querySelector(selector));
+                final MaterialContent main = MaterialContent.widget(contentElement);
 
                 main.setContent(content).then((_) => controller.loaded(event.route));
             }
