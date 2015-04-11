@@ -5,6 +5,8 @@ import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdldemo.dart';
+
 import 'package:mdl/mdlremote.dart';
 
 import 'package:route_hierarchical/client.dart';
@@ -52,6 +54,10 @@ main() {
 
     registerAllMdlComponents();
     registerAllMdlRemoteComponents();
+
+    // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
+    registerDemoAnimation();
+
 
     upgradeAllRegistered().then((_) {
 

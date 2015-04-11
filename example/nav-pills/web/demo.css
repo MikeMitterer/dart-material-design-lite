@@ -10897,10 +10897,10 @@ form.wsk-form {
       color: rgba(0,0,0,.87);
       background-color: white; }
 
-.nav-pills.sample .testblock {
+.demo-page--nav-pills .testblock, .demo-section--nav-pills .testblock {
   background-color: whitesmoke;
   border: 1px solid darkgrey;
   padding: 8px 16px;
   margin: 4px 0; }
-.nav-pills.sample ul {
+.demo-page--nav-pills ul, .demo-section--nav-pills ul {
   margin-bottom: 8px; }

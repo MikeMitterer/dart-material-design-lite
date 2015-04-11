@@ -584,13 +584,13 @@ class Application {
         lines.forEach((final String line) {
             if(line.contains(new RegExp("@import [\"']{1}\\\.{2}"))) {
                 final String newline = line.replaceAllMapped(new RegExp("@import ([\"']){1}\\\.{2}/"),
-                (final Match m) => "@import ${m[1]}packages/mdl/sass/");
+                (final Match m) => "@import ${m[1]}packages/mdl/assets/styles/");
 
                 contents.writeln(newline);
 
             } else if(line.contains(new RegExp("@import [\"']{1}"))) {
                 final String newline = line.replaceAllMapped(new RegExp("@import ([\"']){1}"),
-                    (final Match m) => "@import ${m[1]}packages/mdl/sass/$sampleName/");
+                    (final Match m) => "@import ${m[1]}packages/mdl/assets/styles/$sampleName/");
 
                 contents.writeln(newline);
             }
@@ -791,7 +791,7 @@ class Config {
 
     Config(this._argResults) {
 
-        _settings[_KEY_SASS_DIR]            = 'lib/sass';
+        _settings[_KEY_SASS_DIR]            = 'lib/assets/styles';
         _settings[_KEY_SAMPLES_DIR]         = 'example';
         _settings[_KEY_LOGLEVEL]            = 'info';
         _settings[_KEY_MK_BACKUP]           = false;

@@ -10897,5 +10897,5 @@ form.wsk-form {
       color: rgba(0,0,0,.87);
       background-color: white; }
 
-.demo-page--panel .wsk-panel {
+.demo-page--panel .wsk-panel, .demo-section--panel .wsk-panel {
   margin-bottom: 12px; }

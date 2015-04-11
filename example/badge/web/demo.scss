@@ -1,4 +1,4 @@
-@import "packages/mdl/sass/material-design-lite";
+@import "packages/mdl/assets/styles/material-design-lite";
 
 body {
     background : #fff;
@@ -6,7 +6,7 @@ body {
 }
 
 
-.demo-badge {
+.demo-page--badge, .demo-section--badge {
     section {
         h5 {
             margin-bottom: 15px;

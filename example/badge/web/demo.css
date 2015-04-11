@@ -10901,11 +10901,11 @@ body {
   background: #fff;
   padding: 24px; }
 
-.demo-badge section {
+.demo-page--badge section, .demo-section--badge section {
   margin-bottom: 30px; }
-  .demo-badge section h5 {
+  .demo-page--badge section h5, .demo-section--badge section h5 {
     margin-bottom: 15px; }
-.demo-badge div.toolbar {
+.demo-page--badge div.toolbar, .demo-section--badge div.toolbar {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10933,7 +10933,7 @@ body {
   padding: 10px 10px 0 10px;
   height: 40px;
   border-radius: 5px; }
-  .demo-badge div.toolbar .wrapper {
+  .demo-page--badge div.toolbar .wrapper, .demo-section--badge div.toolbar .wrapper {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
@@ -10961,7 +10961,7 @@ body {
     -webkit-align-items: flex-start;
         -ms-flex-align: start;
             align-items: flex-start; }
-    .demo-badge div.toolbar .wrapper .icon {
+    .demo-page--badge div.toolbar .wrapper .icon, .demo-section--badge div.toolbar .wrapper .icon {
       background-color: transparent;
       border: none;
       display: inline-block;
@@ -10972,30 +10972,30 @@ body {
       padding: 0;
       position: relative;
       width: 21px; }
-      .demo-badge div.toolbar .wrapper .icon.mdl-badge {
+      .demo-page--badge div.toolbar .wrapper .icon.mdl-badge, .demo-section--badge div.toolbar .wrapper .icon.mdl-badge {
         opacity: 1; }
-      .demo-badge div.toolbar .wrapper .icon:hover {
+      .demo-page--badge div.toolbar .wrapper .icon:hover, .demo-section--badge div.toolbar .wrapper .icon:hover {
         opacity: 1; }
-.demo-badge .links {
+.demo-page--badge .links, .demo-section--badge .links {
   margin-top: 25px; }
-  .demo-badge .links a {
+  .demo-page--badge .links a, .demo-section--badge .links a {
     text-decoration: none;
     font-weight: normal;
     margin-top: 10px; }
-  .demo-badge .links .dark {
+  .demo-page--badge .links .dark, .demo-section--badge .links .dark {
     display: block;
     border-radius: 5px;
     margin: 5px 0;
     padding: 15px;
     background-color: rgb(63,81,181); }
-    .demo-badge .links .dark a {
+    .demo-page--badge .links .dark a, .demo-section--badge .links .dark a {
       color: white; }
-  .demo-badge .links .fontawsom {
+  .demo-page--badge .links .fontawsom, .demo-section--badge .links .fontawsom {
     margin-top: 25px; }
-    .demo-badge .links .fontawsom a, .demo-badge .links .fontawsom a:visited {
+    .demo-page--badge .links .fontawsom a, .demo-page--badge .links .fontawsom a:visited, .demo-section--badge .links .fontawsom a, .demo-section--badge .links .fontawsom a:visited {
       color: black; }
-    .demo-badge .links .fontawsom i.fa {
+    .demo-page--badge .links .fontawsom i.fa, .demo-section--badge .links .fontawsom i.fa {
       font-size: 20px;
       margin-right: 3px; }
-.demo-badge .button-block {
+.demo-page--badge .button-block, .demo-section--badge .button-block {
   padding: 10px; }
