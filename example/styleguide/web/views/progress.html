@@ -1,0 +1,35 @@
+<section class="demo-section demo-section--progress">    
+    
+      <div class="demo-preview-block">
+    
+        <p>
+          Default:
+          <div id="p1" class="wsk-js-progress"></div>
+        </p>
+    
+        <p>
+          Indeterminate:
+          <div id="p2" class="wsk-js-progress wsk-progress__indeterminate"></div>
+        </p>
+    
+        <p>
+          Buffering:
+          <div id="p3" class="wsk-js-progress"></div>
+        </p>
+          <p>
+              Slider:
+              <input id="slider" type="range" min="0" max="100" value="0" step="1"/>
+          </p>
+      </div>
+      <!-- build:js(app/styleguide/progress/) ../../scripts/main.min.js -->
+          <script>
+        // FIXME: What IS the recommended way to wait for the upgrade to be done?
+        window.setTimeout(function() {
+          document.querySelector('#p1').widget.setProgress(44);
+          document.querySelector('#p3').widget.setProgress(33);
+          document.querySelector('#p3').widget.setBuffer(87);
+        }, 1000);
+      </script>
+      <!-- endbuild -->
+    
+</section>

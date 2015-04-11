@@ -1,0 +1,141 @@
+@import 'packages/wsk_material/sass/typography/typography';
+@import "packages/wsk_material/sass/colors";
+@import "packages/wsk_material/sass/layout/layout";
+@import "packages/wsk_material/sass/accordion/accordion";
+@import "packages/wsk_material/sass/animation/animation";
+@import "packages/wsk_material/sass/badge/badge";
+@import "packages/wsk_material/sass/button/button";
+@import "packages/wsk_material/sass/card/card";
+@import "packages/wsk_material/sass/checkbox/checkbox";
+@import "packages/wsk_material/sass/column-layout/column-layout";
+@import "packages/wsk_material/sass/footer/mega_footer";
+@import "packages/wsk_material/sass/footer/mini_footer";
+@import "packages/wsk_material/sass/icon-toggle/icon-toggle";
+@import "packages/wsk_material/sass/item/item";
+@import "packages/wsk_material/sass/layout/layout";
+@import "packages/wsk_material/sass/list/list";
+@import "packages/wsk_material/sass/menu/menu";
+@import "packages/wsk_material/sass/palette/palette";
+@import "packages/wsk_material/sass/progress/progress";
+@import "packages/wsk_material/sass/radio/radio";
+@import "packages/wsk_material/sass/shadow/shadow";
+@import "packages/wsk_material/sass/slider/slider";
+@import "packages/wsk_material/sass/spinner/spinner";
+@import "packages/wsk_material/sass/switch/switch";
+@import "packages/wsk_material/sass/tabs/tabs";
+@import "packages/wsk_material/sass/textfield/textfield";
+@import "packages/wsk_material/sass/tooltip/tooltip";
+@import "packages/wsk_material/sass/typography/typography";
+@import "_demo/_accordion";
+@import "_demo/_animation";
+@import "_demo/_badge";
+@import "_demo/_button";
+@import "_demo/_card";
+@import "_demo/_checkbox";
+@import "_demo/_column-layout";
+@import "_demo/_footer";
+@import "_demo/_home";
+@import "_demo/_icon-toggle";
+@import "_demo/_item";
+@import "_demo/_layout";
+@import "_demo/_list";
+@import "_demo/_menu";
+@import "_demo/_palette";
+@import "_demo/_progress";
+@import "_demo/_radio";
+@import "_demo/_shadow";
+@import "_demo/_slider";
+@import "_demo/_spinner";
+@import "_demo/_switch";
+@import "_demo/_tabs";
+@import "_demo/_textfield";
+@import "_demo/_tooltip";
+@import "_demo/_typography";
+
+body {
+    padding : 0;
+    margin  : 0;
+}
+
+.styleguide-demo h1 {
+    margin : ($padding * 2) $padding 0 $padding;
+}
+
+.styleguide-demo h1:after {
+    content       : '';
+    display       : block;
+    width         : 100%;
+    border-bottom : 1px solid rgba(0, 0, 0, 0.5);
+    margin-top    : $padding;
+}
+
+.styleguide-demo {
+    opacity    : 0;
+    transition : opacity 0.6s ease;
+}
+
+.styleguide-masthead {
+    height     : 256px;
+    background : nth($palette-primary, 10);
+    padding    : 115px 16px 0;
+}
+
+.styleguide-container {
+    position  : relative;
+    max-width : 960px;
+    width     : 100%;
+}
+
+.styleguide-title {
+    color          : #fff;
+    bottom         : auto;
+    position       : relative;
+    font-size      : 56px;
+    font-weight    : 300;
+    line-height    : 1;
+    letter-spacing : -0.02em;
+
+    &:after {
+        border-bottom : 0px;
+    }
+
+    span {
+        font-weight : 300;
+    }
+}
+
+.wsk-styleguide .wsk-layout__drawer a.wsk-navigation__link {
+    padding        : 8px 24px 5px;
+    text-transform : capitalize;
+}
+
+.demosLoaded .styleguide-demo {
+    opacity : 1;
+}
+
+iframe {
+    display : block;
+    width   : 100%;
+    border  : none;
+}
+
+iframe.heightSet {
+    overflow : hidden;
+}
+
+.demo-wrapper {
+    margin : $padding;
+
+    iframe {
+        border : 1px solid rgba(0, 0, 0, 0.5);
+    }
+}
+
+.loader {
+    display : none;
+
+    .loadingDemos & {
+        display : block;
+        padding : 24px;
+    }
+}
