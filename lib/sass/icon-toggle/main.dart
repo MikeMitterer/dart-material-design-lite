@@ -10,7 +10,7 @@ import 'package:mdl/mdldemo.dart';
 main() {
     configLogging();
 
-    registerAllWskComponents();
+    registerAllMdlComponents();
 
     upgradeAllRegistered().then((_) {
         final MaterialIconToggle toggle = MaterialIconToggle.widget(dom.querySelector("#public-checkbox-1"));

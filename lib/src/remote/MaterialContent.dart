@@ -40,7 +40,7 @@ class MaterialContent extends MdlComponent {
     // Central Element - by default this is where mdl-js-content was found (element)
     // html.Element get hub => inputElement;
 
-    Future setContent(final String content) {
+    Future render(final String content) {
         _logger.info("Content: $content");
 
         final Completer completer = new Completer();

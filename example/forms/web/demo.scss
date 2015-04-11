@@ -1,11 +1,4 @@
-@import "packages/wsk_material/sass/styleguide_demo_bp";
-@import "packages/wsk_material/sass/forms/forms";
-
-// Extended - Material, form
-@import "packages/wsk_material/sass/button/button";
-@import "packages/wsk_material/sass/checkbox/checkbox";
-@import "packages/wsk_material/sass/radio/_radio";
-@import "packages/wsk_material/sass/textfield/_textfield";
+@import "packages/mdl/sass/material-design-lite";
 
 .forms.sample {
     display: flex;

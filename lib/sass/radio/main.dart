@@ -9,7 +9,7 @@ import 'package:mdl/mdldemo.dart';
 main() {
     configLogging();
 
-    registerAllWskComponents();
+    registerAllMdlComponents();
 
     upgradeAllRegistered().then((_) {
         MaterialRadio.widget(dom.querySelector("#wifi2")).disable();

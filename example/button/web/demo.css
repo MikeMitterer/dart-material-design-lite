@@ -42,6 +42,7 @@
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -325,6 +326,7 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -784,6 +786,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -3172,205 +3175,7 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-/* Animation Variables */
-/* Accordion */
-mdl-accordion-group, mdl-accordion {
-  display: block; }
-
-mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
-  border-top: 1px solid #ddd; }
-
-/* Basic Accordion Styles */
-.mdl-accordion-group .mdl-accordion {
-  /* For Demo Positioning Only */
-  /* Labels */
-  /* Panel Content */ }
-  .mdl-accordion-group .mdl-accordion input[name^='mdl-accordion'] {
-    display: none; }
-  .mdl-accordion-group .mdl-accordion label {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 48px;
-    padding-left: 16px;
-    position: relative;
-    border-bottom: 1px solid #ddd;
-    color: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    font-size: 16px;
-    -webkit-transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
-            transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
-    .debug .mdl-accordion-group .mdl-accordion label {
-      border: 1px solid red; }
-    .mdl-accordion-group .mdl-accordion label:hover {
-      color: black; }
-    .mdl-accordion-group .mdl-accordion label i.indicator {
-      position: absolute;
-      top: 20.8px;
-      right: 16px;
-      -webkit-transition: 0.3s ease-in-out;
-              transition: 0.3s ease-in-out;
-      font-weight: 100;
-      font-size: 60%;
-      color: rgba(0, 0, 0, 0.6); }
-      .debug .mdl-accordion-group .mdl-accordion label i.indicator {
-        border: 1px solid green; }
-    .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container {
-      display: block;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      left: 0;
-      top: 0;
-      z-index: 1;
-      overflow: hidden; }
-      .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container .mdl-ripple {
-        background: rgb(63,81,181); }
-  .mdl-accordion-group .mdl-accordion input:checked + label {
-    color: black; }
-    .mdl-accordion-group .mdl-accordion input:checked + label i.indicator {
-      -webkit-transform: rotate(90deg);
-          -ms-transform: rotate(90deg);
-              transform: rotate(90deg);
-      -webkit-transition: 0.3s ease-in-out;
-              transition: 0.3s ease-in-out;
-      color: rgb(63,81,181); }
-      .debug .mdl-accordion-group .mdl-accordion input:checked + label i.indicator {
-        border: 1px solid red; }
-  .mdl-accordion-group .mdl-accordion .mdl-accordion--content {
-    overflow: auto;
-    max-height: 0;
-    position: relative;
-    padding: 0 16px;
-    -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
-            transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
-    .mdl-accordion-group .mdl-accordion .mdl-accordion--content .mdl-accordion--header {
-      padding: 8px 0;
-      color: rgba(0, 0, 0, 0.8);
-      margin: 0; }
-    .mdl-accordion-group .mdl-accordion .mdl-accordion--content .mdl-accordion--body {
-      padding: 0;
-      color: rgba(0, 0, 0, 0.6); }
-
-input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
-  max-height: 1500px;
-  border-bottom: 1px solid #ddd;
-  -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
-          transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
-
-/*------------------------------------*\
-    $CONTENTS
-\*------------------------------------*/
-/**
- * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
- * -----Typography
- * -----Colors
- * -----Textfield
- * -----Switch
- * -----Spinner
- * -----Radio
- * -----Menu
- * -----List
- * -----Layout
- * -----Icon toggles
- * -----Footer
- * -----Column
- * -----Checkbox
- * -----Card
- * -----Button
- * -----Animation
- * -----Progress
- */
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -5171,6 +4976,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -5285,6 +5091,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -5404,6 +5211,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -5519,6 +5327,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -5780,6 +5589,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6004,6 +5814,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6217,6 +6028,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6387,6 +6199,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6652,6 +6465,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6815,6 +6629,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6988,6 +6803,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -7228,6 +7044,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -7443,6 +7260,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8109,6 +7927,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8257,6 +8076,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8456,6 +8276,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8804,6 +8625,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9258,6 +9080,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9489,6 +9312,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9681,6 +9505,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9891,6 +9716,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9991,6 +9817,1085 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
             transform: scale(1);
     opacity: 1;
     visibility: visible; } }
+
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* pallet */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* Animation Variables */
+/* Accordion */
+mdl-accordion-group, mdl-accordion {
+  display: block; }
+
+mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
+  border-top: 1px solid #ddd; }
+
+/* Basic Accordion Styles */
+.mdl-accordion-group .mdl-accordion {
+  /* For Demo Positioning Only */
+  /* Labels */
+  /* Panel Content */ }
+  .mdl-accordion-group .mdl-accordion input[name^='mdl-accordion'] {
+    display: none; }
+  .mdl-accordion-group .mdl-accordion label {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 48px;
+    padding-left: 16px;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+            transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
+    .debug .mdl-accordion-group .mdl-accordion label {
+      border: 1px solid red; }
+    .mdl-accordion-group .mdl-accordion label:hover {
+      color: black; }
+    .mdl-accordion-group .mdl-accordion label i.indicator {
+      position: absolute;
+      top: 20.8px;
+      right: 16px;
+      -webkit-transition: 0.3s ease-in-out;
+              transition: 0.3s ease-in-out;
+      font-weight: 100;
+      font-size: 60%;
+      color: rgba(0, 0, 0, 0.6); }
+      .debug .mdl-accordion-group .mdl-accordion label i.indicator {
+        border: 1px solid green; }
+    .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container {
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      overflow: hidden; }
+      .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container .mdl-ripple {
+        background: rgb(63,81,181); }
+  .mdl-accordion-group .mdl-accordion input:checked + label {
+    color: black; }
+    .mdl-accordion-group .mdl-accordion input:checked + label i.indicator {
+      -webkit-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+              transform: rotate(90deg);
+      -webkit-transition: 0.3s ease-in-out;
+              transition: 0.3s ease-in-out;
+      color: rgb(63,81,181); }
+      .debug .mdl-accordion-group .mdl-accordion input:checked + label i.indicator {
+        border: 1px solid red; }
+  .mdl-accordion-group .mdl-accordion .mdl-accordion--content {
+    overflow: auto;
+    max-height: 0;
+    position: relative;
+    padding: 0 16px;
+    -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+            transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
+    .mdl-accordion-group .mdl-accordion .mdl-accordion--content .mdl-accordion--header {
+      padding: 8px 0;
+      color: rgba(0, 0, 0, 0.8);
+      margin: 0; }
+    .mdl-accordion-group .mdl-accordion .mdl-accordion--content .mdl-accordion--body {
+      padding: 0;
+      color: rgba(0, 0, 0, 0.6); }
+
+input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
+  max-height: 1500px;
+  border-bottom: 1px solid #ddd;
+  -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
+          transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
+
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* pallet */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-badge {
+  position: relative;
+  white-space: nowrap;
+  margin-right: 22px; }
+  .mdl-badge:not([data-badge]) {
+    margin-right: auto; }
+  .mdl-badge[data-badge]:after {
+    content: attr(data-badge);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    top: -10px;
+    right: -22px;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgb(255,64,129);
+    color: #fff; }
+    .mdl-button .mdl-badge[data-badge]:after {
+      top: -10px;
+      right: -5px; }
+  .mdl-badge.mdl-badge--no-background[data-badge]:after {
+    color: rgb(255,64,129);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 1px gray; }
+
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* pallet */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+form.wsk-basic-form {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 320px;
+  font-weight: 300;
+  color: rgba(0,0,0,.87);
+  background-color: white;
+  padding: 24px 24px 8px 24px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+  form.wsk-basic-form h1, form.wsk-basic-form h2, form.wsk-basic-form h3, form.wsk-basic-form h4, form.wsk-basic-form h5, form.wsk-basic-form h6, form.wsk-basic-form h6 {
+    padding-top: 0;
+    font-size: 24px;
+    line-height: 24px; }
+  form.wsk-basic-form.right {
+    float: right; }
+  form.wsk-basic-form label {
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
+    padding-top: 12px;
+    font-size: 15px; }
+    form.wsk-basic-form label:first-child {
+      padding-top: 0; }
+  form.wsk-basic-form input, form.wsk-basic-form button {
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid #000000; }
+    form.wsk-basic-form input.large, form.wsk-basic-form button.large {
+      width: 10em; }
+    form.wsk-basic-form input.normal, form.wsk-basic-form button.normal {
+      width: 8em; }
+    form.wsk-basic-form input.small, form.wsk-basic-form button.small {
+      width: 6em; }
+  form.wsk-basic-form input {
+    width: 100%;
+    font-size: 15px;
+    padding: 7.5px;
+    color: rgba(0,0,0,.87);
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    outline: none; }
+    form.wsk-basic-form input:last-child {
+      margin-right: 0; }
+    form.wsk-basic-form input:focus {
+      border-bottom: 1px solid rgb(63,81,181); }
+    form.wsk-basic-form input[type=submit] {
+      border: none; }
+  form.wsk-basic-form .wsk-basic-form__group {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px; }
+    form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--last-row {
+      padding: 0;
+      margin-top: 16px; }
+    form.wsk-basic-form .wsk-basic-form__group > .wsk-basic-form__group {
+      padding-top: 0; }
+    form.wsk-basic-form .wsk-basic-form__group label {
+      width: 130px;
+      padding-top: 7.5px; }
+    form.wsk-basic-form .wsk-basic-form__group input {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      width: auto; }
+    form.wsk-basic-form .wsk-basic-form__group input[type=submit] {
+      -webkit-box-flex: 0;
+      -webkit-flex-grow: 0;
+          -ms-flex-positive: 0;
+              flex-grow: 0;
+      width: 130px; }
+    form.wsk-basic-form .wsk-basic-form__group ul.vertical li {
+      padding-top: 0; }
+      form.wsk-basic-form .wsk-basic-form__group ul.vertical li:first-child {
+        padding-top: 3.75px; }
+      form.wsk-basic-form .wsk-basic-form__group ul.vertical li:last-child {
+        padding-top: 0; }
+    form.wsk-basic-form .wsk-basic-form__group ul.horizontal li {
+      padding-right: 12px;
+      padding-top: 7.5px; }
+      form.wsk-basic-form .wsk-basic-form__group ul.horizontal li:first-child {
+        padding-top: 7.5px; }
+      form.wsk-basic-form .wsk-basic-form__group ul.horizontal li:last-child {
+        padding-top: 7.5px; }
+    form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right {
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+      form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right input, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right button {
+        margin-left: 10px; }
+        form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right input:first-child, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right button:first-child {
+          margin-left: 0; }
+    form.wsk-basic-form .wsk-basic-form__group.equal {
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      form.wsk-basic-form .wsk-basic-form__group.equal.with-offset {
+        margin-left: 130px; }
+      form.wsk-basic-form .wsk-basic-form__group.equal > *, form.wsk-basic-form .wsk-basic-form__group.equal > input[type=submit] {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        margin-left: 10px; }
+        form.wsk-basic-form .wsk-basic-form__group.equal > *:first-child, form.wsk-basic-form .wsk-basic-form__group.equal > input[type=submit]:first-child {
+          margin-left: 0; }
+    form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--checkbox, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--radio {
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      font-size: 15px; }
+      form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--checkbox input, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--radio input {
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+            -ms-flex-positive: 0;
+                flex-grow: 0;
+        margin-top: 3px;
+        margin-left: 1em; }
+        form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--checkbox input:first-child, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--radio input:first-child {
+          margin-left: 0; }
+      form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--checkbox > *, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--radio > * {
+        margin-right: 6px; }
+    form.wsk-basic-form .wsk-basic-form__group.help {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; }
+      form.wsk-basic-form .wsk-basic-form__group.help .help-block {
+        padding: 0; }
+    form.wsk-basic-form .wsk-basic-form__group .help-block {
+      color: rgb(229,57,53);
+      font-weight: 600; }
+  form.wsk-basic-form input[type=submit], form.wsk-basic-form button {
+    width: 130px;
+    height: 36px;
+    margin: 4px;
+    padding: 6px;
+    border: none;
+    font-size: 16.5px;
+    color: rgba(0,0,0,.87);
+    background-color: rgba(158,158,158, 0.20); }
+    form.wsk-basic-form input[type=submit].maxsize, form.wsk-basic-form button.maxsize {
+      width: 100%; }
+    form.wsk-basic-form input[type=submit]:last-of-type, form.wsk-basic-form button:last-of-type {
+      margin-right: 0; }
+    form.wsk-basic-form input[type=submit].wsk-basic-form__control--maxsize, form.wsk-basic-form button.wsk-basic-form__control--maxsize {
+      width: 100%; }
+    form.wsk-basic-form input[type=submit].wsk-basic-form__control--last-row, form.wsk-basic-form button.wsk-basic-form__control--last-row {
+      margin-top: 20px; }
+    form.wsk-basic-form input[type=submit].wsk-basic-form__control--right, form.wsk-basic-form button.wsk-basic-form__control--right {
+      -webkit-align-self: flex-end;
+          -ms-flex-item-align: end;
+              align-self: flex-end; }
+  form.wsk-basic-form input[type=submit], form.wsk-basic-form button[type=submit], form.wsk-basic-form button.submit, form.wsk-basic-form button.primary {
+    background-color: rgb(63,81,181);
+    color: white; }
+  form.wsk-basic-form .wsk-basic-form__control--last-row {
+    margin-top: 20px; }
+  form.wsk-basic-form .wsk-basic-form__control--right {
+    -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+            align-self: flex-end; }
+
+form.wsk-form {
+  box-sizing: border-box;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-content: space-between;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 24px 0 8px 0;
+  color: rgba(0,0,0,.87);
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+  form.wsk-form h1, form.wsk-form h2, form.wsk-form h3, form.wsk-form h4, form.wsk-form h5, form.wsk-form h6, form.wsk-form h6 {
+    padding-top: 0;
+    font-size: 24px;
+    line-height: 24px;
+    margin-left: 24px;
+    margin-right: 24px; }
+  form.wsk-form > .wsk-input, form.wsk-form .wsk-checkbox {
+    margin-left: 24px;
+    margin-right: 24px; }
+  form.wsk-form .wsk-form__group {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    min-height: 48px;
+    max-height: 48px;
+    padding-right: 16px; }
+    form.wsk-form .wsk-form__group.wsk-form__group--left {
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start; }
+
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* pallet */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-nav-pill, .mdl-nav-pills > * {
+  padding: 4px 8px;
+  margin: 0 0 8px 0;
+  border-radius: 3px;
+  color: rgba(0,0,0,.87);
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
+  -webkit-transition: all 0.1s linear;
+          transition: all 0.1s linear; }
+  .debug .mdl-nav-pill, .debug .mdl-nav-pills > * {
+    border: 1px dotted black; }
+  .mdl-nav-pill:last-child, .mdl-nav-pills > :last-child, .mdl-nav-pill.is-last-child, .mdl-nav-pills > .is-last-child {
+    margin-bottom: 0; }
+  .mdl-nav-pill:hover, .mdl-nav-pills > :hover {
+    margin-top: -3px;
+    margin-right: 3px;
+    margin-bottom: 11px;
+    margin-left: -3px; }
+    .mdl-nav-pill:hover:last-child, .mdl-nav-pills > :hover:last-child {
+      margin-bottom: 3px; }
+    .mdl-nav-pill:hover.is-last-child, .mdl-nav-pills > :hover.is-last-child {
+      margin-bottom: 14px; }
+  .mdl-nav-pill > a, .mdl-nav-pills > * > a {
+    display: block;
+    text-decoration: none;
+    color: rgba(0,0,0,.87);
+    font-weight: normal; }
+  .mdl-nav-pill.mdl-nav-pill--dark, .mdl-nav-pills > .mdl-nav-pill--dark {
+    background-color: rgb(63,81,181); }
+  .mdl-nav-pill.mdl-nav-pill--darker, .mdl-nav-pills > .mdl-nav-pill--darker {
+    background-color: rgb(48,63,159); }
+  .mdl-nav-pill.mdl-nav-pill--light, .mdl-nav-pills > .mdl-nav-pill--light {
+    background-color: rgb(121,134,203); }
+  .mdl-nav-pill.mdl-nav-pill--lighter, .mdl-nav-pills > .mdl-nav-pill--lighter {
+    background-color: rgb(197,202,233); }
+  .mdl-nav-pill.mdl-nav-pill--accent, .mdl-nav-pills > .mdl-nav-pill--accent {
+    background-color: rgb(233,30,99); }
+  .mdl-nav-pill.mdl-nav-pill--light-text, .mdl-nav-pills > .mdl-nav-pill--light-text {
+    color: rgb(245,245,245); }
+    .mdl-nav-pill.mdl-nav-pill--light-text a, .mdl-nav-pills > .mdl-nav-pill--light-text a {
+      color: rgb(245,245,245); }
+
+.mdl-nav-pills {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-content: space-between;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+  .debug .mdl-nav-pills {
+    border: 1px solid green; }
+  .mdl-nav-pills.mdl-nav-pills--as-row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+    .mdl-nav-pills.mdl-nav-pills--as-row > * {
+      margin: 0 8px 8px 0; }
+      .mdl-nav-pills.mdl-nav-pills--as-row > *:last-child, .mdl-nav-pills.mdl-nav-pills--as-row > *.is-last-child {
+        margin-right: 0; }
+      .mdl-nav-pills.mdl-nav-pills--as-row > *:hover {
+        margin-top: -3px;
+        margin-right: 11px;
+        margin-bottom: 0;
+        margin-left: -3px; }
+        .mdl-nav-pills.mdl-nav-pills--as-row > *:hover:last-child, .mdl-nav-pills.mdl-nav-pills--as-row > *:hover.is-last-child {
+          margin-right: 3px; }
+  .mdl-nav-pills > li {
+    list-style: none;
+    display: block; }
+  .mdl-nav-pills.mdl-nav-pill--dark > * {
+    background-color: rgb(63,81,181); }
+  .mdl-nav-pills > .mdl-nav-pill--dark {
+    background-color: rgb(63,81,181) !important; }
+  .mdl-nav-pills.mdl-nav-pill--darker > * {
+    background-color: rgb(48,63,159); }
+  .mdl-nav-pills > .mdl-nav-pill--darker {
+    background-color: rgb(48,63,159) !important; }
+  .mdl-nav-pills.mdl-nav-pill--light > * {
+    background-color: rgb(121,134,203); }
+  .mdl-nav-pills > .mdl-nav-pill--light {
+    background-color: rgb(121,134,203) !important; }
+  .mdl-nav-pills.mdl-nav-pill--lighter > * {
+    background-color: rgb(197,202,233); }
+  .mdl-nav-pills > .mdl-nav-pill--lighter {
+    background-color: rgb(197,202,233) !important; }
+  .mdl-nav-pills.mdl-nav-pill--accent > * {
+    background-color: rgb(233,30,99); }
+  .mdl-nav-pills > .mdl-nav-pill--accent {
+    background-color: rgb(233,30,99) !important; }
+  .mdl-nav-pills.mdl-nav-pill--light-text > * {
+    color: rgb(245,245,245); }
+    .mdl-nav-pills.mdl-nav-pill--light-text > * a {
+      display: block;
+      color: rgb(245,245,245); }
+  .mdl-nav-pills > .mdl-nav-pill--light-text {
+    color: rgb(245,245,245) !important; }
+    .mdl-nav-pills > .mdl-nav-pill--light-text a {
+      color: rgb(245,245,245) !important; }
+
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* pallet */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.wsk-panel {
+  padding: 8px 16px;
+  color: rgba(0,0,0,.87);
+  background-color: white;
+  border-radius: 2px; }
+  .wsk-panel.wsk-panel--shadow {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+  .wsk-panel.wsk-panel--light-text {
+    color: rgb(245,245,245); }
+  .wsk-panel.wsk-panel--dark {
+    background-color: rgb(63,81,181); }
+  .wsk-panel.wsk-panel--darker {
+    background-color: rgb(48,63,159); }
+  .wsk-panel.wsk-panel--light {
+    background-color: rgb(121,134,203); }
+  .wsk-panel.wsk-panel--lighter {
+    background-color: rgb(197,202,233); }
+  .wsk-panel.wsk-panel--accent {
+    background-color: rgb(233,30,99); }
+  .wsk-panel.wsk-panel--with-heading {
+    padding: 0; }
+    .wsk-panel.wsk-panel--with-heading > .wsk-panel__heading {
+      padding: 8px 16px; }
+    .wsk-panel.wsk-panel--with-heading > .wsk-panel__content {
+      padding: 8px 16px;
+      color: rgba(0,0,0,.87);
+      background-color: white; }
 
 .demo-button {
   display: inline-block;

@@ -50,8 +50,8 @@ main() {
     configLogging();
     configRouter();
 
-    registerAllWskComponents();
-    registerAllWskRemoteComponents();
+    registerAllMdlComponents();
+    registerAllMdlRemoteComponents();
 
     upgradeAllRegistered().then((_) {
         final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector("#mainslider2"));

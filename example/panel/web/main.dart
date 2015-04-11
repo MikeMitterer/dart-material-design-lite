@@ -1,12 +1,19 @@
+import "dart:html" as dom;
+
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdldemo.dart';
 
 main() {
     configLogging();
-    registerAllWskComponents();
-    upgradeAllRegistered();
+
+    registerAllMdlComponents();
+
+    upgradeAllRegistered().then((_) {
+
+    });
 }
 
 void configLogging() {

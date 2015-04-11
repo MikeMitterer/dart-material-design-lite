@@ -1,8 +1,7 @@
-@import "../colors";
-@import "../shadow/shadow";
+@import "../variables";
 
 $panel-color: $text-color-primary !default;
-$panel-light-color: nth($palette-grey, 2) !default;
+$panel-light-color: unquote("rgb(#{nth($palette-grey, 2)})") !default;
 
 $panel-background-color: white !default;
 $panel-base-color-index: 6 !default;
@@ -24,23 +23,23 @@ $panel-base-color-index: 6 !default;
     }
 
     &.wsk-panel--dark {
-      background-color: nth($palette-primary,$panel-base-color-index);
+      background-color: unquote("rgb(#{nth($palette-primary,$panel-base-color-index)})");
     }
 
     &.wsk-panel--darker {
-        background-color: nth($palette-primary,$panel-base-color-index + 2);
+        background-color: unquote("rgb(#{nth($palette-primary,$panel-base-color-index + 2)})");
     }
 
     &.wsk-panel--light {
-        background-color: nth($palette-primary,$panel-base-color-index - 2);
+        background-color: unquote("rgb(#{nth($palette-primary,$panel-base-color-index - 2)})");
     }
 
     &.wsk-panel--lighter {
-        background-color: nth($palette-primary,$panel-base-color-index - 4);
+        background-color: unquote("rgb(#{nth($palette-primary,$panel-base-color-index - 4)})");
     }
 
     &.wsk-panel--accent {
-        background-color: nth($palette-accent,$panel-base-color-index);
+        background-color: unquote("rgb(#{nth($palette-accent,$panel-base-color-index)})");
     }
 
     &.wsk-panel--with-heading {

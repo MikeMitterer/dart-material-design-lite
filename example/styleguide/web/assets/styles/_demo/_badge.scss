@@ -1,11 +1,10 @@
-// only for sample
 body {
     background : #fff;
     padding    : 24px;
 }
 
 
-.demo-badge {
+.demo-page--badge, .demo-section--badge {
     section {
         h5 {
             margin-bottom: 15px;
@@ -40,7 +39,7 @@ body {
 
             .icon {
                 background-color : transparent;
-                &.wsk-badge {
+                &.mdl-badge {
                     opacity: 1;
                 }
                 border           : none;

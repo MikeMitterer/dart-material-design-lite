@@ -645,6 +645,10 @@ $palette-white-30: nth($palette-white, 3);
 $palette-white-12: nth($palette-white, 4);
 
 
+/* pallet */
+$palette-primary: $palette-indigo;
+$palette-accent: $palette-pink;
+
 /* colors.scss */
 $styleguide-generate-template: false !default;
 

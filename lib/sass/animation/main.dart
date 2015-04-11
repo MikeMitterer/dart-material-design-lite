@@ -9,7 +9,7 @@ main() {
 
     // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
     registerDemoAnimation();
-    registerAllWskComponents();
+    registerAllMdlComponents();
 
     upgradeAllRegistered();
 }

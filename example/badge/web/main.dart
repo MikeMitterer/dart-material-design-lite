@@ -12,7 +12,7 @@ main() {
 
     configLogging();
 
-    registerAllWskComponents();
+    registerAllMdlComponents();
 
     upgradeAllRegistered().then((_) {
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector("#el1"));

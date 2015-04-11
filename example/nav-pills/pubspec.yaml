@@ -1,8 +1,8 @@
-name: mdl_nav_pills_sample
-description: MDL Sample 'nav_pills' - Material Design
+name: mdl_nav-pills_sample
+description: Material Design Light 'nav-pills' Sample
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-wsk-material
+homepage: https://github.com/MikeMitterer/dart-mdl
 
 dependencies:
   browser: any

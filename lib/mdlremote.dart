@@ -14,7 +14,7 @@ part "src/remote/ViewFactory.dart";
 part "src/remote/MaterialContent.dart";
 part "src/remote/MaterialContoller.dart";
 
-void registerAllWskRemoteComponents() {
+void registerAllMdlRemoteComponents() {
 
     registerMaterialContent();
 

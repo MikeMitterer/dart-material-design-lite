@@ -1,14 +1,14 @@
 @import "../variables";
 
 $nav-pills-color : $text-color-primary !default;
-$nav-pills-light-color : nth($palette-grey, 2) !default;
+$nav-pills-light-color : unquote("rgb(#{nth($palette-grey, 2)})") !default;
 $nav-pills-background-color : white !default;
 
 $nav-pills-margin : 8px !default;
 $nav-pills-border-radius : 3px !default;
 $nav-pills-move-on-hover : 3px !default;
 $nav-pills-base-color-index : 6 !default;
-$nav-pills-color : nth($palette-grey, 2) !default;
+$nav-pills-color : unquote("rgb(#{nth($palette-grey, 2)})") !default;
 
 .mdl-nav-pill {
     padding          : 4px 8px;
@@ -51,23 +51,23 @@ $nav-pills-color : nth($palette-grey, 2) !default;
     }
 
     &.mdl-nav-pill--dark {
-        background-color : nth($palette-primary, $nav-pills-base-color-index);
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index)})");
     }
 
     &.mdl-nav-pill--darker {
-        background-color : nth($palette-primary, $nav-pills-base-color-index + 2);
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index + 2)})");
     }
 
     &.mdl-nav-pill--light {
-        background-color : nth($palette-primary, $nav-pills-base-color-index - 2);
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index - 2)})");
     }
 
     &.mdl-nav-pill--lighter {
-        background-color : nth($palette-primary, $nav-pills-base-color-index - 4);
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index - 4)})");
     }
 
     &.mdl-nav-pill--accent {
-        background-color : nth($palette-accent, $nav-pills-base-color-index);
+        background-color : unquote("rgb(#{nth($palette-accent, $nav-pills-base-color-index)})");
     }
 
     &.mdl-nav-pill--light-text {
@@ -137,41 +137,41 @@ $nav-pills-color : nth($palette-grey, 2) !default;
     }
 
     &.mdl-nav-pill--dark > *, {
-        background-color : nth($palette-primary, $nav-pills-base-color-index);
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index)})");;
     }
     > .mdl-nav-pill--dark { // child gets priority
-        background-color : nth($palette-primary, $nav-pills-base-color-index) !important;
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index)})") !important;
     }
 
     &.mdl-nav-pill--darker > * {
-        background-color : nth($palette-primary, $nav-pills-base-color-index + 2);
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index + 2)})");
     }
     > .mdl-nav-pill--darker { // child gets priority
-        background-color : nth($palette-primary, $nav-pills-base-color-index + 2) !important;
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index + 2)})") !important;
     }
 
     &.mdl-nav-pill--light > * {
-        background-color : nth($palette-primary, $nav-pills-base-color-index - 2);
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index - 2)})");
     }
 
     > .mdl-nav-pill--light { // child gets priority
-        background-color : nth($palette-primary, $nav-pills-base-color-index - 2) !important;
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index - 2)})") !important;
     }
 
     &.mdl-nav-pill--lighter > * {
-        background-color : nth($palette-primary, $nav-pills-base-color-index - 4);
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index - 4)})");
     }
 
     > .mdl-nav-pill--lighter { // child gets priority
-        background-color : nth($palette-primary, $nav-pills-base-color-index - 4) !important;
+        background-color : unquote("rgb(#{nth($palette-primary, $nav-pills-base-color-index - 4)})") !important;
     }
 
     &.mdl-nav-pill--accent > * {
-        background-color : nth($palette-accent, $nav-pills-base-color-index);
+        background-color : unquote("rgb(#{nth($palette-accent, $nav-pills-base-color-index)})");
     }
 
     > .mdl-nav-pill--accent { // child gets priority
-        background-color : nth($palette-accent, $nav-pills-base-color-index) !important;
+        background-color : unquote("rgb(#{nth($palette-accent, $nav-pills-base-color-index)})") !important;
     }
 
     &.mdl-nav-pill--light-text > * {

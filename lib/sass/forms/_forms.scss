@@ -1,12 +1,11 @@
-@import "../colors";
-@import "../shadow/shadow";
+@import "../variables";
 
 $form-color : $text-color-primary !default;
 $form-color-help : $input-text-error-color !default;
 $form-color-accent : white !default;
 $form-active-input-border-color : $input-text-highlight-color !default;
 $form-background-color : white !default;
-$form-background-color-accent : nth($palette-accent, 5) !default;
+$form-background-color-accent : $button-primary-color-alt !default;
 $form-button-radius : 2px !default;
 $form-default-button-color : $text-color-primary !default;
 $form-default-button-background-color : $button-primary-color !default;

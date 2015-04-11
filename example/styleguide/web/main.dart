@@ -4,8 +4,8 @@ import "dart:async";
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:wsk_material/wskcomponets.dart';
-import 'package:wsk_material/wskremote.dart';
+import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdlremote.dart';
 
 import 'package:route_hierarchical/client.dart';
 
@@ -50,8 +50,8 @@ main() {
     configLogging();
     configRouter();
 
-    registerAllWskComponents();
-    registerAllWskRemoteComponents();
+    registerAllMdlComponents();
+    registerAllMdlRemoteComponents();
 
     upgradeAllRegistered().then((_) {
 
@@ -104,9 +104,6 @@ void configRouter() {
         ..addRoute(name: 'icon-toggle', path: '/icon-toggle',
                     enter: view("views/icon-toggle.html", new DummyController()))
 
-        ..addRoute(name: 'item', path: '/item',
-                    enter: view("views/item.html", new DummyController()))
-
         ..addRoute(name: 'layout', path: '/layout',
                     enter: view("views/layout.html", new DummyController()))
 
@@ -116,8 +113,14 @@ void configRouter() {
         ..addRoute(name: 'menu', path: '/menu',
                     enter: view("views/menu.html", new DummyController()))
 
+        ..addRoute(name: 'nav-pills', path: '/nav-pills',
+            enter: view("views/nav-pills.html", new DummyController()))
+
         ..addRoute(name: 'palette', path: '/palette',
                     enter: view("views/palette.html", new DummyController()))
+
+        ..addRoute(name: 'panel', path: '/panel',
+            enter: view("views/panel.html", new DummyController()))
 
         ..addRoute(name: 'progress', path: '/progress',
                     enter: view("views/progress.html", new DummyController()))

@@ -67,7 +67,10 @@ class Application {
                     final Directory backupDir = new Directory("${config.samplesdir}/${sampleName}.backup");
                     final Directory portBaseDir = new Directory(config.portbase);
 
-                    final File srcDemo = new File("${config.sassdir}/${sampleName}/demo.html");
+                    final File ignore = new File("${config.sassdir}/${sampleName}/.ignore");
+                    final File srcDemoOrig = new File("${config.sassdir}/${sampleName}/demo.html");
+                    final File srcDemoDart = new File("${config.sassdir}/${sampleName}/demo.dart.html");
+                    final File srcDemo = srcDemoDart.existsSync() ? srcDemoDart : srcDemoOrig;
                     final File srcScss = new File("${config.sassdir}/${sampleName}/demo.scss");
                     final File srcREADME = new File("${config.sassdir}/${sampleName}/README.md");
                     final File targetDemo = new File("${webDir.path}/index.html");
@@ -83,6 +86,11 @@ class Application {
 
                     final Link targetPackages = new Link("${webDir.path}/packages");
                     final File srcPackages = new File("../../../packages");
+
+                    // dir wird kpl. ignoriert
+                    if(ignore.existsSync()) {
+                        return;
+                    }
 
                     if(srcJs.existsSync()) {
                         _logger.info("    ${srcJs.path} -> ${targetConvertedJS.path} copied...");
@@ -238,7 +246,10 @@ class Application {
         Validate.notNull(sassDir);
         Validate.notBlank(samplesDir);
 
-        final File srcSample = new File("${sassDir.path}/demo.html");
+        final File secSampleOrig = new File("${sassDir.path}/demo.html");
+        final File srcSampleDart = new File("${sassDir.path}/demo.dart.html");
+        final File srcSample = srcSampleDart.existsSync() ? srcSampleDart : secSampleOrig;
+
         final Directory targetSampleDir = new Directory("${samplesDir}/styleguide/web/views");
         final File targetSample = new File("${targetSampleDir.path}/${sampleName}.html");
 

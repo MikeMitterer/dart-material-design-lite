@@ -1,7 +1,6 @@
-@import "packages/wsk_material/sass/styleguide_demo_bp";
-@import "packages/wsk_material/sass/panel/panel";
+@import "packages/mdl/sass/material-design-lite";
 
-.panel.sample {
+.demo-page--panel {
     .wsk-panel {
         margin-bottom: 12px;
     }

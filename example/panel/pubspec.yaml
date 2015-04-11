@@ -1,8 +1,8 @@
 name: mdl_panel_sample
-description: MDL Sample 'panel' - Material Design
+description: Material Design Light 'panel' Sample
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-wsk-material
+homepage: https://github.com/MikeMitterer/dart-mdl
 
 dependencies:
   browser: any

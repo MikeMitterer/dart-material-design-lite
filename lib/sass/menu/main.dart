@@ -12,7 +12,7 @@ main() {
 
     configLogging();
 
-    registerAllWskComponents();
+    registerAllMdlComponents();
 
     upgradeAllRegistered().then((_) {
         final MaterialMenu menu1 = MaterialMenu.widget(dom.querySelector("#menu1"));
