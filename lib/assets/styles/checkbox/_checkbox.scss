@@ -19,7 +19,7 @@
 }
 
 .mdl-checkbox {
-    @include avoid-blue-box-on-double-click();
+    //@include avoid-blue-box-on-double-click();
 }
 
 .mdl-checkbox__tick-outline {

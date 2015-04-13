@@ -16,12 +16,15 @@
 
 @import "../material-design-lite";
 
-.demo-page--textfield textarea {
-  overflow: auto;
-  resize: none;
-}
+.demo-page--textfield, .demo-section--textfield {
 
-.demo-page--textfield .mdl-textfield {
-  display: block;
-  margin: 30px 0;
+    textarea {
+        overflow: auto;
+        resize: none;
+    }
+
+    .mdl-textfield {
+        display: block;
+        margin: 30px 0;
+    }
 }

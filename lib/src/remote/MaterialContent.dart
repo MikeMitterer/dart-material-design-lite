@@ -49,7 +49,7 @@ class MaterialContent extends MdlComponent {
             element.classes.remove(_cssClasses.LAODED);
             element.classes.add(_cssClasses.LAODING);
 
-            final html.Element child = new html.Element.html(content);
+            final html.Element child = new html.Element.html(content,validator: _validator());
             element.childNodes.first.remove();
 
             child.classes.add(_cssClasses.DYN_CONTENT);
@@ -82,5 +82,32 @@ class MaterialContent extends MdlComponent {
         _logger.fine("MaterialContent - init");
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
+
+    html.NodeValidator _validator() {
+        final html.NodeValidator validator = new html.NodeValidatorBuilder.common()  // html5 + Templating
+            ..allowNavigation()
+            ..allowImages()
+            ..allowTextElements()
+            ..allowInlineStyles()
+            ..allowSvg()
+            ..add(new _AllowAllAttributesNodeValidator());
+
+        return validator;
+    }
 }
 
+
+class _AllowAllAttributesNodeValidator implements html.NodeValidator {
+
+    bool allowsAttribute(html.Element element, String attributeName, String value) {
+        if (attributeName == 'is' || attributeName.startsWith('on')) {
+            return false;
+        }
+        return true;
+    }
+
+    @override
+    bool allowsElement(html.Element element) {
+        return true;
+    }
+}

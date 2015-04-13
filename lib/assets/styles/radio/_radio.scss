@@ -1,5 +1,5 @@
 @import "radio.orig";
 
 .mdl-radio {
-    @include avoid-blue-box-on-double-click();
+    //@include avoid-blue-box-on-double-click();
 }

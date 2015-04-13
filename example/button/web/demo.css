@@ -6178,13 +6178,6 @@ dt {
   .mdl-checkbox.is-disabled .mdl-checkbox__ripple-container .mdl-ripple {
     background: transparent; }
 
-.mdl-checkbox {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
 .mdl-checkbox__tick-outline {
   -webkit-mask: initial;
           mask: initial; }
@@ -8546,13 +8539,6 @@ dt {
   .mdl-radio.is-disabled .mdl-radio__ripple-container .mdl-ripple {
     background: transparent; }
 
-.mdl-radio {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10373,16 +10359,16 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       border: 1px solid red; }
     .mdl-accordion-group .mdl-accordion label:hover {
       color: black; }
-    .mdl-accordion-group .mdl-accordion label i.indicator {
+    .mdl-accordion-group .mdl-accordion label .indicator {
       position: absolute;
       top: 20.8px;
       right: 16px;
       -webkit-transition: 0.3s ease-in-out;
               transition: 0.3s ease-in-out;
       font-weight: 100;
-      font-size: 60%;
+      font-size: 18px;
       color: rgba(0, 0, 0, 0.6); }
-      .debug .mdl-accordion-group .mdl-accordion label i.indicator {
+      .debug .mdl-accordion-group .mdl-accordion label .indicator {
         border: 1px solid green; }
     .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container {
       display: block;
@@ -10397,14 +10383,14 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
         background: rgb(63,81,181); }
   .mdl-accordion-group .mdl-accordion input:checked + label {
     color: black; }
-    .mdl-accordion-group .mdl-accordion input:checked + label i.indicator {
+    .mdl-accordion-group .mdl-accordion input:checked + label .indicator {
       -webkit-transform: rotate(90deg);
           -ms-transform: rotate(90deg);
               transform: rotate(90deg);
       -webkit-transition: 0.3s ease-in-out;
               transition: 0.3s ease-in-out;
       color: rgb(63,81,181); }
-      .debug .mdl-accordion-group .mdl-accordion input:checked + label i.indicator {
+      .debug .mdl-accordion-group .mdl-accordion input:checked + label .indicator {
         border: 1px solid red; }
   .mdl-accordion-group .mdl-accordion .mdl-accordion--content {
     overflow: auto;

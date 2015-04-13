@@ -16,23 +16,31 @@
 
 @import "../material-design-lite";
 
-.demo-page--column-layout, .demo-section--column-layout  {
+.demo-page--tooltip {
+  background : #fff;
+  padding: 20px;
+}
 
-    .mdl-column-layout {
-        background-color: #eee;
-    }
+.demo-page--tooltip .demo-preview-block {
+  background: #eee;
+  padding: 20px;
+  height: 120px;
+}
 
-    .mdl-column-layout__child {
-        min-height: 300px;
-        background-color: rgb(200,230,201);
-        padding: 16px;
-    }
+.demo-page--tooltip .icon {
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+  height: 21px;
+  margin: 0 50px;
+  opacity: 0.7;
+  outline: none;
+  padding: 0;
+  position: relative;
+  width: 21px;
+  font-size: 24px;
+}
 
-    .mdl-column-layout__child:nth-of-type(3n+1) {
-        background-color: rgb(255,205,210);
-    }
-
-    .mdl-column-layout__child:nth-of-type(3n+2) {
-        background-color: rgb(187,222,251);
-    }
+.demo-page--tooltip .icon:hover {
+  opacity: 1;
 }

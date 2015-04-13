@@ -137,7 +137,15 @@ class Application {
 
         _copy("_${sampleName}","scss",true);
         _copy("demo","html",false);
-        _copy("demo","scss",sampleName == "typography" || sampleName == "list"); // nur bei typography wird ein demo.orig.scss erstellt
+
+        _copy("demo","scss",
+            sampleName == "typography" ||
+            sampleName == "list" ||
+            sampleName == "textfield" ||
+            sampleName == "tooltip" ||
+            sampleName == "column-layout"
+        ); // nur bei typography wird ein demo.orig.scss erstellt
+
         _copy("README","md",false);
 
         final File srcJS = new File("${mdlSampleDir.path}/${sampleName}.js");

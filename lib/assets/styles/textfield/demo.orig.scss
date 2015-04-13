@@ -16,23 +16,12 @@
 
 @import "../material-design-lite";
 
-.demo-page--column-layout, .demo-section--column-layout  {
+.demo-page--textfield textarea {
+  overflow: auto;
+  resize: none;
+}
 
-    .mdl-column-layout {
-        background-color: #eee;
-    }
-
-    .mdl-column-layout__child {
-        min-height: 300px;
-        background-color: rgb(200,230,201);
-        padding: 16px;
-    }
-
-    .mdl-column-layout__child:nth-of-type(3n+1) {
-        background-color: rgb(255,205,210);
-    }
-
-    .mdl-column-layout__child:nth-of-type(3n+2) {
-        background-color: rgb(187,222,251);
-    }
+.demo-page--textfield .mdl-textfield {
+  display: block;
+  margin: 30px 0;
 }
