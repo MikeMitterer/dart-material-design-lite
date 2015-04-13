@@ -1,1 +1,36 @@
 @import "checkbox.orig";
+
+// SVG-Base: (http://meyerweb.com/eric/tools/dencoder/)
+//    <svg
+//    xmlns="http://www.w3.org/2000/svg"
+//    version="1.1"
+//    viewBox="0 0 1 1"
+//    preserveAspectRatio="xMinYMin meet">
+//    <path
+//     d="M 0.04038059,0.6267767 0.14644661,0.52071068 0.42928932,0.80355339 0.3232233,0.90961941 z M 0.21715729,0.80355339 0.85355339,0.16715729 0.95961941,0.2732233 0.3232233,0.90961941 z"
+//    id="rect3780"
+//    style="fill:#ffffff;fill-opacity:1;stroke:none" />
+//    </svg>
+
+@function svg-tick() {
+    // URL-Encoded tick.svg
+    @return url('data:image/svg+xml;charset=utf-8,' +
+        '%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E');
+}
+
+.mdl-checkbox {
+    @include avoid-blue-box-on-double-click();
+}
+
+.mdl-checkbox__tick-outline {
+    mask: initial;
+
+    .mdl-checkbox.is-checked & {
+        background: $checkbox-color svg-tick();
+    }
+
+    .mdl-checkbox.is-checked.is-disabled & {
+        background: $checkbox-disabled-color svg-tick();
+    }
+}
+

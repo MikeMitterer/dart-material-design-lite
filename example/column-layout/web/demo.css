@@ -314,6 +314,13 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
+@font-face {
+  font-family: 'Material-Design-Iconic-Font';
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  font-weight: normal;
+  font-style: normal; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -789,6 +796,29 @@ dt {
 .mdl-typography--font-black {
   font-weight: 900 !important; }
 
+.demo-typography--img-1 {
+  background-image: url(demo-images/img-1.png);
+  color: white; }
+
+.demo-typography--img-2 {
+  background-image: url(demo-images/img-2.png);
+  color: white; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /*------------------------------------*\
     $CONTENTS
 \*------------------------------------*/
@@ -3177,6 +3207,18 @@ dt {
 
 .mdl-icon--star-outline:before {
   content: "\f2e7"; }
+
+@font-face {
+  font-family: 'Material-Design-Iconic-Font';
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  font-weight: normal;
+  font-style: normal; }
+
+.mdl-icon {
+  font-family: 'Material-Design-Iconic-Font';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -6136,6 +6178,21 @@ dt {
   .mdl-checkbox.is-disabled .mdl-checkbox__ripple-container .mdl-ripple {
     background: transparent; }
 
+.mdl-checkbox {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.mdl-checkbox__tick-outline {
+  -webkit-mask: initial;
+          mask: initial; }
+  .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
+    background: rgb(63,81,181) url('data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E'); }
+  .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
+    background: rgba(0,0,0,.26) url('data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E'); }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8488,6 +8545,13 @@ dt {
     cursor: auto; }
   .mdl-radio.is-disabled .mdl-radio__ripple-container .mdl-ripple {
     background: transparent; }
+
+.mdl-radio {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.

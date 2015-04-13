@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-@import "packages/mdl/assets/styles/material-design-lite";
+@import "../material-design-lite";
 
 .demo-page--typography {
   color: $text-color-primary;
@@ -51,11 +51,11 @@
 }
 
 .demo-typography--img-1 {
-  background-image: url(demo-images/img-1.png);
+  background-image: url(../demo-images/img-1.png);
   color: white;
 }
 
 .demo-typography--img-2 {
-  background-image: url(demo-images/img-2.png);
+  background-image: url(../demo-images/img-2.png);
   color: white;
 }

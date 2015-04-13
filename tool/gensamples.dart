@@ -137,7 +137,8 @@ class Application {
 
         _copy("_${sampleName}","scss",true);
         _copy("demo","html",false);
-        _copy("demo","scss",false);
+        _copy("demo","scss",sampleName == "typography"); // nur bei typography wird ein demo.orig.scss erstellt
+        _copy("README","md",false);
 
         final File srcJS = new File("${mdlSampleDir.path}/${sampleName}.js");
         final File targetJS = new File("${config.jsbase}/${sampleName}.js");
@@ -241,6 +242,7 @@ class Application {
         content = '<section class="demo-section demo-section--$sampleName">$content\n</section>';
 
         targetSample.writeAsStringSync(content);
+        _reformatHtmlDemo(targetSample);
     }
 
     void _copySubdirs(final File sourceDir, final File targetDir, { int level: 0 } ) {
@@ -297,9 +299,9 @@ class Application {
         final Directory portBaseDir = new Directory(config.portbase);
 
         final File ignore = new File("${config.sassdir}/${sampleName}/.ignore");
-        final File srcDemoOrig = new File("${config.sassdir}/${sampleName}/demo.html");
-        final File srcDemoDart = new File("${config.sassdir}/${sampleName}/demo.dart.html");
-        final File srcDemo = srcDemoDart.existsSync() ? srcDemoDart : srcDemoOrig;
+        final File srcHtmlDemoOrig = new File("${config.sassdir}/${sampleName}/demo.html");
+        final File srcHtmlDemoDart = new File("${config.sassdir}/${sampleName}/demo.dart.html");
+        final File srcHtmlDemo = srcHtmlDemoDart.existsSync() ? srcHtmlDemoDart : srcHtmlDemoOrig;
         final File srcScss = new File("${config.sassdir}/${sampleName}/demo.scss");
         final File srcREADME = new File("${config.sassdir}/${sampleName}/README.md");
         final File targetDemo = new File("${webDir.path}/index.html");
@@ -321,7 +323,7 @@ class Application {
 
         // wenn es keine demo.html gibt dann ist das eine eigene Erweiterung!
         // sample ist in example schon angelegt
-        if(!srcDemo.existsSync()) {
+        if(!srcHtmlDemo.existsSync()) {
             return;
         }
 
@@ -353,8 +355,11 @@ class Application {
             portBaseDir.createSync(recursive: true);
         }
 
-        if(srcDemo.existsSync()) {
-            srcDemo.copySync(targetDemo.path);
+        if(srcHtmlDemo.existsSync()) {
+            srcHtmlDemo.copySync(targetDemo.path);
+            if(sampleName != "typography") {
+                _reformatHtmlDemo(targetDemo);
+            }
 
             if(srcDartMain.existsSync()) {
                 _logger.fine("    ${srcDartMain.path} -> ${targetDartMain.path} copied...");
@@ -410,11 +415,27 @@ class Application {
         }
     }
 
+    void _reformatHtmlDemo(final File htmlDemo) {
+        Validate.notNull(htmlDemo);
+
+        String content = htmlDemo.readAsStringSync();
+
+        content = content.replaceAll("<h2>","<h5>");
+        content = content.replaceAll("</h2>","</h5>");
+        content = content.replaceAll("<h3>","<h5>");
+        content = content.replaceAll("</h3>","</h5>");
+
+        htmlDemo.writeAsStringSync(content);
+    }
+
+
     void _genMaterialDesignLiteCSS(final String samplesDir) {
         Validate.notBlank(samplesDir);
 
         final File srcScss = new File("${samplesDir}/material-design-lite.scss");
         final File targetCss = new File("${samplesDir}/material-design-lite.css");
+
+        _logger.info("${srcScss.path} -> ${targetCss.path}");
         _sasscAndAutoPrefix(srcScss,targetCss);
     }
 
@@ -672,7 +693,11 @@ class Application {
         final StringBuffer contents = new StringBuffer();
 
         lines.forEach((final String line) {
-            if(line.contains(new RegExp("@import [\"']{1}\\\.{2}"))) {
+            if(line.contains('@import "../mixins"')) {
+                final String newLine = '@import "packages/mdl/assets/styles/mixins/mixins";';
+                contents.writeln(newLine);
+
+            } else if(line.contains(new RegExp("@import [\"']{1}\\\.{2}"))) {
                 final String newline = line.replaceAllMapped(new RegExp("@import ([\"']){1}\\\.{2}/"),
                 (final Match m) => "@import ${m[1]}packages/mdl/assets/styles/");
 
@@ -892,7 +917,7 @@ class Config {
         _settings[_KEY_MAIN_TEMPLATE]       = "tool/templates/main.tmpl.dart";
         _settings[_KEY_INDEX_TEMPLATE]      = "tool/templates/index.tmpl.html";
         _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
-        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "icons";   // Liste durch , getrennt
+        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party";   // Liste durch , getrennt
         _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
         _settings[_KEY_JS_BASE]             = "tool/jsbase"; // Basis für die JS-Files
 
