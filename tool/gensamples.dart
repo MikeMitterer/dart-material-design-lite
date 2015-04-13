@@ -16,14 +16,16 @@ import 'package:validate/validate.dart';
 class Application {
     final Logger _logger = new Logger("gensamples.Application");
 
-    static const _ARG_HELP          = 'help';
-    static const _ARG_LOGLEVEL      = 'loglevel';
-    static const _ARG_SETTINGS      = 'settings';
-    static const _ARG_GENERATE      = 'gen';
+    static const _ARG_HELP              = 'help';
+    static const _ARG_LOGLEVEL          = 'loglevel';
+    static const _ARG_SETTINGS          = 'settings';
+    static const _ARG_GENERATE          = 'gen';
     static const _ARG_GEN_STYLEGUIDE    = 'genstyleguide';
-    static const _ARG_GENINDEX      = 'genindex';
-    static const _ARG_MK_BACKUP     = 'makebackup';
-    static const _ARG_SHOW_DIRS     = 'showdirs';
+    static const _ARG_GENINDEX          = 'genindex';
+    static const _ARG_MK_BACKUP         = 'makebackup';
+    static const _ARG_SHOW_DIRS         = 'showdirs';
+    static const _ARG_MV_MDL            = 'mvmdl';
+
 
     ArgParser _parser;
 
@@ -55,134 +57,24 @@ class Application {
                     _copySampleView(sampleName, dir,config.samplesdir);
                 });
             }
+            else if(argResults[_ARG_MV_MDL]) {
+                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final Directory dir) {
+                    final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
+                    _copyOrigFiles(sampleName, dir,config);
+                });
+                _copyOrigExtraFiles(config);
+                _genMaterialDesignLiteCSS(config.sassdir);
+
+            }
             else if(argResults[_ARG_GENERATE]) {
                 final List<String> foldersToExclude = config.folderstoexclude.split("[,;]");
 
                 _iterateThroughDirSync(config.sassdir,foldersToExclude,(final Directory dir) {
                     final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
-                    //_logger.info("   Found: $dir in $sampleName");
-
-                    final Directory sampleDir = new Directory("${config.samplesdir}/${sampleName}");
-                    final Directory webDir = new Directory("${config.samplesdir}/${sampleName}/web");
-                    final Directory backupDir = new Directory("${config.samplesdir}/${sampleName}.backup");
-                    final Directory portBaseDir = new Directory(config.portbase);
-
-                    final File ignore = new File("${config.sassdir}/${sampleName}/.ignore");
-                    final File srcDemoOrig = new File("${config.sassdir}/${sampleName}/demo.html");
-                    final File srcDemoDart = new File("${config.sassdir}/${sampleName}/demo.dart.html");
-                    final File srcDemo = srcDemoDart.existsSync() ? srcDemoDart : srcDemoOrig;
-                    final File srcScss = new File("${config.sassdir}/${sampleName}/demo.scss");
-                    final File srcREADME = new File("${config.sassdir}/${sampleName}/README.md");
-                    final File targetDemo = new File("${webDir.path}/index.html");
-                    final File targetScss = new File("${webDir.path}/demo.scss");
-                    final File targetCss = new File("${webDir.path}/demo.css");
-                    final File targetREADME = new File("${webDir.path}/README.md");
-
-                    final File srcJs = new File("${config.sassdir}/${sampleName}/${sampleName}.js");
-                    final File srcDartMain = new File("${config.sassdir}/${sampleName}/main.dart");
-                    final File srcTemplateDartMain = new File("${config.maintemplate}");
-                    final File targetDartMain = new File("${webDir.path}/main.dart");
-                    final File targetConvertedJS = new File("${portBaseDir.path}/_${sampleName}.dart.js");
-
-                    final Link targetPackages = new Link("${webDir.path}/packages");
-                    final File srcPackages = new File("../../../packages");
-
-                    // dir wird kpl. ignoriert
-                    if(ignore.existsSync()) {
-                        return;
-                    }
-
-                    if(srcJs.existsSync()) {
-                        _logger.info("    ${srcJs.path} -> ${targetConvertedJS.path} copied...");
-                        srcJs.copySync(targetConvertedJS.path);
-                        _Js2Dart(targetConvertedJS);
-                    }
-
-                    // wenn es keine demo.html gibt dann ist das eine eigene Erweiterung!
-                    // sample ist in example schon angelegt
-                    if(!srcDemo.existsSync()) {
-                        return;
-                    }
-
-                    final Directory samplesDir = new Directory(config.samplesdir);
-                    if(!samplesDir.existsSync()) {
-                        samplesDir.createSync();
-                    }
-
-                    if(sampleDir.existsSync() && backupDir.existsSync()) {
-                        backupDir.deleteSync(recursive: true);
-                        _logger.fine("${backupDir.path} removed...");
-                    }
-                    if(sampleDir.existsSync() && config.mkbackup ) {
-                        sampleDir.renameSync(backupDir.path);
-                        _logger.fine("made ${sampleDir.path}} -> ${backupDir.path} backup...");
-
-                    } else if(sampleDir.existsSync()) {
-                        sampleDir.deleteSync(recursive: true);
-                        _logger.fine("${sampleDir.path} deleted...");
-                    }
-
-                    sampleDir.createSync();
-                    _logger.info("${sampleDir.path} created...");
-
-                    webDir.createSync();
-                    _logger.info("${webDir.path} created...");
-
-                    if(!portBaseDir.existsSync()) {
-                        portBaseDir.createSync(recursive: true);
-                    }
-
-                    if(srcDemo.existsSync()) {
-                        srcDemo.copySync(targetDemo.path);
-
-                        if(srcDartMain.existsSync()) {
-                            _logger.fine("    ${srcDartMain.path} -> ${targetDartMain.path} copied...");
-                            srcDartMain.copySync(targetDartMain.path);
-                        }
-                        else {
-                            // wird angelegt auch wenn im SRC kein JS da ist - main.dart gibt es immer
-                            _logger.fine("    ${srcTemplateDartMain.path} -> ${targetDartMain.path} copied...");
-                            srcTemplateDartMain.copySync(targetDartMain.path);
-                        }
-                        _addDartMainToIndexHTML(targetDemo);
-
-                        if(!targetPackages.existsSync()) {
-                            targetPackages.createSync(srcPackages.path);
-                            _logger.fine("    ${srcPackages.path} created...");
-                        }
-
-                        _logger.fine("    ${targetDemo.path} created...");
-                    }
-
-                    if(srcScss.existsSync()) {
-                        srcScss.copySync(targetScss.path);
-                        _logger.fine("    ${targetScss.path} created...");
-                        _changeImportStatementInSassFile(targetScss,sampleName);
-
-                        final ProcessResult result = Process.runSync('sassc', [targetScss.path, targetCss.path]);
-                        if(result.exitCode != 0) {
-                            _logger.severe(result.stderr);
-                        } else {
-                            _logger.fine("    ${targetCss.path} created...");
-                        }
-
-                        final ProcessResult resultPrefixer = Process.runSync('autoprefixer', [ targetCss.path]);
-                        if(resultPrefixer.exitCode != 0) {
-                            _logger.severe(resultPrefixer.stderr);
-                        } else {
-                            _logger.fine("    ${targetCss.path} prefixed...");
-                        }
-                    }
-
-                    if(srcREADME.existsSync()) {
-                        _logger.fine("    ${srcREADME.path} -> ${targetREADME.path} copied...");
-                        srcREADME.copySync(targetREADME.path);
-                    }
-
-                    _copySubdirs(new File("${config.sassdir}/${sampleName}"),new File(webDir.path));
-                    _writeYaml(sampleName,config);
-
+                    _genSamples(sampleName,config);
                 });
+                _genMaterialDesignLiteCSS(config.sassdir);
+
 
             }  else if(argResults[_ARG_GENINDEX]) {
                 final List<_LinkInfo> links = new List<_LinkInfo>();
@@ -214,6 +106,72 @@ class Application {
 
 
     // -- private -------------------------------------------------------------
+
+    void _copyOrigFiles(final String sampleName,final Directory sassDir,final Config config) {
+        Validate.notBlank(sampleName);
+        Validate.notNull(sassDir);
+        Validate.notNull(config);
+
+        final String samplesDir = config.samplesdir;
+        final String mdlDir = config.mdldir;
+
+        final Directory mdlSampleDir = new Directory("${mdlDir}/$sampleName");
+
+        if(!mdlSampleDir.existsSync()) {
+            return;
+        }
+
+        void _copy(final String sampleName,final String extension,bool useOrigPostfix) {
+            final File src = new File("${mdlSampleDir.path}/${sampleName}.$extension");
+
+            if(!src.existsSync()) {
+                _logger.fine("$sampleName: ${src.path} does not exists!");
+                return;
+            }
+
+            final File target = new File("${sassDir.path}/${sampleName}${useOrigPostfix ? ".orig" : ""}.$extension");
+
+            _logger.fine("$sampleName: ${src.path} -> ${target.path}");
+            src.copySync(target.path);
+        }
+
+        _copy("_${sampleName}","scss",true);
+        _copy("demo","html",false);
+        _copy("demo","scss",false);
+
+        final File srcJS = new File("${mdlSampleDir.path}/${sampleName}.js");
+        final File targetJS = new File("${config.jsbase}/${sampleName}.js");
+        final File targetConvertedJS = new File("${config.portbase}/${sampleName}.js.dart");
+
+        if(srcJS.existsSync()) {
+            srcJS.copySync(targetJS.path);
+            srcJS.copySync(targetConvertedJS.path);
+
+            _Js2Dart(targetConvertedJS);
+        }
+    }
+
+    void _copyOrigExtraFiles(final Config config) {
+        Validate.notNull(config);
+
+        final String sassDir = config.sassdir;
+        final String mdlDir = config.mdldir;
+
+        final Directory mdlSampleDir = new Directory("${mdlDir}");
+
+        final File srcScss = new File("${mdlSampleDir.path}/_mixins.scss");
+        final File targetScss = new File("${sassDir}/mixins/_mixins.orig.scss");
+
+        _logger.fine("mixins: ${srcScss.path} -> ${targetScss.path}");
+
+        srcScss.copySync(targetScss.path);
+
+        final File srcJS = new File("${mdlDir}/mdlComponentHandler.js");
+        final File targetConvertedJS = new File("${config.portbase}/mdlComponentHandler.js.dart");
+
+        srcJS.copySync(targetConvertedJS.path);
+        _Js2Dart(targetConvertedJS);
+    }
 
     /// {sassDir} -> lib/sass/accordion
     void _copyDemoCss(final String sampleName,final Directory sassDir,final String samplesDir) {
@@ -329,6 +287,137 @@ class Application {
         });
     }
 
+    void _genSamples(final String sampleName,final Config config) {
+        Validate.notBlank(sampleName);
+        Validate.notNull(config);
+
+        final Directory sampleDir = new Directory("${config.samplesdir}/${sampleName}");
+        final Directory webDir = new Directory("${config.samplesdir}/${sampleName}/web");
+        final Directory backupDir = new Directory("${config.samplesdir}/${sampleName}.backup");
+        final Directory portBaseDir = new Directory(config.portbase);
+
+        final File ignore = new File("${config.sassdir}/${sampleName}/.ignore");
+        final File srcDemoOrig = new File("${config.sassdir}/${sampleName}/demo.html");
+        final File srcDemoDart = new File("${config.sassdir}/${sampleName}/demo.dart.html");
+        final File srcDemo = srcDemoDart.existsSync() ? srcDemoDart : srcDemoOrig;
+        final File srcScss = new File("${config.sassdir}/${sampleName}/demo.scss");
+        final File srcREADME = new File("${config.sassdir}/${sampleName}/README.md");
+        final File targetDemo = new File("${webDir.path}/index.html");
+        final File targetScss = new File("${webDir.path}/demo.scss");
+        final File targetCss = new File("${webDir.path}/demo.css");
+        final File targetREADME = new File("${webDir.path}/README.md");
+
+        final File srcDartMain = new File("${config.sassdir}/${sampleName}/main.dart");
+        final File srcTemplateDartMain = new File("${config.maintemplate}");
+        final File targetDartMain = new File("${webDir.path}/main.dart");
+
+        final Link targetPackages = new Link("${webDir.path}/packages");
+        final File srcPackages = new File("../../../packages");
+
+        // dir wird kpl. ignoriert
+        if(ignore.existsSync()) {
+            return;
+        }
+
+        // wenn es keine demo.html gibt dann ist das eine eigene Erweiterung!
+        // sample ist in example schon angelegt
+        if(!srcDemo.existsSync()) {
+            return;
+        }
+
+        final Directory samplesDir = new Directory(config.samplesdir);
+        if(!samplesDir.existsSync()) {
+            samplesDir.createSync();
+        }
+
+        if(sampleDir.existsSync() && backupDir.existsSync()) {
+            backupDir.deleteSync(recursive: true);
+            _logger.fine("${backupDir.path} removed...");
+        }
+        if(sampleDir.existsSync() && config.mkbackup ) {
+            sampleDir.renameSync(backupDir.path);
+            _logger.fine("made ${sampleDir.path}} -> ${backupDir.path} backup...");
+
+        } else if(sampleDir.existsSync()) {
+            sampleDir.deleteSync(recursive: true);
+            _logger.fine("${sampleDir.path} deleted...");
+        }
+
+        sampleDir.createSync();
+        _logger.info("${sampleDir.path} created...");
+
+        webDir.createSync();
+        _logger.info("${webDir.path} created...");
+
+        if(!portBaseDir.existsSync()) {
+            portBaseDir.createSync(recursive: true);
+        }
+
+        if(srcDemo.existsSync()) {
+            srcDemo.copySync(targetDemo.path);
+
+            if(srcDartMain.existsSync()) {
+                _logger.fine("    ${srcDartMain.path} -> ${targetDartMain.path} copied...");
+                srcDartMain.copySync(targetDartMain.path);
+            }
+            else {
+                // wird angelegt auch wenn im SRC kein JS da ist - main.dart gibt es immer
+                _logger.fine("    ${srcTemplateDartMain.path} -> ${targetDartMain.path} copied...");
+                srcTemplateDartMain.copySync(targetDartMain.path);
+            }
+            _addDartMainToIndexHTML(targetDemo);
+
+            if(!targetPackages.existsSync()) {
+                targetPackages.createSync(srcPackages.path);
+                _logger.fine("    ${srcPackages.path} created...");
+            }
+
+            _logger.fine("    ${targetDemo.path} created...");
+        }
+
+        if(srcScss.existsSync()) {
+            srcScss.copySync(targetScss.path);
+            _logger.fine("    ${targetScss.path} created...");
+            _changeImportStatementInSassFile(targetScss,sampleName);
+            _sasscAndAutoPrefix(targetScss,targetCss);
+        }
+
+        if(srcREADME.existsSync()) {
+            _logger.fine("    ${srcREADME.path} -> ${targetREADME.path} copied...");
+            srcREADME.copySync(targetREADME.path);
+        }
+
+        _copySubdirs(new File("${config.sassdir}/${sampleName}"),new File(webDir.path));
+        _writeYaml(sampleName,config);
+    }
+
+    void _sasscAndAutoPrefix(final File targetScss,final File targetCss) {
+        Validate.notNull(targetScss);
+        Validate.notNull(targetCss);
+
+        final ProcessResult result = Process.runSync('sassc', [targetScss.path, targetCss.path]);
+        if(result.exitCode != 0) {
+            _logger.severe(result.stderr);
+        } else {
+            _logger.fine("    ${targetCss.path} created...");
+        }
+
+        final ProcessResult resultPrefixer = Process.runSync('autoprefixer', [ targetCss.path]);
+        if(resultPrefixer.exitCode != 0) {
+            _logger.severe(resultPrefixer.stderr);
+        } else {
+            _logger.fine("    ${targetCss.path} prefixed...");
+        }
+    }
+
+    void _genMaterialDesignLiteCSS(final String samplesDir) {
+        Validate.notBlank(samplesDir);
+
+        final File srcScss = new File("${samplesDir}/material-design-lite.scss");
+        final File targetCss = new File("${samplesDir}/material-design-lite.css");
+        _sasscAndAutoPrefix(srcScss,targetCss);
+    }
+
     void _Js2Dart(final File jsToConvert) {
         Validate.notNull(jsToConvert);
         Validate.notNull(jsToConvert.existsSync());
@@ -367,6 +456,7 @@ class Application {
             newLine = newLine.replaceAll("this.init()","init()");
             newLine = newLine.replaceAll("};","}");
             newLine = newLine.replaceAll("===","==");
+            newLine = newLine.replaceAll("!==","!=");
             newLine = newLine.replaceAll(".bind(this)","");
             newLine = newLine.replaceAll("var ","final ");
             newLine = newLine.replaceAll("document.querySelector(","html.querySelector(");
@@ -403,7 +493,7 @@ class Application {
 
             newLine = newLine.replaceAll("(final event)","(final html.Event event)");
 
-            newLine = newLine.replaceFirst(new RegExp("^ \\* "),"/// ");
+            newLine = newLine.replaceFirst(new RegExp(r"^\s*?\*[^\w]*"),"/// ");
 
             newLine = newLine.replaceAllMapped(new RegExp("this\\.([^_]+)_"),
                 (final Match m) => "_${m[1]}");
@@ -737,6 +827,7 @@ class Application {
             ..addFlag(_ARG_GENINDEX,        abbr: 'i', negatable: false, help: "Generate localindex.html")
             ..addFlag(_ARG_MK_BACKUP,       abbr: 'b', negatable: false, help: "Make backup")
             ..addFlag(_ARG_SHOW_DIRS,       abbr: 'd', negatable: false, help: "Show source-Dirs")
+            ..addFlag(_ARG_MV_MDL,          abbr: 'm', negatable: false, help: "Move original MDL files to project")
 
             ..addOption(_ARG_LOGLEVEL,      abbr: 'v', help: "[ info | debug | warning ]")
             ;
@@ -777,6 +868,7 @@ class Config {
     final Logger _logger = new Logger("gensamples.Config");
 
     static const String _KEY_SASS_DIR           = "sassdir";
+    static const String _KEY_MDL_DIR            = "mdldir";
     static const String _KEY_SAMPLES_DIR        = "example";
     static const String _KEY_LOGLEVEL           = "loglevel";
     static const String _KEY_MK_BACKUP          = "mkbackup";
@@ -785,6 +877,7 @@ class Config {
     static const String _KEY_YAML_TEMPLATE      = "yamltemplate";
     static const String _KEY_FOLDERS_TO_EXCLUDE = "excludefolder";
     static const String _KEY_PORT_BASE          = "portbase";
+    static const String _KEY_JS_BASE            = "jsbase";
 
     final ArgResults _argResults;
     final Map<String,dynamic> _settings = new Map<String,dynamic>();
@@ -792,6 +885,7 @@ class Config {
     Config(this._argResults) {
 
         _settings[_KEY_SASS_DIR]            = 'lib/assets/styles';
+        _settings[_KEY_MDL_DIR]             = '/Volumes/Daten/DevLocal/DevDart/material-design-lite/src';
         _settings[_KEY_SAMPLES_DIR]         = 'example';
         _settings[_KEY_LOGLEVEL]            = 'info';
         _settings[_KEY_MK_BACKUP]           = false;
@@ -800,6 +894,7 @@ class Config {
         _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
         _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "icons";   // Liste durch , getrennt
         _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
+        _settings[_KEY_JS_BASE]             = "tool/jsbase"; // Basis für die JS-Files
 
         _overwriteSettingsWithArgResults();
     }
@@ -809,6 +904,8 @@ class Config {
     String get loglevel => _settings[_KEY_LOGLEVEL];
 
     String get sassdir => _settings[_KEY_SASS_DIR];
+
+    String get mdldir => _settings[_KEY_MDL_DIR];
 
     String get samplesdir => _settings[_KEY_SAMPLES_DIR];
 
@@ -824,11 +921,14 @@ class Config {
 
     String get portbase => _settings[_KEY_PORT_BASE];
 
+    String get jsbase => _settings[_KEY_JS_BASE];
+
     Map<String,String> get settings {
         final Map<String,String> settings = new Map<String,String>();
 
         settings["SASS-Dir"]                    = sassdir;
         settings["Samples-Dir"]                 = samplesdir;
+        settings["MDL-Dir"]                     = mdldir;
         settings["loglevel"]                    = loglevel;
         settings["make backup"]                 = mkbackup ? "yes" : "no";
         settings["Main-Template"]               = maintemplate;
@@ -836,6 +936,7 @@ class Config {
         settings["YAML-Template"]               = yamltemplate;
         settings["Folders to exclude"]          = folderstoexclude;
         settings["Base-Dir for js2Dart files"]  = portbase;
+        settings["Base-Dir for ORIG JS files"]  = jsbase;
 
         if(dirstoscan.length > 0) {
             settings["Dirs to scan"] = dirstoscan.join(", ");
