@@ -270,7 +270,13 @@ class Application {
                 return false;
             }
 
-            if(entity.path.endsWith(".js") || entity.path.endsWith("/demo.html") || entity.path.endsWith("/demo.scss")) {
+            if(entity.path.endsWith(".js") ||
+                entity.path.endsWith("/demo.html") ||
+                entity.path.endsWith("/demo.dart.html") ||
+                entity.path.endsWith("/demo.scss") ||
+                entity.path.endsWith("/demo.orig.scss") ||
+                entity.path.endsWith("/demo.dart.scss")
+                ) {
                 return false;
             }
 

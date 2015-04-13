@@ -3,18 +3,8 @@
 //  sass main.scss main.css -r ../packages/material_icons/sassext/urlencode.rb && autoprefixer main.css
 //
 
-@import 'packages/wsk_material/sass/resets/h5bp';
-@import 'packages/wsk_material/sass/typography/typography';
-@import 'packages/wsk_material/sass/palette/palette';
-@import 'colors';
-
-@import 'packages/wsk_material/sass/layout/layout';
-@import 'packages/wsk_material/sass/textfield/textfield';
-@import 'packages/wsk_material/sass/animation/animation';
-@import "packages/wsk_material/sass/card/card";
-@import 'packages/wsk_material/sass/bottombar/bottombar';
-@import "packages/wsk_material/sass/footer/mini_footer";
-@import "packages/wsk_material/sass/list/list";
+@import 'packages/mdl/assets/styles/material-design-lite';
+//@import 'colors';
 
 $palette-primary: $palette-indigo;
 $icon-color: lighten(rgb(63,81,181),20%);
