@@ -63,7 +63,7 @@ class Application {
                     _copyOrigFiles(sampleName, dir,config);
                 });
                 _copyOrigExtraFiles(config);
-                _genMaterialDesignLiteCSS(config.sassdir);
+                _genMaterialCSS(config.sassdir);
 
             }
             else if(argResults[_ARG_GENERATE]) {
@@ -73,7 +73,7 @@ class Application {
                     final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
                     _genSamples(sampleName,config);
                 });
-                _genMaterialDesignLiteCSS(config.sassdir);
+                _genMaterialCSS(config.sassdir);
 
 
             }  else if(argResults[_ARG_GENINDEX]) {
@@ -143,6 +143,7 @@ class Application {
             sampleName == "list" ||
             sampleName == "textfield" ||
             sampleName == "tooltip" ||
+            sampleName == "menu" ||
             sampleName == "column-layout"
         ); // nur bei typography wird ein demo.orig.scss erstellt
 
@@ -437,11 +438,11 @@ class Application {
     }
 
 
-    void _genMaterialDesignLiteCSS(final String samplesDir) {
+    void _genMaterialCSS(final String samplesDir) {
         Validate.notBlank(samplesDir);
 
         final File srcScss = new File("${samplesDir}/material-design-lite.scss");
-        final File targetCss = new File("${samplesDir}/material-design-lite.css");
+        final File targetCss = new File("${samplesDir}/material.css");
 
         _logger.info("${srcScss.path} -> ${targetCss.path}");
         _sasscAndAutoPrefix(srcScss,targetCss);
