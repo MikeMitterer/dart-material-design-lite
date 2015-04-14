@@ -105,6 +105,9 @@ void configRouter() {
         ..addRoute(name: 'footer', path: '/footer',
                     enter: view("views/footer.html", new DemoController()))
 
+        ..addRoute(name: 'icons', path: '/icons',
+            enter: view("views/icons.html", new DemoController()))
+
         ..addRoute(name: 'icon-toggle', path: '/icon-toggle',
                     enter: view("views/icon-toggle.html", new DemoController()))
 

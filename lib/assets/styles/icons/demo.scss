@@ -16,31 +16,36 @@
 
 @import "../material-design-lite";
 
-.demo-icon-block {
-  display: flex;
-  min-height: 24px;
-  height: 24px;
-  min-width: 30em;
-  margin: 0;
-  padding: 0;
-  align-items: center;
+.demo-page--icons, .demo-section--icons {
+
+    .demo-icon-block {
+        display: flex;
+        min-height: 24px;
+        height: 24px;
+        min-width: 30em;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    .mdl-icon {
+        display: inline-block;
+        font-size: 24px;
+        min-width: 24px;
+        height: 24px;
+        line-height: 24px;
+        margin-right: 1em;
+    }
+
+    .demo-category {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .demo-icon-name {
+        height: 24px;
+    }
+
 }
 
-.demo-page--icon .mdl-icon {
-  display: inline-block;
-  font-size: 24px;
-  min-width: 24px;
-  height: 24px;
-  line-height: 24px;
-  margin-right: 1em;
-}
-
-.demo-category {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.demo-icon-name {
-  height: 24px;
-}
