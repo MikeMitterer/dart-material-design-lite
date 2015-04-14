@@ -137,15 +137,7 @@ class Application {
 
         _copy("_${sampleName}","scss",true);
         _copy("demo","html",false);
-
-        _copy("demo","scss",
-            sampleName == "typography" ||
-            sampleName == "list" ||
-            sampleName == "textfield" ||
-            sampleName == "tooltip" ||
-            sampleName == "menu" ||
-            sampleName == "column-layout"
-        ); // nur bei typography wird ein demo.orig.scss erstellt
+        _copy("demo","scss",true);
 
         _copy("README","md",false);
 
@@ -272,6 +264,7 @@ class Application {
 
             if(entity.path.endsWith(".js") ||
                 entity.path.endsWith("/demo.html") ||
+                entity.path.endsWith("/demo.orig.html") ||
                 entity.path.endsWith("/demo.dart.html") ||
                 entity.path.endsWith("/demo.scss") ||
                 entity.path.endsWith("/demo.orig.scss") ||

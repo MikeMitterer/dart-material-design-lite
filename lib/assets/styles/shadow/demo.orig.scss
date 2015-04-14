@@ -16,7 +16,18 @@
 
 @import "../material-design-lite";
 
-.demo-page--list .mdl-list-view--avatar {
-  background: url("../demo-images/avatar.png");
-  background-size: 100%;
+.demo-shadow-card {
+  background-color   : #fff;
+  border-radius      : 2px;
+  display            : block;
+  height             : 300px;
+  margin-bottom      : 20px;
+
+  transition-property: opacity, transform;
+  @include material-animation-default(300ms);
+  width              : 300px;
+
+  @media screen and (max-width: 360px ) {
+    width: 272px;
+  }
 }
