@@ -1,17 +1,18 @@
 /* Material Design Lite */
 
-// Variables and mixins
-@import "variables";
-@import "mixins/mixins";
-
 // Resets and dependencies
 @import "resets/resets";
 @import "fonts/fonts";
 @import "typography/typography";
 @import 'icons/icons';
+@import "palette/palette";
+
+// Variables and mixins
+@import "theme";
+@import "variables";
+@import "palette/color_definitions";
 
 // Components
-@import "palette/palette";
 @import "shadow/shadow";
 @import "ripple/ripple";
 @import "animation/animation";

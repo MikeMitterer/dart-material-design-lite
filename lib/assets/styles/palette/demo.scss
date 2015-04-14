@@ -18,128 +18,128 @@
 
 @mixin demo-palette-color-groups($palette) {
   .demo-palette-color--50 {
-    background-color: unquote("rgb(#{nth($palette, 1)})");
+    background-color: nth($palette, 1);
 
     &:after {
-      content: 'rgb(#{nth($palette, 1)})';
+      content: nth($palette, 1);
       float: right;
     }
   }
 
   .demo-palette-color--100 {
-    background-color: unquote("rgb(#{nth($palette, 2)})");
+    background-color: nth($palette, 2);
 
     &:after {
-      content: 'rgb(#{nth($palette, 2)})';
+      content: nth($palette, 2);
       float: right;
     }
   }
 
   .demo-palette-color--200 {
-    background-color: unquote("rgb(#{nth($palette, 3)})");
+    background-color: nth($palette, 3);
 
     &:after {
-      content: 'rgb(#{nth($palette, 3)})';
+      content: nth($palette, 3);
       float: right;
     }
   }
 
   .demo-palette-color--300 {
-    background-color: unquote("rgb(#{nth($palette, 4)})");
+    background-color: nth($palette, 4);
 
     &:after {
-      content: 'rgb(#{nth($palette, 4)})';
+      content: nth($palette, 4);
       float: right;
     }
   }
 
   .demo-palette-color--400 {
-    background-color: unquote("rgb(#{nth($palette, 5)})");
+    background-color: nth($palette, 5);
 
     &:after {
-      content: 'rgb(#{nth($palette, 5)})';
+      content: nth($palette, 5);
       float: right;
     }
   }
 
   .demo-palette-color--500 {
-    background-color: unquote("rgb(#{nth($palette, 6)})");
+    background-color: nth($palette, 6);
 
     &:after {
-      content: 'rgb(#{nth($palette, 6)})';
+      content: nth($palette, 6);
       float: right;
     }
   }
 
   .demo-palette-color--600 {
-    background-color: unquote("rgb(#{nth($palette, 7)})");
+    background-color: nth($palette, 7);
 
     &:after {
-      content: 'rgb(#{nth($palette, 7)})';
+      content: nth($palette, 7);
       float: right;
     }
   }
 
   .demo-palette-color--700 {
-    background-color: unquote("rgb(#{nth($palette, 8)})");
+    background-color: nth($palette, 8);
 
     &:after {
-      content: 'rgb(#{nth($palette, 8)})';
+      content: nth($palette, 8);
       float: right;
     }
   }
 
   .demo-palette-color--800 {
-    background-color: unquote("rgb(#{nth($palette, 9)})");
+    background-color: nth($palette, 9);
 
     &:after {
-      content: 'rgb(#{nth($palette, 9)})';
+      content: nth($palette, 9);
       float: right;
     }
   }
 
   .demo-palette-color--900 {
-    background-color: unquote("rgb(#{nth($palette, 10)})");
+    background-color: nth($palette, 10);
 
     &:after {
-      content: 'rgb(#{nth($palette, 10)})';
+      content: nth($palette, 10);
       float: right;
     }
   }
 
   @if length($palette) > 10 {
     .demo-palette-color--A100 {
-      background-color: unquote("rgb(#{nth($palette, 11)})");
+      background-color: nth($palette, 11);
 
       &:after {
-        content: 'rgb(#{nth($palette, 11)})';
+        content: nth($palette, 11);
         float: right;
       }
     }
 
     .demo-palette-color--A200 {
-      background-color: unquote("rgb(#{nth($palette, 12)})");
+      background-color: nth($palette, 12);
 
       &:after {
-        content: 'rgb(#{nth($palette, 12)})';
+        content: nth($palette, 12);
         float: right;
       }
     }
 
     .demo-palette-color--A400 {
-      background-color: unquote("rgb(#{nth($palette, 13)})");
+      background-color: nth($palette, 13);
 
       &:after {
-        content: 'rgb(#{nth($palette, 13)})';
+        content: nth($palette, 13);
         float: right;
       }
     }
 
     .demo-palette-color--A700 {
-      background-color: unquote("rgb(#{nth($palette, 14)})");
+      background-color: nth($palette, 14);
 
       &:after {
-        content: 'rgb(#{nth($palette, 14)})';
+        content: nth($palette, 14);
         float: right;
       }
     }
@@ -284,7 +284,7 @@
   }
 
   .demo-palette-color--100 {
-    background-color: unquote("rgb(#{nth($palette-black, 1)})");
+    background-color: nth($palette-black, 1);
 
     &:after {
       content: '#000000';
@@ -293,7 +293,7 @@
   }
 
   .demo-palette-color--12 {
-    background-color: unquote("rgba(#{nth($palette-black, 5)})");
+    background-color: nth($palette-black, 5);
 
     &:after {
       content: 'Dividers';
@@ -302,7 +302,7 @@
   }
 
   .demo-palette-color--26 {
-    background-color: unquote("rgba(#{nth($palette-black, 4)})");
+    background-color: nth($palette-black, 4);
 
     &:after {
       content: 'Disabled / Hint Text';
@@ -311,7 +311,7 @@
   }
 
   .demo-palette-color--54 {
-    background-color: unquote("rgba(#{nth($palette-black, 3)})");
+    background-color: nth($palette-black, 3);
 
     &:after {
       content: 'Secondary Text / Icons';
@@ -320,7 +320,7 @@
   }
 
   .demo-palette-color--87 {
-    background-color: unquote("rgba(#{nth($palette-black, 2)})");
+    background-color: nth($palette-black, 2);
 
     &:after {
       content: 'Text';
@@ -340,7 +340,7 @@
   }
 
   .demo-palette-color--12 {
-    background-color: unquote("rgba(#{nth($palette-white, 4)})");
+    background-color: nth($palette-white, 4);
 
     &:after {
       content: 'Dividers';
@@ -349,7 +349,7 @@
   }
 
   .demo-palette-color--30 {
-    background-color: unquote("rgba(#{nth($palette-white, 3)})");
+    background-color: nth($palette-white, 3);
 
     &:after {
       content: 'Disabled / Hint Text';
@@ -358,7 +358,7 @@
   }
 
   .demo-palette-color--70 {
-    background-color: unquote("rgba(#{nth($palette-white, 2)})");
+    background-color: nth($palette-white, 2);
 
     &:after {
       content: 'Secondary Text';
@@ -367,7 +367,7 @@
   }
 
   .demo-palette-color--100 {
-    background-color: unquote("rgba(#{nth($palette-white, 1)})");
+    background-color: nth($palette-white, 1);
 
     &:after {
       content: 'Text / Icons';
