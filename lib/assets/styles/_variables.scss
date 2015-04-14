@@ -52,6 +52,55 @@ $performance_font: 'Helvetica', 'Arial', sans-serif;
 // Color order: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200,
 // A400, A700.
 
+$palette-mike:
+rgb(255,235,238)
+rgb(255,205,210)
+rgb(239,154,154)
+rgb(229,115,115)
+rgb(239,83,80)
+rgb(244,67,54)
+rgb(229,57,53)
+rgb(211,47,47)
+rgb(198,40,40)
+rgb(183,28,28)
+rgb(255,138,128)
+rgb(255,82,82)
+rgb(255,23,68)
+rgb(213,0,0);
+
+$palette-mike-50: nth($palette-mike, 1);
+$palette-mike-100: nth($palette-mike, 2);
+$palette-mike-200: nth($palette-mike, 3);
+$palette-mike-300: nth($palette-mike, 4);
+$palette-mike-400: nth($palette-mike, 5);
+$palette-mike-500: nth($palette-mike, 6);
+$palette-mike-600: nth($palette-mike, 7);
+$palette-mike-700: nth($palette-mike, 8);
+$palette-mike-800: nth($palette-mike, 9);
+$palette-mike-900: nth($palette-mike, 10);
+$palette-mike-A100: nth($palette-mike, 11);
+$palette-mike-A200: nth($palette-mike, 12);
+$palette-mike-A400: nth($palette-mike, 13);
+$palette-mike-A700: nth($palette-mike, 14);
+
+.mdl-color-text--mike {
+    color: $palette-mike-500 !important;
+}
+
+.mdl-color--mike {
+    background-color: $palette-mike-500 !important;
+}
+
+.mdl-color-text--mike-50 {
+    color: $palette-mike-50 !important;
+}
+
+.mdl-color--mike-50 {
+    background-color: $palette-mike-50 !important;
+}
+
+
+
 $palette-red:
 "255,235,238"
 "255,205,210"

@@ -1,5 +1,5 @@
 name: mdl_{{samplename}}_sample
-description: Material Design Light '{{samplename}}' Sample
+description: Material Design Lite '{{samplename}}' Sample
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-mdl

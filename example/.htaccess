@@ -1,4 +1,4 @@
-AuthName "Material Design Light"
+AuthName "Material Design Lite"
 AuthType Basic
 AuthUserFile /home/mdlmm98766/.htpasswd
 require valid-user

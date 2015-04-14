@@ -1,9 +1,9 @@
-# Material Design Light for Dart
+# Material Design Lite for Dart
 
-A port of Googles Material Design Light to Dart<br>
+A port of Googles Material Design Lite to Dart<br>
 You can find the original version here on [GitHub][mdlmaterial].
 
-Material Design Light strives to give you a high performance starting point out of the box
+Material Design Lite strives to give you a high performance starting point out of the box
 Responsive layout is included with the kit that adapts to fit the device your user is viewing it on. 
 
 [Demo][mdldemo] (transpiled JS-Version)

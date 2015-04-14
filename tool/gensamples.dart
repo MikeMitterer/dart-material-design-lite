@@ -193,7 +193,7 @@ class Application {
             targetScssDir.createSync(recursive: true);
         }
 
-        _logger.info("$sampleName: ${srcScss.path} -> ${targetScss.path}");
+        _logger.fine("Coping styleguide $sampleName: ${srcScss.path} -> ${targetScss.path}");
 
         String content = srcScss.readAsStringSync();
         content = content.replaceAll(new RegExp(r"@import[^;]*;(\n|\r)*",caseSensitive: false, multiLine: true),"");
@@ -221,7 +221,7 @@ class Application {
             targetSampleDir.createSync(recursive: true);
         }
 
-        _logger.info("$sampleName: ${srcSample.path} -> ${targetSample.path}");
+        _logger.fine("Coping styleguide $sampleName: ${srcSample.path} -> ${targetSample.path}");
 
         String content = srcSample.readAsStringSync();
 

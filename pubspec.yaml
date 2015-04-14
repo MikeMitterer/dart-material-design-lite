@@ -1,8 +1,8 @@
 name: mdl
-description: Material Design Light for your Web-Application
+description: Material Design Lite for your Web-Application
 version: 0.8.2
 author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-mdl
+homepage: https://github.com/MikeMitterer/dart-material-design-lite
 
 dependencies:
   browser: ">=0.10.0+2 <0.11.0"
