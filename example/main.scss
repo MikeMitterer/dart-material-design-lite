@@ -7,14 +7,16 @@
 //@import 'colors';
 
 $palette-primary: $palette-indigo;
-$icon-color: lighten(rgb(63,81,181),20%);
-$icon-color-dark: darken($icon-color,10%);
+$palette-accent: $palette-pink;
+
+$icon-color: unquote("rgb(#{nth($palette-accent, 7)})");
+$icon-color-dark: unquote("rgb(#{nth($palette-accent, 7)})");
 
 @import "packages/material_icons/sass/svg-utils";
 @import "material_icons";
 
 $background-color : #F9F9F9 !default;
-$headline-color: nth($palette-primary, 7) !default;
+$headline-color: unquote("rgb(#{nth($palette-primary, 7)})") !default;
 
 // width of card + 2x page padding + card margin
 $wrap-cards-width: ((330px * 1) + (16px * 2) + 48px) !default;
@@ -31,11 +33,11 @@ html, body {
     background-color : $background-color;
 }
 
-.wsk-layout__header {
+.mdl-layout__header {
     padding-left: 60px;
 }
 
-.wsk-layout__content {
+.mdl-layout__content {
     display         : flex;
     flex-direction  : row;
     flex-wrap       : wrap;
@@ -81,10 +83,14 @@ html, body {
             color: white;
         }
 
-        .wsk-logo {
+        .mdl-logo {
             white-space: nowrap;
         }
 
+    }
+
+    .mdl-list-view--avatar {
+        background-color: inherit;
     }
 
     .components > article ul {
@@ -100,7 +106,7 @@ html, body {
         }
 
 
-        .wsk-list-view--avatar.component {
+        .mdl-list-view--avatar.component {
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-position: 50% 50%;
@@ -120,7 +126,7 @@ html, body {
         align-content: space-between; // ||
         align-items: flex-start; // ↓
 
-        > .wsk-card {
+        > .mdl-card {
             margin: 12px 48px 24px 0;
             @media screen and (max-width: $wrap-cards-width) { margin-right: 0 }
         }

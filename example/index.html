@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Material Design Light</title>
+    <title>Material Design Lite</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +21,7 @@
         <svg class="mdl-layout-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
 
         <!-- Title -->
-        <span class="mdl-layout-title">Material Design Light</span>
+        <span class="mdl-layout-title">Material Design Lite</span>
 
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
@@ -29,7 +29,7 @@
         <!-- Navigation -->
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link hide-on-mobile" href="#components">Components</a>
-            <a class="mdl-navigation__link hide-on-mobile" href="#sample_layouts">Sample layouts</a>
+            <!--<a class="mdl-navigation__link hide-on-mobile" href="#sample_layouts">Sample layouts</a>-->
             <a class="mdl-navigation__link hide-on-mobile" href="#theming">Theming</a>
             <a class="mdl-navigation__link hide-on-mobile" href="#links">Links</a>
         </nav>
@@ -38,42 +38,42 @@
         <span class="mdl-layout-title">Sample layout</span>
         <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="#">Components</a>
-            <a class="mdl-navigation__link" href="#">Sample layouts</a>
+            <!--<a class="mdl-navigation__link" href="#">Sample layouts</a>-->
             <a class="mdl-navigation__link" href="#">Theming</a>
             <a class="mdl-navigation__link" href="#">Links</a>
         </nav>
     </div>
     <div class="mdl-layout__content" id="top">
         <section>
-            <header><h3>Material Design Light, Dart version</h3></header>
-            <p><strong>A port of Googles Material Design Light to Dart</strong><br>
+            <header><h3>Material Design Lite, Dart version</h3></header>
+            <p><strong>A port of Googles Material Design Lite to Dart</strong><br>
                 <br>
-                Material Design Light strives to give you a high performance starting point out of the box
+                Material Design Lite strives to give you a high performance starting point out of the box
                 Responsive layout is included with the kit that adapts to fit the device your user is viewing it on.<br>
                 <strong>Delete-key friendly</strong><br>
                 Create a tailored starter kit by taking only what you need, and easily deleting anything you don't.
             </p>
             <p>The source code is hosted on
-                <a href="https://github.com/MikeMitterer/dart-mdl-material" target="_blank">GitHub.</a>
-                Issues, ideas: <a href="https://github.com/MikeMitterer/dart-mdl-material/issues">Issue-Tracker on GitHub</a>
+                <a href="https://github.com/MikeMitterer/dart-mdl" target="_blank">GitHub.</a>
+                Issues, ideas: <a href="https://github.com/MikeMitterer/dart-mdl/issues">Issue-Tracker on GitHub</a>
             </p>
 
-            <section class="components" id="components">
-                <h4>Components - Material Design Light (MDL)</h4>
+            <article class="styleguide">
+                <h4>Styleguide</h4>
+                <p>
+                    The <a href="styleguide/index.html">Styleguide</a> shows all samples in one page. It is also a nice
+                    example for a Single-Page-Application (SPA). All views are loaded dynamically via "MaterialContent-Component"
+                </p>
+            </article>
+
+            <section class="components mdl" id="components">
                 <article>
+                    <h4>Components - Material Design Lite (MDL)</h4>
                     <div class="mdl-list--styled-view">
                         <ul class="mdl-list--inline">
                             <li>
-                                <span class="mdl-list-view--avatar bg-ic_extension_48px"></span>
-                                <span class="mdl-list-view--name script"><a href="accordion/index.html">accordion</a></span>
-                            </li>
-                            <li>
                                 <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
                                 <span class="mdl-list-view--name script"><a href="animation/index.html">animation</a></span>
-                            </li>
-                            <li>
-                                <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
-                                <span class="mdl-list-view--name"><a href="badge/index.html">badge</a></span>
                             </li>
                             <li>
                                 <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
@@ -94,10 +94,6 @@
                             <li>
                                 <span class="mdl-list-view--avatar bg-ic_extension_48px"></span>
                                 <span class="mdl-list-view--name"><a href="footer/index.html">footer</a></span>
-                            </li>
-                            <li>
-                                <span class="mdl-list-view--avatar bg-ic_extension_48px"></span>
-                                <span class="mdl-list-view--name"><a href="forms/index.html">forms</a></span>
                             </li>
                             <li>
                                 <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
@@ -122,21 +118,10 @@
                                 <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
                                 <span class="mdl-list-view--name"><a href="menu/index.html">menu</a></span>
                             </li>
-
-                            <li>
-                                <span class="mdl-list-view--avatar bg-ic_extension_48px"></span>
-                                <span class="mdl-list-view--name"><a href="nav-pills/index.html">nav-pills</a></span>
-                            </li>
-
                             <li>
                                 <span class="mdl-list-view--avatar bg-ic_extension_48px"></span>
                                 <span class="mdl-list-view--name"><a href="palette/index.html">palette</a></span>
                             </li>
-                            <li>
-                                <span class="mdl-list-view--avatar bg-ic_extension_48px"></span>
-                                <span class="mdl-list-view--name"><a href="panel/index.html">panel</a></span>
-                            </li>
-
                             <li>
                                 <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
                                 <span class="mdl-list-view--name"><a href="progress/index.html">progress</a></span>
@@ -183,73 +168,99 @@
                     </div>
                 </article>
 
-                <h4>Components - EXTRA</h4>
-                <article>...</article>
+                <article class="components dart">
+                    <h4>Components - EXTRA (Dart-Version)</h4>
+                    <div class="mdl-list--styled-view">
+                        <ul class="mdl-list--inline">
+                            <li>
+                                <span class="mdl-list-view--avatar bg-ic_extension_48px"></span>
+                                <span class="mdl-list-view--name script"><a href="accordion/index.html">accordion</a></span>
+                            </li>
 
-                <h4>Single Page Application (SPA)</h4>
-                <article class="mdl-list--styled-view">
-                    <ul class="mdl-list--inline">
-                        <li>
-                            <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
-                            <span class="mdl-list-view--name"><a href="content/index.html">Slider as SPA</a></span>
-                        </li>
-                    </ul>
+                            <li>
+                                <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
+                                <span class="mdl-list-view--name"><a href="badge/index.html">badge</a></span>
+                            </li>
 
+                            <li>
+                                <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
+                                <span class="mdl-list-view--name"><a href="content/index.html">content</a></span>
+                            </li>
+
+                            <li>
+                                <span class="mdl-list-view--avatar bg-ic_extension_48px"></span>
+                                <span class="mdl-list-view--name"><a href="forms/index.html">forms</a></span>
+                            </li>
+
+                            <li>
+                                <span class="mdl-list-view--avatar bg-ic_extension_48px"></span>
+                                <span class="mdl-list-view--name"><a href="nav-pills/index.html">nav-pills</a></span>
+                            </li>
+
+                        </ul>
+                    </div>
                 </article>
 
-                <article>
-                    <h4>Styleguide</h4>
-                        <p>The <a href="styleguide/index.html">Styleguide</a> shows all samples in one page. (takes a while - loads all other samples in iframes)</p>
+                <article class="spa">
+                    <h4>Single Page Sample (SPA)</h4>
+                    <div class="mdl-list--styled-view">
+                        <ul class="mdl-list--inline">
+                            <li>
+                                <span class="mdl-list-view--avatar bg-ic_extension_48px script"></span>
+                                <span class="mdl-list-view--name"><a href="content/index.html">Slider</a></span>
+                            </li>
+                        </ul>
+                    </div>
                 </article>
-
-                <strong>Darker-icons</strong> are samples with a main.dart.
             </section>
 
+<!--
             <section class="cards" id="sample_layouts">
                 <h4>Sample layouts</h4>
                 <article>
-                    <div class="mdl-card mdl-shadow--z1">
-                        <div class="mdl-card--img-container">
+                    <div class="mdl-card mdl-shadow&#45;&#45;z1">
+                        <div class="mdl-card&#45;&#45;img-container">
                             <a href="layout-header-drawer/index.html"><img src="_images/card-headerfooter-330.jpg" alt=""/></a>
                         </div>
-                        <div class="mdl-card--heading">
-                            <span class="mdl-card--heading-text">Fixed header, collapsible drawer for smaller screens, footer scrolls</span>
+                        <div class="mdl-card&#45;&#45;heading">
+                            <span class="mdl-card&#45;&#45;heading-text">Fixed header, collapsible drawer for smaller screens, footer scrolls</span>
                         </div>
-                        <div class="mdl-card--caption">
+                        <div class="mdl-card&#45;&#45;caption">
                             Layout sample
                         </div>
-                        <div class="mdl-card--lower">
+                        <div class="mdl-card&#45;&#45;lower">
                             This layout comes with a fixed header.
                             Always shows a header, even in smaller screens.
                             At the end of the page you'll see a "mini-footer".
                         </div>
-                        <div class="mdl-card--bottom">
+                        <div class="mdl-card&#45;&#45;bottom">
                             <a href="layout-header-drawer/index.html">Show me the sample</a>
                         </div>
                     </div>
 
-                    <div class="mdl-card mdl-shadow--z1">
-                        <div class="mdl-card--img-container">
+                    <div class="mdl-card mdl-shadow&#45;&#45;z1">
+                        <div class="mdl-card&#45;&#45;img-container">
                             <a href="layout-header-drawer-footer/index.html"><img src="_images/card-bottombar-330.jpg" alt=""/></a>
                         </div>
-                        <div class="mdl-card--heading">
-                            <span class="mdl-card--heading-text">
+                        <div class="mdl-card&#45;&#45;heading">
+                            <span class="mdl-card&#45;&#45;heading-text">
                                 Fixed header, collapsible drawer for smaller screens, fixed footer</span>
                         </div>
-                        <div class="mdl-card--caption">
+                        <div class="mdl-card&#45;&#45;caption">
                             Layout sample
                         </div>
-                        <div class="mdl-card--lower">
+                        <div class="mdl-card&#45;&#45;lower">
                             This layout comes with a fixed header and a fixed footer.
                             Always shows a header, even in smaller screens.
                             On smaller screens the "mini-footer" will be replaced by a "bottom-bar".
                         </div>
-                        <div class="mdl-card--bottom">
+                        <div class="mdl-card&#45;&#45;bottom">
                             <a href="layout-header-drawer-footer/index.html">Show me the sample</a>
                         </div>
                     </div>
                 </article>
             </section>
+-->
 
             <section class="theming" id="theming">
                 <h4>Theming</h4>
@@ -301,7 +312,7 @@
                 <h6>More links</h6>
                 <ul>
                     <li><a href="http://google.github.io/material-design-icons/">Googles Material Design Icons - SVG preview</a></li>
-                    <li><a href="https://developers.google.com/web/starter-kit/">Material Design Light</a></li>
+                    <li><a href="https://developers.google.com/web/starter-kit/">Material Design Lite</a></li>
                     <li><a href="http://www.google.com/design/spec/material-design/">Material design - specifications</a></li>
                     <li><a href="http://www.materialpalette.com/">Create palette file</a></li>
                 </ul>
