@@ -1,28 +1,32 @@
 # Material Design Lite for Dart
 
-A port of Googles Material Design Lite to Dart<br>
-You can find the original version here on [GitHub][mdlmaterial].
+##Introduction
+**Material Design Light (MDL)** is a library of components for web developers based on Google's **Material Design** 
+philosophy: "A visual language for our users that synthesizes the classic principles of good design with 
+the innovation and possibility of technology and science." Understanding the goals and principles of 
+Material Design is critical to the proper use of the MDL components. 
+If you have not yet read the [Material Design Introduction](http://www.google.com/design/spec/material-design/introduction.html), 
+you should do so before attempting to use the components.
 
-Material Design Lite strives to give you a high performance starting point out of the box
-Responsive layout is included with the kit that adapts to fit the device your user is viewing it on. 
+The MDL components are created with CSS, Dart, and HTML. 
+You can use the components to construct web pages and web apps that are attractive, 
+consistent, and functional. Pages developed with MDL will adhere to modern web design principles 
+like browser portability, device independence, and graceful degradation.
+
+The MDL component library includes new versions of common user interface controls 
+such as buttons, check boxes, and text fields, adapted to follow Material Design concepts. 
+The library also includes enhanced and specialized features like cards, column layouts, sliders, spinners, tabs, typography, and more.
+
+MDL is free to download and use, and may be used with or without any build library or development environment 
+(such as [Material Design Lite](https://github.com/MikeMitterer/dart-material-design-lite)). 
+It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more productive, 
+portable, and &mdash; most importantly &mdash; usable web pages.
 
 [Demo][mdldemo] (transpiled JS-Version)
 
-[![ScreenShot][promoimage]][mdldemo]
-
-If you work with AngularDart the [mdl-angular-Version][mdlangular] could be interesting for you.
-
-## Usage
-
-Please check out my [samples][samples]. They are short and easy to read.
-Since v0.6.1 every [sample][samples] shows a little "Load indicator"!
-
-Just a very basic theming-sample can be found [here][themingsample]
-```shell
-    assets$ sassc scss/styleguide.scss css/styleguide.css
-    assets$ autoprefixer css/styleguide.css
-```
-
+## Getting started
+...
+Check out the [samples][]
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
@@ -49,11 +53,10 @@ If this plugin is helpful for you - please [(Circle)](http://gplus.mikemitterer.
 or **star** this repo here on GitHub
 
 
-[tracker]: https://github.com/MikeMitterer/dart-mdl-material/issues
-[mdlmaterial]: https://github.com/google/material-design-lite
+[tracker]: https://github.com/MikeMitterer/dart-material-design-lite/issues
+[mdlmaterial]: https://github.com/MikeMitterer/dart-material-design-lite
 [mdldemo]: http://mdl.mikemitterer.at/
 [mdlangular]: https://github.com/MikeMitterer/dart-mdl-angular
-[themingsample]: https://github.com/MikeMitterer/dart-mdl-angular/tree/master/example/styleguide/assets/scss
-[samples]: https://github.com/MikeMitterer/dart-mdl/tree/master/example
-[promoimage]: https://github.com/MikeMitterer/dart-mdl/blob/master/lib/images/mdl.mikemitterer.at-720px.jpg?raw=true
+[samples]: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example
+[promoimage]: https://github.com/MikeMitterer/dart-material-design-lite/blob/master/lib/images/mdl.mikemitterer.at-720px.jpg?raw=true
 
