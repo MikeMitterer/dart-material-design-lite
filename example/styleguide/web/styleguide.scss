@@ -2,10 +2,47 @@
 @import "assets/styles/_demo";
 
 body {
-    margin: 0;
-    padding: 0;
+    margin  : 0;
+    padding : 0;
 }
 
-.mdl-layout__drawer .mdl-navigation__link {
-    padding: 4px 24px;
+.mdl-layout__header {
+    .mdl-layout-title {
+        text-transform : capitalize;
+    }
+}
+
+.mdl-layout__drawer {
+    .mdl-layout-title {
+        color            : $layout-header-text-color;
+        background-color : $layout-header-bg-color;
+    }
+
+    .mdl-navigation {
+        padding-top : 24px;
+
+        .mdl-navigation__link {
+            padding        : 4px 24px;
+            text-transform : capitalize;
+        }
+    }
+}
+
+.mdl-layout__content {
+    display         : flex;
+    flex-direction  : column;
+    flex-wrap       : wrap;
+    justify-content : flex-start; // ↓
+    align-content   : space-between; // =
+    align-items     : stretch; // ⇾
+
+    .mdl-content {
+        margin    : 24px;
+        flex-grow : 1;
+    }
+
+    .lastmod {
+        width      : 100%;
+        text-align : right;
+    }
 }
