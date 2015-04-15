@@ -1,3 +1,14 @@
+/* ==========  Typography  ========== */
+
+// We use the following default color styles: text-color-primary and
+// text-color-secondary. For light themes, use text-color-primary-inverse
+// and text-color-secondary-inverse.
+
+$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+$performance_font: 'Helvetica', 'Arial', sans-serif;
+$text-color-primary: $palette-black-87 !default;
+
+@import "mixins";
 @import "typography.orig";
 
 .demo-typography--img-1 {

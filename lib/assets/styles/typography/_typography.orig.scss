@@ -27,10 +27,6 @@
    widely available.
 */
 
-@import "mixins";
-
-$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-$performance_font: 'Helvetica', 'Arial', sans-serif;
 
 html, body {
 	font-family: $performance_font;

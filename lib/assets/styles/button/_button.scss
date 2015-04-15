@@ -1,1 +1,35 @@
+/* ==========  Standard Buttons  ========== */
+
+// Default button colors.
+$button-primary-color: rgba($palette-grey-500, 0.20) !default;
+$button-secondary-color: $palette-black-100 !default;
+$button-hover-color: $button-primary-color !default;
+$button-active-color: rgba($palette-grey-500, 0.40) !default;
+$button-focus-color: $palette-black-12 !default;
+
+// Colored button colors.
+$button-primary-color-alt: $color-primary !default;
+$button-secondary-color-alt: $color-primary-contrast !default;
+$button-hover-color-alt: $color-primary !default;
+$button-active-color-alt: $color-primary !default;
+$button-focus-color-alt: $button-focus-color !default;
+
+// Ripple color for colored raised buttons.
+$button-ripple-color-alt: $color-primary-contrast !default;
+
+// Disabled button colors.
+$button-primary-color-disabled: $palette-black-12 !default;
+$button-secondary-color-disabled: $palette-black-26 !default;
+
+// FAB colors and sizes.
+$button-fab-color-alt: ($color-accent) !default;
+$button-fab-hover-color-alt: ($color-accent) !default;
+$button-fab-active-color-alt: ($color-accent) !default;
+$button-fab-text-color-alt: ($color-accent-contrast) !default;
+$button-fab-ripple-color-alt: ($color-accent-contrast) !default;
+
+// Icon button colors and sizes.
+$button-icon-color: ($palette-grey-700) !default;
+$button-icon-focus-color: $button-focus-color !default;
+
 @import "_button.orig.scss";
