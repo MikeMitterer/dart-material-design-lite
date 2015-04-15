@@ -14,8 +14,13 @@
  * limitations under the License.
  */
 
+// Colors + Theming
+@import "packages/mdl/assets/styles/palette/colors";
+@import "packages/mdl/assets/styles/theme";
+@import "packages/mdl/assets/styles/palette/palette";
+
 @import "packages/mdl/assets/styles/variables";
-@import "packages/mdl/assets/styles/mixins/mixins";
+@import "packages/mdl/assets/styles/animation/mixins";
 
 .demo-animation {
   height: 200px;

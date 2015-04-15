@@ -173,6 +173,11 @@ class Application {
 
         srcJS.copySync(targetConvertedJS.path);
         _Js2Dart(targetConvertedJS);
+
+        final File srcVariables = new File("${mdlDir}/_variables.scss");
+        final File targetVariables = new File("${sassDir}/variables/_variables.orig.scss");
+
+        srcVariables.copySync(targetVariables.path);
     }
 
     /// {sassDir} -> lib/sass/accordion
@@ -925,7 +930,7 @@ class Config {
         _settings[_KEY_MAIN_TEMPLATE]       = "tool/templates/main.tmpl.dart";
         _settings[_KEY_INDEX_TEMPLATE]      = "tool/templates/index.tmpl.html";
         _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
-        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party";   // Liste durch , getrennt
+        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables";   // Liste durch , getrennt
         _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
         _settings[_KEY_JS_BASE]             = "tool/jsbase"; // Basis für die JS-Files
 

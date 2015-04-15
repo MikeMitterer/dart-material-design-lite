@@ -1,5 +1,3 @@
-@import "mixins.orig";
-
 @mixin avoid-blue-box-on-double-click() {
     -webkit-touch-callout : none;
     -webkit-user-select   : none;

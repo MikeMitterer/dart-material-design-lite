@@ -181,24 +181,6 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
-@font-face {
-  font-family: 'Material-Design-Iconic-Font';
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
-  font-weight: normal;
-  font-style: normal; }
-
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
 /* ==========  Color Palettes  ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -215,7 +197,7 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -1946,6 +1928,24 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
 .mdl-color-text--accent-contrast {
   color: white !important; }
 
+@font-face {
+  font-family: 'Material-Design-Iconic-Font';
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  font-weight: normal;
+  font-style: normal; }
+
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* Typography */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -1962,7 +1962,7 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2403,7 +2403,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2490,7 +2490,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2556,14 +2556,11 @@ dt {
   pointer-events: none;
   position: absolute;
   top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   width: 50px;
   overflow: hidden; }
   .mdl-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+    transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
   .mdl-ripple.is-visible {
     opacity: 0.3; }
 
@@ -2583,7 +2580,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2641,20 +2638,16 @@ dt {
 /* ANIMATION */
 /* PROGRESS */
 .mdl-animation--default {
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 
 .mdl-animation--fast-out-slow-in {
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 
 .mdl-animation--linear-out-slow-in {
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
 
 .mdl-animation--fast-out-linear-in {
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -2671,7 +2664,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2748,8 +2741,7 @@ dt {
   letter-spacing: 0.04em;
   overflow: hidden;
   will-change: box-shadow, transform;
-  -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -2815,9 +2807,7 @@ dt {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-12px, -12px);
-        -ms-transform: translate(-12px, -12px);
-            transform: translate(-12px, -12px);
+    transform: translate(-12px, -12px);
     /*top: ($button-fab-size - $button-fab-font-size) / 2;
       left: ($button-fab-size - $button-fab-font-size) / 2;*/
     line-height: 24px;
@@ -2905,7 +2895,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2982,16 +2972,10 @@ dt {
   height: 186px; }
 
 .mdl-card--heading {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   background: #303f9f none repeat scroll 0 0/auto padding-box border-box;
   border: 0 none white;
   color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   font-size: 24px;
   height: 96px;
@@ -2999,23 +2983,15 @@ dt {
   line-height: normal;
   outline: white none 0;
   padding: 8px 16px;
-  -webkit-perspective-origin: 165px 56px;
-          perspective-origin: 165px 56px;
+  perspective-origin: 165px 56px;
   text-decoration: none solid white;
-  -webkit-transform-origin: 165px 56px;
-      -ms-transform-origin: 165px 56px;
-          transform-origin: 165px 56px;
+  transform-origin: 165px 56px;
   width: 100%; }
 
 .mdl-card--heading-text {
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
+  align-self: center;
   border: 0 none white;
   color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   font-size: inherit;
   font-weight: 300;
@@ -3025,9 +3001,7 @@ dt {
   outline: white none 0;
   overflow: hidden;
   text-decoration: none solid white;
-  -webkit-transform-origin: 149px 48px;
-      -ms-transform-origin: 149px 48px;
-          transform-origin: 149px 48px;
+  transform-origin: 149px 48px;
   width: 90%; }
 
 .mdl-card--caption {
@@ -3039,8 +3013,7 @@ dt {
   line-height: normal;
   outline: white none 0;
   padding: 8px 16px;
-  -webkit-perspective-origin: 165px 16px;
-          perspective-origin: 165px 16px;
+  perspective-origin: 165px 16px;
   text-decoration: none solid white;
   width: 100%; }
 
@@ -3078,13 +3051,10 @@ dt {
   line-height: 50px;
   outline: #303f9f none 0;
   padding: 0 16px;
-  -webkit-perspective-origin: 165px 25px;
-          perspective-origin: 165px 25px;
+  perspective-origin: 165px 25px;
   text-decoration: none solid #303f9f;
   text-transform: uppercase;
-  -webkit-transform-origin: 165px 25px;
-      -ms-transform-origin: 165px 25px;
-          transform-origin: 165px 25px;
+  transform-origin: 165px 25px;
   width: 100%; }
 
 /**
@@ -3102,7 +3072,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -3230,15 +3200,11 @@ dt {
   left: 0;
   height: 100%;
   width: 100%;
-  -webkit-mask: url("../images/tick-mask.svg#mask");
-          mask: url("../images/tick-mask.svg#mask");
+  mask: url("../images/tick-mask.svg#mask");
   background: transparent;
-  -webkit-transition-duration: 0.28s;
-          transition-duration: 0.28s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition-property: background;
-          transition-property: background; }
+  transition-duration: 0.28s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background; }
   .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
     background: #3f51b5 url("../images/tick.svg"); }
   .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
@@ -3274,8 +3240,7 @@ dt {
     background: transparent; }
 
 .mdl-checkbox__tick-outline {
-  -webkit-mask: initial;
-          mask: initial; }
+  mask: initial; }
   .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
     background: #3f51b5 url('data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E'); }
   .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
@@ -3296,7 +3261,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -3354,22 +3319,10 @@ dt {
 /* ANIMATION */
 /* PROGRESS */
 .mdl-column-layout {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 0;
   box-sizing: border-box;
   padding: 20px; }
@@ -3439,7 +3392,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5824,7 +5777,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5922,15 +5875,13 @@ dt {
   text-align: center;
   background-color: transparent;
   will-change: background-color;
-  -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
   .mdl-icon-toggle.is-checked .mdl-icon-toggle__label {
     color: #3f51b5; }
   .mdl-icon-toggle.is-disabled .mdl-icon-toggle__label {
     color: rgba(0, 0, 0, 0.26);
     cursor: auto;
-    -webkit-transition: none;
-            transition: none; }
+    transition: none; }
   .mdl-icon-toggle.is-focused .mdl-icon-toggle__label {
     background-color: rgba(0, 0, 0, 0.12); }
   .mdl-icon-toggle.is-focused.is-checked .mdl-icon-toggle__label {
@@ -5955,7 +5906,7 @@ dt {
   .mdl-icon-toggle.is-disabled .mdl-icon-toggle__ripple-container .mdl-ripple {
     background: transparent; }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6178,7 +6129,7 @@ dt {
     margin-bottom: 0;
     margin-right: 16px; } }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6236,17 +6187,9 @@ dt {
 /* ANIMATION */
 /* PROGRESS */
 .mdl-mini-footer {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: space-between;
   padding: 32px 16px;
   color: #9e9e9e;
   background-color: #424242; }
@@ -6257,13 +6200,8 @@ dt {
     line-height: 36px; }
 
 .mdl-mini-footer--link-list {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: row nowrap;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+  flex-flow: row nowrap;
   list-style: none;
   margin: 0;
   padding: 0; }
@@ -6279,17 +6217,11 @@ dt {
 
 .mdl-mini-footer--left-section {
   display: inline-block;
-  -webkit-box-ordinal-group: 1;
-  -webkit-order: 0;
-      -ms-flex-order: 0;
-          order: 0; }
+  order: 0; }
 
 .mdl-mini-footer--right-section {
   display: inline-block;
-  -webkit-box-ordinal-group: 2;
-  -webkit-order: 1;
-      -ms-flex-order: 1;
-          order: 1; }
+  order: 1; }
 
 .mdl-mini-footer--social-btn {
   width: 36px;
@@ -6314,7 +6246,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6393,33 +6325,20 @@ dt {
   left: 0;
   overflow: hidden;
   opacity: 0;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transform-origin: 0 0;
-      -ms-transform-origin: 0 0;
-          transform-origin: 0 0;
+  transform: scale(0);
+  transform-origin: 0 0;
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
   will-change: transform;
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
   .mdl-menu__container.is-visible .mdl-menu__outline {
     opacity: 1;
-    -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-            transform: scale(1); }
+    transform: scale(1); }
   .mdl-menu__outline.mdl-menu--bottom-right {
-    -webkit-transform-origin: 100% 0;
-        -ms-transform-origin: 100% 0;
-            transform-origin: 100% 0; }
+    transform-origin: 100% 0; }
   .mdl-menu__outline.mdl-menu--top-left {
-    -webkit-transform-origin: 0 100%;
-        -ms-transform-origin: 0 100%;
-            transform-origin: 0 100%; }
+    transform-origin: 0 100%; }
   .mdl-menu__outline.mdl-menu--top-right {
-    -webkit-transform-origin: 100% 100%;
-        -ms-transform-origin: 100% 100%;
-            transform-origin: 100% 100%; }
+    transform-origin: 100% 100%; }
 
 .mdl-menu {
   position: absolute;
@@ -6436,8 +6355,7 @@ dt {
   .mdl-menu__container.is-visible .mdl-menu {
     opacity: 1; }
   .mdl-menu.is-animating {
-    -webkit-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), clip 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), clip 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), clip 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
   .mdl-menu.mdl-menu--bottom-right {
     left: auto;
     right: 0; }
@@ -6474,12 +6392,8 @@ dt {
   line-height: 48px;
   white-space: nowrap;
   opacity: 0;
-  -webkit-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none; }
   .mdl-menu__container.is-visible .mdl-menu__item {
     opacity: 1; }
   .mdl-menu__item::-moz-focus-inner {
@@ -6527,7 +6441,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6595,8 +6509,7 @@ dt {
   top: 0;
   bottom: 0;
   width: 0%;
-  -webkit-transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
 .mdl-js-progress > .progressbar {
   background-color: #3f51b5;
@@ -6604,7 +6517,6 @@ dt {
   left: 0; }
 
 .mdl-js-progress > .bufferbar {
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
   z-index: 0;
   left: 0; }
@@ -6614,47 +6526,26 @@ dt {
 
 @supports (-webkit-appearance: none) {
   .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
-    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
-    -webkit-mask: url('../images/buffer.svg');
-            mask: url('../images/buffer.svg'); } }
+    mask: url('../images/buffer.svg'); } }
 
 .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-color: rgba(0, 0, 0, 0.26); }
 
 .mdl-js-progress.mdl-progress__indeterminate > .bar1 {
   background-color: #3f51b5;
-  -webkit-animation-name: indeterminate1;
-          animation-name: indeterminate1;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear; }
+  animation-name: indeterminate1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
 
 .mdl-js-progress.mdl-progress__indeterminate > .bar3 {
   background-image: none;
   background-color: #3f51b5;
-  -webkit-animation-name: indeterminate2;
-          animation-name: indeterminate2;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear; }
-
-@-webkit-keyframes indeterminate1{
-  0%{
-    left: 0%;
-    width: 0%; }
-  50%{
-    left: 25%;
-    width: 75%; }
-  75%{
-    left: 100%;
-    width: 0%; } }
+  animation-name: indeterminate2;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
 
 @keyframes indeterminate1 {
   0% {
@@ -6666,20 +6557,6 @@ dt {
     width: 75%; }
 
   75% {
-    left: 100%;
-    width: 0%; } }
-
-@-webkit-keyframes indeterminate2{
-  0%{
-    left: 0%;
-    width: 0%; }
-  50%{
-    left: 0%;
-    width: 0%; }
-  75%{
-    left: 0%;
-    width: 25%; }
-  100%{
     left: 100%;
     width: 0%; } }
 
@@ -6715,7 +6592,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6773,13 +6650,8 @@ dt {
 /* ANIMATION */
 /* PROGRESS */
 .mdl-navigation {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap; }
+  flex-wrap: nowrap; }
 
 .mdl-navigation__link {
   color: #424242;
@@ -6794,15 +6666,8 @@ dt {
 .mdl-layout {
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
   position: relative; }
@@ -6823,24 +6688,12 @@ dt {
   box-sizing: border-box; }
 
 .mdl-layout-spacer {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
+  flex-grow: 1; }
 
 .mdl-layout__drawer {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   width: 240px;
   height: 100%;
   max-height: 100%;
@@ -6851,30 +6704,20 @@ dt {
   box-sizing: border-box;
   border-right: 1px solid #e0e0e0;
   background: #fafafa;
-  -webkit-transform: translateX(-250px);
-      -ms-transform: translateX(-250px);
-          transform: translateX(-250px);
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform: translateX(-250px);
+  transform-style: preserve-3d;
   will-change: transform;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition-property: -webkit-transform;
-          transition-property: transform;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: transform;
   color: #424242;
   overflow-x: hidden;
   overflow-y: auto;
   z-index: 5; }
   .mdl-layout__drawer.is-visible {
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0); }
+    transform: translateX(0); }
   .mdl-layout__drawer > * {
-    -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-            flex-shrink: 0; }
+    flex-shrink: 0; }
   .mdl-layout__drawer > .mdl-layout-title {
     line-height: 64px;
     padding-left: 24px;
@@ -6885,11 +6728,7 @@ dt {
         padding-left: 16px; } }
   .mdl-layout__drawer .mdl-navigation {
     width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; }
+    flex-direction: column; }
   .mdl-layout__drawer .mdl-navigation__link {
     padding: 16px 24px;
     margin: 0; }
@@ -6898,9 +6737,7 @@ dt {
         padding: 16px 16px; } }
   @media screen and (min-width: 851px) {
     .mdl-layout--fixed-drawer > .mdl-layout__drawer {
-      -webkit-transform: translateX(0);
-          -ms-transform: translateX(0);
-              transform: translateX(0);
+      transform: translateX(0);
       z-index: 2; } }
 
 .mdl-layout__drawer-button {
@@ -6909,9 +6746,7 @@ dt {
   height: 48px;
   width: 48px;
   border: 0;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
+  flex-shrink: 0;
   overflow: hidden;
   text-align: center;
   cursor: pointer;
@@ -6944,22 +6779,10 @@ dt {
       display: none; } }
 
 .mdl-layout__header {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
   margin: 0;
   border: none;
   height: 64px;
@@ -6967,13 +6790,10 @@ dt {
   background-color: #3f51b5;
   color: white;
   z-index: 3;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
-  -webkit-transition-property: min-height, box-shadow;
-          transition-property: min-height, box-shadow;
+  transition-property: min-height, box-shadow;
   padding-left: 24px;
   overflow: hidden; }
   .mdl-layout.has-drawer .mdl-layout__header {
@@ -7009,9 +6829,7 @@ dt {
       .mdl-layout__header.is-compact {
         min-height: 56px; } }
   .mdl-layout__header > * {
-    -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-            flex-shrink: 0; }
+    flex-shrink: 0; }
   .mdl-layout__header > *:last-child {
     margin-right: 24px; }
     @media screen and (max-width: 850px) {
@@ -7025,15 +6843,8 @@ dt {
     margin: 0;
     padding: 0;
     height: 64px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; }
+    flex-direction: row;
+    align-items: center; }
     @media screen and (max-width: 850px) {
       .mdl-layout__header .mdl-navigation {
         height: 56px; } }
@@ -7054,17 +6865,10 @@ dt {
     .mdl-layout__header {
       display: none; }
     .mdl-layout--fixed-header > .mdl-layout__header {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex; } }
 
 .mdl-layout__header--multi-row {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
+  flex-direction: column; }
 
 .mdl-layout__header--medium-tall {
   min-height: 128px; }
@@ -7094,25 +6898,11 @@ dt {
     box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
 .mdl-layout__header-row.mdl-layout__header-row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  align-items: center;
   min-height: 64px;
   width: 100%;
   margin-right: 0; }
@@ -7132,9 +6922,7 @@ dt {
   .mdl-layout.has-drawer .mdl-layout__header-row.mdl-layout__header-row > .mdl-layout-icon {
     display: none; }
   .mdl-layout__header-row.mdl-layout__header-row > * {
-    -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-            flex-shrink: 0; }
+    flex-shrink: 0; }
   .mdl-layout__header-row.mdl-layout__header-row > *:last-child {
     margin-right: 24px; }
     @media screen and (max-width: 850px) {
@@ -7152,12 +6940,9 @@ dt {
   width: 100%;
   z-index: 4;
   visibility: hidden;
-  -webkit-transition-property: background-color;
-          transition-property: background-color;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
   .mdl-layout__drawer.is-visible ~ .mdl-layout__obfuscator {
     background-color: rgba(0, 0, 0, 0.5);
     visibility: visible; }
@@ -7167,10 +6952,7 @@ dt {
   display: inline-block;
   overflow-y: auto;
   overflow-x: hidden;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
   z-index: 1; }
   .mdl-layout--fixed-drawer > .mdl-layout__content {
     margin-left: 240px; }
@@ -7190,9 +6972,6 @@ dt {
   width: calc(100% -
         96px);
   padding: 0 0 0 72px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   background-color: #3f51b5;
   overflow-y: hidden;
@@ -7219,13 +6998,8 @@ dt {
   border: none;
   margin: 0;
   z-index: 3;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
   .mdl-layout__container > .mdl-layout__tab-bar-container {
     position: absolute;
@@ -7243,10 +7017,7 @@ dt {
   background-color: #3f51b5;
   color: transparent;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
+  user-select: none; }
   @media screen and (max-width: 850px) {
     .mdl-layout__tab-bar-button {
       display: none;
@@ -7281,13 +7052,8 @@ dt {
   float: left;
   position: relative;
   display: block;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
   text-decoration: none;
   height: 48px;
   line-height: 48px;
@@ -7302,10 +7068,7 @@ dt {
       padding: 0 12px 0 12px; } }
   .mdl-layout--fixed-tabs .mdl-layout__tab {
     float: none;
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    flex-grow: 1;
     padding: 0; }
   .mdl-layout.is-upgraded .mdl-layout__tab.is-active {
     color: white; }
@@ -7320,8 +7083,7 @@ dt {
     background: #ff4081;
     -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
-    -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
-            transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
+    transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
   .mdl-layout__tab .mdl-layout__tab-ripple-container {
     display: block;
     position: absolute;
@@ -7354,7 +7116,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7419,8 +7181,7 @@ dt {
 
 .mdl-list--styled-view {
   background: white;
-  -webkit-transition: background 0.3s 0.1s;
-          transition: background 0.3s 0.1s;
+  transition: background 0.3s 0.1s;
   z-index: 1; }
 
 .mdl-list--styled-view ul {
@@ -7476,7 +7237,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7589,19 +7350,14 @@ dt {
   width: 8px;
   height: 8px;
   cursor: pointer;
-  -webkit-transition-duration: 0.28s;
-          transition-duration: 0.28s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition-property: -webkit-transform;
-          transition-property: transform;
-  -webkit-transform: scale3d(0, 0, 0);
-          transform: scale3d(0, 0, 0);
+  transition-duration: 0.28s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: transform;
+  transform: scale3d(0, 0, 0);
   border-radius: 50%;
   background: #3f51b5; }
   .mdl-radio.is-checked .mdl-radio__inner-circle {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1); }
+    transform: scale3d(1, 1, 1); }
   .mdl-radio.is-disabled .mdl-radio__inner-circle {
     background: rgba(0, 0, 0, 0.26);
     cursor: auto; }
@@ -7648,7 +7404,7 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7721,14 +7477,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     background: transparent;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none;
-        user-select: none;
+    user-select: none;
     outline: 0;
     padding: 0;
     color: #3f51b5;
-    -webkit-align-self: center;
-        -ms-flex-item-align: center;
-            align-self: center;
+    align-self: center;
     /**************************** Tracks ****************************/
     /**************************** Thumbs ****************************/
     /**************************** 0-value ****************************/
@@ -7762,8 +7515,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       border-radius: 50%;
       background: #3f51b5;
       border: none;
-      -webkit-transition: -webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), border 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-              transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), border 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
+      transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), border 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
     .mdl-slider.is-upgraded::-moz-range-thumb {
       -moz-appearance: none;
       width: 12px;
@@ -7780,8 +7532,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded:active::-webkit-slider-thumb {
       background-image: none;
       background: #3f51b5;
-      -webkit-transform: scale(1.5);
-              transform: scale(1.5); }
+      transform: scale(1.5); }
     .mdl-slider.is-upgraded:active::-moz-range-thumb {
       background-image: none;
       background: #3f51b5;
@@ -7792,17 +7543,14 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       border: none;
       border-radius: 50%;
       background: #3f51b5;
-      -ms-transform: scale(0.375);
-          transform: scale(0.375);
+      transform: scale(0.375);
       transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
     .mdl-slider.is-upgraded:focus:not(:active)::-ms-thumb {
       background: radial-gradient(circle closest-side, #3f51b5 0%, #3f51b5 37.5%, rgba(63, 81, 181, 0.26) 37.5%, rgba(63, 81, 181, 0.26) 100%);
-      -ms-transform: scale(1);
-          transform: scale(1); }
+      transform: scale(1); }
     .mdl-slider.is-upgraded:active::-ms-thumb {
       background: #3f51b5;
-      -ms-transform: scale(0.5625);
-          transform: scale(0.5625); }
+      transform: scale(0.5625); }
     .mdl-slider.is-upgraded.is-lowest-value::-webkit-slider-thumb {
       border: 2px solid rgba(0, 0, 0, 0.26);
       background: transparent; }
@@ -7813,8 +7561,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       left: 6px; }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
       border: 1.8px solid rgba(0, 0, 0, 0.26);
-      -webkit-transform: scale(1.33);
-              transform: scale(1.33);
+      transform: scale(1.33);
       box-shadow: none; }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-moz-range-thumb {
       border: 1.8px solid rgba(0, 0, 0, 0.26);
@@ -7824,8 +7571,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       left: 8px; }
     .mdl-slider.is-upgraded.is-lowest-value:active::-webkit-slider-thumb {
       border: 1.5px solid rgba(0, 0, 0, 0.26);
-      -webkit-transform: scale(1.5);
-              transform: scale(1.5); }
+      transform: scale(1.5); }
     .mdl-slider.is-upgraded.is-lowest-value:active ~ .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 9px; }
     .mdl-slider.is-upgraded.is-lowest-value:active::-moz-range-thumb {
@@ -7834,12 +7580,10 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded.is-lowest-value::-ms-thumb {
       background: radial-gradient(circle closest-side, transparent 0%, transparent 66.67%, rgba(0, 0, 0, 0.26) 66.67%, rgba(0, 0, 0, 0.26) 100%); }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-ms-thumb {
-      -ms-transform: scale(0.5);
-          transform: scale(0.5);
+      transform: scale(0.5);
       background: radial-gradient(circle closest-side, transparent 0%, transparent 75%, rgba(0, 0, 0, 0.26) 75%, rgba(0, 0, 0, 0.26) 100%); }
     .mdl-slider.is-upgraded.is-lowest-value:active::-ms-thumb {
-      -ms-transform: scale(0.5625);
-          transform: scale(0.5625);
+      transform: scale(0.5625);
       background: radial-gradient(circle closest-side, transparent 0%, transparent 77.78%, rgba(0, 0, 0, 0.26) 77.78%, rgba(0, 0, 0, 0.26) 100%); }
     .mdl-slider.is-upgraded.is-lowest-value::-ms-fill-lower {
       background: transparent; }
@@ -7850,8 +7594,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded.is-lowest-value:active::-ms-fill-upper {
       margin-left: 9px; }
     .mdl-slider.is-upgraded:disabled:focus::-webkit-slider-thumb, .mdl-slider.is-upgraded:disabled:active::-webkit-slider-thumb, .mdl-slider.is-upgraded:disabled::-webkit-slider-thumb {
-      -webkit-transform: scale(0.667);
-              transform: scale(0.667);
+      transform: scale(0.667);
       background: rgba(0, 0, 0, 0.26); }
     .mdl-slider.is-upgraded:disabled:focus::-moz-range-thumb, .mdl-slider.is-upgraded:disabled:active::-moz-range-thumb, .mdl-slider.is-upgraded:disabled::-moz-range-thumb {
       transform: scale(0.667);
@@ -7864,8 +7607,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded.is-lowest-value:disabled:focus::-webkit-slider-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled:active::-webkit-slider-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled::-webkit-slider-thumb {
       border: 3px solid rgba(0, 0, 0, 0.26);
       background: transparent;
-      -webkit-transform: scale(0.667);
-              transform: scale(0.667); }
+      transform: scale(0.667); }
     .mdl-slider.is-upgraded.is-lowest-value:disabled:focus::-moz-range-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled:active::-moz-range-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled::-moz-range-thumb {
       border: 3px solid rgba(0, 0, 0, 0.26);
       background: transparent;
@@ -7873,12 +7615,10 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded.is-lowest-value:disabled:active ~ .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px; }
     .mdl-slider.is-upgraded:disabled:focus::-ms-thumb, .mdl-slider.is-upgraded:disabled:active::-ms-thumb, .mdl-slider.is-upgraded:disabled::-ms-thumb {
-      -ms-transform: scale(0.25);
-          transform: scale(0.25);
+      transform: scale(0.25);
       background: rgba(0, 0, 0, 0.26); }
     .mdl-slider.is-upgraded.is-lowest-value:disabled:focus::-ms-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled:active::-ms-thumb, .mdl-slider.is-upgraded.is-lowest-value:disabled::-ms-thumb {
-      -ms-transform: scale(0.25);
-          transform: scale(0.25);
+      transform: scale(0.25);
       background: radial-gradient(circle closest-side, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.26) 50%, rgba(0, 0, 0, 0.26) 100%); }
     .mdl-slider.is-upgraded:disabled::-ms-fill-lower {
       margin-right: 6px;
@@ -7899,15 +7639,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   height: 18px;
   position: relative;
   background: none;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row; }
+  flex-direction: row; }
 
 .mdl-slider__background-flex {
   background: transparent;
@@ -7918,38 +7651,26 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   left: 0;
   margin: 0 26px;
   z-index: -1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
   border: 0;
   padding: 0;
-  -webkit-transform: translate(0, -1px);
-      -ms-transform: translate(0, -1px);
-          transform: translate(0, -1px); }
+  transform: translate(0, -1px); }
 
 .mdl-slider__background-lower {
   background: #3f51b5;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0;
-      -ms-flex: 0;
-          flex: 0;
+  flex: 0;
   position: relative;
   border: 0;
   padding: 0; }
 
 .mdl-slider__background-upper {
   background: rgba(0, 0, 0, 0.26);
-  -webkit-box-flex: 0;
-  -webkit-flex: 0;
-      -ms-flex: 0;
-          flex: 0;
+  flex: 0;
   position: relative;
   border: 0;
   padding: 0;
-  -webkit-transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1); }
+  transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1); }
 
 _:-moz-tree-row(hover), .mdl-slider__background-upper {
   transition: none; }
@@ -7969,7 +7690,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8034,18 +7755,11 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   .mdl-spinner:not(.is-upgraded):after {
     content: "Loading..."; }
   .mdl-spinner.is-upgraded.is-active {
-    -webkit-animation: mdl-spinner__container-rotate 1568.23529ms linear infinite;
-            animation: mdl-spinner__container-rotate 1568.23529ms linear infinite; }
-
-@-webkit-keyframes mdl-spinner__container-rotate{
-  to{
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    animation: mdl-spinner__container-rotate 1568.23529ms linear infinite; }
 
 @keyframes mdl-spinner__container-rotate {
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    transform: rotate(360deg); } }
 
 .mdl-spinner__layer {
   position: absolute;
@@ -8058,91 +7772,53 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   .mdl-spinner--single-color .mdl-spinner__layer-1 {
     border-color: #3f51b5; }
   .mdl-spinner.is-active .mdl-spinner__layer-1 {
-    -webkit-animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-            animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .mdl-spinner__layer-2 {
   border-color: #f44336; }
   .mdl-spinner--single-color .mdl-spinner__layer-2 {
     border-color: #3f51b5; }
   .mdl-spinner.is-active .mdl-spinner__layer-2 {
-    -webkit-animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-            animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .mdl-spinner__layer-3 {
   border-color: #fdd835; }
   .mdl-spinner--single-color .mdl-spinner__layer-3 {
     border-color: #3f51b5; }
   .mdl-spinner.is-active .mdl-spinner__layer-3 {
-    -webkit-animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-            animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 .mdl-spinner__layer-4 {
   border-color: #4caf50; }
   .mdl-spinner--single-color .mdl-spinner__layer-4 {
     border-color: #3f51b5; }
   .mdl-spinner.is-active .mdl-spinner__layer-4 {
-    -webkit-animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-            animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
-
-@-webkit-keyframes mdl-spinner__fill-unfill-rotate{
-  12.5%{
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg); }
-  25%{
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg); }
-  37.5%{
-    -webkit-transform: rotate(405deg);
-            transform: rotate(405deg); }
-  50%{
-    -webkit-transform: rotate(540deg);
-            transform: rotate(540deg); }
-  62.5%{
-    -webkit-transform: rotate(675deg);
-            transform: rotate(675deg); }
-  75%{
-    -webkit-transform: rotate(810deg);
-            transform: rotate(810deg); }
-  87.5%{
-    -webkit-transform: rotate(945deg);
-            transform: rotate(945deg); }
-  to{
-    -webkit-transform: rotate(1080deg);
-            transform: rotate(1080deg); } }
+    animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 @keyframes mdl-spinner__fill-unfill-rotate {
   12.5% {
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg); }
+    transform: rotate(135deg); }
 
   25% {
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg); }
+    transform: rotate(270deg); }
 
   37.5% {
-    -webkit-transform: rotate(405deg);
-            transform: rotate(405deg); }
+    transform: rotate(405deg); }
 
   50% {
-    -webkit-transform: rotate(540deg);
-            transform: rotate(540deg); }
+    transform: rotate(540deg); }
 
   62.5% {
-    -webkit-transform: rotate(675deg);
-            transform: rotate(675deg); }
+    transform: rotate(675deg); }
 
   75% {
-    -webkit-transform: rotate(810deg);
-            transform: rotate(810deg); }
+    transform: rotate(810deg); }
 
   87.5% {
-    -webkit-transform: rotate(945deg);
-            transform: rotate(945deg); }
+    transform: rotate(945deg); }
 
   to {
-    -webkit-transform: rotate(1080deg);
-            transform: rotate(1080deg); } }
+    transform: rotate(1080deg); } }
 
 /**
 * HACK: Even though the intention is to have the current .mdl-spinner__layer-N
@@ -8153,19 +7829,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 * - https://github.com/Polymer/paper-spinner/issues/9
 * - https://code.google.com/p/chromium/issues/detail?id=436255
 */
-@-webkit-keyframes mdl-spinner__layer-1-fade-in-out{
-  from{
-    opacity: 0.99; }
-  25%{
-    opacity: 0.99; }
-  26%{
-    opacity: 0; }
-  89%{
-    opacity: 0; }
-  90%{
-    opacity: 0.99; }
-  100%{
-    opacity: 0.99; } }
 @keyframes mdl-spinner__layer-1-fade-in-out {
   from {
     opacity: 0.99; }
@@ -8185,18 +7848,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   100% {
     opacity: 0.99; } }
 
-@-webkit-keyframes mdl-spinner__layer-2-fade-in-out{
-  from{
-    opacity: 0; }
-  15%{
-    opacity: 0; }
-  25%{
-    opacity: 0.99; }
-  50%{
-    opacity: 0.99; }
-  51%{
-    opacity: 0; } }
-
 @keyframes mdl-spinner__layer-2-fade-in-out {
   from {
     opacity: 0; }
@@ -8213,18 +7864,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   51% {
     opacity: 0; } }
 
-@-webkit-keyframes mdl-spinner__layer-3-fade-in-out{
-  from{
-    opacity: 0; }
-  40%{
-    opacity: 0; }
-  50%{
-    opacity: 0.99; }
-  75%{
-    opacity: 0.99; }
-  76%{
-    opacity: 0; } }
-
 @keyframes mdl-spinner__layer-3-fade-in-out {
   from {
     opacity: 0; }
@@ -8239,18 +7878,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     opacity: 0.99; }
 
   76% {
-    opacity: 0; } }
-
-@-webkit-keyframes mdl-spinner__layer-4-fade-in-out{
-  from{
-    opacity: 0; }
-  65%{
-    opacity: 0; }
-  75%{
-    opacity: 0.99; }
-  90%{
-    opacity: 0.99; }
-  100%{
     opacity: 0; } }
 
 @keyframes mdl-spinner__layer-4-fade-in-out {
@@ -8308,8 +7935,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   border-color: inherit;
   border-bottom-color: transparent !important;
   border-radius: 50%;
-  -webkit-animation: none;
-          animation: none;
+  animation: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -8317,69 +7943,35 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   left: 0; }
   .mdl-spinner__left .mdl-spinner__circle {
     border-right-color: transparent !important;
-    -webkit-transform: rotate(129deg);
-        -ms-transform: rotate(129deg);
-            transform: rotate(129deg); }
+    transform: rotate(129deg); }
     .mdl-spinner.is-active .mdl-spinner__left .mdl-spinner__circle {
-      -webkit-animation: mdl-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-              animation: mdl-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
+      animation: mdl-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
   .mdl-spinner__right .mdl-spinner__circle {
     left: -100%;
     border-left-color: transparent !important;
-    -webkit-transform: rotate(-129deg);
-        -ms-transform: rotate(-129deg);
-            transform: rotate(-129deg); }
+    transform: rotate(-129deg); }
     .mdl-spinner.is-active .mdl-spinner__right .mdl-spinner__circle {
-      -webkit-animation: mdl-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-              animation: mdl-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
-
-@-webkit-keyframes mdl-spinner__left-spin{
-  from{
-    -webkit-transform: rotate(130deg);
-            transform: rotate(130deg); }
-  50%{
-    -webkit-transform: rotate(-5deg);
-            transform: rotate(-5deg); }
-  to{
-    -webkit-transform: rotate(130deg);
-            transform: rotate(130deg); } }
+      animation: mdl-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
 @keyframes mdl-spinner__left-spin {
   from {
-    -webkit-transform: rotate(130deg);
-            transform: rotate(130deg); }
+    transform: rotate(130deg); }
 
   50% {
-    -webkit-transform: rotate(-5deg);
-            transform: rotate(-5deg); }
+    transform: rotate(-5deg); }
 
   to {
-    -webkit-transform: rotate(130deg);
-            transform: rotate(130deg); } }
-
-@-webkit-keyframes mdl-spinner__right-spin{
-  from{
-    -webkit-transform: rotate(-130deg);
-            transform: rotate(-130deg); }
-  50%{
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg); }
-  to{
-    -webkit-transform: rotate(-130deg);
-            transform: rotate(-130deg); } }
+    transform: rotate(130deg); } }
 
 @keyframes mdl-spinner__right-spin {
   from {
-    -webkit-transform: rotate(-130deg);
-            transform: rotate(-130deg); }
+    transform: rotate(-130deg); }
 
   50% {
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg); }
+    transform: rotate(5deg); }
 
   to {
-    -webkit-transform: rotate(-130deg);
-            transform: rotate(-130deg); } }
+    transform: rotate(-130deg); } }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -8396,7 +7988,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8512,12 +8104,9 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
-  -webkit-transition-duration: 0.28s;
-          transition-duration: 0.28s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition-property: left;
-          transition-property: left; }
+  transition-duration: 0.28s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: left; }
   .mdl-switch.is-checked .mdl-switch__thumb {
     background: #3f51b5;
     left: 16px;
@@ -8530,9 +8119,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-4px, -4px);
-      -ms-transform: translate(-4px, -4px);
-          transform: translate(-4px, -4px);
+  transform: translate(-4px, -4px);
   display: inline-block;
   box-sizing: border-box;
   width: 8px;
@@ -8569,12 +8156,9 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   cursor: pointer;
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
-  -webkit-transition-duration: 0.4s;
-          transition-duration: 0.4s;
-  -webkit-transition-timing-function: step-end;
-          transition-timing-function: step-end;
-  -webkit-transition-property: left;
-          transition-property: left; }
+  transition-duration: 0.4s;
+  transition-timing-function: step-end;
+  transition-property: left; }
   .mdl-switch__ripple-container .mdl-ripple {
     background: #3f51b5; }
   .mdl-switch.is-disabled .mdl-switch__ripple-container {
@@ -8600,7 +8184,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8662,29 +8246,12 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   width: 100%; }
 
 .mdl-tabs__tab-bar {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-align-content: space-between;
-      -ms-flex-line-pack: justify;
-          align-content: space-between;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+  align-items: flex-start;
   height: 48px;
   padding: 0 0 0 0;
   margin: 0;
@@ -8720,8 +8287,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     background: #3f51b5;
     -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
-    -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
-            transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
+    transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
   .mdl-tabs__tab .mdl-tabs__ripple-container {
     display: block;
     position: absolute;
@@ -8750,6 +8316,15 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     opacity: 1;
     width: 100%; } }
 
+@-moz-keyframes border-expand {
+  0% {
+    opacity: 0;
+    width: 0; }
+
+  100% {
+    opacity: 1;
+    width: 100%; } }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8765,7 +8340,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8879,10 +8454,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   .mdl-textfield.is-dirty .mdl-textfield__label {
     visibility: hidden; }
   .mdl-textfield--floating-label .mdl-textfield__label {
-    -webkit-transition-duration: 0.2s;
-            transition-duration: 0.2s;
-    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
   .mdl-textfield--floating-label.is-focused .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
     color: #3f51b5;
     font-size: 12px;
@@ -8898,10 +8471,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     height: 2px;
     left: 45%;
     position: absolute;
-    -webkit-transition-duration: 0.2s;
-            transition-duration: 0.2s;
-    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     visibility: hidden;
     width: 10px; }
   .mdl-textfield.is-focused .mdl-textfield__label:after {
@@ -8924,10 +8495,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   display: inline-block;
   position: relative;
   margin-left: 32px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   max-width: 0.1px; }
   .mdl-textfield.is-focused .mdl-textfield__expandable-holder, .mdl-textfield.is-dirty .mdl-textfield__expandable-holder {
@@ -8948,7 +8517,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9006,12 +8575,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 /* ANIMATION */
 /* PROGRESS */
 .mdl-tooltip {
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transform-origin: top center;
-      -ms-transform-origin: top center;
-          transform-origin: top center;
+  transform: scale(0);
+  transform-origin: top center;
   background: rgba(0, 0, 0, 0.9);
   border-radius: 2px;
   color: white;
@@ -9025,8 +8590,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 
 .mdl-tooltip.is-active {
   display: inline-block;
-  -webkit-animation: pulse 200ms cubic-bezier(0, 0, 0.2, 1) forwards;
-          animation: pulse 200ms cubic-bezier(0, 0, 0.2, 1) forwards; }
+  animation: pulse 200ms cubic-bezier(0, 0, 0.2, 1) forwards; }
 
 .mdl-tooltip--large {
   line-height: 14px;
@@ -9035,21 +8599,18 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 
 @-webkit-keyframes pulse {
   0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 0; }
 
   50% {
-    -webkit-transform: scale(0.99);
-            transform: scale(0.99); }
+    transform: scale(0.99); }
 
   100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
     visibility: visible; } }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9122,23 +8683,10 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
   .mdl-accordion-group .mdl-accordion input[name^='mdl-accordion'] {
     display: none; }
   .mdl-accordion-group .mdl-accordion label {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     height: 48px;
     padding-left: 16px;
     position: relative;
@@ -9146,8 +8694,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
     color: rgba(0, 0, 0, 0.6);
     cursor: pointer;
     font-size: 16px;
-    -webkit-transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
-            transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
+    transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
     .debug .mdl-accordion-group .mdl-accordion label {
       border: 1px solid red; }
     .mdl-accordion-group .mdl-accordion label:hover {
@@ -9156,8 +8703,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       position: absolute;
       top: 20.8px;
       right: 16px;
-      -webkit-transition: 0.3s ease-in-out;
-              transition: 0.3s ease-in-out;
+      transition: 0.3s ease-in-out;
       font-weight: 100;
       font-size: 18px;
       color: rgba(0, 0, 0, 0.6); }
@@ -9177,11 +8723,8 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
   .mdl-accordion-group .mdl-accordion input:checked + label {
     color: black; }
     .mdl-accordion-group .mdl-accordion input:checked + label .indicator {
-      -webkit-transform: rotate(90deg);
-          -ms-transform: rotate(90deg);
-              transform: rotate(90deg);
-      -webkit-transition: 0.3s ease-in-out;
-              transition: 0.3s ease-in-out;
+      transform: rotate(90deg);
+      transition: 0.3s ease-in-out;
       color: rgb(#3f51b5); }
       .debug .mdl-accordion-group .mdl-accordion input:checked + label .indicator {
         border: 1px solid red; }
@@ -9190,8 +8733,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
     max-height: 0;
     position: relative;
     padding: 0 16px;
-    -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
-            transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
+    transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
     .mdl-accordion-group .mdl-accordion .mdl-accordion--content .mdl-accordion--header {
       padding: 8px 0;
       color: rgba(0, 0, 0, 0.8);
@@ -9203,10 +8745,9 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
 input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
   max-height: 1500px;
   border-bottom: 1px solid #ddd;
-  -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
-          transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
+  transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9271,29 +8812,12 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     margin-right: auto; }
   .mdl-badge[data-badge]:after {
     content: attr(data-badge);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-align-content: space-between;
-        -ms-flex-line-pack: justify;
-            align-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+    align-items: center;
     position: absolute;
     top: -10px;
     right: -22px;
@@ -9311,7 +8835,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 1px gray; }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9370,15 +8894,8 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 /* PROGRESS */
 form.wsk-basic-form {
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 320px;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.87);
@@ -9392,9 +8909,7 @@ form.wsk-basic-form {
   form.wsk-basic-form.right {
     float: right; }
   form.wsk-basic-form label {
-    -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-            flex-shrink: 0;
+    flex-shrink: 0;
     padding-top: 12px;
     font-size: 15px; }
     form.wsk-basic-form label:first-child {
@@ -9424,15 +8939,8 @@ form.wsk-basic-form {
     form.wsk-basic-form input[type=submit] {
       border: none; }
   form.wsk-basic-form .wsk-basic-form__group {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
     padding-top: 7.5px;
     padding-bottom: 7.5px; }
     form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--last-row {
@@ -9444,16 +8952,10 @@ form.wsk-basic-form {
       width: 130px;
       padding-top: 7.5px; }
     form.wsk-basic-form .wsk-basic-form__group input {
-      -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1;
+      flex-grow: 1;
       width: auto; }
     form.wsk-basic-form .wsk-basic-form__group input[type=submit] {
-      -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
-          -ms-flex-positive: 0;
-              flex-grow: 0;
+      flex-grow: 0;
       width: 130px; }
     form.wsk-basic-form .wsk-basic-form__group ul.vertical li {
       padding-top: 0; }
@@ -9469,40 +8971,25 @@ form.wsk-basic-form {
       form.wsk-basic-form .wsk-basic-form__group ul.horizontal li:last-child {
         padding-top: 7.5px; }
     form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right {
-      -webkit-box-pack: end;
-      -webkit-justify-content: flex-end;
-          -ms-flex-pack: end;
-              justify-content: flex-end; }
+      justify-content: flex-end; }
       form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right input, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right button {
         margin-left: 10px; }
         form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right input:first-child, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--right button:first-child {
           margin-left: 0; }
     form.wsk-basic-form .wsk-basic-form__group.equal {
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-          -ms-flex-pack: justify;
-              justify-content: space-between; }
+      justify-content: space-between; }
       form.wsk-basic-form .wsk-basic-form__group.equal.with-offset {
         margin-left: 130px; }
       form.wsk-basic-form .wsk-basic-form__group.equal > *, form.wsk-basic-form .wsk-basic-form__group.equal > input[type=submit] {
-        -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
-            -ms-flex-positive: 1;
-                flex-grow: 1;
+        flex-grow: 1;
         margin-left: 10px; }
         form.wsk-basic-form .wsk-basic-form__group.equal > *:first-child, form.wsk-basic-form .wsk-basic-form__group.equal > input[type=submit]:first-child {
           margin-left: 0; }
     form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--checkbox, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--radio {
-      -webkit-box-pack: start;
-      -webkit-justify-content: flex-start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
+      justify-content: flex-start;
       font-size: 15px; }
       form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--checkbox input, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--radio input {
-        -webkit-box-flex: 0;
-        -webkit-flex-grow: 0;
-            -ms-flex-positive: 0;
-                flex-grow: 0;
+        flex-grow: 0;
         margin-top: 3px;
         margin-left: 1em; }
         form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--checkbox input:first-child, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--radio input:first-child {
@@ -9510,19 +8997,9 @@ form.wsk-basic-form {
       form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--checkbox > *, form.wsk-basic-form .wsk-basic-form__group.wsk-basic-form__group--radio > * {
         margin-right: 6px; }
     form.wsk-basic-form .wsk-basic-form__group.help {
-      -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
+      flex-grow: 1;
       display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column; }
+      flex-direction: column; }
       form.wsk-basic-form .wsk-basic-form__group.help .help-block {
         padding: 0; }
     form.wsk-basic-form .wsk-basic-form__group .help-block {
@@ -9546,44 +9023,23 @@ form.wsk-basic-form {
     form.wsk-basic-form input[type=submit].wsk-basic-form__control--last-row, form.wsk-basic-form button.wsk-basic-form__control--last-row {
       margin-top: 20px; }
     form.wsk-basic-form input[type=submit].wsk-basic-form__control--right, form.wsk-basic-form button.wsk-basic-form__control--right {
-      -webkit-align-self: flex-end;
-          -ms-flex-item-align: end;
-              align-self: flex-end; }
+      align-self: flex-end; }
   form.wsk-basic-form input[type=submit], form.wsk-basic-form button[type=submit], form.wsk-basic-form button.submit, form.wsk-basic-form button.primary {
     background-color: #3f51b5;
     color: white; }
   form.wsk-basic-form .wsk-basic-form__control--last-row {
     margin-top: 20px; }
   form.wsk-basic-form .wsk-basic-form__control--right {
-    -webkit-align-self: flex-end;
-        -ms-flex-item-align: end;
-            align-self: flex-end; }
+    align-self: flex-end; }
 
 form.wsk-form {
   box-sizing: border-box;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-align-content: space-between;
-      -ms-flex-line-pack: justify;
-          align-content: space-between;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: flex-start;
   padding: 24px 0 8px 0;
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
@@ -9599,40 +9055,20 @@ form.wsk-form {
     margin-right: 24px; }
   form.wsk-form .wsk-form__group {
     box-sizing: border-box;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -webkit-align-content: space-between;
-        -ms-flex-line-pack: justify;
-            align-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: space-between;
+    align-items: center;
     width: 100%;
     min-height: 48px;
     max-height: 48px;
     padding-right: 16px; }
     form.wsk-form .wsk-form__group.wsk-form__group--left {
-      -webkit-box-pack: start;
-      -webkit-justify-content: flex-start;
-          -ms-flex-pack: start;
-              justify-content: flex-start; }
+      justify-content: flex-start; }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9696,8 +9132,7 @@ form.wsk-form {
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
-  -webkit-transition: all 0.1s linear;
-          transition: all 0.1s linear; }
+  transition: all 0.1s linear; }
   .debug .mdl-nav-pill, .debug .mdl-nav-pills > * {
     border: 1px dotted black; }
   .mdl-nav-pill:last-child, .mdl-nav-pills > :last-child, .mdl-nav-pill.is-last-child, .mdl-nav-pills > .is-last-child {
@@ -9717,13 +9152,13 @@ form.wsk-form {
     color: rgba(0, 0, 0, 0.87);
     font-weight: normal; }
   .mdl-nav-pill.mdl-nav-pill--dark, .mdl-nav-pills > .mdl-nav-pill--dark {
-    background-color: #cddc39; }
+    background-color: #3f51b5; }
   .mdl-nav-pill.mdl-nav-pill--darker, .mdl-nav-pills > .mdl-nav-pill--darker {
-    background-color: #afb42b; }
+    background-color: #303f9f; }
   .mdl-nav-pill.mdl-nav-pill--light, .mdl-nav-pills > .mdl-nav-pill--light {
-    background-color: #dce775; }
+    background-color: #7986cb; }
   .mdl-nav-pill.mdl-nav-pill--lighter, .mdl-nav-pills > .mdl-nav-pill--lighter {
-    background-color: #f0f4c3; }
+    background-color: #c5cae9; }
   .mdl-nav-pill.mdl-nav-pill--accent, .mdl-nav-pills > .mdl-nav-pill--accent {
     background-color: #e91e63; }
   .mdl-nav-pill.mdl-nav-pill--light-text, .mdl-nav-pills > .mdl-nav-pill--light-text {
@@ -9735,55 +9170,21 @@ form.wsk-form {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-align-content: space-between;
-      -ms-flex-line-pack: justify;
-          align-content: space-between;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start; }
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: flex-start; }
   .debug .mdl-nav-pills {
     border: 1px solid green; }
   .mdl-nav-pills.mdl-nav-pills--as-row {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-align-content: space-between;
-        -ms-flex-line-pack: justify;
-            align-content: space-between;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-        -ms-flex-align: start;
-            align-items: flex-start; }
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: space-between;
+    align-items: flex-start; }
     .mdl-nav-pills.mdl-nav-pills--as-row > * {
       margin: 0 8px 8px 0; }
       .mdl-nav-pills.mdl-nav-pills--as-row > *:last-child, .mdl-nav-pills.mdl-nav-pills--as-row > *.is-last-child {
@@ -9799,21 +9200,21 @@ form.wsk-form {
     list-style: none;
     display: block; }
   .mdl-nav-pills.mdl-nav-pill--dark > * {
-    background-color: #cddc39; }
+    background-color: #3f51b5; }
   .mdl-nav-pills > .mdl-nav-pill--dark {
-    background-color: #cddc39 !important; }
+    background-color: #3f51b5 !important; }
   .mdl-nav-pills.mdl-nav-pill--darker > * {
-    background-color: #afb42b; }
+    background-color: #303f9f; }
   .mdl-nav-pills > .mdl-nav-pill--darker {
-    background-color: #afb42b !important; }
+    background-color: #303f9f !important; }
   .mdl-nav-pills.mdl-nav-pill--light > * {
-    background-color: #dce775; }
+    background-color: #7986cb; }
   .mdl-nav-pills > .mdl-nav-pill--light {
-    background-color: #dce775 !important; }
+    background-color: #7986cb !important; }
   .mdl-nav-pills.mdl-nav-pill--lighter > * {
-    background-color: #f0f4c3; }
+    background-color: #c5cae9; }
   .mdl-nav-pills > .mdl-nav-pill--lighter {
-    background-color: #f0f4c3 !important; }
+    background-color: #c5cae9 !important; }
   .mdl-nav-pills.mdl-nav-pill--accent > * {
     background-color: #e91e63; }
   .mdl-nav-pills > .mdl-nav-pill--accent {
@@ -9828,7 +9229,7 @@ form.wsk-form {
     .mdl-nav-pills > .mdl-nav-pill--light-text a {
       color: whitesmoke !important; }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9895,13 +9296,13 @@ form.wsk-form {
   .wsk-panel.wsk-panel--light-text {
     color: whitesmoke; }
   .wsk-panel.wsk-panel--dark {
-    background-color: #cddc39; }
+    background-color: #3f51b5; }
   .wsk-panel.wsk-panel--darker {
-    background-color: #afb42b; }
+    background-color: #303f9f; }
   .wsk-panel.wsk-panel--light {
-    background-color: #dce775; }
+    background-color: #7986cb; }
   .wsk-panel.wsk-panel--lighter {
-    background-color: #f0f4c3; }
+    background-color: #c5cae9; }
   .wsk-panel.wsk-panel--accent {
     background-color: #e91e63; }
   .wsk-panel.wsk-panel--with-heading {
@@ -9912,106 +9313,3 @@ form.wsk-form {
       padding: 8px 16px;
       color: rgba(0, 0, 0, 0.87);
       background-color: white; }
-
-body {
-  background: #fff;
-  padding: 24px; }
-
-.demo-page--badge section, .demo-section--badge section {
-  margin-bottom: 30px; }
-  .demo-page--badge section h5, .demo-section--badge section h5 {
-    margin-bottom: 15px; }
-.demo-page--badge div.toolbar, .demo-section--badge div.toolbar {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-align-content: space-between;
-      -ms-flex-line-pack: justify;
-          align-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #eee;
-  padding: 10px 10px 0 10px;
-  height: 40px;
-  border-radius: 5px; }
-  .demo-page--badge div.toolbar .wrapper, .demo-section--badge div.toolbar .wrapper {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-align-content: space-between;
-        -ms-flex-line-pack: justify;
-            align-content: space-between;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-        -ms-flex-align: start;
-            align-items: flex-start; }
-    .demo-page--badge div.toolbar .wrapper .icon, .demo-section--badge div.toolbar .wrapper .icon {
-      background-color: transparent;
-      border: none;
-      display: inline-block;
-      height: 21px;
-      margin: 10px 25px 15px 25px;
-      opacity: .7;
-      outline: none;
-      padding: 0;
-      position: relative;
-      width: 21px; }
-      .demo-page--badge div.toolbar .wrapper .icon.mdl-badge, .demo-section--badge div.toolbar .wrapper .icon.mdl-badge {
-        opacity: 1; }
-      .demo-page--badge div.toolbar .wrapper .icon:hover, .demo-section--badge div.toolbar .wrapper .icon:hover {
-        opacity: 1; }
-.demo-page--badge .links, .demo-section--badge .links {
-  margin-top: 25px; }
-  .demo-page--badge .links a, .demo-section--badge .links a {
-    text-decoration: none;
-    font-weight: normal;
-    margin-top: 10px; }
-  .demo-page--badge .links .dark, .demo-section--badge .links .dark {
-    display: block;
-    border-radius: 5px;
-    margin: 5px 0;
-    padding: 15px;
-    background-color: #3f51b5; }
-    .demo-page--badge .links .dark a, .demo-section--badge .links .dark a {
-      color: white; }
-  .demo-page--badge .links .fontawsom, .demo-section--badge .links .fontawsom {
-    margin-top: 25px; }
-    .demo-page--badge .links .fontawsom a, .demo-page--badge .links .fontawsom a:visited, .demo-section--badge .links .fontawsom a, .demo-section--badge .links .fontawsom a:visited {
-      color: black; }
-    .demo-page--badge .links .fontawsom i.fa, .demo-section--badge .links .fontawsom i.fa {
-      font-size: 20px;
-      margin-right: 3px; }
-.demo-page--badge .button-block, .demo-section--badge .button-block {
-  padding: 10px; }

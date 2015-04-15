@@ -188,6 +188,18 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   font-weight: normal;
   font-style: normal; }
 
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  Color Palettes  ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -203,18 +215,1810 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-color-text--red {
+  color: #f44336 !important; }
+
+.mdl-color--red {
+  background-color: #f44336 !important; }
+
+.mdl-color-text--red-50 {
+  color: #ffebee !important; }
+
+.mdl-color--red-50 {
+  background-color: #ffebee !important; }
+
+.mdl-color-text--red-100 {
+  color: #ffcdd2 !important; }
+
+.mdl-color--red-100 {
+  background-color: #ffcdd2 !important; }
+
+.mdl-color-text--red-200 {
+  color: #ef9a9a !important; }
+
+.mdl-color--red-200 {
+  background-color: #ef9a9a !important; }
+
+.mdl-color-text--red-300 {
+  color: #e57373 !important; }
+
+.mdl-color--red-300 {
+  background-color: #e57373 !important; }
+
+.mdl-color-text--red-400 {
+  color: #ef5350 !important; }
+
+.mdl-color--red-400 {
+  background-color: #ef5350 !important; }
+
+.mdl-color-text--red-500 {
+  color: #f44336 !important; }
+
+.mdl-color--red-500 {
+  background-color: #f44336 !important; }
+
+.mdl-color-text--red-600 {
+  color: #e53935 !important; }
+
+.mdl-color--red-600 {
+  background-color: #e53935 !important; }
+
+.mdl-color-text--red-700 {
+  color: #d32f2f !important; }
+
+.mdl-color--red-700 {
+  background-color: #d32f2f !important; }
+
+.mdl-color-text--red-800 {
+  color: #c62828 !important; }
+
+.mdl-color--red-800 {
+  background-color: #c62828 !important; }
+
+.mdl-color-text--red-900 {
+  color: #b71c1c !important; }
+
+.mdl-color--red-900 {
+  background-color: #b71c1c !important; }
+
+.mdl-color-text--red-A100 {
+  color: #ff8a80 !important; }
+
+.mdl-color--red-A100 {
+  background-color: #ff8a80 !important; }
+
+.mdl-color-text--red-A200 {
+  color: #ff5252 !important; }
+
+.mdl-color--red-A200 {
+  background-color: #ff5252 !important; }
+
+.mdl-color-text--red-A400 {
+  color: #ff1744 !important; }
+
+.mdl-color--red-A400 {
+  background-color: #ff1744 !important; }
+
+.mdl-color-text--red-A700 {
+  color: #d50000 !important; }
+
+.mdl-color--red-A700 {
+  background-color: #d50000 !important; }
+
+.mdl-color-text--pink {
+  color: #e91e63 !important; }
+
+.mdl-color--pink {
+  background-color: #e91e63 !important; }
+
+.mdl-color-text--pink-50 {
+  color: #fce4ec !important; }
+
+.mdl-color--pink-50 {
+  background-color: #fce4ec !important; }
+
+.mdl-color-text--pink-100 {
+  color: #f8bbd0 !important; }
+
+.mdl-color--pink-100 {
+  background-color: #f8bbd0 !important; }
+
+.mdl-color-text--pink-200 {
+  color: #f48fb1 !important; }
+
+.mdl-color--pink-200 {
+  background-color: #f48fb1 !important; }
+
+.mdl-color-text--pink-300 {
+  color: #f06292 !important; }
+
+.mdl-color--pink-300 {
+  background-color: #f06292 !important; }
+
+.mdl-color-text--pink-400 {
+  color: #ec407a !important; }
+
+.mdl-color--pink-400 {
+  background-color: #ec407a !important; }
+
+.mdl-color-text--pink-500 {
+  color: #e91e63 !important; }
+
+.mdl-color--pink-500 {
+  background-color: #e91e63 !important; }
+
+.mdl-color-text--pink-600 {
+  color: #d81b60 !important; }
+
+.mdl-color--pink-600 {
+  background-color: #d81b60 !important; }
+
+.mdl-color-text--pink-700 {
+  color: #c2185b !important; }
+
+.mdl-color--pink-700 {
+  background-color: #c2185b !important; }
+
+.mdl-color-text--pink-800 {
+  color: #ad1457 !important; }
+
+.mdl-color--pink-800 {
+  background-color: #ad1457 !important; }
+
+.mdl-color-text--pink-900 {
+  color: #880e4f !important; }
+
+.mdl-color--pink-900 {
+  background-color: #880e4f !important; }
+
+.mdl-color-text--pink-A100 {
+  color: #ff80ab !important; }
+
+.mdl-color--pink-A100 {
+  background-color: #ff80ab !important; }
+
+.mdl-color-text--pink-A200 {
+  color: #ff4081 !important; }
+
+.mdl-color--pink-A200 {
+  background-color: #ff4081 !important; }
+
+.mdl-color-text--pink-A400 {
+  color: #f50057 !important; }
+
+.mdl-color--pink-A400 {
+  background-color: #f50057 !important; }
+
+.mdl-color-text--pink-A700 {
+  color: #c51162 !important; }
+
+.mdl-color--pink-A700 {
+  background-color: #c51162 !important; }
+
+.mdl-color-text--purple {
+  color: #9c27b0 !important; }
+
+.mdl-color--purple {
+  background-color: #9c27b0 !important; }
+
+.mdl-color-text--purple-50 {
+  color: #f3e5f5 !important; }
+
+.mdl-color--purple-50 {
+  background-color: #f3e5f5 !important; }
+
+.mdl-color-text--purple-100 {
+  color: #e1bee7 !important; }
+
+.mdl-color--purple-100 {
+  background-color: #e1bee7 !important; }
+
+.mdl-color-text--purple-200 {
+  color: #ce93d8 !important; }
+
+.mdl-color--purple-200 {
+  background-color: #ce93d8 !important; }
+
+.mdl-color-text--purple-300 {
+  color: #ba68c8 !important; }
+
+.mdl-color--purple-300 {
+  background-color: #ba68c8 !important; }
+
+.mdl-color-text--purple-400 {
+  color: #ab47bc !important; }
+
+.mdl-color--purple-400 {
+  background-color: #ab47bc !important; }
+
+.mdl-color-text--purple-500 {
+  color: #9c27b0 !important; }
+
+.mdl-color--purple-500 {
+  background-color: #9c27b0 !important; }
+
+.mdl-color-text--purple-600 {
+  color: #8e24aa !important; }
+
+.mdl-color--purple-600 {
+  background-color: #8e24aa !important; }
+
+.mdl-color-text--purple-700 {
+  color: #7b1fa2 !important; }
+
+.mdl-color--purple-700 {
+  background-color: #7b1fa2 !important; }
+
+.mdl-color-text--purple-800 {
+  color: #6a1b9a !important; }
+
+.mdl-color--purple-800 {
+  background-color: #6a1b9a !important; }
+
+.mdl-color-text--purple-900 {
+  color: #4a148c !important; }
+
+.mdl-color--purple-900 {
+  background-color: #4a148c !important; }
+
+.mdl-color-text--purple-A100 {
+  color: #ea80fc !important; }
+
+.mdl-color--purple-A100 {
+  background-color: #ea80fc !important; }
+
+.mdl-color-text--purple-A200 {
+  color: #e040fb !important; }
+
+.mdl-color--purple-A200 {
+  background-color: #e040fb !important; }
+
+.mdl-color-text--purple-A400 {
+  color: #d500f9 !important; }
+
+.mdl-color--purple-A400 {
+  background-color: #d500f9 !important; }
+
+.mdl-color-text--purple-A700 {
+  color: #aa00ff !important; }
+
+.mdl-color--purple-A700 {
+  background-color: #aa00ff !important; }
+
+.mdl-color-text--deep-purple {
+  color: #673ab7 !important; }
+
+.mdl-color--deep-purple {
+  background-color: #673ab7 !important; }
+
+.mdl-color-text--deep-purple-50 {
+  color: #ede7f6 !important; }
+
+.mdl-color--deep-purple-50 {
+  background-color: #ede7f6 !important; }
+
+.mdl-color-text--deep-purple-100 {
+  color: #d1c4e9 !important; }
+
+.mdl-color--deep-purple-100 {
+  background-color: #d1c4e9 !important; }
+
+.mdl-color-text--deep-purple-200 {
+  color: #b39ddb !important; }
+
+.mdl-color--deep-purple-200 {
+  background-color: #b39ddb !important; }
+
+.mdl-color-text--deep-purple-300 {
+  color: #9575cd !important; }
+
+.mdl-color--deep-purple-300 {
+  background-color: #9575cd !important; }
+
+.mdl-color-text--deep-purple-400 {
+  color: #7e57c2 !important; }
+
+.mdl-color--deep-purple-400 {
+  background-color: #7e57c2 !important; }
+
+.mdl-color-text--deep-purple-500 {
+  color: #673ab7 !important; }
+
+.mdl-color--deep-purple-500 {
+  background-color: #673ab7 !important; }
+
+.mdl-color-text--deep-purple-600 {
+  color: #5e35b1 !important; }
+
+.mdl-color--deep-purple-600 {
+  background-color: #5e35b1 !important; }
+
+.mdl-color-text--deep-purple-700 {
+  color: #512da8 !important; }
+
+.mdl-color--deep-purple-700 {
+  background-color: #512da8 !important; }
+
+.mdl-color-text--deep-purple-800 {
+  color: #4527a0 !important; }
+
+.mdl-color--deep-purple-800 {
+  background-color: #4527a0 !important; }
+
+.mdl-color-text--deep-purple-900 {
+  color: #311b92 !important; }
+
+.mdl-color--deep-purple-900 {
+  background-color: #311b92 !important; }
+
+.mdl-color-text--deep-purple-A100 {
+  color: #b388ff !important; }
+
+.mdl-color--deep-purple-A100 {
+  background-color: #b388ff !important; }
+
+.mdl-color-text--deep-purple-A200 {
+  color: #7c4dff !important; }
+
+.mdl-color--deep-purple-A200 {
+  background-color: #7c4dff !important; }
+
+.mdl-color-text--deep-purple-A400 {
+  color: #651fff !important; }
+
+.mdl-color--deep-purple-A400 {
+  background-color: #651fff !important; }
+
+.mdl-color-text--deep-purple-A700 {
+  color: #6200ea !important; }
+
+.mdl-color--deep-purple-A700 {
+  background-color: #6200ea !important; }
+
+.mdl-color-text--indigo {
+  color: #3f51b5 !important; }
+
+.mdl-color--indigo {
+  background-color: #3f51b5 !important; }
+
+.mdl-color-text--indigo-50 {
+  color: #e8eaf6 !important; }
+
+.mdl-color--indigo-50 {
+  background-color: #e8eaf6 !important; }
+
+.mdl-color-text--indigo-100 {
+  color: #c5cae9 !important; }
+
+.mdl-color--indigo-100 {
+  background-color: #c5cae9 !important; }
+
+.mdl-color-text--indigo-200 {
+  color: #9fa8da !important; }
+
+.mdl-color--indigo-200 {
+  background-color: #9fa8da !important; }
+
+.mdl-color-text--indigo-300 {
+  color: #7986cb !important; }
+
+.mdl-color--indigo-300 {
+  background-color: #7986cb !important; }
+
+.mdl-color-text--indigo-400 {
+  color: #5c6bc0 !important; }
+
+.mdl-color--indigo-400 {
+  background-color: #5c6bc0 !important; }
+
+.mdl-color-text--indigo-500 {
+  color: #3f51b5 !important; }
+
+.mdl-color--indigo-500 {
+  background-color: #3f51b5 !important; }
+
+.mdl-color-text--indigo-600 {
+  color: #3949ab !important; }
+
+.mdl-color--indigo-600 {
+  background-color: #3949ab !important; }
+
+.mdl-color-text--indigo-700 {
+  color: #303f9f !important; }
+
+.mdl-color--indigo-700 {
+  background-color: #303f9f !important; }
+
+.mdl-color-text--indigo-800 {
+  color: #283593 !important; }
+
+.mdl-color--indigo-800 {
+  background-color: #283593 !important; }
+
+.mdl-color-text--indigo-900 {
+  color: #1a237e !important; }
+
+.mdl-color--indigo-900 {
+  background-color: #1a237e !important; }
+
+.mdl-color-text--indigo-A100 {
+  color: #8c9eff !important; }
+
+.mdl-color--indigo-A100 {
+  background-color: #8c9eff !important; }
+
+.mdl-color-text--indigo-A200 {
+  color: #536dfe !important; }
+
+.mdl-color--indigo-A200 {
+  background-color: #536dfe !important; }
+
+.mdl-color-text--indigo-A400 {
+  color: #3d5afe !important; }
+
+.mdl-color--indigo-A400 {
+  background-color: #3d5afe !important; }
+
+.mdl-color-text--indigo-A700 {
+  color: #304ffe !important; }
+
+.mdl-color--indigo-A700 {
+  background-color: #304ffe !important; }
+
+.mdl-color-text--blue {
+  color: #2196f3 !important; }
+
+.mdl-color--blue {
+  background-color: #2196f3 !important; }
+
+.mdl-color-text--blue-50 {
+  color: #e3f2fd !important; }
+
+.mdl-color--blue-50 {
+  background-color: #e3f2fd !important; }
+
+.mdl-color-text--blue-100 {
+  color: #bbdefb !important; }
+
+.mdl-color--blue-100 {
+  background-color: #bbdefb !important; }
+
+.mdl-color-text--blue-200 {
+  color: #90caf9 !important; }
+
+.mdl-color--blue-200 {
+  background-color: #90caf9 !important; }
+
+.mdl-color-text--blue-300 {
+  color: #64b5f6 !important; }
+
+.mdl-color--blue-300 {
+  background-color: #64b5f6 !important; }
+
+.mdl-color-text--blue-400 {
+  color: #42a5f5 !important; }
+
+.mdl-color--blue-400 {
+  background-color: #42a5f5 !important; }
+
+.mdl-color-text--blue-500 {
+  color: #2196f3 !important; }
+
+.mdl-color--blue-500 {
+  background-color: #2196f3 !important; }
+
+.mdl-color-text--blue-600 {
+  color: #1e88e5 !important; }
+
+.mdl-color--blue-600 {
+  background-color: #1e88e5 !important; }
+
+.mdl-color-text--blue-700 {
+  color: #1976d2 !important; }
+
+.mdl-color--blue-700 {
+  background-color: #1976d2 !important; }
+
+.mdl-color-text--blue-800 {
+  color: #1565c0 !important; }
+
+.mdl-color--blue-800 {
+  background-color: #1565c0 !important; }
+
+.mdl-color-text--blue-900 {
+  color: #0d47a1 !important; }
+
+.mdl-color--blue-900 {
+  background-color: #0d47a1 !important; }
+
+.mdl-color-text--blue-A100 {
+  color: #82b1ff !important; }
+
+.mdl-color--blue-A100 {
+  background-color: #82b1ff !important; }
+
+.mdl-color-text--blue-A200 {
+  color: #448aff !important; }
+
+.mdl-color--blue-A200 {
+  background-color: #448aff !important; }
+
+.mdl-color-text--blue-A400 {
+  color: #2979ff !important; }
+
+.mdl-color--blue-A400 {
+  background-color: #2979ff !important; }
+
+.mdl-color-text--blue-A700 {
+  color: #2962ff !important; }
+
+.mdl-color--blue-A700 {
+  background-color: #2962ff !important; }
+
+.mdl-color-text--light-blue {
+  color: #03a9f4 !important; }
+
+.mdl-color--light-blue {
+  background-color: #03a9f4 !important; }
+
+.mdl-color-text--light-blue-50 {
+  color: #e1f5fe !important; }
+
+.mdl-color--light-blue-50 {
+  background-color: #e1f5fe !important; }
+
+.mdl-color-text--light-blue-100 {
+  color: #b3e5fc !important; }
+
+.mdl-color--light-blue-100 {
+  background-color: #b3e5fc !important; }
+
+.mdl-color-text--light-blue-200 {
+  color: #81d4fa !important; }
+
+.mdl-color--light-blue-200 {
+  background-color: #81d4fa !important; }
+
+.mdl-color-text--light-blue-300 {
+  color: #4fc3f7 !important; }
+
+.mdl-color--light-blue-300 {
+  background-color: #4fc3f7 !important; }
+
+.mdl-color-text--light-blue-400 {
+  color: #29b6f6 !important; }
+
+.mdl-color--light-blue-400 {
+  background-color: #29b6f6 !important; }
+
+.mdl-color-text--light-blue-500 {
+  color: #03a9f4 !important; }
+
+.mdl-color--light-blue-500 {
+  background-color: #03a9f4 !important; }
+
+.mdl-color-text--light-blue-600 {
+  color: #039be5 !important; }
+
+.mdl-color--light-blue-600 {
+  background-color: #039be5 !important; }
+
+.mdl-color-text--light-blue-700 {
+  color: #0288d1 !important; }
+
+.mdl-color--light-blue-700 {
+  background-color: #0288d1 !important; }
+
+.mdl-color-text--light-blue-800 {
+  color: #0277bd !important; }
+
+.mdl-color--light-blue-800 {
+  background-color: #0277bd !important; }
+
+.mdl-color-text--light-blue-900 {
+  color: #01579b !important; }
+
+.mdl-color--light-blue-900 {
+  background-color: #01579b !important; }
+
+.mdl-color-text--light-blue-A100 {
+  color: #80d8ff !important; }
+
+.mdl-color--light-blue-A100 {
+  background-color: #80d8ff !important; }
+
+.mdl-color-text--light-blue-A200 {
+  color: #40c4ff !important; }
+
+.mdl-color--light-blue-A200 {
+  background-color: #40c4ff !important; }
+
+.mdl-color-text--light-blue-A400 {
+  color: #00b0ff !important; }
+
+.mdl-color--light-blue-A400 {
+  background-color: #00b0ff !important; }
+
+.mdl-color-text--light-blue-A700 {
+  color: #0091ea !important; }
+
+.mdl-color--light-blue-A700 {
+  background-color: #0091ea !important; }
+
+.mdl-color-text--cyan {
+  color: #00bcd4 !important; }
+
+.mdl-color--cyan {
+  background-color: #00bcd4 !important; }
+
+.mdl-color-text--cyan-50 {
+  color: #e0f7fa !important; }
+
+.mdl-color--cyan-50 {
+  background-color: #e0f7fa !important; }
+
+.mdl-color-text--cyan-100 {
+  color: #b2ebf2 !important; }
+
+.mdl-color--cyan-100 {
+  background-color: #b2ebf2 !important; }
+
+.mdl-color-text--cyan-200 {
+  color: #80deea !important; }
+
+.mdl-color--cyan-200 {
+  background-color: #80deea !important; }
+
+.mdl-color-text--cyan-300 {
+  color: #4dd0e1 !important; }
+
+.mdl-color--cyan-300 {
+  background-color: #4dd0e1 !important; }
+
+.mdl-color-text--cyan-400 {
+  color: #26c6da !important; }
+
+.mdl-color--cyan-400 {
+  background-color: #26c6da !important; }
+
+.mdl-color-text--cyan-500 {
+  color: #00bcd4 !important; }
+
+.mdl-color--cyan-500 {
+  background-color: #00bcd4 !important; }
+
+.mdl-color-text--cyan-600 {
+  color: #00acc1 !important; }
+
+.mdl-color--cyan-600 {
+  background-color: #00acc1 !important; }
+
+.mdl-color-text--cyan-700 {
+  color: #0097a7 !important; }
+
+.mdl-color--cyan-700 {
+  background-color: #0097a7 !important; }
+
+.mdl-color-text--cyan-800 {
+  color: #00838f !important; }
+
+.mdl-color--cyan-800 {
+  background-color: #00838f !important; }
+
+.mdl-color-text--cyan-900 {
+  color: #006064 !important; }
+
+.mdl-color--cyan-900 {
+  background-color: #006064 !important; }
+
+.mdl-color-text--cyan-A100 {
+  color: #84ffff !important; }
+
+.mdl-color--cyan-A100 {
+  background-color: #84ffff !important; }
+
+.mdl-color-text--cyan-A200 {
+  color: #18ffff !important; }
+
+.mdl-color--cyan-A200 {
+  background-color: #18ffff !important; }
+
+.mdl-color-text--cyan-A400 {
+  color: #00e5ff !important; }
+
+.mdl-color--cyan-A400 {
+  background-color: #00e5ff !important; }
+
+.mdl-color-text--cyan-A700 {
+  color: #00b8d4 !important; }
+
+.mdl-color--cyan-A700 {
+  background-color: #00b8d4 !important; }
+
+.mdl-color-text--teal {
+  color: #009688 !important; }
+
+.mdl-color--teal {
+  background-color: #009688 !important; }
+
+.mdl-color-text--teal-50 {
+  color: #e0f2f1 !important; }
+
+.mdl-color--teal-50 {
+  background-color: #e0f2f1 !important; }
+
+.mdl-color-text--teal-100 {
+  color: #b2dfdb !important; }
+
+.mdl-color--teal-100 {
+  background-color: #b2dfdb !important; }
+
+.mdl-color-text--teal-200 {
+  color: #80cbc4 !important; }
+
+.mdl-color--teal-200 {
+  background-color: #80cbc4 !important; }
+
+.mdl-color-text--teal-300 {
+  color: #4db6ac !important; }
+
+.mdl-color--teal-300 {
+  background-color: #4db6ac !important; }
+
+.mdl-color-text--teal-400 {
+  color: #26a69a !important; }
+
+.mdl-color--teal-400 {
+  background-color: #26a69a !important; }
+
+.mdl-color-text--teal-500 {
+  color: #009688 !important; }
+
+.mdl-color--teal-500 {
+  background-color: #009688 !important; }
+
+.mdl-color-text--teal-600 {
+  color: #00897b !important; }
+
+.mdl-color--teal-600 {
+  background-color: #00897b !important; }
+
+.mdl-color-text--teal-700 {
+  color: #00796b !important; }
+
+.mdl-color--teal-700 {
+  background-color: #00796b !important; }
+
+.mdl-color-text--teal-800 {
+  color: #00695c !important; }
+
+.mdl-color--teal-800 {
+  background-color: #00695c !important; }
+
+.mdl-color-text--teal-900 {
+  color: #004d40 !important; }
+
+.mdl-color--teal-900 {
+  background-color: #004d40 !important; }
+
+.mdl-color-text--teal-A100 {
+  color: #a7ffeb !important; }
+
+.mdl-color--teal-A100 {
+  background-color: #a7ffeb !important; }
+
+.mdl-color-text--teal-A200 {
+  color: #64ffda !important; }
+
+.mdl-color--teal-A200 {
+  background-color: #64ffda !important; }
+
+.mdl-color-text--teal-A400 {
+  color: #1de9b6 !important; }
+
+.mdl-color--teal-A400 {
+  background-color: #1de9b6 !important; }
+
+.mdl-color-text--teal-A700 {
+  color: #00bfa5 !important; }
+
+.mdl-color--teal-A700 {
+  background-color: #00bfa5 !important; }
+
+.mdl-color-text--green {
+  color: #4caf50 !important; }
+
+.mdl-color--green {
+  background-color: #4caf50 !important; }
+
+.mdl-color-text--green-50 {
+  color: #e8f5e9 !important; }
+
+.mdl-color--green-50 {
+  background-color: #e8f5e9 !important; }
+
+.mdl-color-text--green-100 {
+  color: #c8e6c9 !important; }
+
+.mdl-color--green-100 {
+  background-color: #c8e6c9 !important; }
+
+.mdl-color-text--green-200 {
+  color: #a5d6a7 !important; }
+
+.mdl-color--green-200 {
+  background-color: #a5d6a7 !important; }
+
+.mdl-color-text--green-300 {
+  color: #81c784 !important; }
+
+.mdl-color--green-300 {
+  background-color: #81c784 !important; }
+
+.mdl-color-text--green-400 {
+  color: #66bb6a !important; }
+
+.mdl-color--green-400 {
+  background-color: #66bb6a !important; }
+
+.mdl-color-text--green-500 {
+  color: #4caf50 !important; }
+
+.mdl-color--green-500 {
+  background-color: #4caf50 !important; }
+
+.mdl-color-text--green-600 {
+  color: #43a047 !important; }
+
+.mdl-color--green-600 {
+  background-color: #43a047 !important; }
+
+.mdl-color-text--green-700 {
+  color: #388e3c !important; }
+
+.mdl-color--green-700 {
+  background-color: #388e3c !important; }
+
+.mdl-color-text--green-800 {
+  color: #2e7d32 !important; }
+
+.mdl-color--green-800 {
+  background-color: #2e7d32 !important; }
+
+.mdl-color-text--green-900 {
+  color: #1b5e20 !important; }
+
+.mdl-color--green-900 {
+  background-color: #1b5e20 !important; }
+
+.mdl-color-text--green-A100 {
+  color: #b9f6ca !important; }
+
+.mdl-color--green-A100 {
+  background-color: #b9f6ca !important; }
+
+.mdl-color-text--green-A200 {
+  color: #69f0ae !important; }
+
+.mdl-color--green-A200 {
+  background-color: #69f0ae !important; }
+
+.mdl-color-text--green-A400 {
+  color: #00e676 !important; }
+
+.mdl-color--green-A400 {
+  background-color: #00e676 !important; }
+
+.mdl-color-text--green-A700 {
+  color: #00c853 !important; }
+
+.mdl-color--green-A700 {
+  background-color: #00c853 !important; }
+
+.mdl-color-text--light-green {
+  color: #8bc34a !important; }
+
+.mdl-color--light-green {
+  background-color: #8bc34a !important; }
+
+.mdl-color-text--light-green-50 {
+  color: #f1f8e9 !important; }
+
+.mdl-color--light-green-50 {
+  background-color: #f1f8e9 !important; }
+
+.mdl-color-text--light-green-100 {
+  color: #dcedc8 !important; }
+
+.mdl-color--light-green-100 {
+  background-color: #dcedc8 !important; }
+
+.mdl-color-text--light-green-200 {
+  color: #c5e1a5 !important; }
+
+.mdl-color--light-green-200 {
+  background-color: #c5e1a5 !important; }
+
+.mdl-color-text--light-green-300 {
+  color: #aed581 !important; }
+
+.mdl-color--light-green-300 {
+  background-color: #aed581 !important; }
+
+.mdl-color-text--light-green-400 {
+  color: #9ccc65 !important; }
+
+.mdl-color--light-green-400 {
+  background-color: #9ccc65 !important; }
+
+.mdl-color-text--light-green-500 {
+  color: #8bc34a !important; }
+
+.mdl-color--light-green-500 {
+  background-color: #8bc34a !important; }
+
+.mdl-color-text--light-green-600 {
+  color: #7cb342 !important; }
+
+.mdl-color--light-green-600 {
+  background-color: #7cb342 !important; }
+
+.mdl-color-text--light-green-700 {
+  color: #689f38 !important; }
+
+.mdl-color--light-green-700 {
+  background-color: #689f38 !important; }
+
+.mdl-color-text--light-green-800 {
+  color: #558b2f !important; }
+
+.mdl-color--light-green-800 {
+  background-color: #558b2f !important; }
+
+.mdl-color-text--light-green-900 {
+  color: #33691e !important; }
+
+.mdl-color--light-green-900 {
+  background-color: #33691e !important; }
+
+.mdl-color-text--light-green-A100 {
+  color: #ccff90 !important; }
+
+.mdl-color--light-green-A100 {
+  background-color: #ccff90 !important; }
+
+.mdl-color-text--light-green-A200 {
+  color: #b2ff59 !important; }
+
+.mdl-color--light-green-A200 {
+  background-color: #b2ff59 !important; }
+
+.mdl-color-text--light-green-A400 {
+  color: #76ff03 !important; }
+
+.mdl-color--light-green-A400 {
+  background-color: #76ff03 !important; }
+
+.mdl-color-text--light-green-A700 {
+  color: #64dd17 !important; }
+
+.mdl-color--light-green-A700 {
+  background-color: #64dd17 !important; }
+
+.mdl-color-text--lime {
+  color: #cddc39 !important; }
+
+.mdl-color--lime {
+  background-color: #cddc39 !important; }
+
+.mdl-color-text--lime-50 {
+  color: #f9fbe7 !important; }
+
+.mdl-color--lime-50 {
+  background-color: #f9fbe7 !important; }
+
+.mdl-color-text--lime-100 {
+  color: #f0f4c3 !important; }
+
+.mdl-color--lime-100 {
+  background-color: #f0f4c3 !important; }
+
+.mdl-color-text--lime-200 {
+  color: #e6ee9c !important; }
+
+.mdl-color--lime-200 {
+  background-color: #e6ee9c !important; }
+
+.mdl-color-text--lime-300 {
+  color: #dce775 !important; }
+
+.mdl-color--lime-300 {
+  background-color: #dce775 !important; }
+
+.mdl-color-text--lime-400 {
+  color: #d4e157 !important; }
+
+.mdl-color--lime-400 {
+  background-color: #d4e157 !important; }
+
+.mdl-color-text--lime-500 {
+  color: #cddc39 !important; }
+
+.mdl-color--lime-500 {
+  background-color: #cddc39 !important; }
+
+.mdl-color-text--lime-600 {
+  color: #c0ca33 !important; }
+
+.mdl-color--lime-600 {
+  background-color: #c0ca33 !important; }
+
+.mdl-color-text--lime-700 {
+  color: #afb42b !important; }
+
+.mdl-color--lime-700 {
+  background-color: #afb42b !important; }
+
+.mdl-color-text--lime-800 {
+  color: #9e9d24 !important; }
+
+.mdl-color--lime-800 {
+  background-color: #9e9d24 !important; }
+
+.mdl-color-text--lime-900 {
+  color: #827717 !important; }
+
+.mdl-color--lime-900 {
+  background-color: #827717 !important; }
+
+.mdl-color-text--lime-A100 {
+  color: #f4ff81 !important; }
+
+.mdl-color--lime-A100 {
+  background-color: #f4ff81 !important; }
+
+.mdl-color-text--lime-A200 {
+  color: #eeff41 !important; }
+
+.mdl-color--lime-A200 {
+  background-color: #eeff41 !important; }
+
+.mdl-color-text--lime-A400 {
+  color: #c6ff00 !important; }
+
+.mdl-color--lime-A400 {
+  background-color: #c6ff00 !important; }
+
+.mdl-color-text--lime-A700 {
+  color: #aeea00 !important; }
+
+.mdl-color--lime-A700 {
+  background-color: #aeea00 !important; }
+
+.mdl-color-text--yellow {
+  color: #ffeb3b !important; }
+
+.mdl-color--yellow {
+  background-color: #ffeb3b !important; }
+
+.mdl-color-text--yellow-50 {
+  color: #fffde7 !important; }
+
+.mdl-color--yellow-50 {
+  background-color: #fffde7 !important; }
+
+.mdl-color-text--yellow-100 {
+  color: #fff9c4 !important; }
+
+.mdl-color--yellow-100 {
+  background-color: #fff9c4 !important; }
+
+.mdl-color-text--yellow-200 {
+  color: #fff59d !important; }
+
+.mdl-color--yellow-200 {
+  background-color: #fff59d !important; }
+
+.mdl-color-text--yellow-300 {
+  color: #fff176 !important; }
+
+.mdl-color--yellow-300 {
+  background-color: #fff176 !important; }
+
+.mdl-color-text--yellow-400 {
+  color: #ffee58 !important; }
+
+.mdl-color--yellow-400 {
+  background-color: #ffee58 !important; }
+
+.mdl-color-text--yellow-500 {
+  color: #ffeb3b !important; }
+
+.mdl-color--yellow-500 {
+  background-color: #ffeb3b !important; }
+
+.mdl-color-text--yellow-600 {
+  color: #fdd835 !important; }
+
+.mdl-color--yellow-600 {
+  background-color: #fdd835 !important; }
+
+.mdl-color-text--yellow-700 {
+  color: #fbc02d !important; }
+
+.mdl-color--yellow-700 {
+  background-color: #fbc02d !important; }
+
+.mdl-color-text--yellow-800 {
+  color: #f9a825 !important; }
+
+.mdl-color--yellow-800 {
+  background-color: #f9a825 !important; }
+
+.mdl-color-text--yellow-900 {
+  color: #f57f17 !important; }
+
+.mdl-color--yellow-900 {
+  background-color: #f57f17 !important; }
+
+.mdl-color-text--yellow-A100 {
+  color: #ffff8d !important; }
+
+.mdl-color--yellow-A100 {
+  background-color: #ffff8d !important; }
+
+.mdl-color-text--yellow-A200 {
+  color: yellow !important; }
+
+.mdl-color--yellow-A200 {
+  background-color: yellow !important; }
+
+.mdl-color-text--yellow-A400 {
+  color: #ffea00 !important; }
+
+.mdl-color--yellow-A400 {
+  background-color: #ffea00 !important; }
+
+.mdl-color-text--yellow-A700 {
+  color: #ffd600 !important; }
+
+.mdl-color--yellow-A700 {
+  background-color: #ffd600 !important; }
+
+.mdl-color-text--amber {
+  color: #ffc107 !important; }
+
+.mdl-color--amber {
+  background-color: #ffc107 !important; }
+
+.mdl-color-text--amber-50 {
+  color: #fff8e1 !important; }
+
+.mdl-color--amber-50 {
+  background-color: #fff8e1 !important; }
+
+.mdl-color-text--amber-100 {
+  color: #ffecb3 !important; }
+
+.mdl-color--amber-100 {
+  background-color: #ffecb3 !important; }
+
+.mdl-color-text--amber-200 {
+  color: #ffe082 !important; }
+
+.mdl-color--amber-200 {
+  background-color: #ffe082 !important; }
+
+.mdl-color-text--amber-300 {
+  color: #ffd54f !important; }
+
+.mdl-color--amber-300 {
+  background-color: #ffd54f !important; }
+
+.mdl-color-text--amber-400 {
+  color: #ffca28 !important; }
+
+.mdl-color--amber-400 {
+  background-color: #ffca28 !important; }
+
+.mdl-color-text--amber-500 {
+  color: #ffc107 !important; }
+
+.mdl-color--amber-500 {
+  background-color: #ffc107 !important; }
+
+.mdl-color-text--amber-600 {
+  color: #ffb300 !important; }
+
+.mdl-color--amber-600 {
+  background-color: #ffb300 !important; }
+
+.mdl-color-text--amber-700 {
+  color: #ffa000 !important; }
+
+.mdl-color--amber-700 {
+  background-color: #ffa000 !important; }
+
+.mdl-color-text--amber-800 {
+  color: #ff8f00 !important; }
+
+.mdl-color--amber-800 {
+  background-color: #ff8f00 !important; }
+
+.mdl-color-text--amber-900 {
+  color: #ff6f00 !important; }
+
+.mdl-color--amber-900 {
+  background-color: #ff6f00 !important; }
+
+.mdl-color-text--amber-A100 {
+  color: #ffe57f !important; }
+
+.mdl-color--amber-A100 {
+  background-color: #ffe57f !important; }
+
+.mdl-color-text--amber-A200 {
+  color: #ffd740 !important; }
+
+.mdl-color--amber-A200 {
+  background-color: #ffd740 !important; }
+
+.mdl-color-text--amber-A400 {
+  color: #ffc400 !important; }
+
+.mdl-color--amber-A400 {
+  background-color: #ffc400 !important; }
+
+.mdl-color-text--amber-A700 {
+  color: #ffab00 !important; }
+
+.mdl-color--amber-A700 {
+  background-color: #ffab00 !important; }
+
+.mdl-color-text--orange {
+  color: #ff9800 !important; }
+
+.mdl-color--orange {
+  background-color: #ff9800 !important; }
+
+.mdl-color-text--orange-50 {
+  color: #fff3e0 !important; }
+
+.mdl-color--orange-50 {
+  background-color: #fff3e0 !important; }
+
+.mdl-color-text--orange-100 {
+  color: #ffe0b2 !important; }
+
+.mdl-color--orange-100 {
+  background-color: #ffe0b2 !important; }
+
+.mdl-color-text--orange-200 {
+  color: #ffcc80 !important; }
+
+.mdl-color--orange-200 {
+  background-color: #ffcc80 !important; }
+
+.mdl-color-text--orange-300 {
+  color: #ffb74d !important; }
+
+.mdl-color--orange-300 {
+  background-color: #ffb74d !important; }
+
+.mdl-color-text--orange-400 {
+  color: #ffa726 !important; }
+
+.mdl-color--orange-400 {
+  background-color: #ffa726 !important; }
+
+.mdl-color-text--orange-500 {
+  color: #ff9800 !important; }
+
+.mdl-color--orange-500 {
+  background-color: #ff9800 !important; }
+
+.mdl-color-text--orange-600 {
+  color: #fb8c00 !important; }
+
+.mdl-color--orange-600 {
+  background-color: #fb8c00 !important; }
+
+.mdl-color-text--orange-700 {
+  color: #f57c00 !important; }
+
+.mdl-color--orange-700 {
+  background-color: #f57c00 !important; }
+
+.mdl-color-text--orange-800 {
+  color: #ef6c00 !important; }
+
+.mdl-color--orange-800 {
+  background-color: #ef6c00 !important; }
+
+.mdl-color-text--orange-900 {
+  color: #e65100 !important; }
+
+.mdl-color--orange-900 {
+  background-color: #e65100 !important; }
+
+.mdl-color-text--orange-A100 {
+  color: #ffd180 !important; }
+
+.mdl-color--orange-A100 {
+  background-color: #ffd180 !important; }
+
+.mdl-color-text--orange-A200 {
+  color: #ffab40 !important; }
+
+.mdl-color--orange-A200 {
+  background-color: #ffab40 !important; }
+
+.mdl-color-text--orange-A400 {
+  color: #ff9100 !important; }
+
+.mdl-color--orange-A400 {
+  background-color: #ff9100 !important; }
+
+.mdl-color-text--orange-A700 {
+  color: #ff6d00 !important; }
+
+.mdl-color--orange-A700 {
+  background-color: #ff6d00 !important; }
+
+.mdl-color-text--deep-orange {
+  color: #ff5722 !important; }
+
+.mdl-color--deep-orange {
+  background-color: #ff5722 !important; }
+
+.mdl-color-text--deep-orange-50 {
+  color: #fbe9e7 !important; }
+
+.mdl-color--deep-orange-50 {
+  background-color: #fbe9e7 !important; }
+
+.mdl-color-text--deep-orange-100 {
+  color: #ffccbc !important; }
+
+.mdl-color--deep-orange-100 {
+  background-color: #ffccbc !important; }
+
+.mdl-color-text--deep-orange-200 {
+  color: #ffab91 !important; }
+
+.mdl-color--deep-orange-200 {
+  background-color: #ffab91 !important; }
+
+.mdl-color-text--deep-orange-300 {
+  color: #ff8a65 !important; }
+
+.mdl-color--deep-orange-300 {
+  background-color: #ff8a65 !important; }
+
+.mdl-color-text--deep-orange-400 {
+  color: #ff7043 !important; }
+
+.mdl-color--deep-orange-400 {
+  background-color: #ff7043 !important; }
+
+.mdl-color-text--deep-orange-500 {
+  color: #ff5722 !important; }
+
+.mdl-color--deep-orange-500 {
+  background-color: #ff5722 !important; }
+
+.mdl-color-text--deep-orange-600 {
+  color: #f4511e !important; }
+
+.mdl-color--deep-orange-600 {
+  background-color: #f4511e !important; }
+
+.mdl-color-text--deep-orange-700 {
+  color: #e64a19 !important; }
+
+.mdl-color--deep-orange-700 {
+  background-color: #e64a19 !important; }
+
+.mdl-color-text--deep-orange-800 {
+  color: #d84315 !important; }
+
+.mdl-color--deep-orange-800 {
+  background-color: #d84315 !important; }
+
+.mdl-color-text--deep-orange-900 {
+  color: #bf360c !important; }
+
+.mdl-color--deep-orange-900 {
+  background-color: #bf360c !important; }
+
+.mdl-color-text--deep-orange-A100 {
+  color: #ff9e80 !important; }
+
+.mdl-color--deep-orange-A100 {
+  background-color: #ff9e80 !important; }
+
+.mdl-color-text--deep-orange-A200 {
+  color: #ff6e40 !important; }
+
+.mdl-color--deep-orange-A200 {
+  background-color: #ff6e40 !important; }
+
+.mdl-color-text--deep-orange-A400 {
+  color: #ff3d00 !important; }
+
+.mdl-color--deep-orange-A400 {
+  background-color: #ff3d00 !important; }
+
+.mdl-color-text--deep-orange-A700 {
+  color: #dd2c00 !important; }
+
+.mdl-color--deep-orange-A700 {
+  background-color: #dd2c00 !important; }
+
+.mdl-color-text--brown {
+  color: #795548 !important; }
+
+.mdl-color--brown {
+  background-color: #795548 !important; }
+
+.mdl-color-text--brown-50 {
+  color: #efebe9 !important; }
+
+.mdl-color--brown-50 {
+  background-color: #efebe9 !important; }
+
+.mdl-color-text--brown-100 {
+  color: #d7ccc8 !important; }
+
+.mdl-color--brown-100 {
+  background-color: #d7ccc8 !important; }
+
+.mdl-color-text--brown-200 {
+  color: #bcaaa4 !important; }
+
+.mdl-color--brown-200 {
+  background-color: #bcaaa4 !important; }
+
+.mdl-color-text--brown-300 {
+  color: #a1887f !important; }
+
+.mdl-color--brown-300 {
+  background-color: #a1887f !important; }
+
+.mdl-color-text--brown-400 {
+  color: #8d6e63 !important; }
+
+.mdl-color--brown-400 {
+  background-color: #8d6e63 !important; }
+
+.mdl-color-text--brown-500 {
+  color: #795548 !important; }
+
+.mdl-color--brown-500 {
+  background-color: #795548 !important; }
+
+.mdl-color-text--brown-600 {
+  color: #6d4c41 !important; }
+
+.mdl-color--brown-600 {
+  background-color: #6d4c41 !important; }
+
+.mdl-color-text--brown-700 {
+  color: #5d4037 !important; }
+
+.mdl-color--brown-700 {
+  background-color: #5d4037 !important; }
+
+.mdl-color-text--brown-800 {
+  color: #4e342e !important; }
+
+.mdl-color--brown-800 {
+  background-color: #4e342e !important; }
+
+.mdl-color-text--brown-900 {
+  color: #3e2723 !important; }
+
+.mdl-color--brown-900 {
+  background-color: #3e2723 !important; }
+
+.mdl-color-text--grey {
+  color: #9e9e9e !important; }
+
+.mdl-color--grey {
+  background-color: #9e9e9e !important; }
+
+.mdl-color-text--grey-50 {
+  color: #fafafa !important; }
+
+.mdl-color--grey-50 {
+  background-color: #fafafa !important; }
+
+.mdl-color-text--grey-100 {
+  color: whitesmoke !important; }
+
+.mdl-color--grey-100 {
+  background-color: whitesmoke !important; }
+
+.mdl-color-text--grey-200 {
+  color: #eeeeee !important; }
+
+.mdl-color--grey-200 {
+  background-color: #eeeeee !important; }
+
+.mdl-color-text--grey-300 {
+  color: #e0e0e0 !important; }
+
+.mdl-color--grey-300 {
+  background-color: #e0e0e0 !important; }
+
+.mdl-color-text--grey-400 {
+  color: #bdbdbd !important; }
+
+.mdl-color--grey-400 {
+  background-color: #bdbdbd !important; }
+
+.mdl-color-text--grey-500 {
+  color: #9e9e9e !important; }
+
+.mdl-color--grey-500 {
+  background-color: #9e9e9e !important; }
+
+.mdl-color-text--grey-600 {
+  color: #757575 !important; }
+
+.mdl-color--grey-600 {
+  background-color: #757575 !important; }
+
+.mdl-color-text--grey-700 {
+  color: #616161 !important; }
+
+.mdl-color--grey-700 {
+  background-color: #616161 !important; }
+
+.mdl-color-text--grey-800 {
+  color: #424242 !important; }
+
+.mdl-color--grey-800 {
+  background-color: #424242 !important; }
+
+.mdl-color-text--grey-900 {
+  color: #212121 !important; }
+
+.mdl-color--grey-900 {
+  background-color: #212121 !important; }
+
+.mdl-color-text--blue-grey {
+  color: #607d8b !important; }
+
+.mdl-color--blue-grey {
+  background-color: #607d8b !important; }
+
+.mdl-color-text--blue-grey-50 {
+  color: #eceff1 !important; }
+
+.mdl-color--blue-grey-50 {
+  background-color: #eceff1 !important; }
+
+.mdl-color-text--blue-grey-100 {
+  color: #cfd8dc !important; }
+
+.mdl-color--blue-grey-100 {
+  background-color: #cfd8dc !important; }
+
+.mdl-color-text--blue-grey-200 {
+  color: #b0bec5 !important; }
+
+.mdl-color--blue-grey-200 {
+  background-color: #b0bec5 !important; }
+
+.mdl-color-text--blue-grey-300 {
+  color: #90a4ae !important; }
+
+.mdl-color--blue-grey-300 {
+  background-color: #90a4ae !important; }
+
+.mdl-color-text--blue-grey-400 {
+  color: #78909c !important; }
+
+.mdl-color--blue-grey-400 {
+  background-color: #78909c !important; }
+
+.mdl-color-text--blue-grey-500 {
+  color: #607d8b !important; }
+
+.mdl-color--blue-grey-500 {
+  background-color: #607d8b !important; }
+
+.mdl-color-text--blue-grey-600 {
+  color: #546e7a !important; }
+
+.mdl-color--blue-grey-600 {
+  background-color: #546e7a !important; }
+
+.mdl-color-text--blue-grey-700 {
+  color: #455a64 !important; }
+
+.mdl-color--blue-grey-700 {
+  background-color: #455a64 !important; }
+
+.mdl-color-text--blue-grey-800 {
+  color: #37474f !important; }
+
+.mdl-color--blue-grey-800 {
+  background-color: #37474f !important; }
+
+.mdl-color-text--blue-grey-900 {
+  color: #263238 !important; }
+
+.mdl-color--blue-grey-900 {
+  background-color: #263238 !important; }
+
+.mdl-color--black {
+  background-color: rgb(black) !important; }
+
+.mdl-color--white {
+  background-color: rgb(white) !important; }
+
+.mdl-color--primary {
+  background-color: #3f51b5 !important; }
+
+.mdl-color--primary-contrast {
+  background-color: white !important; }
+
+.mdl-color--primary-dark {
+  background-color: #303f9f !important; }
+
+.mdl-color--accent {
+  background-color: #ff4081 !important; }
+
+.mdl-color--accent-contrast {
+  background-color: white !important; }
+
+.mdl-color-text--primary {
+  color: #3f51b5 !important; }
+
+.mdl-color-text--primary-contrast {
+  color: white !important; }
+
+.mdl-color-text--primary-dark {
+  color: #303f9f !important; }
+
+.mdl-color-text--accent {
+  color: #ff4081 !important; }
+
+.mdl-color-text--accent-contrast {
+  color: white !important; }
+
 /* Typography */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -583,6 +2387,7 @@ dt {
   background-image: url(demo-images/img-2.png);
   color: white; }
 
+/* Shadows */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -598,6 +2403,1099 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-shadow--z1 {
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+
+.mdl-shadow--z2 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+
+.mdl-shadow--z3 {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
+
+.mdl-shadow--z4 {
+  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
+
+.mdl-shadow--z5 {
+  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-ripple {
+  background: black;
+  border-radius: 50%;
+  height: 50px;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 50px;
+  overflow: hidden; }
+  .mdl-ripple.is-animating {
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+  .mdl-ripple.is-visible {
+    opacity: 0.3; }
+
+/* Animations */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.mdl-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.mdl-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.mdl-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-button {
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  color: black;
+  display: block;
+  position: relative;
+  height: 36px;
+  min-width: 64px;
+  padding: 0 8px;
+  margin: 0 4px;
+  display: inline-block;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  will-change: box-shadow, transform;
+  -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: middle; }
+  .mdl-button::-moz-focus-inner {
+    border: 0; }
+  .mdl-button:hover {
+    background-color: rgba(158, 158, 158, 0.2); }
+  .mdl-button:focus:not(:active) {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .mdl-button:active {
+    background-color: rgba(158, 158, 158, 0.4); }
+  .mdl-button[disabled][disabled] {
+    color: rgba(0, 0, 0, 0.26);
+    cursor: auto;
+    background-color: transparent; }
+  .mdl-button.mdl-button--colored {
+    color: #3f51b5; }
+    .mdl-button.mdl-button--colored:focus:not(:active) {
+      background-color: rgba(0, 0, 0, 0.12); }
+
+.mdl-button--raised {
+  background: rgba(158, 158, 158, 0.2);
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+  .mdl-button--raised:active {
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
+    background-color: rgba(158, 158, 158, 0.4); }
+  .mdl-button--raised:focus:not(:active) {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+    background-color: rgba(158, 158, 158, 0.4); }
+  .mdl-button--raised.mdl-button--colored {
+    background: #3f51b5;
+    color: white; }
+    .mdl-button--raised.mdl-button--colored:hover {
+      background-color: #3f51b5; }
+    .mdl-button--raised.mdl-button--colored:active {
+      background-color: #3f51b5; }
+    .mdl-button--raised.mdl-button--colored:focus:not(:active) {
+      background-color: #3f51b5; }
+    .mdl-button--raised.mdl-button--colored .mdl-ripple {
+      background: white; }
+  .mdl-button--raised[disabled][disabled] {
+    background-color: rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+
+.mdl-button--fab {
+  border-radius: 50%;
+  font-size: 24px;
+  height: 56px;
+  margin: auto;
+  min-width: 56px;
+  width: 56px;
+  padding: 0;
+  overflow: hidden;
+  background: rgba(158, 158, 158, 0.2);
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  position: relative;
+  line-height: normal; }
+  .mdl-button--fab .mdl-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-12px, -12px);
+        -ms-transform: translate(-12px, -12px);
+            transform: translate(-12px, -12px);
+    /*top: ($button-fab-size - $button-fab-font-size) / 2;
+      left: ($button-fab-size - $button-fab-font-size) / 2;*/
+    line-height: 24px;
+    width: 24px; }
+  .mdl-button--fab.mdl-button--mini-fab {
+    height: 40px;
+    min-width: 40px;
+    width: 40px; }
+  .mdl-button--fab .mdl-button__ripple-container {
+    border-radius: 50%;
+    -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+  .mdl-button--fab:active {
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
+    background-color: rgba(158, 158, 158, 0.4); }
+  .mdl-button--fab:focus:not(:active) {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
+    background-color: rgba(158, 158, 158, 0.4); }
+  .mdl-button--fab.mdl-button--colored {
+    background: #ff4081;
+    color: white; }
+    .mdl-button--fab.mdl-button--colored:hover {
+      background-color: #ff4081; }
+    .mdl-button--fab.mdl-button--colored:focus:not(:active) {
+      background-color: #ff4081; }
+    .mdl-button--fab.mdl-button--colored:active {
+      background-color: #ff4081; }
+    .mdl-button--fab.mdl-button--colored .mdl-ripple {
+      background: white; }
+  .mdl-button--fab[disabled][disabled] {
+    background-color: rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+
+.mdl-button--icon {
+  border-radius: 50%;
+  font-size: 24px;
+  height: 32px;
+  margin-left: 0;
+  margin-right: 0;
+  min-width: 32px;
+  width: 32px;
+  padding: 0;
+  overflow: hidden;
+  color: inherit;
+  line-height: normal; }
+  .mdl-button--icon .mdl-icon {
+    position: absolute;
+    top: 4px;
+    left: 4px; }
+  .mdl-button--icon.mdl-button--mini-icon {
+    height: 24px;
+    min-width: 24px;
+    width: 24px; }
+    .mdl-button--icon.mdl-button--mini-icon .mdl-icon {
+      top: 0px;
+      left: 0px; }
+  .mdl-button--icon .mdl-button__ripple-container {
+    border-radius: 50%;
+    -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+
+.mdl-button__ripple-container {
+  display: block;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 0;
+  overflow: hidden; }
+  .mdl-button[disabled] .mdl-button__ripple-container .mdl-ripple {
+    background-color: transparent; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-card {
+  font-size: 16px;
+  height: 508px;
+  overflow: hidden;
+  width: 330px;
+  z-index: 1;
+  position: relative;
+  background: white;
+  border-radius: 2px; }
+
+.mdl-card--img-container {
+  background-color: #ff4081;
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-origin: padding-box;
+  background-attachment: scroll;
+  height: 186px; }
+
+.mdl-card--heading {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #303f9f none repeat scroll 0 0/auto padding-box border-box;
+  border: 0 none white;
+  color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  height: 96px;
+  justify-items: stretch;
+  line-height: normal;
+  outline: white none 0;
+  padding: 8px 16px;
+  -webkit-perspective-origin: 165px 56px;
+          perspective-origin: 165px 56px;
+  text-decoration: none solid white;
+  -webkit-transform-origin: 165px 56px;
+      -ms-transform-origin: 165px 56px;
+          transform-origin: 165px 56px;
+  width: 100%; }
+
+.mdl-card--heading-text {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  border: 0 none white;
+  color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: inherit;
+  font-weight: 300;
+  height: 96px;
+  justify-self: stretch;
+  line-height: normal;
+  outline: white none 0;
+  overflow: hidden;
+  text-decoration: none solid white;
+  -webkit-transform-origin: 149px 48px;
+      -ms-transform-origin: 149px 48px;
+          transform-origin: 149px 48px;
+  width: 90%; }
+
+.mdl-card--caption {
+  background: #303f9f none repeat scroll 0 0/auto padding-box border-box;
+  border: 0 none white;
+  color: white;
+  font-size: 12px;
+  height: 16px;
+  line-height: normal;
+  outline: white none 0;
+  padding: 8px 16px;
+  -webkit-perspective-origin: 165px 16px;
+          perspective-origin: 165px 16px;
+  text-decoration: none solid white;
+  width: 100%; }
+
+.mdl-card--lower {
+  border: 0 none #444444;
+  color: #3f51b5;
+  font-size: 13px;
+  height: 108px;
+  line-height: 18px;
+  margin: 10px 0;
+  outline: #444444 none 0;
+  overflow: hidden;
+  padding: 0 16px;
+  text-decoration: none solid #444444;
+  width: 90%; }
+
+.mdl-card--bottom {
+  font-size: 16px;
+  height: 50px;
+  line-height: normal;
+  width: 100%; }
+
+.mdl-card--bottom a {
+  border-bottom: 0 none #303f9f;
+  border-left: 0 none #303f9f;
+  border-right: 0 none #303f9f;
+  border-top: 1px solid #ebebeb;
+  box-sizing: border-box;
+  color: #303f9f;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: normal;
+  height: 50px;
+  line-height: 50px;
+  outline: #303f9f none 0;
+  padding: 0 16px;
+  -webkit-perspective-origin: 165px 25px;
+          perspective-origin: 165px 25px;
+  text-decoration: none solid #303f9f;
+  text-transform: uppercase;
+  -webkit-transform-origin: 165px 25px;
+      -ms-transform-origin: 165px 25px;
+          transform-origin: 165px 25px;
+  width: 100%; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-checkbox {
+  position: relative;
+  z-index: 1;
+  vertical-align: middle;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 24px;
+  margin: 12px 0;
+  padding: 0; }
+  .mdl-checkbox.is-upgraded {
+    padding-left: 24px; }
+
+.mdl-checkbox__input {
+  line-height: 24px; }
+  .mdl-checkbox.is-upgraded .mdl-checkbox__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none; }
+
+.mdl-checkbox__box-outline {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px solid rgba(0, 0, 0, 0.54);
+  border-radius: 2px;
+  z-index: 2; }
+  .mdl-checkbox.is-checked .mdl-checkbox__box-outline {
+    border: 2px solid #3f51b5; }
+  .mdl-checkbox.is-disabled .mdl-checkbox__box-outline {
+    border: 2px solid rgba(0, 0, 0, 0.26);
+    cursor: auto; }
+
+.mdl-checkbox__focus-helper {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: transparent; }
+  .mdl-checkbox.is-focused .mdl-checkbox__focus-helper {
+    box-shadow: 0 0 0px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1); }
+  .mdl-checkbox.is-focused.is-checked .mdl-checkbox__focus-helper {
+    box-shadow: 0 0 0px 8px rgba(63, 81, 181, 0.26);
+    background-color: rgba(63, 81, 181, 0.26); }
+
+.mdl-checkbox__tick-outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-mask: url("../images/tick-mask.svg#mask");
+          mask: url("../images/tick-mask.svg#mask");
+  background: transparent;
+  -webkit-transition-duration: 0.28s;
+          transition-duration: 0.28s;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-property: background;
+          transition-property: background; }
+  .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
+    background: #3f51b5 url("../images/tick.svg"); }
+  .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
+    background: rgba(0, 0, 0, 0.26) url("../images/tick.svg"); }
+
+.mdl-checkbox__label {
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0; }
+  .mdl-checkbox.is-disabled .mdl-checkbox__label {
+    color: rgba(0, 0, 0, 0.26);
+    cursor: auto; }
+
+.mdl-checkbox__ripple-container {
+  position: absolute;
+  z-index: 2;
+  top: -6px;
+  left: -10px;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+  .mdl-checkbox__ripple-container .mdl-ripple {
+    background: #3f51b5; }
+  .mdl-checkbox.is-disabled .mdl-checkbox__ripple-container {
+    cursor: auto; }
+  .mdl-checkbox.is-disabled .mdl-checkbox__ripple-container .mdl-ripple {
+    background: transparent; }
+
+.mdl-checkbox__tick-outline {
+  -webkit-mask: initial;
+          mask: initial; }
+  .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
+    background: #3f51b5 url('data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E'); }
+  .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
+    background: rgba(0, 0, 0, 0.26) url('data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E'); }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+.mdl-column-layout {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 20px; }
+  @media screen and (min-width: 1600px) {
+    .mdl-column-layout {
+      padding-left: calc(50% - 600px);
+      padding-right: calc(50% - 600px); } }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .mdl-column-layout {
+      padding: 12px; } }
+  @media screen and (max-width: 767px) {
+    .mdl-column-layout {
+      padding: 8px; } }
+
+.mdl-column-layout__child {
+  min-width: 360px;
+  width: 360px;
+  margin: 20px;
+  box-sizing: border-box; }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .mdl-column-layout__child {
+      margin: 12px;
+      min-width: calc(50% - 24px);
+      width: calc(50% - 24px); } }
+  @media screen and (max-width: 767px) {
+    .mdl-column-layout__child {
+      margin: 8px;
+      width: calc(100% - 16px);
+      min-width: calc(100% - 16px); } }
+
+.mdl-column-layout__wrap-hack {
+  min-width: 360px;
+  width: 360px;
+  margin: 20px;
+  box-sizing: border-box;
+  height: 0;
+  min-height: 0;
+  max-height: 0;
+  border: none;
+  padding: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  opacity: 0; }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .mdl-column-layout__wrap-hack {
+      margin: 12px;
+      min-width: calc(50% - 24px);
+      width: calc(50% - 24px); } }
+  @media screen and (max-width: 767px) {
+    .mdl-column-layout__wrap-hack {
+      margin: 8px;
+      width: calc(100% - 16px);
+      min-width: calc(100% - 16px); } }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -2894,20 +5792,38 @@ dt {
   font-weight: normal;
   font-style: normal; }
 
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 .mdl-icon {
   font-family: 'Material-Design-Iconic-Font';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* ==========  Color Palettes  ========== */
-/* ==========  COLORS  ========== */
+/* ==========  Icon Toggles  ========== */
 /**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -2965,2428 +5881,18 @@ dt {
  */
 /* ANIMATION */
 /* PROGRESS */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-.mdl-color-text--red {
-  color: #f44336 !important; }
-
-.mdl-color--red {
-  background-color: #f44336 !important; }
-
-.mdl-color-text--red-50 {
-  color: #ffebee !important; }
-
-.mdl-color--red-50 {
-  background-color: #ffebee !important; }
-
-.mdl-color-text--red-100 {
-  color: #ffcdd2 !important; }
-
-.mdl-color--red-100 {
-  background-color: #ffcdd2 !important; }
-
-.mdl-color-text--red-200 {
-  color: #ef9a9a !important; }
-
-.mdl-color--red-200 {
-  background-color: #ef9a9a !important; }
-
-.mdl-color-text--red-300 {
-  color: #e57373 !important; }
-
-.mdl-color--red-300 {
-  background-color: #e57373 !important; }
-
-.mdl-color-text--red-400 {
-  color: #ef5350 !important; }
-
-.mdl-color--red-400 {
-  background-color: #ef5350 !important; }
-
-.mdl-color-text--red-500 {
-  color: #f44336 !important; }
-
-.mdl-color--red-500 {
-  background-color: #f44336 !important; }
-
-.mdl-color-text--red-600 {
-  color: #e53935 !important; }
-
-.mdl-color--red-600 {
-  background-color: #e53935 !important; }
-
-.mdl-color-text--red-700 {
-  color: #d32f2f !important; }
-
-.mdl-color--red-700 {
-  background-color: #d32f2f !important; }
-
-.mdl-color-text--red-800 {
-  color: #c62828 !important; }
-
-.mdl-color--red-800 {
-  background-color: #c62828 !important; }
-
-.mdl-color-text--red-900 {
-  color: #b71c1c !important; }
-
-.mdl-color--red-900 {
-  background-color: #b71c1c !important; }
-
-.mdl-color-text--red-A100 {
-  color: #ff8a80 !important; }
-
-.mdl-color--red-A100 {
-  background-color: #ff8a80 !important; }
-
-.mdl-color-text--red-A200 {
-  color: #ff5252 !important; }
-
-.mdl-color--red-A200 {
-  background-color: #ff5252 !important; }
-
-.mdl-color-text--red-A400 {
-  color: #ff1744 !important; }
-
-.mdl-color--red-A400 {
-  background-color: #ff1744 !important; }
-
-.mdl-color-text--red-A700 {
-  color: #d50000 !important; }
-
-.mdl-color--red-A700 {
-  background-color: #d50000 !important; }
-
-.mdl-color-text--pink {
-  color: #e91e63 !important; }
-
-.mdl-color--pink {
-  background-color: #e91e63 !important; }
-
-.mdl-color-text--pink-50 {
-  color: #fce4ec !important; }
-
-.mdl-color--pink-50 {
-  background-color: #fce4ec !important; }
-
-.mdl-color-text--pink-100 {
-  color: #f8bbd0 !important; }
-
-.mdl-color--pink-100 {
-  background-color: #f8bbd0 !important; }
-
-.mdl-color-text--pink-200 {
-  color: #f48fb1 !important; }
-
-.mdl-color--pink-200 {
-  background-color: #f48fb1 !important; }
-
-.mdl-color-text--pink-300 {
-  color: #f06292 !important; }
-
-.mdl-color--pink-300 {
-  background-color: #f06292 !important; }
-
-.mdl-color-text--pink-400 {
-  color: #ec407a !important; }
-
-.mdl-color--pink-400 {
-  background-color: #ec407a !important; }
-
-.mdl-color-text--pink-500 {
-  color: #e91e63 !important; }
-
-.mdl-color--pink-500 {
-  background-color: #e91e63 !important; }
-
-.mdl-color-text--pink-600 {
-  color: #d81b60 !important; }
-
-.mdl-color--pink-600 {
-  background-color: #d81b60 !important; }
-
-.mdl-color-text--pink-700 {
-  color: #c2185b !important; }
-
-.mdl-color--pink-700 {
-  background-color: #c2185b !important; }
-
-.mdl-color-text--pink-800 {
-  color: #ad1457 !important; }
-
-.mdl-color--pink-800 {
-  background-color: #ad1457 !important; }
-
-.mdl-color-text--pink-900 {
-  color: #880e4f !important; }
-
-.mdl-color--pink-900 {
-  background-color: #880e4f !important; }
-
-.mdl-color-text--pink-A100 {
-  color: #ff80ab !important; }
-
-.mdl-color--pink-A100 {
-  background-color: #ff80ab !important; }
-
-.mdl-color-text--pink-A200 {
-  color: #ff4081 !important; }
-
-.mdl-color--pink-A200 {
-  background-color: #ff4081 !important; }
-
-.mdl-color-text--pink-A400 {
-  color: #f50057 !important; }
-
-.mdl-color--pink-A400 {
-  background-color: #f50057 !important; }
-
-.mdl-color-text--pink-A700 {
-  color: #c51162 !important; }
-
-.mdl-color--pink-A700 {
-  background-color: #c51162 !important; }
-
-.mdl-color-text--purple {
-  color: #9c27b0 !important; }
-
-.mdl-color--purple {
-  background-color: #9c27b0 !important; }
-
-.mdl-color-text--purple-50 {
-  color: #f3e5f5 !important; }
-
-.mdl-color--purple-50 {
-  background-color: #f3e5f5 !important; }
-
-.mdl-color-text--purple-100 {
-  color: #e1bee7 !important; }
-
-.mdl-color--purple-100 {
-  background-color: #e1bee7 !important; }
-
-.mdl-color-text--purple-200 {
-  color: #ce93d8 !important; }
-
-.mdl-color--purple-200 {
-  background-color: #ce93d8 !important; }
-
-.mdl-color-text--purple-300 {
-  color: #ba68c8 !important; }
-
-.mdl-color--purple-300 {
-  background-color: #ba68c8 !important; }
-
-.mdl-color-text--purple-400 {
-  color: #ab47bc !important; }
-
-.mdl-color--purple-400 {
-  background-color: #ab47bc !important; }
-
-.mdl-color-text--purple-500 {
-  color: #9c27b0 !important; }
-
-.mdl-color--purple-500 {
-  background-color: #9c27b0 !important; }
-
-.mdl-color-text--purple-600 {
-  color: #8e24aa !important; }
-
-.mdl-color--purple-600 {
-  background-color: #8e24aa !important; }
-
-.mdl-color-text--purple-700 {
-  color: #7b1fa2 !important; }
-
-.mdl-color--purple-700 {
-  background-color: #7b1fa2 !important; }
-
-.mdl-color-text--purple-800 {
-  color: #6a1b9a !important; }
-
-.mdl-color--purple-800 {
-  background-color: #6a1b9a !important; }
-
-.mdl-color-text--purple-900 {
-  color: #4a148c !important; }
-
-.mdl-color--purple-900 {
-  background-color: #4a148c !important; }
-
-.mdl-color-text--purple-A100 {
-  color: #ea80fc !important; }
-
-.mdl-color--purple-A100 {
-  background-color: #ea80fc !important; }
-
-.mdl-color-text--purple-A200 {
-  color: #e040fb !important; }
-
-.mdl-color--purple-A200 {
-  background-color: #e040fb !important; }
-
-.mdl-color-text--purple-A400 {
-  color: #d500f9 !important; }
-
-.mdl-color--purple-A400 {
-  background-color: #d500f9 !important; }
-
-.mdl-color-text--purple-A700 {
-  color: #aa00ff !important; }
-
-.mdl-color--purple-A700 {
-  background-color: #aa00ff !important; }
-
-.mdl-color-text--deep-purple {
-  color: #673ab7 !important; }
-
-.mdl-color--deep-purple {
-  background-color: #673ab7 !important; }
-
-.mdl-color-text--deep-purple-50 {
-  color: #ede7f6 !important; }
-
-.mdl-color--deep-purple-50 {
-  background-color: #ede7f6 !important; }
-
-.mdl-color-text--deep-purple-100 {
-  color: #d1c4e9 !important; }
-
-.mdl-color--deep-purple-100 {
-  background-color: #d1c4e9 !important; }
-
-.mdl-color-text--deep-purple-200 {
-  color: #b39ddb !important; }
-
-.mdl-color--deep-purple-200 {
-  background-color: #b39ddb !important; }
-
-.mdl-color-text--deep-purple-300 {
-  color: #9575cd !important; }
-
-.mdl-color--deep-purple-300 {
-  background-color: #9575cd !important; }
-
-.mdl-color-text--deep-purple-400 {
-  color: #7e57c2 !important; }
-
-.mdl-color--deep-purple-400 {
-  background-color: #7e57c2 !important; }
-
-.mdl-color-text--deep-purple-500 {
-  color: #673ab7 !important; }
-
-.mdl-color--deep-purple-500 {
-  background-color: #673ab7 !important; }
-
-.mdl-color-text--deep-purple-600 {
-  color: #5e35b1 !important; }
-
-.mdl-color--deep-purple-600 {
-  background-color: #5e35b1 !important; }
-
-.mdl-color-text--deep-purple-700 {
-  color: #512da8 !important; }
-
-.mdl-color--deep-purple-700 {
-  background-color: #512da8 !important; }
-
-.mdl-color-text--deep-purple-800 {
-  color: #4527a0 !important; }
-
-.mdl-color--deep-purple-800 {
-  background-color: #4527a0 !important; }
-
-.mdl-color-text--deep-purple-900 {
-  color: #311b92 !important; }
-
-.mdl-color--deep-purple-900 {
-  background-color: #311b92 !important; }
-
-.mdl-color-text--deep-purple-A100 {
-  color: #b388ff !important; }
-
-.mdl-color--deep-purple-A100 {
-  background-color: #b388ff !important; }
-
-.mdl-color-text--deep-purple-A200 {
-  color: #7c4dff !important; }
-
-.mdl-color--deep-purple-A200 {
-  background-color: #7c4dff !important; }
-
-.mdl-color-text--deep-purple-A400 {
-  color: #651fff !important; }
-
-.mdl-color--deep-purple-A400 {
-  background-color: #651fff !important; }
-
-.mdl-color-text--deep-purple-A700 {
-  color: #6200ea !important; }
-
-.mdl-color--deep-purple-A700 {
-  background-color: #6200ea !important; }
-
-.mdl-color-text--indigo {
-  color: #3f51b5 !important; }
-
-.mdl-color--indigo {
-  background-color: #3f51b5 !important; }
-
-.mdl-color-text--indigo-50 {
-  color: #e8eaf6 !important; }
-
-.mdl-color--indigo-50 {
-  background-color: #e8eaf6 !important; }
-
-.mdl-color-text--indigo-100 {
-  color: #c5cae9 !important; }
-
-.mdl-color--indigo-100 {
-  background-color: #c5cae9 !important; }
-
-.mdl-color-text--indigo-200 {
-  color: #9fa8da !important; }
-
-.mdl-color--indigo-200 {
-  background-color: #9fa8da !important; }
-
-.mdl-color-text--indigo-300 {
-  color: #7986cb !important; }
-
-.mdl-color--indigo-300 {
-  background-color: #7986cb !important; }
-
-.mdl-color-text--indigo-400 {
-  color: #5c6bc0 !important; }
-
-.mdl-color--indigo-400 {
-  background-color: #5c6bc0 !important; }
-
-.mdl-color-text--indigo-500 {
-  color: #3f51b5 !important; }
-
-.mdl-color--indigo-500 {
-  background-color: #3f51b5 !important; }
-
-.mdl-color-text--indigo-600 {
-  color: #3949ab !important; }
-
-.mdl-color--indigo-600 {
-  background-color: #3949ab !important; }
-
-.mdl-color-text--indigo-700 {
-  color: #303f9f !important; }
-
-.mdl-color--indigo-700 {
-  background-color: #303f9f !important; }
-
-.mdl-color-text--indigo-800 {
-  color: #283593 !important; }
-
-.mdl-color--indigo-800 {
-  background-color: #283593 !important; }
-
-.mdl-color-text--indigo-900 {
-  color: #1a237e !important; }
-
-.mdl-color--indigo-900 {
-  background-color: #1a237e !important; }
-
-.mdl-color-text--indigo-A100 {
-  color: #8c9eff !important; }
-
-.mdl-color--indigo-A100 {
-  background-color: #8c9eff !important; }
-
-.mdl-color-text--indigo-A200 {
-  color: #536dfe !important; }
-
-.mdl-color--indigo-A200 {
-  background-color: #536dfe !important; }
-
-.mdl-color-text--indigo-A400 {
-  color: #3d5afe !important; }
-
-.mdl-color--indigo-A400 {
-  background-color: #3d5afe !important; }
-
-.mdl-color-text--indigo-A700 {
-  color: #304ffe !important; }
-
-.mdl-color--indigo-A700 {
-  background-color: #304ffe !important; }
-
-.mdl-color-text--blue {
-  color: #2196f3 !important; }
-
-.mdl-color--blue {
-  background-color: #2196f3 !important; }
-
-.mdl-color-text--blue-50 {
-  color: #e3f2fd !important; }
-
-.mdl-color--blue-50 {
-  background-color: #e3f2fd !important; }
-
-.mdl-color-text--blue-100 {
-  color: #bbdefb !important; }
-
-.mdl-color--blue-100 {
-  background-color: #bbdefb !important; }
-
-.mdl-color-text--blue-200 {
-  color: #90caf9 !important; }
-
-.mdl-color--blue-200 {
-  background-color: #90caf9 !important; }
-
-.mdl-color-text--blue-300 {
-  color: #64b5f6 !important; }
-
-.mdl-color--blue-300 {
-  background-color: #64b5f6 !important; }
-
-.mdl-color-text--blue-400 {
-  color: #42a5f5 !important; }
-
-.mdl-color--blue-400 {
-  background-color: #42a5f5 !important; }
-
-.mdl-color-text--blue-500 {
-  color: #2196f3 !important; }
-
-.mdl-color--blue-500 {
-  background-color: #2196f3 !important; }
-
-.mdl-color-text--blue-600 {
-  color: #1e88e5 !important; }
-
-.mdl-color--blue-600 {
-  background-color: #1e88e5 !important; }
-
-.mdl-color-text--blue-700 {
-  color: #1976d2 !important; }
-
-.mdl-color--blue-700 {
-  background-color: #1976d2 !important; }
-
-.mdl-color-text--blue-800 {
-  color: #1565c0 !important; }
-
-.mdl-color--blue-800 {
-  background-color: #1565c0 !important; }
-
-.mdl-color-text--blue-900 {
-  color: #0d47a1 !important; }
-
-.mdl-color--blue-900 {
-  background-color: #0d47a1 !important; }
-
-.mdl-color-text--blue-A100 {
-  color: #82b1ff !important; }
-
-.mdl-color--blue-A100 {
-  background-color: #82b1ff !important; }
-
-.mdl-color-text--blue-A200 {
-  color: #448aff !important; }
-
-.mdl-color--blue-A200 {
-  background-color: #448aff !important; }
-
-.mdl-color-text--blue-A400 {
-  color: #2979ff !important; }
-
-.mdl-color--blue-A400 {
-  background-color: #2979ff !important; }
-
-.mdl-color-text--blue-A700 {
-  color: #2962ff !important; }
-
-.mdl-color--blue-A700 {
-  background-color: #2962ff !important; }
-
-.mdl-color-text--light-blue {
-  color: #03a9f4 !important; }
-
-.mdl-color--light-blue {
-  background-color: #03a9f4 !important; }
-
-.mdl-color-text--light-blue-50 {
-  color: #e1f5fe !important; }
-
-.mdl-color--light-blue-50 {
-  background-color: #e1f5fe !important; }
-
-.mdl-color-text--light-blue-100 {
-  color: #b3e5fc !important; }
-
-.mdl-color--light-blue-100 {
-  background-color: #b3e5fc !important; }
-
-.mdl-color-text--light-blue-200 {
-  color: #81d4fa !important; }
-
-.mdl-color--light-blue-200 {
-  background-color: #81d4fa !important; }
-
-.mdl-color-text--light-blue-300 {
-  color: #4fc3f7 !important; }
-
-.mdl-color--light-blue-300 {
-  background-color: #4fc3f7 !important; }
-
-.mdl-color-text--light-blue-400 {
-  color: #29b6f6 !important; }
-
-.mdl-color--light-blue-400 {
-  background-color: #29b6f6 !important; }
-
-.mdl-color-text--light-blue-500 {
-  color: #03a9f4 !important; }
-
-.mdl-color--light-blue-500 {
-  background-color: #03a9f4 !important; }
-
-.mdl-color-text--light-blue-600 {
-  color: #039be5 !important; }
-
-.mdl-color--light-blue-600 {
-  background-color: #039be5 !important; }
-
-.mdl-color-text--light-blue-700 {
-  color: #0288d1 !important; }
-
-.mdl-color--light-blue-700 {
-  background-color: #0288d1 !important; }
-
-.mdl-color-text--light-blue-800 {
-  color: #0277bd !important; }
-
-.mdl-color--light-blue-800 {
-  background-color: #0277bd !important; }
-
-.mdl-color-text--light-blue-900 {
-  color: #01579b !important; }
-
-.mdl-color--light-blue-900 {
-  background-color: #01579b !important; }
-
-.mdl-color-text--light-blue-A100 {
-  color: #80d8ff !important; }
-
-.mdl-color--light-blue-A100 {
-  background-color: #80d8ff !important; }
-
-.mdl-color-text--light-blue-A200 {
-  color: #40c4ff !important; }
-
-.mdl-color--light-blue-A200 {
-  background-color: #40c4ff !important; }
-
-.mdl-color-text--light-blue-A400 {
-  color: #00b0ff !important; }
-
-.mdl-color--light-blue-A400 {
-  background-color: #00b0ff !important; }
-
-.mdl-color-text--light-blue-A700 {
-  color: #0091ea !important; }
-
-.mdl-color--light-blue-A700 {
-  background-color: #0091ea !important; }
-
-.mdl-color-text--cyan {
-  color: #00bcd4 !important; }
-
-.mdl-color--cyan {
-  background-color: #00bcd4 !important; }
-
-.mdl-color-text--cyan-50 {
-  color: #e0f7fa !important; }
-
-.mdl-color--cyan-50 {
-  background-color: #e0f7fa !important; }
-
-.mdl-color-text--cyan-100 {
-  color: #b2ebf2 !important; }
-
-.mdl-color--cyan-100 {
-  background-color: #b2ebf2 !important; }
-
-.mdl-color-text--cyan-200 {
-  color: #80deea !important; }
-
-.mdl-color--cyan-200 {
-  background-color: #80deea !important; }
-
-.mdl-color-text--cyan-300 {
-  color: #4dd0e1 !important; }
-
-.mdl-color--cyan-300 {
-  background-color: #4dd0e1 !important; }
-
-.mdl-color-text--cyan-400 {
-  color: #26c6da !important; }
-
-.mdl-color--cyan-400 {
-  background-color: #26c6da !important; }
-
-.mdl-color-text--cyan-500 {
-  color: #00bcd4 !important; }
-
-.mdl-color--cyan-500 {
-  background-color: #00bcd4 !important; }
-
-.mdl-color-text--cyan-600 {
-  color: #00acc1 !important; }
-
-.mdl-color--cyan-600 {
-  background-color: #00acc1 !important; }
-
-.mdl-color-text--cyan-700 {
-  color: #0097a7 !important; }
-
-.mdl-color--cyan-700 {
-  background-color: #0097a7 !important; }
-
-.mdl-color-text--cyan-800 {
-  color: #00838f !important; }
-
-.mdl-color--cyan-800 {
-  background-color: #00838f !important; }
-
-.mdl-color-text--cyan-900 {
-  color: #006064 !important; }
-
-.mdl-color--cyan-900 {
-  background-color: #006064 !important; }
-
-.mdl-color-text--cyan-A100 {
-  color: #84ffff !important; }
-
-.mdl-color--cyan-A100 {
-  background-color: #84ffff !important; }
-
-.mdl-color-text--cyan-A200 {
-  color: #18ffff !important; }
-
-.mdl-color--cyan-A200 {
-  background-color: #18ffff !important; }
-
-.mdl-color-text--cyan-A400 {
-  color: #00e5ff !important; }
-
-.mdl-color--cyan-A400 {
-  background-color: #00e5ff !important; }
-
-.mdl-color-text--cyan-A700 {
-  color: #00b8d4 !important; }
-
-.mdl-color--cyan-A700 {
-  background-color: #00b8d4 !important; }
-
-.mdl-color-text--teal {
-  color: #009688 !important; }
-
-.mdl-color--teal {
-  background-color: #009688 !important; }
-
-.mdl-color-text--teal-50 {
-  color: #e0f2f1 !important; }
-
-.mdl-color--teal-50 {
-  background-color: #e0f2f1 !important; }
-
-.mdl-color-text--teal-100 {
-  color: #b2dfdb !important; }
-
-.mdl-color--teal-100 {
-  background-color: #b2dfdb !important; }
-
-.mdl-color-text--teal-200 {
-  color: #80cbc4 !important; }
-
-.mdl-color--teal-200 {
-  background-color: #80cbc4 !important; }
-
-.mdl-color-text--teal-300 {
-  color: #4db6ac !important; }
-
-.mdl-color--teal-300 {
-  background-color: #4db6ac !important; }
-
-.mdl-color-text--teal-400 {
-  color: #26a69a !important; }
-
-.mdl-color--teal-400 {
-  background-color: #26a69a !important; }
-
-.mdl-color-text--teal-500 {
-  color: #009688 !important; }
-
-.mdl-color--teal-500 {
-  background-color: #009688 !important; }
-
-.mdl-color-text--teal-600 {
-  color: #00897b !important; }
-
-.mdl-color--teal-600 {
-  background-color: #00897b !important; }
-
-.mdl-color-text--teal-700 {
-  color: #00796b !important; }
-
-.mdl-color--teal-700 {
-  background-color: #00796b !important; }
-
-.mdl-color-text--teal-800 {
-  color: #00695c !important; }
-
-.mdl-color--teal-800 {
-  background-color: #00695c !important; }
-
-.mdl-color-text--teal-900 {
-  color: #004d40 !important; }
-
-.mdl-color--teal-900 {
-  background-color: #004d40 !important; }
-
-.mdl-color-text--teal-A100 {
-  color: #a7ffeb !important; }
-
-.mdl-color--teal-A100 {
-  background-color: #a7ffeb !important; }
-
-.mdl-color-text--teal-A200 {
-  color: #64ffda !important; }
-
-.mdl-color--teal-A200 {
-  background-color: #64ffda !important; }
-
-.mdl-color-text--teal-A400 {
-  color: #1de9b6 !important; }
-
-.mdl-color--teal-A400 {
-  background-color: #1de9b6 !important; }
-
-.mdl-color-text--teal-A700 {
-  color: #00bfa5 !important; }
-
-.mdl-color--teal-A700 {
-  background-color: #00bfa5 !important; }
-
-.mdl-color-text--green {
-  color: #4caf50 !important; }
-
-.mdl-color--green {
-  background-color: #4caf50 !important; }
-
-.mdl-color-text--green-50 {
-  color: #e8f5e9 !important; }
-
-.mdl-color--green-50 {
-  background-color: #e8f5e9 !important; }
-
-.mdl-color-text--green-100 {
-  color: #c8e6c9 !important; }
-
-.mdl-color--green-100 {
-  background-color: #c8e6c9 !important; }
-
-.mdl-color-text--green-200 {
-  color: #a5d6a7 !important; }
-
-.mdl-color--green-200 {
-  background-color: #a5d6a7 !important; }
-
-.mdl-color-text--green-300 {
-  color: #81c784 !important; }
-
-.mdl-color--green-300 {
-  background-color: #81c784 !important; }
-
-.mdl-color-text--green-400 {
-  color: #66bb6a !important; }
-
-.mdl-color--green-400 {
-  background-color: #66bb6a !important; }
-
-.mdl-color-text--green-500 {
-  color: #4caf50 !important; }
-
-.mdl-color--green-500 {
-  background-color: #4caf50 !important; }
-
-.mdl-color-text--green-600 {
-  color: #43a047 !important; }
-
-.mdl-color--green-600 {
-  background-color: #43a047 !important; }
-
-.mdl-color-text--green-700 {
-  color: #388e3c !important; }
-
-.mdl-color--green-700 {
-  background-color: #388e3c !important; }
-
-.mdl-color-text--green-800 {
-  color: #2e7d32 !important; }
-
-.mdl-color--green-800 {
-  background-color: #2e7d32 !important; }
-
-.mdl-color-text--green-900 {
-  color: #1b5e20 !important; }
-
-.mdl-color--green-900 {
-  background-color: #1b5e20 !important; }
-
-.mdl-color-text--green-A100 {
-  color: #b9f6ca !important; }
-
-.mdl-color--green-A100 {
-  background-color: #b9f6ca !important; }
-
-.mdl-color-text--green-A200 {
-  color: #69f0ae !important; }
-
-.mdl-color--green-A200 {
-  background-color: #69f0ae !important; }
-
-.mdl-color-text--green-A400 {
-  color: #00e676 !important; }
-
-.mdl-color--green-A400 {
-  background-color: #00e676 !important; }
-
-.mdl-color-text--green-A700 {
-  color: #00c853 !important; }
-
-.mdl-color--green-A700 {
-  background-color: #00c853 !important; }
-
-.mdl-color-text--light-green {
-  color: #8bc34a !important; }
-
-.mdl-color--light-green {
-  background-color: #8bc34a !important; }
-
-.mdl-color-text--light-green-50 {
-  color: #f1f8e9 !important; }
-
-.mdl-color--light-green-50 {
-  background-color: #f1f8e9 !important; }
-
-.mdl-color-text--light-green-100 {
-  color: #dcedc8 !important; }
-
-.mdl-color--light-green-100 {
-  background-color: #dcedc8 !important; }
-
-.mdl-color-text--light-green-200 {
-  color: #c5e1a5 !important; }
-
-.mdl-color--light-green-200 {
-  background-color: #c5e1a5 !important; }
-
-.mdl-color-text--light-green-300 {
-  color: #aed581 !important; }
-
-.mdl-color--light-green-300 {
-  background-color: #aed581 !important; }
-
-.mdl-color-text--light-green-400 {
-  color: #9ccc65 !important; }
-
-.mdl-color--light-green-400 {
-  background-color: #9ccc65 !important; }
-
-.mdl-color-text--light-green-500 {
-  color: #8bc34a !important; }
-
-.mdl-color--light-green-500 {
-  background-color: #8bc34a !important; }
-
-.mdl-color-text--light-green-600 {
-  color: #7cb342 !important; }
-
-.mdl-color--light-green-600 {
-  background-color: #7cb342 !important; }
-
-.mdl-color-text--light-green-700 {
-  color: #689f38 !important; }
-
-.mdl-color--light-green-700 {
-  background-color: #689f38 !important; }
-
-.mdl-color-text--light-green-800 {
-  color: #558b2f !important; }
-
-.mdl-color--light-green-800 {
-  background-color: #558b2f !important; }
-
-.mdl-color-text--light-green-900 {
-  color: #33691e !important; }
-
-.mdl-color--light-green-900 {
-  background-color: #33691e !important; }
-
-.mdl-color-text--light-green-A100 {
-  color: #ccff90 !important; }
-
-.mdl-color--light-green-A100 {
-  background-color: #ccff90 !important; }
-
-.mdl-color-text--light-green-A200 {
-  color: #b2ff59 !important; }
-
-.mdl-color--light-green-A200 {
-  background-color: #b2ff59 !important; }
-
-.mdl-color-text--light-green-A400 {
-  color: #76ff03 !important; }
-
-.mdl-color--light-green-A400 {
-  background-color: #76ff03 !important; }
-
-.mdl-color-text--light-green-A700 {
-  color: #64dd17 !important; }
-
-.mdl-color--light-green-A700 {
-  background-color: #64dd17 !important; }
-
-.mdl-color-text--lime {
-  color: #cddc39 !important; }
-
-.mdl-color--lime {
-  background-color: #cddc39 !important; }
-
-.mdl-color-text--lime-50 {
-  color: #f9fbe7 !important; }
-
-.mdl-color--lime-50 {
-  background-color: #f9fbe7 !important; }
-
-.mdl-color-text--lime-100 {
-  color: #f0f4c3 !important; }
-
-.mdl-color--lime-100 {
-  background-color: #f0f4c3 !important; }
-
-.mdl-color-text--lime-200 {
-  color: #e6ee9c !important; }
-
-.mdl-color--lime-200 {
-  background-color: #e6ee9c !important; }
-
-.mdl-color-text--lime-300 {
-  color: #dce775 !important; }
-
-.mdl-color--lime-300 {
-  background-color: #dce775 !important; }
-
-.mdl-color-text--lime-400 {
-  color: #d4e157 !important; }
-
-.mdl-color--lime-400 {
-  background-color: #d4e157 !important; }
-
-.mdl-color-text--lime-500 {
-  color: #cddc39 !important; }
-
-.mdl-color--lime-500 {
-  background-color: #cddc39 !important; }
-
-.mdl-color-text--lime-600 {
-  color: #c0ca33 !important; }
-
-.mdl-color--lime-600 {
-  background-color: #c0ca33 !important; }
-
-.mdl-color-text--lime-700 {
-  color: #afb42b !important; }
-
-.mdl-color--lime-700 {
-  background-color: #afb42b !important; }
-
-.mdl-color-text--lime-800 {
-  color: #9e9d24 !important; }
-
-.mdl-color--lime-800 {
-  background-color: #9e9d24 !important; }
-
-.mdl-color-text--lime-900 {
-  color: #827717 !important; }
-
-.mdl-color--lime-900 {
-  background-color: #827717 !important; }
-
-.mdl-color-text--lime-A100 {
-  color: #f4ff81 !important; }
-
-.mdl-color--lime-A100 {
-  background-color: #f4ff81 !important; }
-
-.mdl-color-text--lime-A200 {
-  color: #eeff41 !important; }
-
-.mdl-color--lime-A200 {
-  background-color: #eeff41 !important; }
-
-.mdl-color-text--lime-A400 {
-  color: #c6ff00 !important; }
-
-.mdl-color--lime-A400 {
-  background-color: #c6ff00 !important; }
-
-.mdl-color-text--lime-A700 {
-  color: #aeea00 !important; }
-
-.mdl-color--lime-A700 {
-  background-color: #aeea00 !important; }
-
-.mdl-color-text--yellow {
-  color: #ffeb3b !important; }
-
-.mdl-color--yellow {
-  background-color: #ffeb3b !important; }
-
-.mdl-color-text--yellow-50 {
-  color: #fffde7 !important; }
-
-.mdl-color--yellow-50 {
-  background-color: #fffde7 !important; }
-
-.mdl-color-text--yellow-100 {
-  color: #fff9c4 !important; }
-
-.mdl-color--yellow-100 {
-  background-color: #fff9c4 !important; }
-
-.mdl-color-text--yellow-200 {
-  color: #fff59d !important; }
-
-.mdl-color--yellow-200 {
-  background-color: #fff59d !important; }
-
-.mdl-color-text--yellow-300 {
-  color: #fff176 !important; }
-
-.mdl-color--yellow-300 {
-  background-color: #fff176 !important; }
-
-.mdl-color-text--yellow-400 {
-  color: #ffee58 !important; }
-
-.mdl-color--yellow-400 {
-  background-color: #ffee58 !important; }
-
-.mdl-color-text--yellow-500 {
-  color: #ffeb3b !important; }
-
-.mdl-color--yellow-500 {
-  background-color: #ffeb3b !important; }
-
-.mdl-color-text--yellow-600 {
-  color: #fdd835 !important; }
-
-.mdl-color--yellow-600 {
-  background-color: #fdd835 !important; }
-
-.mdl-color-text--yellow-700 {
-  color: #fbc02d !important; }
-
-.mdl-color--yellow-700 {
-  background-color: #fbc02d !important; }
-
-.mdl-color-text--yellow-800 {
-  color: #f9a825 !important; }
-
-.mdl-color--yellow-800 {
-  background-color: #f9a825 !important; }
-
-.mdl-color-text--yellow-900 {
-  color: #f57f17 !important; }
-
-.mdl-color--yellow-900 {
-  background-color: #f57f17 !important; }
-
-.mdl-color-text--yellow-A100 {
-  color: #ffff8d !important; }
-
-.mdl-color--yellow-A100 {
-  background-color: #ffff8d !important; }
-
-.mdl-color-text--yellow-A200 {
-  color: yellow !important; }
-
-.mdl-color--yellow-A200 {
-  background-color: yellow !important; }
-
-.mdl-color-text--yellow-A400 {
-  color: #ffea00 !important; }
-
-.mdl-color--yellow-A400 {
-  background-color: #ffea00 !important; }
-
-.mdl-color-text--yellow-A700 {
-  color: #ffd600 !important; }
-
-.mdl-color--yellow-A700 {
-  background-color: #ffd600 !important; }
-
-.mdl-color-text--amber {
-  color: #ffc107 !important; }
-
-.mdl-color--amber {
-  background-color: #ffc107 !important; }
-
-.mdl-color-text--amber-50 {
-  color: #fff8e1 !important; }
-
-.mdl-color--amber-50 {
-  background-color: #fff8e1 !important; }
-
-.mdl-color-text--amber-100 {
-  color: #ffecb3 !important; }
-
-.mdl-color--amber-100 {
-  background-color: #ffecb3 !important; }
-
-.mdl-color-text--amber-200 {
-  color: #ffe082 !important; }
-
-.mdl-color--amber-200 {
-  background-color: #ffe082 !important; }
-
-.mdl-color-text--amber-300 {
-  color: #ffd54f !important; }
-
-.mdl-color--amber-300 {
-  background-color: #ffd54f !important; }
-
-.mdl-color-text--amber-400 {
-  color: #ffca28 !important; }
-
-.mdl-color--amber-400 {
-  background-color: #ffca28 !important; }
-
-.mdl-color-text--amber-500 {
-  color: #ffc107 !important; }
-
-.mdl-color--amber-500 {
-  background-color: #ffc107 !important; }
-
-.mdl-color-text--amber-600 {
-  color: #ffb300 !important; }
-
-.mdl-color--amber-600 {
-  background-color: #ffb300 !important; }
-
-.mdl-color-text--amber-700 {
-  color: #ffa000 !important; }
-
-.mdl-color--amber-700 {
-  background-color: #ffa000 !important; }
-
-.mdl-color-text--amber-800 {
-  color: #ff8f00 !important; }
-
-.mdl-color--amber-800 {
-  background-color: #ff8f00 !important; }
-
-.mdl-color-text--amber-900 {
-  color: #ff6f00 !important; }
-
-.mdl-color--amber-900 {
-  background-color: #ff6f00 !important; }
-
-.mdl-color-text--amber-A100 {
-  color: #ffe57f !important; }
-
-.mdl-color--amber-A100 {
-  background-color: #ffe57f !important; }
-
-.mdl-color-text--amber-A200 {
-  color: #ffd740 !important; }
-
-.mdl-color--amber-A200 {
-  background-color: #ffd740 !important; }
-
-.mdl-color-text--amber-A400 {
-  color: #ffc400 !important; }
-
-.mdl-color--amber-A400 {
-  background-color: #ffc400 !important; }
-
-.mdl-color-text--amber-A700 {
-  color: #ffab00 !important; }
-
-.mdl-color--amber-A700 {
-  background-color: #ffab00 !important; }
-
-.mdl-color-text--orange {
-  color: #ff9800 !important; }
-
-.mdl-color--orange {
-  background-color: #ff9800 !important; }
-
-.mdl-color-text--orange-50 {
-  color: #fff3e0 !important; }
-
-.mdl-color--orange-50 {
-  background-color: #fff3e0 !important; }
-
-.mdl-color-text--orange-100 {
-  color: #ffe0b2 !important; }
-
-.mdl-color--orange-100 {
-  background-color: #ffe0b2 !important; }
-
-.mdl-color-text--orange-200 {
-  color: #ffcc80 !important; }
-
-.mdl-color--orange-200 {
-  background-color: #ffcc80 !important; }
-
-.mdl-color-text--orange-300 {
-  color: #ffb74d !important; }
-
-.mdl-color--orange-300 {
-  background-color: #ffb74d !important; }
-
-.mdl-color-text--orange-400 {
-  color: #ffa726 !important; }
-
-.mdl-color--orange-400 {
-  background-color: #ffa726 !important; }
-
-.mdl-color-text--orange-500 {
-  color: #ff9800 !important; }
-
-.mdl-color--orange-500 {
-  background-color: #ff9800 !important; }
-
-.mdl-color-text--orange-600 {
-  color: #fb8c00 !important; }
-
-.mdl-color--orange-600 {
-  background-color: #fb8c00 !important; }
-
-.mdl-color-text--orange-700 {
-  color: #f57c00 !important; }
-
-.mdl-color--orange-700 {
-  background-color: #f57c00 !important; }
-
-.mdl-color-text--orange-800 {
-  color: #ef6c00 !important; }
-
-.mdl-color--orange-800 {
-  background-color: #ef6c00 !important; }
-
-.mdl-color-text--orange-900 {
-  color: #e65100 !important; }
-
-.mdl-color--orange-900 {
-  background-color: #e65100 !important; }
-
-.mdl-color-text--orange-A100 {
-  color: #ffd180 !important; }
-
-.mdl-color--orange-A100 {
-  background-color: #ffd180 !important; }
-
-.mdl-color-text--orange-A200 {
-  color: #ffab40 !important; }
-
-.mdl-color--orange-A200 {
-  background-color: #ffab40 !important; }
-
-.mdl-color-text--orange-A400 {
-  color: #ff9100 !important; }
-
-.mdl-color--orange-A400 {
-  background-color: #ff9100 !important; }
-
-.mdl-color-text--orange-A700 {
-  color: #ff6d00 !important; }
-
-.mdl-color--orange-A700 {
-  background-color: #ff6d00 !important; }
-
-.mdl-color-text--deep-orange {
-  color: #ff5722 !important; }
-
-.mdl-color--deep-orange {
-  background-color: #ff5722 !important; }
-
-.mdl-color-text--deep-orange-50 {
-  color: #fbe9e7 !important; }
-
-.mdl-color--deep-orange-50 {
-  background-color: #fbe9e7 !important; }
-
-.mdl-color-text--deep-orange-100 {
-  color: #ffccbc !important; }
-
-.mdl-color--deep-orange-100 {
-  background-color: #ffccbc !important; }
-
-.mdl-color-text--deep-orange-200 {
-  color: #ffab91 !important; }
-
-.mdl-color--deep-orange-200 {
-  background-color: #ffab91 !important; }
-
-.mdl-color-text--deep-orange-300 {
-  color: #ff8a65 !important; }
-
-.mdl-color--deep-orange-300 {
-  background-color: #ff8a65 !important; }
-
-.mdl-color-text--deep-orange-400 {
-  color: #ff7043 !important; }
-
-.mdl-color--deep-orange-400 {
-  background-color: #ff7043 !important; }
-
-.mdl-color-text--deep-orange-500 {
-  color: #ff5722 !important; }
-
-.mdl-color--deep-orange-500 {
-  background-color: #ff5722 !important; }
-
-.mdl-color-text--deep-orange-600 {
-  color: #f4511e !important; }
-
-.mdl-color--deep-orange-600 {
-  background-color: #f4511e !important; }
-
-.mdl-color-text--deep-orange-700 {
-  color: #e64a19 !important; }
-
-.mdl-color--deep-orange-700 {
-  background-color: #e64a19 !important; }
-
-.mdl-color-text--deep-orange-800 {
-  color: #d84315 !important; }
-
-.mdl-color--deep-orange-800 {
-  background-color: #d84315 !important; }
-
-.mdl-color-text--deep-orange-900 {
-  color: #bf360c !important; }
-
-.mdl-color--deep-orange-900 {
-  background-color: #bf360c !important; }
-
-.mdl-color-text--deep-orange-A100 {
-  color: #ff9e80 !important; }
-
-.mdl-color--deep-orange-A100 {
-  background-color: #ff9e80 !important; }
-
-.mdl-color-text--deep-orange-A200 {
-  color: #ff6e40 !important; }
-
-.mdl-color--deep-orange-A200 {
-  background-color: #ff6e40 !important; }
-
-.mdl-color-text--deep-orange-A400 {
-  color: #ff3d00 !important; }
-
-.mdl-color--deep-orange-A400 {
-  background-color: #ff3d00 !important; }
-
-.mdl-color-text--deep-orange-A700 {
-  color: #dd2c00 !important; }
-
-.mdl-color--deep-orange-A700 {
-  background-color: #dd2c00 !important; }
-
-.mdl-color-text--brown {
-  color: #795548 !important; }
-
-.mdl-color--brown {
-  background-color: #795548 !important; }
-
-.mdl-color-text--brown-50 {
-  color: #efebe9 !important; }
-
-.mdl-color--brown-50 {
-  background-color: #efebe9 !important; }
-
-.mdl-color-text--brown-100 {
-  color: #d7ccc8 !important; }
-
-.mdl-color--brown-100 {
-  background-color: #d7ccc8 !important; }
-
-.mdl-color-text--brown-200 {
-  color: #bcaaa4 !important; }
-
-.mdl-color--brown-200 {
-  background-color: #bcaaa4 !important; }
-
-.mdl-color-text--brown-300 {
-  color: #a1887f !important; }
-
-.mdl-color--brown-300 {
-  background-color: #a1887f !important; }
-
-.mdl-color-text--brown-400 {
-  color: #8d6e63 !important; }
-
-.mdl-color--brown-400 {
-  background-color: #8d6e63 !important; }
-
-.mdl-color-text--brown-500 {
-  color: #795548 !important; }
-
-.mdl-color--brown-500 {
-  background-color: #795548 !important; }
-
-.mdl-color-text--brown-600 {
-  color: #6d4c41 !important; }
-
-.mdl-color--brown-600 {
-  background-color: #6d4c41 !important; }
-
-.mdl-color-text--brown-700 {
-  color: #5d4037 !important; }
-
-.mdl-color--brown-700 {
-  background-color: #5d4037 !important; }
-
-.mdl-color-text--brown-800 {
-  color: #4e342e !important; }
-
-.mdl-color--brown-800 {
-  background-color: #4e342e !important; }
-
-.mdl-color-text--brown-900 {
-  color: #3e2723 !important; }
-
-.mdl-color--brown-900 {
-  background-color: #3e2723 !important; }
-
-.mdl-color-text--grey {
-  color: #9e9e9e !important; }
-
-.mdl-color--grey {
-  background-color: #9e9e9e !important; }
-
-.mdl-color-text--grey-50 {
-  color: #fafafa !important; }
-
-.mdl-color--grey-50 {
-  background-color: #fafafa !important; }
-
-.mdl-color-text--grey-100 {
-  color: whitesmoke !important; }
-
-.mdl-color--grey-100 {
-  background-color: whitesmoke !important; }
-
-.mdl-color-text--grey-200 {
-  color: #eeeeee !important; }
-
-.mdl-color--grey-200 {
-  background-color: #eeeeee !important; }
-
-.mdl-color-text--grey-300 {
-  color: #e0e0e0 !important; }
-
-.mdl-color--grey-300 {
-  background-color: #e0e0e0 !important; }
-
-.mdl-color-text--grey-400 {
-  color: #bdbdbd !important; }
-
-.mdl-color--grey-400 {
-  background-color: #bdbdbd !important; }
-
-.mdl-color-text--grey-500 {
-  color: #9e9e9e !important; }
-
-.mdl-color--grey-500 {
-  background-color: #9e9e9e !important; }
-
-.mdl-color-text--grey-600 {
-  color: #757575 !important; }
-
-.mdl-color--grey-600 {
-  background-color: #757575 !important; }
-
-.mdl-color-text--grey-700 {
-  color: #616161 !important; }
-
-.mdl-color--grey-700 {
-  background-color: #616161 !important; }
-
-.mdl-color-text--grey-800 {
-  color: #424242 !important; }
-
-.mdl-color--grey-800 {
-  background-color: #424242 !important; }
-
-.mdl-color-text--grey-900 {
-  color: #212121 !important; }
-
-.mdl-color--grey-900 {
-  background-color: #212121 !important; }
-
-.mdl-color-text--blue-grey {
-  color: #607d8b !important; }
-
-.mdl-color--blue-grey {
-  background-color: #607d8b !important; }
-
-.mdl-color-text--blue-grey-50 {
-  color: #eceff1 !important; }
-
-.mdl-color--blue-grey-50 {
-  background-color: #eceff1 !important; }
-
-.mdl-color-text--blue-grey-100 {
-  color: #cfd8dc !important; }
-
-.mdl-color--blue-grey-100 {
-  background-color: #cfd8dc !important; }
-
-.mdl-color-text--blue-grey-200 {
-  color: #b0bec5 !important; }
-
-.mdl-color--blue-grey-200 {
-  background-color: #b0bec5 !important; }
-
-.mdl-color-text--blue-grey-300 {
-  color: #90a4ae !important; }
-
-.mdl-color--blue-grey-300 {
-  background-color: #90a4ae !important; }
-
-.mdl-color-text--blue-grey-400 {
-  color: #78909c !important; }
-
-.mdl-color--blue-grey-400 {
-  background-color: #78909c !important; }
-
-.mdl-color-text--blue-grey-500 {
-  color: #607d8b !important; }
-
-.mdl-color--blue-grey-500 {
-  background-color: #607d8b !important; }
-
-.mdl-color-text--blue-grey-600 {
-  color: #546e7a !important; }
-
-.mdl-color--blue-grey-600 {
-  background-color: #546e7a !important; }
-
-.mdl-color-text--blue-grey-700 {
-  color: #455a64 !important; }
-
-.mdl-color--blue-grey-700 {
-  background-color: #455a64 !important; }
-
-.mdl-color-text--blue-grey-800 {
-  color: #37474f !important; }
-
-.mdl-color--blue-grey-800 {
-  background-color: #37474f !important; }
-
-.mdl-color-text--blue-grey-900 {
-  color: #263238 !important; }
-
-.mdl-color--blue-grey-900 {
-  background-color: #263238 !important; }
-
-.mdl-color-text--black-12 {
-  color: rgba(0, 0, 0, 0.12) !important; }
-
-.mdl-color-text--black-26 {
-  color: rgba(0, 0, 0, 0.26) !important; }
-
-.mdl-color-text--black-54 {
-  color: rgba(0, 0, 0, 0.54) !important; }
-
-.mdl-color-text--black {
-  color: rgba(0, 0, 0, 0.87) !important; }
-
-.mdl-color-text--black-100 {
-  color: black !important; }
-
-.mdl-color--black {
-  background-color: black rgba(0, 0, 0, 0.87) rgba(0, 0, 0, 0.54) rgba(0, 0, 0, 0.26) rgba(0, 0, 0, 0.12) !important; }
-
-.mdl-color-text--white-12 {
-  color: rgba(255, 255, 255, 0.12) !important; }
-
-.mdl-color-text--white-30 {
-  color: rgba(255, 255, 255, 0.3) !important; }
-
-.mdl-color-text--white-70 {
-  color: rgba(255, 255, 255, 0.7) !important; }
-
-.mdl-color-text--white {
-  color: white !important; }
-
-.mdl-color--white {
-  background-color: white rgba(255, 255, 255, 0.7) rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.12) !important; }
-
-.mdl-color--primary {
-  background-color: #cddc39 !important; }
-
-.mdl-color--primary-contrast {
-  background-color: white !important; }
-
-.mdl-color--primary-dark {
-  background-color: #afb42b !important; }
-
-.mdl-color--accent {
-  background-color: #ff4081 !important; }
-
-.mdl-color--accent-contrast {
-  background-color: white !important; }
-
-.mdl-color-text--primary {
-  color: #cddc39 !important; }
-
-.mdl-color-text--primary-contrast {
-  color: white !important; }
-
-.mdl-color-text--primary-dark {
-  color: #afb42b !important; }
-
-.mdl-color-text--accent {
-  color: #ff4081 !important; }
-
-.mdl-color-text--accent-contrast {
-  color: white !important; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* Shadows */
-.mdl-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.mdl-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-
-.mdl-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-
-.mdl-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
-
-.mdl-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-.mdl-ripple {
-  background: rgba(0, 0, 0, 0.87);
-  border-radius: 50%;
-  height: 50px;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50px;
-  overflow: hidden; }
-  .mdl-ripple.is-animating {
-    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
-            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1), width 0.3s cubic-bezier(0, 0, 0.2, 1), height 0.3s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
-  .mdl-ripple.is-visible {
-    opacity: 0.3; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* Animations */
-.mdl-animation--default {
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-
-.mdl-animation--fast-out-slow-in {
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-
-.mdl-animation--linear-out-slow-in {
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-
-.mdl-animation--fast-out-linear-in {
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-.mdl-button {
-  background: transparent;
-  border: none;
-  border-radius: 2px;
-  color: black;
-  display: block;
-  position: relative;
-  height: 36px;
-  min-width: 64px;
-  padding: 0 8px;
-  margin: 0 4px;
-  display: inline-block;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  overflow: hidden;
-  will-change: box-shadow, transform;
-  -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  line-height: 36px;
-  vertical-align: middle; }
-  .mdl-button::-moz-focus-inner {
-    border: 0; }
-  .mdl-button:hover {
-    background-color: rgba(158, 158, 158, 0.2); }
-  .mdl-button:focus:not(:active) {
-    background-color: rgba(0, 0, 0, 0.12); }
-  .mdl-button:active {
-    background-color: rgba(158, 158, 158, 0.4); }
-  .mdl-button[disabled][disabled] {
-    color: rgba(0, 0, 0, 0.26);
-    cursor: auto;
-    background-color: transparent; }
-  .mdl-button.mdl-button--colored {
-    color: #cddc39; }
-    .mdl-button.mdl-button--colored:focus:not(:active) {
-      background-color: rgba(0, 0, 0, 0.12); }
-
-.mdl-button--raised {
-  background: rgba(158, 158, 158, 0.2);
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-  .mdl-button--raised:active {
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
-    background-color: rgba(158, 158, 158, 0.4); }
-  .mdl-button--raised:focus:not(:active) {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-    background-color: rgba(158, 158, 158, 0.4); }
-  .mdl-button--raised.mdl-button--colored {
-    background: #cddc39;
-    color: white; }
-    .mdl-button--raised.mdl-button--colored:hover {
-      background-color: #cddc39; }
-    .mdl-button--raised.mdl-button--colored:active {
-      background-color: #cddc39; }
-    .mdl-button--raised.mdl-button--colored:focus:not(:active) {
-      background-color: #cddc39; }
-    .mdl-button--raised.mdl-button--colored .mdl-ripple {
-      background: white; }
-  .mdl-button--raised[disabled][disabled] {
-    background-color: rgba(0, 0, 0, 0.12);
-    color: rgba(0, 0, 0, 0.26);
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.mdl-button--fab {
-  border-radius: 50%;
-  font-size: 24px;
-  height: 56px;
-  margin: auto;
-  min-width: 56px;
-  width: 56px;
-  padding: 0;
-  overflow: hidden;
-  background: rgba(158, 158, 158, 0.2);
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
-  position: relative;
-  line-height: normal; }
-  .mdl-button--fab .mdl-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-12px, -12px);
-        -ms-transform: translate(-12px, -12px);
-            transform: translate(-12px, -12px);
-    /*top: ($button-fab-size - $button-fab-font-size) / 2;
-      left: ($button-fab-size - $button-fab-font-size) / 2;*/
-    line-height: 24px;
-    width: 24px; }
-  .mdl-button--fab.mdl-button--mini-fab {
-    height: 40px;
-    min-width: 40px;
-    width: 40px; }
-  .mdl-button--fab .mdl-button__ripple-container {
-    border-radius: 50%;
-    -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
-  .mdl-button--fab:active {
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
-    background-color: rgba(158, 158, 158, 0.4); }
-  .mdl-button--fab:focus:not(:active) {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
-    background-color: rgba(158, 158, 158, 0.4); }
-  .mdl-button--fab.mdl-button--colored {
-    background: #ff4081;
-    color: white; }
-    .mdl-button--fab.mdl-button--colored:hover {
-      background-color: #ff4081; }
-    .mdl-button--fab.mdl-button--colored:focus:not(:active) {
-      background-color: #ff4081; }
-    .mdl-button--fab.mdl-button--colored:active {
-      background-color: #ff4081; }
-    .mdl-button--fab.mdl-button--colored .mdl-ripple {
-      background: white; }
-  .mdl-button--fab[disabled][disabled] {
-    background-color: rgba(0, 0, 0, 0.12);
-    color: rgba(0, 0, 0, 0.26);
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-.mdl-button--icon {
-  border-radius: 50%;
-  font-size: 24px;
-  height: 32px;
-  margin-left: 0;
-  margin-right: 0;
-  min-width: 32px;
-  width: 32px;
-  padding: 0;
-  overflow: hidden;
-  color: inherit;
-  line-height: normal; }
-  .mdl-button--icon .mdl-icon {
-    position: absolute;
-    top: 4px;
-    left: 4px; }
-  .mdl-button--icon.mdl-button--mini-icon {
-    height: 24px;
-    min-width: 24px;
-    width: 24px; }
-    .mdl-button--icon.mdl-button--mini-icon .mdl-icon {
-      top: 0px;
-      left: 0px; }
-  .mdl-button--icon .mdl-button__ripple-container {
-    border-radius: 50%;
-    -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
-
-.mdl-button__ripple-container {
-  display: block;
-  height: 100%;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  z-index: 0;
-  overflow: hidden; }
-  .mdl-button[disabled] .mdl-button__ripple-container .mdl-ripple {
-    background-color: transparent; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-.mdl-card {
-  font-size: 16px;
-  height: 508px;
-  overflow: hidden;
-  width: 330px;
-  z-index: 1;
-  position: relative;
-  background: white;
-  border-radius: 2px; }
-
-.mdl-card--img-container {
-  background-color: #ff4081;
-  background-repeat: repeat;
-  background-position: 50% 50%;
-  background-size: cover;
-  background-origin: padding-box;
-  background-attachment: scroll;
-  height: 186px; }
-
-.mdl-card--heading {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #afb42b none repeat scroll 0 0/auto padding-box border-box;
-  border: 0 none white;
-  color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 24px;
-  height: 96px;
-  justify-items: stretch;
-  line-height: normal;
-  outline: white none 0;
-  padding: 8px 16px;
-  -webkit-perspective-origin: 165px 56px;
-          perspective-origin: 165px 56px;
-  text-decoration: none solid white;
-  -webkit-transform-origin: 165px 56px;
-      -ms-transform-origin: 165px 56px;
-          transform-origin: 165px 56px;
-  width: 100%; }
-
-.mdl-card--heading-text {
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
-  border: 0 none white;
-  color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: inherit;
-  font-weight: 300;
-  height: 96px;
-  justify-self: stretch;
-  line-height: normal;
-  outline: white none 0;
-  overflow: hidden;
-  text-decoration: none solid white;
-  -webkit-transform-origin: 149px 48px;
-      -ms-transform-origin: 149px 48px;
-          transform-origin: 149px 48px;
-  width: 90%; }
-
-.mdl-card--caption {
-  background: #afb42b none repeat scroll 0 0/auto padding-box border-box;
-  border: 0 none white;
-  color: white;
-  font-size: 12px;
-  height: 16px;
-  line-height: normal;
-  outline: white none 0;
-  padding: 8px 16px;
-  -webkit-perspective-origin: 165px 16px;
-          perspective-origin: 165px 16px;
-  text-decoration: none solid white;
-  width: 100%; }
-
-.mdl-card--lower {
-  border: 0 none #444444;
-  color: #cddc39;
-  font-size: 13px;
-  height: 108px;
-  line-height: 18px;
-  margin: 10px 0;
-  outline: #444444 none 0;
-  overflow: hidden;
-  padding: 0 16px;
-  text-decoration: none solid #444444;
-  width: 90%; }
-
-.mdl-card--bottom {
-  font-size: 16px;
-  height: 50px;
-  line-height: normal;
-  width: 100%; }
-
-.mdl-card--bottom a {
-  border-bottom: 0 none #303f9f;
-  border-left: 0 none #303f9f;
-  border-right: 0 none #303f9f;
-  border-top: 1px solid #ebebeb;
-  box-sizing: border-box;
-  color: #afb42b;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 13px;
-  font-weight: normal;
-  height: 50px;
-  line-height: 50px;
-  outline: #303f9f none 0;
-  padding: 0 16px;
-  -webkit-perspective-origin: 165px 25px;
-          perspective-origin: 165px 25px;
-  text-decoration: none solid #303f9f;
-  text-transform: uppercase;
-  -webkit-transform-origin: 165px 25px;
-      -ms-transform-origin: 165px 25px;
-          transform-origin: 165px 25px;
-  width: 100%; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-.mdl-checkbox {
+.mdl-icon-toggle {
   position: relative;
   z-index: 1;
   vertical-align: middle;
   display: inline-block;
-  box-sizing: border-box;
-  width: 100%;
-  height: 24px;
-  margin: 12px 0;
+  height: 32px;
+  margin: 0;
   padding: 0; }
-  .mdl-checkbox.is-upgraded {
-    padding-left: 24px; }
 
-.mdl-checkbox__input {
-  line-height: 24px; }
-  .mdl-checkbox.is-upgraded .mdl-checkbox__input {
+.mdl-icon-toggle__input {
+  line-height: 32px; }
+  .mdl-icon-toggle.is-upgraded .mdl-icon-toggle__input {
     position: absolute;
     width: 0;
     height: 0;
@@ -5399,78 +5905,42 @@ dt {
     appearance: none;
     border: none; }
 
-.mdl-checkbox__box-outline {
-  position: absolute;
-  top: 3px;
-  left: 0;
+.mdl-icon-toggle__label {
   display: inline-block;
-  box-sizing: border-box;
-  width: 16px;
-  height: 16px;
-  margin: 0;
-  cursor: pointer;
-  overflow: hidden;
-  border: 2px solid rgba(0, 0, 0, 0.54);
-  border-radius: 2px;
-  z-index: 2; }
-  .mdl-checkbox.is-checked .mdl-checkbox__box-outline {
-    border: 2px solid #cddc39; }
-  .mdl-checkbox.is-disabled .mdl-checkbox__box-outline {
-    border: 2px solid rgba(0, 0, 0, 0.26);
-    cursor: auto; }
-
-.mdl-checkbox__focus-helper {
-  position: absolute;
-  top: 3px;
-  left: 0;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: transparent; }
-  .mdl-checkbox.is-focused .mdl-checkbox__focus-helper {
-    box-shadow: 0 0 0px 8px rgba(0, 0, 0, 0.1);
-    background-color: rgba(0, 0, 0, 0.1); }
-  .mdl-checkbox.is-focused.is-checked .mdl-checkbox__focus-helper {
-    box-shadow: 0 0 0px 8px rgba(205, 220, 57, 0.26);
-    background-color: rgba(205, 220, 57, 0.26); }
-
-.mdl-checkbox__tick-outline {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  -webkit-mask: url("../images/tick-mask.svg#mask");
-          mask: url("../images/tick-mask.svg#mask");
-  background: transparent;
-  -webkit-transition-duration: 0.28s;
-          transition-duration: 0.28s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition-property: background;
-          transition-property: background; }
-  .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-    background: #cddc39 url("../images/tick.svg"); }
-  .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
-    background: rgba(0, 0, 0, 0.26) url("../images/tick.svg"); }
-
-.mdl-checkbox__label {
   position: relative;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0; }
-  .mdl-checkbox.is-disabled .mdl-checkbox__label {
+  height: 32px;
+  width: 32px;
+  min-width: 32px;
+  line-height: 32px;
+  color: #616161;
+  border-radius: 50%;
+  font-size: 24px;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  background-color: transparent;
+  will-change: background-color;
+  -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  .mdl-icon-toggle.is-checked .mdl-icon-toggle__label {
+    color: #3f51b5; }
+  .mdl-icon-toggle.is-disabled .mdl-icon-toggle__label {
     color: rgba(0, 0, 0, 0.26);
-    cursor: auto; }
+    cursor: auto;
+    -webkit-transition: none;
+            transition: none; }
+  .mdl-icon-toggle.is-focused .mdl-icon-toggle__label {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .mdl-icon-toggle.is-focused.is-checked .mdl-icon-toggle__label {
+    background-color: rgba(63, 81, 181, 0.26); }
 
-.mdl-checkbox__ripple-container {
+.mdl-icon-toggle__ripple-container {
   position: absolute;
   z-index: 2;
-  top: -6px;
-  left: -10px;
+  top: -2px;
+  left: -2px;
   box-sizing: border-box;
   width: 36px;
   height: 36px;
@@ -5478,180 +5948,13 @@ dt {
   cursor: pointer;
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
-  .mdl-checkbox__ripple-container .mdl-ripple {
-    background: #cddc39; }
-  .mdl-checkbox.is-disabled .mdl-checkbox__ripple-container {
+  .mdl-icon-toggle__ripple-container .mdl-ripple {
+    background: #616161; }
+  .mdl-icon-toggle.is-disabled .mdl-icon-toggle__ripple-container {
     cursor: auto; }
-  .mdl-checkbox.is-disabled .mdl-checkbox__ripple-container .mdl-ripple {
+  .mdl-icon-toggle.is-disabled .mdl-icon-toggle__ripple-container .mdl-ripple {
     background: transparent; }
 
-.mdl-checkbox__tick-outline {
-  -webkit-mask: initial;
-          mask: initial; }
-  .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-    background: #cddc39 url('data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E'); }
-  .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
-    background: rgba(0, 0, 0, 0.26) url('data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E'); }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-.mdl-column-layout {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 0;
-  box-sizing: border-box;
-  padding: 20px; }
-  @media screen and (min-width: 1600px) {
-    .mdl-column-layout {
-      padding-left: calc(50% - 600px);
-      padding-right: calc(50% - 600px); } }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .mdl-column-layout {
-      padding: 12px; } }
-  @media screen and (max-width: 767px) {
-    .mdl-column-layout {
-      padding: 8px; } }
-
-.mdl-column-layout__child {
-  min-width: 360px;
-  width: 360px;
-  margin: 20px;
-  box-sizing: border-box; }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .mdl-column-layout__child {
-      margin: 12px;
-      min-width: calc(50% - 24px);
-      width: calc(50% - 24px); } }
-  @media screen and (max-width: 767px) {
-    .mdl-column-layout__child {
-      margin: 8px;
-      width: calc(100% - 16px);
-      min-width: calc(100% - 16px); } }
-
-.mdl-column-layout__wrap-hack {
-  min-width: 360px;
-  width: 360px;
-  margin: 20px;
-  box-sizing: border-box;
-  height: 0;
-  min-height: 0;
-  max-height: 0;
-  border: none;
-  padding: 0;
-  margin-bottom: 0;
-  margin-top: 0;
-  opacity: 0; }
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .mdl-column-layout__wrap-hack {
-      margin: 12px;
-      min-width: calc(50% - 24px);
-      width: calc(50% - 24px); } }
-  @media screen and (max-width: 767px) {
-    .mdl-column-layout__wrap-hack {
-      margin: 8px;
-      width: calc(100% - 16px);
-      min-width: calc(100% - 16px); } }
-
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -5875,14 +6178,6 @@ dt {
     margin-bottom: 0;
     margin-right: 16px; } }
 
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6019,168 +6314,6 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* Heading back */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-.mdl-icon-toggle {
-  position: relative;
-  z-index: 1;
-  vertical-align: middle;
-  display: inline-block;
-  height: 32px;
-  margin: 0;
-  padding: 0; }
-
-.mdl-icon-toggle__input {
-  line-height: 32px; }
-  .mdl-icon-toggle.is-upgraded .mdl-icon-toggle__input {
-    position: absolute;
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    -ms-appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    border: none; }
-
-.mdl-icon-toggle__label {
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  height: 32px;
-  width: 32px;
-  min-width: 32px;
-  line-height: 32px;
-  color: #616161;
-  border-radius: 50%;
-  font-size: 24px;
-  padding: 0;
-  margin-left: 0;
-  margin-right: 0;
-  text-align: center;
-  background-color: transparent;
-  will-change: background-color;
-  -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
-  .mdl-icon-toggle.is-checked .mdl-icon-toggle__label {
-    color: #cddc39; }
-  .mdl-icon-toggle.is-disabled .mdl-icon-toggle__label {
-    color: rgba(0, 0, 0, 0.26);
-    cursor: auto;
-    -webkit-transition: none;
-            transition: none; }
-  .mdl-icon-toggle.is-focused .mdl-icon-toggle__label {
-    background-color: rgba(0, 0, 0, 0.12); }
-  .mdl-icon-toggle.is-focused.is-checked .mdl-icon-toggle__label {
-    background-color: rgba(205, 220, 57, 0.26); }
-
-.mdl-icon-toggle__ripple-container {
-  position: absolute;
-  z-index: 2;
-  top: -2px;
-  left: -2px;
-  box-sizing: border-box;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
-  .mdl-icon-toggle__ripple-container .mdl-ripple {
-    background: #616161; }
-  .mdl-icon-toggle.is-disabled .mdl-icon-toggle__ripple-container {
-    cursor: auto; }
-  .mdl-icon-toggle.is-disabled .mdl-icon-toggle__ripple-container .mdl-ripple {
-    background: transparent; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6394,14 +6527,6 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6474,13 +6599,13 @@ dt {
           transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
 .mdl-js-progress > .progressbar {
-  background-color: #cddc39;
+  background-color: #3f51b5;
   z-index: 1;
   left: 0; }
 
 .mdl-js-progress > .bufferbar {
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #cddc39, #cddc39);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #cddc39, #cddc39);
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
   z-index: 0;
   left: 0; }
 
@@ -6489,8 +6614,8 @@ dt {
 
 @supports (-webkit-appearance: none) {
   .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
-    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #cddc39, #cddc39);
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #cddc39, #cddc39);
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
     -webkit-mask: url('../images/buffer.svg');
             mask: url('../images/buffer.svg'); } }
 
@@ -6498,7 +6623,7 @@ dt {
   background-color: rgba(0, 0, 0, 0.26); }
 
 .mdl-js-progress.mdl-progress__indeterminate > .bar1 {
-  background-color: #cddc39;
+  background-color: #3f51b5;
   -webkit-animation-name: indeterminate1;
           animation-name: indeterminate1;
   -webkit-animation-duration: 2s;
@@ -6510,7 +6635,7 @@ dt {
 
 .mdl-js-progress.mdl-progress__indeterminate > .bar3 {
   background-image: none;
-  background-color: #cddc39;
+  background-color: #3f51b5;
   -webkit-animation-name: indeterminate2;
           animation-name: indeterminate2;
   -webkit-animation-duration: 2s;
@@ -6590,14 +6715,6 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6847,7 +6964,7 @@ dt {
   border: none;
   height: 64px;
   min-height: 64px;
-  background-color: #cddc39;
+  background-color: #3f51b5;
   color: white;
   z-index: 3;
   -webkit-transition-duration: 0.2s;
@@ -7077,7 +7194,7 @@ dt {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background-color: #cddc39;
+  background-color: #3f51b5;
   overflow-y: hidden;
   overflow-x: scroll; }
   .mdl-layout__tab-bar::-webkit-scrollbar {
@@ -7123,7 +7240,7 @@ dt {
   width: 72px;
   z-index: 4;
   text-align: center;
-  background-color: #cddc39;
+  background-color: #3f51b5;
   color: transparent;
   cursor: pointer;
   -webkit-user-select: none;
@@ -7237,14 +7354,6 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -7351,6 +7460,7 @@ dt {
   padding-left: 5px;
   padding-right: 5px; }
 
+/* ==========  Radio Buttons  ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7366,14 +7476,6 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -7472,7 +7574,7 @@ dt {
   border-radius: 50%;
   z-index: 2; }
   .mdl-radio.is-checked .mdl-radio__outer-circle {
-    border: 2px solid #cddc39; }
+    border: 2px solid #3f51b5; }
   .mdl-radio.is-disabled .mdl-radio__outer-circle {
     border: 2px solid rgba(0, 0, 0, 0.26);
     cursor: auto; }
@@ -7496,7 +7598,7 @@ dt {
   -webkit-transform: scale3d(0, 0, 0);
           transform: scale3d(0, 0, 0);
   border-radius: 50%;
-  background: #cddc39; }
+  background: #3f51b5; }
   .mdl-radio.is-checked .mdl-radio__inner-circle {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1); }
@@ -7525,7 +7627,7 @@ dt {
   overflow: hidden;
   -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
   .mdl-radio__ripple-container .mdl-ripple {
-    background: #cddc39; }
+    background: #3f51b5; }
   .mdl-radio.is-disabled .mdl-radio__ripple-container {
     cursor: auto; }
   .mdl-radio.is-disabled .mdl-radio__ripple-container .mdl-ripple {
@@ -7546,14 +7648,6 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -7631,7 +7725,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
         user-select: none;
     outline: 0;
     padding: 0;
-    color: #cddc39;
+    color: #3f51b5;
     -webkit-align-self: center;
         -ms-flex-item-align: center;
             align-self: center;
@@ -7656,7 +7750,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       border: none; }
     .mdl-slider.is-upgraded::-ms-fill-lower {
       padding: 0;
-      background: linear-gradient(to right, transparent, transparent 16px, #cddc39 16px, #cddc39 0); }
+      background: linear-gradient(to right, transparent, transparent 16px, #3f51b5 16px, #3f51b5 0); }
     .mdl-slider.is-upgraded::-ms-fill-upper {
       padding: 0;
       background: linear-gradient(to left, transparent, transparent 16px, rgba(0, 0, 0, 0.26) 16px, rgba(0, 0, 0, 0.26) 0); }
@@ -7666,7 +7760,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       height: 12px;
       box-sizing: border-box;
       border-radius: 50%;
-      background: #cddc39;
+      background: #3f51b5;
       border: none;
       -webkit-transition: -webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), border 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
               transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), border 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -7677,36 +7771,36 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       box-sizing: border-box;
       border-radius: 50%;
       background-image: none;
-      background: #cddc39;
+      background: #3f51b5;
       border: none; }
     .mdl-slider.is-upgraded:focus:not(:active)::-webkit-slider-thumb {
-      box-shadow: 0 0 0 10px rgba(205, 220, 57, 0.26); }
+      box-shadow: 0 0 0 10px rgba(63, 81, 181, 0.26); }
     .mdl-slider.is-upgraded:focus:not(:active)::-moz-range-thumb {
-      box-shadow: 0 0 0 10px rgba(205, 220, 57, 0.26); }
+      box-shadow: 0 0 0 10px rgba(63, 81, 181, 0.26); }
     .mdl-slider.is-upgraded:active::-webkit-slider-thumb {
       background-image: none;
-      background: #cddc39;
+      background: #3f51b5;
       -webkit-transform: scale(1.5);
               transform: scale(1.5); }
     .mdl-slider.is-upgraded:active::-moz-range-thumb {
       background-image: none;
-      background: #cddc39;
+      background: #3f51b5;
       transform: scale(1.5); }
     .mdl-slider.is-upgraded::-ms-thumb {
       width: 32px;
       height: 32px;
       border: none;
       border-radius: 50%;
-      background: #cddc39;
+      background: #3f51b5;
       -ms-transform: scale(0.375);
           transform: scale(0.375);
       transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
     .mdl-slider.is-upgraded:focus:not(:active)::-ms-thumb {
-      background: radial-gradient(circle closest-side, #cddc39 0%, #cddc39 37.5%, rgba(205, 220, 57, 0.26) 37.5%, rgba(205, 220, 57, 0.26) 100%);
+      background: radial-gradient(circle closest-side, #3f51b5 0%, #3f51b5 37.5%, rgba(63, 81, 181, 0.26) 37.5%, rgba(63, 81, 181, 0.26) 100%);
       -ms-transform: scale(1);
           transform: scale(1); }
     .mdl-slider.is-upgraded:active::-ms-thumb {
-      background: #cddc39;
+      background: #3f51b5;
       -ms-transform: scale(0.5625);
           transform: scale(0.5625); }
     .mdl-slider.is-upgraded.is-lowest-value::-webkit-slider-thumb {
@@ -7836,7 +7930,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
           transform: translate(0, -1px); }
 
 .mdl-slider__background-lower {
-  background: #cddc39;
+  background: #3f51b5;
   -webkit-box-flex: 0;
   -webkit-flex: 0;
       -ms-flex: 0;
@@ -7875,14 +7969,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -7970,7 +8056,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 .mdl-spinner__layer-1 {
   border-color: #42a5f5; }
   .mdl-spinner--single-color .mdl-spinner__layer-1 {
-    border-color: #cddc39; }
+    border-color: #3f51b5; }
   .mdl-spinner.is-active .mdl-spinner__layer-1 {
     -webkit-animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
@@ -7978,7 +8064,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 .mdl-spinner__layer-2 {
   border-color: #f44336; }
   .mdl-spinner--single-color .mdl-spinner__layer-2 {
-    border-color: #cddc39; }
+    border-color: #3f51b5; }
   .mdl-spinner.is-active .mdl-spinner__layer-2 {
     -webkit-animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
@@ -7986,7 +8072,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 .mdl-spinner__layer-3 {
   border-color: #fdd835; }
   .mdl-spinner--single-color .mdl-spinner__layer-3 {
-    border-color: #cddc39; }
+    border-color: #3f51b5; }
   .mdl-spinner.is-active .mdl-spinner__layer-3 {
     -webkit-animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
@@ -7994,7 +8080,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
 .mdl-spinner__layer-4 {
   border-color: #4caf50; }
   .mdl-spinner--single-color .mdl-spinner__layer-4 {
-    border-color: #cddc39; }
+    border-color: #3f51b5; }
   .mdl-spinner.is-active .mdl-spinner__layer-4 {
     -webkit-animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: mdl-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, mdl-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
@@ -8310,14 +8396,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8419,7 +8497,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   border-radius: 14px;
   cursor: pointer; }
   .mdl-switch.is-checked .mdl-switch__track {
-    background: rgba(205, 220, 57, 0.5); }
+    background: rgba(63, 81, 181, 0.5); }
   .mdl-switch.is-disabled .mdl-switch__track {
     background: rgba(0, 0, 0, 0.12);
     cursor: auto; }
@@ -8441,7 +8519,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   -webkit-transition-property: left;
           transition-property: left; }
   .mdl-switch.is-checked .mdl-switch__thumb {
-    background: #cddc39;
+    background: #3f51b5;
     left: 16px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
   .mdl-switch.is-disabled .mdl-switch__thumb {
@@ -8465,8 +8543,8 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     box-shadow: 0 0 0px 20px rgba(0, 0, 0, 0.1);
     background-color: rgba(0, 0, 0, 0.1); }
   .mdl-switch.is-focused.is-checked .mdl-switch__focus-helper {
-    box-shadow: 0 0 0px 20px rgba(205, 220, 57, 0.26);
-    background-color: rgba(205, 220, 57, 0.26); }
+    box-shadow: 0 0 0px 20px rgba(63, 81, 181, 0.26);
+    background-color: rgba(63, 81, 181, 0.26); }
 
 .mdl-switch__label {
   position: relative;
@@ -8498,7 +8576,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
   -webkit-transition-property: left;
           transition-property: left; }
   .mdl-switch__ripple-container .mdl-ripple {
-    background: #cddc39; }
+    background: #3f51b5; }
   .mdl-switch.is-disabled .mdl-switch__ripple-container {
     cursor: auto; }
   .mdl-switch.is-disabled .mdl-switch__ripple-container .mdl-ripple {
@@ -8522,14 +8600,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8647,7 +8717,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     bottom: 0px;
     left: 0px;
     position: absolute;
-    background: #cddc39;
+    background: #3f51b5;
     -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
@@ -8662,7 +8732,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     z-index: 1;
     overflow: hidden; }
     .mdl-tabs__tab .mdl-tabs__ripple-container .mdl-ripple {
-      background: #cddc39; }
+      background: #3f51b5; }
 
 .mdl-tabs__panel {
   display: block; }
@@ -8695,14 +8765,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8822,7 +8884,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
   .mdl-textfield--floating-label.is-focused .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
-    color: #cddc39;
+    color: #3f51b5;
     font-size: 12px;
     top: -16px;
     visibility: visible; }
@@ -8830,7 +8892,7 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     color: #e53935;
     font-size: 12px; }
   .mdl-textfield__label:after {
-    background-color: #cddc39;
+    background-color: #3f51b5;
     bottom: 0;
     content: '';
     height: 2px;
@@ -8886,14 +8948,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8995,14 +9049,6 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     opacity: 1;
     visibility: visible; } }
 
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9127,7 +9173,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       z-index: 1;
       overflow: hidden; }
       .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container .mdl-ripple {
-        background: #cddc39; }
+        background: #3f51b5; }
   .mdl-accordion-group .mdl-accordion input:checked + label {
     color: black; }
     .mdl-accordion-group .mdl-accordion input:checked + label .indicator {
@@ -9136,7 +9182,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
               transform: rotate(90deg);
       -webkit-transition: 0.3s ease-in-out;
               transition: 0.3s ease-in-out;
-      color: rgb(#cddc39); }
+      color: rgb(#3f51b5); }
       .debug .mdl-accordion-group .mdl-accordion input:checked + label .indicator {
         border: 1px solid red; }
   .mdl-accordion-group .mdl-accordion .mdl-accordion--content {
@@ -9160,14 +9206,6 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
   -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
           transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
 
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9273,14 +9311,6 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 1px gray; }
 
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9390,7 +9420,7 @@ form.wsk-basic-form {
     form.wsk-basic-form input:last-child {
       margin-right: 0; }
     form.wsk-basic-form input:focus {
-      border-bottom: 1px solid #cddc39; }
+      border-bottom: 1px solid #3f51b5; }
     form.wsk-basic-form input[type=submit] {
       border: none; }
   form.wsk-basic-form .wsk-basic-form__group {
@@ -9520,7 +9550,7 @@ form.wsk-basic-form {
           -ms-flex-item-align: end;
               align-self: flex-end; }
   form.wsk-basic-form input[type=submit], form.wsk-basic-form button[type=submit], form.wsk-basic-form button.submit, form.wsk-basic-form button.primary {
-    background-color: #cddc39;
+    background-color: #3f51b5;
     color: white; }
   form.wsk-basic-form .wsk-basic-form__control--last-row {
     margin-top: 20px; }
@@ -9602,14 +9632,6 @@ form.wsk-form {
           -ms-flex-pack: start;
               justify-content: flex-start; }
 
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9806,14 +9828,6 @@ form.wsk-form {
     .mdl-nav-pills > .mdl-nav-pill--light-text a {
       color: whitesmoke !important; }
 
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/* pallet */
 /* colors.scss */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */

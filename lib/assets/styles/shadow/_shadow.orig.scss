@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@import "../variables";
+
 .mdl-shadow--z1 {
   @include shadow-z1();
 }

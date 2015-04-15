@@ -2,42 +2,17 @@
 
 // Resets and dependencies
 @import "resets/resets";
-@import "fonts/fonts";
-@import "typography/typography";
-@import 'icons/icons';
+
+// Material Colors
+@import "palette/colors";
+
+// Color-Theme
+$palette-primary: $palette-red;
+$palette-accent: $palette-pink; // All pallets except brown, grey and blue-grey
+
+// CSS-Styles for colors
 @import "palette/palette";
 
-// Variables and mixins
-@import "theme";
-@import "variables";
-@import "palette/color_definitions";
-
 // Components
-@import "shadow/shadow";
-@import "ripple/ripple";
-@import "animation/animation";
-@import "button/button";
-@import "card/card";
-@import "checkbox/checkbox";
-@import "column-layout/column-layout";
-@import "footer/mega_footer";
-@import "footer/mini_footer";
-@import "icon-toggle/icon-toggle";
-@import "menu/menu";
-@import "progress/progress";
-@import "layout/layout";
-@import "list/list";
-@import "radio/radio";
-@import "slider/slider";
-@import "spinner/spinner";
-@import "switch/switch";
-@import "tabs/tabs";
-@import "textfield/textfield";
-@import "tooltip/tooltip";
+@import "components";
 
-// Components++
-@import "accordion/accordion";
-@import "badge/badge";
-@import "forms/forms";
-@import "nav-pills/nav-pills";
-@import "panel/panel";
