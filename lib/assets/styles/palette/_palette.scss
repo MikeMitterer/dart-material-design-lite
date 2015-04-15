@@ -2242,13 +2242,21 @@
 // Black
 
 .mdl-color--black {
-    background-color: unquote("rgb(#{$color-black})") !important;
+    background-color: $color-black !important;
+}
+
+.mdl-color-text--black {
+    color: $color-black !important;
 }
 
 // White
 
 .mdl-color--white {
-    background-color: unquote("rgb(#{$color-white})") !important;
+    background-color: $color-white !important;
+}
+
+.mdl-color-text--white {
+    color: $color-white !important;
 }
 
 // Primary and accent
@@ -2273,23 +2281,23 @@
     background-color : $color-accent-contrast !important;
 }
 
-.mdl-color-text--primary {
-    color : $color-primary !important;
+.mdl-color-text--primary, a.mdl-color-text--primary {
+        color : $color-primary !important;
 }
 
-.mdl-color-text--primary-contrast {
-    color : $color-primary-contrast !important;
+.mdl-color-text--primary-contrast, a.mdl-color-text--primary-contrast {
+        color : $color-primary-contrast !important;
 }
 
-.mdl-color-text--primary-dark {
-    color : $color-primary-dark !important;
+.mdl-color-text--primary-dark, a.mdl-color-text--primary-dark {
+        color : $color-primary-dark !important;
 }
 
-.mdl-color-text--accent {
-    color : $color-accent !important;
+.mdl-color-text--accent, a.mdl-color-text--accent {
+        color : $color-accent !important;
 }
 
-.mdl-color-text--accent-contrast {
-    color : $color-accent-contrast !important;
+.mdl-color-text--accent-contrast, a.mdl-color-text--accent-contrast {
+        color : $color-accent-contrast !important;
 }
 

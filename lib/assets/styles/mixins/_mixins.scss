@@ -1,3 +1,7 @@
+@import "../animation/mixins";
+@import "../shadow/mixins";
+@import "../typography/mixins";
+
 @mixin avoid-blue-box-on-double-click() {
     -webkit-touch-callout : none;
     -webkit-user-select   : none;

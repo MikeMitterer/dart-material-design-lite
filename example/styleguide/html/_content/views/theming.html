@@ -1,0 +1,23 @@
+template: view
+sample: theming
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<ol>
+{{#_data.themes}}
+    <li>
+        <a href="/?theme={{theme}}#/theming" target="_self" class="mdl-color-text--primary">{{theme}}</a>
+        <p>On GitHub: <a href="https://github.com/MikeMitterer/dart-mdl-theme/tree/master/{{theme}}" target="_blank">Show</a></p>
+        <div class="color-sample theme-{{theme}}">
+            <div class="title mdl-color--{{primary}} mdl-color-text--white">Title</div>
+            <div class="content">
+                <p>Content</p>
+                <div class="demo-button">
+                    <button class="mdl-button mdl-button--raised mdl-button--colored mdl-color--{{primary}} mdl-js-ripple-effect">Raised</button>
+                </div>
+                <div class="demo-button">
+                    <button class="mdl-button mdl-button--fab mdl-button--colored mdl-color--{{accent}}-A200 mdl-js-ripple-effect"><span class="mdl-icon mdl-icon--add"/></button>
+                </div>
+            </div>
+        </div>
+    </li>
+{{/_data.themes}}
+</ol>

@@ -1,4 +1,11 @@
-@import "packages/mdl/assets/styles/material-design-lite";
+//@import "packages/mdl/assets/themes/red-pink/material-design-lite";
+@import "packages/mdl/assets/styles/fonts/fonts";
+
+// for layout
+// @import "packages/mdl/assets/styles/icons/icons";
+@import "packages/mdl/assets/styles/mixins/mixins";
+@import "packages/mdl/assets/styles/animation/animation";
+//@import "packages/mdl/assets/styles/layout/layout";
 @import "assets/styles/_demo";
 
 body {
@@ -12,11 +19,12 @@ body {
     }
 }
 
+
 .mdl-layout__drawer {
-    .mdl-layout-title {
-        color            : $layout-header-text-color;
-        background-color : $layout-header-bg-color;
-    }
+    //.mdl-layout-title {
+    //    color            : $layout-header-text-color;
+    //    background-color : $layout-header-bg-color;
+    //}
 
     .mdl-navigation {
         padding-top : 24px;

@@ -9,7 +9,6 @@
   { "name": "footer", "link": "#/footer" },
   { "name": "icon-toggle", "link": "#/icon-toggle" },
   { "name": "icons", "link": "#/icons" },
-  { "name": "layout", "link": "#/layout" },
   { "name": "list", "link": "#/list" },
   { "name": "menu", "link": "#/menu" },
   { "name": "nav-pills", "link": "#/nav-pills" },
@@ -23,6 +22,7 @@
   { "name": "switch", "link": "#/switch" },
   { "name": "tabs", "link": "#/tabs" },
   { "name": "textfield", "link": "#/textfield" },
+  { "name": "theming", "link": "#/theming" },
   { "name": "tooltip", "link": "#/tooltip" },
   { "name": "typography", "link": "#/typography" }
 ]

@@ -22,6 +22,7 @@ class Application {
     static const _ARG_GENERATE          = 'gen';
     static const _ARG_GEN_STYLEGUIDE    = 'genstyleguide';
     static const _ARG_GENINDEX          = 'genindex';
+    static const _ARG_GEN_THEMES        = 'genthemes';
     static const _ARG_MK_BACKUP         = 'makebackup';
     static const _ARG_SHOW_DIRS         = 'showdirs';
     static const _ARG_MV_MDL            = 'mvmdl';
@@ -91,6 +92,10 @@ class Application {
 
                 },recursive: false);
                 _writeIndexHtml(config,links);
+
+            }
+            else if(argResults[_ARG_GEN_THEMES]) {
+                _generateThemes(config);
             }
 
             else {
@@ -106,6 +111,69 @@ class Application {
 
 
     // -- private -------------------------------------------------------------
+    void _generateThemes(final Config config) {
+        Validate.notNull(config);
+
+        final Directory dirThemes = new Directory(config.themesdir);
+        if(!dirThemes.existsSync()) {
+            dirThemes.createSync(recursive: true);
+        }
+
+        final Directory dirGitThemes = new Directory(config.gitthemesdir);
+
+        final File templateFile = new File(config.scsstemplate);
+        final String template = templateFile.readAsStringSync();
+
+        final List<String> colors = [ "red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue",
+            "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown",
+            "grey", "blue-grey"];
+
+        int counter = 0;
+        final StringBuffer buffer = new StringBuffer();
+        buffer.writeln("[");
+
+        colors.forEach((final String primaryColor) => colors.forEach((final String accentColor) {
+            if(primaryColor != accentColor) {
+                final String themeFolder = "${primaryColor.replaceAll("-","_")}-${accentColor.replaceAll("-","_")}";
+
+                _logger.info("Theme #${counter + 1} - Primary: $primaryColor, Accent: $accentColor");
+                _createTheme(primaryColor,accentColor,themeFolder,template,dirThemes,dirGitThemes);
+
+                buffer.writeln('{ "primary": "$primaryColor", "accent": "$accentColor", "theme": "${themeFolder}" },');
+                counter++;
+            }
+        }));
+
+        buffer.writeln("]");
+        final File jsonFile = new File("${config.themesdir}/themes.json");
+        jsonFile.writeAsStringSync(buffer.toString());
+    }
+
+    void _createTheme(final String primaryColor,final String accentColor,final String themeFolder,final  String template,final  Directory dirThemes,final Directory dirGitThemes) {
+        Validate.notBlank(primaryColor);
+        Validate.notBlank(accentColor);
+        Validate.notBlank(themeFolder);
+        Validate.notBlank(template);
+        Validate.notNull(dirThemes);
+        Validate.notNull(dirGitThemes);
+
+        final Directory dirTheme = new Directory("${dirThemes.path}/${themeFolder}");
+        if(!dirTheme.existsSync()) {
+            dirTheme.createSync(recursive: true);
+        }
+
+        final Directory dirGitTheme = new Directory("${dirGitThemes.path}/${themeFolder}");
+        if(!dirGitTheme.existsSync()) {
+            dirGitTheme.createSync(recursive: true);
+        }
+
+        final File scssFile = new File("${dirTheme.path}/material-design-lite.scss");
+        final File cssFile = new File("${dirGitTheme.path}/material.css");
+
+        scssFile.writeAsStringSync(template.replaceAll("{{primary}}",primaryColor).replaceAll("{{accent}}",accentColor));
+
+        _sasscAndAutoPrefix(scssFile,cssFile);
+    }
 
     void _copyOrigFiles(final String sampleName,final Directory sassDir,final Config config) {
         Validate.notBlank(sampleName);
@@ -863,6 +931,7 @@ class Application {
             ..addFlag(_ARG_GENERATE,        abbr: 'g', negatable: false, help: "Generate samples")
             ..addFlag(_ARG_GEN_STYLEGUIDE,  abbr: 'y', negatable: false, help: "Generate styleguide")
             ..addFlag(_ARG_GENINDEX,        abbr: 'i', negatable: false, help: "Generate localindex.html")
+            ..addFlag(_ARG_GEN_THEMES,      abbr: 't', negatable: false, help: "Generate SCSS-Themes")
             ..addFlag(_ARG_MK_BACKUP,       abbr: 'b', negatable: false, help: "Make backup")
             ..addFlag(_ARG_SHOW_DIRS,       abbr: 'd', negatable: false, help: "Show source-Dirs")
             ..addFlag(_ARG_MV_MDL,          abbr: 'm', negatable: false, help: "Move original MDL files to project")
@@ -908,11 +977,14 @@ class Config {
     static const String _KEY_SASS_DIR           = "sassdir";
     static const String _KEY_MDL_DIR            = "mdldir";
     static const String _KEY_SAMPLES_DIR        = "example";
+    static const String _KEY_THEMES_DIR         = "themesdir";
+    static const String _KEY_GIT_THEMES_DIR     = "gitthemesdir";
     static const String _KEY_LOGLEVEL           = "loglevel";
     static const String _KEY_MK_BACKUP          = "mkbackup";
     static const String _KEY_MAIN_TEMPLATE      = "maintemplate";
     static const String _KEY_INDEX_TEMPLATE     = "indextemplate";
     static const String _KEY_YAML_TEMPLATE      = "yamltemplate";
+    static const String _KEY_SCSS_TEMPLATE      = "scsstemplate";
     static const String _KEY_FOLDERS_TO_EXCLUDE = "excludefolder";
     static const String _KEY_PORT_BASE          = "portbase";
     static const String _KEY_JS_BASE            = "jsbase";
@@ -925,11 +997,14 @@ class Config {
         _settings[_KEY_SASS_DIR]            = 'lib/assets/styles';
         _settings[_KEY_MDL_DIR]             = '/Volumes/Daten/DevLocal/DevDart/material-design-lite/src';
         _settings[_KEY_SAMPLES_DIR]         = 'example';
+        _settings[_KEY_THEMES_DIR]         = 'lib/assets/themes';
+        _settings[_KEY_GIT_THEMES_DIR]      = '/Volumes/Daten/DevLocal/DevDart/MaterialDesignLiteTheme';
         _settings[_KEY_LOGLEVEL]            = 'info';
         _settings[_KEY_MK_BACKUP]           = false;
         _settings[_KEY_MAIN_TEMPLATE]       = "tool/templates/main.tmpl.dart";
         _settings[_KEY_INDEX_TEMPLATE]      = "tool/templates/index.tmpl.html";
         _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
+        _settings[_KEY_SCSS_TEMPLATE]       = "tool/templates/material-design-lite.tmpl.scss";
         _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables";   // Liste durch , getrennt
         _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
         _settings[_KEY_JS_BASE]             = "tool/jsbase"; // Basis für die JS-Files
@@ -947,6 +1022,10 @@ class Config {
 
     String get samplesdir => _settings[_KEY_SAMPLES_DIR];
 
+    String get themesdir => _settings[_KEY_THEMES_DIR];
+
+    String get gitthemesdir => _settings[_KEY_GIT_THEMES_DIR];
+
     bool get mkbackup => _settings[_KEY_MK_BACKUP];
 
     String get maintemplate => _settings[_KEY_MAIN_TEMPLATE];
@@ -954,6 +1033,8 @@ class Config {
     String get indextemplate => _settings[_KEY_INDEX_TEMPLATE];
 
     String get yamltemplate => _settings[_KEY_YAML_TEMPLATE];
+
+    String get scsstemplate => _settings[_KEY_SCSS_TEMPLATE];
 
     String get folderstoexclude => _settings[_KEY_FOLDERS_TO_EXCLUDE];
 
@@ -967,11 +1048,14 @@ class Config {
         settings["SASS-Dir"]                    = sassdir;
         settings["Samples-Dir"]                 = samplesdir;
         settings["MDL-Dir"]                     = mdldir;
+        settings["Themes-Dir"]                  = themesdir;
+        settings["GIT-Themes-Dir"]              = gitthemesdir;
         settings["loglevel"]                    = loglevel;
         settings["make backup"]                 = mkbackup ? "yes" : "no";
         settings["Main-Template"]               = maintemplate;
         settings["Index-Template"]              = indextemplate;
         settings["YAML-Template"]               = yamltemplate;
+        settings["SCSS-Template"]               = scsstemplate;
         settings["Folders to exclude"]          = folderstoexclude;
         settings["Base-Dir for js2Dart files"]  = portbase;
         settings["Base-Dir for ORIG JS files"]  = jsbase;

@@ -1,0 +1,17 @@
+/* Material Design Lite */
+
+// Resets and dependencies
+@import "../../styles/resets/resets";
+
+// Material Colors
+@import "../../styles/palette/colors";
+
+// Color-Theme
+$palette-primary: $palette-indigo;
+$palette-accent: $palette-light-green; // All pallets except brown, grey and blue-grey
+
+// CSS-Styles for colors
+@import "../../styles/palette/palette";
+
+// Components
+@import "../../styles/components";

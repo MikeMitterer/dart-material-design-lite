@@ -181,24 +181,6 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
-@font-face {
-  font-family: 'Material-Design-Iconic-Font';
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
-  font-weight: normal;
-  font-style: normal; }
-
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
 /* ==========  Color Palettes  ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -215,7 +197,31 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -272,6 +278,30 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  */
 /* ANIMATION */
 /* PROGRESS */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 .mdl-color-text--red {
   color: #f44336 !important; }
 
@@ -1911,10 +1941,16 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   background-color: #263238 !important; }
 
 .mdl-color--black {
-  background-color: rgb(black) !important; }
+  background-color: black !important; }
+
+.mdl-color-text--black {
+  color: black !important; }
 
 .mdl-color--white {
-  background-color: rgb(white) !important; }
+  background-color: white !important; }
+
+.mdl-color-text--white {
+  color: white !important; }
 
 .mdl-color--primary {
   background-color: #3f51b5 !important; }
@@ -1931,21 +1967,39 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
 .mdl-color--accent-contrast {
   background-color: white !important; }
 
-.mdl-color-text--primary {
+.mdl-color-text--primary, a.mdl-color-text--primary {
   color: #3f51b5 !important; }
 
-.mdl-color-text--primary-contrast {
+.mdl-color-text--primary-contrast, a.mdl-color-text--primary-contrast {
   color: white !important; }
 
-.mdl-color-text--primary-dark {
+.mdl-color-text--primary-dark, a.mdl-color-text--primary-dark {
   color: #303f9f !important; }
 
-.mdl-color-text--accent {
+.mdl-color-text--accent, a.mdl-color-text--accent {
   color: #ff4081 !important; }
 
-.mdl-color-text--accent-contrast {
+.mdl-color-text--accent-contrast, a.mdl-color-text--accent-contrast {
   color: white !important; }
 
+@font-face {
+  font-family: 'Material-Design-Iconic-Font';
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  font-weight: normal;
+  font-style: normal; }
+
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* Typography */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -1962,7 +2016,31 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2403,7 +2481,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2490,7 +2592,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2567,6 +2693,7 @@ dt {
   .mdl-ripple.is-visible {
     opacity: 0.3; }
 
+/* ANIMATION */
 /* Animations */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -2583,7 +2710,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2671,7 +2822,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2905,7 +3080,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -3102,7 +3301,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -3296,7 +3519,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -3439,7 +3686,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5824,7 +6095,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5955,7 +6250,31 @@ dt {
   .mdl-icon-toggle.is-disabled .mdl-icon-toggle__ripple-container .mdl-ripple {
     background: transparent; }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6178,7 +6497,31 @@ dt {
     margin-bottom: 0;
     margin-right: 16px; } }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6314,7 +6657,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6527,7 +6894,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6715,7 +7106,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7354,7 +7769,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7476,7 +7915,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7648,7 +8111,31 @@ dt {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7969,7 +8456,31 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8396,7 +8907,31 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8600,7 +9135,31 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8765,7 +9324,31 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8948,7 +9531,31 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9049,7 +9656,31 @@ _:-moz-tree-row(hover), .mdl-slider__background-upper {
     opacity: 1;
     visibility: visible; } }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9206,7 +9837,31 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
   -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
           transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9311,7 +9966,31 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 1px gray; }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9632,7 +10311,31 @@ form.wsk-form {
           -ms-flex-pack: start;
               justify-content: flex-start; }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9717,13 +10420,13 @@ form.wsk-form {
     color: rgba(0, 0, 0, 0.87);
     font-weight: normal; }
   .mdl-nav-pill.mdl-nav-pill--dark, .mdl-nav-pills > .mdl-nav-pill--dark {
-    background-color: #cddc39; }
+    background-color: #3f51b5; }
   .mdl-nav-pill.mdl-nav-pill--darker, .mdl-nav-pills > .mdl-nav-pill--darker {
-    background-color: #afb42b; }
+    background-color: #303f9f; }
   .mdl-nav-pill.mdl-nav-pill--light, .mdl-nav-pills > .mdl-nav-pill--light {
-    background-color: #dce775; }
+    background-color: #7986cb; }
   .mdl-nav-pill.mdl-nav-pill--lighter, .mdl-nav-pills > .mdl-nav-pill--lighter {
-    background-color: #f0f4c3; }
+    background-color: #c5cae9; }
   .mdl-nav-pill.mdl-nav-pill--accent, .mdl-nav-pills > .mdl-nav-pill--accent {
     background-color: #e91e63; }
   .mdl-nav-pill.mdl-nav-pill--light-text, .mdl-nav-pills > .mdl-nav-pill--light-text {
@@ -9799,21 +10502,21 @@ form.wsk-form {
     list-style: none;
     display: block; }
   .mdl-nav-pills.mdl-nav-pill--dark > * {
-    background-color: #cddc39; }
+    background-color: #3f51b5; }
   .mdl-nav-pills > .mdl-nav-pill--dark {
-    background-color: #cddc39 !important; }
+    background-color: #3f51b5 !important; }
   .mdl-nav-pills.mdl-nav-pill--darker > * {
-    background-color: #afb42b; }
+    background-color: #303f9f; }
   .mdl-nav-pills > .mdl-nav-pill--darker {
-    background-color: #afb42b !important; }
+    background-color: #303f9f !important; }
   .mdl-nav-pills.mdl-nav-pill--light > * {
-    background-color: #dce775; }
+    background-color: #7986cb; }
   .mdl-nav-pills > .mdl-nav-pill--light {
-    background-color: #dce775 !important; }
+    background-color: #7986cb !important; }
   .mdl-nav-pills.mdl-nav-pill--lighter > * {
-    background-color: #f0f4c3; }
+    background-color: #c5cae9; }
   .mdl-nav-pills > .mdl-nav-pill--lighter {
-    background-color: #f0f4c3 !important; }
+    background-color: #c5cae9 !important; }
   .mdl-nav-pills.mdl-nav-pill--accent > * {
     background-color: #e91e63; }
   .mdl-nav-pills > .mdl-nav-pill--accent {
@@ -9828,7 +10531,31 @@ form.wsk-form {
     .mdl-nav-pills > .mdl-nav-pill--light-text a {
       color: whitesmoke !important; }
 
-/* colors.scss */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9895,13 +10622,13 @@ form.wsk-form {
   .wsk-panel.wsk-panel--light-text {
     color: whitesmoke; }
   .wsk-panel.wsk-panel--dark {
-    background-color: #cddc39; }
+    background-color: #3f51b5; }
   .wsk-panel.wsk-panel--darker {
-    background-color: #afb42b; }
+    background-color: #303f9f; }
   .wsk-panel.wsk-panel--light {
-    background-color: #dce775; }
+    background-color: #7986cb; }
   .wsk-panel.wsk-panel--lighter {
-    background-color: #f0f4c3; }
+    background-color: #c5cae9; }
   .wsk-panel.wsk-panel--accent {
     background-color: #e91e63; }
   .wsk-panel.wsk-panel--with-heading {

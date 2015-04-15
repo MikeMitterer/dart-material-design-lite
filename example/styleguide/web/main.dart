@@ -50,6 +50,7 @@ main() {
     final Model model = new Model();
 
     configLogging();
+    enableTheming();
     configRouter();
 
     registerAllMdlComponents();
@@ -153,6 +154,9 @@ void configRouter() {
         ..addRoute(name: 'textfield', path: '/textfield',
                     enter: view("views/textfield.html", new DemoController()))
 
+        ..addRoute(name: 'theming', path: '/theming',
+            enter: view("views/theming.html", new DemoController()))
+
         ..addRoute(name: 'tooltip', path: '/tooltip',
                     enter: view("views/tooltip.html", new DemoController()))
 
@@ -166,6 +170,36 @@ void configRouter() {
     ;
 
     router.listen();
+}
+
+void enableTheming() {
+    final Uri uri = Uri.parse(dom.document.baseUri.toString());
+    if(uri.queryParameters.containsKey("theme")) {
+        final dom.LinkElement link = new dom.LinkElement();
+        link.rel = "stylesheet";
+        link.id = "theme";
+
+        final String theme = uri.queryParameters['theme'].replaceFirst("/","");
+        bool isThemeOK = false;
+
+        // dev/testing
+        //link.href = "https://rawgit.com/MikeMitterer/dart-mdl-theme/master/${theme}/material.css";
+
+        // production
+        link.href = "https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/${theme}/material.css";
+
+        isThemeOK = true;
+
+        if(isThemeOK) {
+            final dom.LinkElement defaultTheme = dom.querySelector("#theme");
+            if(defaultTheme != null) {
+                defaultTheme.replaceWith(link);
+
+                //dom.querySelector("#themename").text = theme;
+            }
+
+        }
+    }
 }
 
 void configLogging() {
