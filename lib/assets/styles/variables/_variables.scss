@@ -9,6 +9,10 @@ $color-light-contrast: $color-black !default;
 
 // Use color primarily for emphasis. Choose colors that fit with
 // your brand and provide good contrast between visual components.
+//
+// Define your primary palette and your accent palette in your main scss-file
+// or use one of the predefined themes.
+// For this case palette-primary and palette-accent is defined in palette/themes!
 $color-primary: $palette-primary-500 !default;
 $color-primary-dark: $palette-primary-700 !default;
 $color-accent: $palette-accent-A200 !default;

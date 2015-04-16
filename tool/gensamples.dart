@@ -20,16 +20,13 @@
  */
 
 import 'dart:io';
-import 'dart:async';
-import 'dart:collection';
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:args/args.dart';
 
 import 'package:logging/logging.dart';
 import 'package:logging_handlers/logging_handlers_shared.dart';
-
+import 'package:path/path.dart' as Path;
 import 'package:validate/validate.dart';
 
 class Application {
@@ -42,6 +39,7 @@ class Application {
     static const _ARG_GEN_STYLEGUIDE    = 'genstyleguide';
     static const _ARG_GENINDEX          = 'genindex';
     static const _ARG_GEN_THEMES        = 'genthemes';
+    static const _ARG_GEN_CSS           = 'gencss';
     static const _ARG_MK_BACKUP         = 'makebackup';
     static const _ARG_SHOW_DIRS         = 'showdirs';
     static const _ARG_MV_MDL            = 'mvmdl';
@@ -113,8 +111,13 @@ class Application {
                 _writeIndexHtml(config,links);
 
             }
+
             else if(argResults[_ARG_GEN_THEMES]) {
                 _generateThemes(config);
+            }
+
+            else if(argResults[_ARG_GEN_CSS]) {
+                _genMaterialCSS(config.sassdir);
             }
 
             else {
@@ -130,6 +133,7 @@ class Application {
 
 
     // -- private -------------------------------------------------------------
+
     void _generateThemes(final Config config) {
         Validate.notNull(config);
 
@@ -199,7 +203,7 @@ class Application {
         Validate.notNull(sassDir);
         Validate.notNull(config);
 
-        final String samplesDir = config.samplesdir;
+        //final String samplesDir = config.samplesdir;
         final String mdlDir = config.mdldir;
 
         final Directory mdlSampleDir = new Directory("${mdlDir}/$sampleName");
@@ -496,22 +500,40 @@ class Application {
         _writeYaml(sampleName,config);
     }
 
-    void _sasscAndAutoPrefix(final File targetScss,final File targetCss) {
+    void _sasscAndAutoPrefix(final File targetScss,final File targetCss,
+            { final bool useSass: false, final bool minify: false, final bool prefix: true }) {
+
         Validate.notNull(targetScss);
         Validate.notNull(targetCss);
 
-        final ProcessResult result = Process.runSync('sassc', [targetScss.path, targetCss.path]);
+        final String baseCss = "${Path.dirname(targetCss.path)}/${Path.basenameWithoutExtension(targetCss.path)}";
+        final String sassCompiler = useSass ? "sass" : "sassc";
+
+        final ProcessResult result = Process.runSync(sassCompiler, [targetScss.path, targetCss.path]);
         if(result.exitCode != 0) {
             _logger.severe(result.stderr);
         } else {
-            _logger.fine("    ${targetCss.path} created...");
+            _logger.info("    ${targetCss.path} created...");
         }
 
-        final ProcessResult resultPrefixer = Process.runSync('autoprefixer', [ targetCss.path]);
-        if(resultPrefixer.exitCode != 0) {
-            _logger.severe(resultPrefixer.stderr);
-        } else {
-            _logger.fine("    ${targetCss.path} prefixed...");
+        if(prefix) {
+            final ProcessResult resultPrefixer = Process.runSync('autoprefixer', [ targetCss.path]);
+            if(resultPrefixer.exitCode != 0) {
+                _logger.severe(resultPrefixer.stderr);
+            } else {
+                _logger.info("    ${targetCss.path} prefixed...");
+            }
+        }
+
+        if(minify) {
+            final String targetMinimize = "${baseCss}.min.css";
+            final ProcessResult resultMinimize = Process.runSync("minify", [ "--output", targetMinimize, targetCss.path ]);
+
+            if(resultMinimize.exitCode != 0) {
+                _logger.severe(resultMinimize.stderr);
+            } else {
+                _logger.info("    ${targetMinimize} created...");
+            }
         }
     }
 
@@ -536,7 +558,7 @@ class Application {
         final File targetCss = new File("${samplesDir}/material.css");
 
         _logger.info("${srcScss.path} -> ${targetCss.path}");
-        _sasscAndAutoPrefix(srcScss,targetCss);
+        _sasscAndAutoPrefix(srcScss,targetCss,useSass: false,minify: true);
     }
 
     void _Js2Dart(final File jsToConvert) {
@@ -914,7 +936,7 @@ class Application {
 
     void _showUsage() {
         print("Usage: gensamples [options]");
-        _parser.getUsage().split("\n").forEach((final String line) {
+        _parser.usage.split("\n").forEach((final String line) {
             print("    $line");
         });
 
@@ -930,10 +952,10 @@ class Application {
             return length;
         }
 
-        final int maxKeyLeght = getMaxKeyLength();
+        final int maxKeyLength = getMaxKeyLength();
 
         String prepareKey(final String key) {
-            return "${key[0].toUpperCase()}${key.substring(1)}:".padRight(maxKeyLeght + 1);
+            return "${key[0].toUpperCase()}${key.substring(1)}:".padRight(maxKeyLength + 1);
         }
 
         print("Settings:");
@@ -951,6 +973,7 @@ class Application {
             ..addFlag(_ARG_GEN_STYLEGUIDE,  abbr: 'y', negatable: false, help: "Generate styleguide")
             ..addFlag(_ARG_GENINDEX,        abbr: 'i', negatable: false, help: "Generate localindex.html")
             ..addFlag(_ARG_GEN_THEMES,      abbr: 't', negatable: false, help: "Generate SCSS-Themes")
+            ..addFlag(_ARG_GEN_CSS,         abbr: 'c', negatable: false, help: "Generate material.css")
             ..addFlag(_ARG_MK_BACKUP,       abbr: 'b', negatable: false, help: "Make backup")
             ..addFlag(_ARG_SHOW_DIRS,       abbr: 'd', negatable: false, help: "Show source-Dirs")
             ..addFlag(_ARG_MV_MDL,          abbr: 'm', negatable: false, help: "Move original MDL files to project")
@@ -1091,13 +1114,13 @@ class Config {
     _overwriteSettingsWithArgResults() {
 
         /// Makes sure that path does not end with a /
-        String checkPath(final String arg) {
-            String path = arg;
-            if(path.endsWith("/")) {
-                path = path.replaceFirst(new RegExp("/\$"),"");
-            }
-            return path;
-        }
+        //String checkPath(final String arg) {
+        //    String path = arg;
+        //    if(path.endsWith("/")) {
+        //        path = path.replaceFirst(new RegExp("/\$"),"");
+        //    }
+        //    return path;
+        //}
 
         if(_argResults[Application._ARG_LOGLEVEL] != null) {
             _settings[_KEY_LOGLEVEL] = _argResults[Application._ARG_LOGLEVEL];
