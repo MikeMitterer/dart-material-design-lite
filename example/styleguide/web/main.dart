@@ -169,6 +169,34 @@ class MenuController extends DemoController {
 // - private ------------------------------------------------------------------------------------------------------
 }
 
+class ProgressController extends DemoController {
+    final Logger _logger = new Logger('main.ProgressController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        // 1
+        new MaterialProgress(dom.querySelector("#p1")).progress = 44;
+
+        // 2
+        MaterialProgress.widget(dom.querySelector("#p3")).progress = 33;
+        MaterialProgress.widget(dom.querySelector("#p3")).buffer = 87;
+
+        (dom.querySelector("#slider") as dom.RangeInputElement).onInput.listen((final dom.Event event) {
+            final int value = int.parse((event.target as dom.RangeInputElement).value);
+
+            final component = new MaterialProgress(dom.querySelector("#p1"))
+                ..progress = value
+                ..classes.toggle("test");
+
+            _logger.info("Value: ${component.progress}");
+        });
+
+    }
+// - private ------------------------------------------------------------------------------------------------------
+}
+
 void configRouter() {
     final Router router = new Router(useFragment: true);
     final ViewFactory view = new ViewFactory();
@@ -224,7 +252,7 @@ void configRouter() {
             enter: view("views/panel.html", new DemoController()))
 
         ..addRoute(name: 'progress', path: '/progress',
-                    enter: view("views/progress.html", new DemoController()))
+                    enter: view("views/progress.html", new ProgressController()))
 
         ..addRoute(name: 'radio', path: '/radio',
                     enter: view("views/radio.html", new DemoController()))
