@@ -76,6 +76,30 @@ class DemoController extends MaterialController {
     // - private ------------------------------------------------------------------------------------------------------
 }
 
+class BadgeController extends DemoController {
+    final Logger _logger = new Logger('main.BadgeController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector("#el1"));
+        int counter = 1;
+        new Timer.periodic(new Duration(milliseconds: 100), (_) {
+            if(counter > 999) {
+                counter = 1;
+            }
+            badge1.value = counter.toString();
+            _logger.info("Current Badge-Value: ${badge1.value}");
+
+            counter++;
+        });
+    }
+
+    // - private ------------------------------------------------------------------------------------------------------
+}
+
+
 void configRouter() {
     final Router router = new Router(useFragment: true);
     final ViewFactory view = new ViewFactory();
@@ -89,7 +113,7 @@ void configRouter() {
                     enter: view("views/animation.html", new DemoController()))
 
         ..addRoute(name: 'badge', path: '/badge',
-                    enter: view("views/badge.html", new DemoController()))
+                    enter: view("views/badge.html", new BadgeController()))
 
         ..addRoute(name: 'button', path: '/button',
                     enter: view("views/button.html", new DemoController()))
@@ -186,7 +210,7 @@ void enableTheming() {
         //link.href = "https://rawgit.com/MikeMitterer/dart-mdl-theme/master/${theme}/material.css";
 
         // production
-        link.href = "https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/${theme}/material.css";
+        link.href = "https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/${theme}/material.min.css";
 
         isThemeOK = true;
 

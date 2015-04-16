@@ -340,5 +340,5 @@
 { "primary": "blue-grey", "accent": "orange", "theme": "blue_grey-orange" },
 { "primary": "blue-grey", "accent": "deep-orange", "theme": "blue_grey-deep_orange" },
 { "primary": "blue-grey", "accent": "brown", "theme": "blue_grey-brown" },
-{ "primary": "blue-grey", "accent": "grey", "theme": "blue_grey-grey" }
+{ "primary": "blue-grey", "accent": "grey", "theme": "blue_grey-grey" },
 ]

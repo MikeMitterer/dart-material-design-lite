@@ -1962,7 +1962,7 @@ Palettes (10 colors) 50 - 900 possible
   background-color: #455a64 !important; }
 
 .mdl-color--accent {
-  background-color: #18ffff !important; }
+  background-color: #ff4081 !important; }
 
 .mdl-color--accent-contrast {
   background-color: white !important; }
@@ -1977,7 +1977,7 @@ Palettes (10 colors) 50 - 900 possible
   color: #455a64 !important; }
 
 .mdl-color-text--accent, a.mdl-color-text--accent {
-  color: #18ffff !important; }
+  color: #ff4081 !important; }
 
 .mdl-color-text--accent-contrast, a.mdl-color-text--accent-contrast {
   color: white !important; }
@@ -3011,14 +3011,14 @@ Palettes (10 colors) 50 - 900 possible
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
     background-color: rgba(158, 158, 158, 0.4); }
   .mdl-button--fab.mdl-button--colored {
-    background: #18ffff;
+    background: #ff4081;
     color: white; }
     .mdl-button--fab.mdl-button--colored:hover {
-      background-color: #18ffff; }
+      background-color: #ff4081; }
     .mdl-button--fab.mdl-button--colored:focus:not(:active) {
-      background-color: #18ffff; }
+      background-color: #ff4081; }
     .mdl-button--fab.mdl-button--colored:active {
-      background-color: #18ffff; }
+      background-color: #ff4081; }
     .mdl-button--fab.mdl-button--colored .mdl-ripple {
       background: white; }
   .mdl-button--fab[disabled][disabled] {
@@ -3172,7 +3172,7 @@ Palettes (10 colors) 50 - 900 possible
   border-radius: 2px; }
 
 .mdl-card--img-container {
-  background-color: #18ffff;
+  background-color: #ff4081;
   background-repeat: repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -7732,7 +7732,7 @@ Palettes (10 colors) 50 - 900 possible
     bottom: 0;
     left: 0;
     position: absolute;
-    background: #18ffff;
+    background: #ff4081;
     -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
     -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
@@ -9956,13 +9956,13 @@ Palettes (10 colors) 50 - 900 possible
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #18ffff;
+    background: #ff4081;
     color: #fff; }
     .mdl-button .mdl-badge[data-badge]:after {
       top: -10px;
       right: -5px; }
   .mdl-badge.mdl-badge--no-background[data-badge]:after {
-    color: #18ffff;
+    color: #ff4081;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 1px gray; }
 
@@ -10428,7 +10428,7 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-nav-pill.mdl-nav-pill--lighter, .mdl-nav-pills > .mdl-nav-pill--lighter {
     background-color: #cfd8dc; }
   .mdl-nav-pill.mdl-nav-pill--accent, .mdl-nav-pills > .mdl-nav-pill--accent {
-    background-color: #00bcd4; }
+    background-color: #e91e63; }
   .mdl-nav-pill.mdl-nav-pill--light-text, .mdl-nav-pills > .mdl-nav-pill--light-text {
     color: whitesmoke; }
     .mdl-nav-pill.mdl-nav-pill--light-text a, .mdl-nav-pills > .mdl-nav-pill--light-text a {
@@ -10518,9 +10518,9 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-nav-pills > .mdl-nav-pill--lighter {
     background-color: #cfd8dc !important; }
   .mdl-nav-pills.mdl-nav-pill--accent > * {
-    background-color: #00bcd4; }
+    background-color: #e91e63; }
   .mdl-nav-pills > .mdl-nav-pill--accent {
-    background-color: #00bcd4 !important; }
+    background-color: #e91e63 !important; }
   .mdl-nav-pills.mdl-nav-pill--light-text > * {
     color: whitesmoke; }
     .mdl-nav-pills.mdl-nav-pill--light-text > * a {
@@ -10630,7 +10630,7 @@ Palettes (10 colors) 50 - 900 possible
   .wsk-panel.wsk-panel--lighter {
     background-color: #cfd8dc; }
   .wsk-panel.wsk-panel--accent {
-    background-color: #00bcd4; }
+    background-color: #e91e63; }
   .wsk-panel.wsk-panel--with-heading {
     padding: 0; }
     .wsk-panel.wsk-panel--with-heading > .wsk-panel__heading {

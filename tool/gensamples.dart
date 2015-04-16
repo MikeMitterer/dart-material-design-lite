@@ -64,19 +64,21 @@ class Application {
                 _printSettings(config.settings);
             }
             else if(argResults[_ARG_SHOW_DIRS]) {
-                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final Directory dir) {
+                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split(new RegExp(r"[,;]")),(final Directory dir) {
                     _logger.info(dir.path);
                 });
             }
             else if(argResults[_ARG_GEN_STYLEGUIDE]) {
-                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final Directory dir) {
+                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split(new RegExp(r"[,;]")),(final Directory dir) {
                     final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
-                    _copyDemoCss(sampleName, dir,config.samplesdir);
-                    _copySampleView(sampleName, dir,config.samplesdir);
+
+                    _logger.info("    coping views and styles for $sampleName to styleguide...");
+                    _copyDemoCssToStyleguide(sampleName, dir,config.samplesdir);
+                    _copySampleViewToStyleguide(sampleName, dir,config.samplesdir);
                 });
             }
             else if(argResults[_ARG_MV_MDL]) {
-                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split("[,;]"),(final Directory dir) {
+                _iterateThroughDirSync(config.sassdir,config.folderstoexclude.split(new RegExp(r"[,;]")),(final Directory dir) {
                     final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
                     _copyOrigFiles(sampleName, dir,config);
                 });
@@ -85,7 +87,7 @@ class Application {
 
             }
             else if(argResults[_ARG_GEN_SAMPLES]) {
-                final List<String> foldersToExclude = config.folderstoexclude.split("[,;]");
+                final List<String> foldersToExclude = config.folderstoexclude.split(new RegExp(r"[,;]"));
 
                 _iterateThroughDirSync(config.sassdir,foldersToExclude,(final Directory dir) {
                     final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
@@ -96,7 +98,7 @@ class Application {
 
             }  else if(argResults[_ARG_GEN_INDEX]) {
                 final List<_LinkInfo> links = new List<_LinkInfo>();
-                final List<String> foldersToExclude = config.folderstoexclude.split("[,;]");
+                final List<String> foldersToExclude = config.folderstoexclude.split(new RegExp(r"[,;]"));
 
                 _iterateThroughExamplesDirSync(config.samplesdir,foldersToExclude,(final Directory dir) {
                     final String sampleName = dir.path.replaceFirst("${config.samplesdir}/","");
@@ -272,7 +274,7 @@ class Application {
     }
 
     /// {sassDir} -> lib/sass/accordion
-    void _copyDemoCss(final String sampleName,final Directory sassDir,final String samplesDir) {
+    void _copyDemoCssToStyleguide(final String sampleName,final Directory sassDir,final String samplesDir) {
         Validate.notBlank(sampleName);
         Validate.notNull(sassDir);
         Validate.notBlank(samplesDir);
@@ -289,7 +291,7 @@ class Application {
             targetScssDir.createSync(recursive: true);
         }
 
-        _logger.fine("Coping styleguide $sampleName: ${srcScss.path} -> ${targetScss.path}");
+        _logger.fine("Coping CSS's to styleguide $sampleName: ${targetScss.path}");
 
         String content = srcScss.readAsStringSync();
         content = content.replaceAll(new RegExp(r"@import[^;]*;(\n|\r)*",caseSensitive: false, multiLine: true),"");
@@ -297,7 +299,7 @@ class Application {
         targetScss.writeAsStringSync(content);
     }
 
-    void _copySampleView(final String sampleName,final Directory sassDir,final String samplesDir) {
+    void _copySampleViewToStyleguide(final String sampleName,final Directory sassDir,final String samplesDir) {
         Validate.notBlank(sampleName);
         Validate.notNull(sassDir);
         Validate.notBlank(samplesDir);
@@ -317,7 +319,7 @@ class Application {
             targetSampleDir.createSync(recursive: true);
         }
 
-        _logger.fine("Coping styleguide $sampleName: ${srcSample.path} -> ${targetSample.path}");
+        _logger.fine("Coping view to styleguide $sampleName: ${targetSample.path}");
 
         String content = srcSample.readAsStringSync();
 
@@ -858,29 +860,16 @@ class Application {
                     return false;
                 }
 
-//                bool isUsableFile = (entity != null && FileSystemEntity.isFileSync(entity.path) &&
-//                    ( entity.path.endsWith(".dart") || entity.path.endsWith(".html") || entity.path.endsWith(".js"))
-//                );
-//
-////                bool isUsableFile = (entity != null && FileSystemEntity.isFileSync(entity.path) &&
-////                 entity.path.endsWith(".scss") && entity.path.contains("/_") &&
-////                    (( entity.path.endsWith(".dart") || entity.path.endsWith(".html") || entity.path.endsWith(".js"))
-////                );
-//
-//                if(!isUsableFile) {
-//                    return false;
-//                }
-
-                for(final String folder in foldersToExclude) {
-                    if(entity.path.contains(folder)) {
-                        return false;
-                    }
+                if(foldersToExclude.contains(Path.basename(entity.path))) {
+                    return false;
                 }
 
                 if(entity.path.contains("packages")) {
                     // return only true if the path starts!!!!! with packages
                     return entity.path.contains(regexp);
                 }
+
+                return !Path.basename(entity.path).startsWith(".");
 
                 return true;
 
@@ -969,9 +958,9 @@ class Application {
 
             ..addFlag(_ARG_HELP,            abbr: 'h', negatable: false, help: "Shows this message")
             ..addFlag(_ARG_SETTINGS,        abbr: 's', negatable: false, help: "Prints settings")
-            ..addFlag(_ARG_GEN_SAMPLES,        abbr: 'g', negatable: false, help: "Generate samples")
+            ..addFlag(_ARG_GEN_SAMPLES,     abbr: 'g', negatable: false, help: "Generate samples")
             ..addFlag(_ARG_GEN_STYLEGUIDE,  abbr: 'y', negatable: false, help: "Generate styleguide")
-            ..addFlag(_ARG_GEN_INDEX,        abbr: 'i', negatable: false, help: "Generate localindex.html")
+            ..addFlag(_ARG_GEN_INDEX,       abbr: 'i', negatable: false, help: "Generate localindex.html")
             ..addFlag(_ARG_GEN_THEMES,      abbr: 't', negatable: false, help: "Generate SCSS-Themes")
             ..addFlag(_ARG_GEN_CSS,         abbr: 'c', negatable: false, help: "Generate material.css")
             ..addFlag(_ARG_MK_BACKUP,       abbr: 'b', negatable: false, help: "Make backup")
