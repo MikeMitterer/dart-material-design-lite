@@ -35,9 +35,9 @@ class Application {
     static const _ARG_HELP              = 'help';
     static const _ARG_LOGLEVEL          = 'loglevel';
     static const _ARG_SETTINGS          = 'settings';
-    static const _ARG_GENERATE          = 'gen';
+    static const _ARG_GEN_SAMPLES          = 'gen';
     static const _ARG_GEN_STYLEGUIDE    = 'genstyleguide';
-    static const _ARG_GENINDEX          = 'genindex';
+    static const _ARG_GEN_INDEX          = 'genindex';
     static const _ARG_GEN_THEMES        = 'genthemes';
     static const _ARG_GEN_CSS           = 'gencss';
     static const _ARG_MK_BACKUP         = 'makebackup';
@@ -84,7 +84,7 @@ class Application {
                 _genMaterialCSS(config.sassdir);
 
             }
-            else if(argResults[_ARG_GENERATE]) {
+            else if(argResults[_ARG_GEN_SAMPLES]) {
                 final List<String> foldersToExclude = config.folderstoexclude.split("[,;]");
 
                 _iterateThroughDirSync(config.sassdir,foldersToExclude,(final Directory dir) {
@@ -94,7 +94,7 @@ class Application {
                 _genMaterialCSS(config.sassdir);
 
 
-            }  else if(argResults[_ARG_GENINDEX]) {
+            }  else if(argResults[_ARG_GEN_INDEX]) {
                 final List<_LinkInfo> links = new List<_LinkInfo>();
                 final List<String> foldersToExclude = config.folderstoexclude.split("[,;]");
 
@@ -195,7 +195,7 @@ class Application {
 
         scssFile.writeAsStringSync(template.replaceAll("{{primary}}",primaryColor).replaceAll("{{accent}}",accentColor));
 
-        _sasscAndAutoPrefix(scssFile,cssFile);
+        _sasscAndAutoPrefix(scssFile,cssFile,useSass: true, minify: true);
     }
 
     void _copyOrigFiles(final String sampleName,final Directory sassDir,final Config config) {
@@ -969,9 +969,9 @@ class Application {
 
             ..addFlag(_ARG_HELP,            abbr: 'h', negatable: false, help: "Shows this message")
             ..addFlag(_ARG_SETTINGS,        abbr: 's', negatable: false, help: "Prints settings")
-            ..addFlag(_ARG_GENERATE,        abbr: 'g', negatable: false, help: "Generate samples")
+            ..addFlag(_ARG_GEN_SAMPLES,        abbr: 'g', negatable: false, help: "Generate samples")
             ..addFlag(_ARG_GEN_STYLEGUIDE,  abbr: 'y', negatable: false, help: "Generate styleguide")
-            ..addFlag(_ARG_GENINDEX,        abbr: 'i', negatable: false, help: "Generate localindex.html")
+            ..addFlag(_ARG_GEN_INDEX,        abbr: 'i', negatable: false, help: "Generate localindex.html")
             ..addFlag(_ARG_GEN_THEMES,      abbr: 't', negatable: false, help: "Generate SCSS-Themes")
             ..addFlag(_ARG_GEN_CSS,         abbr: 'c', negatable: false, help: "Generate material.css")
             ..addFlag(_ARG_MK_BACKUP,       abbr: 'b', negatable: false, help: "Make backup")
