@@ -1,72 +1,72 @@
 <!doctype html>
 <html lang="">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Icon Toggles</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Icon Toggles</title>
 
-  <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="demo.css">
 
-  <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en'
+          rel='stylesheet' type='text/css'>
 
 </head>
 <body class="demo-page demo-page--icon-toggle">
 
-  <div class="demo-preview-block">
+<div class="demo-preview-block">
 
     <div class="demo-icon-toggle-block">
-      <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-1">
-        <input type="checkbox" id="checkbox-1" class="mdl-icon-toggle__input" />
-        <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
-      </label>
+        <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-1">
+            <input type="checkbox" id="checkbox-1" class="mdl-icon-toggle__input"/>
+            <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
+        </label>
 
-      <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-2">
-        <input type="checkbox" id="checkbox-2" class="mdl-icon-toggle__input" />
-        <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-italic"></span>
-      </label>
+        <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-2">
+            <input type="checkbox" id="checkbox-2" class="mdl-icon-toggle__input"/>
+            <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-italic"></span>
+        </label>
 
-      <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-3">
-        <input type="checkbox" id="checkbox-3" class="mdl-icon-toggle__input" />
-        <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-underline"></span>
-      </label>
+        <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-3">
+            <input type="checkbox" id="checkbox-3" class="mdl-icon-toggle__input"/>
+            <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-underline"></span>
+        </label>
     </div>
 
     <h2>Disabled</h2>
-
     <div class="demo-icon-toggle-block">
-      <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="disabled-checkbox-1">
-        <input type="checkbox" id="disabled-checkbox-1" class="mdl-icon-toggle__input" disabled />
-        <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
-      </label>
+        <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="disabled-checkbox-1">
+            <input type="checkbox" id="disabled-checkbox-1" class="mdl-icon-toggle__input" disabled/>
+            <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
+        </label>
 
-      <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="disabled-checkbox-2">
-        <input type="checkbox" id="disabled-checkbox-2" class="mdl-icon-toggle__input" disabled />
-        <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-italic"></span>
-      </label>
+        <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="disabled-checkbox-2">
+            <input type="checkbox" id="disabled-checkbox-2" class="mdl-icon-toggle__input" disabled/>
+            <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-italic"></span>
+        </label>
 
-      <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="disabled-checkbox-3">
-        <input type="checkbox" id="disabled-checkbox-3" class="mdl-icon-toggle__input" disabled />
-        <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-underline"></span>
-      </label>
+        <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="disabled-checkbox-3">
+            <input type="checkbox" id="disabled-checkbox-3" class="mdl-icon-toggle__input" disabled/>
+            <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-underline"></span>
+        </label>
     </div>
 
-      <h2>Programmatic</h2>
+    <h2>via Timer</h2>
+    <div class="demo-icon-toggle-block">
+        <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="public-checkbox-1">
+            <input type="checkbox" id="public-checkbox-1" class="mdl-icon-toggle__input"/>
+            <span class="mdl-icon-toggle__label mdl-icon mdl-icon--android"></span>
+        </label>
 
-      <div class="demo-icon-toggle-block">
-          <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="disabled-checkbox-1">
-              <input type="checkbox" id="public-checkbox-1" class="mdl-icon-toggle__input" />
-              <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
-          </label>
-          <p>"bold" toggles automatically every 500ms</p>
-      </div>
-  </div>
-  <!-- build:js(app/styleguide/icon-toggle/) ../../scripts/main.min.js -->
-  <script src="../mdlComponentHandler.js"></script>
-  <script src="icon-toggle.js"></script>
-  <script src="../third_party/rAF.js"></script>
-  <script src="../ripple/ripple.js"></script>
-  <!-- endbuild -->
+        <p>"bold" toggles automatically every 500ms</p>
+    </div>
+</div>
+<!-- build:js(app/styleguide/icon-toggle/) ../../scripts/main.min.js -->
+<script src="../mdlComponentHandler.js"></script>
+<script src="icon-toggle.js"></script>
+<script src="../third_party/rAF.js"></script>
+<script src="../ripple/ripple.js"></script>
+<!-- endbuild -->
 </body>
 </html>
