@@ -131,6 +131,7 @@ class MaterialTab {
 
             tab.onClick.listen( (final html.Event event) {
                 event.preventDefault();
+                event.stopPropagation();
 
                 final String attribHref = tab.attributes["href"];
                 final String href = attribHref.split('#')[1];
