@@ -2,20 +2,38 @@ template: view
 sample: theming
 url: http://mdl.mikemitterer.at/styleguide/index.html
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<p>Switch themes "on the fly" by clicking on the theme name!</p>
+<p>
+    Either download the theme from <a href="https://github.com/MikeMitterer/dart-mdl-theme" target="_blank">GitHub</a>
+    or add it to your index.html with:<br>
+
+    <div class="csslink">
+        &lt;link id=&quot;theme&quot; rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/&lt;theme-name&gt;/material.min.css&quot;&gt;
+    </div>
+
+</p>
 <ol>
 {{#_data.themes}}
     <li>
-        <a href="{{url}}?theme={{theme}}#/theming" target="_self" class="mdl-color-text--primary">{{theme}}</a>
-        <p>On GitHub: <a href="https://github.com/MikeMitterer/dart-mdl-theme/tree/master/{{theme}}" target="_blank">Show</a></p>
-        <div class="color-sample theme-{{theme}}">
-            <div class="title mdl-color--{{primary}} mdl-color-text--white">Title</div>
+        Theme "<a href="{{url}}?theme={{theme}}#/theming" target="_self" class="mdl-color-text--primary">{{theme}}</a>"
+        <div class="color-sample theme-{{theme}} mdl-shadow--z2">
+            <div class="title mdl-color--{{primary}} mdl-color-text--white">Material Design Lite</div>
             <div class="content">
-                <p>Content</p>
-                <div class="demo-button">
-                    <button class="mdl-button mdl-button--raised mdl-button--colored mdl-color--{{primary}} mdl-js-ripple-effect">Raised</button>
+                <p><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+
+                <p>
+                    <a class="mdl-color-text--primary" href="https://github.com/MikeMitterer/dart-mdl-theme/tree/master/{{theme}}" target="_blank">Show / Open</a>
+                    on GitHub
+                </p>
+
+                <div>
+                    <button class="mdl-button mdl-button--raised mdl-button--colored mdl-color--{{primary}}">Raised</button>
                 </div>
-                <div class="demo-button">
-                    <button class="mdl-button mdl-button--fab mdl-button--colored mdl-color--{{accent}}-A200 mdl-js-ripple-effect"><span class="mdl-icon mdl-icon--add"/></button>
+                <div>
+                    <button class="mdl-button mdl-button--fab mdl-button--colored mdl-color--{{accent}}-A200">
+                        <span class="mdl-icon mdl-icon--add"/>
+                    </button>
                 </div>
             </div>
         </div>

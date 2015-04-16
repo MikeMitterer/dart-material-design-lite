@@ -35,6 +35,8 @@ body {
 }
 
 .mdl-layout__content {
+    box-sizing      : border-box;
+
     display         : flex;
     flex-direction  : column;
     flex-wrap       : wrap;
@@ -43,7 +45,7 @@ body {
     align-items     : stretch; // ⇾
 
     .mdl-content {
-        margin    : 24px;
+        margin    : 0 24px 24px 24px;
         flex-grow : 1;
     }
 
@@ -54,8 +56,10 @@ body {
 }
 
 .demo-section {
+    margin-top    : 24px;
+
     h1, h2, h3, h4, h5 {
-        margin-top : 24px;
+        margin-top    : 24px;
         margin-bottom : 12px;
     }
 }

@@ -1,10 +1,24 @@
 .demo-section--theming {
-    min-width: 400px;
+    min-width: 300px;
+    max-width: 450px;
 
+    a {
+        text-decoration: none;
+    }
+
+    ol {
+        padding-left: 24px;
+    }
+
+    .csslink {
+        margin: 0 12px 0 12px;
+    }
     .color-sample {
+        position: relative;
+
         border: 1px solid #cccccc;
         margin-bottom: 10px;
-        border-radius: 3px;
+        border-radius: 5px;
 
         min-height: 200px;
 
@@ -12,6 +26,11 @@
             padding: 8px;
         }
 
+        .mdl-button--fab {
+            position: absolute;
+            right : 12px;
+            bottom: 12px;
+        }
     }
 
 }
