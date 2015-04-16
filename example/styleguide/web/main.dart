@@ -197,6 +197,37 @@ class ProgressController extends DemoController {
 // - private ------------------------------------------------------------------------------------------------------
 }
 
+class RadioController extends DemoController {
+    final Logger _logger = new Logger('main.RadioController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
+
+    }
+// - private ------------------------------------------------------------------------------------------------------
+}
+
+class SpinnerController extends DemoController {
+    final Logger _logger = new Logger('main.SpinnerController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final MaterialSpinner spinner = MaterialSpinner.widget(dom.querySelector("#first"));
+        final MaterialButton button = MaterialButton.widget(dom.querySelector("#button"));
+
+        button.onClick.listen((_) {
+            spinner.active = !spinner.active;
+        });
+
+    }
+// - private ------------------------------------------------------------------------------------------------------
+}
+
 void configRouter() {
     final Router router = new Router(useFragment: true);
     final ViewFactory view = new ViewFactory();
@@ -255,7 +286,7 @@ void configRouter() {
                     enter: view("views/progress.html", new ProgressController()))
 
         ..addRoute(name: 'radio', path: '/radio',
-                    enter: view("views/radio.html", new DemoController()))
+                    enter: view("views/radio.html", new RadioController()))
 
         ..addRoute(name: 'shadow', path: '/shadow',
                     enter: view("views/shadow.html", new DemoController()))
@@ -264,7 +295,7 @@ void configRouter() {
                     enter: view("views/slider.html", new DemoController()))
 
         ..addRoute(name: 'spinner', path: '/spinner',
-                    enter: view("views/spinner.html", new DemoController()))
+                    enter: view("views/spinner.html", new SpinnerController()))
 
         ..addRoute(name: 'switch', path: '/switch',
                     enter: view("views/switch.html", new DemoController()))
