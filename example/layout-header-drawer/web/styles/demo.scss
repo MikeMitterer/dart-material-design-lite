@@ -1,18 +1,4 @@
-@import "packages/wsk_material/sass/resets/h5bp";
-@import "packages/wsk_material/sass/colors";
-//@import "colors";
-
-@import 'packages/wsk_material/sass/typography/typography';
-@import 'packages/wsk_material/sass/layout/layout';
-@import 'packages/wsk_material/sass/textfield/textfield';
-@import 'packages/wsk_material/sass/animation/animation';
-@import 'packages/wsk_material/sass/palette/palette';
-@import 'packages/wsk_material/sass/list/list';
-@import "packages/wsk_material/sass/shadow/shadow";
-@import "packages/wsk_material/sass/button/button";
-@import "packages/wsk_material/sass/footer/mega_footer";
-@import "packages/wsk_material/sass/footer/mini_footer";
-
+@import "packages/mdl/assets/styles/material-design-lite";
 
 html, body {
     width            : 100%;
