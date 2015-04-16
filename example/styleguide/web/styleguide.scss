@@ -1,6 +1,5 @@
 //@import "packages/mdl/assets/themes/red-pink/material-design-lite";
 @import "packages/mdl/assets/styles/fonts/fonts";
-
 // for layout
 // @import "packages/mdl/assets/styles/icons/icons";
 @import "packages/mdl/assets/styles/mixins/mixins";
@@ -18,7 +17,6 @@ body {
         text-transform : capitalize;
     }
 }
-
 
 .mdl-layout__drawer {
     //.mdl-layout-title {
@@ -50,13 +48,13 @@ body {
     }
 
     .lastmod {
-        width      : 100%;
         text-align : right;
+        padding    : 8px;
     }
 }
 
 .demo-section {
-    h1,h2,h3,h4,h5 {
-        padding-bottom: 12px;
+    h1, h2, h3, h4, h5 {
+        padding-bottom : 12px;
     }
 }

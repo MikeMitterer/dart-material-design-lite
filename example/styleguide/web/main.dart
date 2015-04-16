@@ -133,6 +133,42 @@ class IconToggleController extends DemoController {
 // - private ------------------------------------------------------------------------------------------------------
 }
 
+class MenuController extends DemoController {
+    final Logger _logger = new Logger('main.MenuController');
+
+    static const int TIMEOUT_IN_SECS = 5;
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final MaterialMenu menu1 = MaterialMenu.widget(dom.querySelector("#menu1"));
+        final dom.DivElement message = dom.querySelector("#message");
+
+        void _showMessage(final int secsToClose) {
+            message.text = "Menu closes in ${secsToClose} seconds...";
+            if(secsToClose <= 0) {
+                message.text = "";
+            }
+        }
+
+        menu1.show();
+        _showMessage(TIMEOUT_IN_SECS);
+        int tick = 0;
+        new Timer.periodic(new Duration(milliseconds: 1000) , (final Timer timer) {
+
+            _showMessage(TIMEOUT_IN_SECS - tick - 1);
+            if(tick >= TIMEOUT_IN_SECS - 1) {
+                timer.cancel();
+                menu1.hide();
+            }
+            tick++;
+        });
+
+    }
+// - private ------------------------------------------------------------------------------------------------------
+}
+
 void configRouter() {
     final Router router = new Router(useFragment: true);
     final ViewFactory view = new ViewFactory();
@@ -176,7 +212,7 @@ void configRouter() {
                     enter: view("views/list.html", new DemoController()))
 
         ..addRoute(name: 'menu', path: '/menu',
-                    enter: view("views/menu.html", new DemoController()))
+                    enter: view("views/menu.html", new MenuController()))
 
         ..addRoute(name: 'nav-pills', path: '/nav-pills',
             enter: view("views/nav-pills.html", new DemoController()))
