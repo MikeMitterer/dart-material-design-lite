@@ -1,5 +1,6 @@
 import "dart:html" as dom;
 import "dart:async";
+import "dart:math" as Math;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
@@ -22,6 +23,7 @@ class Model {
     Stream<ModelChangedEvent> onChange;
 
     int _sliderValue = 20;
+    List<int> randomValues = new List<int>();
 
     factory Model() {
         if(_model == null) {  _model = new Model._internal(); }
@@ -32,6 +34,10 @@ class Model {
 
     set sliderValue(final int value) {
         _sliderValue = value;
+        randomValues.clear();
+        for(int counter = 0;counter < _sliderValue;counter++) {
+            randomValues.add(new Math.Random().nextInt(1000));
+        }
         _controller.add(new ModelChangedEvent());
     }
 
@@ -57,6 +63,20 @@ main() {
 
         final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector("#mainslider2"));
         final MaterialContent list = MaterialContent.widget(dom.querySelector("#list"));
+        final MaterialMustache mustache = MaterialMustache.widget(dom.querySelector("#mustache"));
+
+        mustache.template = """
+            <div>
+                Slider value: {{sliderValue}}
+                    <ol>
+                    {{#randomValues}}
+                        <li>{{ . }},</li>
+                    {{/randomValues}}
+                    {{^randomValues }}
+                        <li>No values</li>
+                    {{/randomValues }}
+                    </ol>
+            </div>""";
 
         mainslider.value = model.sliderValue;
 
@@ -96,6 +116,8 @@ main() {
                     }
                 });
             });
+
+            mustache.render(model);
         });
 
     });

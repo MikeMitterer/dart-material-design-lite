@@ -22,52 +22,57 @@ part of mdlremote;
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
-class _MaterialContentCssClasses {
+class _MaterialMustacheCssClasses {
 
     final String IS_UPGRADED = 'is-upgraded';
 
-    const _MaterialContentCssClasses();
+    const _MaterialMustacheCssClasses();
 }
 
 /// Store constants in one place so they can be updated easily.
-class _MaterialContentConstant {
-    const _MaterialContentConstant();
+class _MaterialMustacheConstant {
+    const _MaterialMustacheConstant();
 }
 
 /// registration-Helper
-void registerMaterialContent() => componenthandler.register(new MdlWidgetConfig<MaterialContent>(
-    "mdl-js-content", (final html.HtmlElement element) => new MaterialContent.fromElement(element)));
+void registerMaterialMustache() => componenthandler.register(new MdlWidgetConfig<MaterialMustache>(
+    "mdl-js-mustache", (final html.HtmlElement element) => new MaterialMustache.fromElement(element)));
 
-class MaterialContent extends MdlComponent {
-    final Logger _logger = new Logger('mdlremote.MaterialContent');
+class MaterialMustache extends MdlComponent {
+    final Logger _logger = new Logger('mdlremote.MaterialMustache');
 
-    static const _MaterialContentCssClasses _cssClasses = const _MaterialContentCssClasses();
+    static const _MaterialMustacheConstant _constant = const _MaterialMustacheConstant();
+    static const _MaterialMustacheCssClasses _cssClasses = const _MaterialMustacheCssClasses();
+
     final Renderer _renderer = new Renderer();
 
-    MaterialContent.fromElement(final html.HtmlElement element) : super(element) {
+    String _template = "";
+
+    MaterialMustache.fromElement(final html.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialContent widget(final html.HtmlElement element) => mdlComponent(element) as MaterialContent;
+    static MaterialMustache widget(final html.HtmlElement element) => mdlComponent(element) as MaterialMustache;
 
-
-    // Central Element - by default this is where mdl-js-content was found (element)
+    // Central Element - by default this is where mdl-js-mustache was found (element)
     // html.Element get hub => inputElement;
 
-    /// Render the {content} String - {content} must have ONE! top level element
-    Future render(final String content) {
+    void set template(final String value) {
+        _template = value.trim().replaceAll(new RegExp(r"\s+"),"");
+    }
+
+    Future render(final scope) {
         //_logger.info("Content: $content");
 
-        return _renderer.render(element,content);
+        final Template mustacheTemplate = new Template(_template,htmlEscapeValues: false);
+        return _renderer.render(element,mustacheTemplate.renderString(scope));
     }
 
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialContent - init");
+        _logger.fine("MaterialMustache - init");
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 }
-
-
 

@@ -17,6 +17,19 @@
         body.mdl-upgrading > * { display : none; }
 
         body.mdl-upgrading div.loading { display : block; }
+
+        .cols {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ⇾
+            align-content: space-between; // ||
+            align-items: flex-start; // ↓
+        }
+
+        .col {
+            width: 50%;
+        }
     </style>
 </head>
 
@@ -56,11 +69,20 @@
     slider.html reflects your changes in the main model! If the "Slider sample" is loaded drag one of the blue sliders.
     They return their value to the main model and you'll see all three sliders moving.</p>
 
-    <h5>List</h5>
-    <div id="list" class="mdl-content mdl-js-content">
-        Waiting for action...
+    <div class="cols">
+        <div class="col">
+            <h5>Mustache-Template</h5>
+            <div id="mustache" class="mdl-mustache mdl-js-mustache">
+                Waiting for action...
+            </div>
+        </div>
+        <div class="col">
+            <h5>List</h5>
+            <div id="list" class="mdl-content mdl-js-content">
+                Waiting for action...
+            </div>
+        </div>
     </div>
-
 </div>
 <!-- build:js(app/styleguide/animation/) ../../scripts/main.min.js -->
 <!-- <script src="../wskComponentHandler.js"></script> -->
