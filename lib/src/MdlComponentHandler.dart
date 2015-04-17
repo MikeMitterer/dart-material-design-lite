@@ -90,22 +90,23 @@ class MdlComponentHandler {
      * If all components are ready it remove mdl-upgrading.
      */
     Future upgradeAllRegistered() {
+        final html.Element body = html.querySelector("body");
+        return upgradeElement(body);
+    }
+
+    Future upgradeElement(final html.HtmlElement element) {
+        Validate.notNull(element,"Component must not be null!");
+
         html.querySelector("html")
             ..classes.add(_cssClasses.HTML_JS)
-            ..classes.add(_cssClasses.HTML_DART);
-
-        html.querySelector("body").classes.add(_cssClasses.UPGRADING);
+            ..classes.add(_cssClasses.HTML_DART)
+            ..classes.remove(_cssClasses.UPGRADED);
 
         final Future future = new Future(() {
+            element.classes.add(_cssClasses.UPGRADING);
 
-            // The component with the highest priority comes last
-            final List<MdlConfig> configs = new List<MdlConfig>.from(_registeredComponents.values);
-            configs.sort((final MdlConfig a, final MdlConfig b) {
-                return a.priority.compareTo(b.priority);
-            });
-
-            configs.forEach((final MdlConfig config) {
-                _upgradeDom(config);
+            _configs.forEach((final MdlConfig config) {
+                _upgradeDom(element,config);
                 _logger.fine("${config.cssClass} upgraded with ${config.classAsString}...");
             });
 
@@ -118,45 +119,43 @@ class MdlComponentHandler {
         return future;
     }
 
-    void upgradeElement(final html.HtmlElement element, List<MdlConfig> mdlcomponents() ) {
-        Validate.notNull(mdlcomponents,"Callback for MdlConfig-List must not be null!");
-
-        final List<MdlConfig> components = mdlcomponents();
-        if(components == null || components.isEmpty) {
-            _logger.warning("No MdlConfig provided for ${element}");
-            return;
-        }
-
-        components.forEach((final MdlConfig config) {
-            _upgradeElement(element,config);
-        });
-
-        element.classes.add(_cssClasses.UPGRADED);
-        element.classes.remove(_cssClasses.UPGRADING);
-    }
-
     //- private -----------------------------------------------------------------------------------
 
     bool _isRegistered(final MdlConfig config) => _registeredComponents.containsKey(config.classAsString);
 
     bool _isValidClassName(final String classname) => (classname != "dynamic");
 
+    /// The component with the highest priority comes last
+    List<MdlConfig> get _configs {
+        final List<MdlConfig> configs = new List<MdlConfig>.from(_registeredComponents.values);
+
+        configs.sort((final MdlConfig a, final MdlConfig b) {
+            return a.priority.compareTo(b.priority);
+        });
+
+        return configs;
+    }
+
     /**
      * Searches existing DOM for elements of our component type and upgrades them
      * if they have not already been upgraded!
+     * {queryBaseElement} defines where the querySelector starts to search - can be any element.
+     * upgradeAllRegistered uses "body" as {queryBaseElement}
      */
-    void _upgradeDom(final MdlConfig config) {
+    void _upgradeDom(final html.Element queryBaseElement, final MdlConfig config) {
+        Validate.notNull(queryBaseElement);
         Validate.notNull(config);
 
-        //final List<Future> futureUpgrade = new List<Future>();
-        //return new Future(() {
-            final html.ElementList<html.HtmlElement> elements = html.querySelectorAll(".${config.cssClass}");
+//        final List<Future> futureUpgrade = new List<Future>();
+//        final Future future = new Future(() {
+            final html.ElementList<html.HtmlElement> elements = queryBaseElement.querySelectorAll(".${config.cssClass}");
             elements.forEach((final html.HtmlElement element) {
                 _upgradeElement(element, config);
                 // futureUpgrade.add(_upgradeElement(element, config));
             });
-        //});
-        //return Future.wait(futureUpgrade);
+//        });
+//        futureUpgrade.add(future);
+//        Future.wait(futureUpgrade);
     }
 
     /**

@@ -1,5 +1,11 @@
 @import "packages/mdl/assets/styles/material-design-lite";
 
-.demo-preview-block {
-    background-color: transparent;
+.demo-page--content {
+    .demo-preview-block {
+        background-color: transparent;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
 }

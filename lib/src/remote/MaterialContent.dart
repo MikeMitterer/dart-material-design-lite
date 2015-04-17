@@ -44,6 +44,8 @@ class _MaterialContentConstant {
 void registerMaterialContent() => componenthandler.register(new MdlWidgetConfig<MaterialContent>(
     "mdl-js-content", (final html.HtmlElement element) => new MaterialContent.fromElement(element)));
 
+typedef void RenderFunction();
+
 class MaterialContent extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialContent');
 
@@ -56,15 +58,20 @@ class MaterialContent extends MdlComponent {
 
     static MaterialContent widget(final html.HtmlElement element) => mdlComponent(element) as MaterialContent;
 
+    final List<RenderFunction> _renderFunctions = new List<RenderFunction>();
+
     // Central Element - by default this is where mdl-js-content was found (element)
     // html.Element get hub => inputElement;
 
+    /// Render the {content} String - {content} must have ONE! top level element
     Future render(final String content) {
-        _logger.info("Content: $content");
+        //_logger.info("Content: $content");
 
         final Completer completer = new Completer();
 
-        new Future(() {
+        // add the render-function to the list where requestAnimationFrame can pick it
+        _renderFunctions.insert(0, () {
+
             element.classes.remove(_cssClasses.LAODED);
             element.classes.add(_cssClasses.LAODING);
 
@@ -75,22 +82,31 @@ class MaterialContent extends MdlComponent {
             element.append(child);
 
             /// check if child is in DOM
-            new Timer.periodic(new Duration(milliseconds: 10),(final Timer timer) {
+//            new Timer.periodic(new Duration(milliseconds: 10),(final Timer timer) {
 
                 _logger.info("Check for dyn-content...");
                 final html.Element dynContent = element.querySelector(".${_cssClasses.DYN_CONTENT}");
 
                 if( dynContent != null) {
-                    timer.cancel();
+//                    timer.cancel();
+
                     dynContent.classes.remove(_cssClasses.DYN_CONTENT);
 
                     element.classes.remove(_cssClasses.LAODING);
                     element.classes.add(_cssClasses.LAODED);
 
-                    upgradeAllRegistered().then((_) => completer.complete());
+                    componenthandler.upgradeElement(element).then((_) => completer.complete());
                 }
-            });
+//            });
         });
+
+        //new Future(() {
+        html.window.requestAnimationFrame( (_) {
+             final RenderFunction renderfunction = _renderFunctions.last;
+             _renderFunctions.remove(renderfunction);
+             renderfunction();
+        });
+
 
         return completer.future;
     }

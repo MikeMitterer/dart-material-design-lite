@@ -54,14 +54,50 @@ main() {
     registerAllMdlRemoteComponents();
 
     upgradeAllRegistered().then((_) {
+
         final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector("#mainslider2"));
+        final MaterialContent list = MaterialContent.widget(dom.querySelector("#list"));
 
         mainslider.value = model.sliderValue;
 
-        mainslider.onChange.listen((_) => model.sliderValue = mainslider.value);
+        mainslider.onInput.listen((_) => model.sliderValue = mainslider.value);
+
         model.onChange.listen((_) {
-            mainslider.value = model.sliderValue;
+
+            String items() {
+                final StringBuffer line = new StringBuffer();
+                for(int counter = 0; counter < model.sliderValue; counter++) {
+                    final String id = "${counter + 1}";
+
+                    line.write("<li>");
+                    line.write("Item #${id}");
+                    line.write('<button id="btn$id" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Button #${id}</button>');
+                    line.write("</li>");
+                }
+                return line.toString();
+            }
+
+            new Future(() {
+                mainslider.value = model.sliderValue;
+                _logger.info("Model ${model.sliderValue}");
+
+                list.render("<ul>" + items() + "</ul>").then((_) {
+                    for(int counter = 0; counter < model.sliderValue; counter++) {
+                        final dom.Element element  = list.element.querySelector("#btn${counter+1}");
+
+                        // check for null - if elements are added to fast it could be possible that
+                        // the element you are searching for was already removed
+                        if(element != null) {
+                            element.onClick.listen((final dom.MouseEvent event) {
+                                dom.window.alert("Clicked on Button #${counter+1}");
+                            });
+
+                        }
+                    }
+                });
+            });
         });
+
     });
 }
 

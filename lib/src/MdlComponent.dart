@@ -54,6 +54,7 @@ abstract class MdlComponent {
     Map<String, String> get attributes => element.attributes;
 
     html.ElementStream<html.Event> get onChange => hub.onChange;
+    html.ElementStream<html.Event> get onInput => hub.onInput;
     html.ElementStream<html.MouseEvent> get onClick => hub.onClick;
 }
 
