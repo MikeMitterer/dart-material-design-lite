@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-.demo-page--card .mdl-card {
-  margin: 20px;
-}
+.demo-page--card, .demo-section--card {
+    .mdl-card {
+        margin: 20px;
+    }
 
-.demo-card--wide {
-  width: 600px;
+    .demo-card--wide {
+        width: 600px;
+    }
 }
