@@ -1,5 +1,5 @@
-name: mdl_{{samplename}}_sample
-description: Material Design Lite '{{samplename}}' Sample
+name: mdl_include_sample
+description: MDL Sample 'include' - Material Design
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-material-design-lite
@@ -17,7 +17,8 @@ dependencies:
   console_log_handler: any
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
+  prettify: any
+
   mdl:
     path: ../../
-
 

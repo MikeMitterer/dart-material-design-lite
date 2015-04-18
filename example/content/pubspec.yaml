@@ -2,7 +2,7 @@ name: mdl_content_sample
 description: MDL Sample 'content' - Material Design
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-wsk-material
+homepage: https://github.com/MikeMitterer/dart-material-design-lite
 
 dependencies:
   browser: any

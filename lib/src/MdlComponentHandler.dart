@@ -24,7 +24,7 @@ class _MdlComponentHandlerCssClasses {
 
     final String UPGRADING = "mdl-upgrading";
 
-    final Stirng UPGRADED = "mdl-upgraded";
+    final String UPGRADED = "mdl-upgraded";
 
     final String HTML_JS = "mdl-js";
 

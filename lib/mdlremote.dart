@@ -30,11 +30,14 @@ import 'package:mustache/mustache.dart';
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
 
+part "src/remote/Utils.dart";
+
 part "src/remote/ViewFactory.dart";
 part "src/remote/Renderer.dart";
 
 part "src/remote/MaterialContent.dart";
 part "src/remote/MaterialMustache.dart";
+part "src/remote/MaterialInclude.dart";
 
 
 part "src/remote/MaterialContoller.dart";
@@ -43,5 +46,5 @@ void registerAllMdlRemoteComponents() {
 
     registerMaterialContent();
     registerMaterialMustache();
-
+    registerMaterialInclude();
 }
