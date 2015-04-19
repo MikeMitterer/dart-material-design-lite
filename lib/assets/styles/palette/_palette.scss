@@ -2259,7 +2259,7 @@
     color: $color-white !important;
 }
 
-// Primary and accent
+// - Primary and accent ------------------------------------------------------------------------------------------------
 
 .mdl-color--primary {
     background-color : $color-primary !important;
@@ -2281,6 +2281,65 @@
     background-color : $color-accent-contrast !important;
 }
 
+.mdl-color--50 {
+    background-color: $palette-primary-50 !important;    
+}
+
+.mdl-color--100 {
+    background-color: $palette-primary-100 !important;
+}
+
+.mdl-color--200 {
+    background-color: $palette-primary-200 !important;
+}
+
+.mdl-color--300 {
+    background-color: $palette-primary-300 !important;
+}
+
+.mdl-color--400 {
+    background-color: $palette-primary-400 !important;
+}
+
+.mdl-color--500 {
+    background-color: $palette-primary-500 !important;
+}
+
+.mdl-color--600 {
+    background-color: $palette-primary-600 !important;
+}
+
+.mdl-color--700 {
+    background-color: $palette-primary-700 !important;
+}
+
+.mdl-color--800 {
+    background-color: $palette-primary-800 !important;
+}
+
+.mdl-color--900 {
+    background-color: $palette-primary-900 !important;
+}
+
+.mdl-color--A100 {
+    background-color: $palette-primary-A100 !important;
+}
+
+.mdl-color--A200 {
+    background-color: $palette-primary-A200 !important;
+}
+
+.mdl-color--A400 {
+    background-color: $palette-primary-A400 !important;
+}
+
+.mdl-color--A700 {
+    background-color: $palette-primary-A700 !important;
+}
+
+// Forground ---
+
+
 .mdl-color-text--primary, a.mdl-color-text--primary {
         color : $color-primary !important;
 }
@@ -2299,5 +2358,61 @@
 
 .mdl-color-text--accent-contrast, a.mdl-color-text--accent-contrast {
         color : $color-accent-contrast !important;
+}
+
+.mdl-color-text--50 {
+    background-color: $palette-primary-50 !important;
+}
+
+.mdl-color-text--100 {
+    background-color: $palette-primary-100 !important;
+}
+
+.mdl-color-text--200 {
+    background-color: $palette-primary-200 !important;
+}
+
+.mdl-color-text--300 {
+    background-color: $palette-primary-300 !important;
+}
+
+.mdl-color-text--400 {
+    background-color: $palette-primary-400 !important;
+}
+
+.mdl-color-text--500 {
+    background-color: $palette-primary-500 !important;
+}
+
+.mdl-color-text--600 {
+    background-color: $palette-primary-600 !important;
+}
+
+.mdl-color-text--700 {
+    background-color: $palette-primary-700 !important;
+}
+
+.mdl-color-text--800 {
+    background-color: $palette-primary-800 !important;
+}
+
+.mdl-color-text--900 {
+    background-color: $palette-primary-900 !important;
+}
+
+.mdl-color-text--A100 {
+    background-color: $palette-primary-A100 !important;
+}
+
+.mdl-color-text--A200 {
+    background-color: $palette-primary-A200 !important;
+}
+
+.mdl-color-text--A400 {
+    background-color: $palette-primary-A400 !important;
+}
+
+.mdl-color-text--A700 {
+    background-color: $palette-primary-A700 !important;
 }
 
