@@ -74,24 +74,45 @@ body {
     .mdl-layout__content {
         box-sizing      : border-box;
 
-        display         : flex;
-        flex-direction  : column;
-        flex-wrap       : wrap;
-        justify-content : flex-start; // ↓
-        align-content   : space-between; // =
-        align-items     : stretch; // ⇾
-
         .mdl-content {
+            // Align lastmod at bottom of page
+            min-height: calc(100vh - 160px);
             margin    : 0 24px 24px 24px;
-            flex-grow : 1;
         }
 
         .lastmod {
-            text-align : right;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end; // ⇾
+            align-content: space-between; // ||
+            align-items: center; // ↓
+
             padding    : 8px;
+            height: 24px;
         }
     }
 
+}
+
+.usage.mdl-accordion-group {
+
+    .mdl-accordion {
+        margin-bottom: 12px;
+
+        .mdl-icon--remove-red-eye {
+            padding: 0 12px;
+        }
+
+        .mdl-accordion__label {
+            border: none;
+            border-radius: 5px;
+        }
+
+        ol.linenums {
+            margin-left: 0;
+        }
+    }
 }
 
 .demo-section {

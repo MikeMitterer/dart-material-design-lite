@@ -29,6 +29,7 @@ import 'package:mdl/mdldemo.dart';
 import 'package:mdl/mdlremote.dart';
 
 import 'package:route_hierarchical/client.dart';
+import 'package:prettify/prettify.dart';
 
 class ModelChangedEvent {
 
@@ -70,18 +71,21 @@ main() {
 
     configLogging();
     enableTheming();
-    configRouter();
 
     registerAllMdlComponents();
     registerAllMdlRemoteComponents();
+
 
     // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
     registerDemoAnimation();
 
     upgradeAllRegistered().then((_) {
+        configRouter();
+
         model.onChange.listen((_) {
             dom.querySelector("#title").text = model.title;
         });
+
     });
 }
 
@@ -113,6 +117,12 @@ class BadgeController extends DemoController {
 
             counter++;
         });
+
+        final MaterialInclude usage = MaterialInclude.widget(dom.querySelector("#usage"));
+        if(usage != null) {
+            usage.onLoadEnd.listen((_) => prettyPrint());
+        }
+
     }
     // - private ------------------------------------------------------------------------------------------------------
 }

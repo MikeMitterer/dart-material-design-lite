@@ -1,0 +1,18 @@
+main() {
+    registerAllMdlComponents();
+
+    upgradeAllRegistered().then((_) {
+
+        final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector(&quot;#el1&quot;));
+        int counter = 1;
+        new Timer.periodic(new Duration(milliseconds: 100), (_) {
+            if(counter &gt; 999) {
+                counter = 1;
+            }
+            badge1.value = counter.toString();
+            _logger.info(&quot;Current Badge-Value: ${badge1.value}&quot;);
+
+            counter++;
+        });
+    });
+}

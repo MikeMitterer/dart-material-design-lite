@@ -1,0 +1,45 @@
+<div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect usage usage-{{component}}">
+
+    <!-- Panel 1 -->
+    <div class="mdl-accordion">
+        <input type="checkbox" name="mdl-accordion" id="usage-1-check">
+        <label class="mdl-accordion__label mdl-color--200" for="usage-1-check">
+            <span class="mdl-icon mdl-icon--remove-red-eye" title="mdl-icon--remove-red-eye"></span>
+            Basic Usage
+            <span class="mdl-icon mdl-icon--chevron-right indicator"></span>
+        </label>
+        <div class="mdl-accordion--content">
+
+            <i class="fa fa-eye"></i>
+            <i class="fa fa-chevron-right indicator"></i>
+
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <!-- TabBar -->
+                <div class="mdl-tabs__tab-bar">
+                    <a href="#dart" class="mdl-tabs__tab is-active">Dart</a>
+                    <a href="#html" class="mdl-tabs__tab">HTML</a>
+                    <a href="#css" class="mdl-tabs__tab">README</a>
+                </div>
+
+                <!-- Dart-Tab -->
+                <div class="mdl-tabs__panel is-active" id="dart">
+                <pre class="prettyprint linenums lang-dart">
+{{dart}}
+                </pre>
+                </div>
+
+                <!-- HTML-Tab -->
+                <div class="mdl-tabs__panel" id="html">
+                <pre class="prettyprint linenums lang-html">
+{{html}}
+                </pre>
+                </div>
+
+                <!-- CSS-Tab -->
+                <div class="mdl-tabs__panel" id="css">
+{{readme}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

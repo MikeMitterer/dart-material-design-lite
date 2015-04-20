@@ -20,4 +20,6 @@ dependencies:
   mdl:
     path: ../../
 
+  prettify: any
+
 
