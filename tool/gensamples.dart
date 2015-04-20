@@ -237,7 +237,7 @@ class Application {
         _copy("demo","html",false);
         _copy("demo","scss",true);
 
-        _copy("README","md",false);
+        _copy("README","md",true);
 
         final File srcJS = new File("${mdlSampleDir.path}/${sampleName}.js");
         final File targetJS = new File("${config.jsbase}/${sampleName}.js");
