@@ -21,6 +21,7 @@
 
 import 'dart:io';
 import 'dart:math';
+import 'dart:convert';
 
 import 'package:args/args.dart';
 
@@ -35,9 +36,9 @@ class Application {
     static const _ARG_HELP              = 'help';
     static const _ARG_LOGLEVEL          = 'loglevel';
     static const _ARG_SETTINGS          = 'settings';
-    static const _ARG_GEN_SAMPLES          = 'gen';
+    static const _ARG_GEN_SAMPLES       = 'gen';
     static const _ARG_GEN_STYLEGUIDE    = 'genstyleguide';
-    static const _ARG_GEN_INDEX          = 'genindex';
+    static const _ARG_GEN_INDEX         = 'genindex';
     static const _ARG_GEN_THEMES        = 'genthemes';
     static const _ARG_GEN_CSS           = 'gencss';
     static const _ARG_MK_BACKUP         = 'makebackup';
@@ -75,6 +76,10 @@ class Application {
                     _logger.info("    coping views and styles for $sampleName to styleguide...");
                     _copyDemoCssToStyleguide(sampleName, dir,config.samplesdir);
                     _copySampleViewToStyleguide(sampleName, dir,config.samplesdir);
+                    _createUsageContentInStyleguide(sampleName, dir,config.samplesdir);
+                    _createDartPartialInStyleguide(sampleName, dir,config);
+                    _createHtmlPartialInStyleguide(sampleName, dir,config);
+                    _createReadmePartialInStyleguide(sampleName, dir,config);
                 });
             }
             else if(argResults[_ARG_MV_MDL]) {
@@ -342,6 +347,127 @@ class Application {
 
         targetSample.writeAsStringSync(content);
         _reformatHtmlDemo(targetSample);
+    }
+
+    void _createUsageContentInStyleguide(final String sampleName,final Directory sassDir,final String samplesDir) {
+        Validate.notBlank(sampleName);
+        Validate.notNull(sassDir);
+        Validate.notBlank(samplesDir);
+
+        final Directory targetUsageDir = new Directory("${samplesDir}/styleguide/html/_content/views/usage");
+        final File targetSample = new File("${targetUsageDir.path}/${sampleName}.html");
+        if(targetSample.existsSync()) {
+            _logger.fine("${targetSample.path} already exists!");
+            return;
+        }
+
+        final StringBuffer buffer = new StringBuffer();
+
+        buffer.writeln("template: usage");
+        buffer.writeln("");
+        buffer.writeln("dart: ->usage.${sampleName}.dart");
+        buffer.writeln("html: ->usage.${sampleName}.html");
+        buffer.writeln("readme: ->usage.${sampleName}.readme");
+        buffer.writeln("");
+        buffer.writeln("component: ${sampleName}");
+        buffer.writeln("~~~");
+
+        targetSample.writeAsStringSync(buffer.toString());
+    }
+
+    void _createDartPartialInStyleguide(final String sampleName,final Directory sassDir,final Config config) {
+        Validate.notBlank(sampleName);
+        Validate.notNull(sassDir);
+        Validate.notNull(config);
+
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/html/_partials/usage/${sampleName}");
+        if(!targetUsageDir.existsSync()) {
+            targetUsageDir.createSync(recursive: true);
+        }
+
+        final srcDart = new File("${config.samplesdir}/${sampleName}/web/main.dart");
+        if(!srcDart.existsSync()) {
+            _logger.info("${srcDart.path} does not exists!");
+            return;
+        }
+
+        final targetDart = new File("${targetUsageDir.path}/dart.html");
+
+        String content = srcDart.readAsStringSync();
+        content = content.replaceAll(new RegExp(r"(?:.|\n|\r)*main\(\)",multiLine: true),"main()");
+
+        final StringBuffer buffer = new StringBuffer();
+        int counter = 0;
+
+        buffer.writeln("import 'package:mdl/mdl.dart';\n");
+        for(int index = 0;index < content.codeUnits.length;index++) {
+            final int unit = content.codeUnitAt(index);
+            final String char = new String.fromCharCode(unit);
+
+            buffer.writeCharCode(unit);
+            if(char == "{") {
+                counter++;
+            } else if(char == "}") {
+                counter--;
+                if(counter == 0) {
+                    break;
+                }
+            }
+
+            //_logger.info(char);
+        };
+        content = buffer.toString();
+        content = content.replaceFirst(new RegExp(r".*configLogging\(\);\n\n*",multiLine: true),"");
+
+        //_logger.info(new HtmlEscape().convert(buffer.toString()));
+        targetDart.writeAsStringSync(new HtmlEscape().convert(content));
+    }
+
+    void _createHtmlPartialInStyleguide(final String sampleName,final Directory sassDir,final Config config) {
+        Validate.notBlank(sampleName);
+        Validate.notNull(sassDir);
+        Validate.notNull(config);
+
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/html/_partials/usage/${sampleName}");
+        if(!targetUsageDir.existsSync()) {
+            targetUsageDir.createSync(recursive: true);
+        }
+
+        final srcHtml = new File("${config.samplesdir}/styleguide/web/views/${sampleName}.html");
+        if(!srcHtml.existsSync()) {
+            _logger.info("${srcHtml.path} does not exists!");
+            return;
+        }
+
+        final targetHtml = new File("${targetUsageDir.path}/html.html");
+
+        String content = srcHtml.readAsStringSync();
+        content = content.replaceFirst(new RegExp(r"<section[^>]*>.*\n*",multiLine: true),"");
+        content = content.replaceFirst(new RegExp(r"</section[^>]*>\n*",multiLine: true),"");
+        content = content.replaceAll(new RegExp(r"^[ ]{4}",multiLine: true),"");
+
+        targetHtml.writeAsStringSync(new HtmlEscape().convert(content));
+    }
+
+    void _createReadmePartialInStyleguide(final String sampleName,final Directory sassDir,final Config config) {
+        Validate.notBlank(sampleName);
+        Validate.notNull(sassDir);
+        Validate.notNull(config);
+
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/html/_partials/usage/${sampleName}");
+        if(!targetUsageDir.existsSync()) {
+            targetUsageDir.createSync(recursive: true);
+        }
+
+        String content = "Here to come...";
+        final srcReadme = new File("${config.samplesdir}/styleguide/web/README.md");
+        if(srcReadme.existsSync()) {
+            //content = srcReadme.readAsStringSync();
+        }
+
+        final targetReadme = new File("${targetUsageDir.path}/readme.html");
+
+        targetReadme.writeAsStringSync(content);
     }
 
     void _copySubdirs(final File sourceDir, final File targetDir, { int level: 0 } ) {
@@ -1036,7 +1162,7 @@ class Config {
         _settings[_KEY_INDEX_TEMPLATE]      = "tool/templates/index.tmpl.html";
         _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
         _settings[_KEY_SCSS_TEMPLATE]       = "tool/templates/material-design-lite.tmpl.scss";
-        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables";   // Liste durch , getrennt
+        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables,resets,fonts,images,mixins,ripple,bottombar";   // Liste durch , getrennt
         _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
         _settings[_KEY_JS_BASE]             = "tool/jsbase"; // Basis für die JS-Files
 

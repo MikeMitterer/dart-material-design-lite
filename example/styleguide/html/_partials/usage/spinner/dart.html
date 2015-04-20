@@ -1,0 +1,14 @@
+import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+
+main() {
+    registerAllMdlComponents();
+
+    upgradeAllRegistered().then((_) {
+        final MaterialSpinner spinner = MaterialSpinner.widget(dom.querySelector(&quot;#first&quot;));
+        final MaterialButton button = MaterialButton.widget(dom.querySelector(&quot;#button&quot;));
+
+        button.onClick.listen((_) {
+            spinner.active = !spinner.active;
+        });
+    });
+}
