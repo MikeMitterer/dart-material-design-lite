@@ -1967,6 +1967,48 @@ Palettes (10 colors) 50 - 900 possible
 .mdl-color--accent-contrast {
   background-color: white !important; }
 
+.mdl-color--50 {
+  background-color: #eceff1 !important; }
+
+.mdl-color--100 {
+  background-color: #cfd8dc !important; }
+
+.mdl-color--200 {
+  background-color: #b0bec5 !important; }
+
+.mdl-color--300 {
+  background-color: #90a4ae !important; }
+
+.mdl-color--400 {
+  background-color: #78909c !important; }
+
+.mdl-color--500 {
+  background-color: #607d8b !important; }
+
+.mdl-color--600 {
+  background-color: #546e7a !important; }
+
+.mdl-color--700 {
+  background-color: #455a64 !important; }
+
+.mdl-color--800 {
+  background-color: #37474f !important; }
+
+.mdl-color--900 {
+  background-color: #263238 !important; }
+
+.mdl-color--A100 {
+  background-color: #263238 !important; }
+
+.mdl-color--A200 {
+  background-color: #263238 !important; }
+
+.mdl-color--A400 {
+  background-color: #263238 !important; }
+
+.mdl-color--A700 {
+  background-color: #263238 !important; }
+
 .mdl-color-text--primary, a.mdl-color-text--primary {
   color: #607d8b !important; }
 
@@ -1981,6 +2023,48 @@ Palettes (10 colors) 50 - 900 possible
 
 .mdl-color-text--accent-contrast, a.mdl-color-text--accent-contrast {
   color: white !important; }
+
+.mdl-color-text--50 {
+  color: #eceff1 !important; }
+
+.mdl-color-text--100 {
+  color: #cfd8dc !important; }
+
+.mdl-color-text--200 {
+  color: #b0bec5 !important; }
+
+.mdl-color-text--300 {
+  color: #90a4ae !important; }
+
+.mdl-color-text--400 {
+  color: #78909c !important; }
+
+.mdl-color-text--500 {
+  color: #607d8b !important; }
+
+.mdl-color-text--600 {
+  color: #546e7a !important; }
+
+.mdl-color-text--700 {
+  color: #455a64 !important; }
+
+.mdl-color-text--800 {
+  color: #37474f !important; }
+
+.mdl-color-text--900 {
+  color: #263238 !important; }
+
+.mdl-color-text--A100 {
+  color: #263238 !important; }
+
+.mdl-color-text--A200 {
+  color: #263238 !important; }
+
+.mdl-color-text--A400 {
+  color: #263238 !important; }
+
+.mdl-color-text--A700 {
+  color: #263238 !important; }
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
@@ -6838,6 +6922,7 @@ Palettes (10 colors) 50 - 900 possible
   text-decoration: none;
   cursor: pointer;
   height: 48px;
+  width: 100%;
   line-height: 48px;
   white-space: nowrap;
   opacity: 0;
@@ -7286,8 +7371,7 @@ Palettes (10 colors) 50 - 900 possible
   -webkit-transition-property: -webkit-transform;
           transition-property: transform;
   color: #424242;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: visible;
   z-index: 5; }
   .mdl-layout__drawer.is-visible {
     -webkit-transform: translateX(0);
@@ -7397,7 +7481,7 @@ Palettes (10 colors) 50 - 900 possible
   -webkit-transition-property: min-height, box-shadow;
           transition-property: min-height, box-shadow;
   padding-left: 24px;
-  overflow: hidden; }
+  overflow: visible; }
   .mdl-layout.has-drawer .mdl-layout__header {
     padding-left: 72px; }
   @media screen and (max-width: 850px) {
@@ -9431,6 +9515,7 @@ Palettes (10 colors) 50 - 900 possible
 
 .mdl-textfield--expandable {
   min-width: 32px;
+  width: auto;
   min-height: 32px; }
 
 .mdl-textfield__input {
@@ -9792,7 +9877,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       color: black; }
     .mdl-accordion-group .mdl-accordion label .indicator {
       position: absolute;
-      top: 20.8px;
+      top: 12px;
       right: 16px;
       -webkit-transition: 0.3s ease-in-out;
               transition: 0.3s ease-in-out;

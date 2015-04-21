@@ -5,9 +5,6 @@ The Material Design Lite (MDL) **menu** component is a user interface element th
 
 Menus are an established but non-standardized feature in user interfaces, and allow users to make choices that direct the activity, progress, or characteristics of software. Their design and use is an important factor in the overall user experience. See the menu component's [Material Design specifications page](http://www.google.com/design/spec/components/menus.html) for details. 
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **menu** component:
 
 &nbsp;1. Code a `<ul>` unordered list element; this is the container that holds the options.
@@ -58,7 +55,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information
-For working examples of the **menu** component, see the MDL [menu demo page](www.github.com/google/material-design-lite/src/menu/demo.html).
+For working examples of the **menu** component, see the MDL [menu demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/menu).
 
 ## License
 

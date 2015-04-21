@@ -22,7 +22,6 @@
   { "name": "switch", "link": "#/switch" },
   { "name": "tabs", "link": "#/tabs" },
   { "name": "textfield", "link": "#/textfield" },
-  { "name": "theming", "link": "#/theming" },
   { "name": "tooltip", "link": "#/tooltip" },
   { "name": "typography", "link": "#/typography" }
 ]

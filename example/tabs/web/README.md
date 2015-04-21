@@ -5,9 +5,6 @@ The Material Design Lite (MDL) **tab** component is a user interface element tha
 
 Tabs are an established but non-standardized feature in user interfaces, and allow users to view different, but often related, blocks of content (often called *panels*). Tabs save screen real estate and provide intuitive and logical access to data while reducing navigation and associated user confusion. Their design and use is an important factor in the overall user experience. See the tab component's [Material Design specifications page](http://www.google.com/design/spec/components/tabs.html) for details. 
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include a set of MDL **tab** components:
 
 &nbsp;1. Code a `<div>` element; this is the "outer" div, intended to contain all of the tabs and their content.
@@ -149,7 +146,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-tabs__panel` | Defines a container as tab content | Required on each of the "inner" div (tab) elements |
 
 ##More information
-For working examples of the **tab** component, see the MDL [tab demo page](www.github.com/google/material-design-lite/src/tabs/demo.html).
+For working examples of the **tab** component, see the MDL [tab demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/tabs).
 
 ## License
 

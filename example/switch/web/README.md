@@ -7,9 +7,6 @@ Switches, particularly as a replacement for certain checkboxes, can be a valuabl
 
 The enhanced switch component has a more vivid visual look than a standard checkbox, and may be initially or programmatically *disabled*.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **switch** component:
 
 &nbsp;1. Code a `<label>` element and give it a `for` attribute whose value is the unique id of the switch it will contain.
@@ -67,7 +64,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information
-For working examples of the **switch** component, see the MDL [switch demo page](www.github.com/google/material-design-lite/src/switch/demo.html).
+For working examples of the **switch** component, see the MDL [switch demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/switch).
 
 ## License
 

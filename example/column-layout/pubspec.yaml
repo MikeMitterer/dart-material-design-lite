@@ -2,7 +2,7 @@ name: mdl_column-layout_sample
 description: Material Design Lite 'column-layout' Sample
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-mdl
+homepage: https://github.com/MikeMitterer/dart-material-design-lite
 
 dependencies:
   browser: any

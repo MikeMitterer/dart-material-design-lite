@@ -237,7 +237,7 @@ class Application {
         _copy("demo","html",false);
         _copy("demo","scss",true);
 
-        _copy("README","md",true);
+        _copy("README","md",false);
 
         final File srcJS = new File("${mdlSampleDir.path}/${sampleName}.js");
         final File targetJS = new File("${config.jsbase}/${sampleName}.js");
@@ -313,7 +313,7 @@ class Application {
         final File srcSampleDart = new File("${sassDir.path}/demo.dart.html");
         final File srcSample = srcSampleDart.existsSync() ? srcSampleDart : secSampleOrig;
 
-        final Directory targetSampleDir = new Directory("${samplesDir}/styleguide/web/views");
+        final Directory targetSampleDir = new Directory("${samplesDir}/styleguide/html/_content/views");
         final File targetSample = new File("${targetSampleDir.path}/${sampleName}.html");
 
         if(!srcSample.existsSync()) {
@@ -340,13 +340,21 @@ class Application {
             });
 
         content = content.replaceAll(new RegExp(r"<script[^>]*>.*</script>(?:\n|\r)*",caseSensitive: false, multiLine: true),"");
-        content = content.replaceAll(new RegExp(r"^<!--[^>]*>.*(?:\n|\r)*",caseSensitive: false, multiLine: true),"");
+        content = content.replaceAll(new RegExp(r".*<!--[^>]*>.*(?:\n|\r)*",caseSensitive: false, multiLine: true),"");
 
         content = content.replaceAll(new RegExp(r"^",caseSensitive: false, multiLine: true),"    ");
-        content = '<section class="demo-section demo-section--$sampleName">$content\n</section>';
 
-        targetSample.writeAsStringSync(content);
-        _reformatHtmlDemo(targetSample);
+        final StringBuffer buffer = new StringBuffer();
+
+        buffer.writeln('<section class="demo-section demo-section--$sampleName">');
+        buffer.writeln('    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/$sampleName.html">');
+        buffer.writeln("        Loading...");
+        buffer.writeln('    </div>');
+        buffer.writeln(content);
+        buffer.writeln('</section>');
+
+        targetSample.writeAsStringSync(buffer.toString());
+        _optimizeHeaderTags(targetSample);
     }
 
     void _createUsageContentInStyleguide(final String sampleName,final Directory sassDir,final String samplesDir) {
@@ -399,7 +407,8 @@ class Application {
         final StringBuffer buffer = new StringBuffer();
         int counter = 0;
 
-        buffer.writeln("import 'package:mdl/mdl.dart';\n");
+        buffer.writeln("import 'package:mdl/mdl.dart';");
+        buffer.writeln("\n");
         for(int index = 0;index < content.codeUnits.length;index++) {
             final int unit = content.codeUnitAt(index);
             final String char = new String.fromCharCode(unit);
@@ -433,7 +442,7 @@ class Application {
             targetUsageDir.createSync(recursive: true);
         }
 
-        final srcHtml = new File("${config.samplesdir}/styleguide/web/views/${sampleName}.html");
+        final srcHtml = new File("${config.samplesdir}/styleguide/html/_content/views/${sampleName}.html");
         if(!srcHtml.existsSync()) {
             _logger.info("${srcHtml.path} does not exists!");
             return;
@@ -444,7 +453,9 @@ class Application {
         String content = srcHtml.readAsStringSync();
         content = content.replaceFirst(new RegExp(r"<section[^>]*>.*\n*",multiLine: true),"");
         content = content.replaceFirst(new RegExp(r"</section[^>]*>\n*",multiLine: true),"");
+        content = content.replaceFirst(new RegExp(r'<div id="usage"(?:.|\n|\r)*?</div>',multiLine: true),"");
         content = content.replaceAll(new RegExp(r"^[ ]{4}",multiLine: true),"");
+        content = content.replaceAll(new RegExp(r"^\s*[\n\r]",multiLine: true),"");
 
         targetHtml.writeAsStringSync(new HtmlEscape().convert(content));
     }
@@ -459,15 +470,27 @@ class Application {
             targetUsageDir.createSync(recursive: true);
         }
 
-        String content = "Here to come...";
-        final srcReadme = new File("${config.samplesdir}/styleguide/web/README.md");
-        if(srcReadme.existsSync()) {
-            //content = srcReadme.readAsStringSync();
-        }
-
+        String content = "";
+        final srcReadme = new File("${config.samplesdir}/${sampleName}/web/README.md");
+        final srcReadmeTemplate = new File(config.readmetemplate);
         final targetReadme = new File("${targetUsageDir.path}/readme.html");
 
-        targetReadme.writeAsStringSync(content);
+        if(!srcReadme.existsSync()) {
+            content = srcReadmeTemplate.readAsStringSync();
+            content = content.replaceAll('{{sample}}',sampleName);
+            targetReadme.writeAsStringSync(content);
+        } else {
+
+            final ProcessResult result = Process.runSync('pandoc',
+            [ srcReadme.path, "-f", "markdown_github", "-t", "html", "-o", targetReadme.path]);
+
+            if(result.exitCode != 0) {
+                _logger.severe(result.stderr);
+            } else {
+                _optimizeHeaderTags(targetReadme);
+                _logger.info("    ${targetReadme.path} created...");
+            }
+        }
     }
 
     void _copySubdirs(final File sourceDir, final File targetDir, { int level: 0 } ) {
@@ -590,7 +613,7 @@ class Application {
         if(srcHtmlDemo.existsSync()) {
             srcHtmlDemo.copySync(targetDemo.path);
             if(sampleName != "typography") {
-                _reformatHtmlDemo(targetDemo);
+                _optimizeHeaderTags(targetDemo);
             }
 
             if(srcDartMain.existsSync()) {
@@ -619,14 +642,30 @@ class Application {
             _sasscAndAutoPrefix(targetScss,targetCss);
         }
 
+        _copySubdirs(new File("${config.sassdir}/${sampleName}"),new File(webDir.path));
+
         if(srcREADME.existsSync()) {
             _logger.fine("    ${srcREADME.path} -> ${targetREADME.path} copied...");
             srcREADME.copySync(targetREADME.path);
+            _optimizeReadme(sampleName,targetREADME);
         }
 
-        _copySubdirs(new File("${config.sassdir}/${sampleName}"),new File(webDir.path));
         _writeYaml(sampleName,config);
     }
+
+    void _optimizeReadme(final String sampleName, final File targetREADME) {
+        Validate.notBlank(sampleName);
+        Validate.notNull(targetREADME);
+
+        String content = targetREADME.readAsStringSync();
+        content = content.replaceAll(new RegExp(r"##Basic use(?:.|\n|\r)*?##",multiLine: true),"##");
+        content = content.replaceAll("www.github.com/google/material-design-lite/src/$sampleName/demo.html",
+            "https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/$sampleName");
+
+        targetREADME.writeAsStringSync(content);
+    }
+
+
 
     void _sasscAndAutoPrefix(final File targetScss,final File targetCss,
             { final bool useSass: false, final bool minify: false, final bool prefix: true }) {
@@ -665,15 +704,17 @@ class Application {
         }
     }
 
-    void _reformatHtmlDemo(final File htmlDemo) {
+    void _optimizeHeaderTags(final File htmlDemo) {
         Validate.notNull(htmlDemo);
 
         String content = htmlDemo.readAsStringSync();
 
-        content = content.replaceAll("<h2>","<h5>");
+        content = content.replaceAll("<h2","<h5");
         content = content.replaceAll("</h2>","</h5>");
-        content = content.replaceAll("<h3>","<h5>");
+        content = content.replaceAll("<h3","<h5");
         content = content.replaceAll("</h3>","</h5>");
+        content = content.replaceAll("<h1","<h4");
+        content = content.replaceAll("</h1>","</h4>");
 
         htmlDemo.writeAsStringSync(content);
     }
@@ -1142,6 +1183,7 @@ class Config {
     static const String _KEY_INDEX_TEMPLATE     = "indextemplate";
     static const String _KEY_YAML_TEMPLATE      = "yamltemplate";
     static const String _KEY_SCSS_TEMPLATE      = "scsstemplate";
+    static const String _KEY_README_TEMPLATE    = "readmetemplate";
     static const String _KEY_FOLDERS_TO_EXCLUDE = "excludefolder";
     static const String _KEY_PORT_BASE          = "portbase";
     static const String _KEY_JS_BASE            = "jsbase";
@@ -1162,6 +1204,7 @@ class Config {
         _settings[_KEY_INDEX_TEMPLATE]      = "tool/templates/index.tmpl.html";
         _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
         _settings[_KEY_SCSS_TEMPLATE]       = "tool/templates/material-design-lite.tmpl.scss";
+        _settings[_KEY_README_TEMPLATE]     = "tool/templates/README.tmpl.html";
         _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables,resets,fonts,images,mixins,ripple,bottombar";   // Liste durch , getrennt
         _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
         _settings[_KEY_JS_BASE]             = "tool/jsbase"; // Basis für die JS-Files
@@ -1193,6 +1236,8 @@ class Config {
 
     String get scsstemplate => _settings[_KEY_SCSS_TEMPLATE];
 
+    String get readmetemplate => _settings[_KEY_README_TEMPLATE];
+
     String get folderstoexclude => _settings[_KEY_FOLDERS_TO_EXCLUDE];
 
     String get portbase => _settings[_KEY_PORT_BASE];
@@ -1213,6 +1258,7 @@ class Config {
         settings["Index-Template"]              = indextemplate;
         settings["YAML-Template"]               = yamltemplate;
         settings["SCSS-Template"]               = scsstemplate;
+        settings["README-Template"]             = readmetemplate;
         settings["Folders to exclude"]          = folderstoexclude;
         settings["Base-Dir for js2Dart files"]  = portbase;
         settings["Base-Dir for ORIG JS files"]  = jsbase;

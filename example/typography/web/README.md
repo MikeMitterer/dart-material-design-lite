@@ -7,15 +7,6 @@ The "Roboto" typeface is the standard for MDL display; it can easily be integrat
 
 Because of the many possible variations in font display characteristics in HTML and CSS, MDL typography aims to provide simple and intuitive styles that use the Roboto font and produce visually attractive and internally consistent text results. See the typography component's [Material Design specifications page](http://www.google.com/design/spec/style/typography.html) for details. 
 
-##Basic use
-MDL typography does not require the inclusion of the minified CSS and JavaScript files that drive the other MDL components. Instead, just include a link to the Google stylesheet that accesses the font and its desired variations.
-```html
-<head>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
-...
-</head>
-```
-
 ###To include an MDL **typography** component:
 
 &nbsp;1. Code any element (`<div>`,`<p>`,`<span>`, etc.) that can contain text, including whatever content is appropriate.

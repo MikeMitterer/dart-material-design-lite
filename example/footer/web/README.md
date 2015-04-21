@@ -7,9 +7,6 @@ An MDL footer component takes two basic forms: *mega-footer* and *mini-footer*. 
 
 Footers, as represented by this component, are a fairly new feature in user interfaces, and allow users to view discrete blocks of content in a coherent and consistently organized way. Their design and use is an important factor in the overall user experience. 
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **mega-footer** component:
 
 &nbsp;1a. Code a `<footer>` element. Inside the footer, include one `<div>` element for each content section, typically three: *top*, *middle*, and *bottom*.

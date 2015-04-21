@@ -7,9 +7,6 @@ Buttons are a ubiquitous feature of most user interfaces, regardless of a site's
 
 The available button display types are *flat* (default), *raised*, *fab*, *mini-fab*, and *icon*; any of these types may be plain (light gray) or *colored*, and may be initially or programmatically *disabled*. The *fab*, *mini-fab*, and *icon* button types typically use a small image as their caption rather than text.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **button** component:
 
 &nbsp;1. Code a `<button>` element. Include any desired attributes and values, such as an id or event handler, and add a text caption or image as appropriate.
@@ -59,7 +56,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information
-For working examples of the **button** component, see the MDL [button demo page](www.github.com/google/material-design-lite/src/button/demo.html).
+For working examples of the **button** component, see the MDL [button demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/button).
 
 ## License
 

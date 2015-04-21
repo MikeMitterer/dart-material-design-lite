@@ -1,1 +1,46 @@
-Here to come...
+<h4 id="icon">Icon</h4>
+<h5 id="introduction">Introduction</h5>
+<p>The Material Design Lite (MDL) <strong>icon</strong> component is an effort to standardize the use of graphical indicators in applications and page displays. MDL icons are intended to replace the myriad images used by developers (which vary significantly in appearance) and provide a robust, uniform library from which developers can choose appropriate indicators.</p>
+<p>MDL icons are individual glyphs (characters) from a specific MDL web font, accessed via the CSS3 <code>@font-face</code> rule. As such, they may be styled and manipulated as freely as any other characters: size, foreground and background color, weight, and other characteristics can be specified, inherited, or modified via script to achieve the desired appearance. An icon performs no action itself, either by its display nor when the user clicks or touches it, unless scripted to do so. The MDL icon font provides over seven hundred glyphs, all immediately available once the web font is referenced.</p>
+<p>To view the complete list of icons, see <a href="http://google.github.io/material-design-lite/latest/styleguide/icons/demo.html">this page</a>. The icons are organized by general usage (action, communication, navigation, etc.); hover the mouse pointer over an icon to see the class name required to reference it (explained below).</p>
+<p>Icons are an established but non-standardized feature of most user interfaces, and provide users with non-textual cues about application options, content, or activity, regardless of hardware device, operating system, or browser environment. Their design and use is an important factor in the overall user experience. See the icon component's <a href="http://www.google.com/design/spec/style/icons.html">Material Design specifications page</a> for details.</p>
+<h5 id="to-include-an-mdl-icon-component">To include an MDL <strong>icon</strong> component:</h5>
+<p> 1. Code a <code>&lt;span&gt;</code> element; the span should have no content of its own.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span&gt;&lt;/span&gt;</span></code></pre>
+<p> 2. Add the MDL classes, separated by spaces, to the span using the <code>class</code> attribute.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon mdl-icon--alarm&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></code></pre>
+<p>The icon component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A warning icon.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon mdl-icon--warning&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></code></pre>
+<p>A fast-forward icon.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon mdl-icon--fast-forward&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></code></pre>
+<p>A cut icon.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon mdl-icon--content-cut&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></code></pre>
+<h5 id="configuration-options">Configuration options</h5>
+<p>The MDL CSS classes define and specify the icon to use. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">MDL class</th>
+<th align="left">Effect</th>
+<th align="left">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>mdl-icon</code></td>
+<td align="left">Defines the container as an MDL icon component</td>
+<td align="left">Required on span element</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-icon--ICON_CLASS_NAME</code></td>
+<td align="left">Assigns a specific icon to the container</td>
+<td align="left">Required on span element (see icon demo page for complete list)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="more-information">More information</h5>
+<p>For working examples of the <strong>icon</strong> component, see the MDL <a href="http://google.github.io/material-design-lite/latest/styleguide/icons/demo.html">icon demo page</a>.</p>
+<h5 id="license">License</h5>
+<p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>

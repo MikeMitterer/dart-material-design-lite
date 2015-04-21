@@ -21,6 +21,7 @@
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
 import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+
 main() {
     final Logger _logger = new Logger(&#x27;main.MaterialBadge&#x27;);
     registerAllMdlComponents();
@@ -36,13 +37,18 @@ main() {
             counter++;
         });
     });
-}
-                </pre>
+}</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
+                <div class="linkinfo">
+                    To use any MDL component, you must include the minified CSS file in the &lt;head&gt; section of the page:<br>
+                    <div class="csslink mdl-color-text--900">
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;<br>
+                    </div>
+                    More about <a href="/#/theming">theming...</a>
+                </div>
                 <pre class="prettyprint linenums lang-html">
-
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;section class=&quot;toolbar&quot;&gt;
         &lt;div class=&quot;toolbar&quot;&gt;
@@ -70,7 +76,6 @@ main() {
                     &lt;&#x2F;svg&gt;
                 &lt;&#x2F;div&gt;
             &lt;&#x2F;div&gt;
-
             &lt;div class=&quot;wrapper&quot;&gt;
                 &lt;div id=&quot;el4&quot; class=&quot;icon mdl-badge&quot; data-badge=&quot;888&quot;&gt;
                     &lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot;&gt;
@@ -83,7 +88,6 @@ main() {
         &lt;p&gt;
             &lt;strong&gt;Hint:&lt;&#x2F;strong&gt; Check your log and you&#x27;ll see the values for the first badge...
         &lt;&#x2F;p&gt;
-        
     &lt;section class=&quot;text&quot;&gt;
         &lt;h5&gt;Text&lt;&#x2F;h5&gt;
         &lt;span class=&quot;mdl-badge&quot; data-badge=&quot;42&quot;&gt;I am in span&lt;&#x2F;span&gt;
@@ -115,11 +119,12 @@ main() {
     &lt;&#x2F;section&gt;
 &lt;&#x2F;div&gt;
 &lt;&#x2F;section&gt;
-                </pre>
+</pre>
                 </div>
                 <!-- CSS-Tab -->
                 <div class="mdl-tabs__panel" id="css">
-Here to come...
+<h4>badge</h4>
+<p>...will be here soon</p>
                 </div>
             </div>
         </div>

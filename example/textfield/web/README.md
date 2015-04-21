@@ -7,11 +7,6 @@ Text fields are a common feature of most user interfaces, regardless of a site's
 
 The enhanced text field component has a more vivid visual look than a standard text field, and may be initially or programmatically *disabled*.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
-There are three main types of text fields in the text field component, each with its own basic coding requirements. The types are *single-line*, *multi-line*, and *expandable*.
-
 ###To include a *single-line* MDL **text field** component:
 
 &nbsp;1. Code a `<div>` element to hold the text field.
@@ -259,7 +254,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information
-For working examples of the **text field** component, see the MDL [text field demo page](www.github.com/google/material-design-lite/src/textfield/demo.html).
+For working examples of the **text field** component, see the MDL [text field demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/textfield).
 
 ## License
 

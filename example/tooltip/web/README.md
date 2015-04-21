@@ -5,9 +5,6 @@ The Material Design Lite (MDL) **tooltip** component is an enhanced version of t
 
 Tooltips are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is an important factor in the overall user experience. See the tooltip component's [Material Design specifications page](http://www.google.com/design/spec/components/tooltips.html) for details. 
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **tooltip** component:
 
 &nbsp;1. Code an element, such as a `<div>`, `<p>`, or `<span>`, and style it as desired; this will be the tooltip's target. Include an `id` attribute and unique value to link the container to its tooltip.
@@ -68,7 +65,7 @@ The MDL CSS classes apply various predefined visual enhancements to the tooltip.
 | `mdl-tooltip--large` | Applies large-font effect | Optional; goes on tooltip container element |
 
 ##More information
-For working examples of the **tooltip** component, see the MDL [tooltip demo page](www.github.com/google/material-design-lite/src/tooltip/demo.html).
+For working examples of the **tooltip** component, see the MDL [tooltip demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/tooltip).
 
 ## License
 

@@ -7,9 +7,6 @@ Cards are a convenient means of coherently displaying related content that is co
 
 Cards are a fairly new feature in user interfaces, and allow users an access point to more complex and detailed information. Their design and use is an important factor in the overall user experience. See the card component's [Material Design specifications page](http://www.google.com/design/spec/components/cards.html) for details. 
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **card** component:
 
 &nbsp;1. Code a `<div>` element; this is the "outer" container, intended to hold all of the card's content.
@@ -123,7 +120,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 (1) Although some class names imply positioning, they really just semantically define the styling of the content. The actual positions of the "inner" divs within the card are determined by order of appearance (i.e., top-down). You may use them in any order, so long as they maintain their relationships as siblings and as direct children of the "outer" container div.
 
 ##More information
-For working examples of the **card** component, see the MDL [card demo page](www.github.com/google/material-design-lite/src/card/demo.html).
+For working examples of the **card** component, see the MDL [card demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/card).
 
 ## License
 

@@ -7,9 +7,6 @@ Sliders are a fairly new feature in user interfaces, and allow users to choose a
 
 The enhanced slider component may be initially or programmatically *disabled*.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **slider** component:
 
 &nbsp;1. Code a `<p>` paragraph element and style it as desired. Include a CSS `width` property (directly or via a CSS class), which determines the slider's size.
@@ -53,7 +50,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information
-For working examples of the **slider** component, see the MDL [slider demo page](www.github.com/google/material-design-lite/src/slider/demo.html).
+For working examples of the **slider** component, see the MDL [slider demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/slider).
 
 ## License
 

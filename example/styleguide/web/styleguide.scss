@@ -95,22 +95,38 @@ body {
 
 }
 
-.usage.mdl-accordion-group {
+.usage {
 
-    .mdl-accordion {
-        margin-bottom: 12px;
+    &.mdl-accordion-group {
 
-        .mdl-icon--remove-red-eye {
-            padding: 0 12px;
+        .mdl-accordion {
+            margin-bottom: 12px;
+
+            .mdl-icon--remove-red-eye {
+                padding: 0 12px;
+            }
+
+            .mdl-accordion__label {
+                border: none;
+                border-radius: 5px;
+            }
+
+            ol.linenums {
+                margin-left: 0;
+            }
         }
 
-        .mdl-accordion__label {
-            border: none;
-            border-radius: 5px;
+        .linkinfo {
+            margin: 8px;
         }
+    }
 
-        ol.linenums {
-            margin-left: 0;
+    .linkinfo {
+        margin: 8px;
+
+        .csslink {
+            padding: 4px;
+            text-align: center;
         }
     }
 }

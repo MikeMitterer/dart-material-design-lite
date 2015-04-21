@@ -1,1 +1,93 @@
-Here to come...
+<h4 id="column-layout">Column-layout</h4>
+<h5 id="introduction">Introduction</h5>
+<p>The Material Design Lite (MDL) <strong>column-layout</strong> component is a simplified method for displaying brief content blocks in a columnar list format that easily adapts to different hardware devices and display environments. It reduces the usual coding burden required to correctly display and manipulate columns of content in a variety of display conditions.</p>
+<p>The MDL column-layout is best suited for short lines of content, such as those that might be found in a long list, and that can benefit from being broken up into a columnar display. The content can automatically expand to a comfortable width into two or three columns (in which case the items will read sequentially left-to-right), or can automatically collapse to a minimum of one column (in which case the items will read sequentially top-to-bottom), automatically reformatting themselves to conform to device, orientation, and environment changes as they occur.</p>
+<p>Column-layouts are an established but non-standardized feature in most user interfaces, and provide users with a way to conveniently access content that might otherwise take up too much screen space. Their design and use is an important factor in the overall user experience. See the column-layout component's <a href="http://www.google.com/design/spec/components/column-layouts.html">Material Design specifications page</a> for details.</p>
+<h5 id="to-include-an-mdl-column-layout-component">To include an MDL <strong>column-layout</strong> component:</h5>
+<p> 1. Code a <code>&lt;div&gt;</code> element; this is the &quot;outer&quot; container, intended to hold all of the columns' text items.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p> 2. For each brief text item, code one &quot;inner&quot; div, including the text to be displayed.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>Apples<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>Bananas<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>Cherries<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>Dill seeds<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>Eggplant<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>Figs<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>Ginger root<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>Horseradish<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>Iceberg lettuce<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>etc.<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p> 3. Add one or more MDL classes, separated by spaces, to the &quot;outer&quot; and &quot;inner&quot; divs using the <code>class</code> attribute.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Apples<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Bananas<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Cherries<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Dill seeds<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Eggplant<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Figs<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Ginger root<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Horseradish<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Iceberg lettuce<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>etc.<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p>The column-layout component is ready for use.</p>
+<h4 id="example">Example</h4>
+<p>A list of NATO phonetic alphabet words in a column-layout div.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Alpha<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Bravo<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Charlie<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Delta<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Echo<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Foxtrot<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Golf<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Hotel<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>India<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Juliet<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Kilo<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Lima<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Mike<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>November<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Oscar<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Papa<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Quebec<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Romeo<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Sierra<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Tango<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Uniform<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Victor<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Whiskey<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>X-ray<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Yankee<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-column-layout__child&quot;</span><span class="kw">&gt;</span>Zulu<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h5 id="configuration-options">Configuration options</h5>
+<p>The MDL CSS classes apply various predefined visual enhancements and behavioral effects to the column-layout. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">MDL class</th>
+<th align="left">Effect</th>
+<th align="left">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>mdl-column-layout</code></td>
+<td align="left">Defines a container as an MDL column-layout component</td>
+<td align="left">Required on &quot;outer&quot; div element</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-column-layout__child</code></td>
+<td align="left">Defines a container as a column-layout item</td>
+<td align="left">Required on &quot;inner&quot; div elements</td>
+</tr>
+</tbody>
+</table>
+<h5 id="more-information">More information</h5>
+<p>For working examples of the <strong>column-layout</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/column-layout">column-layout demo page</a>.</p>
+<h5 id="license">License</h5>
+<p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>

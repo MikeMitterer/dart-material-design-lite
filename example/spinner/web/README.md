@@ -7,9 +7,6 @@ A spinner performs no action itself, either by its display nor when the user cli
 
 Spinners are a fairly new feature of most user interfaces, and provide users with a consistent visual cue about ongoing activity, regardless of hardware device,  operating system, or browser environment. Their design and use is an important factor in the overall user experience.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **spinner** component:
 
 &nbsp;1. Code an element, such as a `<div>`, `<p>`, or `<span>`, to contain the spinner; the element should have no content of its own.
@@ -51,7 +48,7 @@ The MDL CSS classes apply various predefined visual enhancements to the spinner.
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information
-For working examples of the **spinner** component, see the MDL [spinner demo page](www.github.com/google/material-design-lite/src/spinner/demo.html).
+For working examples of the **spinner** component, see the MDL [spinner demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/spinner).
 
 ## License
 

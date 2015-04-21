@@ -7,9 +7,6 @@ Checkboxes are a common feature of most user interfaces, regardless of a site's 
 
 The enhanced checkbox component has a more vivid visual look than a standard checkbox, and may be initially or programmatically *disabled*.
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **checkbox** component:
 
 &nbsp;1. Code a `<label>` element and give it a `for` attribute whose value is the unique id of the checkbox it will contain. The `for` attribute is optional when the `<input>` element is contained inside the `<label>` element, but is recommended for clarity.
@@ -67,7 +64,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 >This attribute may be added or removed programmatically via scripting.
 
 ##More information
-For working examples of the **checkbox** component, see the MDL [checkbox demo page](www.github.com/google/material-design-lite/src/checkbox/demo.html).
+For working examples of the **checkbox** component, see the MDL [checkbox demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/checkbox).
 
 ## License
 

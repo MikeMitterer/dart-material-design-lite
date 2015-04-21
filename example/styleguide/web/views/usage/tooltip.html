@@ -21,17 +21,23 @@
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
 import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+
 main() {
     registerAllMdlComponents();
     upgradeAllRegistered().then((_) {
     });
-}
-                </pre>
+}</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
+                <div class="linkinfo">
+                    To use any MDL component, you must include the minified CSS file in the &lt;head&gt; section of the page:<br>
+                    <div class="csslink mdl-color-text--900">
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;<br>
+                    </div>
+                    More about <a href="/#/theming">theming...</a>
+                </div>
                 <pre class="prettyprint linenums lang-html">
-
     &lt;div class=&quot;demo-preview-block&quot;&gt;
         &lt;div id=&quot;el1&quot; class=&quot;icon mdl-icon mdl-icon--note-add&quot;&gt;&lt;&#x2F;div&gt;
         &lt;div class=&quot;mdl-tooltip&quot; for=&quot;el1&quot;&gt;
@@ -51,14 +57,68 @@ main() {
             Element with a large tooltip
         &lt;&#x2F;div&gt;
     &lt;&#x2F;div&gt;
-    &lt;!-- build:js(app&#x2F;styleguide&#x2F;tooltip&#x2F;) ..&#x2F;..&#x2F;scripts&#x2F;main.min.js --&gt;
-                &lt;!-- endbuild --&gt;
-
-                </pre>
+</pre>
                 </div>
                 <!-- CSS-Tab -->
                 <div class="mdl-tabs__panel" id="css">
-Here to come...
+<h4 id="tooltip">Tooltip</h4>
+<h5 id="introduction">Introduction</h5>
+<p>The Material Design Lite (MDL) <strong>tooltip</strong> component is an enhanced version of the standard HTML tooltip as produced by the <code>title</code> attribute. A tooltip consists of text and/or an image that clearly communicates additional information about an element when the user hovers over or, in a touch-based UI, long-presses the element. The MDL tooltip component is pre-styled (colors, fonts, and other settings are contained in <em>material.min.css</em>) to provide a vivid, attractive visual element that displays related but typically non-essential content, e.g., a definition, clarification, or brief instruction.</p>
+<p>Tooltips are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is an important factor in the overall user experience. See the tooltip component's <a href="http://www.google.com/design/spec/components/tooltips.html">Material Design specifications page</a> for details.</p>
+<h5 id="to-include-an-mdl-tooltip-component">To include an MDL <strong>tooltip</strong> component:</h5>
+<p> 1. Code an element, such as a <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, or <code>&lt;span&gt;</code>, and style it as desired; this will be the tooltip's target. Include an <code>id</code> attribute and unique value to link the container to its tooltip.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;tt1&quot;</span><span class="kw">&gt;</span>HTML<span class="kw">&lt;/p&gt;</span></code></pre>
+<p> 2. Following the target element, code a second element, such as a <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, or <code>&lt;span&gt;</code>; this will be the tooltip itself. Include a <code>for</code> attribute whose value matches that of the target's <code>id</code>.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;tt1&quot;</span><span class="kw">&gt;</span>HTML<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;span</span><span class="ot"> for=</span><span class="st">&quot;tt1&quot;</span><span class="kw">&gt;</span>HyperText Markup Language<span class="kw">&lt;/span&gt;</span></code></pre>
+<p> 3. Add one or more MDL classes, separated by spaces, to the tooltip element using the <code>class</code> attribute.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> id=</span><span class="st">&quot;tt1&quot;</span><span class="kw">&gt;</span>HTML<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;span</span><span class="ot"> for=</span><span class="st">&quot;tt1&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-tooltip&quot;</span><span class="kw">&gt;</span>HyperText Markup Language<span class="kw">&lt;/span&gt;</span></code></pre>
+<p>The tooltip component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A target with a simple text tooltip.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>HTML is related to but different from <span class="kw">&lt;span</span><span class="ot"> id=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;&lt;i&gt;</span>XML<span class="kw">&lt;/i&gt;&lt;/span&gt;</span>.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-tooltip&quot;</span><span class="ot"> for=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;</span>eXtensible Markup Language<span class="kw">&lt;/span&gt;</span></code></pre>
+<p>A target with &quot;rich&quot; (containing HTML markup) tooltip text.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>HTML is related to but different from <span class="kw">&lt;span</span><span class="ot"> id=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;&lt;i&gt;</span>XML<span class="kw">&lt;/i&gt;&lt;/span&gt;</span>.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-tooltip&quot;</span><span class="ot"> for=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;</span>e<span class="kw">&lt;b&gt;</span>X<span class="kw">&lt;/b&gt;</span>tensible <span class="kw">&lt;b&gt;</span>M<span class="kw">&lt;/b&gt;</span>arkup <span class="kw">&lt;b&gt;</span>L<span class="kw">&lt;/b&gt;</span>anguage<span class="kw">&lt;/span&gt;</span></code></pre>
+<p>A target with a long text tooltip that automatically wraps.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>HTML is related to but different from <span class="kw">&lt;span</span><span class="ot"> id=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;&lt;i&gt;</span>XML<span class="kw">&lt;/i&gt;&lt;/span&gt;</span>.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-tooltip&quot;</span><span class="ot"> for=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;</span>XML is an acronym for eXtensible Markup Language<span class="kw">&lt;/span&gt;</span></code></pre>
+<p>A target with tooltip text in a larger font size.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>HTML is related to but different from <span class="kw">&lt;span</span><span class="ot"> id=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;&lt;i&gt;</span>XML<span class="kw">&lt;/i&gt;&lt;/span&gt;</span>.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-tooltip mdl-tooltip--large&quot;</span><span class="ot"> for=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;</span>eXtensible Markup Language<span class="kw">&lt;/span&gt;</span></code></pre>
+<p>A target with a tooltip containing both an image and text.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>HTML is related to but different from <span class="kw">&lt;span</span><span class="ot"> id=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;&lt;i&gt;</span>XML<span class="kw">&lt;/i&gt;&lt;/span&gt;</span>.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-tooltip&quot;</span><span class="ot"> for=</span><span class="st">&quot;xml&quot;</span><span class="kw">&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;xml-logo-small.png&quot;</span><span class="ot"> width=</span><span class="st">&quot;20&quot;</span><span class="ot"> height=</span><span class="st">&quot;10&quot;</span><span class="kw">&gt;</span> eXtensible Markup Language<span class="kw">&lt;/span&gt;</span></code></pre>
+<h5 id="configuration-options">Configuration options</h5>
+<p>The MDL CSS classes apply various predefined visual enhancements to the tooltip. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">MDL class</th>
+<th align="left">Effect</th>
+<th align="left">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>mdl-tooltip</code></td>
+<td align="left">Defines a container as an MDL tooltip</td>
+<td align="left">Required on tooltip container element</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-tooltip--large</code></td>
+<td align="left">Applies large-font effect</td>
+<td align="left">Optional; goes on tooltip container element</td>
+</tr>
+</tbody>
+</table>
+<h5 id="more-information">More information</h5>
+<p>For working examples of the <strong>tooltip</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/tooltip">tooltip demo page</a>.</p>
+<h5 id="license">License</h5>
+<p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>
+
                 </div>
             </div>
         </div>

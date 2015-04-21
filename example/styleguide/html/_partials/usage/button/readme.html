@@ -1,1 +1,83 @@
-Here to come...
+<h4 id="button">Button</h4>
+<h5 id="introduction">Introduction</h5>
+<p>The Material Design Lite (MDL) <strong>button</strong> component is an enhanced version of the standard HTML <code>&lt;button&gt;</code> element. A button consists of text and/or an image that clearly communicates what action will occur when the user clicks or touches it. The MDL button component provides various types of buttons, and allows you to add both display and click effects.</p>
+<p>Buttons are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the button component's <a href="http://www.google.com/design/spec/components/buttons.html">Material Design specifications page</a> for details.</p>
+<p>The available button display types are <em>flat</em> (default), <em>raised</em>, <em>fab</em>, <em>mini-fab</em>, and <em>icon</em>; any of these types may be plain (light gray) or <em>colored</em>, and may be initially or programmatically <em>disabled</em>. The <em>fab</em>, <em>mini-fab</em>, and <em>icon</em> button types typically use a small image as their caption rather than text.</p>
+<h5 id="to-include-an-mdl-button-component">To include an MDL <strong>button</strong> component:</h5>
+<p> 1. Code a <code>&lt;button&gt;</code> element. Include any desired attributes and values, such as an id or event handler, and add a text caption or image as appropriate.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button&gt;</span>Save<span class="kw">&lt;/button&gt;</span></code></pre>
+<p> 2. Add one or more MDL classes, separated by spaces, to the button using the <code>class</code> attribute.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--raised&quot;</span><span class="kw">&gt;</span>Save<span class="kw">&lt;/button&gt;</span></code></pre>
+<p>The button component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A button with the &quot;raised&quot; effect.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--raised&quot;</span><span class="kw">&gt;</span>Save<span class="kw">&lt;/button&gt;</span></code></pre>
+<p>A button with the &quot;fab&quot; effect.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--fab&quot;</span><span class="kw">&gt;</span>Help<span class="kw">&lt;/button&gt;</span></code></pre>
+<p>A button with the &quot;icon&quot; and &quot;colored&quot; effects.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon mdl-button--colored&quot;</span><span class="kw">&gt;</span>?<span class="kw">&lt;/button&gt;</span></code></pre>
+<h5 id="configuration-options">Configuration options</h5>
+<p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the button. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">MDL class</th>
+<th align="left">Effect</th>
+<th align="left">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>mdl-button</code></td>
+<td align="left">Defines button as an MDL component</td>
+<td align="left">Required</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-js-button</code></td>
+<td align="left">Assigns basic MDL behavior to button</td>
+<td align="left">Required</td>
+</tr>
+<tr class="odd">
+<td align="left">(none)</td>
+<td align="left">Applies <em>flat</em> display effect to button (default)</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-button--raised</code></td>
+<td align="left">Applies <em>raised</em> display effect</td>
+<td align="left">Mutually exclusive with <em>fab</em>, <em>mini-fab</em>, and <em>icon</em></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-button--fab</code></td>
+<td align="left">Applies <em>fab</em> (circular) display effect</td>
+<td align="left">Mutually exclusive with <em>raised</em>, <em>mini-fab</em>, and <em>icon</em></td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-button--mini-fab</code></td>
+<td align="left">Applies <em>mini-fab</em> (small fab circular) display effect</td>
+<td align="left">Mutually exclusive with <em>raised</em>, <em>fab</em>, and <em>icon</em></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-button--icon</code></td>
+<td align="left">Applies <em>icon</em> (small plain circular) display effect</td>
+<td align="left">Mutually exclusive with <em>raised</em>, <em>fab</em>, and <em>mini-fab</em></td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-button--colored</code></td>
+<td align="left">Applies <em>colored</em> display effect</td>
+<td align="left">Colors are defined in <code>material.min.css</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-js-ripple-effect</code></td>
+<td align="left">Applies <em>ripple</em> click effect</td>
+<td align="left">May be used in combination with any other classes</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> Disabled versions of all the available button types are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect&quot; disabled&gt;Raised Ripples Disabled&lt;/button&gt;</code><br />This attribute may be added or removed programmatically via scripting.</p>
+</blockquote>
+<h5 id="more-information">More information</h5>
+<p>For working examples of the <strong>button</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/button">button demo page</a>.</p>
+<h5 id="license">License</h5>
+<p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>

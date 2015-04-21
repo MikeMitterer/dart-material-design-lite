@@ -7,9 +7,6 @@ An MDL-enhanced list takes two basic forms: *inline* and *styled-view*. An inlin
 
 Lists are a common feature in user interfaces, and allow users to view (and sometimes choose) an item from the series. Their design and use is an important factor in the overall user experience. See the list component's [Material Design specifications page](http://www.google.com/design/spec/components/lists.html) for details. 
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **inline list** component:
 
 &nbsp;1. Code a `<ul>` element. Inside the unordered list, include one `<li>` element for each list item to be presented horizontally. That is, for four list items, you would code four `<li>`s.

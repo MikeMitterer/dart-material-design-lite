@@ -7,9 +7,6 @@ The MDL column-layout is best suited for short lines of content, such as those t
 
 Column-layouts are an established but non-standardized feature in most user interfaces, and provide users with a way to conveniently access content that might otherwise take up too much screen space. Their design and use is an important factor in the overall user experience. See the column-layout component's [Material Design specifications page](http://www.google.com/design/spec/components/column-layouts.html) for details. 
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **column-layout** component:
 
 &nbsp;1. Code a `<div>` element; this is the "outer" container, intended to hold all of the columns' text items.
@@ -94,7 +91,7 @@ The MDL CSS classes apply various predefined visual enhancements and behavioral 
 | `mdl-column-layout__child` | Defines a container as a column-layout item | Required on "inner" div elements|
 
 ##More information
-For working examples of the **column-layout** component, see the MDL [column-layout demo page](www.github.com/google/material-design-lite/src/column-layout/demo.html).
+For working examples of the **column-layout** component, see the MDL [column-layout demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/column-layout).
 
 ## License
 

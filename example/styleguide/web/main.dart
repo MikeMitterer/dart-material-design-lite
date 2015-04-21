@@ -95,6 +95,12 @@ class DemoController extends MaterialController {
     @override
     void loaded(final Route route) {
         _model.title = route.name;
+
+        final MaterialInclude usage = MaterialInclude.widget(dom.querySelector("#usage"));
+        if(usage != null) {
+            usage.onLoadEnd.listen((_) => prettyPrint());
+        }
+
     }
     // - private ------------------------------------------------------------------------------------------------------
 }
@@ -117,12 +123,6 @@ class BadgeController extends DemoController {
 
             counter++;
         });
-
-        final MaterialInclude usage = MaterialInclude.widget(dom.querySelector("#usage"));
-        if(usage != null) {
-            usage.onLoadEnd.listen((_) => prettyPrint());
-        }
-
     }
     // - private ------------------------------------------------------------------------------------------------------
 }

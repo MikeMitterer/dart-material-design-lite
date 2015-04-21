@@ -9,9 +9,6 @@ To view the complete list of icons, see [this page](http://google.github.io/mate
 
 Icons are an established but non-standardized feature of most user interfaces, and provide users with non-textual cues about application options, content, or activity, regardless of hardware device, operating system, or browser environment. Their design and use is an important factor in the overall user experience. See the icon component's [Material Design specifications page](http://www.google.com/design/spec/style/icons.html) for details. 
 
-##Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ###To include an MDL **icon** component:
 
 &nbsp;1. Code a `<span>` element; the span should have no content of its own.

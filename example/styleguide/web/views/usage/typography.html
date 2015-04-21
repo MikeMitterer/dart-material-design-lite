@@ -21,17 +21,23 @@
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
 import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+
 main() {
     registerAllMdlComponents();
     upgradeAllRegistered().then((_) {
     });
-}
-                </pre>
+}</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
+                <div class="linkinfo">
+                    To use any MDL component, you must include the minified CSS file in the &lt;head&gt; section of the page:<br>
+                    <div class="csslink mdl-color-text--900">
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;<br>
+                    </div>
+                    More about <a href="/#/theming">theming...</a>
+                </div>
                 <pre class="prettyprint linenums lang-html">
-
   &lt;h5&gt;Scale &amp;amp; Basic Styles&lt;&#x2F;h5&gt;
   &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;table&gt;
@@ -96,7 +102,7 @@ main() {
   &lt;h5&gt;HTML Elements&lt;&#x2F;h5&gt;
   &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;h5&gt;Headings&lt;&#x2F;h5&gt;
-    &lt;h1&gt;&amp;lt;h1&amp;gt;&lt;&#x2F;h1&gt;
+    &lt;h4&gt;&amp;lt;h1&amp;gt;&lt;&#x2F;h4&gt;
     &lt;h5&gt;&amp;lt;h2&amp;gt;&lt;&#x2F;h5&gt;
     &lt;h5&gt;&amp;lt;h3&amp;gt;&lt;&#x2F;h5&gt;
     &lt;h4&gt;&amp;lt;h4&amp;gt;&lt;&#x2F;h4&gt;
@@ -118,7 +124,7 @@ main() {
     &lt;p class=&quot;mdl-typography--menu&quot;&gt;&amp;lt;p class=&quot;mdl-typography-menu&quot;&amp;gt;&lt;&#x2F;p&gt;
     &lt;p class=&quot;mdl-typography--button&quot;&gt;&amp;lt;p class=&quot;mdl-typography-button&quot;&amp;gt;&lt;&#x2F;p&gt;
     &lt;h5&gt;Subtitles&lt;&#x2F;h5&gt;
-    &lt;h1&gt;&amp;lt;h1&amp;gt; &lt;small&gt;Subtitle&lt;&#x2F;small&gt;&lt;&#x2F;h1&gt;
+    &lt;h4&gt;&amp;lt;h1&amp;gt; &lt;small&gt;Subtitle&lt;&#x2F;small&gt;&lt;&#x2F;h4&gt;
     &lt;h5&gt;&amp;lt;h2&amp;gt; &lt;small&gt;Subtitle&lt;&#x2F;small&gt;&lt;&#x2F;h5&gt;
     &lt;h5&gt;&amp;lt;h3&amp;gt; &lt;small&gt;Subtitle&lt;&#x2F;small&gt;&lt;&#x2F;h5&gt;
     &lt;h4&gt;&amp;lt;h4&amp;gt; &lt;small&gt;Subtitle&lt;&#x2F;small&gt;&lt;&#x2F;h4&gt;
@@ -230,7 +236,6 @@ main() {
           &lt;&#x2F;tr&gt;
         &lt;&#x2F;tbody&gt;
       &lt;&#x2F;table&gt;
-
   &lt;h5&gt;Color Contrasts&lt;&#x2F;h5&gt;
   &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;div class=&quot;demo-typography--white&quot;&gt;
@@ -268,14 +273,201 @@ main() {
       &lt;p class=&quot;mdl-typography--display-1-color-contrast&quot;&gt;Display&lt;&#x2F;p&gt;
     &lt;&#x2F;div&gt;
   &lt;&#x2F;div&gt;
-
-  
-
-                </pre>
+</pre>
                 </div>
                 <!-- CSS-Tab -->
                 <div class="mdl-tabs__panel" id="css">
-Here to come...
+<h4 id="typography">Typography</h4>
+<h5 id="introduction">Introduction</h5>
+<p>The Material Design Lite (MDL) <strong>typography</strong> component is a comprehensive approach to standardizing the use of typefaces in applications and page displays. MDL typography elements are intended to replace the myriad fonts used by developers (which vary significantly in appearance) and provide a robust, uniform library of text styles from which developers can choose.</p>
+<p>The &quot;Roboto&quot; typeface is the standard for MDL display; it can easily be integrated into a web page using the CSS3 <code>@font-face</code> rule. However, Roboto is most simply accessed and included using a single standard HTML <code>&lt;link&gt;</code> element, which can be obtained at <a href="http://www.google.com/fonts#UsePlace:use/Collection:Roboto">this Google fonts page</a>.</p>
+<p>Because of the many possible variations in font display characteristics in HTML and CSS, MDL typography aims to provide simple and intuitive styles that use the Roboto font and produce visually attractive and internally consistent text results. See the typography component's <a href="http://www.google.com/design/spec/style/typography.html">Material Design specifications page</a> for details.</p>
+<h5 id="to-include-an-mdl-typography-component">To include an MDL <strong>typography</strong> component:</h5>
+<p> 1. Code any element (<code>&lt;div&gt;</code>,<code>&lt;p&gt;</code>,<code>&lt;span&gt;</code>, etc.) that can contain text, including whatever content is appropriate.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>This is a standard paragraph.<span class="kw">&lt;/p&gt;</span></code></pre>
+<p> 2. Add one or more MDL classes, separated by spaces, to the element using the <code>class</code> attribute.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--body-1&quot;</span><span class="kw">&gt;</span>This is a standard paragraph.<span class="kw">&lt;/p&gt;</span></code></pre>
+<p>The typography component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A &quot;headline&quot; paragraph.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--headline&quot;</span><span class="kw">&gt;</span>Regular 24px<span class="kw">&lt;/p&gt;</span></code></pre>
+<p>A &quot;title&quot; paragraph.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--title&quot;</span><span class="kw">&gt;</span>Medium 20px<span class="kw">&lt;/p&gt;</span></code></pre>
+<p>A &quot;caption&quot; span.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--caption&quot;</span><span class="kw">&gt;</span>Regular 12px<span class="kw">&lt;/span&gt;</span></code></pre>
+<p>A &quot;button&quot; span.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--button&quot;</span><span class="kw">&gt;</span>Medium (All Caps) 14px<span class="kw">&lt;/span&gt;</span></code></pre>
+<p>A &quot;display 1&quot; table cell.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--display-1&quot;</span><span class="kw">&gt;</span>Regular 34px<span class="kw">&lt;/td&gt;</span></code></pre>
+<p>A &quot;body-1&quot; paragraph, also uppercased.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--body-1 mdl-typography--text-uppercase&quot;</span><span class="kw">&gt;</span>This is a standard paragraph, but uppercased.<span class="kw">&lt;/p&gt;</span></code></pre>
+<blockquote>
+<p><strong>Note:</strong> Because the Roboto font is intended to apply to the entire page, standard &quot;unclassed&quot; HTML elements (e.g., heading levels, divs, paragraphs, spans, tables, etc. with no <code>class</code> attribute) and text modifiers (e.g., strong, em, small, etc.) will use Roboto, while also retaining their inherent and/or inherited characteristics.</p>
+<p>Also note that MDL typography provides some automatic adjustments based on its display environment. For example, the <code>body-1</code> style renders at 14px on a mobile device, but 13px on a desktop. You need not do anything to activate these self-modifiers; they are built into the MDL styles.</p>
+</blockquote>
+<h5 id="configuration-options">Configuration options</h5>
+<p>The MDL CSS classes specify the style to use. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">MDL class</th>
+<th align="left">Effect</th>
+<th align="left">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>mdl-typography--body-1</code></td>
+<td align="left">Regular 14px (Device), Regular 13px (Desktop)</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--body-1-force-preferred-font</code></td>
+<td align="left">Regular 14px (Device), Regular 13px (Desktop)</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--body-2</code></td>
+<td align="left">Medium 14px (Device), Medium 13px (Desktop)</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--body-2</code></td>
+<td align="left">mdl-typography-body-2</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--body-2-color-contrast</code></td>
+<td align="left">Body with color contrast</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--body-2-force-preferred-font</code></td>
+<td align="left">Medium 14px (Device), Medium 13px (Desktop)</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--button</code></td>
+<td align="left">Medium (All Caps) 14px</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--caption</code></td>
+<td align="left">Regular 12px</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--caption-color-contrast</code></td>
+<td align="left">Caption with color contrast</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--display-1</code></td>
+<td align="left">Regular 34px</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--display-1-color-contrast</code></td>
+<td align="left">Display with color contrast</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--display-2</code></td>
+<td align="left">Regular 45px</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--display-3</code></td>
+<td align="left">Regular 56px</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--display-4</code></td>
+<td align="left">Light 112px</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--headline</code></td>
+<td align="left">Regular 24px</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--menu</code></td>
+<td align="left">Medium 14px (Device), Medium 13px (Desktop)</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--subhead</code></td>
+<td align="left">Regular 16px (Device), Regular 15px (Desktop)</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--subhead-color-contrast</code></td>
+<td align="left">Subhead with color contrast</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--table-striped</code></td>
+<td align="left">Striped table</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--text-capitalize</code></td>
+<td align="left">Capitalized text</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--text-center</code></td>
+<td align="left">Center aligned text</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--text-justify</code></td>
+<td align="left">Justified text</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--text-left</code></td>
+<td align="left">Left aligned text</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--text-lowercase</code></td>
+<td align="left">Lowercased text</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--text-nowrap</code></td>
+<td align="left">No wrap text</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--text-right</code></td>
+<td align="left">Right aligned text</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--text-uppercase</code></td>
+<td align="left">Uppercased text</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-typography--title</code></td>
+<td align="left">Medium 20px</td>
+<td align="left">Optional</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-typography--title-color-contrast</code></td>
+<td align="left">Title with color contrast</td>
+<td align="left">Optional</td>
+</tr>
+</tbody>
+</table>
+<h5 id="more-information">More information</h5>
+<p>For working examples of the <strong>typography</strong> component, see the MDL <a href="http://google.github.io/material-design-lite/latest/styleguide/typography/demo.html">typography demo page</a>.</p>
+<h5 id="license">License</h5>
+<p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>
+
                 </div>
             </div>
         </div>

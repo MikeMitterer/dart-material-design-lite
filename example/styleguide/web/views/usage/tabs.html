@@ -21,17 +21,23 @@
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
 import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+
 main() {
     registerAllMdlComponents();
     upgradeAllRegistered().then((_) {
     });
-}
-                </pre>
+}</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
+                <div class="linkinfo">
+                    To use any MDL component, you must include the minified CSS file in the &lt;head&gt; section of the page:<br>
+                    <div class="csslink mdl-color-text--900">
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;<br>
+                    </div>
+                    More about <a href="/#/theming">theming...</a>
+                </div>
                 <pre class="prettyprint linenums lang-html">
-
   &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;div class=&quot;mdl-tabs mdl-js-tabs mdl-js-ripple-effect&quot;&gt;
       &lt;div class=&quot;mdl-tabs__tab-bar&quot;&gt;
@@ -66,14 +72,177 @@ main() {
       &lt;&#x2F;div&gt;
     &lt;&#x2F;div&gt;
   &lt;&#x2F;div&gt;
-  &lt;!-- build:js(app&#x2F;styleguide&#x2F;tabs&#x2F;) ..&#x2F;..&#x2F;scripts&#x2F;main.min.js --&gt;
-          &lt;!-- endbuild --&gt;
-
-                </pre>
+</pre>
                 </div>
                 <!-- CSS-Tab -->
                 <div class="mdl-tabs__panel" id="css">
-Here to come...
+<h4 id="tabs">Tabs</h4>
+<h5 id="introduction">Introduction</h5>
+<p>The Material Design Lite (MDL) <strong>tab</strong> component is a user interface element that allows different content blocks to share the same screen space in a mutually exclusive manner. Tabs are always presented in sets of two or more, and they make it easy to explore and switch among different views or functional aspects of an app, or to browse categorized data sets individually. Tabs serve as &quot;headings&quot; for their respective content; the <em>active</em> tab — the one whose content is currently displayed — is always visually distinguished from the others so the user knows which heading the current content belongs to.</p>
+<p>Tabs are an established but non-standardized feature in user interfaces, and allow users to view different, but often related, blocks of content (often called <em>panels</em>). Tabs save screen real estate and provide intuitive and logical access to data while reducing navigation and associated user confusion. Their design and use is an important factor in the overall user experience. See the tab component's <a href="http://www.google.com/design/spec/components/tabs.html">Material Design specifications page</a> for details.</p>
+<h5 id="to-include-a-set-of-mdl-tab-components">To include a set of MDL <strong>tab</strong> components:</h5>
+<p> 1. Code a <code>&lt;div&gt;</code> element; this is the &quot;outer&quot; div, intended to contain all of the tabs and their content.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p> 2. Inside the &quot;outer&quot; div, code one &quot;inner&quot; div for the tabs themselves, and one for each tab's content, all siblings. That is, for three content tabs, you would code four &quot;inner&quot; divs.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>
+  ...
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>
+  ...
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>
+  ...
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>
+  ...
+  <span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p> 3. Inside the first &quot;inner&quot; div (the tabs), code one anchor <code>&lt;a&gt;</code> (link) tag for each tab. Include <code>href</code> attributes with values to match the tabs' <code>id</code> attribute values, and some brief link text. On the remaining &quot;inner&quot; divs (the content), code <code>id</code> attributes whose values match the links' <code>href</code>s.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#tab1&quot;</span><span class="kw">&gt;</span>Tab One<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#tab2&quot;</span><span class="kw">&gt;</span>Tab Two<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#tab3&quot;</span><span class="kw">&gt;</span>Tab Three<span class="kw">&lt;/a&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;tab1&quot;</span><span class="kw">&gt;</span>
+  ...
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;tab2&quot;</span><span class="kw">&gt;</span>
+  ...
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;tab3&quot;</span><span class="kw">&gt;</span>
+  ...
+  <span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p> 4. Inside the remaining &quot;inner&quot; divs, code the content you intend to display in each panel; use standard HTML tags to structure the content as desired.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+  <span class="kw">&lt;div&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#tab1&quot;</span><span class="kw">&gt;</span>Tab One<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#tab2&quot;</span><span class="kw">&gt;</span>Tab Two<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#tab3&quot;</span><span class="kw">&gt;</span>Tab Three<span class="kw">&lt;/a&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;tab1&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>First tab&#39;s content.<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;tab2&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>Second tab&#39;s content.<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;tab3&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>Third tab&#39;s content.<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p> 5. Add one or more MDL classes, separated by spaces, to the &quot;outer&quot; and &quot;inner&quot; divs using the <code>class</code> attribute; be sure to include the <code>is-active</code> class on the tab you want to be displayed by default.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs mdl-js-tabs&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__tab-bar&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#tab1&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__tab&quot;</span><span class="kw">&gt;</span>Tab One<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#tab2&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__tab&quot;</span><span class="kw">&gt;</span>Tab Two<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#tab3&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__tab&quot;</span><span class="kw">&gt;</span>Tab Three<span class="kw">&lt;/a&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__panel is-active&quot;</span><span class="ot"> id=</span><span class="st">&quot;tab1&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>First tab&#39;s content.<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__panel&quot;</span><span class="ot"> id=</span><span class="st">&quot;tab2&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>Second tab&#39;s content.<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__panel&quot;</span><span class="ot"> id=</span><span class="st">&quot;tab3&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>Third tab&#39;s content.<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p>The tab components are ready for use.</p>
+<h4 id="example">Example</h4>
+<p>Three tabs, with ripple effect on tab links.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs mdl-js-tabs mdl-js-ripple-effect&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__tab-bar&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#about-panel&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__tab is-active&quot;</span><span class="kw">&gt;</span>About the Beatles<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#members-panel&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__tab&quot;</span><span class="kw">&gt;</span>Members<span class="kw">&lt;/a&gt;</span>
+    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#albums-panel&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__tab&quot;</span><span class="kw">&gt;</span>Discography<span class="kw">&lt;/a&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__panel is-active&quot;</span><span class="ot"> id=</span><span class="st">&quot;about-panel&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;&lt;b&gt;</span>The Beatles<span class="kw">&lt;/b&gt;</span> were a four-piece musical group from Liverpool, England. Formed in 1960, their career spanned just over a decade, yet they are widely regarded as the most influential band in history.<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;p&gt;</span>Their songs are among the best-loved music of all time. It is said that every minute of every day, a radio station somewhere is playing a Beatles song.
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__panel&quot;</span><span class="ot"> id=</span><span class="st">&quot;members-panel&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>The Beatles&#39; members were:
+    <span class="kw">&lt;ul&gt;</span>
+      <span class="kw">&lt;li&gt;</span>John Lennon (1940-1980)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Paul McCartney (1942-)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>George Harrison (1943-2001)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Ringo Starr (1940-)<span class="kw">&lt;/li&gt;</span>
+    <span class="kw">&lt;/ul&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-tabs__panel&quot;</span><span class="ot"> id=</span><span class="st">&quot;albums-panel&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>The Beatles&#39; original UK LPs, in order of release:<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;ol&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Please Please Me (1963)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>With the Beatles (1963)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>A Hard Day&#39;s Night (1964)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Beatles for Sale (1964)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Help! (1965)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Rubber Soul (1965)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Revolver (1966)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Sgt. Pepper&#39;s Lonely Hearts Club Band (1967)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>The Beatles (&quot;The White Album&quot;, 1968)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Yellow Submarine (1969)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Abbey Road (1969)<span class="kw">&lt;/li&gt;</span>
+      <span class="kw">&lt;li&gt;</span>Let It Be (1970)<span class="kw">&lt;/li&gt;</span>
+    <span class="kw">&lt;/ol&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h5 id="configuration-options">Configuration options</h5>
+<p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the tabs. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">MDL class</th>
+<th align="left">Effect</th>
+<th align="left">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>mdl-tabs</code></td>
+<td align="left">Defines a tabs container as an MDL component</td>
+<td align="left">Required on &quot;outer&quot; div element</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-js-tabs</code></td>
+<td align="left">Assigns basic MDL behavior to tabs container</td>
+<td align="left">Required on &quot;outer&quot; div element</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-js-ripple-effect</code></td>
+<td align="left">Applies <em>ripple</em> click effect to tab links</td>
+<td align="left">Optional; goes on &quot;outer&quot; div element</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-tabs__tab-bar</code></td>
+<td align="left">Defines a container as an MDL tabs link bar</td>
+<td align="left">Required on first &quot;inner&quot; div element</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-tabs__tab</code></td>
+<td align="left">Defines an anchor (link) as an MDL tab activator</td>
+<td align="left">Required on all links in first &quot;inner&quot; div element</td>
+</tr>
+<tr class="even">
+<td align="left"><code>is-active</code></td>
+<td align="left">Defines a tab as the default display tab</td>
+<td align="left">Required on one (and only one) of the &quot;inner&quot; div (tab) elements</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-tabs__panel</code></td>
+<td align="left">Defines a container as tab content</td>
+<td align="left">Required on each of the &quot;inner&quot; div (tab) elements</td>
+</tr>
+</tbody>
+</table>
+<h5 id="more-information">More information</h5>
+<p>For working examples of the <strong>tab</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/tabs">tab demo page</a>.</p>
+<h5 id="license">License</h5>
+<p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>
+
                 </div>
             </div>
         </div>
