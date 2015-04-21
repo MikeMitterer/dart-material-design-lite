@@ -1,0 +1,82 @@
+<section class="demo-section demo-section--getting-started">
+
+    <h3 class="mdl-color-text--600" id="introduction">Introduction</h3>
+
+    <p>The MDL components are created with CSS, Dart, and HTML. You can use the components to construct web pages
+        and web apps that are attractive, consistent, and functional. Pages developed with MDL will adhere to modern web
+        design principles like browser portability, device independence, and graceful degradation.</p>
+
+    <p>The MDL component library includes new versions of common user interface controls such as buttons, check boxes,
+        and text fields, adapted to follow Material Design concepts. The library also includes enhanced and specialized
+        features like cards, column layouts, sliders, spinners, tabs, typography, and more.</p>
+
+    <p>MDL is free to download and use, and may be used with or without any build library or development environment.
+        It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more
+        productive,
+        portable, and — most importantly — usable web pages.</p>
+
+    <h4 id="getting-started">Getting started</h4>
+
+    <p>To obtain the components, first, install the <a href="https://pub.dartlang.org/packages/material_design_lite"
+                                                target="_blank">MDL Package</a>.
+    </p>
+
+    <h5 id="update-yaml">1 - Update your pubspec.yaml</h5>
+    <pre class="prettyprint linenums lang-yaml">
+name: mdl_sample
+description: Material Design Lite Sample
+
+version: 0.1.0
+author: &lt;your name&gt;
+homepage: &lt;your homepage&gt;
+
+dependencies:
+browser: any
+
+logging: any
+logging_handlers: any
+console_log_handler: any
+
+mdl: any</pre>
+
+    <h5 id="pub-update">2 - pub update</h5>
+
+    <h5 id="include-the-master-css">3 - Include the master CSS</h5>
+
+    <p>In each HTML page in your project, include the minified (compressed) CSS using standard
+        references.</p>
+    <pre class="prettyprint linenums lang-html">
+&lt;link id=&quot;theme&quot; rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;</pre>
+    <p><strong>That's it!</strong>You are now ready to use the MDL components.<br>
+        If you want to know how you can "theme" your project - Jump to the <a href="#/theming">Theming</a> section.
+    </p>
+
+    <h4 id="use-the-components">Use the components</h4>
+
+    <p>In general, follow these basic steps to use an MDL component in your HTML page.</p>
+    <ol>
+        <li>Start with a standard HTML element, such as <code>&lt;button&gt;</code>, <code>&lt;div&gt;</code>, or <code>
+            &lt;ul&gt;</code>, depending on the MDL component you want to use. This establishes the element in the page
+            and readies it for MDL modification.<br/><br/></li>
+        <li>Add one or more MDL-specific CSS classes to the element, such as <code>mdl-button</code>, <code>mdl-tabs__panel</code>,
+            or <code>mdl-list--inline</code>, again depending on the component. The classes apply the MDL enhancements
+            to the element and effectively turn it into an MDL component.<br/><br/></li>
+        <li>View the page, preferably in multiple browsers on multiple devices, to ensure that the component looks and
+            behaves as expected.
+        </li>
+    </ol>
+    <blockquote>
+        <p><strong>A note about HTML elements and MDL CSS classes</strong><br/>Material Design Lite uses CSS <em>independent
+            classes</em>, which can apply to any HTML element, to construct components. For some components, you can use
+            almost any element. For other components, some elements give better visual or behavioral performance than
+            others. The examples in each component's README file use elements that perform well as that component. If
+            you must use elements other than those shown in the examples, we encourage you to experiment to find the
+            best combination of HTML elements and MDL CSS classes for your application.</p>
+    </blockquote>
+    <h4 id="whats-next">What's next?</h4>
+
+    <p>Detailed instructions for using the components, including MDL classes and their effects, coding considerations,
+        and configuration options, can be found in each component's section (on the left). Working examples using
+        various options are in each component's demo page or under <a href="/#/samples">"Samples"</a>.</p>
+
+</section>

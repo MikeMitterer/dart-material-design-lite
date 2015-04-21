@@ -2009,6 +2009,48 @@ Palettes (10 colors) 50 - 900 possible
 .mdl-color--A700 {
   background-color: #263238 !important; }
 
+.mdl-color--accent-50 {
+  background-color: #fce4ec !important; }
+
+.mdl-color--accent-100 {
+  background-color: #f8bbd0 !important; }
+
+.mdl-color--accent-200 {
+  background-color: #f48fb1 !important; }
+
+.mdl-color--accent-300 {
+  background-color: #f06292 !important; }
+
+.mdl-color--accent-400 {
+  background-color: #ec407a !important; }
+
+.mdl-color--accent-500 {
+  background-color: #e91e63 !important; }
+
+.mdl-color--accent-600 {
+  background-color: #d81b60 !important; }
+
+.mdl-color--accent-700 {
+  background-color: #c2185b !important; }
+
+.mdl-color--accent-800 {
+  background-color: #ad1457 !important; }
+
+.mdl-color--accent-900 {
+  background-color: #880e4f !important; }
+
+.mdl-color--accent-A100 {
+  background-color: #ff80ab !important; }
+
+.mdl-color--accent-A200 {
+  background-color: #ff4081 !important; }
+
+.mdl-color--accent-A400 {
+  background-color: #f50057 !important; }
+
+.mdl-color--accent-A700 {
+  background-color: #c51162 !important; }
+
 .mdl-color-text--primary, a.mdl-color-text--primary {
   color: #607d8b !important; }
 
@@ -2065,6 +2107,48 @@ Palettes (10 colors) 50 - 900 possible
 
 .mdl-color-text--A700 {
   color: #263238 !important; }
+
+.mdl-color-text--accent-50 {
+  color: #fce4ec !important; }
+
+.mdl-color-text--accent-100 {
+  color: #f8bbd0 !important; }
+
+.mdl-color-text--accent-200 {
+  color: #f48fb1 !important; }
+
+.mdl-color-text--accent-300 {
+  color: #f06292 !important; }
+
+.mdl-color-text--accent-400 {
+  color: #ec407a !important; }
+
+.mdl-color-text--accent-500 {
+  color: #e91e63 !important; }
+
+.mdl-color-text--accent-600 {
+  color: #d81b60 !important; }
+
+.mdl-color-text--accent-700 {
+  color: #c2185b !important; }
+
+.mdl-color-text--accent-800 {
+  color: #ad1457 !important; }
+
+.mdl-color-text--accent-900 {
+  color: #880e4f !important; }
+
+.mdl-color-text--accent-A100 {
+  color: #ff80ab !important; }
+
+.mdl-color-text--accent-A200 {
+  color: #ff4081 !important; }
+
+.mdl-color-text--accent-A400 {
+  color: #f50057 !important; }
+
+.mdl-color-text--accent-A700 {
+  color: #c51162 !important; }
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
@@ -10704,30 +10788,30 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
-.wsk-panel {
+.mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
   border-radius: 2px; }
-  .wsk-panel.wsk-panel--shadow {
+  .mdl-panel.mdl-panel--shadow {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-  .wsk-panel.wsk-panel--light-text {
+  .mdl-panel.mdl-panel--light-text {
     color: whitesmoke; }
-  .wsk-panel.wsk-panel--dark {
+  .mdl-panel.mdl-panel--dark {
     background-color: #607d8b; }
-  .wsk-panel.wsk-panel--darker {
+  .mdl-panel.mdl-panel--darker {
     background-color: #455a64; }
-  .wsk-panel.wsk-panel--light {
+  .mdl-panel.mdl-panel--light {
     background-color: #90a4ae; }
-  .wsk-panel.wsk-panel--lighter {
+  .mdl-panel.mdl-panel--lighter {
     background-color: #cfd8dc; }
-  .wsk-panel.wsk-panel--accent {
+  .mdl-panel.mdl-panel--accent {
     background-color: #e91e63; }
-  .wsk-panel.wsk-panel--with-heading {
+  .mdl-panel.mdl-panel--with-heading {
     padding: 0; }
-    .wsk-panel.wsk-panel--with-heading > .wsk-panel__heading {
+    .mdl-panel.mdl-panel--with-heading > .mdl-panel__heading {
       padding: 8px 16px; }
-    .wsk-panel.wsk-panel--with-heading > .wsk-panel__content {
+    .mdl-panel.mdl-panel--with-heading > .mdl-panel__content {
       padding: 8px 16px;
       color: rgba(0, 0, 0, 0.87);
       background-color: white; }

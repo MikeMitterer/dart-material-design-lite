@@ -4,18 +4,7 @@ import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
 main() {
     final Logger _logger = new Logger(&#x27;example.progress.main&#x27;);
 
-    &#x2F;&#x2F;    dom.document.registerElement(&#x27;wsk-progress&#x27;, MaterialProgress);
-    &#x2F;&#x2F;    dom.HtmlElement element = dom.querySelector(&quot;#p1&quot;);
-    &#x2F;&#x2F;    final MaterialProgress progress = new MaterialProgress();
-    &#x2F;&#x2F;    element.xtag = progress;
-    &#x2F;&#x2F;
-    &#x2F;&#x2F;    progress.init(element);
-    &#x2F;&#x2F;    element = dom.querySelector(&quot;#p1&quot;);
-    &#x2F;&#x2F;    element.xtag.setProgress(10);
-
-    &#x2F;&#x2F; registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
-    registerDemoAnimation();
-    registerAllMdlComponents();
+    registerMdl();
 
     upgradeAllRegistered().then((_) {
         _logger.info(&quot;All components upgraded&quot;);

@@ -85,7 +85,6 @@ main() {
         model.onChange.listen((_) {
             dom.querySelector("#title").text = model.title;
         });
-
     });
 }
 
@@ -96,11 +95,15 @@ class DemoController extends MaterialController {
     void loaded(final Route route) {
         _model.title = route.name;
 
-        final MaterialInclude usage = MaterialInclude.widget(dom.querySelector("#usage"));
-        if(usage != null) {
-            usage.onLoadEnd.listen((_) => prettyPrint());
+        final dom.HtmlElement element = dom.querySelector("#usage");
+        if(element != null) {
+            final MaterialInclude usage = MaterialInclude.widget(element);
+            if(usage != null) {
+                usage.onLoadEnd.listen((_) => prettyPrint());
+            }
+        } else {
+            prettyPrint();
         }
-
     }
     // - private ------------------------------------------------------------------------------------------------------
 }
@@ -268,6 +271,9 @@ void configRouter() {
         ..addRoute(name: 'footer', path: '/footer',
                     enter: view("views/footer.html", new DemoController()))
 
+        ..addRoute(name: 'getting started', path: '/gettingstarted',
+            enter: view("views/gettingstarted.html", new DemoController()))
+
         ..addRoute(name: 'icons', path: '/icons',
             enter: view("views/icons.html", new DemoController()))
 
@@ -300,6 +306,9 @@ void configRouter() {
 
         ..addRoute(name: 'shadow', path: '/shadow',
                     enter: view("views/shadow.html", new DemoController()))
+
+        ..addRoute(name: 'samples', path: '/samples',
+            enter: view("views/samples.html", new DemoController()))
 
         ..addRoute(name: 'slider', path: '/slider',
                     enter: view("views/slider.html", new DemoController()))

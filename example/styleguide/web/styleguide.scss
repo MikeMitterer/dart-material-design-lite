@@ -1,5 +1,5 @@
-@import "packages/mdl/assets/themes/amber-indigo/material-design-lite";
-
+//@import "packages/mdl/assets/themes/amber-indigo/material-design-lite";
+@import "packages/mdl/assets/styles/material-design-lite";
 @import "packages/mdl/assets/styles/fonts/fonts";
 // for layout
 // @import "packages/mdl/assets/styles/icons/icons";
@@ -23,6 +23,19 @@ body {
     justify-content: flex-start; // ⇾
     align-content: space-between; // ||
     align-items: stretch; // ↓
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    ol.linenums {
+        margin-left: 0;
+    }
+
 }
 
 
@@ -111,9 +124,6 @@ body {
                 border-radius: 5px;
             }
 
-            ol.linenums {
-                margin-left: 0;
-            }
         }
 
         .linkinfo {

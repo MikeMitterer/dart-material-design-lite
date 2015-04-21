@@ -36,9 +36,11 @@
     <link rel="canonical" href="http://www.example.com/">
     -->
 
+    <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+
     <!-- Page styles -->
     <!--<link id="theme" rel="stylesheet" href="packages/mdl/assets/themes/amber-cyan/material.css">-->
-    <!--<link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">-->
+    <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
     <link rel="stylesheet" href="styleguide.css">
 </head>
 <body>
@@ -58,7 +60,7 @@
                     <input type="checkbox" name="mdl-accordion" id="layout-1-check">
                     <label class="mdl-accordion__label" for="layout-1-check">Getting started<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
                     <div class="mdl-accordion--content">
-                        <a class="mdl-navigation__link" href="#/home">Home</a>
+                        <a class="mdl-navigation__link" href="#/gettingstarted">Introduction</a>
                     </div>
                 </div>
 
@@ -82,12 +84,21 @@
                     </div>
                 </div>
 
+                <!-- Panel 4 -->
+                <div class="mdl-accordion">
+                    <input type="checkbox" name="mdl-accordion" id="layout-4-check">
+                    <label class="mdl-accordion__label" for="layout-4-check">Samples<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
+                    <div class="mdl-accordion--content">
+                        <a class="mdl-navigation__link" href="#/samples">Samples</a>
+                    </div>
+                </div>
+
             </div>
         </nav>
     </div>
     <main class="mdl-layout__content">
         <div id="main" class="mdl-content mdl-js-content">Loading...</div>
-        <div class="lastmod">Last modified: {{_date}}</div>
+        <!--<div class="lastmod">Last modified: {{_date}}</div>-->
     </main>
 </div>
 <!-- Built with love using Material Design Lite -->

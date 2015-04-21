@@ -4,15 +4,14 @@ import "dart:async";
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:mdl/mdlcomponets.dart';
-import 'package:mdl/mdldemo.dart';
+import 'package:mdl/mdl.dart';
 
 main() {
     final Logger _logger = new Logger('main.MaterialBadge');
 
     configLogging();
 
-    registerAllMdlComponents();
+    registerMdl();
 
     upgradeAllRegistered().then((_) {
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector("#el1"));

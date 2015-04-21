@@ -1,6 +1,5 @@
 .demo-section--theming {
     min-width: 300px;
-    max-width: 450px;
 
     a {
         text-decoration: none;
@@ -14,6 +13,8 @@
         margin: 0 12px 0 12px;
     }
     .color-sample {
+        max-width: 450px;
+
         position: relative;
 
         border: 1px solid #cccccc;

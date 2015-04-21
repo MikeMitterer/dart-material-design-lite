@@ -5,7 +5,7 @@ import "dart:math" as Math;
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlremote.dart';
 
 import 'package:route_hierarchical/client.dart';
@@ -56,8 +56,7 @@ main() {
     configLogging();
     configRouter();
 
-    registerAllMdlComponents();
-    registerAllMdlRemoteComponents();
+    registerMdl();
 
     upgradeAllRegistered().then((_) {
 

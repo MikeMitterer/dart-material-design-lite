@@ -4,7 +4,7 @@ import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
 main() {
     final Logger _logger = new Logger(&#x27;main.MaterialBadge&#x27;);
 
-    registerAllMdlComponents();
+    registerMdl();
 
     upgradeAllRegistered().then((_) {
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector(&quot;#el1&quot;));
