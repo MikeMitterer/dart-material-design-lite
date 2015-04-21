@@ -274,6 +274,9 @@ void configRouter() {
         ..addRoute(name: 'getting started', path: '/gettingstarted',
             enter: view("views/gettingstarted.html", new DemoController()))
 
+        ..addRoute(name: 'grid', path: '/grid',
+            enter: view("views/grid.html", new DemoController()))
+
         ..addRoute(name: 'icons', path: '/icons',
             enter: view("views/icons.html", new DemoController()))
 

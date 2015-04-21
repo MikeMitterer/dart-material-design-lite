@@ -1,0 +1,31 @@
+<h4 id="grid-component">Grid component</h4>
+<p>The grid component helps you lay out your content for multiple screen sizes.</p>
+<h5 id="basic-example">Basic Example</h5>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-grid&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-cell mdl-cell--4-col&quot;</span><span class="kw">&gt;</span>Content<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-cell mdl-cell--4-col&quot;</span><span class="kw">&gt;</span>goes<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-cell mdl-cell--4-col&quot;</span><span class="kw">&gt;</span>here<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h5 id="grid">Grid</h5>
+<p>The container element.</p>
+<p>A grid has 12 columns in desktop screen sizes, 8 in tablet, and 4 in phone, with predefined margins and gutters baked in.</p>
+<p>Cells are laid out sequentially in a row, in the order they're defined, with some rules:</p>
+<ul>
+<li>If a cell doesn't fit in the row in one of the screen sizes, it reflows into the following line.</li>
+<li>If a cell has a specified column size equal to or larger than the number of columns for the current screen size, it takes up the entirety of its row.</li>
+</ul>
+<p>You can have a maximum grid width (after which the grid stays centered, with padding on either size) by setting is <code>max-width</code> CSS property.</p>
+<h5 id="options">Options</h5>
+<ul>
+<li><code>mdl-grid--no-spacing</code>:<br /> Creates a grid without any margins or gutters.</li>
+</ul>
+<h5 id="mdl-cell">mdl-cell</h5>
+<p>A cell inside the grid, with a given column size. The default is 4.</p>
+<h5 id="options-1">Options</h5>
+<ul>
+<li><p><code>mdl-cell--N-col</code> (where N is a number between 1 and 12):<br /> Set the column size for the cell to N. The default is 4.</p></li>
+<li><p><code>mdl-cell--stretch</code>:<br /> Makes the cell stretch vertically to fill the parent. This is the default.</p></li>
+<li><p><code>mdl-cell--top</code>:<br /> Aligns the cell to the top of the parent.</p></li>
+<li><p><code>mdl-cell--middle</code>:<br /> Aligns the cell to the middle of the parent.</p></li>
+<li><p><code>mdl-cell--bottom</code>:<br /> Aligns the cell to the bottom of the parent.</p></li>
+</ul>

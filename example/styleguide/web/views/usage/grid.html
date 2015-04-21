@@ -1,0 +1,107 @@
+<div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect usage usage-grid">
+    <!-- Panel 1 -->
+    <div class="mdl-accordion">
+        <input type="checkbox" name="mdl-accordion" id="usage-1-check">
+        <label class="mdl-accordion__label mdl-color--200" for="usage-1-check">
+            <span class="mdl-icon mdl-icon--remove-red-eye" title="mdl-icon--remove-red-eye"></span>
+            Basic Usage
+            <span class="mdl-icon mdl-icon--chevron-right indicator"></span>
+        </label>
+        <div class="mdl-accordion--content">
+            <i class="fa fa-eye"></i>
+            <i class="fa fa-chevron-right indicator"></i>
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <!-- TabBar -->
+                <div class="mdl-tabs__tab-bar">
+                    <a href="#dart" class="mdl-tabs__tab is-active">Dart</a>
+                    <a href="#html" class="mdl-tabs__tab">HTML</a>
+                    <a href="#css" class="mdl-tabs__tab">README</a>
+                </div>
+                <!-- Dart-Tab -->
+                <div class="mdl-tabs__panel is-active" id="dart">
+                <pre class="prettyprint linenums lang-dart">
+import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+
+main() {
+    registerMdl();
+    upgradeAllRegistered().then((_) {
+    });
+}</pre>
+                </div>
+                <!-- HTML-Tab -->
+                <div class="mdl-tabs__panel" id="html">
+                <div class="linkinfo">
+                    To use any MDL component, you must include the minified CSS file in the &lt;head&gt; section of the page:<br>
+                    <div class="csslink mdl-color-text--accent-500">
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;<br>
+                    </div>
+                    More about <a href="/#/theming">theming...</a>
+                </div>
+                <pre class="prettyprint linenums lang-html">
+    &lt;div class=&quot;demo-ruler mdl-grid&quot;&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--1-col&quot;&gt;1&lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+    &lt;br&#x2F;&gt;
+    &lt;div class=&quot;demo-grid-1 mdl-grid&quot;&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;4&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;4&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;4&lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+    &lt;br&#x2F;&gt;
+    &lt;div class=&quot;demo-grid-2 mdl-grid&quot;&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--6-col&quot;&gt;6&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--4-col&quot;&gt;4&lt;&#x2F;div&gt;
+      &lt;div class=&quot;mdl-cell mdl-cell--2-col&quot;&gt;2&lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+</pre>
+                </div>
+                <!-- CSS-Tab -->
+                <div class="mdl-tabs__panel" id="css">
+<h4 id="grid-component">Grid component</h4>
+<p>The grid component helps you lay out your content for multiple screen sizes.</p>
+<h5 id="basic-example">Basic Example</h5>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-grid&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-cell mdl-cell--4-col&quot;</span><span class="kw">&gt;</span>Content<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-cell mdl-cell--4-col&quot;</span><span class="kw">&gt;</span>goes<span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-cell mdl-cell--4-col&quot;</span><span class="kw">&gt;</span>here<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<h5 id="grid">Grid</h5>
+<p>The container element.</p>
+<p>A grid has 12 columns in desktop screen sizes, 8 in tablet, and 4 in phone, with predefined margins and gutters baked in.</p>
+<p>Cells are laid out sequentially in a row, in the order they're defined, with some rules:</p>
+<ul>
+<li>If a cell doesn't fit in the row in one of the screen sizes, it reflows into the following line.</li>
+<li>If a cell has a specified column size equal to or larger than the number of columns for the current screen size, it takes up the entirety of its row.</li>
+</ul>
+<p>You can have a maximum grid width (after which the grid stays centered, with padding on either size) by setting is <code>max-width</code> CSS property.</p>
+<h5 id="options">Options</h5>
+<ul>
+<li><code>mdl-grid--no-spacing</code>:<br /> Creates a grid without any margins or gutters.</li>
+</ul>
+<h5 id="mdl-cell">mdl-cell</h5>
+<p>A cell inside the grid, with a given column size. The default is 4.</p>
+<h5 id="options-1">Options</h5>
+<ul>
+<li><p><code>mdl-cell--N-col</code> (where N is a number between 1 and 12):<br /> Set the column size for the cell to N. The default is 4.</p></li>
+<li><p><code>mdl-cell--stretch</code>:<br /> Makes the cell stretch vertically to fill the parent. This is the default.</p></li>
+<li><p><code>mdl-cell--top</code>:<br /> Aligns the cell to the top of the parent.</p></li>
+<li><p><code>mdl-cell--middle</code>:<br /> Aligns the cell to the middle of the parent.</p></li>
+<li><p><code>mdl-cell--bottom</code>:<br /> Aligns the cell to the bottom of the parent.</p></li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
