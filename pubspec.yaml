@@ -17,8 +17,8 @@ dependencies:
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
   route_hierarchical: ">=0.6.1+1 <0.7.0"
-  mustache:
-    git: git://github.com/xxgreg/mustache
+  mustache: any
+    #git: git://github.com/xxgreg/mustache
 
 dev_dependencies:
   unittest: any
