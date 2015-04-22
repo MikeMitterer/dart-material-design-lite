@@ -22,6 +22,10 @@ library mdlremote;
 import 'dart:html' as html;
 import 'dart:math' as Math;
 import 'dart:async';
+
+@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
+import 'dart:mirrors';
+
 import 'package:logging/logging.dart';
 import 'package:browser_detect/browser_detect.dart';
 import 'package:route_hierarchical/client.dart';
@@ -34,13 +38,38 @@ part "src/remote/Utils.dart";
 
 part "src/remote/ViewFactory.dart";
 part "src/remote/Renderer.dart";
+part "src/remote/MdlEventManager.dart";
+part "src/remote/MdlTemplateComponent.dart";
 
 part "src/remote/MaterialContent.dart";
 part "src/remote/MaterialMustache.dart";
 part "src/remote/MaterialInclude.dart";
 
-
 part "src/remote/MaterialContoller.dart";
+
+/// Mustache (+mirrors) needs to know which classes to include
+class MdlComponentModelAnnotation {
+    const MdlComponentModelAnnotation();
+}
+
+
+/**
+ * Helps mustache to know which var are available to render
+ * Sample:
+ *
+ * @MdlComponent
+ * class Model {
+ *     int sliderValue = 20;
+ * }
+ *
+ * mustache.template = """
+ *             <div>
+ *                 Slider value: {{sliderValue}}
+ *             </div>""";
+ *
+ * mustache.render(model);
+ */
+const MdlComponentModelAnnotation MdlComponentModel = const MdlComponentModelAnnotation();
 
 void registerAllMdlRemoteComponents() {
 

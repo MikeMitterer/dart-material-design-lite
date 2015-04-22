@@ -58,7 +58,7 @@ class MaterialMustache extends MdlComponent {
     // html.Element get hub => inputElement;
 
     void set template(final String value) {
-        _template = value.trim().replaceAll(new RegExp(r"\s+"),"");
+        _template = value.trim().replaceAll(new RegExp(r"\s+")," ");
     }
 
     Future render(final scope) {

@@ -76,9 +76,9 @@ class MaterialTextfield extends MdlComponent {
 
     html.Element get hub => input;
 
-    html.HtmlElement get input {
+    html.InputElement get input {
         if(_input == null) {
-            _input = element.querySelector(".${_cssClasses.INPUT}") as html.HtmlElement;
+            _input = element.querySelector(".${_cssClasses.INPUT}") as html.InputElement;
         }
         return _input;
     }
@@ -110,6 +110,8 @@ class MaterialTextfield extends MdlComponent {
         }
         _updateClasses();
     }
+
+    String get value => input.value;
 
     //- private -----------------------------------------------------------------------------------
 

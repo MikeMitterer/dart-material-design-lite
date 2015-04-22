@@ -20,6 +20,6 @@ dependencies:
   mdl:
     path: ../../
 
-transformers:
-- $dart2js:
-    commandLineOptions: [--enable-experimental-mirrors]
+#transformers:
+#- $dart2js:
+#    commandLineOptions: [--enable-experimental-mirrors]

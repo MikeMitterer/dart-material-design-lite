@@ -202,7 +202,7 @@ class Application {
 
         scssFile.writeAsStringSync(template.replaceAll("{{primary}}",primaryColor).replaceAll("{{accent}}",accentColor));
 
-        _sasscAndAutoPrefix(scssFile,cssFile,useSass: true, minify: true);
+        _sasscAndAutoPrefix(scssFile,cssFile,useSass: false, minify: true);
     }
 
     void _copyOrigFiles(final String sampleName,final Directory sassDir,final Config config) {
@@ -676,7 +676,8 @@ class Application {
         final String baseCss = "${Path.dirname(targetCss.path)}/${Path.basenameWithoutExtension(targetCss.path)}";
         final String sassCompiler = useSass ? "sass" : "sassc";
 
-        final ProcessResult result = Process.runSync(sassCompiler, [targetScss.path, targetCss.path]);
+        ProcessResult result = Process.runSync(sassCompiler, [ targetScss.path, targetCss.path]);
+
         if(result.exitCode != 0) {
             _logger.severe(result.stderr);
         } else {

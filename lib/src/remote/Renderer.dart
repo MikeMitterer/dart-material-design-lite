@@ -56,28 +56,34 @@ class Renderer {
             element.classes.add(_cssClasses.LAODING);
 
             final html.Element child = new html.Element.html(content,validator: _validator());
-            element.childNodes.first.remove();
+            final String oriDisplay = child.style.display;
+            child.style.display = "none";
+
+            var oldElement = null;
+            if(element.childNodes.length > 0) {
+                oldElement = element.childNodes.first;
+            }
 
             child.classes.add(_cssClasses.DYN_CONTENT);
             element.append(child);
 
-            /// check if child is in DOM
-            //            new Timer.periodic(new Duration(milliseconds: 10),(final Timer timer) {
+            componenthandler.upgradeElement(element).then((_) {
 
-            _logger.info("Check for dyn-content...");
-            final html.Element dynContent = element.querySelector(".${_cssClasses.DYN_CONTENT}");
+                html.window.requestAnimationFrame( (_) {
+                if(oldElement != null) {
+                    oldElement.remove();
+                }
 
-            if( dynContent != null) {
-                //                    timer.cancel();
-
-                dynContent.classes.remove(_cssClasses.DYN_CONTENT);
+                child.style.display = oriDisplay;
 
                 element.classes.remove(_cssClasses.LAODING);
                 element.classes.add(_cssClasses.LAODED);
 
-                componenthandler.upgradeElement(element).then((_) => completer.complete());
-            }
-            //            });
+                completer.complete();
+                });
+
+            });
+
         });
 
         //new Future(() {
