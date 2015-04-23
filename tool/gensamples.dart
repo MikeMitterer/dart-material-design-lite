@@ -78,7 +78,7 @@ class Application {
                     _copySampleViewToStyleguide(sampleName, dir,config.samplesdir,samplesToExclude: [ "layout" ]);
                     _createUsageContentInStyleguide(sampleName, dir,config.samplesdir);
                     _createDartPartialInStyleguide(sampleName, dir,config);
-                    _createHtmlPartialInStyleguide(sampleName, dir,config);
+                    _createHtmlPartialInStyleguide(sampleName, dir,config,samplesToExclude: [ "layout" ]);
                     _createReadmePartialInStyleguide(sampleName, dir,config);
                 });
             }
@@ -448,7 +448,8 @@ class Application {
         targetDart.writeAsStringSync(new HtmlEscape().convert(content));
     }
 
-    void _createHtmlPartialInStyleguide(final String sampleName,final Directory sassDir,final Config config) {
+    void _createHtmlPartialInStyleguide(final String sampleName,final Directory sassDir,final Config config,
+                                        { final List<String> samplesToExclude: const [] }) {
         Validate.notBlank(sampleName);
         Validate.notNull(sassDir);
         Validate.notNull(config);
@@ -465,6 +466,9 @@ class Application {
         }
 
         final targetHtml = new File("${targetUsageDir.path}/html.html");
+        if(targetHtml.existsSync() && samplesToExclude.contains(sampleName)) {
+            return;
+        }
 
         String content = srcHtml.readAsStringSync();
         content = content.replaceFirst(new RegExp(r"<section[^>]*>.*\n*",multiLine: true),"");
@@ -1222,7 +1226,7 @@ class Config {
         _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
         _settings[_KEY_SCSS_TEMPLATE]       = "tool/templates/material-design-lite.tmpl.scss";
         _settings[_KEY_README_TEMPLATE]     = "tool/templates/README.tmpl.html";
-        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables,resets,fonts,images,mixins,ripple,bottombar";   // Liste durch , getrennt
+        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables,resets,fonts,images,mixins,ripple,bottombar,dialog,toast";   // Liste durch , getrennt
         _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
         _settings[_KEY_JS_BASE]             = "tool/jsbase"; // Basis für die JS-Files
 
