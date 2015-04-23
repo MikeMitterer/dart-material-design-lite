@@ -74,8 +74,8 @@ class Application {
                     final String sampleName = dir.path.replaceFirst("${config.sassdir}/","");
 
                     _logger.info("    coping views and styles for $sampleName to styleguide...");
-                    _copyDemoCssToStyleguide(sampleName, dir,config.samplesdir);
-                    _copySampleViewToStyleguide(sampleName, dir,config.samplesdir);
+                    _copyDemoCssToStyleguide(sampleName, dir,config.samplesdir,samplesToExclude: [ "layout" ]);
+                    _copySampleViewToStyleguide(sampleName, dir,config.samplesdir,samplesToExclude: [ "layout" ]);
                     _createUsageContentInStyleguide(sampleName, dir,config.samplesdir);
                     _createDartPartialInStyleguide(sampleName, dir,config);
                     _createHtmlPartialInStyleguide(sampleName, dir,config);
@@ -285,7 +285,8 @@ class Application {
     }
 
     /// {sassDir} -> lib/sass/accordion
-    void _copyDemoCssToStyleguide(final String sampleName,final Directory sassDir,final String samplesDir) {
+    void _copyDemoCssToStyleguide(final String sampleName,final Directory sassDir,final String samplesDir,
+                                  { final List<String> samplesToExclude: const [] }) {
         Validate.notBlank(sampleName);
         Validate.notNull(sassDir);
         Validate.notBlank(samplesDir);
@@ -302,6 +303,10 @@ class Application {
             targetScssDir.createSync(recursive: true);
         }
 
+        if(targetScss.existsSync() && samplesToExclude.contains(sampleName)) {
+            return;
+        }
+
         _logger.fine("Coping CSS's to styleguide $sampleName: ${targetScss.path}");
 
         String content = srcScss.readAsStringSync();
@@ -310,7 +315,8 @@ class Application {
         targetScss.writeAsStringSync(content);
     }
 
-    void _copySampleViewToStyleguide(final String sampleName,final Directory sassDir,final String samplesDir) {
+    void _copySampleViewToStyleguide(final String sampleName,final Directory sassDir,final String samplesDir,
+                                     { final List<String> samplesToExclude: const [] }) {
         Validate.notBlank(sampleName);
         Validate.notNull(sassDir);
         Validate.notBlank(samplesDir);
@@ -328,6 +334,10 @@ class Application {
 
         if(!targetSampleDir.existsSync()) {
             targetSampleDir.createSync(recursive: true);
+        }
+
+        if(targetSample.existsSync() && samplesToExclude.contains(sampleName)) {
+            return;
         }
 
         _logger.fine("Coping view to styleguide $sampleName: ${targetSample.path}");

@@ -1,0 +1,210 @@
+//---
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+@import "../variables";
+
+// wsk-toast was mainly taken from Angular-Material
+//  More: https://github.com/angular/material/blob/master/src/components/toast/toast.scss
+
+$toast-baseline-grid:            8px !default;
+$toast-swift-ease-out-duration : 0.2s !default;
+
+$toast-height: $toast-baseline-grid * 3 !default;
+$toast-margin: $toast-baseline-grid * 1 !default;
+
+$toast-swift-ease-in-duration: 0.2s !default;
+$toast-swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
+$toast-swift-ease-in: all $toast-swift-ease-in-duration $toast-swift-ease-in-timing-function !default;
+
+$toast-swift-ease-out-duration : 0.2s !default;
+$toast-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
+$toast-swift-ease-out : all $toast-swift-ease-out-duration $toast-swift-ease-out-timing-function !default;
+
+$toast-z-index: 90 !default;
+
+$toast-layout-breakpoint-sm:     600px !default;
+
+$toast-color: $text-color-primary-inverse !default;
+$toast-button-color: nth($palette-accent, 5) !default;
+$toast-background: nth($palette-grey, 9) !default;
+
+.wsk-toast-container {
+    &.is-visible {
+        //background-color: rgba(0, 0, 0, 0.25);
+        //visibility: visible;
+
+        .wsk-toast {
+            opacity    : 1;
+            transition : $toast-swift-ease-in;
+            //transform  : translate3d(0, 0, 0) scale(1.0);
+        }
+    }
+
+    &.is-hidden {
+        .wsk-toast {
+            // hidden
+            opacity    : 0;
+            transition     : $toast-swift-ease-out;
+            //transform      : translate3d(0, 100%, 0) scale(0.2);
+        }
+    }
+
+    .wsk-toast {
+        display: flex;
+        position:absolute;
+        box-sizing: border-box;
+        align-items: center;
+
+        min-height: 48px;
+        padding-left: 24px;
+        padding-right: 24px;
+
+        border-radius: 2px;
+        font-size: 14px;
+        cursor: default;
+
+        max-width: 879px;
+        max-height: 40px;
+
+        height: $toast-height;
+        z-index: $toast-z-index;
+
+        color: $toast-color;
+        background-color: $toast-background;
+
+        @include shadow-z2();
+
+        &.wsk-capsule {
+            border-radius: 24px;
+        }
+
+        opacity: 1;
+        transform: translate3d(0,0,0) rotateZ(0deg);
+        transition: $toast-swift-ease-out;
+
+        &.ng-leave-active {
+            transition: $toast-swift-ease-in;
+        }
+
+        /* Transition differently when swiping */
+        &.wsk-swipeleft,
+        &.wsk-swiperight,
+        &.wsk-swipeup,
+        &.wsk-swipedown {
+            transition: $toast-swift-ease-out;
+        }
+
+        &.ng-enter {
+            transform: translate3d(0, 100%, 0);
+            &.wsk-top {
+                transform: translate3d(0, -100%, 0);
+            }
+            opacity: 0;
+            &.ng-enter-active {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+        &.ng-leave.ng-leave-active {
+            opacity: 0;
+            transform: translate3d(0, 100%, 0);
+            &.wsk-toast--top {
+                transform: translate3d(0, -100%, 0);
+            }
+            &.wsk-swipeleft {
+                transform: translate3d(-100%, 0%, 0);
+            }
+            &.wsk-swiperight {
+                transform: translate3d(100%, 0%, 0);
+            }
+        }
+
+        .wsk-button {
+            color: $toast-button-color;
+        }
+
+        &.wsk-toast--left { left: 0; }
+
+        &.wsk-toast--top { top: 0; }
+
+        &.wsk-toast--right { right: 0; }
+
+        &.wsk-toast--bottom { bottom: 0; }
+
+        .wsk-toast__flex {
+            flex-grow: 1;
+        }
+    }
+}
+
+
+
+@media (max-width: $toast-layout-breakpoint-sm) {
+    .wsk-toast {
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        border-radius: 0;
+        bottom: 0;
+        &.wsk-toast--top {
+            bottom: auto;
+            top: 0;
+        }
+    }
+}
+@media (min-width: $toast-layout-breakpoint-sm) {
+    .wsk-toast {
+        min-width: 288px;
+        &.wsk-toast--bottom {
+            bottom: $toast-margin;
+        }
+        &.wsk-toast--left {
+            left: $toast-margin;
+        }
+        &.wsk-toast--right {
+            right: $toast-margin;
+        }
+        &.wsk-toast--top {
+            top: $toast-margin;
+        }
+
+        /*
+         * When the toast doesn't take up the whole screen,
+         * make it rotate when the user swipes it away
+         */
+        &.ng-leave.ng-leave-active {
+            &.wsk-swipeleft {
+                transform: translate3d(-100%, 25%, 0) rotateZ(-15deg);
+            }
+            &.wsk-swiperight {
+                transform: translate3d(100%, 25%, 0) rotateZ(15deg);
+            }
+            &.wsk-toast--top {
+                &.wsk-swipeleft {
+                    transform: translate3d(-100%, 0, 0) rotateZ(-15deg);
+                }
+                &.wsk-swiperight {
+                    transform: translate3d(100%, 0, 0) rotateZ(15deg);
+                }
+            }
+        }
+    }
+}
