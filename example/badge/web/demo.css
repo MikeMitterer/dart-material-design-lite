@@ -8308,7 +8308,7 @@ Palettes (10 colors) 50 - 900 possible
     display: block; }
 
 @media screen and (max-width: 850px) {
-  .mdl-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header .mdl-layout-title {
+  .mdl-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header .mdl-layout__header .mdl-layout-title {
     margin-left: 28px; } }
 
 /**
@@ -9787,9 +9787,6 @@ Palettes (10 colors) 50 - 900 possible
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
