@@ -76,8 +76,49 @@ main() {
                 </div>
                 <!-- CSS-Tab -->
                 <div class="mdl-tabs__panel" id="css">
-<h4>progress</h4>
-<p>...will be here soon</p>
+<h4 id="progress">Progress</h4>
+<h5 id="introduction">Introduction</h5>
+<p>The Material Design Lite (MDL) <strong>progress</strong> component is a visual indicator of background activity in a web page or application. A progress indicator consists of a (typically) horizontal bar containing some animation that conveys a sense of motion. While some progress devices indicate an approximate or specific percentage of completion, the MDL progress component simply communicates the fact that an activity is ongoing and is not yet complete.</p>
+<p>Progress indicators are an established but non-standardized feature in user interfaces, and provide users with a visual clue to an application's status. Their design and use is therefore an important factor in the overall user experience. See the progress component's <a href="http://www.google.com/design/spec/components/progress-activity.html">Material Design specifications page</a> for details.</p>
+<h5 id="to-include-an-mdl-progress-component">To include an MDL <strong>progress</strong> component:</h5>
+<p> 1. Code a <code>&lt;div&gt;</code> element. Include any desired attributes and values, such as an id or width — typically done using external CSS rather than the inline <code>style</code> attribute as shown here.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;prog1&quot;</span><span class="ot"> style=</span><span class="st">&quot;width:250px&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></code></pre>
+<p> 2. Add one or more MDL classes, separated by spaces, to the div using the <code>class</code> attribute.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;prog1&quot;</span><span class="ot"> style=</span><span class="st">&quot;width:250px&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-js-progress&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></code></pre>
+<p>The progress component is ready for use.</p>
+<h4 id="examples">Examples</h4>
+<p>A static (non-animated) progress indicator.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;progstatic&quot;</span><span class="ot"> style=</span><span class="st">&quot;width:250px&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-js-progress&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></code></pre>
+<p>An active (animated) progress indicator.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;progactive&quot;</span><span class="ot"> style=</span><span class="st">&quot;width:200px&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-js-progress mdl-progress__indeterminate&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></code></pre>
+<h5 id="configuration-options">Configuration options</h5>
+<p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the progress indicator. The table below lists the available classes and their effects.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">MDL class</th>
+<th align="left">Effect</th>
+<th align="left">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>mdl-js-progress</code></td>
+<td align="left">Assigns basic MDL behavior to progress indicator</td>
+<td align="left">Required</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-progress__indeterminate</code></td>
+<td align="left">Applies animation effect</td>
+<td align="left">Optional</td>
+</tr>
+</tbody>
+</table>
+<h5 id="more-information">More information</h5>
+<p>For working examples of the <strong>progress</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/progress">progress demo page</a>.</p>
+<h5 id="license">License</h5>
+<p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>
+
                 </div>
             </div>
         </div>

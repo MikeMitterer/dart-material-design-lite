@@ -1,1 +1,6 @@
 @import "card.orig";
+
+.mdl-card {
+    height     : auto;
+    min-height : $card-height;
+}

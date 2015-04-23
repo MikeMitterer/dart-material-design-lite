@@ -24,21 +24,26 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialAccordionCssClasses {
 
+    final String ACCORDION_TYPE     = "mdl-accordion--radio-type";
+
     final String ACCORDION_LABEL    = "mdl-accordion__label";
     final String RIPPLE_CONTAINER   = 'mdl-accordion__ripple-container';
 
-    final String RIPPLE_EFFECT   = 'mdl-js-ripple-effect';
+    final String RIPPLE_EFFECT      = 'mdl-js-ripple-effect';
     final String RIPPLE             = 'mdl-ripple';
 
     final String RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
 
-    final String IS_UPGRADED            = 'is-upgraded';
+    final String IS_UPGRADED        = 'is-upgraded';
 
     const _MaterialAccordionCssClasses();
 }
 
 /// Store constants in one place so they can be updated easily.
 class _MaterialAccordionConstant {
+
+    final String CHECKBOX_NAME      = "mdl-accordion";
+
     const _MaterialAccordionConstant();
 }
 
@@ -94,15 +99,28 @@ class MaterialAccordion extends MdlComponent {
 
         if (element != null) {
             if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
-
                 element.classes.add(_cssClasses.RIPPLE_EFFECT_IGNORE_EVENTS);
+
+                final bool isRadio = element.classes.contains(_cssClasses.ACCORDION_TYPE);
 
                 final List<html.Element> labels = element.querySelectorAll('.' + _cssClasses.ACCORDION_LABEL);
 
                 // Select element label
                 labels.forEach( (final html.HtmlElement label) {
+                    _logger.fine("Found $label");
 
-                    _logger.info("Found $label");
+                    final String id = "accordion-${label.hashCode}";
+                    (label as html.LabelElement).htmlFor = id;
+
+                    html.InputElement inputElement = null;
+                    if(isRadio) {
+                        inputElement = new html.RadioButtonInputElement();
+                    } else {
+                        inputElement = new html.CheckboxInputElement();
+                    }
+                    inputElement.name = "${_constant.CHECKBOX_NAME}-group-${element.hashCode}";
+                    inputElement.id = id;
+                    label.insertAdjacentElement('beforebegin',inputElement);
 
                     final html.SpanElement rippleContainer = new html.SpanElement();
                     rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);

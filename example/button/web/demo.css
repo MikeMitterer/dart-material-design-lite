@@ -3346,7 +3346,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 .mdl-card {
   font-size: 16px;
-  min-height: 200px;
+  height: 200px;
   overflow: hidden;
   width: 330px;
   z-index: 1;
@@ -3468,6 +3468,10 @@ Palettes (10 colors) 50 - 900 possible
       -ms-transform-origin: 165px 25px;
           transform-origin: 165px 25px;
   width: 100%; }
+
+.mdl-card {
+  height: auto;
+  min-height: 200px; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -9009,9 +9013,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   padding: 0;
   -webkit-transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1);
           transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1); }
-
-_:-moz-tree-row(hover), .mdl-slider__background-upper {
-  transition: none; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
