@@ -39,6 +39,24 @@ A cell inside the grid, with a given column size. The default is 4.
 - `mdl-cell--N-col` (where N is a number between 1 and 12):
   Set the column size for the cell to N. The default is 4.
 
+- `mdl-cell--N-col-desktop` (where N is a number between 1 and 12):
+  Set the column size for the cell to N in desktop mode only.
+
+- `mdl-cell--N-col-tablet` (where N is a number between 1 and 8):
+  Set the column size for the cell to N in tablet mode only.
+
+- `mdl-cell--N-col-phone` (where N is a number between 1 and 4):
+  Set the column size for the cell to N in phone mode only.
+
+- `mdl-cell--hide-desktop`:
+  Hides the cell when in desktop mode.
+
+- `mdl-cell--hide-tablet`:
+  Hides the cell when in tablet mode.
+
+- `mdl-cell--hide-phone`:
+  Hides the cell when in phone mode.
+
 - `mdl-cell--stretch`:
   Makes the cell stretch vertically to fill the parent. This is the default.
 

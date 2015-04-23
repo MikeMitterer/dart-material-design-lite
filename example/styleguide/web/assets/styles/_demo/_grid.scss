@@ -16,45 +16,55 @@
 .demo-page--grid, .demo-section--grid {
 
     .mdl-grid {
-        max-width : 1000px;
+        max-width: 1000px;
     }
 
     .mdl-cell {
-        color       : white;
-        text-align  : center;
-        font-size   : 30px;
-        line-height : 1.5;
-        height      : 200px;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        line-height: 1.5;
+        height: 200px;
     }
 
     .demo-ruler {
-        height   : 50px;
-        overflow : hidden;
+        height: 50px;
+        overflow: hidden;
     }
 
     .demo-ruler .mdl-cell {
-        background : gray;
-        height     : 50px;
+        background: gray;
+        height: 50px;
     }
 
     .demo-grid-1 .mdl-cell:nth-of-type(1) {
-        background-color : red;
+        background-color: red;
     }
     .demo-grid-1 .mdl-cell:nth-of-type(2) {
-        background-color : green;
+        background-color: green;
     }
     .demo-grid-1 .mdl-cell:nth-of-type(3) {
-        background-color : blue;
+        background-color: blue;
     }
 
     .demo-grid-2 .mdl-cell:nth-of-type(1) {
-        background-color : purple;
+        background-color: purple;
     }
     .demo-grid-2 .mdl-cell:nth-of-type(2) {
-        background-color : brown;
+        background-color: brown;
     }
     .demo-grid-2 .mdl-cell:nth-of-type(3) {
-        background-color : black;
+        background-color: black;
+    }
+
+    .demo-grid-3 .mdl-cell:nth-of-type(1) {
+        background-color: purple;
+    }
+    .demo-grid-3 .mdl-cell:nth-of-type(2) {
+        background-color: brown;
+    }
+    .demo-grid-3 .mdl-cell:nth-of-type(3) {
+        background-color: black;
     }
 }
 

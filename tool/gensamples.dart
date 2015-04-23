@@ -276,6 +276,12 @@ class Application {
         final File targetVariables = new File("${sassDir}/variables/_variables.orig.scss");
 
         srcVariables.copySync(targetVariables.path);
+
+        final File srcColordef = new File("${mdlDir}/_color-definitions.scss");
+        final File targetColordev = new File("${sassDir}/palette/_color-definitions.orig.scss");
+
+        srcColordef.copySync(targetColordev.path);
+
     }
 
     /// {sassDir} -> lib/sass/accordion
