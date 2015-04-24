@@ -110,6 +110,9 @@ class MdlComponentHandler {
                 _logger.fine("${config.cssClass} upgraded with ${config.classAsString}...");
             });
 
+            element.classes.remove(_cssClasses.UPGRADING);
+            element.classes.add(_cssClasses.UPGRADED);
+
             html.querySelector("body").classes.remove(_cssClasses.UPGRADING);
             html.querySelector("html").classes.add(_cssClasses.UPGRADED);
             _logger.info("All components are upgraded...");

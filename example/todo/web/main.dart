@@ -24,10 +24,12 @@ main() {
         final MaterialButton addButton = MaterialButton.widget(dom.querySelector("#add"));
         final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
         final ToDoItemComponent items = ToDoItemComponent.widget(dom.querySelector("#todo"));
+        final dom.SpanElement nrofitems = dom.querySelector("#nrofitems");
 
         addButton.onClick.listen((_) {
             _logger.info(item.value);
             items.addItem(new ToDoItem(false,item.value));
+            nrofitems.text = items.items.length.toString();
         });
 
     });

@@ -92,19 +92,35 @@ class ToDoItemComponent extends MdlTemplateComponent {
         </div>
         """.trim().replaceAll(new RegExp(r"\s+")," ");
 
-
+    String templateO = """
+            <div class="row">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{id}}">
+                    {{#checked}}
+                        <input type="checkbox" id="check{{id}}" class="mdl-checkbox__input" checked data-mdl-click="check({{id}})"/>
+                    {{/checked}}
+                    {{^checked}}
+                        <input type="checkbox" id="check{{id}}" class="mdl-checkbox__input" data-mdl-click="check({{id}})"/>
+                    {{/checked}}
+                    <span class="mdl-checkbox__label">{{item}}</span>
+                </label>
+                <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
+                    data-mdl-click="remove({{id}})">
+                    Remove
+                </button>
+            </div>
+        """.trim().replaceAll(new RegExp(r"\s+")," ");
 
     List<ToDoItem> get items => _items;
 
     void addItem(final ToDoItem value) {
         _items.add(value);
-        render();
+        _render();
     }
 
     void remove(final String id) {
         _logger.info("Click $id");
         _items.remove(getItem(id));
-        render();
+        _render();
     }
 
     void check(final String id) {
@@ -125,7 +141,11 @@ class ToDoItemComponent extends MdlTemplateComponent {
         _items.add(new ToDoItem(true,"Gerda"));
         _items.add(new ToDoItem(false,"Sarah"));
 
-        render();
+        for(int counter = 0;counter < 1000;counter++) {
+           _items.add(new ToDoItem(false,"Cnt $counter"));
+        }
+
+        _render();
     }
 
     ToDoItem getItem(final String id) {
@@ -135,6 +155,11 @@ class ToDoItemComponent extends MdlTemplateComponent {
             }
         }
         return null;
+    }
+
+    void _render() {
+        //renderList(items);
+        render();
     }
 }
 

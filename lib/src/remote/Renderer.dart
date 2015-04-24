@@ -24,11 +24,9 @@ part of mdlremote;
 /// decide to modify at a later date.
 class _RendererCssClasses {
 
-    final String DYN_CONTENT    = 'mdl-content__adding_content';
+    final String LOADING        = 'mdl-content__loading';
 
-    final String LAODING        = 'mdl-content__loading';
-
-    final String LAODED         = 'mdl-content__loaded';
+    final String LOADED         = 'mdl-content__loaded';
 
     const _RendererCssClasses();
 }
@@ -44,55 +42,49 @@ class Renderer {
     final List<RenderFunction> _renderFunctions = new List<RenderFunction>();
 
     /// Render the {content} String - {content} must have ONE! top level element
-    Future render(final html.Element element, final String content) {
+    /// Returns the rendered child
+    Future<html.Element> render(final html.Element element, final String content,{ final bool replaceNode: true}) {
         //_logger.info("Content: $content");
 
         final Completer completer = new Completer();
 
-        // add the render-function to the list where requestAnimationFrame can pick it
+        // add the render-function to the list where the "new Future" can pick it
         _renderFunctions.insert(0, () {
 
-            element.classes.remove(_cssClasses.LAODED);
-            element.classes.add(_cssClasses.LAODING);
+            element.classes.remove(_cssClasses.LOADED);
+            element.classes.add(_cssClasses.LOADING);
 
             final html.Element child = new html.Element.html(content,validator: _validator());
-            final String oriDisplay = child.style.display;
-            child.style.display = "none";
 
-            var oldElement = null;
-            if(element.childNodes.length > 0) {
-                oldElement = element.childNodes.first;
-            }
-
-            child.classes.add(_cssClasses.DYN_CONTENT);
-            element.append(child);
-
-            componenthandler.upgradeElement(element).then((_) {
+            componenthandler.upgradeElement(child).then((_) {
 
                 html.window.requestAnimationFrame( (_) {
-                if(oldElement != null) {
+
+                if(replaceNode && element.childNodes.length > 0 && element.childNodes.first != null) {
+                    var oldElement = element.childNodes.first;
+                    if(oldElement is html.Element) {
+                        oldElement.style.display = "none";
+                    }
                     oldElement.remove();
                 }
 
-                child.style.display = oriDisplay;
+                element.append(child);
 
-                element.classes.remove(_cssClasses.LAODING);
-                element.classes.add(_cssClasses.LAODED);
+                element.classes.remove(_cssClasses.LOADING);
+                element.classes.add(_cssClasses.LOADED);
 
-                completer.complete();
+                completer.complete(child);
                 });
 
             });
 
         });
 
-        //new Future(() {
-        html.window.requestAnimationFrame( (_) {
+        new Future(() {
             final RenderFunction renderfunction = _renderFunctions.last;
             _renderFunctions.remove(renderfunction);
             renderfunction();
         });
-
 
         return completer.future;
     }

@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of mdlremote;
+part of mdltemplatecomponents;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -36,7 +36,7 @@ class _MaterialMustacheConstant {
 
 /// registration-Helper
 void registerMaterialMustache() => componenthandler.register(new MdlWidgetConfig<MaterialMustache>(
-    "mdl-js-mustache", (final html.HtmlElement element) => new MaterialMustache.fromElement(element)));
+    "mdl-js-mustache", (final dom.HtmlElement element) => new MaterialMustache.fromElement(element)));
 
 class MaterialMustache extends MdlComponent {
     final Logger _logger = new Logger('mdlremote.MaterialMustache');
@@ -48,14 +48,14 @@ class MaterialMustache extends MdlComponent {
 
     String _template = "";
 
-    MaterialMustache.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialMustache.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialMustache widget(final html.HtmlElement element) => mdlComponent(element) as MaterialMustache;
+    static MaterialMustache widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialMustache;
 
     // Central Element - by default this is where mdl-js-mustache was found (element)
-    // html.Element get hub => inputElement;
+    // dom.Element get hub => inputElement;
 
     void set template(final String value) {
         _template = value.trim().replaceAll(new RegExp(r"\s+")," ");
