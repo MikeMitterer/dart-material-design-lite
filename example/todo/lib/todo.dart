@@ -1,6 +1,7 @@
 library todo;
 
 import "dart:html" as dom;
+import "dart:async";
 
 import 'package:logging/logging.dart';
 

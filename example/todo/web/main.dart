@@ -26,11 +26,18 @@ main() {
         final ToDoItemComponent items = ToDoItemComponent.widget(dom.querySelector("#todo"));
         final dom.SpanElement nrofitems = dom.querySelector("#nrofitems");
 
+        void _setNrOfItems() {
+            nrofitems.text = items.items.length.toString();
+        }
+        _setNrOfItems();
+
         addButton.onClick.listen((_) {
             _logger.info(item.value);
             items.addItem(new ToDoItem(false,item.value));
-            nrofitems.text = items.items.length.toString();
+            _setNrOfItems();
         });
+
+        items.onModelChange.listen((_) => _setNrOfItems());
 
     });
 }

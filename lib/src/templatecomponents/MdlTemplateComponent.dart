@@ -19,87 +19,99 @@
 
 part of mdltemplatecomponents;
 
+/// Basis for all MdlComponents with Templates
 abstract class MdlTemplateComponent extends MdlComponent {
     final Logger _logger = new Logger('mdltemplatecomponents.MdlTemplateComponent');
 
+    /// Adds data to Dom
     final Renderer _renderer = new Renderer();
-    final MdlEventManager _eventManager = new MdlEventManager();
+
+    /// changes something like data-mdl-click="check({{id}})" into a callable Component function
+    final MdlEventCompiler _eventCompiler = new MdlEventCompiler();
+
+    /// Holds the old data to compare it with the incoming data
+    final List _miniDom = new List();
 
     MdlTemplateComponent(final dom.Element element) : super(element);
 
     String template = "";
-    final List miniDom = new List();
 
-    Future render() {
+    Future render() async {
         final Template mustacheTemplate = new Template(template,htmlEscapeValues: false);
-        return _renderer.render(element,mustacheTemplate.renderString(this)).then((_) {
-
-            _eventManager.compile(this);
-
-        });
+        await _renderer.render(element,mustacheTemplate.renderString(this));
+        await _eventCompiler.compile(this);
     }
 
-    void renderList(final List items) {
+    Future renderList(final List items,{ final String listTag: "<ul>", final String itemTag: "<li>" }) async {
         final Template mustacheTemplate = new Template(template,htmlEscapeValues: false);
 
         /// Empty list - remove all children
         if(items.length == 0) {
-            miniDom.clear();
+            _miniDom.clear();
             //element.childNodes.forEach((final dom.Node node) => new Future(() => node.remove()));
             element.children.clear();
+            _logger.info("List 0 length...");
             return;
         }
 
         /// first rendering
-        if(miniDom.length == 0) {
+        if(_miniDom.length == 0) {
             if(element.childNodes.length == 1 && !(element.childNodes.first is dom.Element)) {
                 element.childNodes.first.remove();
             }
-            miniDom.addAll(items);
+            _miniDom.addAll(items);
             final StringBuffer buffer = new StringBuffer();
-            buffer.write("<ul>");
+            buffer.write(_startTag(listTag));
             items.forEach((final item) {
                 final String renderedTemplate = mustacheTemplate.renderString(item);
-                buffer.write("<li>");
+                buffer.write(_startTag(itemTag));
                 buffer.write(renderedTemplate);
-                buffer.write("</li>");
+                buffer.write(_endTag(itemTag));
             });
-            buffer.write("</ul>");
-            _renderer.render(element,buffer.toString(),replaceNode: false).then((final dom.Element child) {
-                _logger.info("compileElement for ${child}");
-                _eventManager.compileElement(this,child);
+            buffer.write(_endTag(listTag));
+            _logger.info("Buffer filled with list elements...");
+            await _renderer.render(element,buffer.toString(),replaceNode: false).then((final dom.Element child) {
+                _logger.info("compiling events for ${child}...");
+                _eventCompiler.compileElement(this,child);
+                _logger.info("compiling events for ${child} done!");
             });
+            _logger.info("First init for list done...");
             return;
         }
 
-        miniDom.forEach((final domItem) {
+        // Mark items not in list anymore as removable
+        _miniDom.forEach((final domItem) {
+
             if(!items.contains(domItem)) {
 
-                final int index = miniDom.indexOf(domItem);
+                final int index = _miniDom.indexOf(domItem);
                 _logger.info("Index to remove: ${index} - FC ${element.firstChild}, IDX ${element.firstChild.childNodes[index]}");
                 (element.firstChild.childNodes[index] as dom.Element).classes.add("ready-to-remove");
                 //element.querySelector("ul li:nth-child(${index - 1})").classes.add("ready-to-remove");
             }
         });
 
+        // if parent is not empty - remove contents
         if(element.childNodes.length == 1 && !(element.childNodes.first is dom.Element)) {
             element.childNodes.first.remove();
         }
+
+
         if(element.childNodes.length == 0) {
-            element.append(new dom.UListElement());
+            element.append(new dom.Element.tag(_startTag(itemTag)));
         }
 
         final dom.Element list = element.childNodes.first;
 
         items.forEach((final item) {
-            if(!miniDom.contains(item)) {
+            if(!_miniDom.contains(item)) {
                 _logger.info("Add ${item.item}");
                 final String renderedTemplate = mustacheTemplate.renderString(item);
 
-                _renderer.render(list,"<li>${renderedTemplate}</li>",replaceNode: false)
+                _renderer.render(list,"${_startTag(itemTag)}${renderedTemplate}${_endTag(itemTag)}",replaceNode: false)
                     .then( (final dom.Element child) {
 
-                    _eventManager.compileElement(this,child);
+                    _eventCompiler.compileElement(this,child);
 
                 });
             }
@@ -109,7 +121,10 @@ abstract class MdlTemplateComponent extends MdlComponent {
             element.remove();
         });
 
-        miniDom.clear();
-        miniDom.addAll(items);
+        _miniDom.clear();
+        _miniDom.addAll(items);
     }
+
+    String _startTag(final String tag) => tag;
+    String _endTag(final String tag) => tag.replaceFirst("<","</");
 }

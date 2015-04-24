@@ -19,17 +19,17 @@
 
 part of mdltemplatecomponents;
 
-class MdlEventManager {
-    final Logger _logger = new Logger('mdltemplatecomponents.MdlEventManager');
+class MdlEventCompiler {
+    final Logger _logger = new Logger('mdltemplatecomponents.MdlEventCompiler');
 
     static const List<String> datasets = const [ "mdl-click"];
 
-    void compile(final MdlComponent component) {
+    Future compile(final MdlComponent component) async {
         final dom.Element element = component.element;
         compileElement(component,element);
     }
 
-    void compileElement(final MdlComponent component,final dom.Element element) {
+    Future compileElement(final MdlComponent component,final dom.Element element) async {
 
         final InstanceMirror myClassInstanceMirror = reflect(component);
 
@@ -38,11 +38,12 @@ class MdlEventManager {
             final List<dom.Element> elements = element.querySelectorAll("[data-${dataset}]");
 
             elements.forEach( (final dom.Element element) {
-                _logger.info("$dataset for $element");
+                //_logger.info("$dataset for $element");
 
                 final Match match = new RegExp(r"([^(]*)\(([^)]*)\)").firstMatch(element.dataset[dataset]);
 
                 Symbol getFunctionName() => new Symbol(match.group(1));
+
                 List getParams() {
                     final List params = new List();
                     if(match.groupCount == 2) {
@@ -61,5 +62,6 @@ class MdlEventManager {
             });
 
         });
+        _logger.info("Events compiled...");
     }
 }

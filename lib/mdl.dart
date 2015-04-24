@@ -7,6 +7,7 @@ import "package:mdl/mdltemplatecomponents.dart";
 
 export "package:mdl/mdlcore.dart";
 export "package:mdl/mdlcomponets.dart";
+export "package:mdl/mdlremote.dart";
 export "package:mdl/mdltemplatecomponents.dart";
 
 void registerMdl() {

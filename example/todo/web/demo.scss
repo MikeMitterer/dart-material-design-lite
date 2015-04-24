@@ -16,18 +16,19 @@
                 text-decoration : line-through;
             }
 
-            .row {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: flex-start; // ⇾
-                align-content: space-between; // ||
-                align-items: center; // ↓
+        }
+    }
 
-                .mdl-checkbox {
-                    width: 100px;
-                }
-            }
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: center; // ↓
+
+        .mdl-checkbox {
+            width: 100px;
         }
     }
 

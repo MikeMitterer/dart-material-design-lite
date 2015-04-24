@@ -51,6 +51,11 @@ class ToDoItem {
     ToDoItem(this.checked, this.item) : id = counter { counter++; }
 }
 
+class ModelChangedEvent {
+    final ToDoItem item;
+    ModelChangedEvent(this.item);
+}
+
 @MdlComponentModel
 class ToDoItemComponent extends MdlTemplateComponent {
     final Logger _logger = new Logger('todo.ToDoItemComponent');
@@ -60,13 +65,17 @@ class ToDoItemComponent extends MdlTemplateComponent {
 
     final List<ToDoItem> _items = new List<ToDoItem>();
 
+    final StreamController _controller = new StreamController<ModelChangedEvent>.broadcast();
+    Stream<ModelChangedEvent> onModelChange;
+
     ToDoItemComponent.fromElement(final dom.HtmlElement element) : super(element) {
+        onModelChange = _controller.stream;
         _init();
     }
 
     static ToDoItemComponent widget(final dom.HtmlElement element) => mdlComponent(element) as ToDoItemComponent;
 
-    String template = """
+    String template_off = """
         <div>
             <ul>
                 {{#items}}
@@ -92,7 +101,7 @@ class ToDoItemComponent extends MdlTemplateComponent {
         </div>
         """.trim().replaceAll(new RegExp(r"\s+")," ");
 
-    String templateO = """
+    String template = """
             <div class="row">
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{id}}">
                     {{#checked}}
@@ -115,20 +124,25 @@ class ToDoItemComponent extends MdlTemplateComponent {
     void addItem(final ToDoItem value) {
         _items.add(value);
         _render();
+        _controller.add(new ModelChangedEvent(value));
     }
 
     void remove(final String id) {
         _logger.info("Click $id");
-        _items.remove(getItem(id));
+        final ToDoItem item = _getItem(id);
+        _items.remove(item);
         _render();
+        _controller.add(new ModelChangedEvent(item));
+
     }
 
     void check(final String id) {
         _logger.info("Check $id");
 
         final MaterialCheckbox checkbox = MaterialCheckbox.widget(element.querySelector("#check${id.trim()}"));
-        final ToDoItem item = getItem(id);
+        final ToDoItem item = _getItem(id);
         item.checked = checkbox.checked;
+        _controller.add(new ModelChangedEvent(item));
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -144,11 +158,12 @@ class ToDoItemComponent extends MdlTemplateComponent {
         for(int counter = 0;counter < 1000;counter++) {
            _items.add(new ToDoItem(false,"Cnt $counter"));
         }
-
         _render();
+        _logger.info("ToDoItem - init done!");
+
     }
 
-    ToDoItem getItem(final String id) {
+    ToDoItem _getItem(final String id) {
         for(int counter = 0;counter < _items.length;counter++) {
             if(_items[counter].id == int.parse(id)) {
                 return _items[counter];
@@ -157,9 +172,14 @@ class ToDoItemComponent extends MdlTemplateComponent {
         return null;
     }
 
-    void _render() {
-        //renderList(items);
-        render();
+    Future _render() async {
+        Stopwatch stopwatch = new Stopwatch()..start();
+        renderList(items,listTag: "<div>", itemTag: "").then((_) {
+            stopwatch.stop();
+            _logger.info("List rendered! Took ${stopwatch.elapsedMilliseconds}ms");
+        });
+
+        //render().then((_) => _logger.info("Rendered!"));
     }
 }
 

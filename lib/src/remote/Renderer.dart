@@ -41,7 +41,10 @@ class Renderer {
 
     final List<RenderFunction> _renderFunctions = new List<RenderFunction>();
 
-    /// Render the {content} String - {content} must have ONE! top level element
+    /// Renders the {content} String - {content} must have ONE! top level element.
+    /// If {replaceNode} is false {content} will be added to {element} otherwise th new
+    /// {content} replaces the old
+    ///
     /// Returns the rendered child
     Future<html.Element> render(final html.Element element, final String content,{ final bool replaceNode: true}) {
         //_logger.info("Content: $content");
