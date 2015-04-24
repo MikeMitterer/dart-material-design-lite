@@ -75,7 +75,16 @@ class ToDoItemComponent extends MdlTemplateComponent {
 
     static ToDoItemComponent widget(final dom.HtmlElement element) => mdlComponent(element) as ToDoItemComponent;
 
-    String template_off = """
+    bool useRenderListFunction = true;
+
+    String get template {
+        if(useRenderListFunction) {
+            return _template_for_render_list;
+        }
+        return _template_for_mustache_list;
+    }
+
+    String _template_for_mustache_list = """
         <div>
             <ul>
                 {{#items}}
@@ -101,7 +110,7 @@ class ToDoItemComponent extends MdlTemplateComponent {
         </div>
         """.trim().replaceAll(new RegExp(r"\s+")," ");
 
-    String template = """
+    String _template_for_render_list = """
             <div class="row">
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{id}}">
                     {{#checked}}
@@ -174,12 +183,22 @@ class ToDoItemComponent extends MdlTemplateComponent {
 
     Future _render() async {
         Stopwatch stopwatch = new Stopwatch()..start();
-        renderList(items,listTag: "<div>", itemTag: "").then((_) {
-            stopwatch.stop();
-            _logger.info("List rendered! Took ${stopwatch.elapsedMilliseconds}ms");
-        });
 
-        //render().then((_) => _logger.info("Rendered!"));
+        if(useRenderListFunction) {
+
+            renderList(items,listTag: "<div>", itemTag: "").then((_) {
+                stopwatch.stop();
+                _logger.info("List rendered with renderList! Took ${stopwatch.elapsedMilliseconds}ms");
+            });
+
+        } else {
+
+            render().then((_) {
+                stopwatch.stop();
+                _logger.info("List Rendered with mustache! Took ${stopwatch.elapsedMilliseconds}ms");
+            });
+
+        }
     }
 }
 

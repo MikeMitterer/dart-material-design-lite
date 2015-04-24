@@ -39,7 +39,7 @@ abstract class MdlTemplateComponent extends MdlComponent {
     Future render() async {
         final Template mustacheTemplate = new Template(template,htmlEscapeValues: false);
         await _renderer.render(element,mustacheTemplate.renderString(this));
-        await _eventCompiler.compile(this);
+         _eventCompiler.compile(this);
     }
 
     Future renderList(final List items,{ final String listTag: "<ul>", final String itemTag: "<li>" }) async {
@@ -56,40 +56,57 @@ abstract class MdlTemplateComponent extends MdlComponent {
 
         /// first rendering
         if(_miniDom.length == 0) {
-            if(element.childNodes.length == 1 && !(element.childNodes.first is dom.Element)) {
-                element.childNodes.first.remove();
-            }
-            _miniDom.addAll(items);
-            final StringBuffer buffer = new StringBuffer();
-            buffer.write(_startTag(listTag));
-            items.forEach((final item) {
-                final String renderedTemplate = mustacheTemplate.renderString(item);
-                buffer.write(_startTag(itemTag));
-                buffer.write(renderedTemplate);
-                buffer.write(_endTag(itemTag));
-            });
-            buffer.write(_endTag(listTag));
-            _logger.info("Buffer filled with list elements...");
-            await _renderer.render(element,buffer.toString(),replaceNode: false).then((final dom.Element child) {
+            Future _addAllItemsToDom() async {
+                if(element.childNodes.length == 1 && !(element.childNodes.first is dom.Element)) {
+                    element.childNodes.first.remove();
+                }
+                _miniDom.addAll(items);
+                final StringBuffer buffer = new StringBuffer();
+                buffer.write(_startTag(listTag));
+                items.forEach((final item) {
+                    final String renderedTemplate = mustacheTemplate.renderString(item);
+                    buffer.write(_startTag(itemTag));
+                    buffer.write(renderedTemplate);
+                    buffer.write(_endTag(itemTag));
+                });
+                buffer.write(_endTag(listTag));
+                _logger.info("Buffer filled with list elements...");
+                await _renderer.render(element,buffer.toString(),replaceNode: false).then((final dom.Element child) {
                 _logger.info("compiling events for ${child}...");
                 _eventCompiler.compileElement(this,child);
                 _logger.info("compiling events for ${child} done!");
-            });
-            _logger.info("First init for list done...");
+                });
+                _logger.info("First init for list done...");
+            }
+            await _addAllItemsToDom();
             return;
         }
 
+        final int domDiff = _miniDom.length - items.length; // if domDiff is positiv items were removed
+        int diffCounter = 0;
+
         // Mark items not in list anymore as removable
-        _miniDom.forEach((final domItem) {
+         //_tagItemsNotInListAsRemovable()  {
+            for(int index = 0;index < _miniDom.length;index++) {
+                final domItem = _miniDom[index];
+                if(!items.contains(domItem)) {
 
-            if(!items.contains(domItem)) {
+                    final int index = _miniDom.indexOf(domItem);
+                    _logger.info("Index to remove: ${index} - FC ${element.firstChild}, IDX ${element.firstChild.childNodes[index]}");
+                    (element.firstChild.childNodes[index] as dom.Element).classes.add("ready-to-remove");
+                    diffCounter++;
 
-                final int index = _miniDom.indexOf(domItem);
-                _logger.info("Index to remove: ${index} - FC ${element.firstChild}, IDX ${element.firstChild.childNodes[index]}");
-                (element.firstChild.childNodes[index] as dom.Element).classes.add("ready-to-remove");
-                //element.querySelector("ul li:nth-child(${index - 1})").classes.add("ready-to-remove");
+                    if(diffCounter == domDiff) {
+                        new Future(() {
+                            _removeMarkedItems();
+                            _updateMiniDom(items);
+                        });
+                        return;
+                    }
+                }
             }
-        });
+        //}
+         //_tagItemsNotInListAsRemovable();
 
         // if parent is not empty - remove contents
         if(element.childNodes.length == 1 && !(element.childNodes.first is dom.Element)) {
@@ -117,14 +134,21 @@ abstract class MdlTemplateComponent extends MdlComponent {
             }
         });
 
-        element.querySelectorAll(".ready-to-remove").forEach((final dom.Element element) {
-            element.remove();
-        });
-
-        _miniDom.clear();
-        _miniDom.addAll(items);
+        _removeMarkedItems();
+        _updateMiniDom(items);
     }
 
     String _startTag(final String tag) => tag;
     String _endTag(final String tag) => tag.replaceFirst("<","</");
+
+    void _removeMarkedItems() {
+        element.querySelectorAll(".ready-to-remove").forEach((final dom.Element element) {
+            element.remove();
+        });
+    }
+
+    void _updateMiniDom(final List items) {
+        _miniDom.clear();
+        _miniDom.addAll(items);
+    }
 }
