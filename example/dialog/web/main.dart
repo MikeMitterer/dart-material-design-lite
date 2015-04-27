@@ -19,10 +19,12 @@ main() {
         final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector("#alertdialog"));
         final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector("#confirmdialog"));
         final MaterialButton btnCustomDialog = MaterialButton.widget(dom.querySelector("#customdialog"));
+        final MaterialButton btnToast = MaterialButton.widget(dom.querySelector("#toast"));
 
         final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
         final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
         final CustomDialog customDialog = new CustomDialog();
+        final MaterialToast toast = new MaterialToast();
 
         int mangoCounter = 0;
 
@@ -47,6 +49,13 @@ main() {
 
                 _logger.info(status);
                 mangoCounter++;
+            });
+        });
+
+        btnToast.onClick.listen((_) {
+            _logger.info("Click on Toast");
+            toast("Toast message",confirmButton: "").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
             });
         });
     });

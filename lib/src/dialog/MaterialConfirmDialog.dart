@@ -1,11 +1,12 @@
 part of mdldialog;
 
 class MdlConfirmDialog extends MaterialDialog {
-    static const String SELECTOR = "wsk-confirm-dialog";
+    final Logger _logger = new Logger('mdldialog.MdlConfirmDialog');
 
     static const String _DEFAULT_YES_BUTTON = "Yes";
     static const String _DEFAULT_NO_BUTTON = "No";
 
+    @override
     String template = """
         <div class="mdl-dialog">
           <div class="mdl-dialog__content">

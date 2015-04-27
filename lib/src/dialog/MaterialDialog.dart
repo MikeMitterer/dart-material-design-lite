@@ -75,7 +75,7 @@ class DialogConfig {
 }
 
 /// HTML-Part of MdlDialog.
-class MaterialDialog extends Object with TemplateComponent {
+abstract class MaterialDialog extends Object with TemplateComponent {
     final Logger _logger = new Logger('mdldialog.DialogElement');
 
     /// All Dialogs
@@ -94,7 +94,7 @@ class MaterialDialog extends Object with TemplateComponent {
 
     /// Wraps wskDialogElement. Darkens the background and
     /// is used for backdrop click
-    dom.DivElement _wskDialogContainer;
+    dom.DivElement _dialogContainer;
 
     /// Informs about open and close actions
     Completer<MdlDialogStatus> _completer = null;
@@ -121,23 +121,25 @@ class MaterialDialog extends Object with TemplateComponent {
 
         _parent = dom.document.querySelector(_config.parentSelector);
 
-        _wskDialogContainer = _prepareContainer();
+        _dialogContainer = _prepareContainer();
 
         if(_config.closeOnBackDropClick) {
-            _addBackDropClickListener(_wskDialogContainer);
+            _addBackDropClickListener(_dialogContainer);
         }
 
-        _wskDialogContainer.classes.add(_cssClasses.APPENDING);
+        _dialogContainer.classes.add(_cssClasses.APPENDING);
 
         if (_parent.querySelector(_containerSelector) == null) {
-            _parent.append(_wskDialogContainer);
+            _parent.append(_dialogContainer);
         }
 
-        renderElement(_wskDialogContainer).then((_) {
-
-            _wskDialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
-            _wskDialogContainer.classes.add(_cssClasses.IS_VISIBLE);
-            _wskDialogContainer.classes.remove(_cssClasses.APPENDING);
+        renderElement(_dialogContainer).then((_) {
+            if(dialogIDCallback != null) {
+                dialogIDCallback(hashCode.toString());
+            }
+            _dialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
+            _dialogContainer.classes.add(_cssClasses.IS_VISIBLE);
+            _dialogContainer.classes.remove(_cssClasses.APPENDING);
 
             if(_config.acceptEscToClose) {
                 _addEscListener();
@@ -238,8 +240,11 @@ class MaterialDialog extends Object with TemplateComponent {
 
     /// Hides the dialog and leaves it in the DOM
     Future _hide(final MdlDialogStatus status) {
-        _wskDialogContainer.classes.remove(_cssClasses.IS_VISIBLE);
-        _wskDialogContainer.classes.add(_cssClasses.IS_HIDDEN);
+        // is null if no other Dialog is open
+        if(_dialogContainer != null) {
+            _dialogContainer.classes.remove(_cssClasses.IS_VISIBLE);
+            _dialogContainer.classes.add(_cssClasses.IS_HIDDEN);
+        }
 
         return new Future.delayed(new Duration(milliseconds: 200), () {
             _destroy(status);

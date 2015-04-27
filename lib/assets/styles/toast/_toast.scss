@@ -19,7 +19,7 @@
 
 @import "../variables";
 
-// wsk-toast was mainly taken from Angular-Material
+// mdl-toast was mainly taken from Angular-Material
 //  More: https://github.com/angular/material/blob/master/src/components/toast/toast.scss
 
 $toast-baseline-grid:            8px !default;
@@ -40,16 +40,16 @@ $toast-z-index: 90 !default;
 
 $toast-layout-breakpoint-sm:     600px !default;
 
-$toast-color: $text-color-primary-inverse !default;
+$toast-color: invert($text-color-primary) !default;
 $toast-button-color: nth($palette-accent, 5) !default;
 $toast-background: nth($palette-grey, 9) !default;
 
-.wsk-toast-container {
+.mdl-toast-container {
     &.is-visible {
         //background-color: rgba(0, 0, 0, 0.25);
         //visibility: visible;
 
-        .wsk-toast {
+        .mdl-toast {
             opacity    : 1;
             transition : $toast-swift-ease-in;
             //transform  : translate3d(0, 0, 0) scale(1.0);
@@ -57,7 +57,7 @@ $toast-background: nth($palette-grey, 9) !default;
     }
 
     &.is-hidden {
-        .wsk-toast {
+        .mdl-toast {
             // hidden
             opacity    : 0;
             transition     : $toast-swift-ease-out;
@@ -65,7 +65,7 @@ $toast-background: nth($palette-grey, 9) !default;
         }
     }
 
-    .wsk-toast {
+    .mdl-toast {
         display: flex;
         position:absolute;
         box-sizing: border-box;
@@ -90,7 +90,7 @@ $toast-background: nth($palette-grey, 9) !default;
 
         @include shadow-z2();
 
-        &.wsk-capsule {
+        &.mdl-capsule {
             border-radius: 24px;
         }
 
@@ -103,16 +103,16 @@ $toast-background: nth($palette-grey, 9) !default;
         }
 
         /* Transition differently when swiping */
-        &.wsk-swipeleft,
-        &.wsk-swiperight,
-        &.wsk-swipeup,
-        &.wsk-swipedown {
+        &.mdl-swipeleft,
+        &.mdl-swiperight,
+        &.mdl-swipeup,
+        &.mdl-swipedown {
             transition: $toast-swift-ease-out;
         }
 
         &.ng-enter {
             transform: translate3d(0, 100%, 0);
-            &.wsk-top {
+            &.mdl-top {
                 transform: translate3d(0, -100%, 0);
             }
             opacity: 0;
@@ -124,30 +124,30 @@ $toast-background: nth($palette-grey, 9) !default;
         &.ng-leave.ng-leave-active {
             opacity: 0;
             transform: translate3d(0, 100%, 0);
-            &.wsk-toast--top {
+            &.mdl-toast--top {
                 transform: translate3d(0, -100%, 0);
             }
-            &.wsk-swipeleft {
+            &.mdl-swipeleft {
                 transform: translate3d(-100%, 0%, 0);
             }
-            &.wsk-swiperight {
+            &.mdl-swiperight {
                 transform: translate3d(100%, 0%, 0);
             }
         }
 
-        .wsk-button {
+        .mdl-button {
             color: $toast-button-color;
         }
 
-        &.wsk-toast--left { left: 0; }
+        &.mdl-toast--left { left: 0; }
 
-        &.wsk-toast--top { top: 0; }
+        &.mdl-toast--top { top: 0; }
 
-        &.wsk-toast--right { right: 0; }
+        &.mdl-toast--right { right: 0; }
 
-        &.wsk-toast--bottom { bottom: 0; }
+        &.mdl-toast--bottom { bottom: 0; }
 
-        .wsk-toast__flex {
+        .mdl-toast__flex {
             flex-grow: 1;
         }
     }
@@ -156,7 +156,7 @@ $toast-background: nth($palette-grey, 9) !default;
 
 
 @media (max-width: $toast-layout-breakpoint-sm) {
-    .wsk-toast {
+    .mdl-toast {
         left: 0;
         right: 0;
         width: 100%;
@@ -164,25 +164,25 @@ $toast-background: nth($palette-grey, 9) !default;
         min-width: 0;
         border-radius: 0;
         bottom: 0;
-        &.wsk-toast--top {
+        &.mdl-toast--top {
             bottom: auto;
             top: 0;
         }
     }
 }
 @media (min-width: $toast-layout-breakpoint-sm) {
-    .wsk-toast {
+    .mdl-toast {
         min-width: 288px;
-        &.wsk-toast--bottom {
+        &.mdl-toast--bottom {
             bottom: $toast-margin;
         }
-        &.wsk-toast--left {
+        &.mdl-toast--left {
             left: $toast-margin;
         }
-        &.wsk-toast--right {
+        &.mdl-toast--right {
             right: $toast-margin;
         }
-        &.wsk-toast--top {
+        &.mdl-toast--top {
             top: $toast-margin;
         }
 
@@ -191,17 +191,17 @@ $toast-background: nth($palette-grey, 9) !default;
          * make it rotate when the user swipes it away
          */
         &.ng-leave.ng-leave-active {
-            &.wsk-swipeleft {
+            &.mdl-swipeleft {
                 transform: translate3d(-100%, 25%, 0) rotateZ(-15deg);
             }
-            &.wsk-swiperight {
+            &.mdl-swiperight {
                 transform: translate3d(100%, 25%, 0) rotateZ(15deg);
             }
-            &.wsk-toast--top {
-                &.wsk-swipeleft {
+            &.mdl-toast--top {
+                &.mdl-swipeleft {
                     transform: translate3d(-100%, 0, 0) rotateZ(-15deg);
                 }
-                &.wsk-swiperight {
+                &.mdl-swiperight {
                     transform: translate3d(100%, 0, 0) rotateZ(15deg);
                 }
             }

@@ -26,7 +26,21 @@ abstract class TemplateComponent {
     /// changes something like data-mdl-click="check({{id}})" into a callable Component function
     final EventCompiler _eventCompiler = new EventCompiler();
 
-    String template = "";
+    /// Subclasses must override this getter
+    String get template;
+
+    /**
+     *  Makes it easy to add functionality to templates
+     *  Sample:
+     *      Template: "{{lambdas.classes}}
+     *
+     *  class MyClass extends Object with TemplateComponent {
+     *      MyClass() {
+     *          lambdas["classes"] = (_) => "is-enabled";
+     *      }
+     *  }
+     */
+    final Map<String,LambdaFunction> lambdas = new Map<String,LambdaFunction>();
 
     Future renderElement(final dom.Element element) async {
         final Template mustacheTemplate = new Template(template,htmlEscapeValues: false);

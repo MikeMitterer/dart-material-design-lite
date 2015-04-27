@@ -25,7 +25,7 @@ part of mdltemplatecomponents;
 class EventCompiler {
     final Logger _logger = new Logger('mdltemplatecomponents.EventCompiler');
 
-    static const List<String> datasets = const [ "mdl-click"];
+    static const List<String> datasets = const [ "mdl-click", "mdl-class"];
 
     /**
      * {scope} is where the functions are, {element} has children with data-mdl-[eventname] attributes.
@@ -65,7 +65,8 @@ class EventCompiler {
                             event.stopPropagation();
                             myClassInstanceMirror.invoke(getFunctionName(), getParams());
                         });
-                        break;
+                       break;
+
                 }
             });
 

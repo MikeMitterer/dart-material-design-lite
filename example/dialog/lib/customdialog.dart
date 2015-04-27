@@ -26,6 +26,7 @@ class CustomDialog extends MaterialDialog {
     static const String _DEFAULT_YES_BUTTON = "Yes";
     static const String _DEFAULT_NO_BUTTON = "No";
 
+    @override
     String template = """
         <div class="mdl-dialog custom-dialog">
           <div class="mdl-dialog__content">

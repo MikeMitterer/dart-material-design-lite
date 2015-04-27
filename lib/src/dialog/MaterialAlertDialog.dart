@@ -1,9 +1,11 @@
 part of mdldialog;
 
 class MaterialAlertDialog extends MaterialDialog {
+    final Logger _logger = new Logger('mdldialog.MaterialAlertDialog');
 
     static const String _DEFAULT_OK_BUTTON = "OK";
 
+    @override
     String template = """
         <div class="mdl-dialog">
           <div class="mdl-dialog__content">
