@@ -20,6 +20,9 @@ dependencies:
   mustache: any
     #git: git://github.com/xxgreg/mustache
 
+  validate: any
+
+
 dev_dependencies:
   unittest: any
   args: any

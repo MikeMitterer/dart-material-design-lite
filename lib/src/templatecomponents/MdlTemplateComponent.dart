@@ -19,28 +19,32 @@
 
 part of mdltemplatecomponents;
 
-/// Basis for all MdlComponents with Templates
-abstract class MdlTemplateComponent extends MdlComponent {
-    final Logger _logger = new Logger('mdltemplatecomponents.MdlTemplateComponent');
-
+abstract class TemplateComponent {
     /// Adds data to Dom
     final Renderer _renderer = new Renderer();
 
     /// changes something like data-mdl-click="check({{id}})" into a callable Component function
-    final MdlEventCompiler _eventCompiler = new MdlEventCompiler();
+    final EventCompiler _eventCompiler = new EventCompiler();
+
+    String template = "";
+
+    Future renderElement(final dom.Element element) async {
+        final Template mustacheTemplate = new Template(template,htmlEscapeValues: false);
+        await _renderer.render(element,mustacheTemplate.renderString(this));
+        _eventCompiler.compileElement(this,element);
+    }
+
+}
+/// Basis for all MdlComponents with Templates
+abstract class MdlTemplateComponent extends MdlComponent with TemplateComponent {
+    final Logger _logger = new Logger('mdltemplatecomponents.MdlTemplateComponent');
 
     /// Holds the old data to compare it with the incoming data
     final List _miniDom = new List();
 
     MdlTemplateComponent(final dom.Element element) : super(element);
 
-    String template = "";
-
-    Future render() async {
-        final Template mustacheTemplate = new Template(template,htmlEscapeValues: false);
-        await _renderer.render(element,mustacheTemplate.renderString(this));
-         _eventCompiler.compile(this);
-    }
+    Future render() => renderElement(element);
 
     Future renderList(final List items,{ final String listTag: "<ul>", final String itemTag: "<li>" }) async {
         final Template mustacheTemplate = new Template(template,htmlEscapeValues: false);

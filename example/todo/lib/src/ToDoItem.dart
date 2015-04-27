@@ -77,6 +77,7 @@ class ToDoItemComponent extends MdlTemplateComponent {
 
     bool useRenderListFunction = true;
 
+    @override
     String get template {
         if(useRenderListFunction) {
             return _template_for_render_list;
@@ -195,7 +196,7 @@ class ToDoItemComponent extends MdlTemplateComponent {
 
             render().then((_) {
                 stopwatch.stop();
-                _logger.info("List Rendered with mustache! Took ${stopwatch.elapsedMilliseconds}ms");
+                _logger.info("List rendered with mustache! Took ${stopwatch.elapsedMilliseconds}ms");
             });
 
         }

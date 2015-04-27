@@ -19,19 +19,21 @@
 
 part of mdltemplatecomponents;
 
-class MdlEventCompiler {
-    final Logger _logger = new Logger('mdltemplatecomponents.MdlEventCompiler');
+/**
+ * Connects data-mdl-[event] attributes with object-functions
+ */
+class EventCompiler {
+    final Logger _logger = new Logger('mdltemplatecomponents.EventCompiler');
 
     static const List<String> datasets = const [ "mdl-click"];
 
-    Future compile(final MdlComponent component) async {
-        final dom.Element element = component.element;
-        compileElement(component,element);
-    }
+    /**
+     * {scope} is where the functions are, {element} has children with data-mdl-[eventname] attributes.
+     * compileElement connects these two definitions
+     */
+    Future compileElement(final Object scope,final dom.Element element) async {
 
-    Future compileElement(final MdlComponent component,final dom.Element element) async {
-
-        final InstanceMirror myClassInstanceMirror = reflect(component);
+        final InstanceMirror myClassInstanceMirror = reflect(scope);
 
         datasets.forEach((final String dataset) {
 
@@ -46,15 +48,21 @@ class MdlEventCompiler {
 
                 List getParams() {
                     final List params = new List();
+
                     if(match.groupCount == 2) {
-                        params.addAll(match.group(2).split(","));
+                        final List<String> matches = match.group(2).split(",");
+                        if(matches.isNotEmpty && matches[0].isNotEmpty) {
+                            params.addAll(matches);
+                        }
                     }
                     return params;
                 }
 
                 switch(dataset) {
                     case "mdl-click":
-                        element.onClick.listen( (_) {
+                        element.onClick.listen( (final dom.MouseEvent event) {
+                            event.preventDefault();
+                            event.stopPropagation();
                             myClassInstanceMirror.invoke(getFunctionName(), getParams());
                         });
                         break;
@@ -64,4 +72,16 @@ class MdlEventCompiler {
         });
         _logger.info("Events compiled...");
     }
+}
+
+/// Same as {EventCompiler} but uses MdlComponent as basis.
+/// {MdlComponent} already brings it's dom.Element
+class MdlEventCompiler extends EventCompiler {
+    final Logger _logger = new Logger('mdltemplatecomponents.MdlEventCompiler');
+
+    Future compile(final MdlComponent component) async {
+        final dom.Element element = component.element;
+        compileElement(component,element);
+    }
+
 }

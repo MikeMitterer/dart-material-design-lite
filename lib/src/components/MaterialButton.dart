@@ -36,7 +36,7 @@ class _MaterialButtonConstant { const _MaterialButtonConstant(); }
 
 /// creates MdlConfig for MaterialButton
 MdlConfig materialButtonConfig() => new MdlWidgetConfig<MaterialButton>(
-    "mdl-js-button",(final html.HtmlElement element) => new MaterialButton.fromElement(element));
+    "mdl-button",(final html.HtmlElement element) => new MaterialButton.fromElement(element));
 
 /// registration-Helper
 void registerMaterialButton() => componenthandler.register(materialButtonConfig());

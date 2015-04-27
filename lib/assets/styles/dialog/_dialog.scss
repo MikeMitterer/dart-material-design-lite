@@ -19,6 +19,8 @@
 
 @import "../variables";
 
+$dialog-secondary-color: ($color-black) !default;
+
 $dialog-baseline-grid : 8px !default;
 $dialog-swift-ease-out-duration : 0.2s !default;
 
@@ -89,7 +91,7 @@ $dialog-z-index : 80 !default;
 
             h1,h2,h3,h4,h5,h6 { margin-bottom: 18px; }
 
-            p { @include typo-subhead(true); color: $text-color-secondary; }
+            p { @include typo-subhead(true); color: $dialog-secondary-color; }
         }
 
         .mdl-dialog__actions {
