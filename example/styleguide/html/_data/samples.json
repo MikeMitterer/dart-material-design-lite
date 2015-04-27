@@ -7,6 +7,7 @@
   { "name": "checkbox", "original": true },
   { "name": "column-layout", "original": true },
   { "name": "content", "original": false },
+  { "name": "dialog", "original": false },
   { "name": "footer", "original": true },
   { "name": "forms", "original": false },
   { "name": "grid", "original": true },
@@ -28,6 +29,8 @@
   { "name": "switch", "original": true },
   { "name": "tabs", "original": true },
   { "name": "textfield", "original": true },
+  { "name": "toast", "original": false },
   { "name": "tooltip", "original": true },
+  { "name": "todo", "original": false },
   { "name": "typography", "original": true }
 ]

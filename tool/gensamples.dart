@@ -1226,7 +1226,7 @@ class Config {
         _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
         _settings[_KEY_SCSS_TEMPLATE]       = "tool/templates/material-design-lite.tmpl.scss";
         _settings[_KEY_README_TEMPLATE]     = "tool/templates/README.tmpl.html";
-        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables,resets,fonts,images,mixins,ripple,bottombar,dialog,toast";   // Liste durch , getrennt
+        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables,resets,fonts,images,mixins,ripple,bottombar,dialog";   // Liste durch , getrennt
         _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
         _settings[_KEY_JS_BASE]             = "tool/jsbase"; // Basis für die JS-Files
 

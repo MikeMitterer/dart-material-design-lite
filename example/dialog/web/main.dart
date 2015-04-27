@@ -28,14 +28,14 @@ main() {
 
         btnAlertDialog.onClick.listen((_) {
             _logger.info("Click on AlertButton");
-            alertDialog("Ein Test").show().then((final MdlDialogStatus status) {
+            alertDialog("Testmessage").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
         });
 
         btnConfirmDialog.onClick.listen((_) {
             _logger.info("Click on ConfirmButton");
-            confirmDialog("Ein Test").show().then((final MdlDialogStatus status) {
+            confirmDialog("Testmessage").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
         });

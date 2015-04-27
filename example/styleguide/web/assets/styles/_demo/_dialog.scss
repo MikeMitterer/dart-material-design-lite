@@ -17,46 +17,34 @@
 // limitations under the License.
 //
 
-@import "packages/mdl/assets/styles/material-design-lite";
-
-.demo-page--toast, .demo-section--toast {
+.demo-page--dialog, .demo-section--dialog {
     .demo-button {
         display: inline-block;
         margin: 20px 20px 20px 0;
     }
+}
 
-    .container {
-        position: relative;
-        border: 1px dotted black;
-        min-height: 200px;
-        border-radius: 5px;
-        padding: 5px;
+.custom-dialog {
+    h5 {
+        background-color: #B3D38D;
+
+        position: absolute;
+        left: 0;
+        top: 0 !important;
+        right: 0;
+        padding: 24px;
     }
 
-    .status {
-        margin: 12px;
-        span {
-            font-weight: bold;
+    .mdl-dialog__content {
+        margin-top: 68px; // padding * 2 + font-size (20)
+        p {
+            font-size: 14px;
         }
     }
 
-    .position {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start; // ⇾
-        align-content: space-between; // ||
-        align-items: flex-start; // ↓
-
-        margin-left: 24px;
-
-        > * {
-            margin-right: 10px;
-        }
-
-        .mdl-checkbox {
-            width: 80px;
-        }
+    .mdl-dialog__actions {
+        border-top: 1px solid rgb(231, 231, 231);
     }
 }
+
 

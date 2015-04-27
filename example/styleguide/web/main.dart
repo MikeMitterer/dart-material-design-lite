@@ -31,6 +31,10 @@ import 'package:mdl/mdlremote.dart';
 import 'package:route_hierarchical/client.dart';
 import 'package:prettify/prettify.dart';
 
+import "package:mdl/mdldialog.dart";
+
+import "package:mdl_styleguide/customdialog.dart";
+
 class ModelChangedEvent {
 
 }
@@ -207,7 +211,6 @@ class ProgressController extends DemoController {
         });
 
     }
-// - private ------------------------------------------------------------------------------------------------------
 }
 
 class RadioController extends DemoController {
@@ -220,7 +223,6 @@ class RadioController extends DemoController {
         MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
 
     }
-// - private ------------------------------------------------------------------------------------------------------
 }
 
 class SpinnerController extends DemoController {
@@ -238,7 +240,95 @@ class SpinnerController extends DemoController {
         });
 
     }
-// - private ------------------------------------------------------------------------------------------------------
+}
+
+class DialogController extends DemoController {
+    final Logger _logger = new Logger('main.DialogController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector("#alertdialog"));
+        final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector("#confirmdialog"));
+        final MaterialButton btnCustomDialog = MaterialButton.widget(dom.querySelector("#customdialog"));
+
+        final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
+        final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
+        final CustomDialog customDialog = new CustomDialog();
+
+        int mangoCounter = 0;
+
+        btnAlertDialog.onClick.listen((_) {
+            _logger.info("Click on AlertButton");
+            alertDialog("Testmessage").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+        });
+
+        btnConfirmDialog.onClick.listen((_) {
+            _logger.info("Click on ConfirmButton");
+            confirmDialog("Testmessage").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+        });
+
+        btnCustomDialog.onClick.listen((_) {
+            _logger.info("Click on ConfirmButton");
+            customDialog(title: "Mango #${mangoCounter} (Fruit)",
+            yesButton: "I buy it!", noButton: "Not now").show().then((final MdlDialogStatus status) {
+
+                _logger.info(status);
+                mangoCounter++;
+            });
+        });
+    }
+}
+
+class ToastController extends DemoController {
+    final Logger _logger = new Logger('main.ToastController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final MaterialButton btnToast = MaterialButton.widget(dom.querySelector("#toast"));
+        final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector("#withAction"));
+
+        final MaterialToast toast = new MaterialToast();
+
+        int mangoCounter = 0;
+
+        void _makeSettings() {
+            toast.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
+            toast.position.top = MaterialCheckbox.widget(dom.querySelector("#checkbox-top")).checked;
+            toast.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
+            toast.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
+
+            dom.querySelector("#container").classes.toggle("mdl-toast-container",
+            MaterialCheckbox.widget(dom.querySelector("#checkbox-use-container")).checked);
+        }
+
+        btnToast.onClick.listen( (_) {
+            _logger.info("Click on Toast");
+
+            _makeSettings();
+            toast("Toast message").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+        });
+
+        btnWithAction.onClick.listen( (_) {
+            _logger.info("Click on withAction");
+
+            _makeSettings();
+            toast("Toast message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+
+        });
+
+    }
 }
 
 void configRouter() {
@@ -267,6 +357,9 @@ void configRouter() {
 
         ..addRoute(name: 'column-layout', path: '/column-layout',
                     enter: view("views/column-layout.html", new DemoController()))
+
+        ..addRoute(name: 'dialog', path: '/dialog',
+            enter: view("views/dialog.html", new DialogController()))
 
         ..addRoute(name: 'footer', path: '/footer',
                     enter: view("views/footer.html", new DemoController()))
@@ -330,6 +423,9 @@ void configRouter() {
 
         ..addRoute(name: 'theming', path: '/theming',
             enter: view("views/theming.html", new DemoController()))
+
+        ..addRoute(name: 'toast', path: '/toast',
+            enter: view("views/toast.html", new ToastController()))
 
         ..addRoute(name: 'tooltip', path: '/tooltip',
                     enter: view("views/tooltip.html", new DemoController()))

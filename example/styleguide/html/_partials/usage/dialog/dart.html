@@ -1,0 +1,48 @@
+import 'package:mdl/mdl.dart';
+import &quot;package:mdl/mdldialog.dart&quot;;
+
+import &quot;package:mdl_dialog_sample/customdialog.dart&quot;;
+
+main() {
+    final Logger _logger = new Logger('dialog.Main');
+
+    configLogging();
+
+    registerMdl();
+
+    upgradeAllRegistered().then((_) {
+        final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector(&quot;#alertdialog&quot;));
+        final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector(&quot;#confirmdialog&quot;));
+        final MaterialButton btnCustomDialog = MaterialButton.widget(dom.querySelector(&quot;#customdialog&quot;));
+
+        final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
+        final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
+        final CustomDialog customDialog = new CustomDialog();
+
+        int mangoCounter = 0;
+
+        btnAlertDialog.onClick.listen((_) {
+            _logger.info(&quot;Click on AlertButton&quot;);
+            alertDialog(&quot;Testmessage&quot;).show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+        });
+
+        btnConfirmDialog.onClick.listen((_) {
+            _logger.info(&quot;Click on ConfirmButton&quot;);
+            confirmDialog(&quot;Testmessage&quot;).show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+        });
+
+        btnCustomDialog.onClick.listen((_) {
+            _logger.info(&quot;Click on ConfirmButton&quot;);
+            customDialog(title: &quot;Mango #${mangoCounter} (Fruit)&quot;,
+                yesButton: &quot;I buy it!&quot;, noButton: &quot;Not now&quot;).show().then((final MdlDialogStatus status) {
+
+                _logger.info(status);
+                mangoCounter++;
+            });
+        });
+    });
+}

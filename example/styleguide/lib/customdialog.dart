@@ -22,8 +22,6 @@ import "package:mdl/mdldialog.dart";
 
 @MdlComponentModel
 class CustomDialog extends MaterialDialog {
-    static const String SELECTOR = "wsk-confirm-dialog";
-
     static const String _DEFAULT_YES_BUTTON = "Yes";
     static const String _DEFAULT_NO_BUTTON = "No";
 
@@ -41,7 +39,7 @@ class CustomDialog extends MaterialDialog {
               has been distributed worldwide to become one of the most cultivated fruits in the tropics.
             </p>
 
-            <img style="margin: auto; max-width: 100%;" src="images/mangues.jpg">
+            <img style="margin: auto; max-width: 100%;" src="assets/images/mangues.jpg">
 
             <p>
               It originated in Indian subcontinent (present day India and Pakistan) and Burma. It is the national fruit of

@@ -36,6 +36,7 @@ class ToastPosition {
 }
 
 /// WskToastComponent
+@MdlComponentModel
 class MaterialToast extends MaterialDialog {
     final Logger _logger = new Logger('mdldialog.MaterialToast');
 
