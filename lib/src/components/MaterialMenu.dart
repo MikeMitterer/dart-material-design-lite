@@ -79,7 +79,7 @@ class _KeyCode {
 
 /// registration-Helper
 void registerMaterialMenu() => componenthandler.register(new MdlWidgetConfig<MaterialMenu>(
-    "mdl-js-menu", (final html.HtmlElement element) => new MaterialMenu.fromElement(element)));
+    "mdl-js-menu", (final dom.HtmlElement element) => new MaterialMenu.fromElement(element)));
 
 class MaterialMenu extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialMenu');
@@ -87,17 +87,17 @@ class MaterialMenu extends MdlComponent {
     static const _MaterialMenuConstant _constant = const _MaterialMenuConstant();
     static const _MaterialMenuCssClasses _cssClasses = const _MaterialMenuCssClasses();
 
-    html.DivElement _container;
-    html.DivElement _outline;
-    html.Element _forElement;
+    dom.DivElement _container;
+    dom.DivElement _outline;
+    dom.Element _forElement;
 
     bool _closing = false;
 
-    MaterialMenu.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialMenu.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialMenu widget(final html.HtmlElement element) => mdlComponent(element) as MaterialMenu;
+    static MaterialMenu widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialMenu;
 
     /// Displays the menu.
     /// @public
@@ -120,9 +120,9 @@ class MaterialMenu extends MdlComponent {
 
             // Calculate transition delays for individual menu items, so that they fade
             // in one at a time.
-            final List<html.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM);
+            final List<dom.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM);
 
-            items.forEach((final html.Element item) {
+            items.forEach((final dom.Element item) {
                 double itemDelay = 0.0;
                 if (element.classes.contains(_cssClasses.TOP_LEFT) || element.classes.contains(_cssClasses.TOP_RIGHT)) {
                     itemDelay = ((height - item.offsetTop - item.offsetHeight) / height * transitionDuration);
@@ -139,7 +139,7 @@ class MaterialMenu extends MdlComponent {
 
             // Wait for the next frame, turn on animation, and apply the final clip.
             // Also make it visible. This triggers the transitions.
-            html.window.requestAnimationFrame( (_) {
+            dom.window.requestAnimationFrame( (_) {
                 element.classes.add(_cssClasses.IS_ANIMATING);
                 element.style.clip = 'rect(0 ${width}px ${height}px 0)';
                 _container.classes.add(_cssClasses.IS_VISIBLE);
@@ -173,7 +173,7 @@ class MaterialMenu extends MdlComponent {
             final items = element.querySelectorAll('.' + _cssClasses.ITEM);
 
             // Remove all transition delays; menu items fade out concurrently.
-            items.forEach((final html.Element item) {
+            items.forEach((final dom.Element item) {
                 item.style.transitionDelay = null;
             });
 
@@ -210,12 +210,12 @@ class MaterialMenu extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialMenu - init");
+        _logger.info("MaterialMenu - init");
 
         if (element != null) {
             // Create container for the menu.
 
-            final container = new html.DivElement();
+            final container = new dom.DivElement();
             container.classes.add(_cssClasses.CONTAINER);
             element.parent.insertBefore(container, element);
             element.remove(); // element.parent.removeChild(element);
@@ -223,29 +223,39 @@ class MaterialMenu extends MdlComponent {
             _container = container;
 
             // Create outline for the menu (shadow and background).
-            final outline = new html.DivElement();
+            final outline = new dom.DivElement();
             outline.classes.add(_cssClasses.OUTLINE);
             _outline = outline;
             container.insertBefore(outline, element);
 
             // Find the "for" element and bind events to it.
+            // Takes a while until elements are available
+            new Future.delayed(new Duration(milliseconds: 50),() {
+
             final forElId = element.getAttribute('for');
+            _logger.fine("forElId $forElId");
 
-            html.Element forEl = null;
-            if (forElId != null) {
-                forEl = html.document.getElementById(forElId);
-                if (forEl != null) {
-                    _logger.fine("$element has a for-ID: #$forElId pointing to $forEl");
-                    _forElement = forEl;
+            dom.Element forEl = null;
+                if (forElId != null) {
 
-                    // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-                    forEl.onClick.listen( _handleForClick );
-                    forEl.onKeyDown.listen( _handleForKeyboardEvent );
+                    // getElementById is OK here! element.querySelector not possible!
+                    forEl = dom.document.getElementById(forElId);
+                    _logger.fine("forEL $forEl #${forElId}");
+
+                    if (forEl != null) {
+                        _logger.info("$element has a for-ID: #$forElId pointing to $forEl");
+                        _forElement = forEl;
+
+                        // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+                        forEl.onClick.listen( _handleForClick );
+                        forEl.onKeyDown.listen( _handleForKeyboardEvent );
+                    }
                 }
-            }
 
-            final List<html.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM );
-            items.forEach((final html.Element item) {
+            });
+
+            final List<dom.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM );
+            items.forEach((final dom.Element item) {
                 // Add a listener to each menu item.
 
                 // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
@@ -262,12 +272,12 @@ class MaterialMenu extends MdlComponent {
             if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
                 element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
-                items.forEach((final html.Element item) {
+                items.forEach((final dom.Element item) {
 
-                    final rippleContainer = new html.SpanElement();
+                    final rippleContainer = new dom.SpanElement();
                     rippleContainer.classes.add(_cssClasses.ITEM_RIPPLE_CONTAINER);
 
-                    final ripple = new html.SpanElement();
+                    final ripple = new dom.SpanElement();
                     ripple.classes.add(_cssClasses.RIPPLE);
                     rippleContainer.append(ripple);
 
@@ -293,15 +303,15 @@ class MaterialMenu extends MdlComponent {
                 _outline.classes.add(_cssClasses.UNALIGNED);
             }
 
-            void _closeMenu(final html.Event event) {
-                event.preventDefault();
+            void _closeMenu(final dom.Event event) {
+                //event.preventDefault();
                 if(!_closing) {
                     hide();
                 }
             }
 
-            html.document.onClick.listen( (final html.Event event) => _closeMenu(event));
-            html.document.onKeyDown.listen((final html.KeyboardEvent event) {
+            dom.document.onClick.listen( (final dom.Event event) => _closeMenu(event));
+            dom.document.onKeyDown.listen((final dom.KeyboardEvent event) {
                 if(event.keyCode == _KeyCode.ESCAPE.value ) {
                     _closeMenu(event);
                 }
@@ -314,7 +324,7 @@ class MaterialMenu extends MdlComponent {
     /// Handles a click on the "for" element, by positioning the menu and then
     /// toggling it.
     /// MaterialMenu.prototype.handleForClick_ = function(evt) {
-    void _handleForClick(final html.MouseEvent evt) {
+    void _handleForClick(final dom.MouseEvent evt) {
 
         if (element != null && _forElement != null) {
 
@@ -355,12 +365,12 @@ class MaterialMenu extends MdlComponent {
 
     /// Handles a keyboard event on the "for" element.
     /// MaterialMenu.prototype.handleForKeyboardEvent_ = function(evt) {
-    void _handleForKeyboardEvent(final html.KeyboardEvent event) {
+    void _handleForKeyboardEvent(final dom.KeyboardEvent event) {
         _logger.fine("_handleForKeyboardEvent: $event");
 
         if (element != null && _container != null && _forElement != null) {
 
-            final List<html.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM + ':not([disabled])');
+            final List<dom.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM + ':not([disabled])');
 
             if (items != null && items.length > 0 &&
             _container.classes.contains(_cssClasses.IS_VISIBLE)) {
@@ -377,12 +387,12 @@ class MaterialMenu extends MdlComponent {
 
     /// Handles a keyboard event on an item.
     /// MaterialMenu.prototype.handleItemKeyboardEvent_ = function(evt) {
-    void _handleItemKeyboardEvent(final html.KeyboardEvent event) {
+    void _handleItemKeyboardEvent(final dom.KeyboardEvent event) {
         _logger.fine("_handleItemKeyboardEvent: $event");
 
         if (element != null && _container != null) {
 
-            final List<html.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM + ':not([disabled])');
+            final List<dom.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM + ':not([disabled])');
 
             if (items != null && items.length > 0 && _container.classes.contains(_cssClasses.IS_VISIBLE)) {
 
@@ -409,13 +419,13 @@ class MaterialMenu extends MdlComponent {
                     event.preventDefault();
                     // Send mousedown and mouseup to trigger ripple.
 
-                    var dynEvent = new html.MouseEvent('mousedown');
+                    var dynEvent = new dom.MouseEvent('mousedown');
                     event.target.dispatchEvent(dynEvent);
 
-                    dynEvent = new html.MouseEvent('mouseup');
+                    dynEvent = new dom.MouseEvent('mouseup');
                     event.target.dispatchEvent(dynEvent);
                     // Send click.
-                    (event.target as html.Element).click();
+                    (event.target as dom.Element).click();
 
                 } else if (event.keyCode == _KeyCode.ESCAPE.value) {
                     event.preventDefault();
@@ -427,10 +437,10 @@ class MaterialMenu extends MdlComponent {
 
     /// Handles a click event on an item.
     /// MaterialMenu.prototype.handleItemClick_ = function(evt) {
-    void _handleItemClick(final html.MouseEvent event) {
+    void _handleItemClick(final dom.MouseEvent event) {
         event.stopPropagation();
 
-        if ((event.target as html.Element).attributes.containsKey('disabled') ) {
+        if ((event.target as dom.Element).attributes.containsKey('disabled') ) {
             event.stopPropagation();
 
         } else {

@@ -62,7 +62,7 @@ class _MaterialSwitchConstant {
 
 /// creates MdlConfig for MaterialSwitch
 MdlConfig materialSwitchConfig() => new MdlWidgetConfig<MaterialSwitch>(
-    "mdl-js-switch", (final html.HtmlElement element) => new MaterialSwitch.fromElement(element));
+    "mdl-js-switch", (final dom.HtmlElement element) => new MaterialSwitch.fromElement(element));
 
 /// registration-Helper
 void registerMaterialSwitch() => componenthandler.register(materialSwitchConfig());
@@ -73,15 +73,15 @@ class MaterialSwitch extends MdlComponent {
     static const _MaterialSwitchConstant _constant = const _MaterialSwitchConstant();
     static const _MaterialSwitchCssClasses _cssClasses = const _MaterialSwitchCssClasses();
 
-    html.CheckboxInputElement _inputElement = null;
+    dom.CheckboxInputElement _inputElement = null;
 
-    MaterialSwitch.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialSwitch.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialSwitch widget(final html.HtmlElement element) => mdlComponent(element) as MaterialSwitch;
+    static MaterialSwitch widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialSwitch;
 
-    html.CheckboxInputElement get inputElement {
+    dom.CheckboxInputElement get inputElement {
         if(_inputElement == null) { _inputElement = element.querySelector(".${_cssClasses.INPUT}"); }
         return _inputElement;
     }
@@ -117,13 +117,13 @@ class MaterialSwitch extends MdlComponent {
 
         if (element != null) {
 
-            final html.DivElement track = new html.DivElement();
+            final dom.DivElement track = new dom.DivElement();
             track.classes.add(_cssClasses.TRACK);
 
-            final html.DivElement thumb = new html.DivElement();
+            final dom.DivElement thumb = new dom.DivElement();
             thumb.classes.add(_cssClasses.THUMB);
 
-            final html.SpanElement focusHelper = new html.SpanElement();
+            final dom.SpanElement focusHelper = new dom.SpanElement();
             focusHelper.classes.add(_cssClasses.FOCUS_HELPER);
 
             thumb.append(focusHelper);
@@ -136,14 +136,14 @@ class MaterialSwitch extends MdlComponent {
                 _cssClasses.RIPPLE_EFFECT)) {
                 element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
-                final html.SpanElement rippleContainer = new html.SpanElement();
+                final dom.SpanElement rippleContainer = new dom.SpanElement();
                 rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
                 rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
                 rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
 
                 rippleContainer.onMouseUp.listen( _onMouseUp);
 
-                final html.SpanElement ripple = new html.SpanElement();
+                final dom.SpanElement ripple = new dom.SpanElement();
                 ripple.classes.add(_cssClasses.RIPPLE);
 
                 rippleContainer.append(ripple);
@@ -164,22 +164,22 @@ class MaterialSwitch extends MdlComponent {
     }
 
     /// Handle change of state.
-    void _onChange(final html.Event event) {
+    void _onChange(final dom.Event event) {
         _updateClasses();
     }
 
     /// Handle focus of element.
-    void _onFocus(final html.Event event) {
+    void _onFocus(final dom.Event event) {
         element.classes.add(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle lost focus of element.
-    void _onBlur(final html.Event event) {
+    void _onBlur(final dom.Event event) {
         element.classes.remove(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle mouseup.
-    void _onMouseUp(final html.Event event) {
+    void _onMouseUp(final dom.Event event) {
         _blur();
     }
 

@@ -60,7 +60,7 @@ class _MaterialRadioConstant {
 
 /// creates MdlConfig for RadioConfig
 MdlConfig materialRadioConfig() => new MdlWidgetConfig<MaterialRadio>(
-    "mdl-js-radio", (final html.HtmlElement element) => new MaterialRadio.fromElement(element));
+    "mdl-js-radio", (final dom.HtmlElement element) => new MaterialRadio.fromElement(element));
 
 /// registration-Helper
 void registerMaterialRadio() => componenthandler.register(materialRadioConfig());
@@ -78,20 +78,20 @@ class MaterialRadio extends MdlComponent {
     static const _MaterialRadioConstant _constant = const _MaterialRadioConstant();
     static const _MaterialRadioCssClasses _cssClasses = const _MaterialRadioCssClasses();
 
-    html.RadioButtonInputElement _btnElement = null;
+    dom.RadioButtonInputElement _btnElement = null;
 
-    factory MaterialRadio(final html.HtmlElement element) => mdlComponent(element) as MaterialRadio;
+    factory MaterialRadio(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadio;
 
-    MaterialRadio.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialRadio.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialRadio widget(final html.HtmlElement element) => mdlComponent(element) as MaterialRadio;
+    static MaterialRadio widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadio;
 
 
-    html.Element get hub => btnElement;
+    dom.Element get hub => btnElement;
 
-    html.RadioButtonInputElement get btnElement {
+    dom.RadioButtonInputElement get btnElement {
         if(_btnElement == null) {
             _btnElement = element.querySelector(".${_cssClasses.RADIO_BTN}");
         }
@@ -142,10 +142,10 @@ class MaterialRadio extends MdlComponent {
 
         if (element != null) {
 
-            final outerCircle = new html.SpanElement();
+            final outerCircle = new dom.SpanElement();
             outerCircle.classes.add(_cssClasses.RADIO_OUTER_CIRCLE);
 
-            final innerCircle = new html.SpanElement();
+            final innerCircle = new dom.SpanElement();
             innerCircle.classes.add(_cssClasses.RADIO_INNER_CIRCLE);
 
             element.append(outerCircle);
@@ -156,14 +156,14 @@ class MaterialRadio extends MdlComponent {
                 element.classes.add(
                     _cssClasses.RIPPLE_IGNORE_EVENTS);
 
-                final html.SpanElement rippleContainer = new html.SpanElement();
+                final dom.SpanElement rippleContainer = new dom.SpanElement();
                 rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
                 rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
                 rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
 
                 rippleContainer.onMouseUp.listen( _onMouseUp );
 
-                final html.SpanElement ripple = new html.SpanElement();
+                final dom.SpanElement ripple = new dom.SpanElement();
                 ripple.classes.add(_cssClasses.RIPPLE);
 
                 rippleContainer.append(ripple);
@@ -185,17 +185,17 @@ class MaterialRadio extends MdlComponent {
 
     /// Handle change of state.
     /// @param {Event} event The event that fired.
-    void _onChange(final html.Event event) {
+    void _onChange(final dom.Event event) {
 
         _updateClasses(_btnElement, element);
 
         // Since other radio buttons don't get change events, we need to look for
         // them to update their classes.
-        final List<html.Element> radios = html.querySelectorAll('.' + _cssClasses.JS_RADIO);
+        final List<dom.Element> radios = dom.querySelectorAll('.' + _cssClasses.JS_RADIO);
 
         for (int i = 0; i < radios.length; i++) {
 
-            final html.RadioButtonInputElement button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
+            final dom.RadioButtonInputElement button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
             // Different name == different group, so no point updating those.
             if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
                 _updateClasses(button, radios[i]);
@@ -204,22 +204,22 @@ class MaterialRadio extends MdlComponent {
     }
 
     /// Handle focus.
-    void _onFocus(final html.Event event) {
+    void _onFocus(final dom.Event event) {
         element.classes.add(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle lost focus.
-    void _onBlur(final html.Event event) {
+    void _onBlur(final dom.Event event) {
         element.classes.remove(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle mouseup.
-    void _onMouseUp(final html.MouseEvent event) {
+    void _onMouseUp(final dom.MouseEvent event) {
         _blur();
     }
 
     /// Update classes.
-    void _updateClasses(final html.RadioButtonInputElement  button, final html.HtmlElement label) {
+    void _updateClasses(final dom.RadioButtonInputElement  button, final dom.HtmlElement label) {
 
         if (button.disabled) {
             label.classes.add(_cssClasses.IS_DISABLED);

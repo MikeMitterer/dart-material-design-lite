@@ -19,7 +19,7 @@
 
 library mdldemo;
 
-import 'dart:html' as html;
+import 'dart:html' as dom;
 import 'package:logging/logging.dart';
 
 import "package:mdl/mdlcore.dart";

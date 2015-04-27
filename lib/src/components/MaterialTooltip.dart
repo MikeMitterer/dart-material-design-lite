@@ -35,7 +35,7 @@ class _MaterialTooltipConstant {
 
 /// creates MdlConfig for MaterialButton
 MdlConfig materialTooltipConfig() => new MdlWidgetConfig<MaterialTooltip>(
-    "mdl-tooltip", (final html.HtmlElement element) => new MaterialTooltip.fromElement(element));
+    "mdl-tooltip", (final dom.HtmlElement element) => new MaterialTooltip.fromElement(element));
 
 /// registration-Helper
 void registerMaterialTooltip() => componenthandler.register(materialTooltipConfig());
@@ -46,13 +46,13 @@ class MaterialTooltip extends MdlComponent {
     static const _MaterialTooltipConstant _constant = const _MaterialTooltipConstant();
     static const _MaterialTooltipCssClasses _cssClasses = const _MaterialTooltipCssClasses();
 
-    html.HtmlElement _forEl = null;
+    dom.HtmlElement _forEl = null;
 
-    MaterialTooltip.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialTooltip.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialTooltip widget(final html.HtmlElement element) => mdlComponent(element) as MaterialTooltip;
+    static MaterialTooltip widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialTooltip;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ class MaterialTooltip extends MdlComponent {
             final String forElId = element.getAttribute('for');
 
             if(forElId != null ) {
-                _forEl = html.querySelector("#${forElId}");
+                _forEl = dom.querySelector("#${forElId}");
 
                 if(_forEl != null) {
                     _forEl.onMouseEnter.listen( _handleMouseEnter );
@@ -76,7 +76,7 @@ class MaterialTooltip extends MdlComponent {
     }
 
     /// Handle mouseenter for tooltip.
-    void _handleMouseEnter(final html.MouseEvent event) {
+    void _handleMouseEnter(final dom.MouseEvent event) {
         event.stopPropagation();
 
         final Math.Rectangle props = _forEl.getBoundingClientRect();
@@ -89,7 +89,7 @@ class MaterialTooltip extends MdlComponent {
     /// Handle mouseleave for tooltip.
     /// @param {Event} event The event that fired.
     /// MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
-    void _handleMouseLeave(final html.MouseEvent event) {
+    void _handleMouseLeave(final dom.MouseEvent event) {
 
         event.stopPropagation();
         element.classes.remove(_cssClasses.IS_ACTIVE);

@@ -36,7 +36,7 @@ class _MaterialContentConstant {
 
 /// registration-Helper
 void registerMaterialContent() => componenthandler.register(new MdlWidgetConfig<MaterialContent>(
-    "mdl-js-content", (final html.HtmlElement element) => new MaterialContent.fromElement(element)));
+    "mdl-js-content", (final dom.HtmlElement element) => new MaterialContent.fromElement(element)));
 
 class MaterialContent extends MdlComponent {
     final Logger _logger = new Logger('mdlremote.MaterialContent');
@@ -44,11 +44,11 @@ class MaterialContent extends MdlComponent {
     static const _MaterialContentCssClasses _cssClasses = const _MaterialContentCssClasses();
     final Renderer _renderer = new Renderer();
 
-    MaterialContent.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialContent.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialContent widget(final html.HtmlElement element) => mdlComponent(element) as MaterialContent;
+    static MaterialContent widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialContent;
 
 
     // Central Element - by default this is where mdl-js-content was found (element)

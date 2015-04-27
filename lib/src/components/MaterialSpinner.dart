@@ -46,7 +46,7 @@ class _MaterialSpinnerConstant {
 
 /// creates MdlConfig for MaterialSpinner
 MdlConfig materialSpinnerConfig() => new MdlWidgetConfig<MaterialSpinner>(
-    "mdl-js-spinner", (final html.HtmlElement element) => new MaterialSpinner.fromElement(element));
+    "mdl-js-spinner", (final dom.HtmlElement element) => new MaterialSpinner.fromElement(element));
 
 /// registration-Helper
 void registerMaterialSpinner() => componenthandler.register(materialSpinnerConfig());
@@ -57,11 +57,11 @@ class MaterialSpinner extends MdlComponent {
     static const _MaterialSpinnerConstant _constant = const _MaterialSpinnerConstant();
     static const _MaterialSpinnerCssClasses _cssClasses = const _MaterialSpinnerCssClasses();
 
-    MaterialSpinner.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialSpinner.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialSpinner widget(final html.HtmlElement element) => mdlComponent(element) as MaterialSpinner;
+    static MaterialSpinner widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialSpinner;
 
     /**
     * Stops the spinner animation.
@@ -104,18 +104,18 @@ class MaterialSpinner extends MdlComponent {
     /// Auxiliary method to create a spinner layer.
     void _createLayer(final int index) {
 
-        final html.DivElement layer = new html.DivElement();
+        final dom.DivElement layer = new dom.DivElement();
         layer.classes.add(_cssClasses.SPINNER_LAYER);
         layer.classes.add(_cssClasses.SPINNER_LAYER + '-' + index.toString());
 
-        final html.DivElement leftClipper = new html.DivElement();
+        final dom.DivElement leftClipper = new dom.DivElement();
         leftClipper.classes.add(_cssClasses.SPINNER_CIRCLE_CLIPPER);
         leftClipper.classes.add(_cssClasses.SPINNER_LEFT);
 
-        final html.DivElement gapPatch = new html.DivElement();
+        final dom.DivElement gapPatch = new dom.DivElement();
         gapPatch.classes.add(_cssClasses.SPINNER_GAP_PATCH);
 
-        final html.DivElement rightClipper = new html.DivElement();
+        final dom.DivElement rightClipper = new dom.DivElement();
         rightClipper.classes.add(_cssClasses.SPINNER_CIRCLE_CLIPPER);
         rightClipper.classes.add(_cssClasses.SPINNER_RIGHT);
 
@@ -123,7 +123,7 @@ class MaterialSpinner extends MdlComponent {
 
         for (int i = 0; i < circleOwners.length; i++) {
 
-            final circle = new html.DivElement();
+            final circle = new dom.DivElement();
             circle.classes.add(_cssClasses.SPINNER_CIRCLE);
             circleOwners[i].append(circle);
         }

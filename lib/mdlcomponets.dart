@@ -19,7 +19,7 @@
 
 library mdlcomponents;
 
-import 'dart:html' as html;
+import 'dart:html' as dom;
 import 'dart:math' as Math;
 import 'dart:async';
 import 'package:logging/logging.dart';

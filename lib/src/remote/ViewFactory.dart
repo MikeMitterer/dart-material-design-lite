@@ -32,8 +32,8 @@ class ViewFactory {
     void _enterHandler(final RouteEnterEvent event, final String url,
                        final MaterialController controller, final String selector) {
 
-        final html.HttpRequest request = new html.HttpRequest();
-        final html.Element contentElement = html.querySelector(selector);
+        final dom.HttpRequest request = new dom.HttpRequest();
+        final dom.Element contentElement = dom.querySelector(selector);
 
         if(contentElement == null) {
             _logger.severe('Please add <div id="main" class="mdl-content mdl-js-content">Loading...</div> to your index.html');
@@ -41,10 +41,10 @@ class ViewFactory {
         }
 
         request.open("GET", url);
-        request.onLoadEnd.listen((final html.ProgressEvent progressevent) {
+        request.onLoadEnd.listen((final dom.ProgressEvent progressevent) {
             //_logger.info('Request complete ${request.responseText}, Status: ${request.readyState}');
 
-            if (request.readyState == html.HttpRequest.DONE) {
+            if (request.readyState == dom.HttpRequest.DONE) {
 
                 final String content = _sanitizeResponseText(request.responseText);
                 final MaterialContent main = MaterialContent.widget(contentElement);

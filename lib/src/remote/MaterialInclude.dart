@@ -35,7 +35,7 @@ class _MaterialIncludeConstant {
 
 /// registration-Helper
 void registerMaterialInclude() => componenthandler.register(new MdlWidgetConfig<MaterialInclude>(
-    "mdl-js-include", (final html.HtmlElement element) => new MaterialInclude.fromElement(element)));
+    "mdl-js-include", (final dom.HtmlElement element) => new MaterialInclude.fromElement(element)));
 
 class MaterialContentEvent {
 
@@ -56,13 +56,13 @@ class MaterialInclude extends MdlComponent {
     /// Everyone can listen to this {onLoadEnd} stream
     Stream<MaterialContentEvent> onLoadEnd;
 
-    MaterialInclude.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialInclude.fromElement(final dom.HtmlElement element) : super(element) {
         onLoadEnd = _controller.stream;
 
         _init();
     }
 
-    static MaterialInclude widget(final html.HtmlElement element) => mdlComponent(element) as MaterialInclude;
+    static MaterialInclude widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialInclude;
 
     // Central Element - by default this is where mdl-js-include was found (element)
     // html.Element get hub => inputElement;
@@ -91,13 +91,13 @@ class MaterialInclude extends MdlComponent {
     /// loads the given {url} and returns the content
     Future<String> _load(final String url) {
         final Completer completer = new Completer();
-        final html.HttpRequest request = new html.HttpRequest();
+        final dom.HttpRequest request = new dom.HttpRequest();
 
         request.open("GET", url);
-        request.onLoadEnd.listen( (final html.ProgressEvent progressevent) {
+        request.onLoadEnd.listen( (final dom.ProgressEvent progressevent) {
             //_logger.info('Request complete ${request.responseText}, Status: ${request.readyState}');
 
-            if (request.readyState == html.HttpRequest.DONE) {
+            if (request.readyState == dom.HttpRequest.DONE) {
 
                 final String content = _sanitizeResponseText(request.responseText);
                 completer.complete(content);

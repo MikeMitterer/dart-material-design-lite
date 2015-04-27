@@ -42,7 +42,7 @@ class _MaterialTabsConstant {
 
 /// creates MdlConfig for MaterialTabs
 MdlConfig materialTabsConfig() => new MdlWidgetConfig<MaterialTabs>(
-    "mdl-js-tabs", (final html.HtmlElement element) => new MaterialTabs.fromElement(element));
+    "mdl-js-tabs", (final dom.HtmlElement element) => new MaterialTabs.fromElement(element));
 
 /// registration-Helper
 void registerMaterialTabs() => componenthandler.register(materialTabsConfig());
@@ -53,14 +53,14 @@ class MaterialTabs extends MdlComponent {
     static const _MaterialTabsConstant _constant = const _MaterialTabsConstant();
     static const _MaterialTabsCssClasses _cssClasses = const _MaterialTabsCssClasses();
 
-    final List<html.Element> _tabs = new List<html.Element>();
-    final List<html.Element> _panels = new List<html.Element>();
+    final List<dom.Element> _tabs = new List<dom.Element>();
+    final List<dom.Element> _panels = new List<dom.Element>();
 
-    MaterialTabs.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialTabs.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialTabs widget(final html.HtmlElement element) => mdlComponent(element) as MaterialTabs;
+    static MaterialTabs widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialTabs;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ class MaterialTabs extends MdlComponent {
 }
 
 class MaterialTab {
-    final html.Element tab;
+    final dom.Element tab;
     final MaterialTabs ctx;
 
     static const _MaterialTabsCssClasses _cssClasses = const _MaterialTabsCssClasses();
@@ -119,23 +119,23 @@ class MaterialTab {
         if (tab != null) {
             if (ctx.element.classes.contains(_cssClasses.MDL_JS_RIPPLE_EFFECT)) {
 
-                final html.SpanElement rippleContainer = new html.SpanElement();
+                final dom.SpanElement rippleContainer = new dom.SpanElement();
                 rippleContainer.classes.add(_cssClasses.MDL_RIPPLE_CONTAINER);
                 rippleContainer.classes.add(_cssClasses.MDL_JS_RIPPLE_EFFECT);
 
-                final html.SpanElement ripple = new html.SpanElement();
+                final dom.SpanElement ripple = new dom.SpanElement();
                 ripple.classes.add(_cssClasses.MDL_RIPPLE);
                 rippleContainer.append(ripple);
                 tab.append(rippleContainer);
             }
 
-            tab.onClick.listen( (final html.Event event) {
+            tab.onClick.listen( (final dom.Event event) {
                 event.preventDefault();
                 event.stopPropagation();
 
                 final String attribHref = tab.attributes["href"];
                 final String href = attribHref.split('#')[1];
-                final html.HtmlElement panel = ctx.element.querySelector('#' + href);
+                final dom.HtmlElement panel = ctx.element.querySelector('#' + href);
 
                 ctx._resetTabState();
                 ctx._resetPanelState();

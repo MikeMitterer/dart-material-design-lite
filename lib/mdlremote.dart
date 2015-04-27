@@ -19,7 +19,7 @@
 
 library mdlremote;
 
-import 'dart:html' as html;
+import 'dart:html' as dom;
 import 'dart:async';
 
 

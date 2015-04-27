@@ -37,7 +37,7 @@ class _MaterialProgressConstant {
 
 /// registration-Helper
 void registerMaterialProgress() => componenthandler.register(new MdlWidgetConfig<MaterialProgress>(
-    "mdl-js-progress", (final html.HtmlElement element) => new MaterialProgress.fromElement(element)));
+    "mdl-js-progress", (final dom.HtmlElement element) => new MaterialProgress.fromElement(element)));
 
 class MaterialProgress extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialProgress');
@@ -45,11 +45,11 @@ class MaterialProgress extends MdlComponent {
     static const _MaterialProgressConstant _constant = const _MaterialProgressConstant();
     static const _MaterialProgressCssClasses _cssClasses = const _MaterialProgressCssClasses();
 
-    html.DivElement _progressbar;
-    html.DivElement _bufferbar;
-    html.DivElement _auxbar;
+    dom.DivElement _progressbar;
+    dom.DivElement _bufferbar;
+    dom.DivElement _auxbar;
 
-    factory MaterialProgress(final html.HtmlElement element) => mdlComponent(element) as MaterialProgress;
+    factory MaterialProgress(final dom.HtmlElement element) => mdlComponent(element) as MaterialProgress;
 
     //    factory MaterialProgress() =>  new html.Element.tag('mdl-progress');
 //
@@ -60,7 +60,7 @@ class MaterialProgress extends MdlComponent {
 //        _init();
 //    }
 
-    MaterialProgress.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialProgress.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
@@ -69,7 +69,7 @@ class MaterialProgress extends MdlComponent {
 //        _init();
 //    }
 
-    static MaterialProgress widget(final html.HtmlElement element) => mdlComponent(element) as MaterialProgress;
+    static MaterialProgress widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialProgress;
 
     /// MaterialProgress.prototype.setProgress = function(p) {
     void set progress(final int width) {
@@ -101,15 +101,15 @@ class MaterialProgress extends MdlComponent {
 
         if (element != null) {
 
-            _progressbar = new html.DivElement();
+            _progressbar = new dom.DivElement();
             _progressbar.classes.addAll([ 'progressbar', 'bar', 'bar1']);
             element.append(_progressbar);
 
-            _bufferbar = new html.DivElement();
+            _bufferbar = new dom.DivElement();
             _bufferbar.classes.addAll([ 'bufferbar', 'bar', 'bar2']);
             element.append(_bufferbar);
 
-            _auxbar = new html.DivElement();
+            _auxbar = new dom.DivElement();
             _auxbar.classes.addAll([ 'auxbar', 'bar', 'bar3']);
             element.append(_auxbar);
 

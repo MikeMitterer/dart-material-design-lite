@@ -90,14 +90,14 @@ class MdlComponentHandler {
      * If all components are ready it remove mdl-upgrading.
      */
     Future upgradeAllRegistered() {
-        final html.Element body = html.querySelector("body");
+        final dom.Element body = dom.querySelector("body");
         return upgradeElement(body);
     }
 
-    Future upgradeElement(final html.HtmlElement element) {
+    Future upgradeElement(final dom.HtmlElement element) {
         Validate.notNull(element,"Component must not be null!");
 
-        html.querySelector("html")
+        dom.querySelector("html")
             ..classes.add(_cssClasses.HTML_JS)
             ..classes.add(_cssClasses.HTML_DART)
             ..classes.remove(_cssClasses.UPGRADED);
@@ -113,8 +113,8 @@ class MdlComponentHandler {
             element.classes.remove(_cssClasses.UPGRADING);
             element.classes.add(_cssClasses.UPGRADED);
 
-            html.querySelector("body").classes.remove(_cssClasses.UPGRADING);
-            html.querySelector("html").classes.add(_cssClasses.UPGRADED);
+            dom.querySelector("body").classes.remove(_cssClasses.UPGRADING);
+            dom.querySelector("html").classes.add(_cssClasses.UPGRADED);
             _logger.info("All components are upgraded...");
 
         });
@@ -145,14 +145,14 @@ class MdlComponentHandler {
      * {queryBaseElement} defines where the querySelector starts to search - can be any element.
      * upgradeAllRegistered uses "body" as {queryBaseElement}
      */
-    void _upgradeDom(final html.Element queryBaseElement, final MdlConfig config) {
+    void _upgradeDom(final dom.Element queryBaseElement, final MdlConfig config) {
         Validate.notNull(queryBaseElement);
         Validate.notNull(config);
 
 //        final List<Future> futureUpgrade = new List<Future>();
 //        final Future future = new Future(() {
-            final html.ElementList<html.HtmlElement> elements = queryBaseElement.querySelectorAll(".${config.cssClass}");
-            elements.forEach((final html.HtmlElement element) {
+            final dom.ElementList<dom.HtmlElement> elements = queryBaseElement.querySelectorAll(".${config.cssClass}");
+            elements.forEach((final dom.HtmlElement element) {
                 _upgradeElement(element, config);
                 // futureUpgrade.add(_upgradeElement(element, config));
             });
@@ -167,7 +167,7 @@ class MdlComponentHandler {
      * [config] the Dart-Class/Css-Class configuration of the class we want to upgrade
      * the element to.
      */
-    void _upgradeElement(final html.HtmlElement element, final MdlConfig config) {
+    void _upgradeElement(final dom.HtmlElement element, final MdlConfig config) {
         Validate.notNull(element);
         Validate.notNull(config);
 

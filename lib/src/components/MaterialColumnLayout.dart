@@ -37,7 +37,7 @@ class _MaterialColumnLayoutConstant {
 
 /// creates MdlConfig for MaterialColumnLayout
 MdlConfig materialColumnsLayoutConfig() => new MdlWidgetConfig<MaterialColumnLayout>(
-    "mdl-column-layout", (final html.HtmlElement element) => new MaterialColumnLayout.fromElement(element));
+    "mdl-column-layout", (final dom.HtmlElement element) => new MaterialColumnLayout.fromElement(element));
 
 /// registration-Helper
 void registerMaterialColumnLayout() => componenthandler.register(materialColumnsLayoutConfig());
@@ -48,11 +48,11 @@ class MaterialColumnLayout extends MdlComponent {
     static const _MaterialColumnLayoutConstant _constant = const _MaterialColumnLayoutConstant();
     static const _MaterialColumnLayoutCssClasses _cssClasses = const _MaterialColumnLayoutCssClasses();
 
-    MaterialColumnLayout.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialColumnLayout.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialColumnLayout widget(final html.HtmlElement element) => mdlComponent(element) as MaterialColumnLayout;
+    static MaterialColumnLayout widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialColumnLayout;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ class MaterialColumnLayout extends MdlComponent {
 
             for (int j = 0; j < _constant.INVISIBLE_WRAPPING_ELEMENT_COUNT ; j++) {
 
-                final html.DivElement hiddenHackDiv = new html.DivElement();
+                final dom.DivElement hiddenHackDiv = new dom.DivElement();
                 hiddenHackDiv.classes.add(_cssClasses.INVISIBLE_WRAPPING_ELEMENT);
                 element.append(hiddenHackDiv);
             }

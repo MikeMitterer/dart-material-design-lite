@@ -79,7 +79,6 @@ main() {
     registerAllMdlComponents();
     registerAllMdlRemoteComponents();
 
-
     // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
     registerDemoAnimation();
 

@@ -37,7 +37,7 @@ class _MaterialItemConstant {
 
 /// creates MdlConfig for MaterialItem
 MdlConfig materialItemConfig() => new MdlWidgetConfig<MaterialItem>(
-    "mdl-item", (final html.HtmlElement element) => new MaterialItem.fromElement(element));
+    "mdl-item", (final dom.HtmlElement element) => new MaterialItem.fromElement(element));
 
 /// registration-Helper
 void registerMaterialItem() => componenthandler.register(materialItemConfig());
@@ -48,11 +48,11 @@ class MaterialItem extends MdlComponent {
     static const _MaterialItemConstant _constant = const _MaterialItemConstant();
     static const _MaterialItemCssClasses _cssClasses = const _MaterialItemCssClasses();
 
-    MaterialItem.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialItem.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialItem widget(final html.HtmlElement element) => mdlComponent(element) as MaterialItem;
+    static MaterialItem widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialItem;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -61,10 +61,10 @@ class MaterialItem extends MdlComponent {
 
         if (element != null) {
 
-            final html.SpanElement rippleContainer = new html.SpanElement();
+            final dom.SpanElement rippleContainer = new dom.SpanElement();
             rippleContainer.classes.add(_cssClasses.MDL_ITEM_RIPPLE_CONTAINER);
 
-            final html.SpanElement ripple = new html.SpanElement();
+            final dom.SpanElement ripple = new dom.SpanElement();
             ripple.classes.add(_cssClasses.MDL_RIPPLE);
             rippleContainer.append(ripple);
 

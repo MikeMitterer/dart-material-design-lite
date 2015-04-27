@@ -46,7 +46,7 @@ class Renderer {
     /// {content} replaces the old
     ///
     /// Returns the rendered child
-    Future<html.Element> render(final html.Element element, final String content,{ final bool replaceNode: true}) {
+    Future<dom.Element> render(final dom.Element element, final String content,{ final bool replaceNode: true}) {
         //_logger.info("Content: $content");
 
         final Completer completer = new Completer();
@@ -57,15 +57,15 @@ class Renderer {
             element.classes.remove(_cssClasses.LOADED);
             element.classes.add(_cssClasses.LOADING);
 
-            final html.Element child = new html.Element.html(content,validator: _validator());
+            final dom.Element child = new dom.Element.html(content,validator: _validator());
 
             componenthandler.upgradeElement(child).then((_) {
 
-                html.window.requestAnimationFrame( (_) {
+                dom.window.requestAnimationFrame( (_) {
 
                 if(replaceNode && element.childNodes.length > 0 && element.childNodes.first != null) {
                     var oldElement = element.childNodes.first;
-                    if(oldElement is html.Element) {
+                    if(oldElement is dom.Element) {
                         oldElement.style.display = "none";
                     }
                     oldElement.remove();
@@ -94,8 +94,8 @@ class Renderer {
 
     //- private -----------------------------------------------------------------------------------
 
-    html.NodeValidator _validator() {
-        final html.NodeValidator validator = new html.NodeValidatorBuilder.common()  // html5 + Templating
+    dom.NodeValidator _validator() {
+        final dom.NodeValidator validator = new dom.NodeValidatorBuilder.common()  // html5 + Templating
             ..allowNavigation()
             ..allowImages()
             ..allowTextElements()
@@ -107,9 +107,9 @@ class Renderer {
     }
 }
 
-class _AllowAllAttributesNodeValidator implements html.NodeValidator {
+class _AllowAllAttributesNodeValidator implements dom.NodeValidator {
 
-    bool allowsAttribute(html.Element element, String attributeName, String value) {
+    bool allowsAttribute(dom.Element element, String attributeName, String value) {
         if (attributeName == 'is' || attributeName.startsWith('on')) {
             return false;
         }
@@ -117,7 +117,7 @@ class _AllowAllAttributesNodeValidator implements html.NodeValidator {
     }
 
     @override
-    bool allowsElement(html.Element element) {
+    bool allowsElement(dom.Element element) {
         return true;
     }
 }

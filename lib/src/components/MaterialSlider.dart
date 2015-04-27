@@ -48,7 +48,7 @@ class _MaterialSliderConstant {
 
 /// creates MdlConfig for MaterialSlider
 MdlConfig materialSliderConfig() => new MdlWidgetConfig<MaterialSlider>(
-    "mdl-js-slider", (final html.HtmlElement element) => new MaterialSlider.fromElement(element));
+    "mdl-js-slider", (final dom.HtmlElement element) => new MaterialSlider.fromElement(element));
 
 /// registration-Helper
 void registerMaterialSlider() => componenthandler.register(materialSliderConfig());
@@ -62,16 +62,16 @@ class MaterialSlider extends MdlComponent {
     // Browser feature detection.
     final bool _isIE = browser.isIe;
 
-    html.DivElement _backgroundLower = null;
-    html.DivElement _backgroundUpper = null;
+    dom.DivElement _backgroundLower = null;
+    dom.DivElement _backgroundUpper = null;
 
-    MaterialSlider.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialSlider.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialSlider widget(final html.HtmlElement element) => mdlComponent(element) as MaterialSlider;
+    static MaterialSlider widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialSlider;
 
-    html.RangeInputElement get slider => super.element as html.RangeInputElement;
+    dom.RangeInputElement get slider => super.element as dom.RangeInputElement;
 
     /// Disable slider.
     void disable() {
@@ -104,7 +104,7 @@ class MaterialSlider extends MdlComponent {
                 // Since we need to specify a very large height in IE due to
                 // implementation limitations, we add a parent here that trims it down to
                 // a reasonable size.
-                final html.DivElement containerIE = new html.DivElement();
+                final dom.DivElement containerIE = new dom.DivElement();
                 containerIE.classes.add(_cssClasses.IE_CONTAINER);
                 element.parent.insertBefore(containerIE, element);
                 element.remove();
@@ -115,21 +115,21 @@ class MaterialSlider extends MdlComponent {
                 // slider and allows us to style the left and right sides of it with
                 // different colors.
 
-                final html.DivElement container = new html.DivElement();
+                final dom.DivElement container = new dom.DivElement();
                 container.classes.add(_cssClasses.SLIDER_CONTAINER);
                 element.parent.insertBefore(container, element);
                 element.remove();
                 container.append(element);
 
-                final html.DivElement backgroundFlex = new html.DivElement();
+                final dom.DivElement backgroundFlex = new dom.DivElement();
                 backgroundFlex.classes.add(_cssClasses.BACKGROUND_FLEX);
                 container.append(backgroundFlex);
 
-                _backgroundLower = new html.DivElement();
+                _backgroundLower = new dom.DivElement();
                 _backgroundLower.classes.add(_cssClasses.BACKGROUND_LOWER);
                 backgroundFlex.append(_backgroundLower);
 
-                _backgroundUpper = new html.DivElement();
+                _backgroundUpper = new dom.DivElement();
                 _backgroundUpper.classes.add(_cssClasses.BACKGROUND_UPPER);
                 backgroundFlex.append(_backgroundUpper);
             }
@@ -146,17 +146,17 @@ class MaterialSlider extends MdlComponent {
     }
 
     /// Handle input on element.
-    void _onInput(final html.Event event) {
+    void _onInput(final dom.Event event) {
         _updateValueStyles();
     }
 
     /// Handle change on element.
-    void _onChange(final html.Event event) {
+    void _onChange(final dom.Event event) {
         _updateValueStyles();
     }
 
     /// Handle mouseup on element.
-    void _onMouseUp(final html.MouseEvent event) {
+    void _onMouseUp(final dom.MouseEvent event) {
         element.blur();
     }
 

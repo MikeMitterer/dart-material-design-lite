@@ -49,7 +49,7 @@ class _MaterialIconToggleConstant {
 
 /// creates MdlConfig for IconToggle
 MdlConfig materialIconToggleConfig() => new MdlWidgetConfig<MaterialIconToggle>(
-    "mdl-js-icon-toggle", (final html.HtmlElement element) => new MaterialIconToggle.fromElement(element));
+    "mdl-js-icon-toggle", (final dom.HtmlElement element) => new MaterialIconToggle.fromElement(element));
 
 /// registration-Helper
 void registerMaterialIconToggle() => componenthandler.register(materialIconToggleConfig());
@@ -67,18 +67,18 @@ class MaterialIconToggle extends MdlComponent {
     static const _MaterialIconToggleConstant _constant = const _MaterialIconToggleConstant();
     static const _MaterialIconToggleCssClasses _cssClasses = const _MaterialIconToggleCssClasses();
 
-    html.InputElement _inputElement = null;
+    dom.InputElement _inputElement = null;
 
-    MaterialIconToggle.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialIconToggle.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialIconToggle widget(final html.HtmlElement element) => mdlComponent(element) as MaterialIconToggle;
+    static MaterialIconToggle widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialIconToggle;
 
     // Central Element - by default this is where mdl-icon-toggle was found (element)
-    html.Element get hub => inputElement;
+    dom.Element get hub => inputElement;
 
-    html.InputElement get inputElement {
+    dom.InputElement get inputElement {
         if(_inputElement == null) {
             _inputElement = element.querySelector('.${_cssClasses.INPUT}');
         }
@@ -130,14 +130,14 @@ class MaterialIconToggle extends MdlComponent {
             if (element.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
                 element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
-                final html.SpanElement rippleContainer = new html.SpanElement();
+                final dom.SpanElement rippleContainer = new dom.SpanElement();
                 rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
                 rippleContainer.classes.add(_cssClasses.JS_RIPPLE_EFFECT);
                 rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
 
                 rippleContainer.onMouseUp.listen(_onMouseUp);
 
-                final ripple = new html.SpanElement();
+                final ripple = new dom.SpanElement();
                 ripple.classes.add(_cssClasses.RIPPLE);
 
                 rippleContainer.append(ripple);
@@ -163,19 +163,19 @@ class MaterialIconToggle extends MdlComponent {
     }
 
     /// Handle focus of element.
-    void _onFocus(final html.Event event) {
+    void _onFocus(final dom.Event event) {
 
         element.classes.add(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle lost focus of element.
-    void _onBlur(final html.Event event) {
+    void _onBlur(final dom.Event event) {
 
         element.classes.remove(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle mouseup.
-    void _onMouseUp(final html.MouseEvent event) {
+    void _onMouseUp(final dom.MouseEvent event) {
         _blur();
     }
 

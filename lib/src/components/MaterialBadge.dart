@@ -36,7 +36,7 @@ class _MaterialBadgeConstant {
 
 /// registration-Helper
 void registerMaterialBadge() => componenthandler.register(new MdlWidgetConfig<MaterialBadge>(
-    "mdl-js-badge", (final html.HtmlElement element) => new MaterialBadge.fromElement(element)));
+    "mdl-js-badge", (final dom.HtmlElement element) => new MaterialBadge.fromElement(element)));
 
 class MaterialBadge extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialBadge');
@@ -44,11 +44,11 @@ class MaterialBadge extends MdlComponent {
     static const _MaterialBadgeConstant _constant = const _MaterialBadgeConstant();
     static const _MaterialBadgeCssClasses _cssClasses = const _MaterialBadgeCssClasses();
 
-    MaterialBadge.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialBadge.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialBadge widget(final html.HtmlElement element) => mdlComponent(element) as MaterialBadge;
+    static MaterialBadge widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialBadge;
 
     // Central Element - by default this is where mdl-js-badge was found (element)
     // html.Element get hub => element;

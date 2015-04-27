@@ -62,7 +62,7 @@ class _MaterialCheckboxConstant {
 
 /// creates MdlConfig for MaterialCheckbox
 MdlConfig materialCheckboxConfig() => new MdlWidgetConfig<MaterialCheckbox>(
-    "mdl-js-checkbox", (final html.HtmlElement element) => new MaterialCheckbox.fromElement(element));
+    "mdl-js-checkbox", (final dom.HtmlElement element) => new MaterialCheckbox.fromElement(element));
 
 /// registration-Helper
 void registerMaterialCheckbox() => componenthandler.register(materialCheckboxConfig());
@@ -80,17 +80,17 @@ class MaterialCheckbox extends MdlComponent {
     static const _MaterialCheckboxConstant _constant = const _MaterialCheckboxConstant();
     static const _MaterialCheckboxCssClasses _cssClasses = const _MaterialCheckboxCssClasses();
 
-    html.CheckboxInputElement _inputElement = null;
+    dom.CheckboxInputElement _inputElement = null;
 
-    MaterialCheckbox.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialCheckbox.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialCheckbox widget(final html.HtmlElement element) => mdlComponent(element) as MaterialCheckbox;
+    static MaterialCheckbox widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialCheckbox;
 
-    html.Element get hub => inputElement;
+    dom.Element get hub => inputElement;
 
-    html.CheckboxInputElement get inputElement {
+    dom.CheckboxInputElement get inputElement {
         if(_inputElement == null) {
             _inputElement = element.querySelector(".${_cssClasses.INPUT}");
         }
@@ -136,13 +136,13 @@ class MaterialCheckbox extends MdlComponent {
     void _init() {
         _logger.fine("MaterialCheckbox - init");
 
-        final html.SpanElement boxOutline = new html.SpanElement();
+        final dom.SpanElement boxOutline = new dom.SpanElement();
         boxOutline.classes.add(_cssClasses.BOX_OUTLINE);
 
-        final html.SpanElement tickContainer = new html.SpanElement();
+        final dom.SpanElement tickContainer = new dom.SpanElement();
         tickContainer.classes.add(_cssClasses.FOCUS_HELPER);
 
-        final html.SpanElement tickOutline = new html.SpanElement();
+        final dom.SpanElement tickOutline = new dom.SpanElement();
         tickOutline.classes.add(_cssClasses.TICK_OUTLINE);
 
         boxOutline.append(tickOutline);
@@ -150,18 +150,18 @@ class MaterialCheckbox extends MdlComponent {
         element.append(tickContainer);
         element.append(boxOutline);
 
-        html.SpanElement rippleContainer;
+        dom.SpanElement rippleContainer;
         if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
             element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
-            rippleContainer = new html.SpanElement();
+            rippleContainer = new dom.SpanElement();
             rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
             rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
             rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
 
             rippleContainer.onMouseUp.listen(_onMouseUp);
 
-            final html.SpanElement ripple = new html.SpanElement();
+            final dom.SpanElement ripple = new dom.SpanElement();
             ripple.classes.add(_cssClasses.RIPPLE);
 
             rippleContainer.append(ripple);
@@ -181,22 +181,22 @@ class MaterialCheckbox extends MdlComponent {
     }
 
     /// Handle change of state.
-    void _onChange(final html.Event event) {
+    void _onChange(final dom.Event event) {
         _updateClasses();
     }
 
     /// Handle focus of element.
-    void _onFocus(final html.Event event) {
+    void _onFocus(final dom.Event event) {
         element.classes.add(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle lost focus of element.
-    void _onBlur(final html.Event  event) {
+    void _onBlur(final dom.Event  event) {
         element.classes.remove(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle mouseup.
-    void _onMouseUp(final html.Event event) {
+    void _onMouseUp(final dom.Event event) {
         _blur();
     }
 

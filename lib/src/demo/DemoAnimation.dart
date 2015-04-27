@@ -39,7 +39,7 @@ class _DemoAnimationConstant {
 
 /// creates MdlConfig for DemoAnimation
 MdlConfig demoAnimationConfig() => new MdlWidgetConfig<DemoAnimation>(
-    "demo-js-animation", (final html.HtmlElement element) => new DemoAnimation.fromElement(element));
+    "demo-js-animation", (final dom.HtmlElement element) => new DemoAnimation.fromElement(element));
 
 /// registration-Helper
 void registerDemoAnimation() => componenthandler.register(demoAnimationConfig());
@@ -61,35 +61,34 @@ class DemoAnimation extends MdlComponent {
     static const _DemoAnimationCssClasses _cssClasses = const _DemoAnimationCssClasses();
 
     int _position = _constant.STARTING_POSITION;
-    html.HtmlElement _moveable = null;
+    dom.HtmlElement _movable = null;
 
-    DemoAnimation.fromElement(final html.HtmlElement element) : super(element) {
+    DemoAnimation.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static DemoAnimation widget(final html.HtmlElement element) => mdlComponent(element) as DemoAnimation;
+    static DemoAnimation widget(final dom.HtmlElement element) => mdlComponent(element) as DemoAnimation;
 
-    html.HtmlElement get movable {
-        if(_moveable == null) {
-            _moveable = html.querySelector(".${_cssClasses.MOVABLE}");
+    dom.HtmlElement get movable {
+        if(_movable == null) {
+            _movable = dom.querySelector(".${_cssClasses.MOVABLE}");
+
+            if(_movable == null) {
+                _logger.severe('Was expecting to find an element with class name ' +
+                '${_cssClasses.MOVABLE} in side of: ${element}');
+            }
         }
-        return _moveable;
+        return _movable;
     }
 
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("DemoAnimation - init");
-
-        if(movable == null) {
-            _logger.severe('Was expecting to find an element with class name ' +
-            '${_cssClasses.MOVABLE} in side of: ${element}');
-            return;
-        }
+        _logger.fine("DemoAnimation - init");
         element.onClick.listen(_handleClick);
     }
 
-    void _handleClick(final html.MouseEvent event) {
+    void _handleClick(final dom.MouseEvent event) {
         movable.classes.remove("${_cssClasses.POSITION_PREFIX}${_position}");
         _position++;
 

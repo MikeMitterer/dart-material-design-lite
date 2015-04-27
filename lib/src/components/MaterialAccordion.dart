@@ -49,7 +49,7 @@ class _MaterialAccordionConstant {
 
 /// creates MdlConfig for MaterialAccordion
 MdlConfig materialAccordionConfig() => new MdlWidgetConfig<MaterialAccordion>(
-    "mdl-js-accordion", (final html.HtmlElement element) => new MaterialAccordion.fromElement(element));
+    "mdl-js-accordion", (final dom.HtmlElement element) => new MaterialAccordion.fromElement(element));
 
 /// registration-Helper
 void registerMaterialAccordion() => componenthandler.register(materialAccordionConfig());
@@ -85,11 +85,11 @@ class MaterialAccordion extends MdlComponent {
 
     //final List<html.HtmlElement> _labels = new List<html.HtmlElement>();
 
-    MaterialAccordion.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialAccordion.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialAccordion widget(final html.HtmlElement element) => mdlComponent(element) as MaterialAccordion;
+    static MaterialAccordion widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialAccordion;
 
 
     //- private -----------------------------------------------------------------------------------
@@ -103,30 +103,30 @@ class MaterialAccordion extends MdlComponent {
 
                 final bool isRadio = element.classes.contains(_cssClasses.ACCORDION_TYPE);
 
-                final List<html.Element> labels = element.querySelectorAll('.' + _cssClasses.ACCORDION_LABEL);
+                final List<dom.Element> labels = element.querySelectorAll('.' + _cssClasses.ACCORDION_LABEL);
 
                 // Select element label
-                labels.forEach( (final html.HtmlElement label) {
+                labels.forEach( (final dom.HtmlElement label) {
                     _logger.fine("Found $label");
 
                     final String id = "accordion-${label.hashCode}";
-                    (label as html.LabelElement).htmlFor = id;
+                    (label as dom.LabelElement).htmlFor = id;
 
-                    html.InputElement inputElement = null;
+                    dom.InputElement inputElement = null;
                     if(isRadio) {
-                        inputElement = new html.RadioButtonInputElement();
+                        inputElement = new dom.RadioButtonInputElement();
                     } else {
-                        inputElement = new html.CheckboxInputElement();
+                        inputElement = new dom.CheckboxInputElement();
                     }
                     inputElement.name = "${_constant.CHECKBOX_NAME}-group-${element.hashCode}";
                     inputElement.id = id;
                     label.insertAdjacentElement('beforebegin',inputElement);
 
-                    final html.SpanElement rippleContainer = new html.SpanElement();
+                    final dom.SpanElement rippleContainer = new dom.SpanElement();
                     rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
                     rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
 
-                    final html.SpanElement ripple = new html.SpanElement();
+                    final dom.SpanElement ripple = new dom.SpanElement();
                     ripple.classes.add(_cssClasses.RIPPLE);
                     rippleContainer.append(ripple);
 

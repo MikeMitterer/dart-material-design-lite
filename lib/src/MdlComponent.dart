@@ -21,7 +21,7 @@ part of mdlcore;
 
 const String MDL_WIDGET_PROPERTY = "widget";
 
-MdlComponent mdlComponent(final html.HtmlElement element) {
+MdlComponent mdlComponent(final dom.HtmlElement element) {
     var jsElement = new JsObject.fromBrowserObject(element);
 
     if (!jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {
@@ -31,7 +31,7 @@ MdlComponent mdlComponent(final html.HtmlElement element) {
 }
 
 abstract class MdlComponent {
-    html.Element element;
+    dom.Element element;
 
     MdlComponent(this.element);
 
@@ -47,19 +47,19 @@ abstract class MdlComponent {
      *          </label>
      * hub = input
      */
-    html.Element get hub => element;
+    dom.Element get hub => element;
 
-    html.CssClassSet get classes => element.classes;
+    dom.CssClassSet get classes => element.classes;
 
     Map<String, String> get attributes => element.attributes;
 
-    html.ElementStream<html.Event> get onChange => hub.onChange;
-    html.ElementStream<html.Event> get onInput => hub.onInput;
-    html.ElementStream<html.MouseEvent> get onClick => hub.onClick;
+    dom.ElementStream<dom.Event> get onChange => hub.onChange;
+    dom.ElementStream<dom.Event> get onInput => hub.onInput;
+    dom.ElementStream<dom.MouseEvent> get onClick => hub.onClick;
 }
 
 /// CustomComponents...
-abstract class MdlHtmlComponent extends html.HtmlElement implements MdlComponent {
+abstract class MdlHtmlComponent extends dom.HtmlElement implements MdlComponent {
     html.Element element;
 
     MdlHtmlComponent(this.element) : super.created();

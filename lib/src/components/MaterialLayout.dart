@@ -84,7 +84,7 @@ class _MaterialLayoutMode {
 
 /// creates MdlConfig for MaterialLayout
 MdlConfig materialLayoutConfig() => new MdlWidgetConfig<MaterialLayout>(
-    "mdl-js-layout", (final html.HtmlElement element) => new MaterialLayout.fromElement(element));
+    "mdl-js-layout", (final dom.HtmlElement element) => new MaterialLayout.fromElement(element));
 
 /// registration-Helper
 void registerMaterialLayout() => componenthandler.register(materialLayoutConfig());
@@ -96,33 +96,33 @@ class MaterialLayout extends MdlComponent {
     static const _MaterialLayoutCssClasses _cssClasses = const _MaterialLayoutCssClasses();
     static const _MaterialLayoutMode _mode = const _MaterialLayoutMode();
 
-    html.HtmlElement _header = null;
-    html.HtmlElement _drawer = null;
-    html.HtmlElement _tabBar = null;
-    html.HtmlElement _content = null;
+    dom.HtmlElement _header = null;
+    dom.HtmlElement _drawer = null;
+    dom.HtmlElement _tabBar = null;
+    dom.HtmlElement _content = null;
 
-    MaterialLayout.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialLayout.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialLayout widget(final html.HtmlElement element) => mdlComponent(element) as MaterialLayout;
+    static MaterialLayout widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialLayout;
 
-    html.HtmlElement get header {
+    dom.HtmlElement get header {
         if(_header == null) { _header = element.querySelector('.' + _cssClasses.HEADER); }
         return _header;
     }
 
-    html.HtmlElement get drawer {
+    dom.HtmlElement get drawer {
         if(_drawer == null) { _drawer = element.querySelector('.' + _cssClasses.DRAWER); }
         return _drawer;
     }
 
-    html.HtmlElement get tabBar {
+    dom.HtmlElement get tabBar {
         if(_tabBar == null) { _tabBar = element.querySelector('.' + _cssClasses.TAB_BAR); }
         return _tabBar;
     }
 
-    html.HtmlElement get content {
+    dom.HtmlElement get content {
         if(_content == null) { _content = element.querySelector('.' + _cssClasses.CONTENT); }
         return _content;
     }
@@ -139,7 +139,7 @@ class MaterialLayout extends MdlComponent {
 
         if (element != null) {
 
-            final html.DivElement container = new html.DivElement();
+            final dom.DivElement container = new dom.DivElement();
             container.classes.add('mdl-layout__container');
             element.parent.insertBefore(container, element);
             element.remove(); // element.parent.removeChild (element);
@@ -196,7 +196,7 @@ class MaterialLayout extends MdlComponent {
             // Add drawer toggling button to our layout, if we have an openable drawer.
             if (drawer != null) {
 
-                final html.DivElement drawerButton = new html.DivElement();
+                final dom.DivElement drawerButton = new dom.DivElement();
                 drawerButton.classes.add(_cssClasses.DRAWER_BTN);
 
                 drawerButton.onClick.listen( _drawerToggleHandler );
@@ -216,12 +216,12 @@ class MaterialLayout extends MdlComponent {
                 }
 
                 _logger.info("Check: .${_cssClasses.NAVI_LINK}");
-                element.querySelectorAll(".${_cssClasses.NAVI_LINK}").forEach((final html.Element element) {
+                element.querySelectorAll(".${_cssClasses.NAVI_LINK}").forEach((final dom.Element element) {
                     _logger.info("click $element");
                     element.onClick.listen( (_) => drawer.classes.remove(_cssClasses.DRAWER_OPEN_CLASS) );
                 });
 
-                final html.DivElement obfuscator = new html.DivElement();
+                final dom.DivElement obfuscator = new dom.DivElement();
                 obfuscator.classes.add(_cssClasses.OBFUSCATOR);
                 element.append(obfuscator);
 
@@ -233,24 +233,24 @@ class MaterialLayout extends MdlComponent {
             // Initialize tabs, if any.
             if (tabBar != null) {
 
-                final html.DivElement tabContainer = new html.DivElement();
+                final dom.DivElement tabContainer = new dom.DivElement();
                 tabContainer.classes.add(_cssClasses.TAB_CONTAINER);
                 element.insertBefore(tabContainer, tabBar);
                 tabBar.remove(); // element.removeChild(_tabBar);
 
-                final html.DivElement leftButton = new html.DivElement();
+                final dom.DivElement leftButton = new dom.DivElement();
                 leftButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
                 leftButton.classes.add(_cssClasses.TAB_BAR_LEFT_BUTTON);
 
-                leftButton.onClick.listen( (final html.MouseEvent event) {
+                leftButton.onClick.listen( (final dom.MouseEvent event) {
                     tabBar.scrollLeft -= 100;
                 });
 
-                final html.DivElement rightButton = new html.DivElement();
+                final dom.DivElement rightButton = new dom.DivElement();
                 rightButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
                 rightButton.classes.add(_cssClasses.TAB_BAR_RIGHT_BUTTON);
 
-                rightButton.onClick.listen( (final html.MouseEvent event) {
+                rightButton.onClick.listen( (final dom.MouseEvent event) {
                     tabBar.scrollLeft += 100;
                 });
 
@@ -274,7 +274,7 @@ class MaterialLayout extends MdlComponent {
                         rightButton.classes.remove(_cssClasses.ACTIVE_CLASS);
                     }
                 };
-                tabBar.onScroll.listen( (final html.Event event) => tabScrollHandler());
+                tabBar.onScroll.listen( (final dom.Event event) => tabScrollHandler());
                 tabScrollHandler();
 
                 if (tabBar.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
@@ -282,8 +282,8 @@ class MaterialLayout extends MdlComponent {
                 }
 
                 // Select element tabs, document panels
-                final List<html.Element> tabs = tabBar.querySelectorAll('.' + _cssClasses.TAB);
-                final List<html.Element> panels = content.querySelectorAll('.' + _cssClasses.PANEL);
+                final List<dom.Element> tabs = tabBar.querySelectorAll('.' + _cssClasses.TAB);
+                final List<dom.Element> panels = content.querySelectorAll('.' + _cssClasses.PANEL);
 
                 // Create new tabs for each tab element
                 for (int i = 0; i < tabs.length; i++) {
@@ -332,20 +332,20 @@ class MaterialLayout extends MdlComponent {
 
     /// Handles toggling of the drawer.
     /// The [drawer] container element.
-    void _drawerToggleHandler(final html.MouseEvent _) {
+    void _drawerToggleHandler(final dom.MouseEvent _) {
         drawer.classes.toggle(_cssClasses.DRAWER_OPEN_CLASS);
     }
 
     /// Handles (un)setting the `is-animating` class
     /// MaterialLayout.prototype.headerTransitionEndHandler = /*function*/ () {
-    void _headerTransitionEndHandler(final html.Event event) {
+    void _headerTransitionEndHandler(final dom.Event event) {
 
         header.classes.remove(_cssClasses.ANIMATING_CLASS);
     }
 
     /// Handles expanding the header on click
     /// MaterialLayout.prototype.headerClickHandler = /*function*/ () {
-    void _headerClickHandler(final html.MouseEvent _) {
+    void _headerClickHandler(final dom.MouseEvent _) {
 
         if (header.classes.contains(_cssClasses.COMPACT_CLASS)) {
             header.classes.remove(_cssClasses.COMPACT_CLASS);
@@ -373,9 +373,9 @@ class MaterialLayout extends MdlComponent {
 
 class MaterialLayoutTab {
 
-    final html.Element tab;  // using Element instead of AnchorElement makes mdl-layout-tab-Tag with href attrib possible
-    final List<html.AnchorElement> tabs;
-    final List<html.HtmlElement> panels;
+    final dom.Element tab;  // using Element instead of AnchorElement makes mdl-layout-tab-Tag with href attrib possible
+    final List<dom.AnchorElement> tabs;
+    final List<dom.HtmlElement> panels;
     final MaterialLayout layout;
 
     static const _MaterialLayoutCssClasses _cssClasses = const _MaterialLayoutCssClasses();
@@ -385,17 +385,17 @@ class MaterialLayoutTab {
         if (tab != null) {
             if (layout.tabBar.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
 
-                final html.SpanElement rippleContainer = new html.SpanElement();
+                final dom.SpanElement rippleContainer = new dom.SpanElement();
                 rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
                 rippleContainer.classes.add(_cssClasses.JS_RIPPLE_EFFECT);
 
-                final html.SpanElement ripple = new html.SpanElement();
+                final dom.SpanElement ripple = new dom.SpanElement();
                 ripple.classes.add(_cssClasses.RIPPLE);
                 rippleContainer.append(ripple);
                 tab.append(rippleContainer);
             }
 
-            tab.onClick.listen( (final html.MouseEvent event) {
+            tab.onClick.listen( (final dom.MouseEvent event) {
                 event.preventDefault();
 
                 final String attribHref = tab.attributes["href"];

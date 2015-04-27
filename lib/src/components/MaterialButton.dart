@@ -36,7 +36,7 @@ class _MaterialButtonConstant { const _MaterialButtonConstant(); }
 
 /// creates MdlConfig for MaterialButton
 MdlConfig materialButtonConfig() => new MdlWidgetConfig<MaterialButton>(
-    "mdl-button",(final html.HtmlElement element) => new MaterialButton.fromElement(element));
+    "mdl-button",(final dom.HtmlElement element) => new MaterialButton.fromElement(element));
 
 /// registration-Helper
 void registerMaterialButton() => componenthandler.register(materialButtonConfig());
@@ -47,25 +47,25 @@ class MaterialButton extends MdlComponent {
     static const _MaterialButtonConstant _constant = const _MaterialButtonConstant();
     static const _MaterialButtonCssClasses _cssClasses = const _MaterialButtonCssClasses();
 
-    MaterialButton.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialButton.fromElement(final dom.HtmlElement element) : super(element) {
         _logger.fine("MaterialButton - CTOR");
         _init();
     }
 
-    static MaterialButton widget(final html.HtmlElement element) => mdlComponent(element) as MaterialButton;
+    static MaterialButton widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialButton;
 
     /// Disable button.
     void disable() {
-        (element as html.ButtonElement).disabled = true;
+        (element as dom.ButtonElement).disabled = true;
     }
 
     /// Enable button.
     void enable() {
-        (element as html.ButtonElement).disabled = false;
+        (element as dom.ButtonElement).disabled = false;
     }
 
     void set disabled(final bool _disabled) => _disabled ? disable() : enable();
-    bool get disabled => (element as html.ButtonElement).disabled;
+    bool get disabled => (element as dom.ButtonElement).disabled;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -73,10 +73,10 @@ class MaterialButton extends MdlComponent {
         _logger.fine("MaterialButton - init");
 
         if(element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
-            final html.SpanElement rippleContainer = new html.Element.span();
+            final dom.SpanElement rippleContainer = new dom.Element.span();
             rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
 
-            final html.SpanElement ripple = new html.Element.span();
+            final dom.SpanElement ripple = new dom.Element.span();
             ripple.classes.add(_cssClasses.RIPPLE);
             rippleContainer.append(ripple);
 
@@ -91,7 +91,7 @@ class MaterialButton extends MdlComponent {
         element.onMouseLeave.listen(_blurHandler);
     }
 
-    void _blurHandler(final html.MouseEvent event) {
+    void _blurHandler(final dom.MouseEvent event) {
         _logger.fine("blur...");
         element.blur();
     }

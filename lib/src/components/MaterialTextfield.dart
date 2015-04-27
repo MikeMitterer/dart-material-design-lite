@@ -52,7 +52,7 @@ class _MaterialTextfieldConstant {
 
 /// creates MdlConfig for MaterialButton
 MdlConfig materialTextfieldConfig() => new MdlWidgetConfig<MaterialTextfield>(
-    "mdl-js-textfield", (final html.HtmlElement element) => new MaterialTextfield.fromElement(element));
+    "mdl-js-textfield", (final dom.HtmlElement element) => new MaterialTextfield.fromElement(element));
 
 /// registration-Helper
 void registerMaterialTextfield() => componenthandler.register(materialTextfieldConfig());
@@ -65,27 +65,27 @@ class MaterialTextfield extends MdlComponent {
 
     int _maxRows = _constant.NO_MAX_ROWS;
 
-    html.InputElement _input;
-    html.LabelElement _label;
+    dom.InputElement _input;
+    dom.LabelElement _label;
 
-    MaterialTextfield.fromElement(final html.HtmlElement element) : super(element) {
+    MaterialTextfield.fromElement(final dom.HtmlElement element) : super(element) {
         _init();
     }
 
-    static MaterialTextfield widget(final html.HtmlElement element) => mdlComponent(element) as MaterialTextfield;
+    static MaterialTextfield widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialTextfield;
 
-    html.Element get hub => input;
+    dom.Element get hub => input;
 
-    html.InputElement get input {
+    dom.InputElement get input {
         if(_input == null) {
-            _input = element.querySelector(".${_cssClasses.INPUT}") as html.InputElement;
+            _input = element.querySelector(".${_cssClasses.INPUT}") as dom.InputElement;
         }
         return _input;
     }
 
-    html.LabelElement get label {
+    dom.LabelElement get label {
         if(_label == null) {
-            _label = element.querySelector(".${_cssClasses.LABEL}") as html.LabelElement;
+            _label = element.querySelector(".${_cssClasses.LABEL}") as dom.LabelElement;
         }
         return _label;
     }
@@ -153,7 +153,7 @@ class MaterialTextfield extends MdlComponent {
     }
 
     /// Handle input being entered.
-    void _onKeyDown(final html.KeyboardEvent event) {
+    void _onKeyDown(final dom.KeyboardEvent event) {
         final input = element;
 
         final currentRowCount = input.value.split('\n').length;
@@ -165,12 +165,12 @@ class MaterialTextfield extends MdlComponent {
     }
 
     /// Handle focus.
-    void _onFocus(final html.Event event) {
+    void _onFocus(final dom.Event event) {
         element.classes.add(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle lost focus.
-    void _onBlur(final html.Event event) {
+    void _onBlur(final dom.Event event) {
         element.classes.remove(_cssClasses.IS_FOCUSED);
     }
 

@@ -23,7 +23,7 @@
  */
 library mdlcore;
 
-import 'dart:html' as html;
+import 'dart:html' as dom;
 import 'dart:collection';
 import 'dart:async';
 import 'dart:js';
