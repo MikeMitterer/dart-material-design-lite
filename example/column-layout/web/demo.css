@@ -293,6 +293,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 /*
 Palettes (14 colors)  50 - 900 + A100 - A700 possible
     palette-red
@@ -2167,8 +2168,8 @@ Palettes (10 colors) 50 - 900 possible
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  src: url("../fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
+  src: url("../fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("../fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("../fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
   font-weight: normal;
   font-style: normal; }
 
@@ -2280,97 +2281,87 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
-html, body {
+/* BADGE */
+html.mdl-typography, body.mdl-typography {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px; }
 
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0; }
-
-/**
- * Styles for HTML elements
- */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  opacity: 0.54;
-  font-size: 0.6em; }
-
-h1 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em; }
-
-h2 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 48px; }
-
-h3 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 34px;
-  font-weight: 400;
-  line-height: 40px; }
-
-h4 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 32px;
-  -moz-osx-font-smoothing: grayscale; }
-
-h5 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.02em; }
-
-h6 {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em; }
-
-p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  margin: 0 0 16px 0; }
-
-a {
-  font-weight: bold; }
-
-blockquote {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  letter-spacing: 0.08em; }
-  blockquote:before {
-    content: '“';
-    opacity: 0.54; }
-  blockquote:after {
-    content: '”';
-    opacity: 0.54; }
-
-mark {
-  background-color: #f4ff81; }
-
-dt {
-  font-weight: 700; }
+.mdl-typography {
+  /**
+	 * Styles for HTML elements
+	 */ }
+  .mdl-typography h1, .mdl-typography h2, .mdl-typography h3, .mdl-typography h4, .mdl-typography h5, .mdl-typography h6, .mdl-typography p {
+    margin: 0;
+    padding: 0; }
+  .mdl-typography h1 small, .mdl-typography h2 small, .mdl-typography h3 small, .mdl-typography h4 small, .mdl-typography h5 small, .mdl-typography h6 small {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    opacity: 0.54;
+    font-size: 0.6em; }
+  .mdl-typography h1 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em; }
+  .mdl-typography h2 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 48px; }
+  .mdl-typography h3 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 40px; }
+  .mdl-typography h4 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    -moz-osx-font-smoothing: grayscale; }
+  .mdl-typography h5 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.02em; }
+  .mdl-typography h6 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em; }
+  .mdl-typography p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    margin: 0 0 16px 0; }
+  .mdl-typography a {
+    color: #ff4081; }
+  .mdl-typography blockquote {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1;
+    letter-spacing: 0.08em; }
+    .mdl-typography blockquote:before {
+      content: '“';
+      opacity: 0.54; }
+    .mdl-typography blockquote:after {
+      content: '”';
+      opacity: 0.54; }
+  .mdl-typography mark {
+    background-color: #f4ff81; }
+  .mdl-typography dt {
+    font-weight: 700; }
 
 /**
  * Class Name Styles
@@ -2745,6 +2736,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-shadow--z1 {
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
@@ -2856,6 +2848,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-ripple {
   background: black;
   border-radius: 50%;
@@ -2974,6 +2967,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3086,6 +3080,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-button {
   background: transparent;
   border: none;
@@ -3344,6 +3339,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-card {
   font-size: 16px;
   height: 200px;
@@ -3569,6 +3565,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -3787,6 +3784,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-column-layout {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3954,6 +3952,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -6245,8 +6244,8 @@ Palettes (10 colors) 50 - 900 possible
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  src: url("../fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
+  src: url("../fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("../fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("../fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
   font-weight: normal;
   font-style: normal; }
 
@@ -6363,6 +6362,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -6518,6 +6518,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-mega-footer {
   padding: 32px 16px;
   color: #9e9e9e;
@@ -6765,6 +6766,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7303,6 +7305,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -7541,6 +7544,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-js-progress {
   display: block;
   position: relative;
@@ -7760,6 +7764,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8426,6 +8431,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-list {
   display: block;
   height: 500px;
@@ -8572,6 +8578,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -8768,6 +8775,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9110,6 +9118,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -9561,6 +9570,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -9789,6 +9799,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -9975,6 +9986,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -10183,6 +10195,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
@@ -10308,6 +10321,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 /* Animation Variables */
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -10489,6 +10503,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -10528,7 +10543,7 @@ Palettes (10 colors) 50 - 900 possible
     height: 20px;
     border-radius: 50%;
     background: #ff4081;
-    color: #fff; }
+    color: white; }
     .mdl-button .mdl-badge[data-badge]:after {
       top: -10px;
       right: -5px; }
@@ -10618,6 +10633,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-dialog-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10802,6 +10818,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 form.wsk-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -11147,6 +11164,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-nav-pill, .mdl-nav-pills > * {
   padding: 4px 8px;
   margin: 0 0 8px 0;
@@ -11367,6 +11385,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
@@ -11476,6 +11495,7 @@ Palettes (10 colors) 50 - 900 possible
  */
 /* ANIMATION */
 /* PROGRESS */
+/* BADGE */
 .mdl-toast-container.is-visible .mdl-toast {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);

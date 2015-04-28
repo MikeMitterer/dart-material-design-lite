@@ -1,4 +1,4 @@
 [
-  { "name": "dialog", "link": "#/dialogs" },
+  { "name": "dialog", "link": "#/dialog" },
   { "name": "toast", "link": "#/toast" }
 ]

@@ -992,7 +992,7 @@ class Application {
 
         //contents = contents.replaceFirst(new RegExp(r".*<body>"),newBody);
         contents = contents.replaceAllMapped(new RegExp(r'<body class="([^"]*)"[^>]*>'),
-            (final Match m) => '<body class="${m[1]} mdl-upgrading">  <div class="loading">Loading...</div>');
+            (final Match m) => '<body class="${m[1]} mdl-upgrading mdl-typography">  <div class="loading">Loading...</div>');
 
         indexFile.writeAsStringSync(contents);
     }

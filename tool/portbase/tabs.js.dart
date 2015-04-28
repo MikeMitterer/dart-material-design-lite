@@ -15,8 +15,8 @@ import 'dart:math' as Math;
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 
-/// Class constructor for Tabs WSK component.
-/// Implements WSK component design pattern defined at:
+/// Class constructor for Tabs MDL component.
+/// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// param {HTMLElement} element The element that will be upgraded.
 class MaterialTabs {
@@ -47,19 +47,19 @@ class _MaterialTabsCssClasses {
     final String ACTIVE_CLASS = 'is-active';
     final String UPGRADED_CLASS = 'is-upgraded';
 
-    final String WSK_JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-    final String WSK_RIPPLE_CONTAINER = 'mdl-tabs__ripple-container';
-    final String WSK_RIPPLE = 'mdl-ripple';
-    final String WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String MDL_JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String MDL_RIPPLE_CONTAINER = 'mdl-tabs__ripple-container';
+    final String MDL_RIPPLE = 'mdl-ripple';
+    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
 }
 
 /// Handle clicks to a tabs component
 /// MaterialTabs.prototype.initTabs_ = function(e) {
 void _initTabs(final e) {
 
-  if (element.classes.contains(_cssClasses.WSK_JS_RIPPLE_EFFECT)) {
+  if (element.classes.contains(_cssClasses.MDL_JS_RIPPLE_EFFECT)) {
     element.classes.add(
-      _cssClasses.WSK_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
+      _cssClasses.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
   }
 
   // Select element tabs, document panels
@@ -110,14 +110,14 @@ class MaterialTab {
     MaterialTab(this.tab,this.ctx);
 
   if (tab) {
-    if (ctx._element.classes.contains(ctx._cssClasses.WSK_JS_RIPPLE_EFFECT)) {
+    if (ctx._element.classes.contains(ctx._cssClasses.MDL_JS_RIPPLE_EFFECT)) {
 
       final rippleContainer = new html.SpanElement();
-      rippleContainer.classes.add(ctx._cssClasses.WSK_RIPPLE_CONTAINER);
-      rippleContainer.classes.add(ctx._cssClasses.WSK_JS_RIPPLE_EFFECT);
+      rippleContainer.classes.add(ctx._cssClasses.MDL_RIPPLE_CONTAINER);
+      rippleContainer.classes.add(ctx._cssClasses.MDL_JS_RIPPLE_EFFECT);
 
       final ripple = new html.SpanElement();
-      ripple.classes.add(ctx._cssClasses.WSK_RIPPLE);
+      ripple.classes.add(ctx._cssClasses.MDL_RIPPLE);
       rippleContainer.append(ripple);
       tab.append(rippleContainer);
     }

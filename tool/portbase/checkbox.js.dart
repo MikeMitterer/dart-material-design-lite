@@ -15,8 +15,8 @@ import 'dart:math' as Math;
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 
-/// Class constructor for Checkbox WSK component.
-/// Implements WSK component design pattern defined at:
+/// Class constructor for Checkbox MDL component.
+/// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// param {HTMLElement} element The element that will be upgraded.
 class MaterialCheckbox {

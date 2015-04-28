@@ -43,7 +43,7 @@
     <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
     <link rel="stylesheet" href="styleguide.css">
 </head>
-<body>
+<body class="mdl-typography">
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header class="mdl-layout__header">
@@ -53,13 +53,13 @@
     <div class="mdl-layout__drawer mdl-color--50">
         <span class="mdl-layout-title mdl-color--primary mdl-color-text--white">Material Design Lite</span>
         <nav class="mdl-navigation">
-            <div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect mdl-color--50">
+            <div class="mdl-accordion-group mdl-accordion--navigation mdl-js-accordion mdl-js-ripple-effect mdl-color--50">
 
                 <!-- Panel 1 -->
                 <div class="mdl-accordion">
                     <label class="mdl-accordion__label">Getting started<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
                     <div class="mdl-accordion--content">
-                        <a class="mdl-navigation__link" href="#/gettingstarted">Introduction</a>
+                        <a class="mdl-navigation__link mdl-color-text--primary" href="#/gettingstarted">Introduction</a>
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@
                     <label class="mdl-accordion__label">Components<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
                     <div class="mdl-accordion--content">
                         {{#_data.components}}
-                        <a class="mdl-navigation__link" href="{{link}}">{{name}}</a>
+                        <a class="mdl-navigation__link mdl-color-text--primary" href="{{link}}">{{name}}</a>
                         {{/_data.components}}
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                     <label class="mdl-accordion__label">Dialogs<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
                     <div class="mdl-accordion--content">
                         {{#_data.dialogs}}
-                        <a class="mdl-navigation__link" href="{{link}}">{{name}}</a>
+                        <a class="mdl-navigation__link mdl-color-text--primary" href="{{link}}">{{name}}</a>
                         {{/_data.dialogs}}
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                 <div class="mdl-accordion">
                     <label class="mdl-accordion__label">Theming<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
                     <div class="mdl-accordion--content">
-                        <a class="mdl-navigation__link" href="#/theming">Theming</a>
+                        <a class="mdl-navigation__link mdl-color-text--primary" href="#/theming">Theming</a>
                     </div>
                 </div>
 
@@ -95,7 +95,7 @@
                 <div class="mdl-accordion">
                     <label class="mdl-accordion__label">Samples<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
                     <div class="mdl-accordion--content">
-                        <a class="mdl-navigation__link" href="#/samples">Samples</a>
+                        <a class="mdl-navigation__link mdl-color-text--primary" href="#/samples">Samples</a>
                     </div>
                 </div>
 

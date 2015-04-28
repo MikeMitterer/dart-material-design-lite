@@ -17,12 +17,6 @@
 // limitations under the License.
 //
 
-body {
-    background : #fff;
-    padding    : 24px;
-}
-
-
 .demo-page--badge, .demo-section--badge {
     section {
         h5 {
@@ -36,9 +30,9 @@ body {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center; // ⇾
-        align-content: space-between; // ||
-        align-items: center; // ↓
+        justify-content: center;
+        align-content: space-between;
+        align-items: center;
 
 
         background : #eee;
@@ -52,9 +46,9 @@ body {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: center; // ⇾
-            align-content: space-between; // ||
-            align-items: flex-start; // ↓
+            justify-content: center;
+            align-content: space-between;
+            align-items: flex-start;
 
             .icon {
                 background-color : transparent;

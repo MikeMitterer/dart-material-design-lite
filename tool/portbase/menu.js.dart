@@ -15,8 +15,8 @@ import 'dart:math' as Math;
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 
-/// Class constructor for dropdown WSK component.
-/// Implements WSK component design pattern defined at:
+/// Class constructor for dropdown MDL component.
+/// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// param {HTMLElement} element The element that will be upgraded.
 class MaterialMenu {
@@ -382,7 +382,7 @@ void show(final evt) {
 
     // Wait for the next frame, turn on animation, and apply the final clip.
     // Also make it visible. This triggers the transitions.
-    window.requestAnimFrame( /*function*/ () {
+    window.requestAnimationFrame( /*function*/ () {
       element.classes.add(_cssClasses.IS_ANIMATING);
       element.style.clip = 'rect(0 ' + width + 'px ' + height + 'px 0)';
       _container.classes.add(_cssClasses.IS_VISIBLE);

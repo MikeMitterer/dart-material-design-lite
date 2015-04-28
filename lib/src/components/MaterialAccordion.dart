@@ -25,12 +25,16 @@ part of mdlcomponents;
 class _MaterialAccordionCssClasses {
 
     final String ACCORDION_TYPE     = "mdl-accordion--radio-type";
+    final String NAVIGATION         = "mdl-accordion--navigation";
 
+    final String ACCORDION          = "mdl-accordion";
     final String ACCORDION_LABEL    = "mdl-accordion__label";
     final String RIPPLE_CONTAINER   = 'mdl-accordion__ripple-container';
 
     final String RIPPLE_EFFECT      = 'mdl-js-ripple-effect';
     final String RIPPLE             = 'mdl-ripple';
+
+    final String LINK               = "mdl-navigation__link";
 
     final String RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
 
@@ -103,10 +107,12 @@ class MaterialAccordion extends MdlComponent {
 
                 final bool isRadio = element.classes.contains(_cssClasses.ACCORDION_TYPE);
 
-                final List<dom.Element> labels = element.querySelectorAll('.' + _cssClasses.ACCORDION_LABEL);
+                final List<dom.Element> panels = element.querySelectorAll(".${_cssClasses.ACCORDION}");
 
                 // Select element label
-                labels.forEach( (final dom.HtmlElement label) {
+                panels.forEach( (final dom.HtmlElement panel) {
+                    final dom.Element label = panel.querySelector(".${_cssClasses.ACCORDION_LABEL}");
+
                     _logger.fine("Found $label");
 
                     final String id = "accordion-${label.hashCode}";
@@ -121,6 +127,17 @@ class MaterialAccordion extends MdlComponent {
                     inputElement.name = "${_constant.CHECKBOX_NAME}-group-${element.hashCode}";
                     inputElement.id = id;
                     label.insertAdjacentElement('beforebegin',inputElement);
+
+                    if(_isNavigation) {
+                        final Uri uri = Uri.parse(dom.document.baseUri.toString());
+                        if(uri.fragment.isNotEmpty) {
+                            //_logger.info("URI-Fragment: ${uri.fragment}");
+                            if(getLinkFragments(panel).contains(uri.fragment)) {
+                                //_logger.info("Checked");
+                                inputElement.checked = true;
+                            }
+                        }
+                    }
 
                     final dom.SpanElement rippleContainer = new dom.SpanElement();
                     rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
@@ -137,6 +154,25 @@ class MaterialAccordion extends MdlComponent {
 
             element.classes.add(_cssClasses.IS_UPGRADED);
         }
+    }
+
+    bool get _isNavigation => element.classes.contains(_cssClasses.NAVIGATION);
+
+    List<String> getLinkFragments(final dom.Element panel) {
+        final List<String> fragments = new List<String>();
+        final List<dom.Element> links = panel.querySelectorAll(".${_cssClasses.LINK}");
+
+        links.forEach((final dom.Element link) {
+            final String href = (link as dom.AnchorElement).href;
+            final String fragment = Uri.parse(href).fragment;
+
+            //_logger.info("Href: $href, Fragment: $fragment");
+            if(fragment.isNotEmpty) {
+                fragments.add(fragment);
+            }
+        });
+
+        return fragments;
     }
 }
 

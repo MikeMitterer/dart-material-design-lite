@@ -217,7 +217,7 @@ class MaterialLayout extends MdlComponent {
 
                 _logger.info("Check: .${_cssClasses.NAVI_LINK}");
                 element.querySelectorAll(".${_cssClasses.NAVI_LINK}").forEach((final dom.Element element) {
-                    _logger.info("click $element");
+                    //_logger.info("click $element");
                     element.onClick.listen( (_) => drawer.classes.remove(_cssClasses.DRAWER_OPEN_CLASS) );
                 });
 
