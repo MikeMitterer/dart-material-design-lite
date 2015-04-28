@@ -20,16 +20,16 @@ html, body {
         }
 
         .mdl-layout__content {
-            display        : flex;
-            flex-direction : row;
-            flex-wrap      : wrap;
-            align-content  : space-between;
-            padding        : 0;
+            //display        : flex;
+            //flex-direction : row;
+            //flex-wrap      : wrap;
+            //align-content  : space-between;
+            padding        : 24px;
 
             section {
-                padding   : 24px;
-                flex-grow : 1;
-                overflow  : scroll;
+                //margin   : 24px;
+                //flex-grow : 1;
+                //overflow  : scroll;
             }
 
             h3 ~ h4 {

@@ -417,6 +417,9 @@ void configRouter() {
         ..addRoute(name: 'tabs', path: '/tabs',
                     enter: view("views/tabs.html", new DemoController()))
 
+        ..addRoute(name: 'templates', path: '/templates',
+            enter: view("views/templates.html", new DemoController()))
+
         ..addRoute(name: 'textfield', path: '/textfield',
                     enter: view("views/textfield.html", new DemoController()))
 

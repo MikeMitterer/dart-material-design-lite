@@ -1,0 +1,33 @@
+.demo-section--templates {
+    .mdl-list--styled-view li {
+        height : 120px;
+
+        a {
+            text-decoration : none;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ⇾
+            align-content: space-between; // ||
+            align-items: center; // ↓
+
+            .mdl-list-view--name {
+                font-size: 24px;
+            }
+
+            .mdl-list-view--avatar {
+                font-size       : 35px;
+                height          : 190px;
+                width           : 190px;
+                display         : flex;
+                flex-direction  : row;
+                flex-wrap       : wrap;
+                justify-content : center; // ⇾
+                align-content   : space-between; // ||
+                align-items     : center; // ↓
+            }
+
+        }
+    }
+}
