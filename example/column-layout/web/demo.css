@@ -2168,8 +2168,8 @@ Palettes (10 colors) 50 - 900 possible
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url("../fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
-  src: url("../fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("../fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("../fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
   font-weight: normal;
   font-style: normal; }
 
@@ -6244,8 +6244,8 @@ Palettes (10 colors) 50 - 900 possible
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url("../fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
-  src: url("../fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("../fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("../fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
+  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
   font-weight: normal;
   font-style: normal; }
 
@@ -11082,6 +11082,174 @@ form.wsk-form {
       -webkit-justify-content: flex-start;
           -ms-flex-pack: start;
               justify-content: flex-start; }
+
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+.mdl-sticky-mini-footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-content: space-between;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 8px;
+  min-height: 40px;
+  max-height: 40px;
+  z-index: 3; }
+  .mdl-sticky-mini-footer .mdl-mini-footer--left-section {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .mdl-sticky-mini-footer .mdl-mini-footer--left-section .mdl-logo {
+      margin: 0 8px 0 0; }
+      @media screen and (max-width: 850px) {
+        .mdl-sticky-mini-footer .mdl-mini-footer--left-section .mdl-logo {
+          display: none; } }
+  .mdl-sticky-mini-footer .mdl-mini-footer--right-section {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
 
 /* ==========  Color Palettes  ========== */
 /*
