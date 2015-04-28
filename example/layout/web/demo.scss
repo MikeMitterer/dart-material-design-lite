@@ -17,80 +17,80 @@
 @import "packages/mdl/assets/styles/material-design-lite";
 
 .demo-layout {
-  width: 100%;
-  float: left;
-  margin: 0 40px 40px 0;
-  border: 1px solid #888888;
-  position: relative;
-  height: 500px;
+    width: 100%;
+    float: left;
+    margin: 0 40px 40px 0;
+    border: 1px solid #888888;
+    position: relative;
+    height: 500px;
 }
 
 .demo-layout__content {
-  height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-grey-50})"), unquote("rgb(#{$palette-grey-300})"));
-  padding: 8px;
+    height: 1000px;
+    background: linear-gradient($palette-grey-50, $palette-grey-300);
+    padding: 8px;
 }
 
 .demo-layout__content-red {
-  height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-red-50})"), unquote("rgb(#{$palette-red-100})"));
-  padding: 8px;
+    height: 1000px;
+    background: linear-gradient($palette-red-50, $palette-red-100);
+    padding: 8px;
 }
 
 .demo-layout__content-green {
-  height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-green-50})"), unquote("rgb(#{$palette-green-100})"));
-  padding: 8px;
+    height: 1000px;
+    background: linear-gradient($palette-green-50, $palette-green-100);
+    padding: 8px;
 }
 
 .demo-layout__content-blue {
-  height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-blue-50})"), unquote("rgb(#{$palette-blue-100})"));
-  padding: 8px;
+    height: 1000px;
+    background: linear-gradient($palette-blue-50, $palette-blue-100);
+    padding: 8px;
 }
 
 // Styles for fixed header demo.
 .demo-page--layout .mdl-layout.is-small-screen #fixed_header_nav {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 // Styles for multi-row layout demo.
 .demo-page--layout #my_text_changes {
-  @include typo-display-1;
-  transition-property: font-size;
-  @include material-animation-default();
+    @include typo-display-1;
+    transition-property: font-size;
+    @include material-animation-default();
 }
 
 .demo-page--layout #compact_navigation {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .demo-page--layout #expanded_navigation {
-  visibility: visible;
+    visibility: visible;
 }
 
 .demo-page--layout .mdl-layout__header.is-compact #my_text_changes {
-  @include typo-title;
+    @include typo-title;
 }
 
 .demo-page--layout .mdl-layout__header.is-compact #compact_navigation {
-  visibility: visible;
+    visibility: visible;
 }
 
 .demo-page--layout .mdl-layout__header.is-compact #expanded_navigation {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .demo-page--layout .mdl-layout__header.is-compact #my_text_changes:after {
-  content: " \0000a0 > \0000a0 Multi-row layout demo";
+    content: " \0000a0 > \0000a0 Multi-row layout demo";
 }
 
 // Styles for transparent header demo.
 .demo-page--layout #transparent_demo {
-  background-color: #948d85;
-  background-image: url('demo-images/desktop-handsfree-hero.jpg');
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+    background-color: #948d85;
+    background-image: url('demo-images/desktop-handsfree-hero.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
 
-  background-position: center 0%;
+    background-position: center 0%;
 }

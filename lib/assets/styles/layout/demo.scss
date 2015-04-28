@@ -27,25 +27,25 @@
 
 .demo-layout__content {
   height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-grey-50})"), unquote("rgb(#{$palette-grey-300})"));
+  background: linear-gradient($palette-grey-50, $palette-grey-300);
   padding: 8px;
 }
 
 .demo-layout__content-red {
   height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-red-50})"), unquote("rgb(#{$palette-red-100})"));
+  background: linear-gradient($palette-red-50, $palette-red-100);
   padding: 8px;
 }
 
 .demo-layout__content-green {
   height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-green-50})"), unquote("rgb(#{$palette-green-100})"));
+  background: linear-gradient($palette-green-50, $palette-green-100);
   padding: 8px;
 }
 
 .demo-layout__content-blue {
   height: 1000px;
-  background: linear-gradient(unquote("rgb(#{$palette-blue-50})"), unquote("rgb(#{$palette-blue-100})"));
+  background: linear-gradient($palette-blue-50, $palette-blue-100);
   padding: 8px;
 }
 

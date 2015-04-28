@@ -3,7 +3,7 @@ import 'dart:html' as html;
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdl.dart';
 
 final Logger _logger = new Logger('layout-header-drawer-footer');
 
@@ -12,8 +12,10 @@ void main() {
 
     scrollChecker();
 
-    registerAllWskComponents();
-    upgradeAllRegistered();
+    registerMdl();
+    upgradeAllRegistered().then((_) {
+
+    });
 }
 
 void configLogging() {

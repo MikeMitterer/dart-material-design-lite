@@ -1,133 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="">
 <head>
-    <title>Layout - Sample</title>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Design Lite</title>
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en'
+          rel='stylesheet' type='text/css'>
+    <!--<link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">-->
     <link rel="stylesheet" href="styles/demo.css">
-
-    <link rel="shortcut icon" href="assets/icons/favicon.ico"/>
 </head>
 
-<body>
-<div class="wsk-layout wsk-js-layout wsk-layout--fixed-header wsk-layout--overlay-drawer-button">
-    <div class="wsk-layout__header addscrollshadow">
-        <!-- Icon -->
-        <img class="wsk-layout-icon" src="images/app-icon.png"/>
-        <!-- Title -->
-        <span class="wsk-layout-title">Sample layout</span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="wsk-layout-spacer"></div>
-        <!-- Navigation -->
-        <nav class="wsk-navigation">
-            <a class="wsk-navigation__link hide-on-mobile" href="#">Item 1</a>
-            <a class="wsk-navigation__link hide-on-mobile" href="#">Item 2</a>
-            <a class="wsk-navigation__link hide-on-mobile" href="#">Item 3</a>
-            <a class="wsk-navigation__link hide-on-mobile" href="#">Item 4</a>
-        </nav>
-    </div>
-    <div class="wsk-layout__drawer">
-        <span class="wsk-layout-title">Sample layout</span>
-        <nav class="wsk-navigation">
-            <a class="wsk-navigation__link" href="#">Item 1</a>
-            <a class="wsk-navigation__link" href="#">Item 2</a>
-            <a class="wsk-navigation__link" href="#">Item 3</a>
-            <a class="wsk-navigation__link" href="#">Item 4</a>
-        </nav>
-    </div>
-    <div class="wsk-layout__content" id="top">
-        <section>
-            <header><h3>Fixed header, fixed footer + bottom-bar</h3></header>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
-            sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-        </section>
-    </div>
-    <footer class="wsk-bottom-bar">
-        <div class="wsk-bottom-bar--btn">I</div>
-        <div class="wsk-bottom-bar--btn">II</div>
-        <div class="wsk-bottom-bar--btn">II</div>
-        <div class="wsk-bottom-bar--btn">IV</div>
-    </footer>
-    <footer class="wsk-mini-footer-flex">
-        <div class="wsk-mini-footer--left-section">
-            <div class="wsk-logo">
-                <strong>Sample layout</strong>
+<body class="mdl-typography mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <span class="mdl-layout-title">Fixed drawer and header</span>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expclean2">
+                <span class="mdl-icon mdl-icon--search"/>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+                <input class="mdl-textfield__input" type="text" name="sample" id="sample-expclean2"/>
             </div>
-            <ul class="wsk-mini-footer--link-list">
-                <li><a href="#" target="_blank">Link I</a></li>
-                <li><a href="#" target="_blank">Link II</a></li>
-            </ul>
         </div>
-        <div class="wsk-mini-footer--right-section">
-            <ul class="wsk-mini-footer--link-list">
-                <li><a href="http://www.mikemitterer.at">www.MikeMitterer.at</a></li>
-            </ul>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Material Design Lite</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="#">Hello</a>
+            <a class="mdl-navigation__link" href="#">World.</a>
+            <a class="mdl-navigation__link" href="#">How</a>
+            <a class="mdl-navigation__link" href="#">Are</a>
+            <a class="mdl-navigation__link" href="#">You?</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+            <section>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
-            <button class="wsk-mini-footer--social-btn"></button>
-            <button class="wsk-mini-footer--social-btn"></button>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            </section>
+    </main>
+</div>
+<footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer--left-section">
+        <div class="mdl-logo">
+            <strong>Material Design</strong> Lite
         </div>
-    </footer>
-</div>
-<div class="back-to-top">
-    <button id="totop" class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect wsk-button--colored">
-        <i class="fa fa-angle-up"></i>
-    </button>
-</div>
-</div>
-
-<!--<footer>-->
-<!--I took some samples and some descriptions from <a href="http://demo.stanleyhlng.com/prettify-js">http://demo.stanleyhlng.com/prettify-js</a>-->
-<!--</footer>-->
-
-
+        <ul class="mdl-mini-footer--link-list">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Privacy &amp; Terms</a></li>
+        </ul>
+    </div>
+    <div class="mdl-mini-footer--right-section">
+        <button class="mdl-mini-footer--social-btn"></button>
+    </div>
+</footer>
 <script type="application/dart" src="main.dart"></script>
 <script data-pub-inline src="packages/browser/dart.js"></script>
-
 </body>
-
 </html>
