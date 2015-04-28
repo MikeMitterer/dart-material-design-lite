@@ -28,14 +28,14 @@
 
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en'
           rel='stylesheet' type='text/css'>
-    <!--<link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">-->
+    <link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
     <link rel="stylesheet" href="styles/demo.css">
 </head>
 
 <body class="mdl-typography mdl-base">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header class="mdl-layout__header">
-        <span class="mdl-layout-title">Fixed drawer and header</span>
+        <span class="mdl-layout-title mdl-color--primary mdl-color-text--white">Fixed drawer and header</span>
         <div class="mdl-layout-spacer"></div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expclean2">
@@ -46,14 +46,14 @@
             </div>
         </div>
     </header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Material Design Lite</span>
+    <div class="mdl-layout__drawer mdl-color--50">
+        <span class="mdl-layout-title mdl-color--primary mdl-color-text--white">Material Design Lite</span>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="#">Hello</a>
-            <a class="mdl-navigation__link" href="#">World.</a>
-            <a class="mdl-navigation__link" href="#">How</a>
-            <a class="mdl-navigation__link" href="#">Are</a>
-            <a class="mdl-navigation__link" href="#">You?</a>
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">Hello</a>
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">World.</a>
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">How</a>
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">Are</a>
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">You?</a>
         </nav>
     </div>
     <main class="mdl-layout__content">
@@ -87,21 +87,21 @@
                     sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
             </section>
     </main>
-</div>
-<footer class="mdl-mini-footer">
-    <div class="mdl-mini-footer--left-section">
-        <div class="mdl-logo">
-            <strong>Material Design</strong> Lite
+    <footer class="mdl-sticky-mini-footer mdl-color--primary mdl-color-text--white">
+        <div class="mdl-mini-footer--left-section">
+            <div class="mdl-logo">
+                <strong>Material Design</strong> Lite
+            </div>
+            <ul class="mdl-mini-footer--link-list">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Privacy &amp; Terms</a></li>
+            </ul>
         </div>
-        <ul class="mdl-mini-footer--link-list">
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Privacy &amp; Terms</a></li>
-        </ul>
-    </div>
-    <div class="mdl-mini-footer--right-section">
-        <button class="mdl-mini-footer--social-btn"></button>
-    </div>
-</footer>
+        <div class="mdl-mini-footer--right-section">
+            <button class="mdl-mini-footer--social-btn"></button>
+        </div>
+    </footer>
+</div>
 <script type="application/dart" src="main.dart"></script>
 <script data-pub-inline src="packages/browser/dart.js"></script>
 </body>

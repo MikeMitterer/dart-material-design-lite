@@ -1,0 +1,46 @@
+@import "packages/mdl/assets/styles/material-design-lite";
+
+html, body {
+    width            : 100%;
+    height           : 100%;
+    margin           : 0;
+    padding          : 0;
+}
+
+.mdl-layout__container {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+
+    .mdl-layout {
+
+        .mdl-layout__drawer {
+            overflow: scroll;
+            //border-right-color: #607d8b;
+        }
+
+        .mdl-layout__content {
+            display        : flex;
+            flex-direction : row;
+            flex-wrap      : wrap;
+            align-content  : space-between;
+            padding        : 0;
+
+            section {
+                padding   : 24px;
+                flex-grow : 1;
+                overflow  : scroll;
+            }
+
+            h3 ~ h4 {
+                padding-top : 20px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
