@@ -25,6 +25,10 @@ body {
         padding   : 24px;
         flex-grow : 1;
         overflow  : scroll;
+
+        max-width: 1160px;
+        @media screen and (max-width: 1240px) {max-width: 760px; }
+        @media screen and (max-width: 760px) {max-width: 410px; }
     }
 
     h3 ~ h4 {
