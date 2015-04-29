@@ -5,7 +5,6 @@
   { "name": "button", "original": true },
   { "name": "card", "original": true },
   { "name": "checkbox", "original": true },
-  { "name": "column-layout", "original": true },
   { "name": "content", "original": false },
   { "name": "dialog", "original": false },
   { "name": "footer", "original": true },

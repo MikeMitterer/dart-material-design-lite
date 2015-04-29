@@ -354,9 +354,6 @@ void configRouter() {
         ..addRoute(name: 'checkbox', path: '/checkbox',
                     enter: view("views/checkbox.html", new DemoController()))
 
-        ..addRoute(name: 'column-layout', path: '/column-layout',
-                    enter: view("views/column-layout.html", new DemoController()))
-
         ..addRoute(name: 'dialog', path: '/dialog',
             enter: view("views/dialog.html", new DialogController()))
 
