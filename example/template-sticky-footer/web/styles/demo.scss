@@ -1,3 +1,4 @@
+$icon-font-path : "../packages/mdl/assets/fonts" !default;
 @import "packages/mdl/assets/styles/material-design-lite";
 
 html, body {
@@ -11,41 +12,42 @@ html, body {
     flex-grow: 1;
     position: relative;
     overflow: hidden;
+}
 
-    .mdl-layout {
+// Important - don't define mdl-layout inside of mdl-layout__container!
+// mdl-layout__container is added by the Dart-Framework so it takes a while to load...
+.mdl-layout {
 
-        .mdl-layout__drawer {
-            overflow: scroll;
-            //border-right-color: #607d8b;
+    .mdl-layout__drawer {
+        overflow: scroll;
+        //border-right-color: #607d8b;
+    }
+
+    .mdl-layout__content {
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : center; // ⇾
+        align-content   : space-between; // ||
+        align-items     : flex-start; // ↓
+
+        padding        : 24px;
+
+        section {
+            //margin   : 24px;
+            //flex-grow : 1;
+            //overflow  : scroll;
+
+            max-width: 1160px;
+            @media screen and (max-width: 1240px) {max-width: 760px; }
+            @media screen and (max-width: 760px) {max-width: 410px; }
         }
 
-        .mdl-layout__content {
-            display         : flex;
-            flex-direction  : row;
-            flex-wrap       : wrap;
-            justify-content : center; // ⇾
-            align-content   : space-between; // ||
-            align-items     : flex-start; // ↓
-
-            padding        : 24px;
-
-            section {
-                //margin   : 24px;
-                //flex-grow : 1;
-                //overflow  : scroll;
-
-                max-width: 1160px;
-                @media screen and (max-width: 1240px) {max-width: 760px; }
-                @media screen and (max-width: 760px) {max-width: 410px; }
-            }
-
-            h3 ~ h4 {
-                padding-top : 20px;
-            }
+        h3 ~ h4 {
+            padding-top : 20px;
         }
     }
 }
-
 
 
 
