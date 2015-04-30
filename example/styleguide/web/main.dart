@@ -65,7 +65,6 @@ class Model {
 
 class StyleguideModule extends di.Module {
     StyleguideModule() {
-
         bind( Model,toValue: new Model() );
     }
 }

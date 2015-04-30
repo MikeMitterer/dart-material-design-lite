@@ -66,7 +66,6 @@ void registerMaterialAccordion() => componentFactory().register(materialAccordio
  *   <div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect">
  *    <!-- Panel 1 -->
  *   <div class="mdl-accordion">
- *       <input type="checkbox" name="mdl-accordion" id="panel-1-check">
  *       <label class="mdl-accordion__label" for="panel-1-check">Panel 1<i class="fa fa-chevron-right indicator"></i></label>
  *       <div class="mdl-accordion--content">
  *           <h5 class="mdl-accordion--header">Header</h5>
@@ -75,7 +74,6 @@ void registerMaterialAccordion() => componentFactory().register(materialAccordio
  *   </div>
  *    <!-- Panel 2 -->
  *   <div class="mdl-accordion">
- *       <input type="checkbox" name="mdl-accordion" id="panel-2-check">
  *       <label class="mdl-accordion__label" for="panel-2-check">Panel 2<i class="fa fa-chevron-right indicator"></i></label>
  *       <div class="mdl-accordion--content">
  *           <h5 class="mdl-accordion--header">Header</h5>
@@ -136,7 +134,7 @@ class MaterialAccordion extends MdlComponent {
                         final Uri uri = Uri.parse(dom.document.baseUri.toString());
                         if(uri.fragment.isNotEmpty) {
                             //_logger.info("URI-Fragment: ${uri.fragment}");
-                            if(getLinkFragments(panel).contains(uri.fragment)) {
+                            if(_getLinkFragments(panel).contains(uri.fragment)) {
                                 //_logger.info("Checked");
                                 inputElement.checked = true;
                             }
@@ -162,7 +160,7 @@ class MaterialAccordion extends MdlComponent {
 
     bool get _isNavigation => element.classes.contains(_cssClasses.NAVIGATION);
 
-    List<String> getLinkFragments(final dom.Element panel) {
+    List<String> _getLinkFragments(final dom.Element panel) {
         final List<String> fragments = new List<String>();
         final List<dom.Element> links = panel.querySelectorAll(".${_cssClasses.LINK}");
 

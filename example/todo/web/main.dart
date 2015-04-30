@@ -20,7 +20,8 @@ main() {
     registerMdl();
     registerToDoItemComponent();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
+
         final MaterialButton addButton = MaterialButton.widget(dom.querySelector("#add"));
         final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
         final ToDoItemComponent items = ToDoItemComponent.widget(dom.querySelector("#todo"));

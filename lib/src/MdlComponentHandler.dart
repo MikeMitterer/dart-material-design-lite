@@ -50,6 +50,9 @@ class MdlComponentHandler {
 
     final List<di.Module> _modules = new List<di.Module>();
 
+    /// If set to true it
+    bool _enableVisualDebugging = false;
+
     /// Returns the injector for this module.
     di.Injector _injector;
 
@@ -97,13 +100,14 @@ class MdlComponentHandler {
      * mdl-js, mdl-dart and mdl-upgrading to the <html>-element.
      * If all components are ready it remove mdl-upgrading.
      */
-    Future<di.Injector> run() {
+    Future<di.Injector> run( { final enableVisualDebugging: false } ) {
         final dom.Element body = dom.querySelector("body");
 
+        _enableVisualDebugging = enableVisualDebugging;
         _injector = new di.ModuleInjector(_modules);
+
         return upgradeElement(body);
     }
-
 
     Future<di.Injector> upgradeElement(final dom.HtmlElement element) {
         Validate.notNull(_injector,"Injector must not be null - did you call run?");
@@ -202,6 +206,8 @@ class MdlComponentHandler {
 
             try {
                 final MdlComponent component = config.newComponent(element,_injector);
+
+                component.visualDebugging = _enableVisualDebugging;
                 config.callbacks.forEach((final MdlCallback callback) => callback(element));
 
                 _markAsUpgraded();
@@ -213,7 +219,6 @@ class MdlComponentHandler {
                     var jsElement = new JsObject.fromBrowserObject(component.hub);
                     jsElement[MDL_WIDGET_PROPERTY] = component;
 
-                    //element.xtag = component as html.Element;
                 }
 
             }

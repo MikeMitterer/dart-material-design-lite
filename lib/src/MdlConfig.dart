@@ -26,7 +26,17 @@ typedef MdlComponent MdlComponentFactory(final dom.HtmlElement element,final di.
 class MdlConfig<T extends MdlComponent> {
     final List<MdlCallback> callbacks = new List<MdlCallback>();
 
+    /// {_componentFactory} is more or less a function that constructs the appropriate
+    /// Object.
+    /// Sample:
+    ///     (final dom.HtmlElement element,final di.Injector injector)
+    ///         => new MaterialAccordion.fromElement(element,injector));
+    ///
     final MdlComponentFactory _componentFactory;
+
+    /// Hold the Component-Class
+    /// Sample:
+    ///    mdl-js-accordion
     String cssClass;
 
     /// The higher the priority the later the component will be upgraded.
@@ -53,10 +63,12 @@ class MdlConfig<T extends MdlComponent> {
         return _componentFactory(element,injector);
     }
 
-//- private -----------------------------------------------------------------------------------
+    //- private -----------------------------------------------------------------------------------
 
 }
 
+/// Helps to decide what is a real Widget and what is just a helper.
+/// MaterialRipple would be such a "helper-Widget"
 class MdlWidgetConfig<T extends MdlComponent> extends MdlConfig<T> {
     MdlWidgetConfig(final String cssClass,
                     T componentFactory(final dom.HtmlElement element,final di.Injector injector)) :

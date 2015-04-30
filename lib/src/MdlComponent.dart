@@ -32,10 +32,32 @@ MdlComponent mdlComponent(final dom.HtmlElement element) {
 }
 
 abstract class MdlComponent {
+    /**
+     * If you want to you DI define your bindings like this:
+     *      class StyleguideModule extends di.Module {
+     *          StyleguideModule() {
+     *              bind( Model,toValue: new Model() );
+     *          }
+     *      }
+     *
+     * and use it like the following sample: (in main method)
+     *
+     *     componentFactory().addModule(new StyleguideModule())
+     *          .run().then(( final di.Injector injector) {
+     *               final Model model = injector.get(Model);
+     *         });
+     *      });
+     *
+     */
     final di.Injector injector;
 
     /// This is the element witch has the mdl-js- class
     final dom.Element element;
+
+    /// If an error occurs in the Component and {visualDebugging} is true
+    /// a red border will be drawn around the Component
+    /// {visualDebugging} is set in {_upgradeElement}
+    bool visualDebugging = false;
 
     MdlComponent(this.element,this.injector);
 
@@ -53,15 +75,12 @@ abstract class MdlComponent {
      */
     dom.Element get hub => element;
 
-    dom.CssClassSet get classes => element.classes;
-
+    dom.CssClassSet     get classes => element.classes;
     Map<String, String> get attributes => element.attributes;
 
     dom.ElementStream<dom.Event>        get onChange => hub.onChange;
     dom.ElementStream<dom.Event>        get onInput =>  hub.onInput;
     dom.ElementStream<dom.MouseEvent>   get onClick =>  hub.onClick;
-
-
 }
 
 // CustomComponents...
