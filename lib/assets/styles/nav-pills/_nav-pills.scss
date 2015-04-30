@@ -60,7 +60,7 @@ $nav-pills-color : nth($palette-grey, 2) !default;
         }
     }
 
-    @include shadow-z2();
+    @include shadow-2dp();
 
     > a {
         display: block;

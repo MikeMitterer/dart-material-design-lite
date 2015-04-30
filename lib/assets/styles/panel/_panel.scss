@@ -15,7 +15,7 @@ $panel-base-color-index: 6 !default;
     border-radius: 2px;
 
     &.mdl-panel--shadow {
-        @include shadow-z2();
+        @include shadow-2dp();
     }
 
     &.mdl-panel--light-text {

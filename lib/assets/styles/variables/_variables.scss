@@ -150,11 +150,11 @@ $input-text-error-color: ($palette-red-600) !default;
 /* ==========  Card  ========== */
 
 $card-background-color: ($color-white) !default;
-$heading-color: ($color-white) !default;
-$heading-back-color: ($color-white) !default;
+$heading-color: ($color-primary-contrast) !default;
+$heading-back-color: ($color-primary-contrast) !default;
 $heading-back-bgcolor: ($color-primary-dark) !default;
 $action-link-color: ($color-primary-dark) !default;
-$caption-color: ($color-white) !default;
+$caption-color: ($color-primary-contrast) !default;
 $caption-bgcolor: ($color-primary-dark) !default;
 $image-placeholder-color: ($color-accent) !default;
 $lower-text-color: ($color-primary) !default;
@@ -457,3 +457,9 @@ $badge-background: ($color-accent) !default;
 $badge-background-inverse: rgba($color-white,0.2) !default;
 $badge-size : 20px;
 $badge-padding: 2px;
+
+/* SHADOWS */
+
+$shadow-key-umbra-opacity: 0.2;
+$shadow-key-penumbra-opacity: 0.14;
+$shadow-ambient-shadow-opacity: 0.12;

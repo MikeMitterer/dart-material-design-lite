@@ -259,7 +259,7 @@ form.wsk-basic-form {
         }
     }
 
-    @include shadow-z2();
+    @include shadow-2dp();
 }
 
 //-----------------------------------------------------------------------------
@@ -313,7 +313,7 @@ form.wsk-form {
     }
 
 
-    @include shadow-z2();
+    @include shadow-2dp();
 
 }
 

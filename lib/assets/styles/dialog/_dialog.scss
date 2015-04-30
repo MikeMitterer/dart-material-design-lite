@@ -74,7 +74,7 @@ $dialog-z-index : 80 !default;
         position         : relative;
         overflow         : hidden; // stop content from leaking out of dialog parent
 
-        @include shadow-z5();
+        @include shadow-2dp();
 
         .mdl-dialog__content {
             display: block;

@@ -88,7 +88,7 @@ $toast-background: nth($palette-grey, 9) !default;
         color: $toast-color;
         background-color: $toast-background;
 
-        @include shadow-z2();
+        @include shadow-2dp();
 
         &.mdl-capsule {
             border-radius: 24px;
