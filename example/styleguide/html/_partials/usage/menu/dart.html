@@ -1,4 +1,4 @@
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
 main() {
@@ -6,7 +6,7 @@ main() {
 
     registerAllMdlComponents();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialMenu menu1 = MaterialMenu.widget(dom.querySelector(&quot;#menu1&quot;));
         final dom.DivElement message = dom.querySelector(&quot;#message&quot;);
 

@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialSpinnerCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-spinner";
+
     final String SPINNER_LAYER = 'mdl-spinner__layer';
     final String SPINNER_CIRCLE_CLIPPER = 'mdl-spinner__circle-clipper';
     final String SPINNER_CIRCLE = 'mdl-spinner__circle';
@@ -46,10 +48,11 @@ class _MaterialSpinnerConstant {
 
 /// creates MdlConfig for MaterialSpinner
 MdlConfig materialSpinnerConfig() => new MdlWidgetConfig<MaterialSpinner>(
-    "mdl-js-spinner", (final dom.HtmlElement element) => new MaterialSpinner.fromElement(element));
+    _MaterialSpinnerCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialSpinner.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialSpinner() => componenthandler.register(materialSpinnerConfig());
+void registerMaterialSpinner() => componentFactory().register(materialSpinnerConfig());
 
 class MaterialSpinner extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialSpinner');
@@ -57,7 +60,8 @@ class MaterialSpinner extends MdlComponent {
     static const _MaterialSpinnerConstant _constant = const _MaterialSpinnerConstant();
     static const _MaterialSpinnerCssClasses _cssClasses = const _MaterialSpinnerCssClasses();
 
-    MaterialSpinner.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialSpinner.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

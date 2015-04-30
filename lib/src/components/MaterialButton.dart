@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialButtonCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-button";
+
     final String RIPPLE_EFFECT =      'mdl-js-ripple-effect';
     final String RIPPLE_CONTAINER =   'mdl-button__ripple-container';
     final String RIPPLE =             'mdl-ripple';
@@ -36,10 +38,11 @@ class _MaterialButtonConstant { const _MaterialButtonConstant(); }
 
 /// creates MdlConfig for MaterialButton
 MdlConfig materialButtonConfig() => new MdlWidgetConfig<MaterialButton>(
-    "mdl-button",(final dom.HtmlElement element) => new MaterialButton.fromElement(element));
+    _MaterialButtonCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialButton.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialButton() => componenthandler.register(materialButtonConfig());
+void registerMaterialButton() => componentFactory().register(materialButtonConfig());
 
 class MaterialButton extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialButton');
@@ -47,7 +50,8 @@ class MaterialButton extends MdlComponent {
     static const _MaterialButtonConstant _constant = const _MaterialButtonConstant();
     static const _MaterialButtonCssClasses _cssClasses = const _MaterialButtonCssClasses();
 
-    MaterialButton.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialButton.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _logger.fine("MaterialButton - CTOR");
         _init();
     }

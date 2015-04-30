@@ -24,6 +24,8 @@ part of mdltemplatecomponents;
 /// decide to modify at a later date.
 class _MaterialMustacheCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-mustache";
+
     final String IS_UPGRADED = 'is-upgraded';
 
     const _MaterialMustacheCssClasses();
@@ -34,21 +36,25 @@ class _MaterialMustacheConstant {
     const _MaterialMustacheConstant();
 }
 
+/// creates MdlConfig for MaterialMustache
+MdlConfig materialMustacheConfig() => new MdlWidgetConfig<MaterialMustache>(
+    _MaterialMustacheCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialMustache.fromElement(element,injector));
+
 /// registration-Helper
-void registerMaterialMustache() => componenthandler.register(new MdlWidgetConfig<MaterialMustache>(
-    "mdl-js-mustache", (final dom.HtmlElement element) => new MaterialMustache.fromElement(element)));
+void registerMaterialMustache() => componentFactory().register(materialMustacheConfig());
 
 class MaterialMustache extends MdlComponent {
     final Logger _logger = new Logger('mdlremote.MaterialMustache');
 
-    static const _MaterialMustacheConstant _constant = const _MaterialMustacheConstant();
     static const _MaterialMustacheCssClasses _cssClasses = const _MaterialMustacheCssClasses();
 
     final Renderer _renderer = new Renderer();
 
     String _template = "";
 
-    MaterialMustache.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialMustache.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

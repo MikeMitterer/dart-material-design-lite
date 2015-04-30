@@ -49,7 +49,10 @@ class ViewFactory {
                 final String content = _sanitizeResponseText(request.responseText);
                 final MaterialContent main = MaterialContent.widget(contentElement);
 
-                main.render(content).then((_) => controller.loaded(event.route));
+                main.render(content).then( (_) {
+                    controller.injector = main.injector;
+                    controller.loaded(event.route);
+                });
             }
         });
 

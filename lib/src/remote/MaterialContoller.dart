@@ -20,6 +20,18 @@
 part of mdlremote;
 
 abstract class MaterialController {
+    /**
+     * {injector} will be set after {ViewFactory} receives the {onLoadEnd} Event
+     *
+     * Part in ViewFactory:
+     *      main.render(content).then( (_) {
+     *          controller.injector = main.injector;
+     *          controller.loaded(event.route);
+     *      });
+     */
+    di.Injector injector;
+
+    /// {loaded} is called after {ViewFactory} received the {onLoadEnd} Event
     void loaded(final Route route);
 }
 

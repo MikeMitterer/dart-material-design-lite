@@ -1,12 +1,12 @@
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
 main() {
-    final Logger _logger = new Logger(&#x27;main.MaterialBadge&#x27;);
+    final Logger _logger = new Logger(&#39;main.MaterialBadge&#39;);
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector(&quot;#el1&quot;));
         int counter = 1;
         new Timer.periodic(new Duration(milliseconds: 100), (_) {

@@ -23,19 +23,20 @@ part of mdlremote;
 /// decide to modify at a later date.
 class _MaterialIncludeCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-include";
+
     final String IS_UPGRADED = 'is-upgraded';
 
     const _MaterialIncludeCssClasses();
 }
 
-/// Store constants in one place so they can be updated easily.
-class _MaterialIncludeConstant {
-    const _MaterialIncludeConstant();
-}
+/// creates MdlConfig for MaterialInclude
+MdlConfig materialIncludeConfig() => new MdlWidgetConfig<MaterialInclude>(
+    _MaterialIncludeCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialInclude.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialInclude() => componenthandler.register(new MdlWidgetConfig<MaterialInclude>(
-    "mdl-js-include", (final dom.HtmlElement element) => new MaterialInclude.fromElement(element)));
+void registerMaterialInclude() => componentFactory().register(materialIncludeConfig());
 
 class MaterialContentEvent {
 
@@ -56,9 +57,10 @@ class MaterialInclude extends MdlComponent {
     /// Everyone can listen to this {onLoadEnd} stream
     Stream<MaterialContentEvent> onLoadEnd;
 
-    MaterialInclude.fromElement(final dom.HtmlElement element) : super(element) {
-        onLoadEnd = _controller.stream;
+    MaterialInclude.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
 
+        onLoadEnd = _controller.stream;
         _init();
     }
 

@@ -20,11 +20,11 @@
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 main() {
     registerMdl();
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
     });
 }</pre>
                 </div>
@@ -39,81 +39,81 @@ main() {
                 </div>
                 <pre class="prettyprint linenums lang-html">
   &lt;div class=&quot;demo-preview-block&quot;&gt;
-    &lt;h5&gt;Ordered&lt;&#x2F;h5&gt;
+    &lt;h5&gt;Ordered&lt;&#47;h5&gt;
     &lt;ol&gt;
-      &lt;li&gt;Item 1&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 2&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 3&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 4&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 5&lt;&#x2F;li&gt;
-    &lt;&#x2F;ol&gt;
-    &lt;h5&gt;Unordered&lt;&#x2F;h5&gt;
+      &lt;li&gt;Item 1&lt;&#47;li&gt;
+      &lt;li&gt;Item 2&lt;&#47;li&gt;
+      &lt;li&gt;Item 3&lt;&#47;li&gt;
+      &lt;li&gt;Item 4&lt;&#47;li&gt;
+      &lt;li&gt;Item 5&lt;&#47;li&gt;
+    &lt;&#47;ol&gt;
+    &lt;h5&gt;Unordered&lt;&#47;h5&gt;
     &lt;ul&gt;
-      &lt;li&gt;Item 1&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 2&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 3&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 4&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 5&lt;&#x2F;li&gt;
-    &lt;&#x2F;ul&gt;
-    &lt;h5&gt;Inlined&lt;&#x2F;h5&gt;
+      &lt;li&gt;Item 1&lt;&#47;li&gt;
+      &lt;li&gt;Item 2&lt;&#47;li&gt;
+      &lt;li&gt;Item 3&lt;&#47;li&gt;
+      &lt;li&gt;Item 4&lt;&#47;li&gt;
+      &lt;li&gt;Item 5&lt;&#47;li&gt;
+    &lt;&#47;ul&gt;
+    &lt;h5&gt;Inlined&lt;&#47;h5&gt;
     &lt;ul class=&quot;mdl-list--inline&quot;&gt;
-      &lt;li&gt;Item 1&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 2&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 3&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 4&lt;&#x2F;li&gt;
-      &lt;li&gt;Item 5&lt;&#x2F;li&gt;
-    &lt;&#x2F;ul&gt;
-    &lt;h5&gt;Styled List View&lt;&#x2F;h5&gt;
+      &lt;li&gt;Item 1&lt;&#47;li&gt;
+      &lt;li&gt;Item 2&lt;&#47;li&gt;
+      &lt;li&gt;Item 3&lt;&#47;li&gt;
+      &lt;li&gt;Item 4&lt;&#47;li&gt;
+      &lt;li&gt;Item 5&lt;&#47;li&gt;
+    &lt;&#47;ul&gt;
+    &lt;h5&gt;Styled List View&lt;&#47;h5&gt;
     &lt;p&gt;
       &lt;div class=&quot;List&quot;&gt;
-        &lt;p class=&quot;mdl-typography-Body-2&quot;&gt;Contacts&lt;&#x2F;p&gt;
+        &lt;p class=&quot;mdl-typography-Body-2&quot;&gt;Contacts&lt;&#47;p&gt;
         &lt;div class=&quot;mdl-list--styled-view&quot;&gt;
           &lt;ul&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Ali Connors&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Ali Connors&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Sandra Williams&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Sandra Williams&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Trevor Hansen&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Trevor Hansen&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Britta Holt&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Britta Holt&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;David Park&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;David Park&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Jennifer Adams&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Jennifer Adams&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Frank Connors&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Frank Connors&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Sandra Williams&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Sandra Williams&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Scott Michaels&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Scott Michaels&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
             &lt;li&gt;
-              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#x2F;span&gt;
-              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Matt Connors&lt;&#x2F;span&gt;
-            &lt;&#x2F;li&gt;
-          &lt;&#x2F;ul&gt;
-        &lt;&#x2F;div&gt;
-      &lt;&#x2F;div&gt;
-    &lt;&#x2F;p&gt;
-  &lt;&#x2F;div&gt;
+              &lt;span class=&quot;mdl-list-view--avatar&quot;&gt;&lt;&#47;span&gt;
+              &lt;span class=&quot;mdl-list-view--name&quot;&gt;Matt Connors&lt;&#47;span&gt;
+            &lt;&#47;li&gt;
+          &lt;&#47;ul&gt;
+        &lt;&#47;div&gt;
+      &lt;&#47;div&gt;
+    &lt;&#47;p&gt;
+  &lt;&#47;div&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->

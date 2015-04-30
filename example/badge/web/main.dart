@@ -13,7 +13,7 @@ main() {
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector("#el1"));
         int counter = 1;
         new Timer.periodic(new Duration(milliseconds: 100), (_) {

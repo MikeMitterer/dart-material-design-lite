@@ -48,6 +48,11 @@ class MdlComponentHandler {
 
     final Map<String, MdlConfig> _registeredComponents = new HashMap<String, MdlConfig>();
 
+    final List<di.Module> _modules = new List<di.Module>();
+
+    /// Returns the injector for this module.
+    di.Injector _injector;
+
     /**
      * Registers a class for future use and attempts to upgrade existing DOM.
      * Sample:
@@ -82,6 +87,9 @@ class MdlComponentHandler {
         }
     }
 
+    @deprecated
+    Future upgradeAllRegistered() => run();
+
     /**
      * Upgrades all registered components found in the current DOM. This is
      * automatically called on window load.
@@ -89,12 +97,16 @@ class MdlComponentHandler {
      * mdl-js, mdl-dart and mdl-upgrading to the <html>-element.
      * If all components are ready it remove mdl-upgrading.
      */
-    Future upgradeAllRegistered() {
+    Future<di.Injector> run() {
         final dom.Element body = dom.querySelector("body");
+
+        _injector = new di.ModuleInjector(_modules);
         return upgradeElement(body);
     }
 
-    Future upgradeElement(final dom.HtmlElement element) {
+
+    Future<di.Injector> upgradeElement(final dom.HtmlElement element) {
+        Validate.notNull(_injector,"Injector must not be null - did you call run?");
         Validate.notNull(element,"Component must not be null!");
 
         dom.querySelector("html")
@@ -102,7 +114,7 @@ class MdlComponentHandler {
             ..classes.add(_cssClasses.HTML_DART)
             ..classes.remove(_cssClasses.UPGRADED);
 
-        final Future future = new Future(() {
+        final Future<di.Injector> future = new Future<di.Injector>( () {
             element.classes.add(_cssClasses.UPGRADING);
 
             _configs.forEach((final MdlConfig config) {
@@ -117,9 +129,15 @@ class MdlComponentHandler {
             dom.querySelector("html").classes.add(_cssClasses.UPGRADED);
             _logger.info("All components are upgraded...");
 
+            return _injector;
         });
 
         return future;
+    }
+
+    MdlComponentHandler addModule(final di.Module module) {
+        _modules.add(module);
+        return this;
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -183,7 +201,7 @@ class MdlComponentHandler {
             }
 
             try {
-                final MdlComponent component = config.newComponent(element);
+                final MdlComponent component = config.newComponent(element,_injector);
                 config.callbacks.forEach((final MdlCallback callback) => callback(element));
 
                 _markAsUpgraded();

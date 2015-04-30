@@ -20,13 +20,14 @@
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 main() {
-    &#x2F;&#x2F; registerDemoAnimation and import mdldemo.dart is only necessary for animation sample
+    &#47;&#47; registerDemoAnimation and import mdldemo.dart is only necessary for animation sample
     registerDemoAnimation();
     registerAllMdlComponents();
-    upgradeAllRegistered();
+    componentFactory().run().then((_){
+    });
 }</pre>
                 </div>
                 <!-- HTML-Tab -->
@@ -41,11 +42,11 @@ main() {
                 <pre class="prettyprint linenums lang-html">
     &lt;div class=&quot;demo-preview-block demo-animation demo-js-animation&quot;&gt;
       &lt;div class=&quot;demo-animation__container&quot;&gt;
-        &lt;div class=&quot;demo-animation__container-background&quot;&gt;Click me to animate&lt;&#x2F;div&gt;
-        &lt;div class=&quot;demo-animation__container-foreground&quot;&gt;&lt;&#x2F;div&gt;
-        &lt;div class=&quot;demo-animation__movable demo-animation--position-1 mdl-shadow--2dp&quot;&gt;&lt;&#x2F;div&gt;
-      &lt;&#x2F;div&gt;
-    &lt;&#x2F;div&gt;
+        &lt;div class=&quot;demo-animation__container-background&quot;&gt;Click me to animate&lt;&#47;div&gt;
+        &lt;div class=&quot;demo-animation__container-foreground&quot;&gt;&lt;&#47;div&gt;
+        &lt;div class=&quot;demo-animation__movable demo-animation--position-1 mdl-shadow--2dp&quot;&gt;&lt;&#47;div&gt;
+      &lt;&#47;div&gt;
+    &lt;&#47;div&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->

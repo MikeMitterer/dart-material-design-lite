@@ -21,7 +21,7 @@ part of mdlcore;
 
 typedef void MdlCallback(final dom.HtmlElement element);
 
-typedef MdlComponent MdlComponentFactory(final dom.HtmlElement element);
+typedef MdlComponent MdlComponentFactory(final dom.HtmlElement element,final di.Injector injector);
 
 class MdlConfig<T extends MdlComponent> {
     final List<MdlCallback> callbacks = new List<MdlCallback>();
@@ -37,8 +37,8 @@ class MdlConfig<T extends MdlComponent> {
     /// Avoids problems with Components and Helpers like MaterialRipple
     final bool isWidget;
 
-    MdlConfig(this.cssClass, T componentFactory(final dom.HtmlElement element), { final bool isWidget: false })
-    : _componentFactory = componentFactory, this.isWidget = isWidget {
+    MdlConfig(this.cssClass, T componentFactory(final dom.HtmlElement element,final di.Injector injector),
+              { final bool isWidget: false }) : _componentFactory = componentFactory, this.isWidget = isWidget {
 
         Validate.isTrue(T != "dynamic", "Add a type-information to your MdlConfig like new MdlConfig<MaterialButton>()");
         Validate.notBlank(cssClass, "cssClass must not be blank.");
@@ -49,8 +49,8 @@ class MdlConfig<T extends MdlComponent> {
 
     Type get type => T;
 
-    MdlComponent newComponent(final dom.HtmlElement element) {
-        return _componentFactory(element);
+    MdlComponent newComponent(final dom.HtmlElement element,final di.Injector injector) {
+        return _componentFactory(element,injector);
     }
 
 //- private -----------------------------------------------------------------------------------
@@ -58,6 +58,7 @@ class MdlConfig<T extends MdlComponent> {
 }
 
 class MdlWidgetConfig<T extends MdlComponent> extends MdlConfig<T> {
-    MdlWidgetConfig(final String cssClass, T componentFactory(final dom.HtmlElement element)) :
-    super(cssClass, componentFactory, isWidget: true);
+    MdlWidgetConfig(final String cssClass,
+                    T componentFactory(final dom.HtmlElement element,final di.Injector injector)) :
+                        super(cssClass, componentFactory, isWidget: true);
 }

@@ -27,13 +27,17 @@ MdlComponent mdlComponent(final dom.HtmlElement element) {
     if (!jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {
         throw "$element is not a MdlComponent!!!";
     }
+
     return (jsElement[MDL_WIDGET_PROPERTY] as MdlComponent);
 }
 
 abstract class MdlComponent {
-    dom.Element element;
+    final di.Injector injector;
 
-    MdlComponent(this.element);
+    /// This is the element witch has the mdl-js- class
+    final dom.Element element;
+
+    MdlComponent(this.element,this.injector);
 
     /**
      * Main element. If there is no chile element like in mdl-button
@@ -53,25 +57,27 @@ abstract class MdlComponent {
 
     Map<String, String> get attributes => element.attributes;
 
-    dom.ElementStream<dom.Event> get onChange => hub.onChange;
-    dom.ElementStream<dom.Event> get onInput => hub.onInput;
-    dom.ElementStream<dom.MouseEvent> get onClick => hub.onClick;
+    dom.ElementStream<dom.Event>        get onChange => hub.onChange;
+    dom.ElementStream<dom.Event>        get onInput =>  hub.onInput;
+    dom.ElementStream<dom.MouseEvent>   get onClick =>  hub.onClick;
+
+
 }
 
-/// CustomComponents...
-abstract class MdlHtmlComponent extends dom.HtmlElement implements MdlComponent {
-    html.Element element;
-
-    MdlHtmlComponent(this.element) : super.created();
-
-    MdlHtmlComponent.created() : super.created();
-
-    @override
-    void click() {
-        // TODO: implement click
-    }
-
-    @override
-    bool get isContentEditable => false;
-}
+// CustomComponents...
+//abstract class MdlHtmlComponent extends dom.HtmlElement implements MdlComponent {
+//    html.Element element;
+//
+//    MdlHtmlComponent(this.element) : super.created();
+//
+//    MdlHtmlComponent.created() : super.created();
+//
+//    @override
+//    void click() {
+//        // TODO: implement click
+//    }
+//
+//    @override
+//    bool get isContentEditable => false;
+//}
 

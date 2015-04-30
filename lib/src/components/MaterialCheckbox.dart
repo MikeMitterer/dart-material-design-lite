@@ -23,6 +23,8 @@ part of mdlcomponents;
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialCheckboxCssClasses {
+    static const String MAIN_CLASS = "mdl-js-checkbox";
+
     final String INPUT = 'mdl-checkbox__input';
 
     final String BOX_OUTLINE = 'mdl-checkbox__box-outline';
@@ -62,10 +64,11 @@ class _MaterialCheckboxConstant {
 
 /// creates MdlConfig for MaterialCheckbox
 MdlConfig materialCheckboxConfig() => new MdlWidgetConfig<MaterialCheckbox>(
-    "mdl-js-checkbox", (final dom.HtmlElement element) => new MaterialCheckbox.fromElement(element));
+    _MaterialCheckboxCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialCheckbox.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialCheckbox() => componenthandler.register(materialCheckboxConfig());
+void registerMaterialCheckbox() => componentFactory().register(materialCheckboxConfig());
 
 /**
  * Sample:
@@ -82,7 +85,8 @@ class MaterialCheckbox extends MdlComponent {
 
     dom.CheckboxInputElement _inputElement = null;
 
-    MaterialCheckbox.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialCheckbox.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

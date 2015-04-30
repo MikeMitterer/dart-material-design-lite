@@ -14,7 +14,7 @@ main() {
 
     registerAllMdlComponents();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialMenu menu1 = MaterialMenu.widget(dom.querySelector("#menu1"));
         final dom.DivElement message = dom.querySelector("#message");
 

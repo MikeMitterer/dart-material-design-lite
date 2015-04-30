@@ -20,11 +20,11 @@
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 main() {
     registerMdl();
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialSpinner spinner = MaterialSpinner.widget(dom.querySelector(&quot;#first&quot;));
         final MaterialButton button = MaterialButton.widget(dom.querySelector(&quot;#button&quot;));
         button.onClick.listen((_) {
@@ -46,16 +46,16 @@ main() {
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;p&gt;
         Default:
-        &lt;div id=&quot;first&quot; class=&quot;mdl-spinner mdl-js-spinner is-active&quot;&gt;&lt;&#x2F;div&gt;
-    &lt;&#x2F;p&gt;
+        &lt;div id=&quot;first&quot; class=&quot;mdl-spinner mdl-js-spinner is-active&quot;&gt;&lt;&#47;div&gt;
+    &lt;&#47;p&gt;
     &lt;p&gt;
         Single color (uses primary palette):
-        &lt;div class=&quot;mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active&quot;&gt;&lt;&#x2F;div&gt;
-    &lt;&#x2F;p&gt;
-    &lt;h5&gt;Data binding&lt;&#x2F;h5&gt;
-    &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect&quot; id=&quot;button&quot;&gt;On&#x2F;Off&lt;&#x2F;button&gt;
-    &lt;p&gt;Turn first spinner on&#x2F;off&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
+        &lt;div class=&quot;mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active&quot;&gt;&lt;&#47;div&gt;
+    &lt;&#47;p&gt;
+    &lt;h5&gt;Data binding&lt;&#47;h5&gt;
+    &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect&quot; id=&quot;button&quot;&gt;On&#47;Off&lt;&#47;button&gt;
+    &lt;p&gt;Turn first spinner on&#47;off&lt;&#47;p&gt;
+&lt;&#47;div&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->

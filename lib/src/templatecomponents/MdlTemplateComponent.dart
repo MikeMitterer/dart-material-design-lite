@@ -56,7 +56,7 @@ abstract class MdlTemplateComponent extends MdlComponent with TemplateComponent 
     /// Holds the old data to compare it with the incoming data
     final List _miniDom = new List();
 
-    MdlTemplateComponent(final dom.Element element) : super(element);
+    MdlTemplateComponent(final dom.Element element,final di.Injector injector) : super(element,injector);
 
     Future render() => renderElement(element);
 

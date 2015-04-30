@@ -23,6 +23,9 @@ part of mdlcomponents;
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialTooltipCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-tooltip";
+
     final String IS_ACTIVE = 'is-active';
 
     const _MaterialTooltipCssClasses();
@@ -33,12 +36,13 @@ class _MaterialTooltipConstant {
     const _MaterialTooltipConstant();
 }
 
-/// creates MdlConfig for MaterialButton
+/// creates MdlConfig for MaterialTooltip
 MdlConfig materialTooltipConfig() => new MdlWidgetConfig<MaterialTooltip>(
-    "mdl-tooltip", (final dom.HtmlElement element) => new MaterialTooltip.fromElement(element));
+    _MaterialTooltipCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialTooltip.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialTooltip() => componenthandler.register(materialTooltipConfig());
+void registerMaterialTooltip() => componentFactory().register(materialTooltipConfig());
 
 class MaterialTooltip extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialTooltip');
@@ -48,7 +52,8 @@ class MaterialTooltip extends MdlComponent {
 
     dom.HtmlElement _forEl = null;
 
-    MaterialTooltip.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialTooltip.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

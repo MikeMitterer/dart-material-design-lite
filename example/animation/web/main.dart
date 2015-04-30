@@ -9,9 +9,11 @@ main() {
 
     // registerDemoAnimation and import mdldemo.dart is only necessary for animation sample
     registerDemoAnimation();
-    registerAllMdlComponents();
+    //registerAllMdlComponents();
 
-    upgradeAllRegistered();
+    componentFactory().run().then((_){
+
+    });
 }
 
 void configLogging() {
@@ -19,6 +21,6 @@ void configLogging() {
 
     // now control the logging.
     // Turn off all logging first
-    Logger.root.level = Level.INFO;
+    Logger.root.level = Level.FINE;
     Logger.root.onRecord.listen(new LogConsoleHandler());
 }

@@ -58,7 +58,7 @@ main() {
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
 
         final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector("#mainslider2"));
         final MaterialContent list = MaterialContent.widget(dom.querySelector("#list"));

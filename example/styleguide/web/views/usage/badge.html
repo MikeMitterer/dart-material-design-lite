@@ -20,12 +20,12 @@
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 main() {
-    final Logger _logger = new Logger(&#x27;main.MaterialBadge&#x27;);
+    final Logger _logger = new Logger(&#39;main.MaterialBadge&#39;);
     registerMdl();
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector(&quot;#el1&quot;));
         int counter = 1;
         new Timer.periodic(new Duration(milliseconds: 100), (_) {
@@ -54,71 +54,71 @@ main() {
         &lt;div class=&quot;toolbar&quot;&gt;
             &lt;div class=&quot;wrapper&quot;&gt;
                 &lt;div id=&quot;el1&quot; class=&quot;icon mdl-badge mdl-js-badge&quot; data-badge=&quot;1&quot;&gt;
-                    &lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;
-                        &lt;path d=&quot;M0 0h24v24h-24z&quot; fill=&quot;none&quot;&#x2F;&gt;
-                        &lt;path d=&quot;M14 2h-8c-1.1 0-1.99.9-1.99 2l-.01 16c0 1.1.89 2 1.99 2h12.01c1.1 0 2-.9 2-2v-12l-6-6zm2 14h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2zm-3-7v-5.5l5.5 5.5h-5.5z&quot;&#x2F;&gt;
-                    &lt;&#x2F;svg&gt;
-                &lt;&#x2F;div&gt;
-            &lt;&#x2F;div&gt;
+                    &lt;svg xmlns=&quot;http:&#47;&#47;www.w3.org&#47;2000&#47;svg&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                        &lt;path d=&quot;M0 0h24v24h-24z&quot; fill=&quot;none&quot;&#47;&gt;
+                        &lt;path d=&quot;M14 2h-8c-1.1 0-1.99.9-1.99 2l-.01 16c0 1.1.89 2 1.99 2h12.01c1.1 0 2-.9 2-2v-12l-6-6zm2 14h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2zm-3-7v-5.5l5.5 5.5h-5.5z&quot;&#47;&gt;
+                    &lt;&#47;svg&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;div&gt;
             &lt;div class=&quot;wrapper&quot;&gt;
                 &lt;div id=&quot;el2&quot; class=&quot;icon mdl-badge&quot; data-badge=&quot;♥&quot;&gt;
-                    &lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot;&gt;
-                        &lt;path d=&quot;M0 0h18v18h-18z&quot; fill=&quot;none&quot;&#x2F;&gt;
-                        &lt;path d=&quot;M6 8c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm6 0c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm-3 5.5c2.14 0 3.92-1.5 4.38-3.5h-8.76c.46 2 2.24 3.5 4.38 3.5zm0-12.5c-4.43 0-8 3.58-8 8s3.57 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5z&quot;&#x2F;&gt;
-                    &lt;&#x2F;svg&gt;
-                &lt;&#x2F;div&gt;
-            &lt;&#x2F;div&gt;
+                    &lt;svg xmlns=&quot;http:&#47;&#47;www.w3.org&#47;2000&#47;svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot;&gt;
+                        &lt;path d=&quot;M0 0h18v18h-18z&quot; fill=&quot;none&quot;&#47;&gt;
+                        &lt;path d=&quot;M6 8c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm6 0c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm-3 5.5c2.14 0 3.92-1.5 4.38-3.5h-8.76c.46 2 2.24 3.5 4.38 3.5zm0-12.5c-4.43 0-8 3.58-8 8s3.57 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5z&quot;&#47;&gt;
+                    &lt;&#47;svg&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;div&gt;
             &lt;div class=&quot;wrapper&quot;&gt;
                 &lt;div id=&quot;el3&quot; class=&quot;icon mdl-badge&quot; data-badge=&quot;99&quot;&gt;
-                    &lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot;&gt;
-                        &lt;path d=&quot;M0 0h18v18h-18z&quot; fill=&quot;none&quot;&#x2F;&gt;
-                        &lt;path d=&quot;M6 8c1.11 0 2-.9 2-2s-.89-2-2-2c-1.1 0-2 .9-2 2s.9 2 2 2zm6 0c1.11 0 2-.9 2-2s-.89-2-2-2c-1.11 0-2 .9-2 2s.9 2 2 2zm-6 1.2c-1.67 0-5 .83-5 2.5v1.3h10v-1.3c0-1.67-3.33-2.5-5-2.5zm6 0c-.25 0-.54.02-.84.06.79.6 1.34 1.4 1.34 2.44v1.3h4.5v-1.3c0-1.67-3.33-2.5-5-2.5z&quot;&#x2F;&gt;
-                    &lt;&#x2F;svg&gt;
-                &lt;&#x2F;div&gt;
-            &lt;&#x2F;div&gt;
+                    &lt;svg xmlns=&quot;http:&#47;&#47;www.w3.org&#47;2000&#47;svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot;&gt;
+                        &lt;path d=&quot;M0 0h18v18h-18z&quot; fill=&quot;none&quot;&#47;&gt;
+                        &lt;path d=&quot;M6 8c1.11 0 2-.9 2-2s-.89-2-2-2c-1.1 0-2 .9-2 2s.9 2 2 2zm6 0c1.11 0 2-.9 2-2s-.89-2-2-2c-1.11 0-2 .9-2 2s.9 2 2 2zm-6 1.2c-1.67 0-5 .83-5 2.5v1.3h10v-1.3c0-1.67-3.33-2.5-5-2.5zm6 0c-.25 0-.54.02-.84.06.79.6 1.34 1.4 1.34 2.44v1.3h4.5v-1.3c0-1.67-3.33-2.5-5-2.5z&quot;&#47;&gt;
+                    &lt;&#47;svg&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;div&gt;
             &lt;div class=&quot;wrapper&quot;&gt;
                 &lt;div id=&quot;el4&quot; class=&quot;icon mdl-badge&quot; data-badge=&quot;888&quot;&gt;
-                    &lt;svg xmlns=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot;&gt;
-                        &lt;path d=&quot;M0 0h18v18h-18z&quot; fill=&quot;none&quot;&#x2F;&gt;
-                        &lt;path d=&quot;M2 13.5h14v-1.5h-14v1.5zm0-4h14v-1.5h-14v1.5zm0-5.5v1.5h14v-1.5h-14z&quot;&#x2F;&gt;
-                    &lt;&#x2F;svg&gt;
-                &lt;&#x2F;div&gt;
-            &lt;&#x2F;div&gt;
-        &lt;&#x2F;div&gt;
+                    &lt;svg xmlns=&quot;http:&#47;&#47;www.w3.org&#47;2000&#47;svg&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 18 18&quot;&gt;
+                        &lt;path d=&quot;M0 0h18v18h-18z&quot; fill=&quot;none&quot;&#47;&gt;
+                        &lt;path d=&quot;M2 13.5h14v-1.5h-14v1.5zm0-4h14v-1.5h-14v1.5zm0-5.5v1.5h14v-1.5h-14z&quot;&#47;&gt;
+                    &lt;&#47;svg&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
         &lt;p&gt;
-            &lt;strong&gt;Hint:&lt;&#x2F;strong&gt; Check your log and you&#x27;ll see the values for the first badge...
-        &lt;&#x2F;p&gt;
+            &lt;strong&gt;Hint:&lt;&#47;strong&gt; Check your log and you&#39;ll see the values for the first badge...
+        &lt;&#47;p&gt;
     &lt;section class=&quot;text&quot;&gt;
-        &lt;h5&gt;Text&lt;&#x2F;h5&gt;
-        &lt;span class=&quot;mdl-badge&quot; data-badge=&quot;42&quot;&gt;I am in span&lt;&#x2F;span&gt;
-        &lt;span class=&quot;mdl-badge&quot; data-badge=&quot;!&quot;&gt;Me too&lt;&#x2F;span&gt;
-        &lt;div class=&quot;mdl-badge&quot; data-badge=&quot;99&quot;&gt;Im am in a div, but makes no sense here&lt;&#x2F;div&gt;
-        &lt;span class=&quot;mdl-badge&quot;&gt;I have &lt;strong&gt;no&lt;&#x2F;strong&gt; data-badge!!!&lt;&#x2F;span&gt; &lt;span class=&quot;mdl-badge&quot; data-badge=&quot;88&quot;&gt;But I have one&lt;&#x2F;span&gt;
-        &lt;p style=&quot;margin-top: 1em&quot;&gt;Right margin is set &lt;strong&gt;automatically&lt;&#x2F;strong&gt;, top margin is left to you - it depends to much on the situation&lt;&#x2F;p&gt;
-    &lt;&#x2F;section&gt;
+        &lt;h5&gt;Text&lt;&#47;h5&gt;
+        &lt;span class=&quot;mdl-badge&quot; data-badge=&quot;42&quot;&gt;I am in span&lt;&#47;span&gt;
+        &lt;span class=&quot;mdl-badge&quot; data-badge=&quot;!&quot;&gt;Me too&lt;&#47;span&gt;
+        &lt;div class=&quot;mdl-badge&quot; data-badge=&quot;99&quot;&gt;Im am in a div, but makes no sense here&lt;&#47;div&gt;
+        &lt;span class=&quot;mdl-badge&quot;&gt;I have &lt;strong&gt;no&lt;&#47;strong&gt; data-badge!!!&lt;&#47;span&gt; &lt;span class=&quot;mdl-badge&quot; data-badge=&quot;88&quot;&gt;But I have one&lt;&#47;span&gt;
+        &lt;p style=&quot;margin-top: 1em&quot;&gt;Right margin is set &lt;strong&gt;automatically&lt;&#47;strong&gt;, top margin is left to you - it depends to much on the situation&lt;&#47;p&gt;
+    &lt;&#47;section&gt;
     &lt;section class=&quot;links&quot;&gt;
-        &lt;h5&gt;Links&lt;&#x2F;h5&gt;
-        &lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot; data-badge=&quot;10&quot;&gt;Hallo&lt;&#x2F;a&gt;
-        &lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot; data-badge=&quot;1&quot;&gt;Hallo&lt;&#x2F;a&gt;
-        &lt;a href=&quot;#&quot; class=&quot;mdl-badge mdl-badge--no-background&quot; data-badge=&quot;1&quot;&gt;no background&lt;&#x2F;a&gt;
+        &lt;h5&gt;Links&lt;&#47;h5&gt;
+        &lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot; data-badge=&quot;10&quot;&gt;Hallo&lt;&#47;a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot; data-badge=&quot;1&quot;&gt;Hallo&lt;&#47;a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;mdl-badge mdl-badge--no-background&quot; data-badge=&quot;1&quot;&gt;no background&lt;&#47;a&gt;
         &lt;div class=&quot;dark&quot;&gt;
-            &lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot; data-badge=&quot;1&quot;&gt;Simulate header&lt;&#x2F;a&gt;
-            &lt;a href=&quot;#&quot; class=&quot;mdl-badge mdl-badge--no-background&quot; data-badge=&quot;1&quot;&gt;no background&lt;&#x2F;a&gt;
-        &lt;&#x2F;div&gt;
+            &lt;a href=&quot;#&quot; class=&quot;mdl-badge&quot; data-badge=&quot;1&quot;&gt;Simulate header&lt;&#47;a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;mdl-badge mdl-badge--no-background&quot; data-badge=&quot;1&quot;&gt;no background&lt;&#47;a&gt;
+        &lt;&#47;div&gt;
         &lt;div class=&quot;fontawsom&quot;&gt;
             &lt;a href=&quot;#&quot;&gt;
-                &lt;i class=&quot;fa fa-user-secret&quot;&gt;&lt;&#x2F;i&gt;&lt;span class=&quot;mdl-badge&quot; data-badge=&quot;1&quot;&gt;Test&lt;&#x2F;span&gt;
-            &lt;&#x2F;a&gt;
+                &lt;i class=&quot;fa fa-user-secret&quot;&gt;&lt;&#47;i&gt;&lt;span class=&quot;mdl-badge&quot; data-badge=&quot;1&quot;&gt;Test&lt;&#47;span&gt;
+            &lt;&#47;a&gt;
             &lt;a href=&quot;#&quot;&gt;
-                &lt;i class=&quot;fa fa-exclamation-circle&quot;&gt;&lt;&#x2F;i&gt;&lt;span class=&quot;mdl-badge&quot; data-badge=&quot;10&quot;&gt;Test&lt;&#x2F;span&gt;
-            &lt;&#x2F;a&gt;
+                &lt;i class=&quot;fa fa-exclamation-circle&quot;&gt;&lt;&#47;i&gt;&lt;span class=&quot;mdl-badge&quot; data-badge=&quot;10&quot;&gt;Test&lt;&#47;span&gt;
+            &lt;&#47;a&gt;
             &lt;a href=&quot;#&quot;&gt;
-                &lt;i class=&quot;fa fa-heartbeat&quot;&gt;&lt;&#x2F;i&gt;&lt;span class=&quot;mdl-badge&quot; data-badge=&quot;42&quot;&gt;&lt;&#x2F;span&gt;
-            &lt;&#x2F;a&gt;
-        &lt;&#x2F;div&gt;
-    &lt;&#x2F;section&gt;
-&lt;&#x2F;div&gt;
-&lt;&#x2F;section&gt;
+                &lt;i class=&quot;fa fa-heartbeat&quot;&gt;&lt;&#47;i&gt;&lt;span class=&quot;mdl-badge&quot; data-badge=&quot;42&quot;&gt;&lt;&#47;span&gt;
+            &lt;&#47;a&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;section&gt;
+&lt;&#47;div&gt;
+&lt;&#47;section&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->

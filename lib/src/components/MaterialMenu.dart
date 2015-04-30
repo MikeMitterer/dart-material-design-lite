@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialMenuCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-menu";
+
     final String CONTAINER = 'mdl-menu__container';
     final String OUTLINE = 'mdl-menu__outline';
     final String ITEM = 'mdl-menu__item';
@@ -77,9 +79,13 @@ class _KeyCode {
     const _KeyCode(this.value);
 }
 
+/// creates MdlConfig for MaterialMenu
+MdlConfig materialMenuConfig() => new MdlWidgetConfig<MaterialMenu>(
+    _MaterialMenuCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialMenu.fromElement(element,injector));
+
 /// registration-Helper
-void registerMaterialMenu() => componenthandler.register(new MdlWidgetConfig<MaterialMenu>(
-    "mdl-js-menu", (final dom.HtmlElement element) => new MaterialMenu.fromElement(element)));
+void registerMaterialMenu() => componentFactory().register(materialMenuConfig());
 
 class MaterialMenu extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialMenu');
@@ -93,7 +99,8 @@ class MaterialMenu extends MdlComponent {
 
     bool _closing = false;
 
-    MaterialMenu.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialMenu.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

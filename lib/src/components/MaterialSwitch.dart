@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialSwitchCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-switch";
+
     final String INPUT = 'mdl-switch__input';
 
     final String TRACK = 'mdl-switch__track';
@@ -62,10 +64,11 @@ class _MaterialSwitchConstant {
 
 /// creates MdlConfig for MaterialSwitch
 MdlConfig materialSwitchConfig() => new MdlWidgetConfig<MaterialSwitch>(
-    "mdl-js-switch", (final dom.HtmlElement element) => new MaterialSwitch.fromElement(element));
+    _MaterialSwitchCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialSwitch.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialSwitch() => componenthandler.register(materialSwitchConfig());
+void registerMaterialSwitch() => componentFactory().register(materialSwitchConfig());
 
 class MaterialSwitch extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialSwitch');
@@ -75,7 +78,8 @@ class MaterialSwitch extends MdlComponent {
 
     dom.CheckboxInputElement _inputElement = null;
 
-    MaterialSwitch.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialSwitch.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

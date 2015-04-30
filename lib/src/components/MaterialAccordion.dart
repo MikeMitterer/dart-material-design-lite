@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialAccordionCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-accordion";
+
     final String ACCORDION_TYPE     = "mdl-accordion--radio-type";
     final String NAVIGATION         = "mdl-accordion--navigation";
 
@@ -53,10 +55,11 @@ class _MaterialAccordionConstant {
 
 /// creates MdlConfig for MaterialAccordion
 MdlConfig materialAccordionConfig() => new MdlWidgetConfig<MaterialAccordion>(
-    "mdl-js-accordion", (final dom.HtmlElement element) => new MaterialAccordion.fromElement(element));
+    _MaterialAccordionCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+        => new MaterialAccordion.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialAccordion() => componenthandler.register(materialAccordionConfig());
+void registerMaterialAccordion() => componentFactory().register(materialAccordionConfig());
 
 /**
  * Sample:
@@ -89,7 +92,8 @@ class MaterialAccordion extends MdlComponent {
 
     //final List<html.HtmlElement> _labels = new List<html.HtmlElement>();
 
-    MaterialAccordion.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialAccordion.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

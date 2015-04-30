@@ -24,6 +24,8 @@ part of todo;
 /// decide to modify at a later date.
 class _ToDoItemComponentCssClasses {
 
+    static const String MAIN_CLASS  = "todo-items";
+
     final String IS_UPGRADED = 'is-upgraded';
 
     const _ToDoItemComponentCssClasses();
@@ -35,8 +37,9 @@ class _ToDoItemComponentConstant {
 }
 
 /// registration-Helper
-void registerToDoItemComponent() => componenthandler.register(new MdlWidgetConfig<ToDoItemComponent>(
-    "todo-items", (final dom.HtmlElement element) => new ToDoItemComponent.fromElement(element)));
+void registerToDoItemComponent() => componentFactory().register(new MdlWidgetConfig<ToDoItemComponent>(
+    _ToDoItemComponentCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+        => new ToDoItemComponent.fromElement(element,injector)));
 
 @MdlComponentModel
 class ToDoItem {
@@ -68,9 +71,12 @@ class ToDoItemComponent extends MdlTemplateComponent {
     final StreamController _controller = new StreamController<ModelChangedEvent>.broadcast();
     Stream<ModelChangedEvent> onModelChange;
 
-    ToDoItemComponent.fromElement(final dom.HtmlElement element) : super(element) {
+    ToDoItemComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
+
         onModelChange = _controller.stream;
         _init();
+
     }
 
     static ToDoItemComponent widget(final dom.HtmlElement element) => mdlComponent(element) as ToDoItemComponent;

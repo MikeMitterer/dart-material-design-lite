@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialLayoutCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-layout";
+
     final String HEADER = 'mdl-layout__header';
     final String DRAWER = 'mdl-layout__drawer';
     final String CONTENT = 'mdl-layout__content';
@@ -84,10 +86,11 @@ class _MaterialLayoutMode {
 
 /// creates MdlConfig for MaterialLayout
 MdlConfig materialLayoutConfig() => new MdlWidgetConfig<MaterialLayout>(
-    "mdl-js-layout", (final dom.HtmlElement element) => new MaterialLayout.fromElement(element));
+    _MaterialLayoutCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialLayout.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialLayout() => componenthandler.register(materialLayoutConfig());
+void registerMaterialLayout() => componentFactory().register(materialLayoutConfig());
 
 class MaterialLayout extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialLayout');
@@ -101,7 +104,8 @@ class MaterialLayout extends MdlComponent {
     dom.HtmlElement _tabBar = null;
     dom.HtmlElement _content = null;
 
-    MaterialLayout.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialLayout.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

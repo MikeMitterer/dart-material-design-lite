@@ -10,7 +10,7 @@ main() {
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
 
     });
 }

@@ -20,11 +20,11 @@
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 main() {
     registerMdl();
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
     });
 }</pre>
                 </div>
@@ -40,46 +40,46 @@ main() {
                 <pre class="prettyprint linenums lang-html">
     &lt;div class=&quot;demo-preview-block&quot;&gt;
       &lt;ul class=&quot;mdl-nav-pills&quot;&gt;
-          &lt;li&gt;Test1&lt;&#x2F;li&gt;
-          &lt;li class=&quot;mdl-nav-pill--accent mdl-nav-pill--light-text&quot;&gt;Test2&lt;&#x2F;li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-      &lt;&#x2F;ul&gt;
-      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 4&lt;&#x2F;div&gt;
-      &lt;div class=&quot;mdl-nav-pill&quot;&gt;&lt;a href=&quot;#&quot;&gt;Test5&lt;&#x2F;a&gt;&lt;&#x2F;div&gt;
+          &lt;li&gt;Test1&lt;&#47;li&gt;
+          &lt;li class=&quot;mdl-nav-pill--accent mdl-nav-pill--light-text&quot;&gt;Test2&lt;&#47;li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;&#47;a&gt;&lt;&#47;li&gt;
+      &lt;&#47;ul&gt;
+      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 4&lt;&#47;div&gt;
+      &lt;div class=&quot;mdl-nav-pill&quot;&gt;&lt;a href=&quot;#&quot;&gt;Test5&lt;&#47;a&gt;&lt;&#47;div&gt;
       &lt;ul class=&quot;mdl-nav-pills mdl-nav-pills--as-row mdl-nav-pill--light mdl-nav--light-text&quot;&gt;
-          &lt;li&gt;Test1&lt;&#x2F;li&gt;
-          &lt;li&gt;Test2&lt;&#x2F;li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-          &lt;li&gt;Test4&lt;&#x2F;li&gt;
-          &lt;li&gt;Test5&lt;&#x2F;li&gt;
-          &lt;li&gt;Test6&lt;&#x2F;li&gt;
-          &lt;li class=&quot;mdl-nav-pill--lighter&quot;&gt;&lt;a href=&quot;#&quot;&gt;Test7&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-          &lt;li&gt;Test8&lt;&#x2F;li&gt;
-          &lt;li&gt;Test9&lt;&#x2F;li&gt;
-          &lt;li&gt;Test10&lt;&#x2F;li&gt;
-          &lt;li&gt;Test11&lt;&#x2F;li&gt;
-          &lt;li&gt;Test12&lt;&#x2F;li&gt;
-          &lt;li&gt;Test13&lt;&#x2F;li&gt;
-      &lt;&#x2F;ul&gt;
-      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 6&lt;&#x2F;div&gt;
-      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 7&lt;&#x2F;div&gt;
-      &lt;div class=&quot;testblock&quot;&gt;Testblock - should stay in place&lt;&#x2F;div&gt;
+          &lt;li&gt;Test1&lt;&#47;li&gt;
+          &lt;li&gt;Test2&lt;&#47;li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;&#47;a&gt;&lt;&#47;li&gt;
+          &lt;li&gt;Test4&lt;&#47;li&gt;
+          &lt;li&gt;Test5&lt;&#47;li&gt;
+          &lt;li&gt;Test6&lt;&#47;li&gt;
+          &lt;li class=&quot;mdl-nav-pill--lighter&quot;&gt;&lt;a href=&quot;#&quot;&gt;Test7&lt;&#47;a&gt;&lt;&#47;li&gt;
+          &lt;li&gt;Test8&lt;&#47;li&gt;
+          &lt;li&gt;Test9&lt;&#47;li&gt;
+          &lt;li&gt;Test10&lt;&#47;li&gt;
+          &lt;li&gt;Test11&lt;&#47;li&gt;
+          &lt;li&gt;Test12&lt;&#47;li&gt;
+          &lt;li&gt;Test13&lt;&#47;li&gt;
+      &lt;&#47;ul&gt;
+      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 6&lt;&#47;div&gt;
+      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 7&lt;&#47;div&gt;
+      &lt;div class=&quot;testblock&quot;&gt;Testblock - should stay in place&lt;&#47;div&gt;
       &lt;ul class=&quot;mdl-nav-pills mdl-nav-pill--dark mdl-nav--light-text&quot;&gt;
-          &lt;li&gt;Test1&lt;&#x2F;li&gt;
-          &lt;li class=&quot;mdl-nav-pill--darker&quot;&gt;Test2 - darker&lt;&#x2F;li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-      &lt;&#x2F;ul&gt;
-      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 4&lt;&#x2F;div&gt;
-      &lt;div class=&quot;mdl-nav-pill mdl-nav-pill--accent mdl-nav--light-text&quot;&gt;Test 5 - accent&lt;&#x2F;div&gt;
+          &lt;li&gt;Test1&lt;&#47;li&gt;
+          &lt;li class=&quot;mdl-nav-pill--darker&quot;&gt;Test2 - darker&lt;&#47;li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;&#47;a&gt;&lt;&#47;li&gt;
+      &lt;&#47;ul&gt;
+      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 4&lt;&#47;div&gt;
+      &lt;div class=&quot;mdl-nav-pill mdl-nav-pill--accent mdl-nav--light-text&quot;&gt;Test 5 - accent&lt;&#47;div&gt;
       &lt;ul class=&quot;mdl-nav-pills mdl-nav-pills--as-row mdl-nav-pill--accent&quot;&gt;
-          &lt;li&gt;Test1&lt;&#x2F;li&gt;
-          &lt;li class=&quot;mdl-nav-pill--darker mdl-nav-pill--light-text&quot;&gt;Test2 darker&lt;&#x2F;li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-      &lt;&#x2F;ul&gt;
-      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 6&lt;&#x2F;div&gt;
-      &lt;div class=&quot;mdl-nav-pill mdl-nav-pill--darker mdl-nav-pill--light-text&quot;&gt;Test 7&lt;&#x2F;div&gt;
-      &lt;div class=&quot;testblock&quot;&gt;Testblock - should stay in place&lt;&#x2F;div&gt;
-  &lt;&#x2F;div&gt;
+          &lt;li&gt;Test1&lt;&#47;li&gt;
+          &lt;li class=&quot;mdl-nav-pill--darker mdl-nav-pill--light-text&quot;&gt;Test2 darker&lt;&#47;li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;&#47;a&gt;&lt;&#47;li&gt;
+      &lt;&#47;ul&gt;
+      &lt;div class=&quot;mdl-nav-pill&quot;&gt;Test 6&lt;&#47;div&gt;
+      &lt;div class=&quot;mdl-nav-pill mdl-nav-pill--darker mdl-nav-pill--light-text&quot;&gt;Test 7&lt;&#47;div&gt;
+      &lt;div class=&quot;testblock&quot;&gt;Testblock - should stay in place&lt;&#47;div&gt;
+  &lt;&#47;div&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->

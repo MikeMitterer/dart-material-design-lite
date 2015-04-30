@@ -10,7 +10,7 @@ main() {
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
 
         final MaterialSlider slider5 = MaterialSlider.widget(dom.querySelector("#slider5"));
         final MaterialSlider slider2 = MaterialSlider.widget(dom.querySelector("#slider2"));

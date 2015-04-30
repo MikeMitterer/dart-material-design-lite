@@ -5,7 +5,6 @@
   { "name": "button", "link": "#/button" },
   { "name": "card", "link": "#/card" },
   { "name": "checkbox", "link": "#/checkbox" },
-  { "name": "column-layout", "link": "#/column-layout" },
   { "name": "footer", "link": "#/footer" },
   { "name": "grid", "link": "#/grid" },
   { "name": "icon-toggle", "link": "#/icon-toggle" },

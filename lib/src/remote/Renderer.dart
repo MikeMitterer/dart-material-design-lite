@@ -59,7 +59,7 @@ class Renderer {
 
             final dom.Element child = new dom.Element.html(content,validator: _validator());
 
-            componenthandler.upgradeElement(child).then((_) {
+            componentFactory().upgradeElement(child).then((_) {
 
                 dom.window.requestAnimationFrame( (_) {
 

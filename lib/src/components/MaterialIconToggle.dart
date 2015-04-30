@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialIconToggleCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-icon-toggle";
+
     final String INPUT = 'mdl-icon-toggle__input';
     final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
     final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
@@ -47,12 +49,13 @@ class _MaterialIconToggleConstant {
     const _MaterialIconToggleConstant();
 }
 
-/// creates MdlConfig for IconToggle
+/// creates MdlConfig for MaterialIconToggle
 MdlConfig materialIconToggleConfig() => new MdlWidgetConfig<MaterialIconToggle>(
-    "mdl-js-icon-toggle", (final dom.HtmlElement element) => new MaterialIconToggle.fromElement(element));
+    _MaterialIconToggleCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialIconToggle.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialIconToggle() => componenthandler.register(materialIconToggleConfig());
+void registerMaterialIconToggle() => componentFactory().register(materialIconToggleConfig());
 
 /**
  * Sample:
@@ -64,12 +67,13 @@ void registerMaterialIconToggle() => componenthandler.register(materialIconToggl
 class MaterialIconToggle extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialIconToggle');
 
-    static const _MaterialIconToggleConstant _constant = const _MaterialIconToggleConstant();
-    static const _MaterialIconToggleCssClasses _cssClasses = const _MaterialIconToggleCssClasses();
+    static const _MaterialIconToggleConstant    _constant = const _MaterialIconToggleConstant();
+    static const _MaterialIconToggleCssClasses  _cssClasses = const _MaterialIconToggleCssClasses();
 
     dom.InputElement _inputElement = null;
 
-    MaterialIconToggle.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialIconToggle.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

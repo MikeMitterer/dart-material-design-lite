@@ -24,19 +24,20 @@ part of mdlremote;
 /// decide to modify at a later date.
 class _MaterialContentCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-content";
+
     final String IS_UPGRADED = 'is-upgraded';
 
     const _MaterialContentCssClasses();
 }
 
-/// Store constants in one place so they can be updated easily.
-class _MaterialContentConstant {
-    const _MaterialContentConstant();
-}
+/// creates MdlConfig for MaterialContent
+MdlConfig materialContentConfig() => new MdlWidgetConfig<MaterialContent>(
+    _MaterialContentCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+        => new MaterialContent.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialContent() => componenthandler.register(new MdlWidgetConfig<MaterialContent>(
-    "mdl-js-content", (final dom.HtmlElement element) => new MaterialContent.fromElement(element)));
+void registerMaterialContent() => componentFactory().register(materialContentConfig());
 
 class MaterialContent extends MdlComponent {
     final Logger _logger = new Logger('mdlremote.MaterialContent');
@@ -44,7 +45,8 @@ class MaterialContent extends MdlComponent {
     static const _MaterialContentCssClasses _cssClasses = const _MaterialContentCssClasses();
     final Renderer _renderer = new Renderer();
 
-    MaterialContent.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialContent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

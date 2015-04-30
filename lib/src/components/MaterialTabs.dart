@@ -23,6 +23,9 @@ part of mdlcomponents;
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialTabsCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-js-tabs";
+
     final String TAB_CLASS = 'mdl-tabs__tab';
     final String PANEL_CLASS = 'mdl-tabs__panel';
     final String ACTIVE_CLASS = 'is-active';
@@ -42,10 +45,11 @@ class _MaterialTabsConstant {
 
 /// creates MdlConfig for MaterialTabs
 MdlConfig materialTabsConfig() => new MdlWidgetConfig<MaterialTabs>(
-    "mdl-js-tabs", (final dom.HtmlElement element) => new MaterialTabs.fromElement(element));
+    _MaterialTabsCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialTabs.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialTabs() => componenthandler.register(materialTabsConfig());
+void registerMaterialTabs() => componentFactory().register(materialTabsConfig());
 
 class MaterialTabs extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialTabs');
@@ -56,7 +60,8 @@ class MaterialTabs extends MdlComponent {
     final List<dom.Element> _tabs = new List<dom.Element>();
     final List<dom.Element> _panels = new List<dom.Element>();
 
-    MaterialTabs.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialTabs.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

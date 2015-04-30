@@ -23,9 +23,13 @@ part of mdlcomponents;
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialRippleCssClasses {
+
+    static const String MAIN_CLASS                  = "mdl-js-ripple-effect";
+
     final String MDL_RIPPLE_CENTER                  = 'mdl-ripple--center';
     final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
     final String MDL_RIPPLE                         = 'mdl-ripple';
+
     final String IS_ANIMATING                       = 'is-animating';
     final String IS_VISIBLE                         = 'is-visible';
 
@@ -45,14 +49,16 @@ class _MaterialRippleConstant {
 /// Important!!!! Ripple uses MdlConfig and not MdlWidgetConfig
 MdlConfig materialRippleConfig() {
     final MdlConfig<MaterialRipple> config = new MdlConfig<MaterialRipple>(
-    "mdl-js-ripple-effect",(final dom.HtmlElement element) => new MaterialRipple.fromElement(element));
+        _MaterialRippleCssClasses.MAIN_CLASS,
+            (final dom.HtmlElement element, final di.Injector injector)
+            => new MaterialRipple.fromElement(element, injector));
 
     config.priority = 10;
     return config;
 }
 
 /// registration-Helper
-void registerMaterialRipple() => componenthandler.register(materialRippleConfig());
+void registerMaterialRipple() => componentFactory().register(materialRippleConfig());
 
 class MaterialRipple extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialRipple');
@@ -72,7 +78,8 @@ class MaterialRipple extends MdlComponent {
     // mouse down after a touch start.
     bool _ignoringMouseDown = false;
 
-    MaterialRipple.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialRipple.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 
@@ -81,6 +88,10 @@ class MaterialRipple extends MdlComponent {
     dom.HtmlElement get rippleElement {
         if(_rippleElement == null) {
             _rippleElement = element.querySelector(".${_cssClasses.MDL_RIPPLE}");
+            if(_rippleElement == null) {
+                _logger.warning("No child found with ${_cssClasses.MDL_RIPPLE} in ${element}");
+                element.style.border = "1px solid red";
+            }
         }
         return _rippleElement;
     }

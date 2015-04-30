@@ -1,18 +1,18 @@
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
 main() {
-    final Logger _logger = new Logger(&#x27;example.progress.main&#x27;);
+    final Logger _logger = new Logger(&#39;example.progress.main&#39;);
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         _logger.info(&quot;All components upgraded&quot;);
 
-        &#x2F;&#x2F; 1
+        &#47;&#47; 1
         new MaterialProgress(dom.querySelector(&quot;#p1&quot;)).progress = 44;
 
-        &#x2F;&#x2F; 2
+        &#47;&#47; 2
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).progress = 33;
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).buffer = 87;
 

@@ -24,6 +24,8 @@ part of mdldemo;
 /// decide to modify at a later date.
 class _DemoAnimationCssClasses {
 
+    static const String MAIN_CLASS  = "demo-js-animation";
+
     final String MOVABLE   = 'demo-animation__movable';
     final String POSITION_PREFIX   = 'demo-animation--position-';
 
@@ -39,10 +41,11 @@ class _DemoAnimationConstant {
 
 /// creates MdlConfig for DemoAnimation
 MdlConfig demoAnimationConfig() => new MdlWidgetConfig<DemoAnimation>(
-    "demo-js-animation", (final dom.HtmlElement element) => new DemoAnimation.fromElement(element));
+    _DemoAnimationCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+        => new DemoAnimation.fromElement(element,injector));
 
 /// registration-Helper
-void registerDemoAnimation() => componenthandler.register(demoAnimationConfig());
+void registerDemoAnimation() => componentFactory().register(demoAnimationConfig());
 
 /**
  * Sample:
@@ -63,7 +66,8 @@ class DemoAnimation extends MdlComponent {
     int _position = _constant.STARTING_POSITION;
     dom.HtmlElement _movable = null;
 
-    DemoAnimation.fromElement(final dom.HtmlElement element) : super(element) {
+    DemoAnimation.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 
@@ -84,7 +88,7 @@ class DemoAnimation extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("DemoAnimation - init");
+        _logger.info("DemoAnimation - init");
         element.onClick.listen(_handleClick);
     }
 

@@ -1,6 +1,5 @@
 library mdl;
 
-//import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponets.dart";
 import "package:mdl/mdlremote.dart";
 import "package:mdl/mdltemplatecomponents.dart";
@@ -15,5 +14,4 @@ void registerMdl() {
     registerAllMdlRemoteComponents();
     registerAllMdlTemplateComponents();
     registerAllMdlComponents();
-
 }

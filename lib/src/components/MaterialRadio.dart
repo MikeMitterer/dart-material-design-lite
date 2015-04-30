@@ -23,6 +23,9 @@ part of mdlcomponents;
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialRadioCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-js-radio";
+
     final String IS_FOCUSED = 'is-focused';
 
     final String IS_DISABLED = 'is-disabled';
@@ -58,12 +61,13 @@ class _MaterialRadioConstant {
     const _MaterialRadioConstant();
 }
 
-/// creates MdlConfig for RadioConfig
+/// creates MdlConfig for MaterialRadio
 MdlConfig materialRadioConfig() => new MdlWidgetConfig<MaterialRadio>(
-    "mdl-js-radio", (final dom.HtmlElement element) => new MaterialRadio.fromElement(element));
+    _MaterialRadioCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialRadio.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialRadio() => componenthandler.register(materialRadioConfig());
+void registerMaterialRadio() => componentFactory().register(materialRadioConfig());
 
 /**
  * Sample:
@@ -82,7 +86,8 @@ class MaterialRadio extends MdlComponent {
 
     factory MaterialRadio(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadio;
 
-    MaterialRadio.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialRadio.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

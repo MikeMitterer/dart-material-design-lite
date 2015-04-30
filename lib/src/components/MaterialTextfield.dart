@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialTextfieldCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-textfield";
+
     final String LABEL = 'mdl-textfield__label';
 
     final String INPUT = 'mdl-textfield__input';
@@ -50,12 +52,13 @@ class _MaterialTextfieldConstant {
     const _MaterialTextfieldConstant();
 }
 
-/// creates MdlConfig for MaterialButton
+/// creates MdlConfig for MaterialTextfield
 MdlConfig materialTextfieldConfig() => new MdlWidgetConfig<MaterialTextfield>(
-    "mdl-js-textfield", (final dom.HtmlElement element) => new MaterialTextfield.fromElement(element));
+    _MaterialTextfieldCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialTextfield.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialTextfield() => componenthandler.register(materialTextfieldConfig());
+void registerMaterialTextfield() => componentFactory().register(materialTextfieldConfig());
 
 class MaterialTextfield extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialTextfield');
@@ -68,7 +71,8 @@ class MaterialTextfield extends MdlComponent {
     dom.InputElement _input;
     dom.LabelElement _label;
 
-    MaterialTextfield.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialTextfield.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

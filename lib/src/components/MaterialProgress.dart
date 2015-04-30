@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialProgressCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-progress";
+
     final String INDETERMINATE_CLASS = 'mdl-progress__indeterminate';
     final String IS_UPGRADED = 'is-upgraded';
 
@@ -35,9 +37,13 @@ class _MaterialProgressConstant {
     const _MaterialProgressConstant();
 }
 
+/// creates MdlConfig for MaterialProgress
+MdlConfig materialProgressConfig() => new MdlWidgetConfig<MaterialProgress>(
+    _MaterialProgressCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialProgress.fromElement(element,injector));
+
 /// registration-Helper
-void registerMaterialProgress() => componenthandler.register(new MdlWidgetConfig<MaterialProgress>(
-    "mdl-js-progress", (final dom.HtmlElement element) => new MaterialProgress.fromElement(element)));
+void registerMaterialProgress() => componentFactory().register(materialProgressConfig());
 
 class MaterialProgress extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialProgress');
@@ -60,7 +66,8 @@ class MaterialProgress extends MdlComponent {
 //        _init();
 //    }
 
-    MaterialProgress.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialProgress.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

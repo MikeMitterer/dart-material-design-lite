@@ -24,6 +24,8 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialSliderCssClasses {
 
+    static const String MAIN_CLASS  = "mdl-js-slider";
+
     final String IE_CONTAINER = 'mdl-slider__ie-container';
 
     final String SLIDER_CONTAINER = 'mdl-slider__container';
@@ -48,10 +50,11 @@ class _MaterialSliderConstant {
 
 /// creates MdlConfig for MaterialSlider
 MdlConfig materialSliderConfig() => new MdlWidgetConfig<MaterialSlider>(
-    "mdl-js-slider", (final dom.HtmlElement element) => new MaterialSlider.fromElement(element));
+    _MaterialSliderCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialSlider.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialSlider() => componenthandler.register(materialSliderConfig());
+void registerMaterialSlider() => componentFactory().register(materialSliderConfig());
 
 class MaterialSlider extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialSlider');
@@ -65,7 +68,8 @@ class MaterialSlider extends MdlComponent {
     dom.DivElement _backgroundLower = null;
     dom.DivElement _backgroundUpper = null;
 
-    MaterialSlider.fromElement(final dom.HtmlElement element) : super(element) {
+    MaterialSlider.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
         _init();
     }
 

@@ -11,7 +11,9 @@ main() {
     registerDemoAnimation();
     registerAllMdlComponents();
 
-    upgradeAllRegistered();
+    componentFactory().run().then((_){
+
+    });
 }
 
 void configLogging() {

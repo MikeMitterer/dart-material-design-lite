@@ -1,10 +1,10 @@
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
 main() {
     registerAllMdlComponents();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialIconToggle toggle = MaterialIconToggle.widget(dom.querySelector(&quot;#public-checkbox-1&quot;));
         new Timer.periodic(new Duration(milliseconds: 500), (final Timer timer) {
             toggle.checked = !toggle.checked;

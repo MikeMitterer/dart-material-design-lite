@@ -30,6 +30,7 @@ import 'package:mdl/mdlremote.dart';
 
 import 'package:route_hierarchical/client.dart';
 import 'package:prettify/prettify.dart';
+import 'package:di/di.dart' as di;
 
 import "package:mdl/mdldialog.dart";
 
@@ -41,18 +42,16 @@ class ModelChangedEvent {
 
 /// Model is a Singleton
 class Model {
-    static Model _model;
 
     final StreamController _controller = new StreamController<ModelChangedEvent>.broadcast();
 
     Stream<ModelChangedEvent> onChange;
 
-    String _title = "";
-
-    factory Model() {
-        if(_model == null) {  _model = new Model._internal(); }
-        return _model;
+    Model() {
+        onChange = _controller.stream;
     }
+
+    String _title = "";
 
     String get title => _title;
 
@@ -62,16 +61,17 @@ class Model {
     }
 
     //- private -----------------------------------------------------------------------------------
+}
 
-    Model._internal() {
-        onChange = _controller.stream;
+class StyleguideModule extends di.Module {
+    StyleguideModule() {
+
+        bind( Model,toValue: new Model() );
     }
 }
 
-
 main() {
     final Logger _logger = new Logger('main.MaterialContent');
-    final Model model = new Model();
 
     configLogging();
     enableTheming();
@@ -82,7 +82,9 @@ main() {
     // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
     registerDemoAnimation();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().addModule(new StyleguideModule()).run().then(( final di.Injector injector) {
+        final Model model = injector.get(Model);
+
         configRouter();
 
         model.onChange.listen((_) {
@@ -92,10 +94,11 @@ main() {
 }
 
 class DemoController extends MaterialController {
-    final Model _model = new Model();
 
     @override
     void loaded(final Route route) {
+        final Model _model = injector.get(Model);
+
         _model.title = route.name;
 
         final dom.HtmlElement element = dom.querySelector("#usage");
@@ -120,9 +123,10 @@ class BadgeController extends DemoController {
 
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector("#el1"));
         int counter = 1;
-        new Timer.periodic(new Duration(milliseconds: 100), (_) {
-            if(counter > 999) {
+        new Timer.periodic(new Duration(milliseconds: 100), (final Timer timer) {
+            if(counter > 199) {
                 counter = 1;
+                timer.cancel();
             }
             badge1.value = counter.toString();
             _logger.info("Current Badge-Value: ${badge1.value}");

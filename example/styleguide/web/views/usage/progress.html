@@ -20,16 +20,16 @@
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 main() {
-    final Logger _logger = new Logger(&#x27;example.progress.main&#x27;);
+    final Logger _logger = new Logger(&#39;example.progress.main&#39;);
     registerMdl();
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         _logger.info(&quot;All components upgraded&quot;);
-        &#x2F;&#x2F; 1
+        &#47;&#47; 1
         new MaterialProgress(dom.querySelector(&quot;#p1&quot;)).progress = 44;
-        &#x2F;&#x2F; 2
+        &#47;&#47; 2
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).progress = 33;
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).buffer = 87;
         (dom.querySelector(&quot;#slider&quot;) as dom.RangeInputElement).onInput.listen((final dom.Event event) {
@@ -55,23 +55,23 @@ main() {
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;p&gt;
         Default:
-    &lt;div id=&quot;p1&quot; class=&quot;mdl-js-progress&quot;&gt;&lt;&#x2F;div&gt;
-    &lt;&#x2F;p&gt;
+    &lt;div id=&quot;p1&quot; class=&quot;mdl-js-progress&quot;&gt;&lt;&#47;div&gt;
+    &lt;&#47;p&gt;
     &lt;p&gt;
         Indeterminate:
-    &lt;div id=&quot;p2&quot; class=&quot;mdl-js-progress mdl-progress__indeterminate&quot;&gt;&lt;&#x2F;div&gt;
-    &lt;&#x2F;p&gt;
+    &lt;div id=&quot;p2&quot; class=&quot;mdl-js-progress mdl-progress__indeterminate&quot;&gt;&lt;&#47;div&gt;
+    &lt;&#47;p&gt;
     &lt;p&gt;
         Buffering:
-    &lt;div id=&quot;p3&quot; class=&quot;mdl-js-progress&quot;&gt;&lt;&#x2F;div&gt;
-    &lt;&#x2F;p&gt;
-    &lt;h5&gt;Data binding&lt;&#x2F;h5&gt;
+    &lt;div id=&quot;p3&quot; class=&quot;mdl-js-progress&quot;&gt;&lt;&#47;div&gt;
+    &lt;&#47;p&gt;
+    &lt;h5&gt;Data binding&lt;&#47;h5&gt;
     &lt;p&gt;
         &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;44&quot; tabindex=&quot;0&quot; step=&quot;1&quot;
-               id=&quot;slider&quot;&#x2F;&gt;
-        &lt;p&gt;Drag me...&lt;&#x2F;p&gt;
-    &lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
+               id=&quot;slider&quot;&#47;&gt;
+        &lt;p&gt;Drag me...&lt;&#47;p&gt;
+    &lt;&#47;p&gt;
+&lt;&#47;div&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->

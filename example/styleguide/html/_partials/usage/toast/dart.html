@@ -1,12 +1,12 @@
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
 main() {
-    final Logger _logger = new Logger(&#x27;dialog.Main&#x27;);
+    final Logger _logger = new Logger(&#39;dialog.Main&#39;);
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialButton btnToast = MaterialButton.widget(dom.querySelector(&quot;#toast&quot;));
         final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector(&quot;#withAction&quot;));
 

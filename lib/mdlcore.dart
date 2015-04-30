@@ -30,6 +30,7 @@ import 'dart:js';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
+import 'package:di/di.dart' as di;
 
 part "src/MdlComponentHandler.dart";
 part "src/MdlConfig.dart";

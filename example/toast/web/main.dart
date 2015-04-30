@@ -13,7 +13,7 @@ main() {
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialButton btnToast = MaterialButton.widget(dom.querySelector("#toast"));
         final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector("#withAction"));
 

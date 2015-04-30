@@ -10,7 +10,7 @@ main() {
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialSpinner spinner = MaterialSpinner.widget(dom.querySelector("#first"));
         final MaterialButton button = MaterialButton.widget(dom.querySelector("#button"));
 

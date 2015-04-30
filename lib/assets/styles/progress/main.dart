@@ -12,7 +12,7 @@ main() {
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         _logger.info("All components upgraded");
 
         // 1

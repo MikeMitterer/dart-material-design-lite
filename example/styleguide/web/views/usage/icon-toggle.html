@@ -20,11 +20,11 @@
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 main() {
     registerAllMdlComponents();
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialIconToggle toggle = MaterialIconToggle.widget(dom.querySelector(&quot;#public-checkbox-1&quot;));
         new Timer.periodic(new Duration(milliseconds: 500), (final Timer timer) {
             toggle.checked = !toggle.checked;
@@ -45,42 +45,42 @@ main() {
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;div class=&quot;demo-icon-toggle-block&quot;&gt;
         &lt;label class=&quot;mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect&quot; for=&quot;checkbox-1&quot;&gt;
-            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-1&quot; class=&quot;mdl-icon-toggle__input&quot;&#x2F;&gt;
-            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-bold&quot;&gt;&lt;&#x2F;span&gt;
-        &lt;&#x2F;label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-1&quot; class=&quot;mdl-icon-toggle__input&quot;&#47;&gt;
+            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-bold&quot;&gt;&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
         &lt;label class=&quot;mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect&quot; for=&quot;checkbox-2&quot;&gt;
-            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-2&quot; class=&quot;mdl-icon-toggle__input&quot;&#x2F;&gt;
-            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-italic&quot;&gt;&lt;&#x2F;span&gt;
-        &lt;&#x2F;label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-2&quot; class=&quot;mdl-icon-toggle__input&quot;&#47;&gt;
+            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-italic&quot;&gt;&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
         &lt;label class=&quot;mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect&quot; for=&quot;checkbox-3&quot;&gt;
-            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-3&quot; class=&quot;mdl-icon-toggle__input&quot;&#x2F;&gt;
-            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-underline&quot;&gt;&lt;&#x2F;span&gt;
-        &lt;&#x2F;label&gt;
-    &lt;&#x2F;div&gt;
-    &lt;h5&gt;Disabled&lt;&#x2F;h5&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-3&quot; class=&quot;mdl-icon-toggle__input&quot;&#47;&gt;
+            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-underline&quot;&gt;&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
+    &lt;&#47;div&gt;
+    &lt;h5&gt;Disabled&lt;&#47;h5&gt;
     &lt;div class=&quot;demo-icon-toggle-block&quot;&gt;
         &lt;label class=&quot;mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect&quot; for=&quot;disabled-checkbox-1&quot;&gt;
-            &lt;input type=&quot;checkbox&quot; id=&quot;disabled-checkbox-1&quot; class=&quot;mdl-icon-toggle__input&quot; disabled&#x2F;&gt;
-            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-bold&quot;&gt;&lt;&#x2F;span&gt;
-        &lt;&#x2F;label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;disabled-checkbox-1&quot; class=&quot;mdl-icon-toggle__input&quot; disabled&#47;&gt;
+            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-bold&quot;&gt;&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
         &lt;label class=&quot;mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect&quot; for=&quot;disabled-checkbox-2&quot;&gt;
-            &lt;input type=&quot;checkbox&quot; id=&quot;disabled-checkbox-2&quot; class=&quot;mdl-icon-toggle__input&quot; disabled&#x2F;&gt;
-            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-italic&quot;&gt;&lt;&#x2F;span&gt;
-        &lt;&#x2F;label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;disabled-checkbox-2&quot; class=&quot;mdl-icon-toggle__input&quot; disabled&#47;&gt;
+            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-italic&quot;&gt;&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
         &lt;label class=&quot;mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect&quot; for=&quot;disabled-checkbox-3&quot;&gt;
-            &lt;input type=&quot;checkbox&quot; id=&quot;disabled-checkbox-3&quot; class=&quot;mdl-icon-toggle__input&quot; disabled&#x2F;&gt;
-            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-underline&quot;&gt;&lt;&#x2F;span&gt;
-        &lt;&#x2F;label&gt;
-    &lt;&#x2F;div&gt;
-    &lt;h5&gt;Data binding&lt;&#x2F;h5&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;disabled-checkbox-3&quot; class=&quot;mdl-icon-toggle__input&quot; disabled&#47;&gt;
+            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--format-underline&quot;&gt;&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
+    &lt;&#47;div&gt;
+    &lt;h5&gt;Data binding&lt;&#47;h5&gt;
     &lt;div class=&quot;demo-icon-toggle-block&quot;&gt;
         &lt;label class=&quot;mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect&quot; for=&quot;public-checkbox-1&quot;&gt;
-            &lt;input type=&quot;checkbox&quot; id=&quot;public-checkbox-1&quot; class=&quot;mdl-icon-toggle__input&quot;&#x2F;&gt;
-            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--android&quot;&gt;&lt;&#x2F;span&gt;
-        &lt;&#x2F;label&gt;
-        &lt;p&gt;&quot;bold&quot; toggles automatically every 500ms&lt;&#x2F;p&gt;
-    &lt;&#x2F;div&gt;
-&lt;&#x2F;div&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;public-checkbox-1&quot; class=&quot;mdl-icon-toggle__input&quot;&#47;&gt;
+            &lt;span class=&quot;mdl-icon-toggle__label mdl-icon mdl-icon--android&quot;&gt;&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
+        &lt;p&gt;&quot;bold&quot; toggles automatically every 500ms&lt;&#47;p&gt;
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->

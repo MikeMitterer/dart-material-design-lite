@@ -22,4 +22,10 @@ dependencies:
 
   prettify: any
 
+  di: ">=3.3.4 <4.0.0"
+
+
+transformers:
+  - di
+
 

@@ -24,6 +24,7 @@ import 'dart:math' as Math;
 import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:browser_detect/browser_detect.dart';
+import 'package:di/di.dart' as di;
 
 import "package:mdl/mdlcore.dart";
 
@@ -32,9 +33,7 @@ part "src/components/MaterialBadge.dart";
 part "src/components/MaterialButton.dart";
 part "src/components/MaterialRipple.dart";
 part "src/components/MaterialCheckbox.dart";
-part "src/components/MaterialColumnLayout.dart";
 part "src/components/MaterialIconToggle.dart";
-part "src/components/MaterialItem.dart";
 part "src/components/MaterialLayout.dart";
 part "src/components/MaterialMenu.dart";
 part "src/components/MaterialProgress.dart";
@@ -46,7 +45,11 @@ part "src/components/MaterialTabs.dart";
 part "src/components/MaterialTextfield.dart";
 part "src/components/MaterialTooltip.dart";
 
-final MdlComponentHandler componenthandler = new MdlComponentHandler();
+final MdlComponentHandler _componenthandler = new MdlComponentHandler();
+
+MdlComponentHandler componentFactory() {
+    return _componenthandler;
+}
 
 void registerAllMdlComponents() {
 
@@ -54,9 +57,7 @@ void registerAllMdlComponents() {
     registerMaterialBadge();
     registerMaterialButton();
     registerMaterialCheckbox();
-    registerMaterialColumnLayout();
     registerMaterialIconToggle();
-    registerMaterialItem();
     registerMaterialLayout();
     registerMaterialMenu();
     registerMaterialProgress();
@@ -72,6 +73,7 @@ void registerAllMdlComponents() {
     registerMaterialRipple();
 }
 
+@deprecated
 Future upgradeAllRegistered() {
-    return componenthandler.upgradeAllRegistered();
+    return _componenthandler.upgradeAllRegistered();
 }

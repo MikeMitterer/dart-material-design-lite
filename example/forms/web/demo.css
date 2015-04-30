@@ -97,6 +97,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -376,6 +377,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 /*
 Palettes (14 colors)  50 - 900 + A100 - A700 possible
     palette-red
@@ -2364,6 +2366,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -2851,20 +2854,24 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
-.mdl-shadow--z1 {
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+/* SHADOWS */
+.mdl-shadow--2dp {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
-.mdl-shadow--z2 {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+.mdl-shadow--3dp {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
 
-.mdl-shadow--z3 {
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
+.mdl-shadow--4dp {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
 
-.mdl-shadow--z4 {
-  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
+.mdl-shadow--6dp {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2); }
 
-.mdl-shadow--z5 {
-  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
+.mdl-shadow--8dp {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
+
+.mdl-shadow--16dp {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -2963,6 +2970,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-ripple {
   background: black;
   border-radius: 50%;
@@ -3082,6 +3090,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3195,6 +3204,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-button {
   background: transparent;
   border: none;
@@ -3242,9 +3252,9 @@ Palettes (10 colors) 50 - 900 possible
 
 .mdl-button--raised {
   background: rgba(158, 158, 158, 0.2);
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   .mdl-button--raised:active {
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     background-color: rgba(158, 158, 158, 0.4); }
   .mdl-button--raised:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
@@ -3263,7 +3273,7 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-button--raised[disabled][disabled] {
     background-color: rgba(0, 0, 0, 0.12);
     color: rgba(0, 0, 0, 0.26);
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-button--fab {
   border-radius: 50%;
@@ -3297,7 +3307,7 @@ Palettes (10 colors) 50 - 900 possible
     border-radius: 50%;
     -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
   .mdl-button--fab:active {
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     background-color: rgba(158, 158, 158, 0.4); }
   .mdl-button--fab:focus:not(:active) {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
@@ -3316,7 +3326,7 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-button--fab[disabled][disabled] {
     background-color: rgba(0, 0, 0, 0.12);
     color: rgba(0, 0, 0, 0.26);
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-button--icon {
   border-radius: 50%;
@@ -3466,9 +3476,10 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-card {
   font-size: 16px;
-  height: 200px;
+  min-height: 200px;
   overflow: hidden;
   width: 330px;
   z-index: 1;
@@ -3476,7 +3487,7 @@ Palettes (10 colors) 50 - 900 possible
   background: white;
   border-radius: 2px; }
 
-.mdl-card--img-container {
+.mdl-card__img-container {
   background-color: #ff4081;
   background-repeat: repeat;
   background-position: 50% 50%;
@@ -3485,7 +3496,7 @@ Palettes (10 colors) 50 - 900 possible
   background-attachment: scroll;
   height: 186px; }
 
-.mdl-card--heading {
+.mdl-card__heading {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -3501,21 +3512,18 @@ Palettes (10 colors) 50 - 900 possible
   height: 96px;
   justify-items: stretch;
   line-height: normal;
-  outline: white none 0;
   padding: 8px 16px;
   -webkit-perspective-origin: 165px 56px;
           perspective-origin: 165px 56px;
-  text-decoration: none solid white;
   -webkit-transform-origin: 165px 56px;
       -ms-transform-origin: 165px 56px;
           transform-origin: 165px 56px;
   width: 100%; }
 
-.mdl-card--heading-text {
+.mdl-card__heading-text {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
-  border: 0 none white;
   color: white;
   display: -webkit-box;
   display: -webkit-flex;
@@ -3526,52 +3534,41 @@ Palettes (10 colors) 50 - 900 possible
   height: 96px;
   justify-self: stretch;
   line-height: normal;
-  outline: white none 0;
   overflow: hidden;
-  text-decoration: none solid white;
   -webkit-transform-origin: 149px 48px;
       -ms-transform-origin: 149px 48px;
           transform-origin: 149px 48px;
   width: 90%; }
 
-.mdl-card--caption {
+.mdl-card__caption {
   background: #455a64 none repeat scroll 0 0/auto padding-box border-box;
-  border: 0 none white;
   color: white;
   font-size: 12px;
   height: 16px;
   line-height: normal;
-  outline: white none 0;
   padding: 8px 16px;
   -webkit-perspective-origin: 165px 16px;
           perspective-origin: 165px 16px;
-  text-decoration: none solid white;
   width: 100%; }
 
-.mdl-card--lower {
-  border: 0 none #444444;
+.mdl-card__lower {
   color: #607d8b;
   font-size: 13px;
   height: 108px;
   line-height: 18px;
   margin: 10px 0;
-  outline: #444444 none 0;
   overflow: hidden;
   padding: 0 16px;
-  text-decoration: none solid #444444;
   width: 90%; }
 
-.mdl-card--bottom {
+.mdl-card__bottom {
   font-size: 16px;
   height: 50px;
   line-height: normal;
-  width: 100%; }
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.16); }
 
-.mdl-card--bottom a {
-  border-bottom: 0 none #303f9f;
-  border-left: 0 none #303f9f;
-  border-right: 0 none #303f9f;
-  border-top: 1px solid #ebebeb;
+.mdl-card__bottom a {
   box-sizing: border-box;
   color: #455a64;
   cursor: pointer;
@@ -3580,16 +3577,21 @@ Palettes (10 colors) 50 - 900 possible
   font-weight: normal;
   height: 50px;
   line-height: 50px;
-  outline: #303f9f none 0;
   padding: 0 16px;
   -webkit-perspective-origin: 165px 25px;
           perspective-origin: 165px 25px;
-  text-decoration: none solid #303f9f;
   text-transform: uppercase;
   -webkit-transform-origin: 165px 25px;
       -ms-transform-origin: 165px 25px;
           transform-origin: 165px 25px;
-  width: 100%; }
+  width: 100%;
+  text-decoration: none; }
+
+.mdl-card__menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: white; }
 
 .mdl-card {
   height: auto;
@@ -3692,6 +3694,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -3911,6 +3914,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -6321,6 +6325,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -6477,6 +6482,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-mega-footer {
   padding: 32px 16px;
   color: #9e9e9e;
@@ -6725,6 +6731,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7264,6 +7271,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -7292,7 +7300,7 @@ Palettes (10 colors) 50 - 900 possible
   -webkit-transform-origin: 0 0;
       -ms-transform-origin: 0 0;
           transform-origin: 0 0;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   will-change: transform;
   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -7503,6 +7511,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-js-progress {
   display: block;
   position: relative;
@@ -7723,6 +7732,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7798,7 +7808,7 @@ Palettes (10 colors) 50 - 900 possible
   position: absolute;
   top: 0;
   left: 0;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   border-right: 1px solid #e0e0e0;
   background: #fafafa;
@@ -7921,7 +7931,7 @@ Palettes (10 colors) 50 - 900 possible
           transition-duration: 0.2s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition-property: min-height, box-shadow;
           transition-property: min-height, box-shadow;
   padding-left: 24px;
@@ -8041,7 +8051,7 @@ Palettes (10 colors) 50 - 900 possible
 .mdl-layout__header--waterfall {
   box-shadow: none; }
   .mdl-layout__header--waterfall.is-casting-shadow {
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-layout__header-row.mdl-layout__header-row {
   display: -webkit-box;
@@ -8159,7 +8169,7 @@ Palettes (10 colors) 50 - 900 possible
     overflow: hidden;
     width: 100%; }
   .mdl-layout__tab-bar.is-casting-shadow {
-    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-layout__tab-bar-container {
   position: relative;
@@ -8176,7 +8186,7 @@ Palettes (10 colors) 50 - 900 possible
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   .mdl-layout__container > .mdl-layout__tab-bar-container {
     position: absolute;
     top: 0;
@@ -8390,6 +8400,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-list {
   display: block;
   height: 500px;
@@ -8537,6 +8548,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -8734,6 +8746,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9077,6 +9090,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -9529,6 +9543,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -9587,7 +9602,7 @@ Palettes (10 colors) 50 - 900 possible
   width: 20px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition-duration: 0.28s;
           transition-duration: 0.28s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -9597,7 +9612,7 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-switch.is-checked .mdl-switch__thumb {
     background: #607d8b;
     left: 16px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
   .mdl-switch.is-disabled .mdl-switch__thumb {
     background: #bdbdbd;
     cursor: auto; }
@@ -9758,6 +9773,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -9945,6 +9961,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -10154,6 +10171,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
@@ -10280,6 +10298,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 /* Animation Variables */
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -10462,6 +10481,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -10592,6 +10612,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-dialog-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10645,7 +10666,7 @@ Palettes (10 colors) 50 - 900 possible
     max-height: 80%;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
     .mdl-dialog-container .mdl-dialog .mdl-dialog__content {
       display: block;
       box-sizing: border-box;
@@ -10777,6 +10798,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 form.wsk-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -10793,7 +10815,7 @@ form.wsk-basic-form {
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
   padding: 24px 24px 8px 24px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   form.wsk-basic-form h1, form.wsk-basic-form h2, form.wsk-basic-form h3, form.wsk-basic-form h4, form.wsk-basic-form h5, form.wsk-basic-form h6, form.wsk-basic-form h6 {
     padding-top: 0;
     font-size: 24px;
@@ -10996,7 +11018,7 @@ form.wsk-form {
   padding: 24px 0 8px 0;
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   form.wsk-form h1, form.wsk-form h2, form.wsk-form h3, form.wsk-form h4, form.wsk-form h5, form.wsk-form h6, form.wsk-form h6 {
     padding-top: 0;
     font-size: 24px;
@@ -11123,6 +11145,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-sticky-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -11291,13 +11314,14 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-nav-pill, .mdl-nav-pills > * {
   padding: 4px 8px;
   margin: 0 0 8px 0;
   border-radius: 3px;
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition: all 0.1s linear;
           transition: all 0.1s linear; }
   .debug .mdl-nav-pill, .debug .mdl-nav-pills > * {
@@ -11512,13 +11536,14 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
   border-radius: 2px; }
   .mdl-panel.mdl-panel--shadow {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   .mdl-panel.mdl-panel--light-text {
     color: whitesmoke; }
   .mdl-panel.mdl-panel--dark {
@@ -11622,6 +11647,7 @@ Palettes (10 colors) 50 - 900 possible
 /* ANIMATION */
 /* PROGRESS */
 /* BADGE */
+/* SHADOWS */
 .mdl-toast-container.is-visible .mdl-toast {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);
@@ -11653,7 +11679,7 @@ Palettes (10 colors) 50 - 900 possible
   z-index: 90;
   color: rgba(255, 255, 255, 0.87);
   background-color: #424242;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0) rotateZ(0deg);
           transform: translate3d(0, 0, 0) rotateZ(0deg);

@@ -20,11 +20,11 @@
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 main() {
     registerMdl();
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialSlider slider5 = MaterialSlider.widget(dom.querySelector(&quot;#slider5&quot;));
         final MaterialSlider slider2 = MaterialSlider.widget(dom.querySelector(&quot;#slider2&quot;));
         slider5.onChange.listen((_) {
@@ -46,21 +46,21 @@ main() {
   &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;p&gt;
       &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
-        min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot;&#x2F;&gt;
-    &lt;&#x2F;p&gt;
+        min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot;&#47;&gt;
+    &lt;&#47;p&gt;
     &lt;p&gt;
       &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
-        min=&quot;0&quot; max=&quot;100&quot; value=&quot;10&quot; tabindex=&quot;0&quot;&#x2F;&gt;
-    &lt;&#x2F;p&gt;
+        min=&quot;0&quot; max=&quot;100&quot; value=&quot;10&quot; tabindex=&quot;0&quot;&#47;&gt;
+    &lt;&#47;p&gt;
     &lt;p&gt;
       &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
-        min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot; disabled&#x2F;&gt;
-    &lt;&#x2F;p&gt;
+        min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot; disabled&#47;&gt;
+    &lt;&#47;p&gt;
     &lt;p&gt;
       &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
-        min=&quot;0&quot; max=&quot;100&quot; value=&quot;10&quot; tabindex=&quot;0&quot; disabled&#x2F;&gt;
-    &lt;&#x2F;p&gt;
-  &lt;&#x2F;div&gt;
+        min=&quot;0&quot; max=&quot;100&quot; value=&quot;10&quot; tabindex=&quot;0&quot; disabled&#47;&gt;
+    &lt;&#47;p&gt;
+  &lt;&#47;div&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->

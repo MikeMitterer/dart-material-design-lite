@@ -1,10 +1,12 @@
-import &#x27;package:mdl&#x2F;mdl.dart&#x27;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
 main() {
-    &#x2F;&#x2F; registerDemoAnimation and import mdldemo.dart is only necessary for animation sample
+    &#47;&#47; registerDemoAnimation and import mdldemo.dart is only necessary for animation sample
     registerDemoAnimation();
     registerAllMdlComponents();
 
-    upgradeAllRegistered();
+    componentFactory().run().then((_){
+
+    });
 }

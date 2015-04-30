@@ -25,6 +25,7 @@ import 'dart:async';
 
 import 'package:logging/logging.dart';
 import 'package:route_hierarchical/client.dart';
+import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
@@ -43,4 +44,5 @@ void registerAllMdlRemoteComponents() {
 
     registerMaterialContent();
     registerMaterialInclude();
+
 }
