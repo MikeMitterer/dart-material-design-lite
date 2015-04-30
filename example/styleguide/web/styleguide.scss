@@ -53,7 +53,7 @@ body {
         //    color            : $layout-header-text-color;
         //    background-color : $layout-header-bg-color;
         //}
-
+        overflow: scroll;
         border-right: none;
 
         .mdl-navigation {
@@ -87,11 +87,12 @@ body {
 
 
     .mdl-layout__content {
+
         box-sizing      : border-box;
 
         .mdl-content {
             // Align lastmod at bottom of page
-            min-height: calc(100vh - 160px);
+            //min-height: calc(100vh - 160px);
             margin    : 0 24px 24px 24px;
         }
 
