@@ -2,15 +2,17 @@ import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
 main() {
+    final Logger _logger = new Logger(&#39;main.MaterialSlider&#39;);
+
     registerMdl();
 
     componentFactory().run().then((_) {
 
-        final MaterialSlider slider5 = MaterialSlider.widget(dom.querySelector(&quot;#slider5&quot;));
         final MaterialSlider slider2 = MaterialSlider.widget(dom.querySelector(&quot;#slider2&quot;));
+        final MaterialSlider slider4 = MaterialSlider.widget(dom.querySelector(&quot;#slider4&quot;));
 
-        slider5.onChange.listen((_) {
-            slider2.value = slider5.value;
+        slider2.onChange.listen((_) {
+            slider4.value = slider2.value;
         });
 
     });

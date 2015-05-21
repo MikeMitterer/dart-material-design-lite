@@ -144,6 +144,8 @@ class MaterialSlider extends MdlComponent {
 
             element.onMouseUp.listen( _onMouseUp );
 
+            element.parent.onMouseDown.listen(_onContainerMouseDown);
+
             _updateValueStyles();
             element.classes.add(_cssClasses.IS_UPGRADED);
         }
@@ -162,6 +164,38 @@ class MaterialSlider extends MdlComponent {
     /// Handle mouseup on element.
     void _onMouseUp(final dom.MouseEvent event) {
         element.blur();
+    }
+
+    /// Handle mousedown on container element.
+    /// This handler is purpose is to not require the use to click
+    /// exactly on the 2px slider element, as FireFox seems to be very
+    /// strict about
+    /// param {Event} event The event that fired.
+    /// MaterialSlider.prototype.onContainerMouseDown_ = function(event) {
+    void _onContainerMouseDown(final dom.MouseEvent event) {
+
+        // If this click is not on the parent element (but rather some child)
+        // ignore. It may still bubble up.
+        if(event.target != element.parent) {
+            return;
+        }
+
+        // Discard the original event and create a new event that
+        // is on the slider element.
+        event.preventDefault();
+
+        final newEvent = new dom.MouseEvent('mousedown',
+            relatedTarget: event.target,
+            button: 0,
+            clientX: event.client.x.toInt(),
+            clientY: (element.getBoundingClientRect().topLeft.y as double).toInt());
+
+        //    target: event.target,
+        //    buttons: event.buttons,
+        //    clientX: event.clientX,
+        //    clientY: element.getBoundingClientRect().y
+
+        element.dispatchEvent(newEvent);
     }
 
     /// Handle updating of values.

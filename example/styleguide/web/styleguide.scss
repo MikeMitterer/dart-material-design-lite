@@ -43,8 +43,13 @@ body {
     flex-grow: 1;
 
     .mdl-layout__header {
-        .mdl-layout-title {
-            text-transform : capitalize;
+        .mdl-layout__header-row {
+
+            padding-left: 48px;
+
+            .mdl-layout-title {
+                text-transform : capitalize;
+            }
         }
     }
 

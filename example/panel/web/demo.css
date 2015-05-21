@@ -98,6 +98,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -378,6 +379,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 /*
 Palettes (14 colors)  50 - 900 + A100 - A700 possible
     palette-red
@@ -2252,8 +2254,8 @@ Palettes (10 colors) 50 - 900 possible
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?v=1.1.1');
+  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
   font-weight: normal;
   font-style: normal; }
 
@@ -2367,6 +2369,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -2445,7 +2448,8 @@ p {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0; }
+  letter-spacing: 0;
+  margin-bottom: 16px; }
 
 a {
   color: #ff4081;
@@ -2855,6 +2859,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
@@ -2971,6 +2976,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-ripple {
   background: black;
   border-radius: 50%;
@@ -3091,6 +3097,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3205,6 +3212,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-button {
   background: transparent;
   border: none;
@@ -3295,8 +3303,6 @@ Palettes (10 colors) 50 - 900 possible
     -webkit-transform: translate(-12px, -12px);
         -ms-transform: translate(-12px, -12px);
             transform: translate(-12px, -12px);
-    /*top: ($button-fab-size - $button-fab-font-size) / 2;
-      left: ($button-fab-size - $button-fab-font-size) / 2;*/
     line-height: 24px;
     width: 24px; }
   .mdl-button--fab.mdl-button--mini-fab {
@@ -3342,8 +3348,13 @@ Palettes (10 colors) 50 - 900 possible
   line-height: normal; }
   .mdl-button--icon .mdl-icon {
     position: absolute;
-    top: 4px;
-    left: 4px; }
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-12px, -12px);
+        -ms-transform: translate(-12px, -12px);
+            transform: translate(-12px, -12px);
+    line-height: 24px;
+    width: 24px; }
   .mdl-button--icon.mdl-button--mini-icon {
     height: 24px;
     min-width: 24px;
@@ -3477,6 +3488,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-card {
   font-size: 16px;
   min-height: 200px;
@@ -3695,6 +3707,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -3766,8 +3779,8 @@ Palettes (10 colors) 50 - 900 possible
   left: 0;
   height: 100%;
   width: 100%;
-  -webkit-mask: url("/images/tick-mask.svg#mask");
-          mask: url("/images/tick-mask.svg#mask");
+  -webkit-mask: url("/images/tick-mask.svg?embed");
+          mask: url("/images/tick-mask.svg?embed");
   background: transparent;
   -webkit-transition-duration: 0.28s;
           transition-duration: 0.28s;
@@ -3776,9 +3789,9 @@ Palettes (10 colors) 50 - 900 possible
   -webkit-transition-property: background;
           transition-property: background; }
   .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-    background: #607d8b url("/images/tick.svg"); }
+    background: #607d8b url("/images/tick.svg?embed"); }
   .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
-    background: rgba(0, 0, 0, 0.26) url("/images/tick.svg"); }
+    background: rgba(0, 0, 0, 0.26) url("/images/tick.svg?embed"); }
 
 .mdl-checkbox__label {
   position: relative;
@@ -3915,10 +3928,11 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url('../fonts/Material-Design-Iconic-Font.eot?v=1.1.1');
-  src: url('../fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('../fonts/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('../fonts/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
+  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?v=1.1.1');
+  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
   font-weight: normal;
   font-style: normal; }
 
@@ -6206,8 +6220,8 @@ Palettes (10 colors) 50 - 900 possible
 
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?v=1.1.1");
-  src: url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1") format('embedded-opentype'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.woff?v=1.1.1") format('woff'), url("packages/mdl/assets/fonts/Material-Design-Iconic-Font.ttf?v=1.1.1") format('truetype');
+  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?v=1.1.1');
+  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
   font-weight: normal;
   font-style: normal; }
 
@@ -6326,6 +6340,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -6400,6 +6415,21 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-icon-toggle.is-disabled .mdl-icon-toggle__ripple-container .mdl-ripple {
     background: transparent; }
 
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /* ==========  Color Palettes  ========== */
 /*
 Palettes (14 colors)  50 - 900 + A100 - A700 possible
@@ -6483,20 +6513,15 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-mega-footer {
-  padding: 32px 16px;
+  padding: 16px;
   color: #9e9e9e;
   background-color: #424242; }
 
-.mdl-mega-footer--top-section:after, .mdl-mega-footer--middle-section:after {
+.mdl-mega-footer--top-section:after, .mdl-mega-footer--middle-section:after, .mdl-mega-footer--bottom-section:after {
   content: '';
   display: block;
-  width: 100%;
-  height: 1px;
-  margin-bottom: 16px;
-  border-color: #9e9e9e;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
   clear: both; }
 
 .mdl-mega-footer--left-section {
@@ -6558,7 +6583,7 @@ Palettes (10 colors) 50 - 900 possible
 .mdl-mega-footer--heading-checkbox {
   position: absolute;
   width: 100%;
-  height: 68px;
+  height: 55.8px;
   padding: 32px;
   margin: 0;
   margin-top: -16px;
@@ -6582,12 +6607,12 @@ Palettes (10 colors) 50 - 900 possible
 .mdl-mega-footer--heading {
   position: relative;
   width: 100%;
-  padding-right: 52px;
-  margin-bottom: 32px;
+  padding-right: 39.8px;
+  margin-bottom: 16px;
   box-sizing: border-box;
-  font-size: 24px;
-  line-height: 36px;
-  font-weight: 300;
+  font-size: 14px;
+  line-height: 23.8px;
+  font-weight: 500;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -6599,8 +6624,8 @@ Palettes (10 colors) 50 - 900 possible
   top: 0;
   right: 0;
   display: block;
-  width: 36px;
-  height: 36px;
+  width: 23.8px;
+  height: 23.8px;
   background-size: cover; }
 
 .mdl-mega-footer--link-list {
@@ -6608,13 +6633,22 @@ Palettes (10 colors) 50 - 900 possible
   margin: 0;
   padding: 0;
   margin-bottom: 32px; }
+  .mdl-mega-footer--link-list:after {
+    clear: both;
+    display: block;
+    content: ''; }
 
 .mdl-mega-footer--link-list li {
-  margin-bottom: 16px; }
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  line-height: 20px; }
 
 .mdl-mega-footer--link-list a {
   color: inherit;
-  text-decoration: none; }
+  text-decoration: none;
+  white-space: nowrap; }
 
 @media screen and (min-width: 760px) {
   .mdl-mega-footer--heading-checkbox {
@@ -6629,14 +6663,9 @@ Palettes (10 colors) 50 - 900 possible
 .mdl-mega-footer--bottom-section {
   margin-bottom: 16px; }
 
-.mdl-mega-footer--bottom-section:after {
-  content: '';
-  display: block;
-  clear: both; }
-
 .mdl-logo {
-  margin-bottom: 16px;
-  font-size: 24px; }
+  line-height: 20px;
+  margin-bottom: 16px; }
 
 .mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li {
   float: left;
@@ -6649,6 +6678,21 @@ Palettes (10 colors) 50 - 900 possible
     margin-bottom: 0;
     margin-right: 16px; } }
 
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /* ==========  Color Palettes  ========== */
 /*
 Palettes (14 colors)  50 - 900 + A100 - A700 possible
@@ -6732,6 +6776,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6772,7 +6817,8 @@ Palettes (10 colors) 50 - 900 possible
         line-height: 36px; } }
   .mdl-mini-footer--link-list a {
     color: inherit;
-    text-decoration: none; }
+    text-decoration: none;
+    white-space: nowrap; }
 
 .mdl-mini-footer--left-section {
   display: inline-block;
@@ -6811,6 +6857,90 @@ Palettes (10 colors) 50 - 900 possible
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
 .mdl-grid {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7272,6 +7402,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -7512,6 +7643,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-js-progress {
   display: block;
   position: relative;
@@ -7541,14 +7673,15 @@ Palettes (10 colors) 50 - 900 possible
   right: 0; }
 
 @supports (-webkit-appearance: none) {
-  .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
+  .mdl-js-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #607d8b, #607d8b);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #607d8b, #607d8b);
-    -webkit-mask: url('/images/buffer.svg');
-            mask: url('/images/buffer.svg'); } }
+    -webkit-mask: url('/images/buffer.svg?embed');
+            mask: url('/images/buffer.svg?embed'); } }
 
 .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
-  background-color: rgba(0, 0, 0, 0.26); }
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), -webkit-linear-gradient(left, #607d8b, #607d8b);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #607d8b, #607d8b); }
 
 .mdl-js-progress.mdl-progress__indeterminate > .bar1 {
   background-color: #607d8b;
@@ -7629,7 +7762,7 @@ Palettes (10 colors) 50 - 900 possible
     width: 0%; } }
 
 @supports (-webkit-appearance: none) {
-  .mdl-js-progress:not(.mdl-progress__indeterminate) > .auxbar {
+  .mdl-js-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #607d8b, #607d8b);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #607d8b, #607d8b);
     -webkit-mask: url('data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E');
@@ -7733,6 +7866,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7740,7 +7874,8 @@ Palettes (10 colors) 50 - 900 possible
   display: flex;
   -webkit-flex-wrap: nowrap;
       -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap; }
+          flex-wrap: nowrap;
+  box-sizing: border-box; }
 
 .mdl-navigation__link {
   color: #424242;
@@ -7767,6 +7902,12 @@ Palettes (10 colors) 50 - 900 possible
   overflow-y: auto;
   overflow-x: hidden;
   position: relative; }
+
+.mdl-layout.is-small-screen .mdl-layout--large-screen-only {
+  display: none; }
+
+.mdl-layout:not(.is-small-screen) .mdl-layout--small-screen-only {
+  display: none; }
 
 .mdl-layout__container {
   position: absolute;
@@ -7826,6 +7967,7 @@ Palettes (10 colors) 50 - 900 possible
           transition-property: transform;
   color: #424242;
   overflow: visible;
+  overflow-y: auto;
   z-index: 5; }
   .mdl-layout__drawer.is-visible {
     -webkit-transform: translateX(0);
@@ -7837,20 +7979,26 @@ Palettes (10 colors) 50 - 900 possible
             flex-shrink: 0; }
   .mdl-layout__drawer > .mdl-layout-title {
     line-height: 64px;
-    padding-left: 24px;
-    border-bottom: 1px solid #e0e0e0; }
+    padding-left: 24px; }
     @media screen and (max-width: 850px) {
       .mdl-layout__drawer > .mdl-layout-title {
         line-height: 56px;
         padding-left: 16px; } }
   .mdl-layout__drawer .mdl-navigation {
-    width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
-            flex-direction: column; }
+            flex-direction: column;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch; }
   .mdl-layout__drawer .mdl-navigation__link {
+    display: block;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
     padding: 16px 24px;
     margin: 0; }
     @media screen and (max-width: 850px) {
@@ -7860,8 +8008,7 @@ Palettes (10 colors) 50 - 900 possible
     .mdl-layout--fixed-drawer > .mdl-layout__drawer {
       -webkit-transform: translateX(0);
           -ms-transform: translateX(0);
-              transform: translateX(0);
-      z-index: 3; } }
+              transform: translateX(0); } }
 
 .mdl-layout__drawer-button {
   display: block;
@@ -7908,47 +8055,45 @@ Palettes (10 colors) 50 - 900 possible
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-flex-wrap: nowrap;
       -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  box-sizing: border-box;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  width: 100%;
   margin: 0;
+  padding: 0;
   border: none;
-  height: 64px;
   min-height: 64px;
+  max-height: 1000px;
+  z-index: 3;
   background-color: #607d8b;
   color: white;
-  z-index: 3;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  -webkit-transition-property: min-height, box-shadow;
-          transition-property: min-height, box-shadow;
-  padding-left: 24px;
-  overflow: visible; }
-  .mdl-layout.has-drawer .mdl-layout__header {
-    padding-left: 72px; }
+  -webkit-transition-property: max-height, box-shadow;
+          transition-property: max-height, box-shadow; }
   @media screen and (max-width: 850px) {
     .mdl-layout__header {
-      height: 56px;
-      min-height: 56px;
-      padding-left: 16px; }
-      .mdl-layout.has-drawer .mdl-layout__header {
-        padding-left: 56px; } }
+      min-height: 56px; } }
   .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__header {
-    padding-left: 24px; }
+    margin-left: 240px; }
   .mdl-layout__header > .mdl-layout-icon {
-    margin-right: 24px;
+    position: absolute;
     left: 24px;
     top: 16px;
     height: 32px;
@@ -7958,58 +8103,20 @@ Palettes (10 colors) 50 - 900 possible
     display: block; }
     @media screen and (max-width: 850px) {
       .mdl-layout__header > .mdl-layout-icon {
-        margin-right: 16px;
         left: 16px;
         top: 12px; } }
   .mdl-layout.has-drawer .mdl-layout__header > .mdl-layout-icon {
     display: none; }
   .mdl-layout__header.is-compact {
-    min-height: 64px; }
+    max-height: 64px; }
     @media screen and (max-width: 850px) {
       .mdl-layout__header.is-compact {
-        min-height: 56px; } }
-  .mdl-layout__header > * {
-    -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-            flex-shrink: 0; }
-  .mdl-layout__header > *:last-child {
-    margin-right: 24px; }
+        max-height: 56px; } }
+  .mdl-layout__header.is-compact.has-tabs {
+    height: 112px; }
     @media screen and (max-width: 850px) {
-      .mdl-layout__header > *:last-child {
-        margin-right: 16px; } }
-  .mdl-layout__header > .mdl-navigation:last-child {
-    margin-right: 0; }
-  .mdl-layout__header .mdl-layout-title {
-    display: block; }
-  .mdl-layout__header .mdl-navigation {
-    margin: 0;
-    padding: 0;
-    height: 64px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; }
-    @media screen and (max-width: 850px) {
-      .mdl-layout__header .mdl-navigation {
-        height: 56px; } }
-  .mdl-layout__header .mdl-navigation__link {
-    color: white;
-    line-height: 64px;
-    padding: 0 24px; }
-    @media screen and (max-width: 850px) {
-      .mdl-layout__header .mdl-navigation__link {
-        line-height: 56px;
-        padding: 0 16px; } }
-  .mdl-layout__header .mdl-navigation__link:hover {
-    background-color: rgba(97, 97, 97, 0.6); }
-  @media screen and (min-width: 851px) {
-    .mdl-layout--fixed-drawer > .mdl-layout__header {
-      margin-left: 240px; } }
+      .mdl-layout__header.is-compact.has-tabs {
+        min-height: 104px; } }
   @media screen and (max-width: 850px) {
     .mdl-layout__header {
       display: none; }
@@ -8018,25 +8125,6 @@ Palettes (10 colors) 50 - 900 possible
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex; } }
-
-.mdl-layout__header--multi-row {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column; }
-
-.mdl-layout__header--medium-tall {
-  min-height: 128px; }
-  @media screen and (max-width: 850px) {
-    .mdl-layout__header--medium-tall {
-      min-height: 112px; } }
-
-.mdl-layout__header--tall {
-  min-height: 192px; }
-  @media screen and (max-width: 850px) {
-    .mdl-layout__header--tall {
-      min-height: 168px; } }
 
 .mdl-layout__header--transparent.mdl-layout__header--transparent {
   background-color: transparent;
@@ -8049,11 +8137,12 @@ Palettes (10 colors) 50 - 900 possible
   box-shadow: none; }
 
 .mdl-layout__header--waterfall {
-  box-shadow: none; }
+  box-shadow: none;
+  overflow: hidden; }
   .mdl-layout__header--waterfall.is-casting-shadow {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
-.mdl-layout__header-row.mdl-layout__header-row {
+.mdl-layout__header-row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8069,39 +8158,54 @@ Palettes (10 colors) 50 - 900 possible
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
+  box-sizing: border-box;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 64px;
-  width: 100%;
-  margin-right: 0; }
+  height: 64px;
+  margin: 0;
+  padding: 0 24px 0 80px; }
   @media screen and (max-width: 850px) {
-    .mdl-layout__header-row.mdl-layout__header-row {
-      min-height: 56px; } }
-  .mdl-layout__header-row.mdl-layout__header-row > .mdl-layout-icon {
-    margin-right: 24px;
-    height: 32px;
-    width: 32px;
-    overflow: hidden;
-    display: block; }
-    @media screen and (max-width: 850px) {
-      .mdl-layout__header-row.mdl-layout__header-row > .mdl-layout-icon {
-        left: 16px;
-        top: 12px; } }
-  .mdl-layout.has-drawer .mdl-layout__header-row.mdl-layout__header-row > .mdl-layout-icon {
-    display: none; }
-  .mdl-layout__header-row.mdl-layout__header-row > * {
+    .mdl-layout__header-row {
+      height: 56px;
+      padding: 0 16px 0 72px; } }
+  .mdl-layout__header-row > * {
     -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
             flex-shrink: 0; }
-  .mdl-layout__header-row.mdl-layout__header-row > *:last-child {
-    margin-right: 24px; }
+  .mdl-layout__header--scroll .mdl-layout__header-row {
+    width: 100%; }
+  .mdl-layout__header-row .mdl-navigation {
+    margin: 0;
+    padding: 0;
+    height: 64px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
     @media screen and (max-width: 850px) {
-      .mdl-layout__header-row.mdl-layout__header-row > *:last-child {
-        margin-right: 16px; } }
-  .mdl-layout__header-row.mdl-layout__header-row > .mdl-navigation:last-child {
-    margin-right: 0; }
+      .mdl-layout__header-row .mdl-navigation {
+        height: 56px; } }
+  .mdl-layout__header-row .mdl-navigation__link {
+    display: block;
+    color: white;
+    line-height: 64px;
+    padding: 0 24px; }
+    @media screen and (max-width: 850px) {
+      .mdl-layout__header-row .mdl-navigation__link {
+        line-height: 56px;
+        padding: 0 16px; } }
+  .mdl-layout__header-row .mdl-navigation__link:hover {
+    background-color: rgba(97, 97, 97, 0.6); }
 
 .mdl-layout__obfuscator {
   background-color: transparent;
@@ -8134,22 +8238,21 @@ Palettes (10 colors) 50 - 900 possible
   z-index: 1; }
   .mdl-layout--fixed-drawer > .mdl-layout__content {
     margin-left: 240px; }
-  .mdl-layout__header--scroll ~ .mdl-layout__content {
+  .mdl-layout__container.has-scrolling-header .mdl-layout__content {
     overflow: visible; }
   @media screen and (max-width: 850px) {
     .mdl-layout--fixed-drawer > .mdl-layout__content {
       margin-left: 0; }
-    .mdl-layout__header--scroll ~ .mdl-layout__content {
+    .mdl-layout__container.has-scrolling-header .mdl-layout__content {
       overflow-y: auto;
       overflow-x: hidden; } }
 
 .mdl-layout__tab-bar {
-  position: absolute;
-  top: 0;
   height: 96px;
+  margin: 0;
   width: calc(100% -
-        96px);
-  padding: 0 0 0 72px;
+        112px);
+  padding: 0 0 0 56px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8162,23 +8265,20 @@ Palettes (10 colors) 50 - 900 possible
   @media screen and (max-width: 850px) {
     .mdl-layout__tab-bar {
       width: calc(100% -
-          44px);
-      padding: 0 0 0 56px; } }
+          60px);
+      padding: 0 0 0 60px; } }
   .mdl-layout--fixed-tabs .mdl-layout__tab-bar {
     padding: 0;
     overflow: hidden;
     width: 100%; }
-  .mdl-layout__tab-bar.is-casting-shadow {
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-layout__tab-bar-container {
   position: relative;
-  overflow: hidden;
   height: 48px;
   width: 100%;
   border: none;
   margin: 0;
-  z-index: 3;
+  z-index: 2;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
@@ -8186,7 +8286,7 @@ Palettes (10 colors) 50 - 900 possible
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  overflow: hidden; }
   .mdl-layout__container > .mdl-layout__tab-bar-container {
     position: absolute;
     top: 0;
@@ -8195,9 +8295,10 @@ Palettes (10 colors) 50 - 900 possible
 .mdl-layout__tab-bar-button {
   display: inline-block;
   position: absolute;
+  top: 0;
   height: 48px;
   line-height: 48px;
-  width: 72px;
+  width: 56px;
   z-index: 4;
   text-align: center;
   background-color: #607d8b;
@@ -8210,7 +8311,7 @@ Palettes (10 colors) 50 - 900 possible
   @media screen and (max-width: 850px) {
     .mdl-layout__tab-bar-button {
       display: none;
-      width: 44px; } }
+      width: 60px; } }
   .mdl-layout--fixed-tabs .mdl-layout__tab-bar-button {
     display: none; }
   .mdl-layout__tab-bar-button.is-active {
@@ -8401,6 +8502,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-list {
   display: block;
   height: 500px;
@@ -8549,6 +8651,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -8747,6 +8850,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -8771,6 +8875,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     -webkit-align-self: center;
         -ms-flex-item-align: center;
             align-self: center;
+    z-index: 1;
     /**************************** Tracks ****************************/
     /**************************** Thumbs ****************************/
     /**************************** 0-value ****************************/
@@ -8959,7 +9064,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   top: 50%;
   left: 0;
   margin: 0 26px;
-  z-index: -1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9091,12 +9195,13 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-spinner {
   display: inline-block;
   position: relative;
   width: 28px;
   height: 28px; }
-  .mdl-spinner:not(.is-upgraded):after {
+  .mdl-spinner:not(.is-upgraded).is-active:after {
     content: "Loading..."; }
   .mdl-spinner.is-upgraded.is-active {
     -webkit-animation: mdl-spinner__container-rotate 1568.23529ms linear infinite;
@@ -9544,6 +9649,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -9774,6 +9880,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -9962,16 +10069,18 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
   display: inline-block;
   box-sizing: border-box;
   width: 300px;
-  margin: 0; }
+  margin: 0;
+  padding: 20px 0; }
   .mdl-textfield .mdl-button {
     position: absolute;
-    bottom: 0; }
+    bottom: 20px; }
 
 .mdl-textfield--align-right {
   text-align: right; }
@@ -9998,7 +10107,7 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-textfield.is-focused .mdl-textfield__input {
     outline: none; }
   .mdl-textfield.is-invalid .mdl-textfield__input {
-    border-color: #e53935;
+    border-color: #de3226;
     box-shadow: none; }
   .mdl-textfield.is-disabled .mdl-textfield__input {
     background-color: transparent;
@@ -10012,7 +10121,7 @@ Palettes (10 colors) 50 - 900 possible
   right: 0;
   pointer-events: none;
   position: absolute;
-  top: 4px;
+  top: 24px;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -10027,14 +10136,14 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-textfield--floating-label.is-focused .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
     color: #607d8b;
     font-size: 12px;
-    top: -16px;
+    top: 4px;
     visibility: visible; }
   .mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
-    color: #e53935;
+    color: #de3226;
     font-size: 12px; }
   .mdl-textfield__label:after {
     background-color: #607d8b;
-    bottom: 0;
+    bottom: 20px;
     content: '';
     height: 2px;
     left: 45%;
@@ -10050,10 +10159,10 @@ Palettes (10 colors) 50 - 900 possible
     visibility: visible;
     width: 100%; }
   .mdl-textfield.is-invalid .mdl-textfield__label:after {
-    background-color: #e53935; }
+    background-color: #de3226; }
 
 .mdl-textfield__error {
-  color: #e53935;
+  color: #de3226;
   position: absolute;
   font-size: 12px;
   margin-top: 3px;
@@ -10073,6 +10182,8 @@ Palettes (10 colors) 50 - 900 possible
   max-width: 0.1px; }
   .mdl-textfield.is-focused .mdl-textfield__expandable-holder, .mdl-textfield.is-dirty .mdl-textfield__expandable-holder {
     max-width: 600px; }
+  .mdl-textfield__expandable-holder .mdl-textfield__label:after {
+    bottom: 0; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -10172,6 +10283,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
@@ -10200,7 +10312,21 @@ Palettes (10 colors) 50 - 900 possible
   font-size: 14px;
   padding: 15px 16px; }
 
-@-webkit-keyframes pulse {
+@-webkit-keyframes pulse{
+  0%{
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0; }
+  50%{
+    -webkit-transform: scale(0.99);
+            transform: scale(0.99); }
+  100%{
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+    visibility: visible; } }
+
+@keyframes pulse {
   0% {
     -webkit-transform: scale(0);
             transform: scale(0);
@@ -10299,6 +10425,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 /* Animation Variables */
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -10399,6 +10526,21 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
   -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
           transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
 
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /* ==========  Color Palettes  ========== */
 /*
 Palettes (14 colors)  50 - 900 + A100 - A700 possible
@@ -10482,6 +10624,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -10516,6 +10659,8 @@ Palettes (10 colors) 50 - 900 possible
     position: absolute;
     top: -10px;
     right: -22px;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
     font-size: 10px;
     width: 20px;
     height: 20px;
@@ -10613,6 +10758,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-dialog-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10799,6 +10945,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 form.wsk-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -10957,7 +11104,7 @@ form.wsk-basic-form {
       form.wsk-basic-form .wsk-basic-form__group.help .help-block {
         padding: 0; }
     form.wsk-basic-form .wsk-basic-form__group .help-block {
-      color: #e53935;
+      color: #de3226;
       font-weight: 600; }
   form.wsk-basic-form input[type=submit], form.wsk-basic-form button {
     width: 130px;
@@ -11146,6 +11293,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-sticky-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -11315,6 +11463,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-nav-pill, .mdl-nav-pills > * {
   padding: 4px 8px;
   margin: 0 0 8px 0;
@@ -11537,6 +11686,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
@@ -11648,6 +11798,7 @@ Palettes (10 colors) 50 - 900 possible
 /* PROGRESS */
 /* BADGE */
 /* SHADOWS */
+/* GRID */
 .mdl-toast-container.is-visible .mdl-toast {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);

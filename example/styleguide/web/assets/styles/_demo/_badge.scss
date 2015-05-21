@@ -87,29 +87,14 @@
 
             margin: 5px 0;
             padding: 15px;
-            background-color: $layout-header-bg-color;;
+            background-color: $layout-header-bg-color;
             a {
                 color: white;
 
             }
         }
-
-        .fontawsom {
-            margin-top: 25px;
-            a, a:visited {
-                color: black;
-            }
-
-            i.fa {
-                font-size: 20px;
-                margin-right: 3px;
-            }
-        }
     }
 
-    .button-block {
-        padding: 10px;
-    }
 }
 
 

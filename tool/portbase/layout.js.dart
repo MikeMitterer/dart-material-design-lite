@@ -33,6 +33,7 @@ class MaterialLayout {
 /// enum {string | number}
 class _MaterialLayoutConstant {
     final String MAX_WIDTH = '(max-width: 850px)';
+    final int TAB_SCROLL_PIXELS = 100;
 }
 
 /// Modes.
@@ -49,6 +50,7 @@ class _MaterialLayoutMode {
 /// decide to modify at a later date.
 /// enum {string}
 class _MaterialLayoutCssClasses {
+    final String CONTAINER = 'mdl-layout__container';
     final String HEADER = 'mdl-layout__header';
     final String DRAWER = 'mdl-layout__drawer';
     final String CONTENT = 'mdl-layout__content';
@@ -74,32 +76,34 @@ class _MaterialLayoutCssClasses {
     final String TAB_BAR_RIGHT_BUTTON = 'mdl-layout__tab-bar-right-button';
     final String PANEL = 'mdl-layout__tab-panel';
 
-    final String HAS_DRAWER_CLASS = 'has-drawer';
-    final String SHADOW_CLASS = 'is-casting-shadow';
-    final String COMPACT_CLASS = 'is-compact';
-    final String SMALL_SCREEN_CLASS = 'is-small-screen';
-    final String DRAWER_OPEN_CLASS = 'is-visible';
-    final String ACTIVE_CLASS = 'is-active';
-    final String UPGRADED_CLASS = 'is-upgraded';
-    final String ANIMATING_CLASS = 'is-animating';
+    final String HAS_DRAWER = 'has-drawer';
+    final String HAS_TABS = 'has-tabs';
+    final String HAS_SCROLLING_HEADER = 'has-scrolling-header';
+    final String CASTING_SHADOW = 'is-casting-shadow';
+    final String IS_COMPACT = 'is-compact';
+    final String IS_SMALL_SCREEN = 'is-small-screen';
+    final String IS_DRAWER_OPEN = 'is-visible';
+    final String IS_ACTIVE = 'is-active';
+    final String IS_UPGRADED = 'is-upgraded';
+    final String IS_ANIMATING = 'is-animating';
 }
 
 /// Handles scrolling on the content.
 /// MaterialLayout.prototype.contentScrollHandler_ = /*function*/ () {
 void _contentScrollHandler() {
 
-  if(_header.classes.contains(_cssClasses.ANIMATING_CLASS)) {
+  if (_header.classes.contains(_cssClasses.IS_ANIMATING)) {
     return;
   }
 
-  if (_content.scrollTop > 0 && !_header.classes.contains(_cssClasses.COMPACT_CLASS)) {
-    _header.classes.add(_cssClasses.SHADOW_CLASS);
-    _header.classes.add(_cssClasses.COMPACT_CLASS);
-    _header.classes.add(_cssClasses.ANIMATING_CLASS);
-  } else if (_content.scrollTop <= 0 && _header.classes.contains(_cssClasses.COMPACT_CLASS)) {
-    _header.classes.remove(_cssClasses.SHADOW_CLASS);
-    _header.classes.remove(_cssClasses.COMPACT_CLASS);
-    _header.classes.add(_cssClasses.ANIMATING_CLASS);
+  if (_content.scrollTop > 0 && !_header.classes.contains(_cssClasses.IS_COMPACT)) {
+    _header.classes.add(_cssClasses.CASTING_SHADOW);
+    _header.classes.add(_cssClasses.IS_COMPACT);
+    _header.classes.add(_cssClasses.IS_ANIMATING);
+  } else if (_content.scrollTop <= 0 && _header.classes.contains(_cssClasses.IS_COMPACT)) {
+    _header.classes.remove(_cssClasses.CASTING_SHADOW);
+    _header.classes.remove(_cssClasses.IS_COMPACT);
+    _header.classes.add(_cssClasses.IS_ANIMATING);
   }
 }
 
@@ -108,13 +112,13 @@ void _contentScrollHandler() {
 void _screenSizeHandler() {
 
   if (_screenSizeMediaQuery.matches) {
-    element.classes.add(_cssClasses.SMALL_SCREEN_CLASS);
+    element.classes.add(_cssClasses.IS_SMALL_SCREEN);
 
   } else {
-    element.classes.remove(_cssClasses.SMALL_SCREEN_CLASS);
+    element.classes.remove(_cssClasses.IS_SMALL_SCREEN);
     // Collapse drawer (if any) when moving to a large screen size.
     if (_drawer) {
-      _drawer.classes.remove(_cssClasses.DRAWER_OPEN_CLASS);
+      _drawer.classes.remove(_cssClasses.IS_DRAWER_OPEN);
     }
   }
 }
@@ -124,23 +128,23 @@ void _screenSizeHandler() {
 /// MaterialLayout.prototype.drawerToggleHandler_ = /*function*/ () {
 void _drawerToggleHandler() {
 
-  _drawer.classes.toggle(_cssClasses.DRAWER_OPEN_CLASS);
+  _drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
 }
 
 /// Handles (un)setting the `is-animating` class
 /// MaterialLayout.prototype.headerTransitionEndHandler = /*function*/ () {
 void headerTransitionEndHandler() {
 
-  _header.classes.remove(_cssClasses.ANIMATING_CLASS);
+  _header.classes.remove(_cssClasses.IS_ANIMATING);
 }
 
 /// Handles expanding the header on click
 /// MaterialLayout.prototype.headerClickHandler = /*function*/ () {
 void headerClickHandler() {
 
-  if (_header.classes.contains(_cssClasses.COMPACT_CLASS)) {
-    _header.classes.remove(_cssClasses.COMPACT_CLASS);
-    _header.classes.add(_cssClasses.ANIMATING_CLASS);
+  if (_header.classes.contains(_cssClasses.IS_COMPACT)) {
+    _header.classes.remove(_cssClasses.IS_COMPACT);
+    _header.classes.add(_cssClasses.IS_ANIMATING);
   }
 }
 
@@ -149,7 +153,7 @@ void headerClickHandler() {
 void _resetTabState(final tabBar) {
 
   for (final k = 0; k < tabBar.length; k++) {
-    tabBar[k].classes.remove(_cssClasses.ACTIVE_CLASS);
+    tabBar[k].classes.remove(_cssClasses.IS_ACTIVE);
   }
 }
 
@@ -158,7 +162,7 @@ void _resetTabState(final tabBar) {
 void _resetPanelState(final panels) {
 
   for (final j = 0; j < panels.length; j++) {
-    panels[j].classes.remove(_cssClasses.ACTIVE_CLASS);
+    panels[j].classes.remove(_cssClasses.IS_ACTIVE);
   }
 }
 
@@ -169,7 +173,7 @@ void init() {
   if (element != null) {
 
     final container = new html.DivElement();
-    container.classes.add('mdl-layout__container');
+    container.classes.add(_cssClasses.CONTAINER);
     element.parent.insertBefore(container, element);
     element.parent.removeChild(element);
     container.append(element);
@@ -202,17 +206,18 @@ void init() {
       } else if (element.classes.contains(
           _cssClasses.HEADER_SCROLL)) {
         mode = _Mode.SCROLL;
+        container.classlist.add(_cssClasses.HAS_SCROLLING_HEADER);
       }
 
       if (mode == _Mode.STANDARD) {
-        _header.classes.add(_cssClasses.SHADOW_CLASS);
+        _header.classes.add(_cssClasses.CASTING_SHADOW);
         if (_tabBar) {
-          _tabBar.classes.add(_cssClasses.SHADOW_CLASS);
+          _tabBar.classes.add(_cssClasses.CASTING_SHADOW);
         }
       } else if (mode == _Mode.SEAMED || mode == _Mode.SCROLL) {
-        _header.classes.remove(_cssClasses.SHADOW_CLASS);
+        _header.classes.remove(_cssClasses.CASTING_SHADOW);
         if (_tabBar) {
-          _tabBar.classes.remove(_cssClasses.SHADOW_CLASS);
+          _tabBar.classes.remove(_cssClasses.CASTING_SHADOW);
         }
       } else if (mode == _Mode.WATERFALL) {
         // Add and remove shadows depending on scroll position.
@@ -237,9 +242,9 @@ void init() {
           _drawerToggleHandler);
 
       // Add a class if the layout has a drawer, for altering the left padding.
-      // Adds the HAS_DRAWER_CLASS to the elements since _header may or may
+      // Adds the HAS_DRAWER to the elements since _header may or may
       // not be present.
-      element.classes.add(_cssClasses.HAS_DRAWER_CLASS);
+      element.classes.add(_cssClasses.HAS_DRAWER);
 
       // If we have a fixed header, add the button to the header rather than
       // the layout.
@@ -260,12 +265,13 @@ void init() {
     }
 
     // Initialize tabs, if any.
-    if (_tabBar) {
+    if (_header && _tabBar) {
+      element.classes.add(_cssClasses.HAS_TABS);
 
       final tabContainer = new html.DivElement();
       tabContainer.classes.add(_cssClasses.TAB_CONTAINER);
-      element.insertBefore(tabContainer, _tabBar);
-      element.removeChild(_tabBar);
+      _header.insertBefore(tabContainer, _tabBar);
+      _header.removeChild(_tabBar);
 
       final leftButton = new html.DivElement();
       leftButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
@@ -273,7 +279,7 @@ void init() {
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       leftButton.onClick.listen( /*function*/ () {
-        _tabBar.scrollLeft -= 100;
+        _tabBar.scrollLeft -= _constant.TAB_SCROLL_PIXELS;
       });
 
       final rightButton = new html.DivElement();
@@ -282,7 +288,7 @@ void init() {
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       rightButton.onClick.listen( /*function*/ () {
-        _tabBar.scrollLeft += 100;
+        _tabBar.scrollLeft += _constant.TAB_SCROLL_PIXELS;
       });
 
       tabContainer.append(leftButton);
@@ -293,18 +299,18 @@ void init() {
 
       final tabScrollHandler = /*function*/ () {
         if (_tabBar.scrollLeft > 0) {
-          leftButton.classes.add(_cssClasses.ACTIVE_CLASS);
+          leftButton.classes.add(_cssClasses.IS_ACTIVE);
 
         } else {
-          leftButton.classes.remove(_cssClasses.ACTIVE_CLASS);
+          leftButton.classes.remove(_cssClasses.IS_ACTIVE);
         }
 
         if (_tabBar.scrollLeft <
             _tabBar.scrollWidth - _tabBar.offsetWidth) {
-          rightButton.classes.add(_cssClasses.ACTIVE_CLASS);
+          rightButton.classes.add(_cssClasses.IS_ACTIVE);
 
         } else {
-          rightButton.classes.remove(_cssClasses.ACTIVE_CLASS);
+          rightButton.classes.remove(_cssClasses.IS_ACTIVE);
         }
       };
 
@@ -329,7 +335,7 @@ void init() {
       }
     }
 
-    element.classes.add(_cssClasses.UPGRADED_CLASS);
+    element.classes.add(_cssClasses.IS_UPGRADED);
   }
 }
 
@@ -365,8 +371,8 @@ class MaterialLayoutTab {
       final panel = layout._content.querySelector('#' + href);
       layout._resetTabState(tabs);
       layout._resetPanelState(panels);
-      tab.classes.add(layout._cssClasses.ACTIVE_CLASS);
-      panel.classes.add(layout._cssClasses.ACTIVE_CLASS);
+      tab.classes.add(layout._cssClasses.IS_ACTIVE);
+      panel.classes.add(layout._cssClasses.IS_ACTIVE);
     });
 
   }

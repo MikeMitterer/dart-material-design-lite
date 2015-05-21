@@ -227,6 +227,24 @@ class RadioController extends DemoController {
     }
 }
 
+class SliderController extends DemoController {
+    final Logger _logger = new Logger('main.SliderController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final MaterialSlider slider2 = MaterialSlider.widget(dom.querySelector("#slider2"));
+        final MaterialSlider slider4 = MaterialSlider.widget(dom.querySelector("#slider4"));
+
+        slider2.onChange.listen((_) {
+            slider4.value = slider2.value;
+        });
+
+    }
+}
+
+
 class SpinnerController extends DemoController {
     final Logger _logger = new Logger('main.SpinnerController');
 
@@ -406,7 +424,7 @@ void configRouter() {
             enter: view("views/samples.html", new DemoController()))
 
         ..addRoute(name: 'slider', path: '/slider',
-                    enter: view("views/slider.html", new DemoController()))
+                    enter: view("views/slider.html", new SliderController()))
 
         ..addRoute(name: 'spinner', path: '/spinner',
                     enter: view("views/spinner.html", new SpinnerController()))

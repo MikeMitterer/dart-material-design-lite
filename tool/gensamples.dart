@@ -282,6 +282,15 @@ class Application {
 
         srcColordef.copySync(targetColordev.path);
 
+        final File srcMegaFooter = new File("${mdlDir}/footer/_mega_footer.scss");
+        final File targetMegaFooter = new File("${sassDir}/footer/_mega_footer.orig.scss");
+
+        srcMegaFooter.copySync(targetMegaFooter.path);
+
+        final File srcMiniFooter = new File("${mdlDir}/footer/_mini_footer.scss");
+        final File targetMiniFooter = new File("${sassDir}/footer/_mini_footer.orig.scss");
+
+        srcMiniFooter.copySync(targetMiniFooter.path);
     }
 
     /// {sassDir} -> lib/sass/accordion

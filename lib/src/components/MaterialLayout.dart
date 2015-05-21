@@ -26,6 +26,7 @@ class _MaterialLayoutCssClasses {
 
     static const String MAIN_CLASS  = "mdl-js-layout";
 
+    final String CONTAINER = 'mdl-layout__container';
     final String HEADER = 'mdl-layout__header';
     final String DRAWER = 'mdl-layout__drawer';
     final String CONTENT = 'mdl-layout__content';
@@ -53,14 +54,16 @@ class _MaterialLayoutCssClasses {
 
     final String NAVI_LINK = "mdl-navigation__link";
 
-    final String HAS_DRAWER_CLASS = 'has-drawer';
-    final String SHADOW_CLASS = 'is-casting-shadow';
-    final String COMPACT_CLASS = 'is-compact';
-    final String SMALL_SCREEN_CLASS = 'is-small-screen';
-    final String DRAWER_OPEN_CLASS = 'is-visible';
-    final String ACTIVE_CLASS = 'is-active';
-    final String UPGRADED_CLASS = 'is-upgraded';
-    final String ANIMATING_CLASS = 'is-animating';
+    final String HAS_DRAWER = 'has-drawer';
+    final String HAS_TABS = 'has-tabs';
+    final String HAS_SCROLLING_HEADER = 'has-scrolling-header';
+    final String CASTING_SHADOW = 'is-casting-shadow';
+    final String IS_COMPACT = 'is-compact';
+    final String IS_SMALL_SCREEN = 'is-small-screen';
+    final String IS_DRAWER_OPEN = 'is-visible';
+    final String IS_ACTIVE = 'is-active';
+    final String IS_UPGRADED = 'is-upgraded';
+    final String IS_ANIMATING = 'is-animating';
 
     const _MaterialLayoutCssClasses();
 }
@@ -69,6 +72,7 @@ class _MaterialLayoutCssClasses {
 class _MaterialLayoutConstant {
 
     final String MAX_WIDTH = '(max-width: 850px)';
+    final int TAB_SCROLL_PIXELS = 100;
 
     const _MaterialLayoutConstant();
 }
@@ -144,7 +148,7 @@ class MaterialLayout extends MdlComponent {
         if (element != null) {
 
             final dom.DivElement container = new dom.DivElement();
-            container.classes.add('mdl-layout__container');
+            container.classes.add(_cssClasses.CONTAINER);
             element.parent.insertBefore(container, element);
             element.remove(); // element.parent.removeChild (element);
             container.append(element);
@@ -171,19 +175,20 @@ class MaterialLayout extends MdlComponent {
                 else if (element.classes.contains(
                         _cssClasses.HEADER_SCROLL)) {
                         mode = _mode.SCROLL;
+                        container.classes.add(_cssClasses.HAS_SCROLLING_HEADER);
                     }
 
                 if (mode == _mode.STANDARD) {
-                    header.classes.add(_cssClasses.SHADOW_CLASS);
+                    header.classes.add(_cssClasses.CASTING_SHADOW);
                     if (tabBar != null) {
-                        tabBar.classes.add(_cssClasses.SHADOW_CLASS);
+                        tabBar.classes.add(_cssClasses.CASTING_SHADOW);
                     }
                 }
                 else if (mode == _mode.SEAMED || mode == _mode.SCROLL) {
-                    header.classes.remove(_cssClasses.SHADOW_CLASS);
+                    header.classes.remove(_cssClasses.CASTING_SHADOW);
 
                     if (tabBar != null) {
-                        tabBar.classes.remove(_cssClasses.SHADOW_CLASS);
+                        tabBar.classes.remove(_cssClasses.CASTING_SHADOW);
                     }
                 }
                 else if (mode == _mode.WATERFALL) {
@@ -208,7 +213,7 @@ class MaterialLayout extends MdlComponent {
                 // Add a class if the layout has a drawer, for altering the left padding.
                 // Adds the HAS_DRAWER_CLASS to the elements since _header may or may
                 // not be present.
-                element.classes.add(_cssClasses.HAS_DRAWER_CLASS);
+                element.classes.add(_cssClasses.HAS_DRAWER);
 
                 // If we have a fixed header, add the button to the header rather than
                 // the layout.
@@ -222,7 +227,7 @@ class MaterialLayout extends MdlComponent {
                 //_logger.info("Check: .${_cssClasses.NAVI_LINK}");
                 element.querySelectorAll(".${_cssClasses.NAVI_LINK}").forEach((final dom.Element element) {
                     //_logger.info("click $element");
-                    element.onClick.listen( (_) => drawer.classes.remove(_cssClasses.DRAWER_OPEN_CLASS) );
+                    element.onClick.listen( (_) => drawer.classes.remove(_cssClasses.IS_DRAWER_OPEN) );
                 });
 
                 final dom.DivElement obfuscator = new dom.DivElement();
@@ -230,16 +235,15 @@ class MaterialLayout extends MdlComponent {
                 element.append(obfuscator);
 
                 obfuscator.onClick.listen( _drawerToggleHandler );
-
-
             }
 
             // Initialize tabs, if any.
-            if (tabBar != null) {
+            if (header != null && tabBar != null) {
+                element.classes.add(_cssClasses.HAS_TABS);
 
                 final dom.DivElement tabContainer = new dom.DivElement();
                 tabContainer.classes.add(_cssClasses.TAB_CONTAINER);
-                element.insertBefore(tabContainer, tabBar);
+                header.insertBefore(tabContainer, tabBar);
                 tabBar.remove(); // element.removeChild(_tabBar);
 
                 final dom.DivElement leftButton = new dom.DivElement();
@@ -247,7 +251,7 @@ class MaterialLayout extends MdlComponent {
                 leftButton.classes.add(_cssClasses.TAB_BAR_LEFT_BUTTON);
 
                 leftButton.onClick.listen( (final dom.MouseEvent event) {
-                    tabBar.scrollLeft -= 100;
+                    tabBar.scrollLeft -= _constant.TAB_SCROLL_PIXELS;
                 });
 
                 final dom.DivElement rightButton = new dom.DivElement();
@@ -265,17 +269,17 @@ class MaterialLayout extends MdlComponent {
                 // Add and remove buttons depending on scroll position.
                 void tabScrollHandler () {
                     if (tabBar.scrollLeft > 0) {
-                        leftButton.classes.add(_cssClasses.ACTIVE_CLASS);
+                        leftButton.classes.add(_cssClasses.IS_ACTIVE);
                     }
                     else {
-                        leftButton.classes.remove(_cssClasses.ACTIVE_CLASS);
+                        leftButton.classes.remove(_cssClasses.IS_ACTIVE);
                     }
 
                     if (tabBar.scrollLeft < tabBar.scrollWidth - tabBar.offsetWidth) {
-                        rightButton.classes.add(_cssClasses.ACTIVE_CLASS);
+                        rightButton.classes.add(_cssClasses.IS_ACTIVE);
                     }
                     else {
-                        rightButton.classes.remove(_cssClasses.ACTIVE_CLASS);
+                        rightButton.classes.remove(_cssClasses.IS_ACTIVE);
                     }
                 };
                 tabBar.onScroll.listen( (final dom.Event event) => tabScrollHandler());
@@ -295,26 +299,26 @@ class MaterialLayout extends MdlComponent {
                 }
             }
 
-            element.classes.add(_cssClasses.UPGRADED_CLASS);
+            element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
 
     /// Handles scrolling on the content.
     void _contentScrollHandler(final dynamic _ ) {
 
-        if(header.classes.contains(_cssClasses.ANIMATING_CLASS)) {
+        if(header.classes.contains(_cssClasses.IS_ANIMATING)) {
             return;
         }
 
-        if (content.scrollTop > 0 && !header.classes.contains(_cssClasses.COMPACT_CLASS)) {
-            header.classes.add(_cssClasses.SHADOW_CLASS);
-            header.classes.add(_cssClasses.COMPACT_CLASS);
-            header.classes.add(_cssClasses.ANIMATING_CLASS);
+        if (content.scrollTop > 0 && !header.classes.contains(_cssClasses.IS_COMPACT)) {
+            header.classes.add(_cssClasses.CASTING_SHADOW);
+            header.classes.add(_cssClasses.IS_COMPACT);
+            header.classes.add(_cssClasses.IS_ANIMATING);
         }
-        else if (content.scrollTop <= 0 && header.classes.contains(_cssClasses.COMPACT_CLASS)) {
-            header.classes.remove(_cssClasses.SHADOW_CLASS);
-            header.classes.remove(_cssClasses.COMPACT_CLASS);
-            header.classes.add(_cssClasses.ANIMATING_CLASS);
+        else if (content.scrollTop <= 0 && header.classes.contains(_cssClasses.IS_COMPACT)) {
+            header.classes.remove(_cssClasses.CASTING_SHADOW);
+            header.classes.remove(_cssClasses.IS_COMPACT);
+            header.classes.add(_cssClasses.IS_ANIMATING);
         }
     }
 
@@ -337,23 +341,23 @@ class MaterialLayout extends MdlComponent {
     /// Handles toggling of the drawer.
     /// The [drawer] container element.
     void _drawerToggleHandler(final dom.MouseEvent _) {
-        drawer.classes.toggle(_cssClasses.DRAWER_OPEN_CLASS);
+        drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
     }
 
     /// Handles (un)setting the `is-animating` class
     /// MaterialLayout.prototype.headerTransitionEndHandler = /*function*/ () {
     void _headerTransitionEndHandler(final dom.Event event) {
 
-        header.classes.remove(_cssClasses.ANIMATING_CLASS);
+        header.classes.remove(_cssClasses.IS_ANIMATING);
     }
 
     /// Handles expanding the header on click
     /// MaterialLayout.prototype.headerClickHandler = /*function*/ () {
     void _headerClickHandler(final dom.MouseEvent _) {
 
-        if (header.classes.contains(_cssClasses.COMPACT_CLASS)) {
-            header.classes.remove(_cssClasses.COMPACT_CLASS);
-            header.classes.add(_cssClasses.ANIMATING_CLASS);
+        if (header.classes.contains(_cssClasses.IS_COMPACT)) {
+            header.classes.remove(_cssClasses.IS_COMPACT);
+            header.classes.add(_cssClasses.IS_ANIMATING);
         }
     }
 
@@ -361,7 +365,7 @@ class MaterialLayout extends MdlComponent {
     void _resetTabState(final tabBar) {
 
         for (int k = 0; k < tabBar.length; k++) {
-            tabBar[k].classes.remove(_cssClasses.ACTIVE_CLASS);
+            tabBar[k].classes.remove(_cssClasses.IS_ACTIVE);
         }
     }
 
@@ -370,7 +374,7 @@ class MaterialLayout extends MdlComponent {
     void _resetPanelState(final panels) {
 
         for (int j = 0; j < panels.length; j++) {
-            panels[j].classes.remove(_cssClasses.ACTIVE_CLASS);
+            panels[j].classes.remove(_cssClasses.IS_ACTIVE);
         }
     }
 }
@@ -409,8 +413,8 @@ class MaterialLayoutTab {
                 layout._resetTabState(tabs);
                 layout._resetPanelState(panels);
 
-                tab.classes.add(_cssClasses.ACTIVE_CLASS);
-                panel.classes.add(_cssClasses.ACTIVE_CLASS);
+                tab.classes.add(_cssClasses.IS_ACTIVE);
+                panel.classes.add(_cssClasses.IS_ACTIVE);
             });
 
         }

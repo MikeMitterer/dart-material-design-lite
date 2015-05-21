@@ -6,17 +6,19 @@ import 'package:console_log_handler/console_log_handler.dart';
 import 'package:mdl/mdl.dart';
 
 main() {
+    final Logger _logger = new Logger('main.MaterialSlider');
+
     configLogging();
 
     registerMdl();
 
     componentFactory().run().then((_) {
 
-        final MaterialSlider slider5 = MaterialSlider.widget(dom.querySelector("#slider5"));
         final MaterialSlider slider2 = MaterialSlider.widget(dom.querySelector("#slider2"));
+        final MaterialSlider slider4 = MaterialSlider.widget(dom.querySelector("#slider4"));
 
-        slider5.onChange.listen((_) {
-            slider2.value = slider5.value;
+        slider2.onChange.listen((_) {
+            slider4.value = slider2.value;
         });
 
     });

@@ -68,7 +68,7 @@ class MaterialTextfield extends MdlComponent {
 
     int _maxRows = _constant.NO_MAX_ROWS;
 
-    dom.InputElement _input;
+    dom.HtmlElement _input;
     dom.LabelElement _label;
 
     MaterialTextfield.fromElement(final dom.HtmlElement element,final di.Injector injector)
@@ -80,9 +80,9 @@ class MaterialTextfield extends MdlComponent {
 
     dom.Element get hub => input;
 
-    dom.InputElement get input {
+    dom.HtmlElement get input {
         if(_input == null) {
-            _input = element.querySelector(".${_cssClasses.INPUT}") as dom.InputElement;
+            _input = element.querySelector(".${_cssClasses.INPUT}") as dom.HtmlElement;
         }
         return _input;
     }
@@ -115,7 +115,7 @@ class MaterialTextfield extends MdlComponent {
         _updateClasses();
     }
 
-    String get value => input.value;
+    String get value => _relaxedInput.value;
 
     //- private -----------------------------------------------------------------------------------
 

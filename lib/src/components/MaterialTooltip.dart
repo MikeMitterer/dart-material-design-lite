@@ -69,9 +69,12 @@ class MaterialTooltip extends MdlComponent {
             final String forElId = element.getAttribute('for');
 
             if(forElId != null ) {
-                _forEl = dom.querySelector("#${forElId}");
+                _logger.info("ELEMENT: ${forElId}");
+
+                _forEl = element.parent.querySelector("#${forElId}");
 
                 if(_forEl != null) {
+                    _logger.info("Found: ${forElId}");
                     _forEl.onMouseEnter.listen( _handleMouseEnter );
 
                     _forEl.onMouseLeave.listen( _handleMouseLeave);
