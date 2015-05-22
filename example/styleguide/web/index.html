@@ -23,7 +23,6 @@
     <meta name="theme-color" content="#3372DF">
     <link rel="stylesheet" href="packages/prettify/styles/light.css">
     <script type="text/javascript" src="packages/prettify/js/prettify.js"></script>
-
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
     <link rel="canonical" href="http://www.example.com/">
@@ -33,8 +32,13 @@
     <!--<link id="theme" rel="stylesheet" href="packages/mdl/assets/themes/amber-cyan/material.css">-->
     <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
     <link rel="stylesheet" href="styleguide.css">
+    <style>
+        div.loading { display: none; }
+        body.mdl-upgrading > * { display: none; }
+        body.mdl-upgrading div.loading { display: block; }
+    </style>
 </head>
-<body class="mdl-typography">
+<body class="mdl-typography mdl-base mdl-upgrading"> <div class="loading">Loading...</div>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
