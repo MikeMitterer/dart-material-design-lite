@@ -28,7 +28,11 @@ class EventCompiler {
     static const List<String> datasets = const [ "mdl-click", "mdl-class"];
 
     /**
-     * {scope} is where the functions are, {element} has children with data-mdl-[eventname] attributes.
+     * {scope} represents an object/class where the functions are located,
+     * {element} has children with data-mdl-[eventname] attributes.
+     * Sample:
+     *      <tag ... data-mdl-click="check({{id}})"></tag>
+     *
      * compileElement connects these two definitions
      */
     Future compileElement(final Object scope,final dom.Element element) async {
@@ -42,13 +46,16 @@ class EventCompiler {
             elements.forEach( (final dom.Element element) {
                 //_logger.info("$dataset for $element");
 
+                // finds function name and params
                 final Match match = new RegExp(r"([^(]*)\(([^)]*)\)").firstMatch(element.dataset[dataset]);
 
+                // from the above sample this would be: check
                 Symbol getFunctionName() => new Symbol(match.group(1));
 
                 List getParams() {
                     final List params = new List();
 
+                    // first group is function name, second - params
                     if(match.groupCount == 2) {
                         final List<String> matches = match.group(2).split(",");
                         if(matches.isNotEmpty && matches[0].isNotEmpty) {

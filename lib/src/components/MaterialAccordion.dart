@@ -88,8 +88,6 @@ class MaterialAccordion extends MdlComponent {
     static const _MaterialAccordionConstant _constant = const _MaterialAccordionConstant();
     static const _MaterialAccordionCssClasses _cssClasses = const _MaterialAccordionCssClasses();
 
-    //final List<html.HtmlElement> _labels = new List<html.HtmlElement>();
-
     MaterialAccordion.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         _init();
