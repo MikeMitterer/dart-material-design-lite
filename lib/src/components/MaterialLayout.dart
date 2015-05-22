@@ -107,6 +107,7 @@ class MaterialLayout extends MdlComponent {
     dom.HtmlElement _drawer = null;
     dom.HtmlElement _tabBar = null;
     dom.HtmlElement _content = null;
+    dom.MediaQueryList _screenSizeMediaQuery = null;
 
     MaterialLayout.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
@@ -155,8 +156,11 @@ class MaterialLayout extends MdlComponent {
 
             int mode = _mode.STANDARD;
 
-            // _screenSizeMediaQuery.addListener(_screenSizeHandler);
-            //_screenSizeHandler();
+            // Keep an eye on screen size, and add/remove auxiliary class for styling
+            // of small screens.
+            _screenSizeMediaQuery = dom.window.matchMedia(_constant.MAX_WIDTH);
+            _screenSizeMediaQuery.onChange.listen(_screenSizeHandler);
+            _screenSizeHandler();
 
             if (header != null) {
                 if (header.classes.contains(_cssClasses.HEADER_SEAMED)) {
@@ -323,20 +327,20 @@ class MaterialLayout extends MdlComponent {
     }
 
     /// Handles changes in screen size.
-//    void _screenSizeHandler() {
-//
-//        if (_screenSizeMediaQuery.matches) {
-//            element.classes.add(_cssClasses.SMALL_SCREEN_CLASS);
-//        }
-//        else {
-//            element.classes.remove(_cssClasses.SMALL_SCREEN_CLASS);
-//
-//            // Collapse drawer (if any) when moving to a large screen size.
-//            if (_drawer != null) {
-//                _drawer.classes.remove(_cssClasses.DRAWER_OPEN_CLASS);
-//            }
-//        }
-//    }
+    void _screenSizeHandler([final dom.Event event]) {
+
+        if (_screenSizeMediaQuery.matches) {
+            element.classes.add(_cssClasses.IS_SMALL_SCREEN);
+        }
+        else {
+            element.classes.remove(_cssClasses.IS_SMALL_SCREEN);
+
+            // Collapse drawer (if any) when moving to a large screen size.
+            if (_drawer != null) {
+                _drawer.classes.remove(_cssClasses.IS_DRAWER_OPEN);
+            }
+        }
+    }
 
     /// Handles toggling of the drawer.
     /// The [drawer] container element.

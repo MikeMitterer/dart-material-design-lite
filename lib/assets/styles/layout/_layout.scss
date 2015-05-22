@@ -1,12 +1,12 @@
 @import "layout.orig";
 
-.mdl-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header {
-
-    .mdl-layout__header {
-        .mdl-layout-title {
-            @media screen and (max-width: $layout-screen-size-threshold) {
-                margin-left: 28px;
-            }
-        }
-    }
-}
+//.mdl-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header {
+//
+//    .mdl-layout__header {
+//        .mdl-layout-title {
+//            @media screen and (max-width: $layout-screen-size-threshold) {
+//                margin-left: 28px;
+//            }
+//        }
+//    }
+//}
