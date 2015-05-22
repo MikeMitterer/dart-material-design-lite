@@ -30,13 +30,19 @@
           rel='stylesheet' type='text/css'>
     <!--<link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">-->
     <link rel="stylesheet" href="styles/demo.css">
+
+    <style>
+        div.loading { display: none; }
+        body.mdl-upgrading > * { display: none; }
+        body.mdl-upgrading div.loading { display: block; }
+    </style>
 </head>
 
-<body class="mdl-typography mdl-base">
+<body class="mdl-typography mdl-base mdl-upgrading"> <div class="loading">Loading...</div>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-color--900">
         <div class="mdl-layout__header-row">
-            <div class="mdl-layout-title  mdl-color-text--white">Fixed drawer and header</div>
+            <div class="mdl-layout-title  mdl-color-text--white">Title</div>
             <div class="container">
             <div class="toolbar">
                 <span class="mdl-icon mdl-icon--assignment" title="mdl-icon--book"></span>
