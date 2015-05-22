@@ -35,27 +35,29 @@
 <body class="mdl-typography mdl-base">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-color--900">
-        <span class="mdl-layout-title  mdl-color-text--white">Fixed drawer and header</span>
-        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-layout__header-row">
+            <div class="mdl-layout-title  mdl-color-text--white">Fixed drawer and header</div>
+            <div class="container">
+            <div class="toolbar">
+                <span class="mdl-icon mdl-icon--assignment" title="mdl-icon--book"></span>
+                <span class="mdl-icon mdl-icon--perm-phone-msg mdl-badge" title="mdl-icon--perm-phone-msg">
+                    <span class="mdl-badge" data-badge="5"></span>
+                </span>
+                <span class="mdl-icon mdl-icon--help" title="mdl-icon--help"></span>
+            </div>
 
-        <div class="toolbar">
-            <span class="mdl-icon mdl-icon--assignment" title="mdl-icon--book"></span>
-            <span class="mdl-icon mdl-icon--perm-phone-msg mdl-badge" title="mdl-icon--perm-phone-msg">
-                <span class="mdl-badge" data-badge="5"></span>
-            </span>
-            <span class="mdl-icon mdl-icon--help" title="mdl-icon--help"></span>
+            <button id="clickable3" class="demo-menu-button-right2 mdl-button mdl-js-button mdl-button--icon">
+                <span class="mdl-icon mdl-icon--more-vert"/>
+            </button>
+
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="clickable3">
+                <li class="mdl-menu__item">5.0 Lollipop</li>
+                <li class="mdl-menu__item">4.4 KitKat</li>
+                <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
+                <li class="mdl-menu__item">Android History</li>
+            </ul>
+            </div>
         </div>
-
-        <button id="clickable3" class="demo-menu-button-right2 mdl-button mdl-js-button mdl-button--icon">
-            <span class="mdl-icon mdl-icon--more-vert"/>
-        </button>
-
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="clickable3">
-            <li class="mdl-menu__item">5.0 Lollipop</li>
-            <li class="mdl-menu__item">4.4 KitKat</li>
-            <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
-            <li class="mdl-menu__item">Android History</li>
-        </ul>
     </header>
     <div class="mdl-layout__drawer mdl-color--800">
         <span class="mdl-layout-title mdl-color--900 mdl-color-text--white">Material Design Lite</span>

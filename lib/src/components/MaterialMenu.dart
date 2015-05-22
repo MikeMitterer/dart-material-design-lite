@@ -346,7 +346,7 @@ class MaterialMenu extends MdlComponent {
             } else if (element.classes.contains(_cssClasses.BOTTOM_RIGHT)) {
 
                 // Position below the "for" element, aligned to its right.
-                _container.style.right = "${forRect.right - rect.right}px";
+                _container.style.right = "${forRect.right - rect.right + 10}px";
                 _container.style.top = "${_forElement.offsetTop + _forElement.offsetHeight}px";
 
             } else if (element.classes.contains(_cssClasses.TOP_LEFT)) {

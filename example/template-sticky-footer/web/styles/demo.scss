@@ -1,6 +1,8 @@
 $icon-font-path : "../packages/mdl/assets/fonts" !default;
 @import "packages/mdl/assets/styles/material-design-lite";
 
+$footer-height: 48px;
+
 html, body {
     width            : 100%;
     height           : 100%;
@@ -18,9 +20,22 @@ html, body {
 // mdl-layout__container is added by the Dart-Framework so it takes a while to load...
 .mdl-layout {
 
+    &:not(.is-small-screen) {
+
+    }
+
+    &.is-small-screen {
+        .mdl-layout__header-row {  padding-left: 60px; }
+    }
+
+    .mdl-layout__header-row {  padding-left: 24px; }
+
+
     .mdl-layout__drawer {
         overflow: scroll;
         //border-right-color: #607d8b;
+        height: calc(100% - 48px);
+        box-shadow: initial;
     }
 
     .mdl-layout__content {

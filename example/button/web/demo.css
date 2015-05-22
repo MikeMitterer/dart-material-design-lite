@@ -8415,10 +8415,6 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-layout.is-upgraded .mdl-layout__tab-panel.is-active {
     display: block; }
 
-@media screen and (max-width: 850px) {
-  .mdl-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header .mdl-layout__header .mdl-layout-title {
-    margin-left: 28px; } }
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *

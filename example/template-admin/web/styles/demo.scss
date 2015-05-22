@@ -19,23 +19,49 @@ html, body {
 // mdl-layout__container is added by the Dart-Framework so it takes a while to load...
 .mdl-layout {
 
-    .toolbar {
-        margin-top: 7px;
-        margin-right: 24px;
+    &:not(.is-small-screen) {
+        .container { margin-right: 220px; }
+    }
 
-        .mdl-icon {
-            font-size: 18px;
-            margin: 0px 8px 0 8px;
+    &.is-small-screen {
+        .mdl-layout__header-row {  padding-left: 60px; }
+    }
 
-            .mdl-badge {
-                margin-left: -8px;
+    .mdl-layout__header-row {
+        padding-left: 24px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        flex-grow: 1;
+
+        .toolbar {
+            margin-top: 7px;
+            margin-right: 24px;
+
+            .mdl-icon {
+                font-size: 18px;
+                margin: 0px 8px 0 8px;
+
+                .mdl-badge {
+                    margin-left: -8px;
+                }
             }
         }
+
     }
+
 
     .mdl-layout__drawer {
         overflow: scroll;
-        //border-right-color: #607d8b;
+        height: calc(100% - 48px);
+        box-shadow: initial;
 
         border-right: initial;
 
