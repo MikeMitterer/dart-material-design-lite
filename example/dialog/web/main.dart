@@ -15,7 +15,7 @@ main() {
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector("#alertdialog"));
         final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector("#confirmdialog"));
         final MaterialButton btnCustomDialog = MaterialButton.widget(dom.querySelector("#customdialog"));
