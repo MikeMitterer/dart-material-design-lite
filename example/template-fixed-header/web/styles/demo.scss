@@ -1,0 +1,87 @@
+$icon-font-path : "../packages/mdl/assets/fonts" !default;
+@import "packages/mdl/assets/themes/indigo-orange/material-design-lite";
+
+
+$footer-height: 48px;
+
+html, body {
+    width            : 100%;
+    height           : 100%;
+    margin           : 0;
+    padding          : 0;
+
+    background-color: #F9F9F9;
+}
+
+.mdl-layout__container {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+// Important - don't define mdl-layout inside of mdl-layout__container!
+// mdl-layout__container is added by the Dart-Framework so it takes a while to load...
+.mdl-layout {
+
+    &:not(.is-small-screen) {
+
+    }
+
+    &.is-small-screen {
+        .demo-app-icon {  margin-left: 36px; }
+        .mdl-layout__header-row {  padding-left: 88px; }
+    }
+
+    .demo-app-icon {
+        display: block !important;
+        background-image: url('../assets/svg/logo-first-part_48px.svg');
+        background-repeat: no-repeat;
+        background-size: 30px 30px;
+        margin-left: 40px;
+    }
+
+    .mdl-layout__header-row {  padding-left: 100px; }
+
+
+    .mdl-layout__drawer {
+        overflow: scroll;
+        //border-right-color: #607d8b;
+        height: calc(100% - 48px);
+        box-shadow: initial;
+    }
+
+    .mdl-layout__content {
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : center; // ⇾
+        align-content   : space-between; // ||
+        align-items     : flex-start; // ↓
+
+        padding        : 24px;
+
+        section {
+            //margin   : 24px;
+            //flex-grow : 1;
+            //overflow  : scroll;
+
+            max-width: 1160px;
+            @media screen and (max-width: 1240px) {max-width: 760px; }
+            @media screen and (max-width: 760px) {max-width: 410px; }
+
+            > .mdl-panel {
+                margin-top: 48px;
+                border-radius: 4px;
+            }
+        }
+
+        h3 ~ h4 {
+            padding-top : 20px;
+        }
+    }
+}
+
+
+
+
+

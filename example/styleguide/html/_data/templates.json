@@ -8,5 +8,11 @@
     "name" : "template-admin",
     "description" : "Admin template",
     "preview" : "template-admin.jpg"
+  },
+  {
+    "name" : "template-fixed-header",
+    "description" : "Small apps",
+    "preview" : "template-fixed-header.jpg"
   }
+
 ]

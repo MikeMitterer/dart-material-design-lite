@@ -1,0 +1,2 @@
+# MDL Sticky footer sample
+

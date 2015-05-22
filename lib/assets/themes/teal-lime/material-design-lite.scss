@@ -1,14 +1,14 @@
 /* Material Design Lite */
 
-// Resets and dependencies
-@import "../../styles/resets/resets";
-
 // Material Colors
 @import "../../styles/palette/color-definitions";
 
 // Color-Theme
 $palette-primary: $palette-teal;
 $palette-accent: $palette-lime; // All pallets except brown, grey and blue-grey
+
+// Resets and dependencies
+@import "../../styles/resets/resets";
 
 // CSS-Styles for colors
 @import "../../styles/palette/palette";
