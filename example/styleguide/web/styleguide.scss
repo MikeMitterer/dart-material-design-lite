@@ -1,5 +1,6 @@
 //@import "packages/mdl/assets/themes/amber-indigo/material-design-lite";
-//@import "packages/mdl/assets/styles/material-design-lite";
+@import "packages/mdl/assets/styles/material-design-lite";
+
 @import "packages/mdl/assets/styles/fonts/fonts";
 // for layout
 // @import "packages/mdl/assets/styles/icons/icons";
@@ -45,11 +46,18 @@ body {
     .mdl-layout__header {
         .mdl-layout__header-row {
 
-            padding-left: 48px;
+            padding-left: 24px;
 
             .mdl-layout-title {
                 text-transform : capitalize;
             }
+        }
+    }
+
+    &.mdl-layout--fixed-drawer.is-small-screen {
+
+        .mdl-layout__header-row {
+            padding-left: 60px;
         }
     }
 
