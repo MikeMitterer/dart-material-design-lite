@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* Material Design Lite */
+/* ==========  Color Palettes  ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -280,7 +281,6 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
-/* ==========  Color Palettes  ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8379,8 +8379,8 @@ Palettes (10 colors) 50 - 900 possible
     left: 0;
     position: absolute;
     background: #ff4081;
-    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
-    -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
+    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+            animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
     -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
             transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
   .mdl-layout__tab .mdl-layout__tab-ripple-container {
@@ -9935,8 +9935,8 @@ Palettes (10 colors) 50 - 900 possible
     left: 0px;
     position: absolute;
     background: #607d8b;
-    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
-    -moz-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0s alternate forwards;
+    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+            animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
     -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
             transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
   .mdl-tabs__tab .mdl-tabs__ripple-container {
@@ -9958,7 +9958,15 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-tabs.is-upgraded .mdl-tabs__panel.is-active {
     display: block; }
 
-@-webkit-keyframes border-expand {
+@-webkit-keyframes border-expand{
+  0%{
+    opacity: 0;
+    width: 0; }
+  100%{
+    opacity: 1;
+    width: 100%; } }
+
+@keyframes border-expand {
   0% {
     opacity: 0;
     width: 0; }
