@@ -16,7 +16,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 @import "../variables";
 
 $form-color : $text-color-primary !default;
@@ -37,9 +36,8 @@ $_form_default_label_padding : 12px !default;
 $_form_default_label_width : 130px !default;
 $_form_default_button_width : $_form_default_label_width !default;
 
-form.wsk-basic-form {
+form.mdl-basic-form {
     box-sizing       : border-box;
-
     display          : flex;
     flex-direction   : column;
     width            : $_form_default_width;
@@ -101,18 +99,18 @@ form.wsk-basic-form {
         }
     }
 
-    .wsk-basic-form__group {
+    .mdl-basic-form__group {
         display        : flex;
         flex-direction : row;
         padding-top    : ($_form_default_font_size / 2);
         padding-bottom : ($_form_default_font_size / 2);
 
-        &.wsk-basic-form__group--last-row {
+        &.mdl-basic-form__group--last-row {
             padding    : 0;
             margin-top : 16px;
         }
 
-        > .wsk-basic-form__group { padding-top : 0; }
+        > .mdl-basic-form__group { padding-top : 0; }
 
         label {
             width       : $_form_default_label_width;
@@ -142,7 +140,7 @@ form.wsk-basic-form {
             padding-top   : ($_form_default_font_size / 2);
         }
 
-        &.wsk-basic-form__group--right {
+        &.mdl-basic-form__group--right {
             justify-content : flex-end;
 
             input, button {
@@ -173,17 +171,17 @@ form.wsk-basic-form {
             }
         }
 
-        &.wsk-basic-form__group--checkbox, &.wsk-basic-form__group--radio {
+        &.mdl-basic-form__group--checkbox, &.mdl-basic-form__group--radio {
             justify-content : flex-start;
             font-size       : $_form_default_font_size;
 
             input {
-                flex-grow  : 0;
-                margin-top : 3px;
-                margin-left: 1em;
+                flex-grow   : 0;
+                margin-top  : 3px;
+                margin-left : 1em;
 
                 &:first-child {
-                    margin-left: 0;
+                    margin-left : 0;
                 }
             }
 
@@ -208,7 +206,6 @@ form.wsk-basic-form {
         }
     }
 
-
     input[type=submit], button {
         width            : $_form_default_button_width;
 
@@ -231,8 +228,8 @@ form.wsk-basic-form {
             margin-right : 0;
         }
 
-        &.wsk-basic-form__control--maxsize { width : 100%;}
-        &.wsk-basic-form__control {
+        &.mdl-basic-form__control--maxsize { width : 100%; }
+        &.mdl-basic-form__control {
             &--last-row {
                 margin-top : 20px;
             }
@@ -249,7 +246,7 @@ form.wsk-basic-form {
         color            : $form-color-accent;
     }
 
-    .wsk-basic-form__control {
+    .mdl-basic-form__control {
         &--last-row {
             margin-top : 20px;
         }
@@ -266,57 +263,87 @@ form.wsk-basic-form {
 // Material style
 //   More: http://www.google.com/design/spec/material-design/introduction.html
 //
-form.wsk-form {
-    box-sizing: border-box;
 
-    display: inline-flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start; // ↓
-    align-content: space-between; // =
-    align-items: flex-start; // ⇾
+form.mdl-form {
+    box-sizing       : border-box;
+    border-radius    : 3px;
 
-    padding          : 24px 0 8px 0;
+    padding          : 0 0  8px 0;
 
     color            : $form-color;
     background-color : $form-background-color;
 
-    h1, h2, h3, h4, h5, h6, h6 {
-        padding-top : 0; font-size : 24px; line-height : 24px;
-        margin-left: 24px;
-        margin-right: 24px;
+    .mdl-form__title {
+        padding-top : 24px;
+        font-size   : 24px;
+        line-height : 24px;
+        margin      : 0 24px 4px 24px;
     }
 
-    > .wsk-input, .wsk-checkbox {
-        margin-left: 24px;
-        margin-right: 24px;
-    }
+    .mdl-form__content {
+        margin-left  : 24px;
+        margin-right : 24px;
 
-    .wsk-form__group {
-        box-sizing: border-box;
+        .mdl-textfield, .mdl-slider {
+            width : 100%;
+        }
 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-end; // ⇾
-        align-content: space-between; // ||
-        align-items: center; // ↓
-
-        width: 100%;
-        min-height: 48px;
-        max-height: 48px;
-        padding-right: 16px;
-
-        &.wsk-form__group--left {
+        .mdl-form__group {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: flex-start; // ⇾
+            align-content: space-between; // ||
+            align-items: center; // ↓
+
+            box-sizing      : border-box;
+
+            > * {
+                width: inherit;
+                min-width: 96px;
+
+                margin-right: 8px;
+            }
+
+            .mdl-icon {
+                font-size: 24px;
+                min-width: 48px;
+            }
+        }
+
+    }
+
+    .mdl-form__actions {
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : flex-end; // ⇾
+        align-content   : space-between; // ||
+        align-items     : flex-start; // ↓
+        margin          : 8px 8px 0 8px;
+        width           : calc(100% - 16px);
+
+        //border: 1px solid blue;
+
+        > * {
+            margin-left : 4px;
         }
     }
 
 
     @include shadow-2dp();
-
 }
 
+form.mdl-form-registration {
+    @extend .mdl-form;
+
+    .mdl-form__actions {
+        .mdl-button {
+            flex-grow: 1;
+        }
+    }
+
+}
 
 
 

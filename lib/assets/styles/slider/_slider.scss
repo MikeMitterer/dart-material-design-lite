@@ -1,1 +1,9 @@
 @import "slider.orig";
+
+.mdl-slider__container__container {
+    flex-grow: 1;
+
+    .mdl-slider__label {
+        padding-left: 20px;
+    }
+}

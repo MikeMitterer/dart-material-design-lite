@@ -1,25 +1,42 @@
 @import "packages/mdl/assets/styles/material-design-lite";
 
-.forms.sample {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start; // ⇾
-    align-content: space-between; // ||
-    align-items: flex-start; // ↓
+.demo-page--forms {
+    background-color : linen;
 
-    .linklist {
-        width: 100%;
-    }
-    > * {
-        margin-right: 12px;
-        margin-bottom: 24px;
+    .firstblock {
+        clear : both;
+        height: 400px;
     }
 
     form {
-        max-width: 512px;
+        max-width     : 512px;
+        margin-bottom : 24px;
+    }
+
+    .demo-registration {
+        float     : right;
+        clear     : both;
+        max-width : 320px;
+    }
+
+    .demo-slider {
+
+        .mdl-form__content {
+            margin-right: 0;
+
+            .mdl-form__group {
+                margin: 20px 0 20px 20px;
+
+                &:first-child {
+                    margin-top: 20px;
+                }
+
+            }
+        }
     }
 }
+
+
 
 
 
