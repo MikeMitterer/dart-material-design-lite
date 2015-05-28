@@ -1,4 +1,4 @@
-part of mdl.unit.test;
+part of mdl.ui.unit.test;
 
 testButton() {
     final Logger _logger = new Logger("test.Button");

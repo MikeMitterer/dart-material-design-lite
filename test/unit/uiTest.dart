@@ -17,32 +17,45 @@
  * limitations under the License.
  */
 
-//@TestOn("dartium")
+@TestOn("dartium")
 
-library mdl.unit.test;
+library mdl.ui.unit.test;
 
+import 'dart:html' as dom;
+import 'dart:async';
 import 'package:test/test.dart';
 
 //-----------------------------------------------------------------------------
 // Logging
 
 import 'package:logging/logging.dart';
-//import 'package:console_log_handler/console_log_handler.dart';
-import 'package:logging_handlers/logging_handlers_shared.dart';
+import 'package:console_log_handler/console_log_handler.dart';
 
+import "package:mdl/mdl.dart";
 import "package:mdl/mdlutils.dart";
 
-part "utils/utils_test.dart";
+part "components/button_test.dart";
 
 /**
- * run the test with: pub run test:test -p dartium test/unit/test.dart
+ * run the test with: pub run test:test -p dartium test/unit/ *.dart
  */
 main() async {
     final Logger _logger = new Logger('wsk_material.unit.test');
 
     configLogging();
 
-    testDataAttribute();
+    registerMdl();
+
+    Future initComponents() async {
+        final Stopwatch stopwatch = new Stopwatch()..start();
+        await componentFactory().run();
+        stopwatch.stop();
+        _logger.info("UI Initialized, took ${stopwatch.elapsedMilliseconds}ms...");
+    }
+
+    await initComponents();
+
+    testButton();
 }
 
 void configLogging() {
@@ -51,6 +64,5 @@ void configLogging() {
     // now control the logging.
     // Turn off all logging first
     Logger.root.level = Level.INFO;
-    //Logger.root.onRecord.listen(new LogHandler());
-    Logger.root.onRecord.listen(new LogPrintHandler());
+    Logger.root.onRecord.listen(new LogConsoleHandler());
 }
