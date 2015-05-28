@@ -102,8 +102,10 @@ final componentHandler = ( /*function*/ () {
           callback(element);
         });
 
-        // Assign per element instance for control over API
-        element.widget = instance;
+        if (registeredClass.widget) {
+          // Assign per element instance for control over API
+          element.widget = instance;
+        }
 
       } else {
         // If component creator forgot to register, try and see if
@@ -126,6 +128,7 @@ final componentHandler = ( /*function*/ () {
       'classConstructor': config.constructor,
       'className': config.classAsString,
       'cssClass': config.cssClass,
+      'widget': config.widget == undefined ? true : config.widget,
       'callbacks': []
     }
 
@@ -175,12 +178,14 @@ window.addEventListener('load', /*function*/ () {
 /// Performs a "Cutting the mustard" test. If the browser supports the features
 /// tested, adds a mdl-js class to the <html> element. It then upgrades all MDL
 /// components requiring JavaScript.
-  if ('classList' in new html.DivElement() && 'querySelector' in document &&
+  if ('classList' in new html.DivElement() &&
+      'querySelector' in document &&
       'addEventListener' in window && Array.prototype.forEach) {
     document.documentElement.classes.add('mdl-js');
     componentHandler.upgradeAllRegistered();
 
   } else {
-    componentHandler.upgradeElement = componentHandler.register = function () { }
+    componentHandler.upgradeElement =
+        componentHandler.register = function () { }
   }
 });

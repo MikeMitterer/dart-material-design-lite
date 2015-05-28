@@ -15,8 +15,8 @@ import 'dart:math' as Math;
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 
-/// Class constructor for Ripple WSK component.
-/// Implements WSK component design pattern defined at:
+/// Class constructor for Ripple MDL component.
+/// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// param {HTMLElement} element The element that will be upgraded.
 class MaterialRipple {
@@ -92,7 +92,7 @@ void _downHandler(final html.Event event) {
     }
     setRippleXY(x, y);
     setRippleStyles(true);
-    window.requestAnimFrame(animFrameHandler);
+    window.requestAnimationFrame(animFrameHandler);
   }
 }
 
@@ -210,7 +210,7 @@ void init() {
 
       animFrameHandler = /*function*/ () {
         if (_frameCount-- > 0) {
-          window.requestAnimFrame(animFrameHandler);
+          window.requestAnimationFrame(animFrameHandler);
 
         } else {
           setRippleStyles(false);
@@ -226,5 +226,6 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialRipple,
 //   classAsString: 'MaterialRipple',
-//   cssClass: 'mdl-js-ripple-effect'
+//   cssClass: 'mdl-js-ripple-effect',
+//   widget: false
 // });

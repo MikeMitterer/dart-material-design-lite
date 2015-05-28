@@ -34,10 +34,18 @@ class MdlConfig<T extends MdlComponent> {
     ///
     final MdlComponentFactory _componentFactory;
 
-    /// Hold the Component-Class
+    /// Holds the Component-Class or the Components TAG name
     /// Sample:
     ///    mdl-js-accordion
-    String cssClass;
+    String _selector;
+
+    /// by default {selector} is a css-class-name.
+    /// If {isSelectorAClassName} is set to false
+    bool isSelectorAClassName = true;
+
+    /// Returns the appropriate selector for this component. Either a class-selector
+    /// or a Tag-Name
+    String get selector => isSelectorAClassName ? ".${_selector}" : _selector;
 
     /// The higher the priority the later the component will be upgraded.
     /// This is important for the ripple-effect. Must be called as last upgrade process
@@ -47,11 +55,11 @@ class MdlConfig<T extends MdlComponent> {
     /// Avoids problems with Components and Helpers like MaterialRipple
     final bool isWidget;
 
-    MdlConfig(this.cssClass, T componentFactory(final dom.HtmlElement element,final di.Injector injector),
+    MdlConfig(this._selector, T componentFactory(final dom.HtmlElement element,final di.Injector injector),
               { final bool isWidget: false }) : _componentFactory = componentFactory, this.isWidget = isWidget {
 
         Validate.isTrue(T != "dynamic", "Add a type-information to your MdlConfig like new MdlConfig<MaterialButton>()");
-        Validate.notBlank(cssClass, "cssClass must not be blank.");
+        Validate.notBlank(_selector, "cssClass must not be blank.");
         Validate.notNull(_componentFactory);
     }
 
@@ -68,9 +76,9 @@ class MdlConfig<T extends MdlComponent> {
 }
 
 /// Helps to decide what is a real Widget and what is just a helper.
-/// MaterialRipple would be such a "helper-Widget"
+/// MaterialRipple would be such a "helper"
 class MdlWidgetConfig<T extends MdlComponent> extends MdlConfig<T> {
-    MdlWidgetConfig(final String cssClass,
+    MdlWidgetConfig(final String selector,
                     T componentFactory(final dom.HtmlElement element,final di.Injector injector)) :
-                        super(cssClass, componentFactory, isWidget: true);
+                        super(selector, componentFactory, isWidget: true);
 }

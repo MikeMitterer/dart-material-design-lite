@@ -272,6 +272,13 @@ class Application {
         srcJS.copySync(targetConvertedJS.path);
         _Js2Dart(targetConvertedJS);
 
+        final File srcRipples = new File("${mdlDir}/ripple/ripple.js");
+        final File targetRipples = new File("${config.portbase}/ripple.js.dart");
+
+        srcRipples.copySync(targetRipples.path);
+        _Js2Dart(targetRipples);
+
+
         final File srcVariables = new File("${mdlDir}/_variables.scss");
         final File targetVariables = new File("${sassDir}/variables/_variables.orig.scss");
 

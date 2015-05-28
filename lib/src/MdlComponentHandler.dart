@@ -66,7 +66,7 @@ class MdlComponentHandler {
         Validate.notNull(config);
 
         if(!_isValidClassName(config.classAsString)) {
-            _logger.severe("(${config.classAsString}) is not a valid component for ${config.cssClass}");
+            _logger.severe("(${config.classAsString}) is not a valid component for ${config.selector}");
             return;
         }
 
@@ -123,7 +123,7 @@ class MdlComponentHandler {
 
             _configs.forEach((final MdlConfig config) {
                 _upgradeDom(element,config);
-                _logger.fine("${config.cssClass} upgraded with ${config.classAsString}...");
+                _logger.fine("${config.selector} upgraded with ${config.classAsString}...");
             });
 
             element.classes.remove(_cssClasses.UPGRADING);
@@ -173,11 +173,13 @@ class MdlComponentHandler {
 
 //        final List<Future> futureUpgrade = new List<Future>();
 //        final Future future = new Future(() {
-            final dom.ElementList<dom.HtmlElement> elements = queryBaseElement.querySelectorAll(".${config.cssClass}");
-            elements.forEach((final dom.HtmlElement element) {
-                _upgradeElement(element, config);
-                // futureUpgrade.add(_upgradeElement(element, config));
-            });
+
+        final dom.ElementList<dom.HtmlElement> elements = queryBaseElement.querySelectorAll(config.selector);
+        elements.forEach((final dom.HtmlElement element) {
+            _upgradeElement(element, config);
+            // futureUpgrade.add(_upgradeElement(element, config));
+        });
+
 //        });
 //        futureUpgrade.add(future);
 //        Future.wait(futureUpgrade);
@@ -223,7 +225,7 @@ class MdlComponentHandler {
 
             }
             catch (exception, stacktrace) {
-                _logger.severe("Registration for: ${config.cssClass} not possible. Check if ${config.classAsString} is correctly imported");
+                _logger.severe("Registration for: ${config.selector} not possible. Check if ${config.classAsString} is correctly imported");
                 _logger.severe(exception, stacktrace);
             }
         }

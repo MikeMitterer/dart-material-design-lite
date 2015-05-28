@@ -63,15 +63,17 @@ class Renderer {
 
                 dom.window.requestAnimationFrame( (_) {
 
-                if(replaceNode && element.childNodes.length > 0 && element.childNodes.first != null) {
-                    var oldElement = element.childNodes.first;
+                if(replaceNode && element.childNodes.length > 0 && element.childNodes.last != null) {
+                    var oldElement = element.childNodes.last;
                     if(oldElement is dom.Element) {
                         oldElement.style.display = "none";
                     }
                     oldElement.remove();
+                    //_logger.info("Old element removed!");
                 }
 
-                element.append(child);
+                //element.append(child);
+                element.insertAdjacentElement("beforeEnd",child);
 
                 element.classes.remove(_cssClasses.LOADING);
                 element.classes.add(_cssClasses.LOADED);
