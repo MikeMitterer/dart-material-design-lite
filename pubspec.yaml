@@ -27,7 +27,7 @@ dependencies:
     #">=3.3.4 <4.0.0"
 
 dev_dependencies:
-  unittest: any
+  test: any
   args: any
   material_icons: any
   path: any

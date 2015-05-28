@@ -341,7 +341,7 @@ class Application {
         final File srcSampleDart = new File("${sassDir.path}/demo.dart.html");
         final File srcSample = srcSampleDart.existsSync() ? srcSampleDart : secSampleOrig;
 
-        final Directory targetSampleDir = new Directory("${samplesDir}/styleguide/html/_content/views");
+        final Directory targetSampleDir = new Directory("${samplesDir}/styleguide/.sitegen/html/_content/views");
         final File targetSample = new File("${targetSampleDir.path}/${sampleName}.html");
 
         if(!srcSample.existsSync()) {
@@ -394,7 +394,7 @@ class Application {
         Validate.notNull(sassDir);
         Validate.notBlank(samplesDir);
 
-        final Directory targetUsageDir = new Directory("${samplesDir}/styleguide/html/_content/views/usage");
+        final Directory targetUsageDir = new Directory("${samplesDir}/styleguide/.sitegen/html/_content/views/usage");
         final File targetSample = new File("${targetUsageDir.path}/${sampleName}.html");
         if(targetSample.existsSync()) {
             _logger.fine("${targetSample.path} already exists!");
@@ -420,7 +420,7 @@ class Application {
         Validate.notNull(sassDir);
         Validate.notNull(config);
 
-        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/html/_partials/usage/${sampleName}");
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_partials/usage/${sampleName}");
         if(!targetUsageDir.existsSync()) {
             targetUsageDir.createSync(recursive: true);
         }
@@ -470,12 +470,12 @@ class Application {
         Validate.notNull(sassDir);
         Validate.notNull(config);
 
-        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/html/_partials/usage/${sampleName}");
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_partials/usage/${sampleName}");
         if(!targetUsageDir.existsSync()) {
             targetUsageDir.createSync(recursive: true);
         }
 
-        final srcHtml = new File("${config.samplesdir}/styleguide/html/_content/views/${sampleName}.html");
+        final srcHtml = new File("${config.samplesdir}/styleguide/.sitegen/html/_content/views/${sampleName}.html");
         if(!srcHtml.existsSync()) {
             _logger.info("${srcHtml.path} does not exists!");
             return;
@@ -501,7 +501,7 @@ class Application {
         Validate.notNull(sassDir);
         Validate.notNull(config);
 
-        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/html/_partials/usage/${sampleName}");
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_partials/usage/${sampleName}");
         if(!targetUsageDir.existsSync()) {
             targetUsageDir.createSync(recursive: true);
         }

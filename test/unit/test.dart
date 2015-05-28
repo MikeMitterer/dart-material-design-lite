@@ -1,9 +1,29 @@
-// Copyright (c) 2015, <your name>. All rights reserved. Use of this source code
-// is governed by a BSD-style license that can be found in the LICENSE file.
+/**
+ * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+ * IT-Consulting and Development Limited.
+ *
+ * All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-library wsk_material.unit.test;
+@TestOn("dartium")
 
-import 'package:unittest/unittest.dart';
+library mdl.unit.test;
+
+import 'dart:html' as dom;
+import 'dart:async';
+import 'package:test/test.dart';
 
 //-----------------------------------------------------------------------------
 // Logging
@@ -11,30 +31,33 @@ import 'package:unittest/unittest.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:wsk_material/wskcore.dart';
-import 'package:wsk_material/wskcomponets.dart';
+import "package:mdl/mdl.dart";
 
-main() {
+part "components/button_test.dart";
+
+/**
+ * run the test with: pub run test:test -p dartium test/unit/test.dart
+ */
+main() async {
     final Logger _logger = new Logger('wsk_material.unit.test');
 
     configLogging();
 
-    group('A group of tests', () {
+    registerMdl();
 
-        setUp(() {
-            registerAllWskComponents();
-        });
+    Future initComponents() async {
+        final Stopwatch stopwatch = new Stopwatch()..start();
+        await componentFactory().run();
+        stopwatch.stop();
+        _logger.info("UI Initialized, took ${stopwatch.elapsedMilliseconds}ms...");
+    }
+    await initComponents();
 
-        test('First Test', () {
-            upgradeAllRegistered().then(expectAsync((_) {
-
-            }));
-        });
-    });
+    testButton();
 }
 
 void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
+    //hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
 
     // now control the logging.
     // Turn off all logging first
