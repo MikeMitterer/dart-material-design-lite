@@ -32,7 +32,6 @@ import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import "package:mdl/mdl.dart";
-import "package:mdl/mdlutils.dart";
 
 part "components/accordion_test.dart";
 part "components/button_test.dart";
