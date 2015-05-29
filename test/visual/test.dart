@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-@TestOn("dartium")
+//@TestOn("dartium")
 
 library mdl.ui.unit.test;
 
@@ -34,10 +34,16 @@ import 'package:console_log_handler/console_log_handler.dart';
 import "package:mdl/mdl.dart";
 import "package:mdl/mdlutils.dart";
 
+part "components/accordion_test.dart";
 part "components/button_test.dart";
+part "components/checkbox_test.dart";
+part "components/icon_toggle_test.dart";
+
 
 /**
- * run the test with: pub run test:test -p dartium test/unit/ *.dart
+ * run the test with your favorit webserver.
+ * In my case I run it with with:
+ *      visual $ sitegen --serve --docroot .
  */
 main() async {
     final Logger _logger = new Logger('wsk_material.unit.test');
@@ -55,7 +61,10 @@ main() async {
 
     await initComponents();
 
+    testAccordion();
     testButton();
+    testCheckbox();
+    testIconToggle();
 }
 
 void configLogging() {

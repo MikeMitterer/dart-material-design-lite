@@ -101,44 +101,48 @@ class MaterialAccordion extends MdlComponent {
     void _init() {
         _logger.fine("MaterialAccordion - init");
 
+        bool hasRipples = false;
         if (element != null) {
             if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
                 element.classes.add(_cssClasses.RIPPLE_EFFECT_IGNORE_EVENTS);
+                hasRipples = true;
+            }
 
-                final bool isRadio = element.classes.contains(_cssClasses.ACCORDION_TYPE);
+            final bool isRadio = element.classes.contains(_cssClasses.ACCORDION_TYPE);
 
-                final List<dom.Element> panels = element.querySelectorAll(".${_cssClasses.ACCORDION}");
+            final List<dom.Element> panels = element.querySelectorAll(".${_cssClasses.ACCORDION}");
 
-                // Select element label
-                panels.forEach( (final dom.HtmlElement panel) {
-                    final dom.Element label = panel.querySelector(".${_cssClasses.ACCORDION_LABEL}");
+            // Select element label
+            panels.forEach( (final dom.HtmlElement panel) {
+                final dom.Element label = panel.querySelector(".${_cssClasses.ACCORDION_LABEL}");
 
-                    _logger.fine("Found $label");
+                _logger.fine("Found $label");
 
-                    final String id = "accordion-${label.hashCode}";
-                    (label as dom.LabelElement).htmlFor = id;
+                final String id = "accordion-${label.hashCode}";
+                (label as dom.LabelElement).htmlFor = id;
 
-                    dom.InputElement inputElement = null;
-                    if(isRadio) {
-                        inputElement = new dom.RadioButtonInputElement();
-                    } else {
-                        inputElement = new dom.CheckboxInputElement();
-                    }
-                    inputElement.name = "${_constant.CHECKBOX_NAME}-group-${element.hashCode}";
-                    inputElement.id = id;
-                    label.insertAdjacentElement('beforebegin',inputElement);
+                dom.InputElement inputElement = null;
+                if(isRadio) {
+                    inputElement = new dom.RadioButtonInputElement();
+                } else {
+                    inputElement = new dom.CheckboxInputElement();
+                }
+                inputElement.name = "${_constant.CHECKBOX_NAME}-group-${element.hashCode}";
+                inputElement.id = id;
+                label.insertAdjacentElement('beforebegin',inputElement);
 
-                    if(_isNavigation) {
-                        final Uri uri = Uri.parse(dom.document.baseUri.toString());
-                        if(uri.fragment.isNotEmpty) {
-                            //_logger.info("URI-Fragment: ${uri.fragment}");
-                            if(_getLinkFragments(panel).contains(uri.fragment)) {
-                                //_logger.info("Checked");
-                                inputElement.checked = true;
-                            }
+                if(_isNavigation) {
+                    final Uri uri = Uri.parse(dom.document.baseUri.toString());
+                    if(uri.fragment.isNotEmpty) {
+                        //_logger.info("URI-Fragment: ${uri.fragment}");
+                        if(_getLinkFragments(panel).contains(uri.fragment)) {
+                            //_logger.info("Checked");
+                            inputElement.checked = true;
                         }
                     }
+                }
 
+                if(hasRipples) {
                     final dom.SpanElement rippleContainer = new dom.SpanElement();
                     rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
                     rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
@@ -148,9 +152,9 @@ class MaterialAccordion extends MdlComponent {
                     rippleContainer.append(ripple);
 
                     label.append(rippleContainer);
+                }
 
-                });
-            }
+            });
 
             element.classes.add(_cssClasses.IS_UPGRADED);
         }

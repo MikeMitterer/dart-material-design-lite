@@ -1,0 +1,80 @@
+<!doctype html>
+<!-- custom_html_test.html -->
+<html>
+<head>
+    <title>Custom HTML Test</title>
+    <!--<link rel="x-dart-test" href="test.dart">-->
+    <script async type="application/dart" src="test.dart"></script>
+    <script src="packages/test/dart.js"></script>
+
+    <link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
+    <style>
+        .ui-test {
+            margin-bottom: 24px;
+            padding: 12px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ui-test ui-test---accordion">
+    <div id="accordion1" class="mdl-accordion-group mdl-js-accordion">
+
+        <!-- Panel 1 -->
+        <div class="mdl-accordion">
+            <label class="mdl-accordion__label">Panel 1<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
+            <div class="mdl-accordion--content">
+                <h5 class="mdl-accordion--header">Header</h5>
+                <p class="mdl-accordion--body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="mdl-accordion">
+            <label class="mdl-accordion__label">Panel 2<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
+            <div class="mdl-accordion--content">
+                <h5 class="mdl-accordion--header">Header</h5>
+                <p class="mdl-accordion--body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente eligendi nulla illo culpa ab in at adipisci eveniet id itaque maxime soluta recusandae doloribus laboriosam dignissimos est aut cupiditate delectus.</p>
+            </div>
+        </div>
+
+        <!-- Panel 3 -->
+        <div class="mdl-accordion">
+            <label class="mdl-accordion__label">Panel 3<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
+            <div class="mdl-accordion--content">
+                <h5 class="mdl-accordion--header">Header</h5>
+                <p class="mdl-accordion--body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="ui-test ui-test---badge">
+    <span id="badge1" class="mdl-badge" data-badge="42">I am in a span</span>
+</div>
+
+<div class="ui-test ui-test--button">
+    <button id="button1" class="mdl-button mdl-js-button">Flat</button>
+</div>
+
+<div class="ui-test ui-test---checkbox">
+    <label class="mdl-checkbox mdl-js-checkbox" for="checkbox1">
+        <input type="checkbox" id="checkbox1" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Check me out</span>
+    </label>
+</div>
+
+<div class="ui-test ui-test---icon-toggle">
+    <label class="mdl-icon-toggle mdl-js-icon-toggle" for="icon-toggle1">
+        <input type="checkbox" id="icon-toggle1" class="mdl-icon-toggle__input"/>
+        <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
+    </label>
+</div>
+
+
+
+</body>
+</html>
