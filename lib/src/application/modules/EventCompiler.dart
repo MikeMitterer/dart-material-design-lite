@@ -17,15 +17,20 @@
  * limitations under the License.
  */
 
-part of mdltemplatecomponents;
+part of mdlapplication;
+
+typedef void _ElementFunction(final Symbol function,final List params);
 
 /**
  * Connects data-mdl-[event] attributes with object-functions
+ *
+ * Needed in mdltemplatecomponents!
  */
+@di.Injectable()
 class EventCompiler {
-    final Logger _logger = new Logger('mdltemplatecomponents.EventCompiler');
+    final Logger _logger = new Logger('mdlapplication.EventCompiler');
 
-    static const List<String> datasets = const [ "mdl-click", "mdl-class"];
+    static const List<String> datasets = const [ "mdl-click", "mdl-keyup"];
 
     /**
      * {scope} represents an object/class where the functions are located,
@@ -33,7 +38,10 @@ class EventCompiler {
      * Sample:
      *      <tag ... data-mdl-click="check({{id}})"></tag>
      *
-     * compileElement connects these two definitions
+     *      <tag ... data-mdl-keyup="handleKeyUp(\$event)"></tag>
+     *      <tag ... data-mdl-keyup="handleKeyUp()"></tag>
+     *
+     * compileElement connects these definitions
      */
     Future compileElement(final Object scope,final dom.Element element) async {
 
@@ -67,18 +75,45 @@ class EventCompiler {
 
                 switch(dataset) {
                     case "mdl-click":
-                        element.onClick.listen( (final dom.MouseEvent event) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                            myClassInstanceMirror.invoke(getFunctionName(), getParams());
-                        });
+                        element.onClick.listen( (final dom.MouseEvent event) =>
+                            _invokeFunction(myClassInstanceMirror,getFunctionName(),getParams(),event)
+                        );
                        break;
 
+                    case "mdl-keyup":
+                        element.onKeyUp.listen( (final dom.KeyboardEvent event) =>
+                            _invokeFunction(myClassInstanceMirror,getFunctionName(),getParams(),event)
+                        );
+                        break;
                 }
             });
 
         });
         _logger.info("Events compiled...");
+    }
+
+    //- private -----------------------------------------------------------------------------------
+
+    bool _hasEvent(final List params) => (params != null && params.contains("\$event") ? true : false);
+    bool _hasNoEvent(final List params) => !_hasEvent(params);
+
+    /// Replaces $event with {event}
+    List _replaceEventInParams(final List params,final dom.Event event) {
+        if(_hasEvent(params)) {
+            final int index = params.indexOf("\$event");
+            params.replaceRange(index,index + 1, [ event ] );
+        }
+        return params;
+    }
+
+    /// Calls the defined function. If there is a $event param defined for the function it will be replace
+    /// with {event}. If no $event param is defined then preventDefault and stopPropagation is called on this {event}
+    void _invokeFunction(final InstanceMirror myClassInstanceMirror,final Symbol function, final List params, final dom.Event event) {
+        if(_hasNoEvent(params)) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        myClassInstanceMirror.invoke(function, _replaceEventInParams(params,event));
     }
 }
 

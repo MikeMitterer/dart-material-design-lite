@@ -19,13 +19,32 @@
 
 part of mdlremote;
 
+/**
+ * Loads additional "views" (html-Page) in SPA-Application
+ *
+ * Sample:
+ *      configRouter() {
+ *          final Router router = new Router(useFragment: true);
+ *          final ViewFactory view = new ViewFactory();
+ *
+ *          router.root
+ *              ..addRoute(name: 'typography', path: '/typography',
+ *              enter: view("views/typography.html", new DemoController()))
+ *
+ *              ..addRoute(name: 'home', defaultRoute: true, path: '/',
+ *              enter: view("views/home.html" ,new DemoController()))
+ *
+ *              ;
+ *
+ *          router.listen();
+ *      }
+ */
 class ViewFactory {
     final Logger _logger = new Logger('mdlremote.ViewFactory');
 
     RouteEnterEventHandler call(final String url, final MaterialController controller, { final String selector: "#main"}) {
         return (final RouteEnterEvent event) => _enterHandler(event, url, controller, selector);
     }
-
 
     //- private -----------------------------------------------------------------------------------
 

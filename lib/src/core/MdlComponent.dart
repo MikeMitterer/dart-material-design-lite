@@ -21,7 +21,11 @@ part of mdlcore;
 
 const String MDL_WIDGET_PROPERTY = "widget";
 
+/// Returns the upgraded MDL-Component. If {element} is null it returns a null-MDLComponent
 MdlComponent mdlComponent(final dom.HtmlElement element) {
+    if(element == null) {
+        return element as MdlComponent;
+    }
     var jsElement = new JsObject.fromBrowserObject(element);
 
     if (!jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {

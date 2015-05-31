@@ -21,21 +21,19 @@ library mdldialog;
 
 import 'dart:html' as dom;
 import 'dart:async';
-import 'dart:collection';
 
 import 'package:logging/logging.dart';
-import 'package:route_hierarchical/client.dart';
 import 'package:validate/validate.dart';
-import 'package:mustache/mustache.dart';
 
-import 'package:mdl/mdlcore.dart';
-import 'package:mdl/mdlcomponets.dart';
 import 'package:mdl/mdltemplatecomponents.dart';
+
+import 'package:di/di.dart' as di;
+
 
 part "src/dialog/MaterialDialog.dart";
 part "src/dialog/MaterialAlertDialog.dart";
 part "src/dialog/MaterialConfirmDialog.dart";
 
-part "src/dialog/MaterialToast.dart";
+part "src/dialog/MaterialSnackbar.dart";
 
 //part "src/dialog/utils.dart";

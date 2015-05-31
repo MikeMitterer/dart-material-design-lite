@@ -17,11 +17,7 @@
  * limitations under the License.
  */
 
-/**
- * The core - handles the initialisation process and
- * defines the base-class for all components
- */
-library mdlcore;
+library mdlapplication;
 
 import 'dart:html' as dom;
 import 'dart:collection';
@@ -32,16 +28,32 @@ import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 import 'package:di/di.dart' as di;
 
-part "src/core/MdlComponentHandler.dart";
-part "src/core/MdlConfig.dart";
-part "src/core/MdlComponent.dart";
+import "package:mdl/mdlcore.dart";
+import "package:mdl/mdlcomponets.dart";
 
 
-/// !!! Postponed !!!! - waiting for mature mirror system...
-///
-/// Component-Annotation
-/// Sample:
-///   @WskCssClass("wsk-button")
-///   class MaterialButton { ... }
-///
-///class WskCssClass {  final String name; const WskCssClass(this.name); }
+part "src/application/modules/Renderer.dart";
+part "src/application/modules/EventCompiler.dart";
+
+/**
+ * This is the top level module which describes all extended MDL-Components and Services.
+ * When instantiating an MDL application through componentFactory() MdlModule is automatically included.
+ *
+ * Sample:
+ *      main() {
+ *          registerMdl();
+ *          componentFactory().run().then((_) {
+ *
+ *          });
+ *      }
+ */
+class MdlModule extends di.Module {
+
+}
+
+MdlComponentHandler componentFactory() {
+    final MdlModule mdlmodule = new MdlModule();
+
+    componentHandler().addModule(mdlmodule);
+    return componentHandler();
+}

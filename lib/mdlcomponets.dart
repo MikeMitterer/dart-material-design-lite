@@ -47,7 +47,8 @@ part "src/components/MaterialTooltip.dart";
 
 final MdlComponentHandler _componenthandler = new MdlComponentHandler();
 
-MdlComponentHandler componentFactory() {
+
+MdlComponentHandler componentHandler() {
     return _componenthandler;
 }
 
@@ -75,5 +76,9 @@ void registerAllMdlComponents() {
 
 @deprecated
 Future upgradeAllRegistered() {
-    return _componenthandler.upgradeAllRegistered();
+    return componentHandler().upgradeAllRegistered();
+}
+
+Future<di.Injector> upgradeCoreComponents() {
+    return componentHandler().run();
 }

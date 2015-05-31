@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of mdlremote;
+part of mdlapplication;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -33,9 +33,13 @@ class _RendererCssClasses {
 
 typedef void RenderFunction();
 
-/// Renderer converts a String into HtmlNodes
+/**
+ *  Renderer converts a String into HtmlNodes
+ *  Needed in mdlremote!
+ */
+@di.Injectable()
 class Renderer {
-    final Logger _logger = new Logger('mdlremote.Renderer');
+    final Logger _logger = new Logger('mdlapplication.Renderer');
 
     static const _RendererCssClasses _cssClasses = const _RendererCssClasses();
 

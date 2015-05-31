@@ -20,9 +20,11 @@
 import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
-@MdlComponentModel
+import 'package:di/di.dart' as di;
+
+
+@MdlComponentModel  @di.Injectable()
 class CustomDialog extends MaterialDialog {
-    static const String SELECTOR = "wsk-confirm-dialog";
 
     static const String _DEFAULT_YES_BUTTON = "Yes";
     static const String _DEFAULT_NO_BUTTON = "No";

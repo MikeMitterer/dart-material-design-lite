@@ -94,21 +94,33 @@ class MdlComponentHandler {
     Future upgradeAllRegistered() => run();
 
     /**
-     * Upgrades all registered components found in the current DOM. This is
-     * automatically called on window load.
-     * At the beginning of the upgrade-process it adds the csss-classes
+     * Upgrades all registered components found in the current DOM. This
+     * should be called in your main-function.
+     * At the beginning of the upgrade-process it adds the css-classes
      * mdl-js, mdl-dart and mdl-upgrading to the <html>-element.
-     * If all components are ready it remove mdl-upgrading.
+     * If all components are ready it removes mdl-upgrading.
+     *
+     * Sample:
+     *        main() {
+     *        registerMdl();
+     *
+     *        componentFactory().run().then( (_) {
+     *
+     *              });
+     *        }
      */
     Future<di.Injector> run( { final enableVisualDebugging: false } ) {
         final dom.Element body = dom.querySelector("body");
 
         _enableVisualDebugging = enableVisualDebugging;
-        _injector = new di.ModuleInjector(_modules);
+        //_modules.add(new di.Module()..bind(Renderer));
+
+        _injector = _createInjector();
 
         return upgradeElement(body);
     }
 
+    /// Upgrades all children for {element} and returns the current Injector
     Future<di.Injector> upgradeElement(final dom.HtmlElement element) {
         Validate.notNull(_injector,"Injector must not be null - did you call run?");
         Validate.notNull(element,"Component must not be null!");
@@ -119,6 +131,7 @@ class MdlComponentHandler {
             ..classes.remove(_cssClasses.UPGRADED);
 
         final Future<di.Injector> future = new Future<di.Injector>( () {
+
             element.classes.add(_cssClasses.UPGRADING);
 
             _configs.forEach((final MdlConfig config) {
@@ -229,6 +242,14 @@ class MdlComponentHandler {
                 _logger.severe(exception, stacktrace);
             }
         }
+    }
+
+    /**
+     * Creates an injector function that can be used for retrieving services as well as for
+     * dependency injection.
+     */
+    di.Injector _createInjector() {
+        return new di.ModuleInjector(_modules);
     }
 }
 

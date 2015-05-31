@@ -140,6 +140,8 @@ class MaterialRadio extends MdlComponent {
         _updateClasses(btnElement, element);
     }
 
+    String get value => btnElement.value;
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {

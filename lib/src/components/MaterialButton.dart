@@ -68,8 +68,8 @@ class MaterialButton extends MdlComponent {
         (element as dom.ButtonElement).disabled = false;
     }
 
-    void set disabled(final bool _disabled) => _disabled ? disable() : enable();
-    bool get disabled => (element as dom.ButtonElement).disabled;
+    void set enabled(final bool _enabled) => _enabled ? enable() : disable();
+    bool get enabled => !(element as dom.ButtonElement).disabled;
 
     //- private -----------------------------------------------------------------------------------
 

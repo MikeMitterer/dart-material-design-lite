@@ -19,53 +19,53 @@
 
 @import "../variables";
 
-// mdl-toast was mainly taken from Angular-Material
+// mdl-snackbar was mainly taken from Angular-Material
 //  More: https://github.com/angular/material/blob/master/src/components/toast/toast.scss
 
-$toast-baseline-grid:            8px !default;
-$toast-swift-ease-out-duration : 0.2s !default;
+$snackbar-baseline-grid:            8px !default;
+$snackbar-swift-ease-out-duration : 0.2s !default;
 
-$toast-height: $toast-baseline-grid * 3 !default;
-$toast-margin: $toast-baseline-grid * 1 !default;
+$snackbar-height: $snackbar-baseline-grid * 3 !default;
+$snackbar-margin: $snackbar-baseline-grid * 1 !default;
 
-$toast-swift-ease-in-duration: 0.2s !default;
-$toast-swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
-$toast-swift-ease-in: all $toast-swift-ease-in-duration $toast-swift-ease-in-timing-function !default;
+$snackbar-swift-ease-in-duration: 0.2s !default;
+$snackbar-swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
+$snackbar-swift-ease-in: all $snackbar-swift-ease-in-duration $snackbar-swift-ease-in-timing-function !default;
 
-$toast-swift-ease-out-duration : 0.2s !default;
-$toast-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
-$toast-swift-ease-out : all $toast-swift-ease-out-duration $toast-swift-ease-out-timing-function !default;
+$snackbar-swift-ease-out-duration : 0.2s !default;
+$snackbar-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
+$snackbar-swift-ease-out : all $snackbar-swift-ease-out-duration $snackbar-swift-ease-out-timing-function !default;
 
-$toast-z-index: 90 !default;
+$snackbar-z-index: 90 !default;
 
-$toast-layout-breakpoint-sm:     600px !default;
+$snackbar-layout-breakpoint-sm:     600px !default;
 
-$toast-color: invert($text-color-primary) !default;
-$toast-button-color: nth($palette-accent, 5) !default;
-$toast-background: nth($palette-grey, 9) !default;
+$snackbar-color: invert($text-color-primary) !default;
+$snackbar-button-color: nth($palette-accent, 5) !default;
+$snackbar-background: nth($palette-grey, 9) !default;
 
-.mdl-toast-container {
+.mdl-snackbar-container {
     &.is-visible {
         //background-color: rgba(0, 0, 0, 0.25);
         //visibility: visible;
 
-        .mdl-toast {
+        .mdl-snackbar {
             opacity    : 1;
-            transition : $toast-swift-ease-in;
+            transition : $snackbar-swift-ease-in;
             //transform  : translate3d(0, 0, 0) scale(1.0);
         }
     }
 
     &.is-hidden {
-        .mdl-toast {
+        .mdl-snackbar {
             // hidden
             opacity    : 0;
-            transition     : $toast-swift-ease-out;
+            transition     : $snackbar-swift-ease-out;
             //transform      : translate3d(0, 100%, 0) scale(0.2);
         }
     }
 
-    .mdl-toast {
+    .mdl-snackbar {
         display: flex;
         position:absolute;
         box-sizing: border-box;
@@ -82,11 +82,11 @@ $toast-background: nth($palette-grey, 9) !default;
         max-width: 879px;
         max-height: 40px;
 
-        height: $toast-height;
-        z-index: $toast-z-index;
+        height: $snackbar-height;
+        z-index: $snackbar-z-index;
 
-        color: $toast-color;
-        background-color: $toast-background;
+        color: $snackbar-color;
+        background-color: $snackbar-background;
 
         @include shadow-2dp();
 
@@ -96,10 +96,10 @@ $toast-background: nth($palette-grey, 9) !default;
 
         opacity: 1;
         transform: translate3d(0,0,0) rotateZ(0deg);
-        transition: $toast-swift-ease-out;
+        transition: $snackbar-swift-ease-out;
 
         &.ng-leave-active {
-            transition: $toast-swift-ease-in;
+            transition: $snackbar-swift-ease-in;
         }
 
         /* Transition differently when swiping */
@@ -107,7 +107,7 @@ $toast-background: nth($palette-grey, 9) !default;
         &.mdl-swiperight,
         &.mdl-swipeup,
         &.mdl-swipedown {
-            transition: $toast-swift-ease-out;
+            transition: $snackbar-swift-ease-out;
         }
 
         &.ng-enter {
@@ -124,7 +124,7 @@ $toast-background: nth($palette-grey, 9) !default;
         &.ng-leave.ng-leave-active {
             opacity: 0;
             transform: translate3d(0, 100%, 0);
-            &.mdl-toast--top {
+            &.mdl-snackbar--top {
                 transform: translate3d(0, -100%, 0);
             }
             &.mdl-swipeleft {
@@ -136,27 +136,25 @@ $toast-background: nth($palette-grey, 9) !default;
         }
 
         .mdl-button {
-            color: $toast-button-color;
+            color: $snackbar-button-color;
         }
 
-        &.mdl-toast--left { left: 0; }
+        &.mdl-snackbar--left { left: 0; }
 
-        &.mdl-toast--top { top: 0; }
+        &.mdl-snackbar--top { top: 0; }
 
-        &.mdl-toast--right { right: 0; }
+        &.mdl-snackbar--right { right: 0; }
 
-        &.mdl-toast--bottom { bottom: 0; }
+        &.mdl-snackbar--bottom { bottom: 0; }
 
-        .mdl-toast__flex {
+        .mdl-snackbar__flex {
             flex-grow: 1;
         }
     }
 }
 
-
-
-@media (max-width: $toast-layout-breakpoint-sm) {
-    .mdl-toast {
+@media (max-width: $snackbar-layout-breakpoint-sm) {
+    .mdl-snackbar {
         left: 0;
         right: 0;
         width: 100%;
@@ -164,30 +162,30 @@ $toast-background: nth($palette-grey, 9) !default;
         min-width: 0;
         border-radius: 0;
         bottom: 0;
-        &.mdl-toast--top {
+        &.mdl-snackbar--top {
             bottom: auto;
             top: 0;
         }
     }
 }
-@media (min-width: $toast-layout-breakpoint-sm) {
-    .mdl-toast {
+@media (min-width: $snackbar-layout-breakpoint-sm) {
+    .mdl-snackbar {
         min-width: 288px;
-        &.mdl-toast--bottom {
-            bottom: $toast-margin;
+        &.mdl-snackbar--bottom {
+            bottom: $snackbar-margin;
         }
-        &.mdl-toast--left {
-            left: $toast-margin;
+        &.mdl-snackbar--left {
+            left: $snackbar-margin;
         }
-        &.mdl-toast--right {
-            right: $toast-margin;
+        &.mdl-snackbar--right {
+            right: $snackbar-margin;
         }
-        &.mdl-toast--top {
-            top: $toast-margin;
+        &.mdl-snackbar--top {
+            top: $snackbar-margin;
         }
 
         /*
-         * When the toast doesn't take up the whole screen,
+         * When the snackbar doesn't take up the whole screen,
          * make it rotate when the user swipes it away
          */
         &.ng-leave.ng-leave-active {
@@ -197,7 +195,7 @@ $toast-background: nth($palette-grey, 9) !default;
             &.mdl-swiperight {
                 transform: translate3d(100%, 25%, 0) rotateZ(15deg);
             }
-            &.mdl-toast--top {
+            &.mdl-snackbar--top {
                 &.mdl-swipeleft {
                     transform: translate3d(-100%, 0, 0) rotateZ(-15deg);
                 }

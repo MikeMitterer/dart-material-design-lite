@@ -33,7 +33,6 @@ import 'package:mdl/mdlcomponets.dart';
 part "src/remote/Utils.dart";
 
 part "src/remote/ViewFactory.dart";
-part "src/remote/Renderer.dart";
 
 part "src/remote/MaterialContent.dart";
 part "src/remote/MaterialInclude.dart";

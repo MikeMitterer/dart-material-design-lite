@@ -34,8 +34,6 @@ import 'package:mdl/mdlcomponets.dart';
 import 'package:mdl/mdlremote.dart' show Renderer;
 
 part "src/templatecomponents/MaterialMustache.dart";
-
-part "src/templatecomponents/MdlEventCompiler.dart";
 part "src/templatecomponents/MdlTemplateComponent.dart";
 
 /// Mustache (+mirrors) needs to know which classes to include

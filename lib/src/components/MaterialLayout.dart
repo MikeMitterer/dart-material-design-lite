@@ -299,7 +299,8 @@ class MaterialLayout extends MdlComponent {
 
                 // Create new tabs for each tab element
                 for (int i = 0; i < tabs.length; i++) {
-                    new MaterialLayoutTab(tabs[i], tabs, panels, this);
+                    new MaterialLayoutTab(tabs[i],
+                        tabs as List<dom.AnchorElement>, panels as List<dom.HtmlElement>, this);
                 }
             }
 
