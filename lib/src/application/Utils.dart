@@ -18,7 +18,7 @@
  */
 
 
-part of mdlremote;
+part of mdlapplication;
 
 /**
  * If responseText is a HTML-Page with header and body the contents within "body" will be extracted

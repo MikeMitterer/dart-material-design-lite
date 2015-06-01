@@ -68,7 +68,7 @@ MdlConfig materialCheckboxConfig() => new MdlWidgetConfig<MaterialCheckbox>(
     => new MaterialCheckbox.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialCheckbox() => componentFactory().register(materialCheckboxConfig());
+void registerMaterialCheckbox() => componentHandler().register(materialCheckboxConfig());
 
 /**
  * Sample:

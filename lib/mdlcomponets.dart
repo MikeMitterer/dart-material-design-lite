@@ -47,12 +47,11 @@ part "src/components/MaterialTooltip.dart";
 
 final MdlComponentHandler _componenthandler = new MdlComponentHandler();
 
-
 MdlComponentHandler componentHandler() {
     return _componenthandler;
 }
 
-void registerAllMdlComponents() {
+void registerMdlComponents() {
 
     registerMaterialAccordion();
     registerMaterialBadge();
@@ -72,11 +71,6 @@ void registerAllMdlComponents() {
 
     // should be the last registration
     registerMaterialRipple();
-}
-
-@deprecated
-Future upgradeAllRegistered() {
-    return componentHandler().upgradeAllRegistered();
 }
 
 Future<di.Injector> upgradeCoreComponents() {

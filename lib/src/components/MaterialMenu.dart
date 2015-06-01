@@ -85,7 +85,7 @@ MdlConfig materialMenuConfig() => new MdlWidgetConfig<MaterialMenu>(
     => new MaterialMenu.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialMenu() => componentFactory().register(materialMenuConfig());
+void registerMaterialMenu() => componentHandler().register(materialMenuConfig());
 
 class MaterialMenu extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialMenu');

@@ -41,7 +41,7 @@ MdlConfig materialBadgeConfig() => new MdlWidgetConfig<MaterialBadge>(
     => new MaterialBadge.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialBadge() => componentFactory().register(materialBadgeConfig());
+void registerMaterialBadge() => componentHandler().register(materialBadgeConfig());
 
 class MaterialBadge extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialBadge');

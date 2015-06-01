@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
- *
+ * 
  * All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -17,31 +17,29 @@
  * limitations under the License.
  */
 
-library mdlremote;
+part of mdlapplication;
 
-import 'dart:html' as dom;
-import 'dart:async';
-
-
-import 'package:logging/logging.dart';
-import 'package:route_hierarchical/client.dart';
-import 'package:di/di.dart' as di;
-
-import 'package:mdl/mdlcore.dart';
-import 'package:mdl/mdlcomponets.dart';
-
-part "src/remote/Utils.dart";
-
-part "src/remote/ViewFactory.dart";
-
-part "src/remote/MaterialContent.dart";
-part "src/remote/MaterialInclude.dart";
-
-part "src/remote/MaterialContoller.dart";
-
-void registerAllMdlRemoteComponents() {
-
-    registerMaterialContent();
-    registerMaterialInclude();
-
+/// Mustache (+mirrors) needs to know which classes to include
+class MdlComponentModelAnnotation {
+    const MdlComponentModelAnnotation();
 }
+
+
+/**
+ * Helps mustache to know which var are available to render
+ * Sample:
+ *
+ * @MdlComponent
+ * class Model {
+ *     int sliderValue = 20;
+ * }
+ *
+ * mustache.template = """
+ *             <div>
+ *                 Slider value: {{sliderValue}}
+ *             </div>""";
+ *
+ * mustache.render(model);
+ */
+const MdlComponentModelAnnotation MdlComponentModel = const MdlComponentModelAnnotation();
+

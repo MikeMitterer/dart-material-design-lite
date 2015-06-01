@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of mdlremote;
+part of mdlapplication;
 
 /**
  * Loads additional "views" (html-Page) in SPA-Application

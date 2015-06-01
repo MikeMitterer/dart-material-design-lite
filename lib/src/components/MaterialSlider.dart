@@ -54,7 +54,7 @@ MdlConfig materialSliderConfig() => new MdlWidgetConfig<MaterialSlider>(
     => new MaterialSlider.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialSlider() => componentFactory().register(materialSliderConfig());
+void registerMaterialSlider() => componentHandler().register(materialSliderConfig());
 
 class MaterialSlider extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialSlider');

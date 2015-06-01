@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of mdlremote;
+part of mdlapplication;
 
 abstract class MaterialController {
     /**
@@ -36,7 +36,7 @@ abstract class MaterialController {
 }
 
 class DummyController extends MaterialController {
-    final Logger _logger = new Logger('mdlremote.DummyController');
+    final Logger _logger = new Logger('mdlapplication.DummyController');
 
     @override
     void loaded(final Route route) {

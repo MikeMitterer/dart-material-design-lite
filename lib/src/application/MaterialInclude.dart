@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-part of mdlremote;
+part of mdlapplication;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -43,7 +43,7 @@ class MaterialContentEvent {
 }
 
 class MaterialInclude extends MdlComponent {
-    final Logger _logger = new Logger('mdlcomponents.MaterialInclude');
+    final Logger _logger = new Logger('mdlapplication.MaterialInclude');
 
     //static const _MaterialIncludeConstant _constant = const _MaterialIncludeConstant();
     static const _MaterialIncludeCssClasses _cssClasses = const _MaterialIncludeCssClasses();

@@ -68,7 +68,7 @@ MdlConfig materialSwitchConfig() => new MdlWidgetConfig<MaterialSwitch>(
     => new MaterialSwitch.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialSwitch() => componentFactory().register(materialSwitchConfig());
+void registerMaterialSwitch() => componentHandler().register(materialSwitchConfig());
 
 class MaterialSwitch extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialSwitch');

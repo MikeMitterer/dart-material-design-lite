@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of mdlremote;
+part of mdlapplication;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -40,7 +40,7 @@ MdlConfig materialContentConfig() => new MdlWidgetConfig<MaterialContent>(
 void registerMaterialContent() => componentFactory().register(materialContentConfig());
 
 class MaterialContent extends MdlComponent {
-    final Logger _logger = new Logger('mdlremote.MaterialContent');
+    final Logger _logger = new Logger('mdlapplication.MaterialContent');
 
     static const _MaterialContentCssClasses _cssClasses = const _MaterialContentCssClasses();
     final Renderer _renderer = new Renderer();

@@ -25,6 +25,7 @@ import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 
+import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdltemplatecomponents.dart';
 
 import 'package:di/di.dart' as di;

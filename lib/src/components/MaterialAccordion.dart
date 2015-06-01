@@ -59,7 +59,7 @@ MdlConfig materialAccordionConfig() => new MdlWidgetConfig<MaterialAccordion>(
         => new MaterialAccordion.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialAccordion() => componentFactory().register(materialAccordionConfig());
+void registerMaterialAccordion() => componentHandler().register(materialAccordionConfig());
 
 /**
  * Sample:

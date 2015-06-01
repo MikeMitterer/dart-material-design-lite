@@ -43,7 +43,7 @@ MdlConfig materialProgressConfig() => new MdlWidgetConfig<MaterialProgress>(
     => new MaterialProgress.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialProgress() => componentFactory().register(materialProgressConfig());
+void registerMaterialProgress() => componentHandler().register(materialProgressConfig());
 
 class MaterialProgress extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialProgress');

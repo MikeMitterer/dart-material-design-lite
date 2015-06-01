@@ -67,7 +67,7 @@ MdlConfig materialRadioConfig() => new MdlWidgetConfig<MaterialRadio>(
     => new MaterialRadio.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialRadio() => componentFactory().register(materialRadioConfig());
+void registerMaterialRadio() => componentHandler().register(materialRadioConfig());
 
 /**
  * Sample:

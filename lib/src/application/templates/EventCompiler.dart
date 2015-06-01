@@ -19,8 +19,6 @@
 
 part of mdlapplication;
 
-typedef void _ElementFunction(final Symbol function,final List params);
-
 /**
  * Connects data-mdl-[event] attributes with object-functions
  *

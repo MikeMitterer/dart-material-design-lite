@@ -58,7 +58,7 @@ MdlConfig materialRippleConfig() {
 }
 
 /// registration-Helper
-void registerMaterialRipple() => componentFactory().register(materialRippleConfig());
+void registerMaterialRipple() => componentHandler().register(materialRippleConfig());
 
 class MaterialRipple extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialRipple');

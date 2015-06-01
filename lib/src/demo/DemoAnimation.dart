@@ -45,7 +45,7 @@ MdlConfig demoAnimationConfig() => new MdlWidgetConfig<DemoAnimation>(
         => new DemoAnimation.fromElement(element,injector));
 
 /// registration-Helper
-void registerDemoAnimation() => componentFactory().register(demoAnimationConfig());
+void registerDemoAnimation() => componentHandler().register(demoAnimationConfig());
 
 /**
  * Sample:

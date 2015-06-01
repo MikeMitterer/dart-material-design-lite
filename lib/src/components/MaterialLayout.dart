@@ -94,7 +94,7 @@ MdlConfig materialLayoutConfig() => new MdlWidgetConfig<MaterialLayout>(
     => new MaterialLayout.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialLayout() => componentFactory().register(materialLayoutConfig());
+void registerMaterialLayout() => componentHandler().register(materialLayoutConfig());
 
 class MaterialLayout extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialLayout');

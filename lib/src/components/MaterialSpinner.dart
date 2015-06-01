@@ -52,7 +52,7 @@ MdlConfig materialSpinnerConfig() => new MdlWidgetConfig<MaterialSpinner>(
     => new MaterialSpinner.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialSpinner() => componentFactory().register(materialSpinnerConfig());
+void registerMaterialSpinner() => componentHandler().register(materialSpinnerConfig());
 
 class MaterialSpinner extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialSpinner');

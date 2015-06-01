@@ -19,9 +19,6 @@
 
 library mdltemplatecomponents;
 
-@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
-import 'dart:mirrors';
-
 import 'dart:html' as dom;
 import 'dart:async';
 
@@ -31,36 +28,12 @@ import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
-import 'package:mdl/mdlremote.dart' show Renderer;
+import 'package:mdl/mdlapplication.dart';
 
 part "src/templatecomponents/MaterialMustache.dart";
 part "src/templatecomponents/MdlTemplateComponent.dart";
 
-/// Mustache (+mirrors) needs to know which classes to include
-class MdlComponentModelAnnotation {
-    const MdlComponentModelAnnotation();
-}
-
-
-/**
- * Helps mustache to know which var are available to render
- * Sample:
- *
- * @MdlComponent
- * class Model {
- *     int sliderValue = 20;
- * }
- *
- * mustache.template = """
- *             <div>
- *                 Slider value: {{sliderValue}}
- *             </div>""";
- *
- * mustache.render(model);
- */
-const MdlComponentModelAnnotation MdlComponentModel = const MdlComponentModelAnnotation();
-
-void registerAllMdlTemplateComponents() {
+void registerMdlTemplateComponents() {
 
     registerMaterialMustache();
 

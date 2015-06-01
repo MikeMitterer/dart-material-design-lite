@@ -19,21 +19,34 @@
 
 library mdlapplication;
 
+@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
+import 'dart:mirrors';
+
 import 'dart:html' as dom;
-import 'dart:collection';
 import 'dart:async';
-import 'dart:js';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 import 'package:di/di.dart' as di;
 
+import 'package:route_hierarchical/client.dart';
+
+
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponets.dart";
 
+part "src/application/templates/annotations.dart";
+part "src/application/templates/EventCompiler.dart";
 
 part "src/application/modules/Renderer.dart";
-part "src/application/modules/EventCompiler.dart";
+part "src/application/modules/ViewFactory.dart";
+
+part "src/application/MaterialContent.dart";
+part "src/application/MaterialInclude.dart";
+
+part "src/application/MaterialContoller.dart";
+
+part "src/application/Utils.dart";
 
 /**
  * This is the top level module which describes all extended MDL-Components and Services.
@@ -51,9 +64,18 @@ class MdlModule extends di.Module {
 
 }
 
-MdlComponentHandler componentFactory() {
-    final MdlModule mdlmodule = new MdlModule();
+final MdlModule _mdlmodule = new MdlModule();
 
-    componentHandler().addModule(mdlmodule);
+MdlComponentHandler componentFactory() {
+
+    componentHandler().addModule(_mdlmodule);
     return componentHandler();
 }
+
+void registerApplicationComponents() {
+
+    registerMaterialContent();
+    registerMaterialInclude();
+
+}
+

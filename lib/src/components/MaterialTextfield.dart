@@ -58,7 +58,7 @@ MdlConfig materialTextfieldConfig() => new MdlWidgetConfig<MaterialTextfield>(
     => new MaterialTextfield.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialTextfield() => componentFactory().register(materialTextfieldConfig());
+void registerMaterialTextfield() => componentHandler().register(materialTextfieldConfig());
 
 class MaterialTextfield extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialTextfield');

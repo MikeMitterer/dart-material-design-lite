@@ -55,7 +55,7 @@ MdlConfig materialIconToggleConfig() => new MdlWidgetConfig<MaterialIconToggle>(
     => new MaterialIconToggle.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialIconToggle() => componentFactory().register(materialIconToggleConfig());
+void registerMaterialIconToggle() => componentHandler().register(materialIconToggleConfig());
 
 /**
  * Sample:

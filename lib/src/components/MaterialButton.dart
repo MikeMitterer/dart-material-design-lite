@@ -42,7 +42,7 @@ MdlConfig materialButtonConfig() => new MdlWidgetConfig<MaterialButton>(
     => new MaterialButton.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialButton() => componentFactory().register(materialButtonConfig());
+void registerMaterialButton() => componentHandler().register(materialButtonConfig());
 
 class MaterialButton extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialButton');

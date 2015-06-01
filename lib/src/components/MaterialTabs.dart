@@ -49,7 +49,7 @@ MdlConfig materialTabsConfig() => new MdlWidgetConfig<MaterialTabs>(
     => new MaterialTabs.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialTabs() => componentFactory().register(materialTabsConfig());
+void registerMaterialTabs() => componentHandler().register(materialTabsConfig());
 
 class MaterialTabs extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialTabs');

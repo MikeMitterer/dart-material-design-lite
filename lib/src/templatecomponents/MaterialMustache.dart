@@ -42,7 +42,7 @@ MdlConfig materialMustacheConfig() => new MdlWidgetConfig<MaterialMustache>(
     => new MaterialMustache.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialMustache() => componentFactory().register(materialMustacheConfig());
+void registerMaterialMustache() => componentHandler().register(materialMustacheConfig());
 
 class MaterialMustache extends MdlComponent {
     final Logger _logger = new Logger('mdlremote.MaterialMustache');

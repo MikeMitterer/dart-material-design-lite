@@ -42,7 +42,7 @@ MdlConfig materialTooltipConfig() => new MdlWidgetConfig<MaterialTooltip>(
     => new MaterialTooltip.fromElement(element,injector));
 
 /// registration-Helper
-void registerMaterialTooltip() => componentFactory().register(materialTooltipConfig());
+void registerMaterialTooltip() => componentHandler().register(materialTooltipConfig());
 
 class MaterialTooltip extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialTooltip');
