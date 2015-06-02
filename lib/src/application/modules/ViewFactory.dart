@@ -51,6 +51,11 @@ class ViewFactory {
     void _enterHandler(final RouteEnterEvent event, final String url,
                        final MaterialController controller, final String selector) {
 
+        Validate.notNull(event);
+        Validate.notNull(url);
+        Validate.notNull(controller);
+        Validate.notBlank(selector);
+
         final dom.HttpRequest request = new dom.HttpRequest();
         final dom.Element contentElement = dom.querySelector(selector);
 

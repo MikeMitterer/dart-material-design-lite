@@ -89,9 +89,6 @@ abstract class MaterialDialog extends Object with TemplateComponent {
     /// usually the html body
     dom.Element _parent;
 
-    /// represents the <mdl-dialog> tag
-    //dom.Element _htmlWskDialogNode;
-
     /// Wraps wskDialogElement. Darkens the background and
     /// is used for backdrop click
     dom.DivElement _dialogContainer;
@@ -133,7 +130,11 @@ abstract class MaterialDialog extends Object with TemplateComponent {
             _parent.append(_dialogContainer);
         }
 
-        renderElement(_dialogContainer).then((_) {
+        final TemplateRenderer templateRenderer = componentFactory().injector.get(TemplateRenderer);
+        final Renderer renderer = templateRenderer.call(_dialogContainer,this,() => template);
+
+        // Now - add the template into the _dialogContainer
+        renderer.render().then((_) {
             if(dialogIDCallback != null) {
                 dialogIDCallback(hashCode.toString());
             }
@@ -168,37 +169,6 @@ abstract class MaterialDialog extends Object with TemplateComponent {
         return _hide(status);
     }
 
-/*    /// If the {dialogID} is given - it closes this specific dialog, otherwise all dialog with a timer (autoCloseEnabled)
-    /// will be closed. If {onlyIfAutoCloseEnabled} is set to false all Dialogs will be closed regardless if
-    /// the have a Timer or not
-    Future close(final MdlDialogStatus status, { final String dialogID, bool onlyIfAutoCloseEnabled: true }) {
-        //Validate.notEmpty(_dialogElements,"You try to close a dialog but they are all already closed???");
-
-        if(dialogID != null && dialogID.isNotEmpty) {
-            if(!_dialogElements.containsKey(dialogID)) {
-                _logger.warning("Dialog with ID $dialogID should be close but is already closed.");
-                return new Future.value();
-            }
-            final DialogElement dialogElement = _dialogElements.remove(dialogID);
-            return dialogElement.close(status);
-        }
-
-        final List<Future> futures = new List<Future>();
-        _dialogElements.forEach((final String key, final DialogElement element) {
-            if(element.isAutoCloseEnabled || onlyIfAutoCloseEnabled == false || config.autoClosePossible == false) {
-                _logger.info("Closing Dialog ${element.id}");
-                futures.add(element.close(status));
-            }
-        });
-
-        return Future.wait(futures);
-    }
-
-    /// Shortcut to close(status,onlyIfAutoCloseEnabled: false);
-    Future closeAll(final MdlDialogStatus status) {
-        return close(status,onlyIfAutoCloseEnabled: false);
-    }*/
-
     int get numberOfDialogs => _dialogElements.length;
 
     String get id => hashCode.toString();
@@ -224,9 +194,6 @@ abstract class MaterialDialog extends Object with TemplateComponent {
 
     /// mdl-dialog-container or mdl-toast-container
     String get _containerClass => "${_config.rootTagInTemplate}${_cssClasses.CONTAINER_POSTFIX}";
-
-    /// unique ID for dialog-wrapper
-    String get _containerID => "mdl-container-${hashCode.toString()}";
 
     String get _elementID => "mdl-element-${hashCode.toString()}";
 

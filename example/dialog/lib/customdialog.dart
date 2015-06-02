@@ -60,7 +60,7 @@ class CustomDialog extends MaterialDialog {
               </button>
           </div>
         </div>
-        """.trim().replaceAll(new RegExp(r"\s+")," ");
+        """;
 
 
     String title = "";

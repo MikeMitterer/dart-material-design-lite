@@ -49,7 +49,7 @@ class MaterialInclude extends MdlComponent {
     static const _MaterialIncludeCssClasses _cssClasses = const _MaterialIncludeCssClasses();
 
     /// renders a given String into HTML-Nodes
-    final Renderer _renderer = new Renderer();
+    final DomRenderer _renderer;
 
     /// Informs about the load-state
     final StreamController _controller = new StreamController<MaterialContentEvent>.broadcast();
@@ -58,7 +58,7 @@ class MaterialInclude extends MdlComponent {
     Stream<MaterialContentEvent> onLoadEnd;
 
     MaterialInclude.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector) {
+        : super(element,injector), _renderer = injector.get(DomRenderer) {
 
         onLoadEnd = _controller.stream;
         _init();

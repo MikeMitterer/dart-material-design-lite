@@ -52,7 +52,7 @@ class MaterialSnackbar extends MaterialDialog {
                 </button>
             {{/hasConfirmButton}}
         </div>
-    """.trim().replaceAll(new RegExp(r"\s+")," ");
+    """;
 
     static const int LONG_DELAY = 3500;
     static const int SHORT_DELAY = 2000;

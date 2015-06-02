@@ -23,10 +23,8 @@ import "dart:async";
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdl.dart';
 import 'package:mdl/mdldemo.dart';
-
-import 'package:mdl/mdlremote.dart';
 
 import 'package:route_hierarchical/client.dart';
 import 'package:prettify/prettify.dart';
@@ -75,8 +73,7 @@ main() {
     configLogging();
     enableTheming();
 
-    registerAllMdlComponents();
-    registerAllMdlRemoteComponents();
+    registerMdl();
 
     // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
     registerDemoAnimation();

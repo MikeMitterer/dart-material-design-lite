@@ -43,10 +43,10 @@ class MaterialContent extends MdlComponent {
     final Logger _logger = new Logger('mdlapplication.MaterialContent');
 
     static const _MaterialContentCssClasses _cssClasses = const _MaterialContentCssClasses();
-    final Renderer _renderer = new Renderer();
+    final DomRenderer _renderer;
 
     MaterialContent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector) {
+        : super(element,injector), _renderer = injector.get(DomRenderer) {
         _init();
     }
 

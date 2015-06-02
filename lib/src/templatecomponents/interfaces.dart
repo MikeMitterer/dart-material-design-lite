@@ -19,14 +19,10 @@
 
 part of mdltemplatecomponents;
 
+abstract class TemplateComponent {
 
-/// Basis for all MdlComponents with Templates
-abstract class MdlTemplateComponent extends MdlComponent implements TemplateComponent {
-    final Logger _logger = new Logger('mdltemplatecomponents.MdlTemplateComponent');
-
-    /// {_renderer} takes the template, renders the current object to a resulting String
-    /// and adds this String as DOM-Tree to the DOM
-    Renderer _renderer;
+    /// Subclasses must override this getter
+    String get template;
 
     /**
      *  Makes it easy to add functionality to templates
@@ -43,22 +39,4 @@ abstract class MdlTemplateComponent extends MdlComponent implements TemplateComp
      *  }
      */
     final Map<String,LambdaFunction> lambdas = new Map<String,LambdaFunction>();
-
-    MdlTemplateComponent(final dom.Element element,final di.Injector injector) : super(element,injector) {
-
-        Validate.notNull(element);
-        Validate.notNull(injector);
-
-        final TemplateRenderer templateRenderer = injector.get(TemplateRenderer);
-        _renderer = templateRenderer.call(element,this,() => template);
-    }
-
-    Future render() {
-        return _renderer.render();
-    }
-
-    void set renderer(final Renderer renderer) {
-        Validate.notNull(renderer);
-        _renderer = renderer;
-    }
 }

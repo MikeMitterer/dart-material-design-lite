@@ -71,12 +71,19 @@ class ToDoItemComponent extends MdlTemplateComponent {
     final StreamController _controller = new StreamController<ModelChangedEvent>.broadcast();
     Stream<ModelChangedEvent> onModelChange;
 
+    final TemplateRenderer _templateRenderer;
+    final ListRenderer _listRenderer;
+
     ToDoItemComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector) {
+        : super(element,injector),
+            _templateRenderer = injector.get(TemplateRenderer), _listRenderer = injector.get(ListRenderer) {
 
         onModelChange = _controller.stream;
-        _init();
 
+        _listRenderer.listTag = "<div>";
+        _listRenderer.itemTag = "";
+
+        _init();
     }
 
     static ToDoItemComponent widget(final dom.HtmlElement element) => mdlComponent(element) as ToDoItemComponent;
@@ -161,19 +168,28 @@ class ToDoItemComponent extends MdlTemplateComponent {
         _controller.add(new ModelChangedEvent(item));
     }
 
+    int get incrementalIndex => items.isNotEmpty ? ToDoItem.counter : -1;
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
         _logger.info("ToDoItem - init");
         element.classes.add(_cssClasses.IS_UPGRADED);
 
-        _items.add(new ToDoItem(false,"Mike"));
-        _items.add(new ToDoItem(true,"Gerda"));
-        _items.add(new ToDoItem(false,"Sarah"));
+        _items.add(new ToDoItem(false,"Mike (Cnt 0)"));
+        _items.add(new ToDoItem(true,"Gerda (Cnt 1)"));
+        _items.add(new ToDoItem(false,"Sarah (Cnt 2)"));
 
-        for(int counter = 0;counter < 1000;counter++) {
+        for(int counter = 3;counter < 1000;counter++) {
            _items.add(new ToDoItem(false,"Cnt $counter"));
         }
+
+        if(useRenderListFunction) {
+            renderer = _listRenderer(element,this,_items,() => template);
+        } else {
+            renderer = _templateRenderer(element,this,() => template);
+        }
+
         _render();
         _logger.info("ToDoItem - init done!");
 
@@ -191,21 +207,19 @@ class ToDoItemComponent extends MdlTemplateComponent {
     Future _render() async {
         Stopwatch stopwatch = new Stopwatch()..start();
 
-        if(useRenderListFunction) {
+        render().then((_) {
+            stopwatch.stop();
 
-            renderList(items,listTag: "<div>", itemTag: "").then((_) {
-                stopwatch.stop();
-                _logger.info("List rendered with renderList! Took ${stopwatch.elapsedMilliseconds}ms");
-            });
+            String message;
+            if(useRenderListFunction) {
+                message = "Data rendered with ListRenderer (${_items.length}), took ${stopwatch.elapsedMilliseconds}ms";
+            } else {
+                message = "Data rendered with TemplateRenderer (${_items.length}), took ${stopwatch.elapsedMilliseconds}ms";
+            }
 
-        } else {
+            _logger.info(message);
+        });
 
-            render().then((_) {
-                stopwatch.stop();
-                _logger.info("List rendered with mustache! Took ${stopwatch.elapsedMilliseconds}ms");
-            });
-
-        }
     }
 }
 

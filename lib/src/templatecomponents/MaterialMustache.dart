@@ -49,12 +49,12 @@ class MaterialMustache extends MdlComponent {
 
     static const _MaterialMustacheCssClasses _cssClasses = const _MaterialMustacheCssClasses();
 
-    final Renderer _renderer = new Renderer();
+    final DomRenderer _renderer;
 
     String _template = "";
 
     MaterialMustache.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector) {
+        : super(element,injector), _renderer = injector.get(DomRenderer) {
         _init();
     }
 

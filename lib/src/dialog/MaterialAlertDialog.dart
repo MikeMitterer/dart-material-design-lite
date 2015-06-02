@@ -21,7 +21,7 @@ class MaterialAlertDialog extends MaterialDialog {
               </button>
           </div>
         </div>
-        """.trim().replaceAll(new RegExp(r"\s+")," ");
+        """;
 
     String title = "";
     String text = "";

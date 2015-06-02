@@ -108,8 +108,8 @@ class EventCompiler {
     /// with {event}. If no $event param is defined then preventDefault and stopPropagation is called on this {event}
     void _invokeFunction(final InstanceMirror myClassInstanceMirror,final Symbol function, final List params, final dom.Event event) {
         if(_hasNoEvent(params)) {
-            event.preventDefault();
-            event.stopPropagation();
+            //event.preventDefault();
+            //event.stopPropagation();
         }
         myClassInstanceMirror.invoke(function, _replaceEventInParams(params,event));
     }

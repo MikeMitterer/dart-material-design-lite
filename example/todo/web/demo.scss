@@ -12,12 +12,9 @@
             margin  : 0;
             padding : 0;
 
-            .mdl-checkbox.is-checked .mdl-checkbox__label {
-                text-decoration : line-through;
-            }
-
         }
     }
+
 
     .row {
         display: flex;
@@ -28,8 +25,13 @@
         align-items: center; // ↓
 
         .mdl-checkbox {
-            width: 100px;
+            width: 200px;
         }
+
+        .mdl-checkbox.is-checked .mdl-checkbox__label {
+            text-decoration : line-through;
+        }
+
     }
 
 }

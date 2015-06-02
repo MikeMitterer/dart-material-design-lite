@@ -23,6 +23,7 @@ import 'dart:html' as dom;
 import 'dart:async';
 
 import 'package:logging/logging.dart';
+import 'package:validate/validate.dart';
 import 'package:mustache/mustache.dart';
 import 'package:di/di.dart' as di;
 
@@ -30,11 +31,26 @@ import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
 import 'package:mdl/mdlapplication.dart';
 
+part "src/templatecomponents/interfaces.dart";
+
 part "src/templatecomponents/MaterialMustache.dart";
 part "src/templatecomponents/MdlTemplateComponent.dart";
+
+part "src/templatecomponents/Renderer.dart";
+part "src/templatecomponents/TemplateRenderer.dart";
+part "src/templatecomponents/ListRenderer.dart";
+
+class MdlTemplateModule extends di.Module {
+    MdlTemplateModule() {
+        bind(TemplateRenderer);
+        bind(ListRenderer);
+    }
+}
+final MdlTemplateModule _templateModule = new MdlTemplateModule();
 
 void registerMdlTemplateComponents() {
 
     registerMaterialMustache();
 
+    componentHandler().addModule(_templateModule);
 }

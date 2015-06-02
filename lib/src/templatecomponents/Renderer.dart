@@ -17,22 +17,14 @@
  * limitations under the License.
  */
 
-library mdldialog;
+part of mdltemplatecomponents;
 
-import 'dart:html' as dom;
-import 'dart:async';
+typedef Future _RenderFunction();
 
-import 'package:logging/logging.dart';
-import 'package:validate/validate.dart';
-import 'package:di/di.dart' as di;
+class Renderer {
+    final _RenderFunction _renderFunction;
 
-import 'package:mdl/mdlapplication.dart';
-import 'package:mdl/mdltemplatecomponents.dart';
+    Renderer(this._renderFunction);
 
-part "src/dialog/MaterialDialog.dart";
-part "src/dialog/MaterialAlertDialog.dart";
-part "src/dialog/MaterialConfirmDialog.dart";
-
-part "src/dialog/MaterialSnackbar.dart";
-
-//part "src/dialog/utils.dart";
+    Future render() => _renderFunction();
+}

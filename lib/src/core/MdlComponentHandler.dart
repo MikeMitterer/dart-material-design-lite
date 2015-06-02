@@ -53,7 +53,7 @@ class MdlComponentHandler {
     /// If set to true it
     bool _enableVisualDebugging = false;
 
-    /// Returns the injector for this module.
+    /// The injector for this module.
     di.Injector _injector;
 
     /**
@@ -113,7 +113,7 @@ class MdlComponentHandler {
         final dom.Element body = dom.querySelector("body");
 
         _enableVisualDebugging = enableVisualDebugging;
-        //_modules.add(new di.Module()..bind(Renderer));
+        //_modules.add(new di.Module()..bind(DomRenderer));
 
         _injector = _createInjector();
 
@@ -153,9 +153,14 @@ class MdlComponentHandler {
     }
 
     MdlComponentHandler addModule(final di.Module module) {
-        _modules.add(module);
+        if(_modules.indexOf(module) == -1) {
+            _modules.add(module);
+        }
         return this;
     }
+
+    /// Returns the injector for this module.
+    di.Injector get injector => _injector;
 
     //- private -----------------------------------------------------------------------------------
 

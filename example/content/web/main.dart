@@ -6,7 +6,7 @@ import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
-import 'package:mdl/mdlremote.dart';
+import 'package:di/di.dart' as di;
 
 import 'package:route_hierarchical/client.dart';
 
@@ -54,11 +54,10 @@ main() {
     final Model model = new Model();
 
     configLogging();
-    configRouter();
-
     registerMdl();
 
-    componentFactory().run().then((_) {
+    componentFactory().run().then(( final di.Injector injector) {
+        configRouter(injector.get(ViewFactory));
 
         final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector("#mainslider2"));
         final MaterialContent list = MaterialContent.widget(dom.querySelector("#list"));
@@ -133,6 +132,11 @@ class DemoController extends MaterialController {
         _slider5 = MaterialSlider.widget(dom.querySelector("#slider5"));
         _slider2 = MaterialSlider.widget(dom.querySelector("#slider2"));
 
+        if(_slider5 == null) {
+            // ERROR-PAGE not slider 5
+            return;
+        }
+
         _slider5.value = _model.sliderValue;
         _slider2.value = _model.sliderValue;
 
@@ -152,9 +156,8 @@ class DemoController extends MaterialController {
 
 }
 
-void configRouter() {
+void configRouter(final ViewFactory view) {
     final Router router = new Router(useFragment: true);
-    final ViewFactory view = new ViewFactory();
 
     router.root
 

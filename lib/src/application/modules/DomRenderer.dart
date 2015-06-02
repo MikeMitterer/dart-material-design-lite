@@ -31,26 +31,26 @@ class _RendererCssClasses {
     const _RendererCssClasses();
 }
 
-typedef void RenderFunction();
+typedef void _DomRenderFunction();
 
 /**
- *  Renderer converts a String into HtmlNodes
+ *  DomRenderer converts a String into HtmlNodes
  *  Needed in mdlremote!
  */
 @di.Injectable()
-class Renderer {
-    final Logger _logger = new Logger('mdlapplication.Renderer');
+class DomRenderer {
+    final Logger _logger = new Logger('mdlapplication.DomRenderer');
 
     static const _RendererCssClasses _cssClasses = const _RendererCssClasses();
 
-    final List<RenderFunction> _renderFunctions = new List<RenderFunction>();
+    final List<_DomRenderFunction> _renderFunctions = new List<_DomRenderFunction>();
 
-    /// Renders the {content} String - {content} must have ONE! top level element.
-    /// If {replaceNode} is false {content} will be added to {element} otherwise th new
-    /// {content} replaces the old
+    /// Renders the {content} String into the given {parent} - {content} must have ONE! top level element.
+    /// If {replaceNode} is false {content} will be added to {parent} otherwise th new
+    /// {content} replaces the old content
     ///
     /// Returns the rendered child
-    Future<dom.Element> render(final dom.Element element, final String content,{ final bool replaceNode: true}) {
+    Future<dom.Element> render(final dom.Element parent, final String content,{ final bool replaceNode: true}) {
         //_logger.info("Content: $content");
 
         final Completer completer = new Completer();
@@ -58,8 +58,8 @@ class Renderer {
         // add the render-function to the list where the "new Future" can pick it
         _renderFunctions.insert(0, () {
 
-            element.classes.remove(_cssClasses.LOADED);
-            element.classes.add(_cssClasses.LOADING);
+            parent.classes.remove(_cssClasses.LOADED);
+            parent.classes.add(_cssClasses.LOADING);
 
             final dom.Element child = new dom.Element.html(content,validator: _validator());
 
@@ -67,8 +67,8 @@ class Renderer {
 
                 dom.window.requestAnimationFrame( (_) {
 
-                if(replaceNode && element.childNodes.length > 0 && element.childNodes.last != null) {
-                    var oldElement = element.childNodes.last;
+                if(replaceNode && parent.childNodes.length > 0 && parent.childNodes.last != null) {
+                    var oldElement = parent.childNodes.last;
                     if(oldElement is dom.Element) {
                         oldElement.style.display = "none";
                     }
@@ -77,10 +77,10 @@ class Renderer {
                 }
 
                 //element.append(child);
-                element.insertAdjacentElement("beforeEnd",child);
+                parent.insertAdjacentElement("beforeEnd",child);
 
-                element.classes.remove(_cssClasses.LOADING);
-                element.classes.add(_cssClasses.LOADED);
+                parent.classes.remove(_cssClasses.LOADING);
+                parent.classes.add(_cssClasses.LOADED);
 
                 completer.complete(child);
                 });
@@ -90,7 +90,7 @@ class Renderer {
         });
 
         new Future(() {
-            final RenderFunction renderfunction = _renderFunctions.last;
+            final _DomRenderFunction renderfunction = _renderFunctions.last;
             _renderFunctions.remove(renderfunction);
             renderfunction();
         });

@@ -31,14 +31,13 @@ import 'package:di/di.dart' as di;
 
 import 'package:route_hierarchical/client.dart';
 
-
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponets.dart";
 
 part "src/application/templates/annotations.dart";
 part "src/application/templates/EventCompiler.dart";
 
-part "src/application/modules/Renderer.dart";
+part "src/application/modules/DomRenderer.dart";
 part "src/application/modules/ViewFactory.dart";
 
 part "src/application/MaterialContent.dart";
@@ -62,20 +61,25 @@ part "src/application/Utils.dart";
  */
 class MdlModule extends di.Module {
 
+    MdlModule() {
+        bind(DomRenderer);
+        bind(EventCompiler);
+        bind(ViewFactory);
+    }
 }
 
 final MdlModule _mdlmodule = new MdlModule();
 
-MdlComponentHandler componentFactory() {
-
-    componentHandler().addModule(_mdlmodule);
-    return componentHandler();
-}
+MdlComponentHandler componentFactory() => componentHandler();
 
 void registerApplicationComponents() {
 
     registerMaterialContent();
     registerMaterialInclude();
 
-}
+    void _addModule() {
+        componentHandler().addModule(_mdlmodule);
+    }
 
+    _addModule();
+}
