@@ -26,6 +26,10 @@ final componentHandler = ( /*function*/ () {
 
   final createdComponents_ = [];
 
+  final downgradeMethod_ = 'mdlDowngrade_';
+
+  final componentConfigProperty_ = 'mdlComponentConfigInternal_';
+
 /// Searches registered components for a class we are interested in using.
 /// Optionally replaces a match with passed object if specified.
 /// param {string} name The name of a class we want to use.
@@ -96,6 +100,7 @@ final componentHandler = ( /*function*/ () {
         // new
 
         final instance = new registeredClass.classConstructor(element);
+        instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
         registeredClass.callbacks.forEach(function (callback) {
@@ -108,9 +113,7 @@ final componentHandler = ( /*function*/ () {
         }
 
       } else {
-        // If component creator forgot to register, try and see if
-        // it is in global scope.
-        createdComponents_.push(new window[jsClass](element));
+        throw 'Unable to find a registered component for the given class.';
       }
 
       final ev = document.createEvent('Events');
@@ -130,6 +133,19 @@ final componentHandler = ( /*function*/ () {
       'cssClass': config.cssClass,
       'widget': config.widget == undefined ? true : config.widget,
       'callbacks': []
+    }
+
+    registeredComponents_.forEach(function(item) {
+      if (item.cssClass == newConfig.cssClass) {
+        throw 'The provided cssClass has already been registered.';
+      }
+      if (item.className == newConfig.className) {
+        throw 'The provided className has already been registered';
+      }
+    });
+
+    if (config.constructor.prototype.hasOwnProperty(componentConfigProperty_)) {
+      throw 'MDL component classes must not have ' + componentConfigProperty_ + ' defined as a property.';
     }
 
     final found = findRegisteredClass_(config.classAsString, newConfig);
@@ -162,6 +178,69 @@ final componentHandler = ( /*function*/ () {
     }
   }
 
+/// Finds a created component by a given DOM node.
+/// 
+/// param node
+/// returns {*}
+  function findCreatedComponentByNodeInternal(node) {
+
+    for (final n = 0; n < createdComponents_.length; n++) {
+
+      final component = createdComponents_[n];
+      if (component.element_ == node) {
+        return component;
+      }
+    }
+  }
+
+/// Check the component for the downgrade method.
+/// Execute if found.
+/// Remove component from createdComponents list.
+/// 
+/// param component
+  function deconstructComponentInternal(component) {
+    if (component &&
+      component[componentConfigProperty_]
+      .classConstructor.prototype
+      .hasOwnProperty(downgradeMethod_)) {
+      component[downgradeMethod_]();
+
+      final componentIndex = createdComponents_.indexOf(component);
+      createdComponents_.splice(componentIndex, 1);
+
+      final upgrades = component._element.dataset.upgraded.split(',');
+
+      final componentPlace = upgrades.indexOf(component[componentConfigProperty_].classAsString);
+      upgrades.splice(componentPlace, 1);
+      component._element.dataset.upgraded = upgrades.join(',');
+
+      final ev = document.createEvent('Events');
+      ev.initEvent('mdl-componentdowngraded', true, true);
+      component._element.dispatchEvent(ev);
+    }
+  }
+
+/// Downgrade either a given node, an array of nodes, or a NodeList.
+/// 
+/// param nodes
+  function downgradeNodesInternal(nodes) {
+
+    final downgradeNode = function(node) {
+      deconstructComponentInternal(findCreatedComponentByNodeInternal(node));
+    }
+    if (nodes instanceof Array || nodes instanceof NodeList) {
+
+      for (final n = 0; n < nodes.length; n++) {
+        downgradeNode(nodes[n]);
+      }
+    } else if (nodes instanceof Node) {
+      downgradeNode(nodes);
+
+    } else {
+      throw 'Invalid argument provided to downgrade MDL nodes.';
+    }
+  }
+
   // Now return the functions that should be made public with their publicly
   // facing names...
   return {
@@ -169,7 +248,8 @@ final componentHandler = ( /*function*/ () {
     upgradeElement: upgradeElementInternal,
     upgradeAllRegistered: upgradeAllRegisteredInternal,
     registerUpgradedCallback: registerUpgradedCallbackInternal,
-    register: registerInternal
+    register: registerInternal,
+    downgradeElements: downgradeNodesInternal
   }
 })();
 

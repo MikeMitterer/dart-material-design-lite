@@ -179,40 +179,58 @@ void init() {
     element.append(tickContainer);
     element.append(boxOutline);
 
-    final rippleContainer;
     if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
       element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
-      rippleContainer = new html.SpanElement();
-      rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
-      rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
-      rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
+      _rippleContainerElement = new html.SpanElement();
+      _rippleContainerElement.classes.add(_cssClasses.RIPPLE_CONTAINER);
+      _rippleContainerElement.classes.add(_cssClasses.RIPPLE_EFFECT);
+      _rippleContainerElement.classes.add(_cssClasses.RIPPLE_CENTER);
+      _boundRippleMouseUp = onMouseUp;
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-      rippleContainer.onMouseUp.listen( _onMouseUp);
+      _rippleContainerElement.onMouseUp.listen( boundRippleMouseUp);
 
       final ripple = new html.SpanElement();
       ripple.classes.add(_cssClasses.RIPPLE);
 
-      rippleContainer.append(ripple);
-      element.append(rippleContainer);
+      _rippleContainerElement.append(ripple);
+      element.append(_rippleContainerElement);
     }
+    _boundInputOnChange = onChange;
+    _boundInputOnFocus = onFocus;
+    _boundInputOnBlur = onBlur;
+    _boundElementMouseUp = onMouseUp;
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
-    _inputElement.onChange.listen( _onChange);
+    _inputElement.onChange.listen( boundInputOnChange);
 
 	// .addEventListener('focus', -- .onFocus.listen(<Event>);
-    _inputElement.onFocus.listen( _onFocus);
+    _inputElement.onFocus.listen( boundInputOnFocus);
 
 	// .addEventListener('blur', -- .onBlur.listen(<Event>);
-    _inputElement.onBlur.listen( _onBlur);
+    _inputElement.onBlur.listen( boundInputOnBlur);
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-    element.onMouseUp.listen( _onMouseUp);
+    element.onMouseUp.listen( boundElementMouseUp);
 
     _updateClasses();
     element.classes.add(_cssClasses.IS_UPGRADED);
   }
+}
+
+/*
+/// Downgrade the component.
+/// 
+/// MaterialCheckbox.prototype.mdlDowngrade_ = /*function*/ () {
+void _mdlDowngrade() {
+  if (_rippleContainerElement) {
+    _rippleContainerElement.removeEventListener('mouseup', boundRippleMouseUp);
+  }
+  _inputElement.removeEventListener('change', boundInputOnChange);
+  _inputElement.removeEventListener('focus', boundInputOnFocus);
+  _inputElement.removeEventListener('blur', boundInputOnBlur);
+  element.removeEventListener('mouseup', boundElementMouseUp);
 }
 
 // The component registers itself. It can assume componentHandler is available

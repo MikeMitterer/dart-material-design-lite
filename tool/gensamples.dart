@@ -19,6 +19,8 @@
  * limitations under the License.
  */
 
+library gensamples;
+
 import 'dart:io';
 import 'dart:math';
 import 'dart:convert';
@@ -298,6 +300,14 @@ class Application {
         final File targetMiniFooter = new File("${sassDir}/footer/_mini_footer.orig.scss");
 
         srcMiniFooter.copySync(targetMiniFooter.path);
+
+        final File srcJSAnimation = new File("${mdlSampleDir.path}/animation/demo.js");
+        final File targetJSAnimation = new File("${config.jsbase}/animation.js");
+        final File targetConvertedJSAnimation = new File("${config.portbase}/animation.js.dart");
+
+        srcJSAnimation.copySync(targetJSAnimation.path);
+        srcJSAnimation.copySync(targetConvertedJSAnimation.path);
+        _Js2Dart(targetConvertedJSAnimation);
     }
 
     /// {sassDir} -> lib/sass/accordion

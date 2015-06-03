@@ -27,7 +27,7 @@ main() {
             snackbar.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
             snackbar.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
 
-            dom.querySelector("#container").classes.toggle("mdl-snackbar-container",
+            dom.querySelector("#container").classes.toggle("mdl-toast-container",
             MaterialCheckbox.widget(dom.querySelector("#checkbox-use-container")).checked);
         }
 
@@ -35,7 +35,7 @@ main() {
             _logger.info("Click on Toast");
 
             _makeSettings();
-            snackbar("Message").show().then((final MdlDialogStatus status) {
+            snackbar("message").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
         });
@@ -44,7 +44,7 @@ main() {
             _logger.info("Click on withAction");
 
             _makeSettings();
-            snackbar("Message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
+            snackbar("message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
 

@@ -39,6 +39,7 @@
  * -----Badge
  * -----Shadows
  * -----Grid
+ * -----Data table
  */
 
 
@@ -54,8 +55,8 @@
    We should be able to improve on this once CSS Font Loading L3 becomes more
    widely available.
 */
-$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-$performance_font: 'Helvetica', 'Arial', sans-serif;
+$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
+$performance_font: 'Helvetica', 'Arial', sans-serif !default;
 
 /* ==========  COLORS  ========== */
 
@@ -165,6 +166,8 @@ $layout-nav-color: unquote("rgb(#{$palette-grey-300})") !default;
 $layout-drawer-bg-color: unquote("rgb(#{$palette-grey-50})") !default;
 $layout-drawer-border-color: unquote("rgb(#{$palette-grey-300})") !default;
 $layout-text-color: unquote("rgb(#{$palette-grey-800})") !default;
+$layout-drawer-navigation-link-active-background: unquote("rgb(#{$color-light-contrast})") !default;
+$layout-drawer-naviagtion-link-active-color: unquote("rgb(#{$color-primary})") !default;
 
 // Header
 $layout-header-bg-color: unquote("rgb(#{$color-primary})") !default;
@@ -222,17 +225,9 @@ $input-text-error-color: unquote("rgb(222, 50, 38)") !default;
 /* ==========  Card  ========== */
 
 $card-background-color: unquote("rgb(#{$color-white})") !default;
-$heading-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$heading-back-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$heading-back-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
-$action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
-$caption-color: unquote("rgb(#{$color-primary-contrast})") !default;
-$caption-bgcolor: unquote("rgb(#{$color-primary-dark})") !default;
-$image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
-$lower-text-color: unquote("rgb(#{$color-primary})") !default;
-
-/* Heading back */
-$heading-back-border: 0 none unquote("rgb(#{$color-white})") !default;
+$card-action-link-color: unquote("rgb(#{$color-primary-dark})") !default;
+$card-image-placeholder-color: unquote("rgb(#{$color-accent})") !default;
+$card-supporting-text-text-color: $text-color-primary !default;
 
 /* ==========  Sliders ========== */
 
@@ -446,50 +441,33 @@ $checkbox-ripple-size: $checkbox-label-height * 1.5;
 $card-width: 330px !default;
 $card-height: 200px !default;
 $card-font-size: 16px !default;
-$card-heading-font-size: 24px !default;
-$card-heading-height: 96px !default;
+$card-title-font-size: 24px !default;
+$card-title-height: 96px !default;
 $card-horizontal-padding: 16px !default;
 $card-vertical-padding: 8px !default;
 
-$card-heading-perspective-origin-x: 165px !default;
-$card-heading-perspective-origin-y: 56px !default;
+$card-title-perspective-origin-x: 165px !default;
+$card-title-perspective-origin-y: 56px !default;
 
-$card-heading-transform-origin-x: 165px !default;
-$card-heading-transform-origin-y: 56px !default;
+$card-title-transform-origin-x: 165px !default;
+$card-title-transform-origin-y: 56px !default;
 
-$card-heading-text-transform-origin-x: 149px !default;
-$card-heading-text-transform-origin-y: 48px !default;
+$card-title-text-transform-origin-x: 149px !default;
+$card-title-text-transform-origin-y: 48px !default;
 
-$card-caption-perspective-origin-x: 165px !default;
-$card-caption-perspective-origin-y: 16px !default;
+$card-supporting-text-font-size: 13px !default;
+$card-supporting-text-line-height: 18px !default;
+$card-supporting-text-vertical-margin: 10px !default;
 
-$card-caption-font-size: 12px !default;
-$card-caption-height: 16px !default;
+$card-actions-height: 50px !default;
+$card-actions-font-size: 16px !default;
 
-$card-lower-font-size: 13px !default;
-$card-lower-line-height: 18px !default;
-$card-lower-height: 108px !default;
-$card-lower-vertical-margin: 10px !default;
-
-$card-bottom-height: 50px !default;
-$card-bottom-font-size: 16px !default;
-
-$card-bottom-anchor-height: 50px !default;
-$card-bottom-anchor-line-height: 50px !default;
-$card-bottom-anchor-font-size: 13px !default;
-
-$card-bottom-anchor-perspective-origin-x: 165px !default;
-$card-bottom-anchor-perspective-origin-y: 25px !default;
-
-$card-bottom-anchor-transform-origin-x: 165px !default;
-$card-bottom-anchor-transform-origin-y: 25px !default;
-
-$card-heading-text-font-weight: 300 !default;
+$card-title-text-font-weight: 300 !default;
 $card-z-index: 1 !default;
 
 /* Cover image */
-$cover-image-height: 186px !default;
-$background-image-url: '' !default;
+$card-cover-image-height: 186px !default;
+$card-background-image-url: '' !default;
 
 
 /* BUTTON */
@@ -556,3 +534,26 @@ $grid-phone-gutter: $grid-desktop-gutter !default;
 $grid-phone-margin: $grid-desktop-margin !default;
 
 $grid-cell-default-columns: $grid-phone-columns !default;
+
+/* DATA TABLE */
+
+$data-table-header-color: rgba(#000, 0.54);
+$data-table-divider-color: rgba(#000, 0.12);
+
+$data-table-hover-color: #eeeeee;
+$data-table-selection-color: #e0e0e0;
+
+$data-table-dividers: 1px solid $data-table-divider-color;
+
+$data-table-row-height: 48px;
+$data-table-last-row-height: 56px;
+$data-table-header-height: 56px;
+
+$data-table-column-spacing: 36px;
+$data-table-column-padding: $data-table-column-spacing / 2;
+
+$data-table-card-header-height: 64px;
+$data-table-card-title-top: 20px;
+$data-table-card-padding: 24px;
+$data-table-button-padding-right: 16px;
+$data-table-cell-top: $data-table-card-padding / 2;

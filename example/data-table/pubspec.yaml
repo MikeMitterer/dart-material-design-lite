@@ -1,0 +1,23 @@
+name: mdl_data-table_sample
+description: Material Design Lite 'data-table' Sample
+version: 0.1.0
+author: Mike Mitterer <office@mikemitterer.at>
+homepage: https://github.com/MikeMitterer/dart-material-design-lite
+
+dependencies:
+  browser: any
+
+  intl: any
+  args: any
+  validate: any
+  browser_detect: any
+
+  logging: any
+  logging_handlers: any
+  console_log_handler: any
+  #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
+
+  mdl:
+    path: ../../
+
+

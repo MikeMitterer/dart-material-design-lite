@@ -31,12 +31,6 @@ class DemoAnimation {
   init();
 }
 
-/// Store constants in one place so they can be updated easily.
-/// enum {string | number}
-class _DemoAnimationConstant {
-    final int STARTING_POSITION = 1;
-}
-
 /// Store strings for class names defined by this component that are used in
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
@@ -44,6 +38,24 @@ class _DemoAnimationConstant {
 class _DemoAnimationCssClasses {
     final String MOVABLE = 'demo-animation__movable';
     final String POSITION_PREFIX = 'demo-animation--position-';
+    final String FAST_OUT_SLOW_IN = 'mdl-animation--fast-out-slow-in';
+    final String LINEAR_OUT_SLOW_IN = 'mdl-animation--linear-out-slow-in';
+    final String FAST_OUT_LINEAR_IN = 'mdl-animation--fast-out-linear-in';
+}
+
+/// Store constants in one place so they can be updated easily.
+/// enum {string | number}
+class _DemoAnimationConstant {
+    final int STARTING_POSITION = 0;
+  // Which animation to use for which state. Check demo.css for an explanation.
+  ANIMATIONS: [
+    DemoAnimation.prototype._cssClasses.FAST_OUT_LINEAR_IN,
+    DemoAnimation.prototype._cssClasses.LINEAR_OUT_SLOW_IN,
+    DemoAnimation.prototype._cssClasses.FAST_OUT_SLOW_IN,
+    DemoAnimation.prototype._cssClasses.FAST_OUT_LINEAR_IN,
+    DemoAnimation.prototype._cssClasses.LINEAR_OUT_SLOW_IN,
+    DemoAnimation.prototype._cssClasses.FAST_OUT_SLOW_IN
+  ]
 }
 
 /// Handle click of element.
@@ -53,10 +65,14 @@ void _handleClick(final html.Event event) {
 
   _movable.classes.remove(_cssClasses.POSITION_PREFIX +
       _position);
+  _movable.classes.remove(_constant.ANIMATIONS[_position]);
+
   _position++;
-  if (_position > 6) {
-    _position = 1;
+  if (_position > 5) {
+    _position = 0;
   }
+
+  _movable.classes.add(_constant.ANIMATIONS[_position]);
   _movable.classes.add(_cssClasses.POSITION_PREFIX +
       _position);
 }

@@ -74,21 +74,32 @@ void init() {
 
     final forElId = element.getAttribute('for');
 
-    final forEl = null;
-
     if (forElId) {
-      forEl = html.document.getElementById(forElId);
+      _forElement = html.document.getElementById(forElId);
     }
 
-    if (forEl) {
+    if (_forElement) {
+      _boundMouseEnterHandler = handleMouseEnter;
+      _boundMouseLeaveHandler = handleMouseLeave;
 
 	// .addEventListener('mouseenter', -- .onMouseEnter.listen(<MouseEvent>);
-      forEl.onMouseEnter.listen( _handleMouseEnter,
+      _forElement.onMouseEnter.listen( boundMouseEnterHandler,
           false);
 
 	// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
-      forEl.onMouseLeave.listen( _handleMouseLeave);
+      _forElement.onMouseLeave.listen( boundMouseLeaveHandler);
     }
+  }
+}
+
+/*
+/// Downgrade the component
+/// 
+/// MaterialTooltip.prototype.mdlDowngrade_ = /*function*/ () {
+void _mdlDowngrade() {
+  if (_forElement) {
+    _forElement.removeEventListener('mouseenter', boundMouseEnterHandler, false);
+    _forElement.removeEventListener('mouseleave', boundMouseLeaveHandler);
   }
 }
 

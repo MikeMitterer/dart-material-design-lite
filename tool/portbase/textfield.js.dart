@@ -157,23 +157,40 @@ void init() {
         }
       }
 
-      _input.addEventListener('input', _updateClasses);
+      _boundUpdateClassesHandler = updateClasses;
+      _boundFocusHandler = onFocus;
+      _boundBlurHandler = onBlur;
+      _input.addEventListener('input', boundUpdateClassesHandler);
 
 	// .addEventListener('focus', -- .onFocus.listen(<Event>);
-      _input.onFocus.listen( _onFocus);
+      _input.onFocus.listen( boundFocusHandler);
 
 	// .addEventListener('blur', -- .onBlur.listen(<Event>);
-      _input.onBlur.listen( _onBlur);
+      _input.onBlur.listen( boundBlurHandler);
 
       if (_maxRows != constant.NO_MAX_ROWS) {
         // TODO: This should handle pasting multi line text.
         // Currently doesn't.
-        _input.addEventListener('keydown', _onKeyDown);
+        _boundKeyDownHandler = onKeyDown;
+        _input.addEventListener('keydown', boundKeyDownHandler);
       }
 
       _updateClasses();
       element.classes.add(_cssClasses.IS_UPGRADED);
     }
+  }
+}
+
+/*
+/// Downgrade the component
+/// 
+/// MaterialTextfield.prototype.mdlDowngrade_ = /*function*/ () {
+void _mdlDowngrade() {
+  _input.removeEventListener('input', boundUpdateClassesHandler);
+  _input.removeEventListener('focus', boundFocusHandler);
+  _input.removeEventListener('blur', boundBlurHandler);
+  if (boundKeyDownHandler) {
+    _input.removeEventListener('keydown', boundKeyDownHandler);
   }
 }
 

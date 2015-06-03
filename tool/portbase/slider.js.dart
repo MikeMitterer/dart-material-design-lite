@@ -85,7 +85,7 @@ void _onContainerMouseDown(final html.Event event) {
 
   // If this click is not on the parent element (but rather some child)
   // ignore. It may still bubble up.
-  if(event.target != element.parentElement) {
+  if (event.target != element.parentElement) {
     return;
   }
 
@@ -197,18 +197,33 @@ void init() {
       backgroundFlex.append(_backgroundUpper);
     }
 
-    element.addEventListener('input', _onInput);
+    _boundInputHandler = onInput;
+    _boundChangeHandler = onChange;
+    _boundMouseUpHandler = onMouseUp;
+    _boundContainerMouseDownHandler = onContainerMouseDown;
+    element.addEventListener('input', boundInputHandler);
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
-    element.onChange.listen( _onChange);
+    element.onChange.listen( boundChangeHandler);
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-    element.onMouseUp.listen( _onMouseUp);
-    element.parent.addEventListener('mousedown', _onContainerMouseDown);
+    element.onMouseUp.listen( boundMouseUpHandler);
+    element.parent.addEventListener('mousedown', boundContainerMouseDownHandler);
 
     _updateValueStyles();
     element.classes.add(_cssClasses.IS_UPGRADED);
   }
+}
+
+/*
+/// Downgrade the component
+/// 
+/// MaterialSlider.prototype.mdlDowngrade_ = /*function*/ () {
+void _mdlDowngrade() {
+  element.removeEventListener('input', boundInputHandler);
+  element.removeEventListener('change', boundChangeHandler);
+  element.removeEventListener('mouseup', boundMouseUpHandler);
+  element.parent.removeEventListener('mousedown', boundContainerMouseDownHandler);
 }
 
 // The component registers itself. It can assume componentHandler is available

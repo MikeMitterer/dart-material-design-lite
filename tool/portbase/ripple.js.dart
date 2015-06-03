@@ -138,19 +138,23 @@ void init() {
         _rippleElement.style.height = _rippleSize + 'px';
       }
 
-      element.addEventListener('mousedown', _downHandler);
+      _boundDownHandler = downHandler;
+      element.addEventListener('mousedown',
+        boundDownHandler);
       element.addEventListener('touchstart',
-          _downHandler);
+          boundDownHandler);
+
+      _boundUpHandler = upHandler;
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-      element.onMouseUp.listen( _upHandler);
+      element.onMouseUp.listen( boundUpHandler);
 
 	// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
-      element.onMouseLeave.listen( _upHandler);
-      element.addEventListener('touchend', _upHandler);
+      element.onMouseLeave.listen( boundUpHandler);
+      element.addEventListener('touchend', boundUpHandler);
 
 	// .addEventListener('blur', -- .onBlur.listen(<Event>);
-      element.onBlur.listen( _upHandler);
+      element.onBlur.listen( boundUpHandler);
 
       getFrameCount = /*function*/ () {
         return _frameCount;
@@ -218,6 +222,22 @@ void init() {
       }
     }
   }
+}
+
+/*
+/// Downgrade the component
+/// 
+/// MaterialRipple.prototype.mdlDowngrade_ = /*function*/ () {
+void _mdlDowngrade() {
+  element.removeEventListener('mousedown',
+  boundDownHandler);
+  element.removeEventListener('touchstart',
+      boundDownHandler);
+
+  element.removeEventListener('mouseup', boundUpHandler);
+  element.removeEventListener('mouseleave', boundUpHandler);
+  element.removeEventListener('touchend', boundUpHandler);
+  element.removeEventListener('blur', boundUpHandler);
 }
 
 // The component registers itself. It can assume componentHandler is available

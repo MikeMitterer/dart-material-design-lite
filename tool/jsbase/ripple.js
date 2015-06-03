@@ -15,8 +15,8 @@
  */
 
 /**
- * Class constructor for Ripple WSK component.
- * Implements WSK component design pattern defined at:
+ * Class constructor for Ripple MDL component.
+ * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.
  */
@@ -93,7 +93,7 @@ MaterialRipple.prototype.downHandler_ = function(event) {
     }
     this.setRippleXY(x, y);
     this.setRippleStyles(true);
-    window.requestAnimFrame(this.animFrameHandler.bind(this));
+    window.requestAnimationFrame(this.animFrameHandler.bind(this));
   }
 };
 
@@ -142,14 +142,17 @@ MaterialRipple.prototype.init = function() {
         this.rippleElement_.style.height = this.rippleSize_ + 'px';
       }
 
-      this.element_.addEventListener('mousedown', this.downHandler_.bind(this));
+      this.boundDownHandler = this.downHandler_.bind(this);
+      this.element_.addEventListener('mousedown',
+        this.boundDownHandler);
       this.element_.addEventListener('touchstart',
-          this.downHandler_.bind(this));
+          this.boundDownHandler);
 
-      this.element_.addEventListener('mouseup', this.upHandler_.bind(this));
-      this.element_.addEventListener('mouseleave', this.upHandler_.bind(this));
-      this.element_.addEventListener('touchend', this.upHandler_.bind(this));
-      this.element_.addEventListener('blur', this.upHandler_.bind(this));
+      this.boundUpHandler = this.upHandler_.bind(this);
+      this.element_.addEventListener('mouseup', this.boundUpHandler);
+      this.element_.addEventListener('mouseleave', this.boundUpHandler);
+      this.element_.addEventListener('touchend', this.boundUpHandler);
+      this.element_.addEventListener('blur', this.boundUpHandler);
 
       this.getFrameCount = function() {
         return this.frameCount_;
@@ -203,7 +206,7 @@ MaterialRipple.prototype.init = function() {
 
       this.animFrameHandler = function() {
         if (this.frameCount_-- > 0) {
-          window.requestAnimFrame(this.animFrameHandler.bind(this));
+          window.requestAnimationFrame(this.animFrameHandler.bind(this));
         } else {
           this.setRippleStyles(false);
         }
@@ -212,10 +215,27 @@ MaterialRipple.prototype.init = function() {
   }
 };
 
+/*
+* Downgrade the component
+*/
+MaterialRipple.prototype.mdlDowngrade_ = function() {
+  'use strict';
+  this.element_.removeEventListener('mousedown',
+  this.boundDownHandler);
+  this.element_.removeEventListener('touchstart',
+      this.boundDownHandler);
+
+  this.element_.removeEventListener('mouseup', this.boundUpHandler);
+  this.element_.removeEventListener('mouseleave', this.boundUpHandler);
+  this.element_.removeEventListener('touchend', this.boundUpHandler);
+  this.element_.removeEventListener('blur', this.boundUpHandler);
+};
+
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
   constructor: MaterialRipple,
   classAsString: 'MaterialRipple',
-  cssClass: 'mdl-js-ripple-effect'
+  cssClass: 'mdl-js-ripple-effect',
+  widget: false
 });

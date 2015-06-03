@@ -34,6 +34,10 @@ class MaterialLayout {
 class _MaterialLayoutConstant {
     final String MAX_WIDTH = '(max-width: 850px)';
     final int TAB_SCROLL_PIXELS = 100;
+
+    final String MENU_ICON = 'menu';
+    final String CHEVRON_LEFT = 'chevron_left';
+    final String CHEVRON_RIGHT = 'chevron_right';
 }
 
 /// Modes.
@@ -55,6 +59,8 @@ class _MaterialLayoutCssClasses {
     final String DRAWER = 'mdl-layout__drawer';
     final String CONTENT = 'mdl-layout__content';
     final String DRAWER_BTN = 'mdl-layout__drawer-button';
+
+    final String ICON = 'material-icons';
 
     final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
     final String RIPPLE_CONTAINER = 'mdl-layout__tab-ripple-container';
@@ -96,11 +102,13 @@ void _contentScrollHandler() {
     return;
   }
 
-  if (_content.scrollTop > 0 && !_header.classes.contains(_cssClasses.IS_COMPACT)) {
+  if (_content.scrollTop > 0 &&
+      !_header.classes.contains(_cssClasses.IS_COMPACT)) {
     _header.classes.add(_cssClasses.CASTING_SHADOW);
     _header.classes.add(_cssClasses.IS_COMPACT);
     _header.classes.add(_cssClasses.IS_ANIMATING);
-  } else if (_content.scrollTop <= 0 && _header.classes.contains(_cssClasses.IS_COMPACT)) {
+  } else if (_content.scrollTop <= 0 &&
+      _header.classes.contains(_cssClasses.IS_COMPACT)) {
     _header.classes.remove(_cssClasses.CASTING_SHADOW);
     _header.classes.remove(_cssClasses.IS_COMPACT);
     _header.classes.add(_cssClasses.IS_ANIMATING);
@@ -237,6 +245,11 @@ void init() {
       final drawerButton = new html.DivElement();
       drawerButton.classes.add(_cssClasses.DRAWER_BTN);
 
+      final drawerButtonIcon = document.createElement('i');
+      drawerButtonIcon.classes.add(_cssClasses.ICON);
+      drawerButtonIcon.textContent = _constant.MENU_ICON;
+      drawerButton.append(drawerButtonIcon);
+
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       drawerButton.onClick.listen(
           _drawerToggleHandler);
@@ -277,6 +290,11 @@ void init() {
       leftButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
       leftButton.classes.add(_cssClasses.TAB_BAR_LEFT_BUTTON);
 
+      final leftButtonIcon = document.createElement('i');
+      leftButtonIcon.classes.add(_cssClasses.ICON);
+      leftButtonIcon.textContent = _constant.CHEVRON_LEFT;
+      leftButton.append(leftButtonIcon);
+
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       leftButton.onClick.listen( /*function*/ () {
         _tabBar.scrollLeft -= _constant.TAB_SCROLL_PIXELS;
@@ -285,6 +303,11 @@ void init() {
       final rightButton = new html.DivElement();
       rightButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
       rightButton.classes.add(_cssClasses.TAB_BAR_RIGHT_BUTTON);
+
+      final rightButtonIcon = document.createElement('i');
+      rightButtonIcon.classes.add(_cssClasses.ICON);
+      rightButtonIcon.textContent = _constant.CHEVRON_RIGHT;
+      rightButton.append(rightButtonIcon);
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       rightButton.onClick.listen( /*function*/ () {

@@ -100,6 +100,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -380,6 +381,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 /*
 Palettes (14 colors)  50 - 900 + A100 - A700 possible
     palette-red
@@ -2370,6 +2372,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -2860,6 +2863,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
@@ -2977,6 +2981,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-ripple {
   background: black;
   border-radius: 50%;
@@ -3098,6 +3103,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3213,6 +3219,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-button {
   background: transparent;
   border: none;
@@ -3296,7 +3303,7 @@ Palettes (10 colors) 50 - 900 possible
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
   position: relative;
   line-height: normal; }
-  .mdl-button--fab .mdl-icon {
+  .mdl-button--fab .material-icons {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -3346,7 +3353,7 @@ Palettes (10 colors) 50 - 900 possible
   overflow: hidden;
   color: inherit;
   line-height: normal; }
-  .mdl-button--icon .mdl-icon {
+  .mdl-button--icon .material-icons {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -3359,7 +3366,7 @@ Palettes (10 colors) 50 - 900 possible
     height: 24px;
     min-width: 24px;
     width: 24px; }
-    .mdl-button--icon.mdl-button--mini-icon .mdl-icon {
+    .mdl-button--icon.mdl-button--mini-icon .material-icons {
       top: 0px;
       left: 0px; }
   .mdl-button--icon .mdl-button__ripple-container {
@@ -3489,6 +3496,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-card {
   font-size: 16px;
   min-height: 200px;
@@ -3499,7 +3507,7 @@ Palettes (10 colors) 50 - 900 possible
   background: white;
   border-radius: 2px; }
 
-.mdl-card__img-container {
+.mdl-card__media {
   background-color: #ff4081;
   background-repeat: repeat;
   background-position: 50% 50%;
@@ -3508,14 +3516,12 @@ Palettes (10 colors) 50 - 900 possible
   background-attachment: scroll;
   height: 186px; }
 
-.mdl-card__heading {
+.mdl-card__title {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #455a64 none repeat scroll 0 0/auto padding-box border-box;
-  border: 0 none white;
-  color: white;
+  display: block;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3532,11 +3538,11 @@ Palettes (10 colors) 50 - 900 possible
           transform-origin: 165px 56px;
   width: 100%; }
 
-.mdl-card__heading-text {
+.mdl-card__title-text {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
-  color: white;
+  display: block;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3544,7 +3550,6 @@ Palettes (10 colors) 50 - 900 possible
   font-size: inherit;
   font-weight: 300;
   height: 96px;
-  justify-self: stretch;
   line-height: normal;
   overflow: hidden;
   -webkit-transform-origin: 149px 48px;
@@ -3552,58 +3557,27 @@ Palettes (10 colors) 50 - 900 possible
           transform-origin: 149px 48px;
   width: 90%; }
 
-.mdl-card__caption {
-  background: #455a64 none repeat scroll 0 0/auto padding-box border-box;
-  color: white;
-  font-size: 12px;
-  height: 16px;
-  line-height: normal;
-  padding: 8px 16px;
-  -webkit-perspective-origin: 165px 16px;
-          perspective-origin: 165px 16px;
-  width: 100%; }
-
-.mdl-card__lower {
-  color: #607d8b;
+.mdl-card__supporting-text {
+  color: rgba(0, 0, 0, 0.87);
   font-size: 13px;
-  height: 108px;
   line-height: 18px;
   margin: 10px 0;
   overflow: hidden;
-  padding: 0 16px;
+  padding: 8px 16px;
   width: 90%; }
 
-.mdl-card__bottom {
+.mdl-card__actions {
   font-size: 16px;
   height: 50px;
   line-height: normal;
   width: 100%;
-  border-top: 1px solid rgba(0, 0, 0, 0.16); }
-
-.mdl-card__bottom a {
-  box-sizing: border-box;
-  color: #455a64;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 13px;
-  font-weight: normal;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 16px;
-  -webkit-perspective-origin: 165px 25px;
-          perspective-origin: 165px 25px;
-  text-transform: uppercase;
-  -webkit-transform-origin: 165px 25px;
-      -ms-transform-origin: 165px 25px;
-          transform-origin: 165px 25px;
-  width: 100%;
-  text-decoration: none; }
+  background-color: transparent;
+  padding: 0 8px; }
 
 .mdl-card__menu {
   position: absolute;
   right: 0;
-  top: 0;
-  color: white; }
+  top: 0; }
 
 .mdl-card {
   height: auto;
@@ -3708,6 +3682,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -3929,6 +3904,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 @font-face {
   font-family: 'Material-Design-Iconic-Font';
   src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?v=1.1.1');
@@ -6341,6 +6317,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -6372,10 +6349,8 @@ Palettes (10 colors) 50 - 900 possible
   height: 32px;
   width: 32px;
   min-width: 32px;
-  line-height: 32px;
   color: #616161;
   border-radius: 50%;
-  font-size: 24px;
   padding: 0;
   margin-left: 0;
   margin-right: 0;
@@ -6384,6 +6359,9 @@ Palettes (10 colors) 50 - 900 possible
   will-change: background-color;
   -webkit-transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  .mdl-icon-toggle__label.material-icons {
+    line-height: 32px;
+    font-size: 24px; }
   .mdl-icon-toggle.is-checked .mdl-icon-toggle__label {
     color: #607d8b; }
   .mdl-icon-toggle.is-disabled .mdl-icon-toggle__label {
@@ -6514,6 +6492,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-mega-footer {
   padding: 16px;
   color: #9e9e9e;
@@ -6591,18 +6570,14 @@ Palettes (10 colors) 50 - 900 possible
   z-index: 1;
   opacity: 0; }
   .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer--heading:after {
-    font-family: 'Material-Design-Iconic-Font';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f29d"; }
+    font-family: 'Material Icons';
+    content: '\E5CE'; }
 
 .mdl-mega-footer--heading-checkbox:checked ~ ul {
   display: none; }
 .mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer--heading:after {
-  font-family: 'Material-Design-Iconic-Font';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  content: "\f29e"; }
+  font-family: 'Material Icons';
+  content: '\E5CF'; }
 
 .mdl-mega-footer--heading {
   position: relative;
@@ -6777,6 +6752,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6941,6 +6917,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-grid {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7403,6 +7380,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -7644,6 +7622,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-js-progress {
   display: block;
   position: relative;
@@ -7867,6 +7846,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7994,16 +7974,19 @@ Palettes (10 colors) 50 - 900 possible
     -webkit-align-items: stretch;
         -ms-flex-align: stretch;
             align-items: stretch; }
-  .mdl-layout__drawer .mdl-navigation__link {
-    display: block;
-    -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-            flex-shrink: 0;
-    padding: 16px 24px;
-    margin: 0; }
-    @media screen and (max-width: 850px) {
-      .mdl-layout__drawer .mdl-navigation__link {
-        padding: 16px 16px; } }
+    .mdl-layout__drawer .mdl-navigation__link {
+      display: block;
+      -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+              flex-shrink: 0;
+      padding: 16px 24px;
+      margin: 0; }
+      @media screen and (max-width: 850px) {
+        .mdl-layout__drawer .mdl-navigation__link {
+          padding: 16px 16px; } }
+      .mdl-layout__drawer .mdl-navigation__link--current {
+        background-color: black;
+        color: #607d8b; }
   @media screen and (min-width: 851px) {
     .mdl-layout--fixed-drawer > .mdl-layout__drawer {
       -webkit-transform: translateX(0);
@@ -8030,11 +8013,6 @@ Palettes (10 colors) 50 - 900 possible
   left: 0;
   color: white;
   z-index: 4; }
-  .mdl-layout__drawer-button::after {
-    font-family: 'Material-Design-Iconic-Font';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f2a1"; }
   .mdl-layout__header .mdl-layout__drawer-button {
     position: absolute;
     color: white;
@@ -8200,12 +8178,12 @@ Palettes (10 colors) 50 - 900 possible
     color: white;
     line-height: 64px;
     padding: 0 24px; }
+    .mdl-layout__header-row .mdl-navigation__link:hover {
+      background-color: rgba(97, 97, 97, 0.6); }
     @media screen and (max-width: 850px) {
       .mdl-layout__header-row .mdl-navigation__link {
         line-height: 56px;
         padding: 0 16px; } }
-  .mdl-layout__header-row .mdl-navigation__link:hover {
-    background-color: rgba(97, 97, 97, 0.6); }
 
 .mdl-layout__obfuscator {
   background-color: transparent;
@@ -8297,7 +8275,6 @@ Palettes (10 colors) 50 - 900 possible
   position: absolute;
   top: 0;
   height: 48px;
-  line-height: 48px;
   width: 56px;
   z-index: 4;
   text-align: center;
@@ -8314,26 +8291,16 @@ Palettes (10 colors) 50 - 900 possible
       width: 60px; } }
   .mdl-layout--fixed-tabs .mdl-layout__tab-bar-button {
     display: none; }
+  .mdl-layout__tab-bar-button .material-icons {
+    line-height: 48px; }
   .mdl-layout__tab-bar-button.is-active {
     color: white; }
 
 .mdl-layout__tab-bar-left-button {
   left: 0; }
-  .mdl-layout__tab-bar-left-button::after {
-    font-size: 26px;
-    font-family: 'Material-Design-Iconic-Font';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f29b"; }
 
 .mdl-layout__tab-bar-right-button {
   right: 0; }
-  .mdl-layout__tab-bar-right-button::after {
-    font-size: 26px;
-    font-family: 'Material-Design-Iconic-Font';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f29c"; }
 
 .mdl-layout__tab {
   margin: 0;
@@ -8499,6 +8466,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-list {
   display: block;
   height: 500px;
@@ -8648,6 +8616,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -8846,6 +8815,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -9199,6 +9169,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -9653,6 +9624,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -9884,6 +9856,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -10081,6 +10054,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -10149,6 +10123,8 @@ Palettes (10 colors) 50 - 900 possible
     font-size: 12px;
     top: 4px;
     visibility: visible; }
+  .mdl-textfield--floating-label.is-focused .mdl-textfield__expandable-holder .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder .mdl-textfield__label {
+    top: -16px; }
   .mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
     color: #de3226;
     font-size: 12px; }
@@ -10295,6 +10271,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
@@ -10437,6 +10414,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 /* Animation Variables */
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -10636,6 +10614,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -10770,6 +10749,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-dialog-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10957,6 +10937,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 form.mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -11316,6 +11297,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-sticky-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -11486,6 +11468,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-nav-pill, .mdl-nav-pills > * {
   padding: 4px 8px;
   margin: 0 0 8px 0;
@@ -11709,6 +11692,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
@@ -11821,6 +11805,7 @@ Palettes (10 colors) 50 - 900 possible
 /* BADGE */
 /* SHADOWS */
 /* GRID */
+/* DATA TABLE */
 .mdl-snackbar-container.is-visible .mdl-snackbar {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);

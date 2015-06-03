@@ -134,16 +134,21 @@
     & .mdl-navigation {
       flex-direction: column;
       align-items: stretch;
-    }
 
-    & .mdl-navigation__link {
+      &__link {
       display: block;
       flex-shrink: 0;
       padding: 16px $layout-header-desktop-indent;
       margin: 0;
 
-      @media screen and (max-width: $layout-screen-size-threshold) {
-        padding: 16px $layout-header-mobile-indent;
+        @media screen and (max-width: $layout-screen-size-threshold) {
+          padding: 16px $layout-header-mobile-indent;
+        }
+
+        &--current {
+            background-color: $layout-drawer-navigation-link-active-background;
+            color: $layout-drawer-naviagtion-link-active-color;
+        }
       }
     }
 
@@ -179,11 +184,6 @@
     color: $layout-header-text-color;
 
     z-index: 4;
-
-    &::after {
-      @include mdl-icon();
-      content: $icon-menu;
-    }
 
     .mdl-layout__header & {
       position: absolute;
@@ -350,16 +350,15 @@
         line-height: $layout-header-desktop-row-height;
         padding: 0 $layout-header-desktop-indent;
 
+        &:hover {
+          background-color: $layout-header-nav-hover-color;
+        }
+
         @media screen and (max-width: $layout-screen-size-threshold) {
           line-height: $layout-header-mobile-row-height;
           padding: 0 $layout-header-mobile-indent;
         }
-      }
-
-      & .mdl-navigation__link:hover {
-        background-color: $layout-header-nav-hover-color;
-      }
-    }
+      }    }
 
   // Obfuscator.
   .mdl-layout__obfuscator {
@@ -466,7 +465,6 @@
     position: absolute;
     top: 0;
     height: $layout-tab-bar-height;
-    line-height: $layout-tab-bar-height;
     width: $layout-header-desktop-baseline - $layout-tab-desktop-padding;
     z-index: 4;
     text-align: center;
@@ -484,6 +482,10 @@
       display: none;
     }
 
+    & .material-icons {
+      line-height: $layout-tab-bar-height;
+    }
+
     &.is-active {
       color: $layout-header-text-color;
     }
@@ -491,22 +493,10 @@
 
   .mdl-layout__tab-bar-left-button {
     left: 0;
-
-    &::after {
-      font-size: 26px;
-      @include mdl-icon();
-      content: $icon-chevron-left;
-    }
   }
 
   .mdl-layout__tab-bar-right-button {
     right: 0;
-
-    &::after {
-      font-size: 26px;
-      @include mdl-icon();
-      content: $icon-chevron-right;
-    }
   }
 
   .mdl-layout__tab {
