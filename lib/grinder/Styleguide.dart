@@ -39,7 +39,7 @@ class Styleguide {
     void _copyDemoCssToStyleguide(final Sample sample,{ final List<String> samplesToExclude: const [] } ) {
         Validate.notNull(sample);
 
-        final Directory webDir = new Directory("${config.samplesdir}/${sample.name}/web");
+        final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
         final Directory targetScssDir = new Directory("${config.samplesdir}/styleguide/web/assets/styles/_demo");
 
         final File srcScss = new File("${webDir.path}/demo.scss");
@@ -68,7 +68,7 @@ class Styleguide {
     void _copySampleViewToStyleguide(final Sample sample, { final List<String> samplesToExclude: const [] }) {
         Validate.notNull(sample);
 
-        final Directory webDir = new Directory("${config.samplesdir}/${sample.name}/web");
+        final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
         final File srcSample = new File("${webDir.path}/index.html");
 
         final Directory targetSampleDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_content/views");
@@ -152,7 +152,7 @@ class Styleguide {
             targetUsageDir.createSync(recursive: true);
         }
 
-        final srcDart = new File("${config.samplesdir}/${sample.name}/web/main.dart");
+        final srcDart = new File("${config.samplesdir}/${sample.dirname}/web/main.dart");
         if(!srcDart.existsSync()) {
             log("${srcDart.path} does not exists!");
             return;
@@ -229,7 +229,7 @@ class Styleguide {
         }
 
         String content = "";
-        final srcReadme = new File("${config.samplesdir}/${sample.name}/web/README.md");
+        final srcReadme = new File("${config.samplesdir}/${sample.dirname}/web/README.md");
         final srcReadmeTemplate = new File(config.readmetemplate);
         final targetReadme = new File("${targetUsageDir.path}/readme.html");
 

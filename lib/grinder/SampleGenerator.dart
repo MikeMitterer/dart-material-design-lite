@@ -36,7 +36,7 @@ class SampleGenerator {
     // -- private -------------------------------------------------------------
 
     void _copyDemoFiles(final Sample sample) {
-        final Directory webDir = new Directory("${config.samplesdir}/${sample.name}/web");
+        final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
 
         if(sample.hasDemoHtml) {
 
@@ -97,22 +97,21 @@ class SampleGenerator {
 
         final File targetScss = new File("${webDir.path}/demo.scss");
         final File targetCss = new File("${webDir.path}/demo.css");
+
         if(!targetScss.existsSync()) {
             targetScss.createSync(recursive: true);
-        }
-        if(targetScss.lengthSync() == 0) {
             targetScss.writeAsStringSync(".demo-page--${sample.name}, .demo-section--${sample.name} {\n}");
         }
         Utils.sasscAndAutoPrefix(targetScss,targetCss);
 
         if(sample.hasStyle) {
-            _copySubdirs(new File("${config.sassdir}/${sample.name}"),new File(webDir.path));
+            _copySubdirs(new File("${config.demobase}/${sample.name}"),new File(webDir.path));
         }
 
     }
 
     void _createPackagesFolder(final Sample sample) {
-        final Directory webDir = new Directory("${config.samplesdir}/${sample.name}/web");
+        final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
 
         final Link targetPackages = new Link("${webDir.path}/packages");
         final File srcPackages = new File("../../../packages");
@@ -124,15 +123,15 @@ class SampleGenerator {
     }
 
     void _createWebDir(final Sample sample) {
-        final Directory webDir = new Directory("${config.samplesdir}/${sample.name}/web");
+        final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
 
         webDir.createSync();
         //log("${webDir.path} created...");
     }
 
     void _createSampleDir(final Sample sample) {
-        final Directory sampleDir = new Directory("${config.samplesdir}/${sample.name}");
-        final Directory backupDir = new Directory("${config.samplesdir}/${sample.name}.backup");
+        final Directory sampleDir = new Directory("${config.samplesdir}/${sample.dirname}");
+        final Directory backupDir = new Directory("${config.samplesdir}/${sample.dirname}.backup");
 
         if(sample.hasOwnDemoHtml || sample.hasOwnDartMain) {
             return;
@@ -146,12 +145,15 @@ class SampleGenerator {
             sampleDir.renameSync(backupDir.path);
             // log.fine("made ${sampleDir.path}} -> ${backupDir.path} backup...");
 
-        } else if(sampleDir.existsSync()) {
-            sampleDir.deleteSync(recursive: true);
-            // log.fine("${sampleDir.path} deleted...");
         }
+        //else if(sampleDir.existsSync()) {
+        //    sampleDir.deleteSync(recursive: true);
+        //    // log.fine("${sampleDir.path} deleted...");
+        //}
 
-        sampleDir.createSync();
+        if(!sampleDir.existsSync()) {
+            sampleDir.createSync();
+        }
         //log("${sampleDir.path} created...");
     }
 
@@ -167,7 +169,7 @@ class SampleGenerator {
 
         final String sampleName = sample.name;
 
-        final Directory webDir = new Directory("${config.samplesdir}/${sample.name}/web");
+        final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
         final File srcREADME = new File("${config.sassdir}/${sampleName}/${sample.readme}");
         final File targetREADME = new File("${webDir.path}/${sample.readme}");
 

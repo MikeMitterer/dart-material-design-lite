@@ -72,10 +72,34 @@ class Sample {
     convertedJSFile = "${name}.js.dart";
     }
 
+    String get dirname => "${prefix}${name}";
+
     String get prefix {
         switch(type) {
             case Type.Core:
                 return "mdl_";
+
+            case Type.Extra:
+                return "???_";
+
+            case Type.Dart:
+                return "mdlx_";
+
+            case Type.DartOld:
+                return "mdlo_";
+
+            case Type.SPA:
+                return "spa_";
+
+            case Type.Styleguide:
+                return "";
+
+            case Type.Template:
+                return "template_";
+
+            case Type.Ignore:
+                return "???_";
+
             default:
                 throw "No prefix for $type";
         }
@@ -145,14 +169,14 @@ void createSampleList() {
     samples.add(new Sample("styleguide",Type.Styleguide));
 
     // Layout (Template-Samples)
-    samples.add(new Sample("template-admin",Type.Template));
-    samples.add(new Sample("template-blog",Type.Template));
-    samples.add(new Sample("template-dashboard",Type.Template));
-    samples.add(new Sample("template-fixed-header",Type.Template));
-    samples.add(new Sample("template-general",Type.Template));
-    samples.add(new Sample("template-product",Type.Template));
-    samples.add(new Sample("template-sticky-footer",Type.Template));
-    samples.add(new Sample("template-text-only",Type.Template));
+    samples.add(new Sample("admin",Type.Template));
+    samples.add(new Sample("blog",Type.Template));
+    samples.add(new Sample("dashboard",Type.Template));
+    samples.add(new Sample("fixed-header",Type.Template));
+    samples.add(new Sample("general",Type.Template));
+    samples.add(new Sample("product",Type.Template));
+    samples.add(new Sample("sticky-footer",Type.Template));
+    samples.add(new Sample("text-only",Type.Template));
 
     samples.add(new Sample("layout-header-drawer",Type.Template));
 

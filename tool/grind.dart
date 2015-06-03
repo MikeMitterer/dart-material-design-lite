@@ -47,7 +47,7 @@ showConfig() {
 @Depends(initSamples)
 listSamples() {
     samples.forEach((final Sample sample) {
-        log("Name: ${sample.name.padRight(25)} ${sample.type}");
+        log("Name: ${sample.name.padRight(22)} ${sample.type.toString().padRight(15)}\t Dir: ${sample.dirname}");
     });
 }
 
