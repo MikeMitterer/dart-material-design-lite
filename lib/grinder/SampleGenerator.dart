@@ -38,12 +38,6 @@ class SampleGenerator {
     void _copyDemoFiles(final Sample sample) {
         final Directory webDir = new Directory("${config.samplesdir}/${sample.name}/web");
 
-
-        final File srcScss = new File("${config.sassdir}/${sample.name}/demo.scss");
-        final File targetScss = new File("${webDir.path}/demo.scss");
-
-        final File targetCss = new File("${webDir.path}/demo.css");
-
         if(sample.hasDemoHtml) {
 
             if(!sample.hasOwnDemoHtml) {
@@ -75,14 +69,45 @@ class SampleGenerator {
             // log.fine("    ${targetDemo.path} created...");
         }
 
-        if(srcScss.existsSync()) {
-            srcScss.copySync(targetScss.path);
-            // log.fine("    ${targetScss.path} created...");
-            _changeImportStatementInSassFile(targetScss,sample.name);
-            Utils.sasscAndAutoPrefix(targetScss,targetCss);
+        if(sample.type == Type.Core) {
+            final File srcCss = new File("${config.demobase}/${sample.name}/demo.css");
+            final File targetCss = new File("${webDir.path}/demo.orig.css");
+
+            if(srcCss.existsSync()) {
+                srcCss.copySync(targetCss.path);
+            } else {
+                if(targetCss.existsSync()) {
+                    targetCss.deleteSync();
+                }
+            }
+
+//            final File targetScss = new File("${webDir.path}/demo.scss");
+//
+//            if(srcScss.existsSync()) {
+//                srcScss.copySync(targetScss.path);
+//                // log.fine("    ${targetScss.path} created...");
+//                //_changeImportStatementInSassFile(targetScss,sample.name);
+//                //_addImportStatementInSassFile(targetScss);
+//            } else {
+//                targetScss.createSync(recursive: true);
+//            }
+//            Utils.sasscAndAutoPrefix(targetScss,targetCss);
+
         }
 
-        _copySubdirs(new File("${config.sassdir}/${sample.name}"),new File(webDir.path));
+        final File targetScss = new File("${webDir.path}/demo.scss");
+        final File targetCss = new File("${webDir.path}/demo.css");
+        if(!targetScss.existsSync()) {
+            targetScss.createSync(recursive: true);
+        }
+        if(targetScss.lengthSync() == 0) {
+            targetScss.writeAsStringSync(".demo-page--${sample.name}, .demo-section--${sample.name} {\n}");
+        }
+        Utils.sasscAndAutoPrefix(targetScss,targetCss);
+
+        if(sample.hasStyle) {
+            _copySubdirs(new File("${config.sassdir}/${sample.name}"),new File(webDir.path));
+        }
 
     }
 
@@ -310,4 +335,10 @@ class SampleGenerator {
         scssFile.writeAsStringSync(contents.toString());
     }
 
+    void _addImportStatementInSassFile(final File scssFile) {
+        String content = scssFile.readAsStringSync();
+
+        content = '@import "packages/mdl/assets/styles/material-design-lite";\n\n' + content;
+        scssFile.writeAsStringSync(content);
+    }
 }

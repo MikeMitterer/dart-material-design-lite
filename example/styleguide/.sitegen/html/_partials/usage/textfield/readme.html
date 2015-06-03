@@ -131,7 +131,7 @@
 <p> 7. Add one or more MDL classes, separated by spaces, to the &quot;outer&quot; div container, label, and span, and to the &quot;inner&quot; div container, text field, and field label using the <code>class</code> attribute.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="ot"> for=</span><span class="st">&quot;expando1&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon--search&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
+    <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>search<span class="kw">&lt;/i&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__expandable-holder&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;expando1&quot;</span> <span class="kw">/&gt;</span>
@@ -143,7 +143,7 @@
 <p>Expandable text field with a standard label.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="ot"> for=</span><span class="st">&quot;search-expandable&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon--search&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
+    <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>search<span class="kw">&lt;/i&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__expandable-holder&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;search-expandable&quot;</span> <span class="kw">/&gt;</span>
@@ -153,7 +153,7 @@
 <p>Expandable text field with a floating label.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="ot"> for=</span><span class="st">&quot;search-expandable2&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon--search&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
+    <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>search<span class="kw">&lt;/i&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__expandable-holder&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;search-expandable2&quot;</span> <span class="kw">/&gt;</span>
@@ -222,18 +222,13 @@
 <td align="left">For expandable input fields, required on &quot;outer&quot; div's label element</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>mdl-icon--search</code></td>
-<td align="left">Defines span as an MDL search icon(1)</td>
-<td align="left">For expandable input fields, required on &quot;outer&quot; div's label's span element</td>
-</tr>
-<tr class="even">
 <td align="left"><code>mdl-input__expandable-holder</code></td>
 <td align="left">Defines a container as an MDL component</td>
 <td align="left">For expandable input fields, required on &quot;inner&quot; div element</td>
 </tr>
 </tbody>
 </table>
-<p>(1) The &quot;search&quot; icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see <a href="http://google.github.io/material-design-lite/latest/styleguide/icons/demo.html">this page</a>; hover over an icon to see its class name.</p>
+<p>(1) The &quot;search&quot; icon is used here as an example. Other icons can be used by modifying the text. For a list of available icons, see <a href="https://www.google.com/design/icons">this page</a>.</p>
 <blockquote>
 <p><strong>Note:</strong> Disabled versions of each text field type are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;input class=&quot;mdl-textfield mdl-js-textfield&quot; type=&quot;text&quot; disabled /&gt;</code><br />This attribute may be added or removed programmatically via scripting.</p>
 </blockquote>

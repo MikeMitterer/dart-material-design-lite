@@ -1,0 +1,35 @@
+.demo-page--todo {
+    .demo-preview-block {
+        background-color : transparent;
+    }
+
+    ul {
+        list-style-type : none;
+
+        li {
+            margin  : 0;
+            padding : 0;
+
+        }
+    }
+
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: center; // ↓
+
+        .mdl-checkbox {
+            width: 200px;
+        }
+
+        .mdl-checkbox.is-checked .mdl-checkbox__label {
+            text-decoration : line-through;
+        }
+
+    }
+
+}

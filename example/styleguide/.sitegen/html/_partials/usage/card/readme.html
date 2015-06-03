@@ -24,58 +24,58 @@
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 3. Add one or more MDL classes, separated by spaces, to the &quot;outer&quot; div and the &quot;inner&quot; divs (depending on their intended use) using the <code>class</code> attribute.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__heading&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__title&quot;</span><span class="kw">&gt;</span>
   ...
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__img-container&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__media&quot;</span><span class="kw">&gt;</span>
   ...
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__lower&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__supporting-text&quot;</span><span class="kw">&gt;</span>
   ...
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__bottom&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__actions&quot;</span><span class="kw">&gt;</span>
   ...
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 4. Add content to each &quot;inner&quot; div, again depending on its intended use, using standard HTML elements and, optionally, additional MDL classes.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__heading&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__heading-text&quot;</span><span class="kw">&gt;</span>Heading Text Goes Here<span class="kw">&lt;/h2&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__title&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__title-text&quot;</span><span class="kw">&gt;</span>title Text Goes Here<span class="kw">&lt;/h2&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__img-container&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__media&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;photo.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;220&quot;</span><span class="ot"> height=</span><span class="st">&quot;140&quot;</span><span class="ot"> border=</span><span class="st">&quot;0&quot;</span><span class="ot"> alt=</span><span class="st">&quot;&quot;</span><span class="ot"> style=</span><span class="st">&quot;padding:20px;&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__lower&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__supporting-text&quot;</span><span class="kw">&gt;</span>
     This text might describe the photo and provide further information, such as where and when it was taken.
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__bottom&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__actions&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;(URL or function)&quot;</span><span class="kw">&gt;</span>Related Action<span class="kw">&lt;/a&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p>The card component is ready for use.</p>
 <h4 id="examples">Examples</h4>
-<p>A card (no shadow) with a heading, image, text, and action.</p>
+<p>A card (no shadow) with a title, image, text, and action.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__heading&quot;</span><span class="kw">&gt;</span>
-     <span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__heading-text&quot;</span><span class="kw">&gt;</span>Auckland Sky Tower<span class="kw">&lt;br/&gt;</span>Auckland, New Zealand<span class="kw">&lt;/h2&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__title&quot;</span><span class="kw">&gt;</span>
+     <span class="kw">&lt;h2</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__title-text&quot;</span><span class="kw">&gt;</span>Auckland Sky Tower<span class="kw">&lt;br/&gt;</span>Auckland, New Zealand<span class="kw">&lt;/h2&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__img-container&quot;</span><span class="kw">&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;skytower.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;173&quot;</span><span class="ot"> height=</span><span class="st">&quot;157&quot;</span><span class="ot"> border=</span><span class="st">&quot;0&quot;</span><span class="ot"> alt=</span><span class="st">&quot;&quot;</span><span class="ot"> style=</span><span class="st">&quot;padding:10px;&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__media&quot;</span><span class="kw">&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;skytower.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;173&quot;</span><span class="ot"> height=</span><span class="st">&quot;157&quot;</span><span class="ot"> border=</span><span class="st">&quot;0&quot;</span><span class="ot"> alt=</span><span class="st">&quot;&quot;</span><span class="ot"> style=</span><span class="st">&quot;padding:10px;&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__lower&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__supporting-text&quot;</span><span class="kw">&gt;</span>
   The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__bottom&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__actions&quot;</span><span class="kw">&gt;</span>
      <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://en.wikipedia.org/wiki/Sky_Tower_%28Auckland%29&quot;</span><span class="kw">&gt;</span>Wikipedia entry<span class="kw">&lt;/a&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p>Card (level-3 shadow) with an image, caption, and text:</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card mdl-shadow--4dp&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__img-container&quot;</span><span class="kw">&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;skytower.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;173&quot;</span><span class="ot"> height=</span><span class="st">&quot;157&quot;</span><span class="ot"> border=</span><span class="st">&quot;0&quot;</span><span class="ot"> alt=</span><span class="st">&quot;&quot;</span><span class="ot"> style=</span><span class="st">&quot;padding:10px;&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__media&quot;</span><span class="kw">&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;skytower.jpg&quot;</span><span class="ot"> width=</span><span class="st">&quot;173&quot;</span><span class="ot"> height=</span><span class="st">&quot;157&quot;</span><span class="ot"> border=</span><span class="st">&quot;0&quot;</span><span class="ot"> alt=</span><span class="st">&quot;&quot;</span><span class="ot"> style=</span><span class="st">&quot;padding:10px;&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__caption&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__supporting-text&quot;</span><span class="kw">&gt;</span>
     Auckland Sky Tower, taken March 24th, 2014
   <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__lower&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-card__supporting-text&quot;</span><span class="kw">&gt;</span>
   The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
@@ -101,38 +101,32 @@
 <td align="left">Optional, goes on &quot;outer&quot; div; if omitted, no shadow is present</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>mdl-card__heading</code></td>
-<td align="left">Defines div as a card heading container(1)</td>
-<td align="left">Required on &quot;inner&quot; heading div</td>
+<td align="left"><code>mdl-card__title</code></td>
+<td align="left">Defines div as a card title container</td>
+<td align="left">Required on &quot;inner&quot; title div</td>
 </tr>
 <tr class="even">
-<td align="left"><code>mdl-card__heading-text</code></td>
-<td align="left">Assigns appropriate text characteristics to card heading</td>
-<td align="left">Required on head tag (H1 - H6) inside heading div</td>
+<td align="left"><code>mdl-card__title-text</code></td>
+<td align="left">Assigns appropriate text characteristics to card title</td>
+<td align="left">Required on head tag (H1 - H6) inside title div</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>mdl-card__img-container</code></td>
-<td align="left">Defines div as a card image container</td>
-<td align="left">Required on &quot;inner&quot; image div</td>
+<td align="left"><code>mdl-card__media</code></td>
+<td align="left">Defines div as a card media container</td>
+<td align="left">Required on &quot;inner&quot; media div</td>
 </tr>
 <tr class="even">
-<td align="left"><code>mdl-card__lower</code></td>
-<td align="left">Defines div as a card body text container(1) and assigns appropriate text characteristics to body text</td>
+<td align="left"><code>mdl-card__supporting-text</code></td>
+<td align="left">Defines div as a card body text container and assigns appropriate text characteristics to body text</td>
 <td align="left">Required on &quot;inner&quot; body text div; text goes directly inside the div with no intervening containers</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>mdl-card__caption</code></td>
-<td align="left">Defines div as a card caption container and assigns appropriate text characteristics to caption text</td>
-<td align="left">Required on &quot;inner&quot; caption div; text goes directly inside the div with no intervening containers</td>
-</tr>
-<tr class="even">
-<td align="left"><code>mdl-card__bottom</code></td>
-<td align="left">Defines div as a card bottom text container(1) (typically an action bar) and assigns appropriate text characteristics to bottom text</td>
-<td align="left">Required on &quot;inner&quot; bottom div; content goes directly inside the div with no intervening containers</td>
+<td align="left"><code>mdl-card__actions</code></td>
+<td align="left">Defines div as a card actions container and assigns appropriate text characteristics to actions text</td>
+<td align="left">Required on &quot;inner&quot; actions div; content goes directly inside the div with no intervening containers</td>
 </tr>
 </tbody>
 </table>
-<p>(1) Although some class names imply positioning, they really just semantically define the styling of the content. The actual positions of the &quot;inner&quot; divs within the card are determined by order of appearance (i.e., top-down). You may use them in any order, so long as they maintain their relationships as siblings and as direct children of the &quot;outer&quot; container div.</p>
 <h5 id="more-information">More information</h5>
 <p>For working examples of the <strong>card</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/card">card demo page</a>.</p>
 <h5 id="license">License</h5>

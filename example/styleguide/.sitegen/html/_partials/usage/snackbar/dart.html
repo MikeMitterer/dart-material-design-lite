@@ -1,0 +1,48 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+
+
+main() {
+    final Logger _logger = new Logger(&#39;dialog.Main&#39;);
+
+    registerMdl();
+
+    componentFactory().run().then((_) {
+        final MaterialButton btnToast = MaterialButton.widget(dom.querySelector(&quot;#toast&quot;));
+        final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector(&quot;#withAction&quot;));
+
+        final MaterialSnackbar snackbar = new MaterialSnackbar();
+
+        int mangoCounter = 0;
+
+        void _makeSettings() {
+            snackbar.position.left = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-left&quot;)).checked;
+            snackbar.position.top = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-top&quot;)).checked;
+            snackbar.position.right = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-right&quot;)).checked;
+            snackbar.position.bottom = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-bottom&quot;)).checked;
+
+            dom.querySelector(&quot;#container&quot;).classes.toggle(&quot;mdl-toast-container&quot;,
+            MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-use-container&quot;)).checked);
+        }
+
+        btnToast.onClick.listen( (_) {
+            _logger.info(&quot;Click on Toast&quot;);
+
+            _makeSettings();
+            snackbar(&quot;message&quot;).show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+        });
+
+        btnWithAction.onClick.listen( (_) {
+            _logger.info(&quot;Click on withAction&quot;);
+
+            _makeSettings();
+            snackbar(&quot;message&quot;,confirmButton: &quot;OK&quot;).show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+
+        });
+
+
+    });
+}

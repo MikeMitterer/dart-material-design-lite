@@ -76,7 +76,7 @@ genSamples() {
 
     samples.where((final Sample sample) {
 
-        return sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA;
+        return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA);
 
     })
     .forEach((final Sample sample) {
@@ -95,7 +95,8 @@ genStyleguide() {
 
     samples.where((final Sample sample) {
 
-        return sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA;
+        return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA) &&
+            sample.excludeFromStyleguide == false;
 
     })
     .forEach((final Sample sample) {

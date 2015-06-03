@@ -14,21 +14,11 @@
  * limitations under the License.
  */
 
-@import "packages/mdl/assets/styles/material-design-lite";
-
 .demo-page--icon-toggle, .demo-section--icon-toggle {
 
     .demo-icon-toggle-block {
         display: inline-block;
         margin: 0 20px 20px 0;
-    }
-
-    .mdl-icon--android {
-        font-size: 48px;
-    }
-
-    p {
-        margin-top: 12px;
     }
 }
 

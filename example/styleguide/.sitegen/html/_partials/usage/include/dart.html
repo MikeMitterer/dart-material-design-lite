@@ -1,0 +1,18 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+
+
+main() {
+    final Logger _logger = new Logger(&#39;main.MaterialInclude&#39;);
+
+    registerMdl();
+
+    upgradeAllRegistered().then((_) {
+        final MaterialInclude include = MaterialInclude.widget(dom.querySelector(&quot;#main&quot;));
+
+        include.onLoadEnd.listen((_) {
+
+            prettyPrint();
+            _logger.info(&quot;Loaded&quot;);
+        });
+    });
+}

@@ -22,29 +22,28 @@
         display: inline-block;
         margin: 20px 20px 20px 0;
     }
-}
 
-.custom-dialog {
-    h5 {
-        background-color: #B3D38D;
+    .custom-dialog {
+        h5 {
+            background-color: #B3D38D;
 
-        position: absolute;
-        left: 0;
-        top: 0 !important;
-        right: 0;
-        padding: 24px;
-    }
+            position: absolute;
+            left: 0;
+            top: 0 !important;
+            right: 0;
+            padding: 24px;
+        }
 
-    .mdl-dialog__content {
-        margin-top: 68px; // padding * 2 + font-size (20)
-        p {
-            font-size: 14px;
+        .mdl-dialog__content {
+            margin-top: 68px; // padding * 2 + font-size (20)
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .mdl-dialog__actions {
+            border-top: 1px solid rgb(231, 231, 231);
         }
     }
-
-    .mdl-dialog__actions {
-        border-top: 1px solid rgb(231, 231, 231);
-    }
 }
-
 

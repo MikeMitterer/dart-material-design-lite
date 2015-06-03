@@ -17,15 +17,15 @@ main() {
         final MaterialButton btnToast = MaterialButton.widget(dom.querySelector("#toast"));
         final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector("#withAction"));
 
-        final MaterialSnackbar snackbar = new MaterialSnackbar();
+        final MaterialToast toast = new MaterialToast();
 
         int mangoCounter = 0;
 
         void _makeSettings() {
-            snackbar.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
-            snackbar.position.top = MaterialCheckbox.widget(dom.querySelector("#checkbox-top")).checked;
-            snackbar.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
-            snackbar.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
+            toast.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
+            toast.position.top = MaterialCheckbox.widget(dom.querySelector("#checkbox-top")).checked;
+            toast.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
+            toast.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
 
             dom.querySelector("#container").classes.toggle("mdl-toast-container",
             MaterialCheckbox.widget(dom.querySelector("#checkbox-use-container")).checked);
@@ -35,7 +35,7 @@ main() {
             _logger.info("Click on Toast");
 
             _makeSettings();
-            snackbar("message").show().then((final MdlDialogStatus status) {
+            toast("Toast message").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
         });
@@ -44,7 +44,7 @@ main() {
             _logger.info("Click on withAction");
 
             _makeSettings();
-            snackbar("message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
+            toast("Toast message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
 

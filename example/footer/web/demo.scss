@@ -13,13 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@import "packages/mdl/assets/styles/material-design-lite";
 
 .demo-page--footer, .demo-section--footer {
-    padding : 0;
+    padding: 0;
 
-    .mdl-mega-footer, .mdl-mini-footer, {
-        margin-bottom : 16px;
+    .mdl-mega-footer,
+    .mdl-mini-footer {
+        margin-bottom: 16px;
     }
 }
-

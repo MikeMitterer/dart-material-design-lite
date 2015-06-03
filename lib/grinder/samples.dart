@@ -33,6 +33,13 @@ class Sample {
     final bool hasReadme;
     final bool hasOwnDartMain;
     final bool hasOwnDemoHtml;
+    final bool excludeFromStyleguide;
+
+    // Sample has his own demo.scss
+    //final bool hasOwnDemoSCSS;
+
+    /// does lib/assets/styles/<samplename> exist (not the case for example for content, include...)
+    final bool hasStyle;
 
     String scssFile;
     String scssFileTarget;
@@ -47,11 +54,15 @@ class Sample {
     Sample(this.name,this.type,
            {    final hasScript: true, final hasDemoCss: true,
                 final bool hasReadme: true, final bool hasDemoHtml: true,
-                final bool hasOwnDartMain: false, bool hasOwnDemoHtml: false
+                final bool hasOwnDartMain: false, bool hasOwnDemoHtml: false,
+                final bool excludeFromStyleguide: false,
+                final bool hasStyle: true
            }) :
                 this.hasScript = hasScript, this.hasDemoCss = hasDemoCss,
                 this.hasReadme = hasReadme,this.hasDemoHtml = hasDemoHtml,
-                this.hasOwnDartMain = hasOwnDartMain, this.hasOwnDemoHtml = hasOwnDemoHtml
+                this.hasOwnDartMain = hasOwnDartMain, this.hasOwnDemoHtml = hasOwnDemoHtml,
+                this.excludeFromStyleguide = excludeFromStyleguide,
+                this.hasStyle = hasStyle
             {
 
     scssFile = "_${name}.scss";
@@ -107,7 +118,7 @@ void createSampleList() {
     samples.add(new Sample("tooltip",   Type.Core));
     samples.add(new Sample("typography",Type.Core,  hasScript: false));
 
-    samples.add(new Sample("ripple",    Type.Core,  hasDemoCss: false, hasDemoHtml: false, hasReadme: false));
+    samples.add(new Sample("ripple",    Type.Core,  hasDemoCss: false, hasDemoHtml: false, hasReadme: false, excludeFromStyleguide: true ));
 
     // MDL Extras
     samples.add(new Sample("resets",Type.Extra));
@@ -126,9 +137,9 @@ void createSampleList() {
     samples.add(new Sample("icons",Type.DartOld));
 
     // SPA Samples
-    samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
+    samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
+    samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
 
     // Styleguide!
     samples.add(new Sample("styleguide",Type.Styleguide));

@@ -1,16 +1,12 @@
-import 'package:mdl/mdl.dart';
-import &quot;package:mdl/mdldialog.dart&quot;;
+import &#39;package:mdl&#47;mdl.dart&#39;;
 
-import &quot;package:mdl_dialog_sample/customdialog.dart&quot;;
 
 main() {
-    final Logger _logger = new Logger('dialog.Main');
-
-    configLogging();
+    final Logger _logger = new Logger(&#39;dialog.Main&#39;);
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
         final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector(&quot;#alertdialog&quot;));
         final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector(&quot;#confirmdialog&quot;));
         final MaterialButton btnCustomDialog = MaterialButton.widget(dom.querySelector(&quot;#customdialog&quot;));

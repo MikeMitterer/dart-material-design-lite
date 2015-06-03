@@ -24,28 +24,26 @@ class Styleguide {
     void generate(final Sample sample) {
         final Sample sampleStyleguide = samples.firstWhere((final Sample sample) => sample.type == Type.Styleguide);
 
-        final String sampleName = sample.name;
+        _copyDemoCssToStyleguide(sample,samplesToExclude: [ "layout" ]);
+        _copySampleViewToStyleguide(sample,samplesToExclude: [ "layout" ]);
+        _createUsageContentInStyleguide(sample);
 
-        _copyDemoCssToStyleguide(sampleName, dir,config.samplesdir,samplesToExclude: [ "layout" ]);
-        _copySampleViewToStyleguide(sampleName, dir,config.samplesdir,samplesToExclude: [ "layout" ]);
-        _createUsageContentInStyleguide(sampleName, dir,config.samplesdir);
-        _createDartPartialInStyleguide(sampleName, dir,config);
-        _createHtmlPartialInStyleguide(sampleName, dir,config,samplesToExclude: [ "layout" ]);
-        _createReadmePartialInStyleguide(sampleName, dir,config);
+        _createDartPartialInStyleguide(sample);
+        _createHtmlPartialInStyleguide(sample,samplesToExclude: [ "layout" ]);
+        _createReadmePartialInStyleguide(sample);
     }
 
     // -- private -------------------------------------------------------------
 
     /// {sassDir} -> lib/sass/accordion
-    void _copyDemoCssToStyleguide(final String sampleName,final Directory sassDir,final String samplesDir,
-                                  { final List<String> samplesToExclude: const [] }) {
-        Validate.notBlank(sampleName);
-        Validate.notNull(sassDir);
-        Validate.notBlank(samplesDir);
+    void _copyDemoCssToStyleguide(final Sample sample,{ final List<String> samplesToExclude: const [] } ) {
+        Validate.notNull(sample);
 
-        final File srcScss = new File("${sassDir.path}/demo.scss");
-        final Directory targetScssDir = new Directory("${samplesDir}/styleguide/web/assets/styles/_demo");
-        final File targetScss = new File("${targetScssDir.path}/_${sampleName}.scss");
+        final Directory webDir = new Directory("${config.samplesdir}/${sample.name}/web");
+        final Directory targetScssDir = new Directory("${config.samplesdir}/styleguide/web/assets/styles/_demo");
+
+        final File srcScss = new File("${webDir.path}/demo.scss");
+        final File targetScss = new File("${targetScssDir.path}/_${sample.name}.scss");
 
         if(!srcScss.existsSync()) {
             return;
@@ -55,7 +53,7 @@ class Styleguide {
             targetScssDir.createSync(recursive: true);
         }
 
-        if(targetScss.existsSync() && samplesToExclude.contains(sampleName)) {
+        if(targetScss.existsSync() && samplesToExclude.contains(sample.name)) {
             return;
         }
 
@@ -67,20 +65,17 @@ class Styleguide {
         targetScss.writeAsStringSync(content);
     }
 
-    void _copySampleViewToStyleguide(final String sampleName,final Directory sassDir,final String samplesDir,
-                                     { final List<String> samplesToExclude: const [] }) {
-        Validate.notBlank(sampleName);
-        Validate.notNull(sassDir);
-        Validate.notBlank(samplesDir);
+    void _copySampleViewToStyleguide(final Sample sample, { final List<String> samplesToExclude: const [] }) {
+        Validate.notNull(sample);
 
-        final File secSampleOrig = new File("${sassDir.path}/demo.html");
-        final File srcSampleDart = new File("${sassDir.path}/demo.dart.html");
-        final File srcSample = srcSampleDart.existsSync() ? srcSampleDart : secSampleOrig;
+        final Directory webDir = new Directory("${config.samplesdir}/${sample.name}/web");
+        final File srcSample = new File("${webDir.path}/index.html");
 
-        final Directory targetSampleDir = new Directory("${samplesDir}/styleguide/.sitegen/html/_content/views");
-        final File targetSample = new File("${targetSampleDir.path}/${sampleName}.html");
+        final Directory targetSampleDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_content/views");
+        final File targetSample = new File("${targetSampleDir.path}/${sample.name}.html");
 
         if(!srcSample.existsSync()) {
+            log("${srcSample.path} does not exist!");
             return;
         }
 
@@ -88,7 +83,7 @@ class Styleguide {
             targetSampleDir.createSync(recursive: true);
         }
 
-        if(targetSample.existsSync() && samplesToExclude.contains(sampleName)) {
+        if(targetSample.existsSync() && samplesToExclude.contains(sample.name)) {
             return;
         }
 
@@ -114,8 +109,8 @@ class Styleguide {
 
         final StringBuffer buffer = new StringBuffer();
 
-        buffer.writeln('<section class="demo-section demo-section--$sampleName">');
-        buffer.writeln('    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/$sampleName.html">');
+        buffer.writeln('<section class="demo-section demo-section--${sample.name}">');
+        buffer.writeln('    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/${sample.name}.html">');
         buffer.writeln("        Loading...");
         buffer.writeln('    </div>');
         buffer.writeln(content);
@@ -125,13 +120,11 @@ class Styleguide {
         Utils.optimizeHeaderTags(targetSample);
     }
 
-    void _createUsageContentInStyleguide(final String sampleName,final Directory sassDir,final String samplesDir) {
-        Validate.notBlank(sampleName);
-        Validate.notNull(sassDir);
-        Validate.notBlank(samplesDir);
+    void _createUsageContentInStyleguide(final Sample sample) {
+        Validate.notNull(sample);
 
-        final Directory targetUsageDir = new Directory("${samplesDir}/styleguide/.sitegen/html/_content/views/usage");
-        final File targetSample = new File("${targetUsageDir.path}/${sampleName}.html");
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_content/views/usage");
+        final File targetSample = new File("${targetUsageDir.path}/${sample.name}.html");
         if(targetSample.existsSync()) {
             // log.fine("${targetSample.path} already exists!");
             return;
@@ -141,27 +134,25 @@ class Styleguide {
 
         buffer.writeln("template: usage");
         buffer.writeln("");
-        buffer.writeln("dart: ->usage.${sampleName}.dart");
-        buffer.writeln("html: ->usage.${sampleName}.html");
-        buffer.writeln("readme: ->usage.${sampleName}.readme");
+        buffer.writeln("dart: ->usage.${sample.name}.dart");
+        buffer.writeln("html: ->usage.${sample.name}.html");
+        buffer.writeln("readme: ->usage.${sample.name}.readme");
         buffer.writeln("");
-        buffer.writeln("component: ${sampleName}");
+        buffer.writeln("component: ${sample.name}");
         buffer.writeln("~~~");
 
         targetSample.writeAsStringSync(buffer.toString());
     }
 
-    void _createDartPartialInStyleguide(final String sampleName,final Directory sassDir,final Config config) {
-        Validate.notBlank(sampleName);
-        Validate.notNull(sassDir);
-        Validate.notNull(config);
+    void _createDartPartialInStyleguide(final Sample sample) {
+        Validate.notNull(sample);
 
-        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_partials/usage/${sampleName}");
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_partials/usage/${sample.name}");
         if(!targetUsageDir.existsSync()) {
             targetUsageDir.createSync(recursive: true);
         }
 
-        final srcDart = new File("${config.samplesdir}/${sampleName}/web/main.dart");
+        final srcDart = new File("${config.samplesdir}/${sample.name}/web/main.dart");
         if(!srcDart.existsSync()) {
             log("${srcDart.path} does not exists!");
             return;
@@ -200,25 +191,22 @@ class Styleguide {
         targetDart.writeAsStringSync(new HtmlEscape().convert(content));
     }
 
-    void _createHtmlPartialInStyleguide(final String sampleName,final Directory sassDir,final Config config,
-                                        { final List<String> samplesToExclude: const [] }) {
-        Validate.notBlank(sampleName);
-        Validate.notNull(sassDir);
-        Validate.notNull(config);
+    void _createHtmlPartialInStyleguide(final Sample sample, { final List<String> samplesToExclude: const [] }) {
+        Validate.notNull(sample);
 
-        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_partials/usage/${sampleName}");
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_partials/usage/${sample.name}");
         if(!targetUsageDir.existsSync()) {
             targetUsageDir.createSync(recursive: true);
         }
 
-        final srcHtml = new File("${config.samplesdir}/styleguide/.sitegen/html/_content/views/${sampleName}.html");
+        final srcHtml = new File("${config.samplesdir}/styleguide/.sitegen/html/_content/views/${sample.name}.html");
         if(!srcHtml.existsSync()) {
             log("${srcHtml.path} does not exists!");
             return;
         }
 
         final targetHtml = new File("${targetUsageDir.path}/html.html");
-        if(targetHtml.existsSync() && samplesToExclude.contains(sampleName)) {
+        if(targetHtml.existsSync() && samplesToExclude.contains(sample.name)) {
             return;
         }
 
@@ -232,24 +220,22 @@ class Styleguide {
         targetHtml.writeAsStringSync(new HtmlEscape().convert(content));
     }
 
-    void _createReadmePartialInStyleguide(final String sampleName,final Directory sassDir,final Config config) {
-        Validate.notBlank(sampleName);
-        Validate.notNull(sassDir);
-        Validate.notNull(config);
+    void _createReadmePartialInStyleguide(final Sample sample) {
+        Validate.notNull(sample);
 
-        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_partials/usage/${sampleName}");
+        final Directory targetUsageDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_partials/usage/${sample.name}");
         if(!targetUsageDir.existsSync()) {
             targetUsageDir.createSync(recursive: true);
         }
 
         String content = "";
-        final srcReadme = new File("${config.samplesdir}/${sampleName}/web/README.md");
+        final srcReadme = new File("${config.samplesdir}/${sample.name}/web/README.md");
         final srcReadmeTemplate = new File(config.readmetemplate);
         final targetReadme = new File("${targetUsageDir.path}/readme.html");
 
         if(!srcReadme.existsSync()) {
             content = srcReadmeTemplate.readAsStringSync();
-            content = content.replaceAll('{{sample}}',sampleName);
+            content = content.replaceAll('{{sample}}',sample.name);
             targetReadme.writeAsStringSync(content);
         } else {
 
@@ -260,7 +246,7 @@ class Styleguide {
                 log(result.stderr);
             } else {
                 Utils.optimizeHeaderTags(targetReadme);
-                log("    ${targetReadme.path} created...");
+                //log("    ${targetReadme.path} created...");
             }
         }
     }

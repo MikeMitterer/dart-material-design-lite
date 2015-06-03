@@ -14,20 +14,32 @@
  * limitations under the License.
  */
 
-@import "packages/mdl/assets/styles/material-design-lite";
+.demo-page--shadow, .demo-section--shadow {
+    .demo-preview-block {
+        height: 100px;
+    }
 
-.demo-shadow-card {
-  background-color   : #fff;
-  border-radius      : 2px;
-  display            : block;
-  height             : 300px;
-  margin-bottom      : 20px;
+    .demo-shadow-card {
+        background-color: #fff;
+        border-radius: 2px;
+        display: block;
+        height: 72px;
+        margin-bottom: 20px;
+        margin-right: 32px;
+        padding: 10px;
+        text-align: center;
+        float: left;
+        color: #9E9E9E;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition-property: opacity, transform;
+        width: 72px;
+    }
 
-  transition-property: opacity, transform;
-  @include material-animation-default(300ms);
-  width              : 300px;
-
-  @media screen and (max-width: 360px ) {
-    width: 272px;
-  }
+    @media screen and (max-width: 360px ) {
+        .demo-shadow-card {
+            width: 27px;
+        }
+    }
 }

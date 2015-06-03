@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-@import "packages/mdl/assets/styles/material-design-lite";
-
-.demo-page--tabs .demo-preview-block {
-  margin: 0;
-  padding: 0 0 10px 0;
+.demo-page--tabs, .demo-section--tabs {
+    .demo-preview-block {
+        margin: 0;
+        padding: 0 0 10px 0;
+    }
 }

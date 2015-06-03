@@ -1,0 +1,73 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+
+
+main() {
+    final Logger _logger = new Logger(&#39;main.MaterialContent&#39;);
+    final Model model = new Model();
+
+    registerMdl();
+
+    componentFactory().run().then(( final di.Injector injector) {
+        configRouter(injector.get(ViewFactory));
+
+        final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector(&quot;#mainslider2&quot;));
+        final MaterialContent list = MaterialContent.widget(dom.querySelector(&quot;#list&quot;));
+        final MaterialMustache mustache = MaterialMustache.widget(dom.querySelector(&quot;#mustache&quot;));
+
+        mustache.template = &quot;&quot;&quot;
+            &lt;div&gt;
+                Slider value: {{sliderValue}}
+                    &lt;ol&gt;
+                    {{#randomValues}}
+                        &lt;li&gt;{{ . }},&lt;&#47;li&gt;
+                    {{&#47;randomValues}}
+                    {{^randomValues }}
+                        &lt;li&gt;No values&lt;&#47;li&gt;
+                    {{&#47;randomValues }}
+                    &lt;&#47;ol&gt;
+            &lt;&#47;div&gt;&quot;&quot;&quot;;
+
+        mainslider.value = model.sliderValue;
+
+        mainslider.onInput.listen((_) =&gt; model.sliderValue = mainslider.value);
+
+        model.onChange.listen((_) {
+
+            String items() {
+                final StringBuffer line = new StringBuffer();
+                for(int counter = 0; counter &lt; model.sliderValue; counter++) {
+                    final String id = &quot;${counter + 1}&quot;;
+
+                    line.write(&quot;&lt;li&gt;&quot;);
+                    line.write(&quot;Item #${id}&quot;);
+                    line.write(&#39;&lt;button id=&quot;btn$id&quot; class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect&quot;&gt;Button #${id}&lt;&#47;button&gt;&#39;);
+                    line.write(&quot;&lt;&#47;li&gt;&quot;);
+                }
+                return line.toString();
+            }
+
+            new Future(() {
+                mainslider.value = model.sliderValue;
+                _logger.info(&quot;Model ${model.sliderValue}&quot;);
+
+                list.render(&quot;&lt;ul&gt;&quot; + items() + &quot;&lt;&#47;ul&gt;&quot;).then((_) {
+                    for(int counter = 0; counter &lt; model.sliderValue; counter++) {
+                        final dom.Element element  = list.element.querySelector(&quot;#btn${counter+1}&quot;);
+
+                        &#47;&#47; check for null - if elements are added to fast it could be possible that
+                        &#47;&#47; the element you are searching for was already removed
+                        if(element != null) {
+                            element.onClick.listen((final dom.MouseEvent event) {
+                                dom.window.alert(&quot;Clicked on Button #${counter+1}&quot;);
+                            });
+
+                        }
+                    }
+                });
+            });
+
+            mustache.render(model);
+        });
+
+    });
+}
