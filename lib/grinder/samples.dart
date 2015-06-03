@@ -20,7 +20,7 @@
 part of gensamples;
 
 enum Type {
-    Core, Extra, Dart, DartOld, SPA, Styleguide, Template
+    Core, Extra, Dart, DartOld, SPA, Styleguide, Template, Ignore
 }
 
 class Sample {
@@ -118,7 +118,7 @@ void createSampleList() {
     samples.add(new Sample("tooltip",   Type.Core));
     samples.add(new Sample("typography",Type.Core,  hasScript: false));
 
-    samples.add(new Sample("ripple",    Type.Core,  hasDemoCss: false, hasDemoHtml: false, hasReadme: false, excludeFromStyleguide: true ));
+    samples.add(new Sample("ripple",    Type.Ignore,  hasDemoCss: false, hasDemoHtml: false, hasReadme: false, excludeFromStyleguide: true ));
 
     // MDL Extras
     samples.add(new Sample("resets",Type.Extra));
