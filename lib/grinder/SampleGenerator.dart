@@ -104,10 +104,9 @@ class SampleGenerator {
         }
         Utils.sasscAndAutoPrefix(targetScss,targetCss);
 
-        if(sample.hasStyle) {
+        if(sample.hasStyle && sample.type == Type.Core) {
             _copySubdirs(new File("${config.demobase}/${sample.name}"),new File(webDir.path));
         }
-
     }
 
     void _createPackagesFolder(final Sample sample) {
@@ -189,14 +188,12 @@ class SampleGenerator {
     void _writeYaml(final Sample sample) {
         Validate.notNull(sample);
 
-        final String sampleName = sample.name;
-
         final File srcYaml = new File("${config.yamltemplate}");
-        final File targetYaml = new File("${config.samplesdir}/${sampleName}/pubspec.yaml");
+        final File targetYaml = new File("${config.samplesdir}/${sample.dirname}/pubspec.yaml");
         if(targetYaml.existsSync()) {
             targetYaml.delete();
         }
-        final String contents = srcYaml.readAsStringSync().replaceAll("{{samplename}}",sampleName);
+        final String contents = srcYaml.readAsStringSync().replaceAll("{{samplename}}",sample.name);
         targetYaml.writeAsStringSync(contents);
     }
 
