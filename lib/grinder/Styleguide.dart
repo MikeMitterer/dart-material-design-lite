@@ -188,7 +188,7 @@ class Styleguide {
         content = content.replaceFirst(new RegExp(r".*configLogging\(\);\n\n*",multiLine: true),"");
 
         //log(new HtmlEscape().convert(buffer.toString()));
-        targetDart.writeAsStringSync(new HtmlEscape().convert(content));
+        targetDart.writeAsStringSync(new HtmlEscape().convert(content).replaceAll("{","&#123;").replaceAll("}","&#125;"));
     }
 
     void _createHtmlPartialInStyleguide(final Sample sample, { final List<String> samplesToExclude: const [] }) {

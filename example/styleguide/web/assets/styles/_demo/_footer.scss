@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-.demo-page--footer, .demo-section--footer {
-    padding : 0;
 
-    .mdl-mega-footer, .mdl-mini-footer, {
-        margin-bottom : 16px;
+.demo-page--footer, .demo-section--footer {
+    padding: 0;
+
+    .mdl-mega-footer,
+    .mdl-mini-footer {
+        margin-bottom: 16px;
     }
 }
-

@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-.demo-button {
-  display: inline-block;
-  margin: 20px 20px 20px 0;
+.demo-page--button, .demo-section--button {
+    .demo-button {
+        display: inline-block;
+        margin: 20px 20px 20px 0;
+    }
 }

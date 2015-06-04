@@ -1,15 +1,15 @@
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
-main() {
+main() &#123;
     registerMdl();
 
-    componentFactory().run().then((_) {
+    componentFactory().run().then((_) &#123;
         final MaterialSpinner spinner = MaterialSpinner.widget(dom.querySelector(&quot;#first&quot;));
         final MaterialButton button = MaterialButton.widget(dom.querySelector(&quot;#button&quot;));
 
-        button.onClick.listen((_) {
+        button.onClick.listen((_) &#123;
             spinner.active = !spinner.active;
-        });
-    });
-}
+        &#125;);
+    &#125;);
+&#125;

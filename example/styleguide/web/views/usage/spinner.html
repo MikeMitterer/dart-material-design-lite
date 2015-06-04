@@ -22,16 +22,16 @@
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
-main() {
+main() &#123;
     registerMdl();
-    componentFactory().run().then((_) {
+    componentFactory().run().then((_) &#123;
         final MaterialSpinner spinner = MaterialSpinner.widget(dom.querySelector(&quot;#first&quot;));
         final MaterialButton button = MaterialButton.widget(dom.querySelector(&quot;#button&quot;));
-        button.onClick.listen((_) {
+        button.onClick.listen((_) &#123;
             spinner.active = !spinner.active;
-        });
-    });
-}</pre>
+        &#125;);
+    &#125;);
+&#125;</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
@@ -43,6 +43,7 @@ main() {
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
+  &lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;p&gt;
         Default:

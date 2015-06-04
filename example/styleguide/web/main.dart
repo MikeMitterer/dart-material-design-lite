@@ -312,7 +312,7 @@ class ToastController extends DemoController {
         final MaterialButton btnToast = MaterialButton.widget(dom.querySelector("#toast"));
         final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector("#withAction"));
 
-        final MaterialToast toast = new MaterialToast();
+        final MaterialSnackbar toast = new MaterialSnackbar();
 
         int mangoCounter = 0;
 
@@ -322,7 +322,7 @@ class ToastController extends DemoController {
             toast.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
             toast.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
 
-            dom.querySelector("#container").classes.toggle("mdl-toast-container",
+            dom.querySelector("#container").classes.toggle("mdl-snackbar-container",
             MaterialCheckbox.widget(dom.querySelector("#checkbox-use-container")).checked);
         }
 
@@ -423,6 +423,9 @@ void configRouter() {
         ..addRoute(name: 'slider', path: '/slider',
                     enter: view("views/slider.html", new SliderController()))
 
+        ..addRoute(name: 'snackbar', path: '/snackbar',
+            enter: view("views/snackbar.html", new ToastController()))
+
         ..addRoute(name: 'spinner', path: '/spinner',
                     enter: view("views/spinner.html", new SpinnerController()))
 
@@ -441,8 +444,6 @@ void configRouter() {
         ..addRoute(name: 'theming', path: '/theming',
             enter: view("views/theming.html", new DemoController()))
 
-        ..addRoute(name: 'toast', path: '/toast',
-            enter: view("views/toast.html", new ToastController()))
 
         ..addRoute(name: 'tooltip', path: '/tooltip',
                     enter: view("views/tooltip.html", new DemoController()))

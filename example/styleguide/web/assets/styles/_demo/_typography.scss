@@ -14,46 +14,44 @@
  * limitations under the License.
  */
 
-.demo-page--typography {
-  color: $text-color-primary;
-}
+.demo-page--typography, .demo-section--typography {
+    color: rgba(0, 0, 0, 0.87);
 
-.demo-page--typography table th {
-  @include typo-caption($colorContrast: true);
+    table th {
+        padding-right: 80px;
 
-  padding-right: 80px;
+        vertical-align: top;
+        text-align: left;
+    }
 
-  vertical-align: top;
-  text-align: left;
-}
+    .demo-typography--white {
+        background-color: white;
+        color: black;
+    }
 
-.demo-typography--white {
-  background-color: white;
-  color: black;
-}
+    .demo-typography--black {
+        background-color: black;
+        color: white;
+    }
 
-.demo-typography--black {
-  background-color: black;
-  color: white;
-}
+    .demo-typography--white,
+    .demo-typography--black,
+    .demo-typography--img-1,
+    .demo-typography--img-2 {
+        width: 360px;
+        height: 272px;
 
-.demo-typography--white,
-.demo-typography--black,
-.demo-typography--img-1,
-.demo-typography--img-2 {
-  width: 360px;
-  height: 272px;
+        padding: 16px;
+        box-sizing: border-box;
+    }
 
-  padding: 16px;
-  box-sizing: border-box;
-}
+    .demo-typography--img-1 {
+        background-image: url(demo-images/img-1.png);
+        color: white;
+    }
 
-.demo-typography--img-1 {
-  background-image: url(demo-images/img-1.png);
-  color: white;
-}
-
-.demo-typography--img-2 {
-  background-image: url(demo-images/img-2.png);
-  color: white;
+    .demo-typography--img-2 {
+        background-image: url(demo-images/img-2.png);
+        color: white;
+    }
 }

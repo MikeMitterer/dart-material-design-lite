@@ -1,33 +1,33 @@
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
-main() {
+main() &#123;
     const int TIMEOUT_IN_SECS = 5;
 
     registerAllMdlComponents();
 
-    componentFactory().run().then((_) {
+    componentFactory().run().then((_) &#123;
         final MaterialMenu menu1 = MaterialMenu.widget(dom.querySelector(&quot;#menu1&quot;));
         final dom.DivElement message = dom.querySelector(&quot;#message&quot;);
 
-        void _showMessage(final int secsToClose) {
-            message.text = &quot;Menu closes in ${secsToClose} seconds...&quot;;
-            if(secsToClose &lt;= 0) {
+        void _showMessage(final int secsToClose) &#123;
+            message.text = &quot;Menu closes in $&#123;secsToClose&#125; seconds...&quot;;
+            if(secsToClose &lt;= 0) &#123;
                 message.text = &quot;&quot;;
-            }
-        }
+            &#125;
+        &#125;
 
         menu1.show();
         _showMessage(TIMEOUT_IN_SECS);
         int tick = 0;
-        new Timer.periodic(new Duration(milliseconds: 1000) , (final Timer timer) {
+        new Timer.periodic(new Duration(milliseconds: 1000) , (final Timer timer) &#123;
 
             _showMessage(TIMEOUT_IN_SECS - tick - 1);
-            if(tick &gt;= TIMEOUT_IN_SECS - 1) {
+            if(tick &gt;= TIMEOUT_IN_SECS - 1) &#123;
                 timer.cancel();
                 menu1.hide();
-            }
+            &#125;
             tick++;
-        });
-    });
-}
+        &#125;);
+    &#125;);
+&#125;

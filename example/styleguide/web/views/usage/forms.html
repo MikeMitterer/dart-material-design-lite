@@ -22,11 +22,11 @@
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
-main() {
-    registerAllMdlComponents();
-    upgradeAllRegistered().then((_) {
-    });
-}</pre>
+main() &#123;
+    registerMdl();
+    componentFactory().run().then((_) &#123;
+    &#125;);
+&#125;</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
@@ -38,6 +38,173 @@ main() {
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
+  &lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
+&lt;div class=&quot;demo-preview-block forms sample&quot;&gt;
+    &lt;div class=&quot;linklist&quot;&gt;&lt;a href=&quot;index.html&quot;&gt;With material components&lt;&#47;a&gt; | &lt;a href=&quot;index-html-controls.html&quot;&gt;Basic HTML elements&lt;&#47;a&gt;&lt;&#47;div&gt;
+    &lt;div class=&quot;firstblock&quot;&gt;
+        &lt;p&gt;
+            justo. Morbi tincidunt vulputate urna vitae malesuada. Vivamus est erat, venenatis eu mauris ac, finibus
+            cursus lectus. Nunc ultrices libero vitae est egestas consectetur. Aliquam dapibus, mi quis sollicitudin
+            vestibulum, odio nulla ultrices erat, vel sagittis ligula sem et nunc.&lt;&#47;p&gt;
+        &lt;form method=&quot;post&quot; class=&quot;right mdl-form mdl-form-registration demo-registration&quot;&gt;
+            &lt;h5 class=&quot;mdl-form__title&quot;&gt;Register for launch&lt;&#47;h5&gt;
+            &lt;div class=&quot;mdl-form__content&quot;&gt;
+                &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                    &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample1&quot; &#47;&gt;
+                    &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample1&quot;&gt;Name&lt;&#47;label&gt;
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                    &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;email&quot; &#47;&gt;
+                    &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;email&quot;&gt;Email&lt;&#47;label&gt;
+                &lt;&#47;div&gt;
+                &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;remember_me&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot; id=&quot;remember_me&quot; class=&quot;mdl-checkbox__input&quot; &#47;&gt;
+                    &lt;span class=&quot;mdl-checkbox__label&quot;&gt;Remember me&lt;&#47;span&gt;
+                &lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-form__actions&quot;&gt;
+                &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect&quot;&gt;Login&lt;&#47;button&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;form&gt;
+        &lt;p&gt;
+            justo. Morbi tincidunt vulputate urna vitae malesuada. Vivamus est erat, venenatis eu mauris ac, finibus
+            cursus lectus. Nunc ultrices libero vitae est egestas consectetur. Aliquam dapibus, mi quis sollicitudin
+            vestibulum, odio nulla ultrices erat, vel sagittis ligula sem et nunc.&lt;&#47;p&gt;
+    &lt;&#47;div&gt;
+    &lt;form method=&quot;post&quot; class=&quot;mdl-form&quot;&gt;
+        &lt;h5 class=&quot;mdl-form__title&quot;&gt;Define your colors&lt;&#47;h5&gt;
+        &lt;div class=&quot;mdl-form__content&quot;&gt;
+            &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample1&quot; &#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample1&quot;&gt;Name&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;email&quot; id=&quot;email&quot; &#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;email&quot;&gt;Email&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;tel&quot; id=&quot;tel&quot;&#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;tel&quot;&gt;Telephone, (555) 555 5555&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;red1&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; id=&quot;red1&quot; class=&quot;mdl-checkbox__input&quot; &#47;&gt;
+                &lt;span class=&quot;mdl-checkbox__label&quot;&gt;Red&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;green1&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; id=&quot;green1&quot; class=&quot;mdl-checkbox__input&quot; &#47;&gt;
+                &lt;span class=&quot;mdl-checkbox__label&quot;&gt;Green&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;blue1&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; id=&quot;blue1&quot; class=&quot;mdl-checkbox__input&quot; &#47;&gt;
+                &lt;span class=&quot;mdl-checkbox__label&quot;&gt;Blue&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-form__actions&quot;&gt;
+            &lt;button class=&quot;mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect&quot;&gt;Cancel&lt;&#47;button&gt;
+            &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect&quot;&gt;Sign up&lt;&#47;button&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;form&gt;
+    &lt;form method=&quot;post&quot; class=&quot;mdl-form&quot;&gt;
+        &lt;h5 class=&quot;mdl-form__title&quot;&gt;Define your colors (hor)&lt;&#47;h5&gt;
+        &lt;div class=&quot;mdl-form__content&quot;&gt;
+            &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample1&quot; &#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample1&quot;&gt;Name&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;email&quot; id=&quot;email&quot; &#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;email&quot;&gt;Email&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;tel&quot; id=&quot;tel&quot;&#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;tel&quot;&gt;Telephone, (555) 555 5555&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-form__group&quot;&gt;
+                &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;red2&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot; id=&quot;red2&quot; class=&quot;mdl-checkbox__input&quot; &#47;&gt;
+                    &lt;span class=&quot;mdl-checkbox__label&quot;&gt;Red&lt;&#47;span&gt;
+                &lt;&#47;label&gt;
+                &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;green2&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot; id=&quot;green2&quot; class=&quot;mdl-checkbox__input&quot; &#47;&gt;
+                    &lt;span class=&quot;mdl-checkbox__label&quot;&gt;Green&lt;&#47;span&gt;
+                &lt;&#47;label&gt;
+                &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;blue2&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot; id=&quot;blue2&quot; class=&quot;mdl-checkbox__input&quot; &#47;&gt;
+                    &lt;span class=&quot;mdl-checkbox__label&quot;&gt;Blue&lt;&#47;span&gt;
+                &lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-form__actions&quot;&gt;
+            &lt;button class=&quot;mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect&quot;&gt;Cancel&lt;&#47;button&gt;
+            &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect&quot;&gt;Sign up&lt;&#47;button&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;form&gt;
+    &lt;form method=&quot;post&quot; class=&quot;mdl-form&quot;&gt;
+        &lt;h5 class=&quot;mdl-form__title&quot;&gt;Define your colors (radio)&lt;&#47;h5&gt;
+        &lt;div class=&quot;mdl-form__content&quot;&gt;
+            &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample1&quot; &#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample1&quot;&gt;Name&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;email&quot; id=&quot;email&quot; &#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;email&quot;&gt;Email&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;tel&quot; id=&quot;tel&quot;&#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;tel&quot;&gt;Telephone, (555) 555 5555&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-form__group&quot;&gt;
+                &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;red3&quot;&gt;
+                    &lt;input type=&quot;radio&quot; id=&quot;red3&quot; class=&quot;mdl-radio__button&quot; name=&quot;color[]&quot;&#47;&gt;
+                    &lt;span class=&quot;mdl-radio__label&quot;&gt;Red&lt;&#47;span&gt;
+                &lt;&#47;label&gt;
+                &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;green3&quot;&gt;
+                    &lt;input type=&quot;radio&quot; id=&quot;green3&quot; class=&quot;mdl-radio__button&quot; name=&quot;color[]&quot; &#47;&gt;
+                    &lt;span class=&quot;mdl-radio__label&quot;&gt;Green&lt;&#47;span&gt;
+                &lt;&#47;label&gt;
+                &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;blue3&quot;&gt;
+                    &lt;input type=&quot;radio&quot; id=&quot;blue3&quot; class=&quot;mdl-radio__button&quot; name=&quot;color[]&quot;&#47;&gt;
+                    &lt;span class=&quot;mdl-radio__label&quot;&gt;Blue&lt;&#47;span&gt;
+                &lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-form__actions&quot;&gt;
+            &lt;button class=&quot;mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect&quot;&gt;Cancel&lt;&#47;button&gt;
+            &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect&quot;&gt;Sign up&lt;&#47;button&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;form&gt;
+    &lt;form method=&quot;post&quot; class=&quot;mdl-form demo-slider&quot;&gt;
+        &lt;h5 class=&quot;mdl-form__title&quot;&gt;Settings&lt;&#47;h5&gt;
+        &lt;div class=&quot;mdl-form__content&quot;&gt;
+            &lt;div class=&quot;mdl-form__group&quot;&gt;
+                &lt;span class=&quot;mdl-icon mdl-icon--volume-up mdl-color-text--grey-600&quot;&gt;&lt;&#47;span&gt;
+                &lt;div class=&quot;mdl-slider__container__container&quot;&gt;
+                    &lt;span class=&quot;mdl-slider__label mdl-color-text--grey-500&quot;&gt;Media volume&lt;&#47;span&gt;
+                    &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+                           min=&quot;0&quot; max=&quot;100&quot; value=&quot;30&quot; tabindex=&quot;0&quot;&#47;&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-form__group&quot;&gt;
+                &lt;span class=&quot;mdl-icon mdl-icon--access-alarm mdl-color-text--grey-600&quot;&gt;&lt;&#47;span&gt;
+                &lt;div class=&quot;mdl-slider__container__container&quot;&gt;
+                    &lt;span class=&quot;mdl-slider__label mdl-color-text--grey-500&quot;&gt;Alarm volume&lt;&#47;span&gt;
+                    &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+                           min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot;&#47;&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-form__group&quot;&gt;
+                &lt;span class=&quot;mdl-icon mdl-icon--ring-volume mdl-color-text--grey-600&quot;&gt;&lt;&#47;span&gt;
+                &lt;div class=&quot;mdl-slider__container__container&quot;&gt;
+                    &lt;span class=&quot;mdl-slider__label mdl-color-text--grey-500&quot;&gt;Ring volume&lt;&#47;span&gt;
+                    &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+                           min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot;&#47;&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;form&gt;
+&lt;&#47;div&gt;
+&lt;&#47;div&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->

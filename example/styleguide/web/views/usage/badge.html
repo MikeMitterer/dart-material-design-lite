@@ -22,22 +22,22 @@
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
-main() {
+main() &#123;
     final Logger _logger = new Logger(&#39;main.MaterialBadge&#39;);
     registerMdl();
-    componentFactory().run().then((_) {
+    componentFactory().run().then((_) &#123;
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector(&quot;#el1&quot;));
         int counter = 1;
-        new Timer.periodic(new Duration(milliseconds: 100), (_) {
-            if(counter &gt; 999) {
+        new Timer.periodic(new Duration(milliseconds: 100), (_) &#123;
+            if(counter &gt; 999) &#123;
                 counter = 1;
-            }
+            &#125;
             badge1.value = counter.toString();
-            _logger.info(&quot;Current Badge-Value: ${badge1.value}&quot;);
+            _logger.info(&quot;Current Badge-Value: $&#123;badge1.value&#125;&quot;);
             counter++;
-        });
-    });
-}</pre>
+        &#125;);
+    &#125;);
+&#125;</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
@@ -49,6 +49,7 @@ main() {
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
+  &lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
 &lt;div class=&quot;demo-preview-block&quot;&gt;
   &lt;section class=&quot;toolbar&quot;&gt;
     &lt;div class=&quot;toolbar&quot;&gt;

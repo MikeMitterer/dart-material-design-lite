@@ -30,7 +30,7 @@ class Utils {
         //log("${srcScss.path} -> ${targetCss.path}");
         sasscAndAutoPrefix(srcScss,targetCss,useSass: false, minify: true);
 
-        return srcScss.path;
+        return targetCss.path;
     }
 
     static void sasscAndAutoPrefix(final File targetScss,final File targetCss,

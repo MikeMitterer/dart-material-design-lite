@@ -1,0 +1,57 @@
+<section class="demo-section demo-section--content">
+    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/content.html">
+        Loading...
+    </div>
+    
+    <div class="loading">Loading...</div>
+    <div class="menu">
+        <a href="#/test">Test</a> | <a href="#/test2">Test II</a> | <a href="#/slider">Slider</a> | <a href="#/error">Error</a>
+    </div>
+    <div class="demo-preview-block demo-content">
+        <div id="main" class="mdl-content mdl-js-content">
+            Temp
+        </div>
+    </div>
+    
+    <div class="demo-preview-block">
+        <p>I am your main content - I live in index.html</p>
+        <p>
+            <input class="mdl-slider mdl-js-slider" type="range"
+                   min="0" max="100" value="0" tabindex="0" id="mainslider1"/>
+        </p>
+    
+        <p>
+            <input class="mdl-slider mdl-js-slider" type="range"
+                   min="0" max="100" value="10" tabindex="0" id="mainslider2" step="1"/>
+        </p>
+    
+        <p>
+            <input class="mdl-slider mdl-js-slider" type="range"
+                   min="0" max="100" value="0" tabindex="0" disabled id="mainslider3"/>
+        </p>
+    
+        <p>
+            <input class="mdl-slider mdl-js-slider" type="range"
+                   min="0" max="100" value="10" tabindex="0" disabled id="mainslider4"/>
+        </p>
+        <p>Try to drag the second slider. Click on <a href="#/slider">Slider</a> and you'll see how the dynamically loaded
+        slider.html reflects your changes in the main model! If the "Slider sample" is loaded drag one of the blue sliders.
+        They return their value to the main model and you'll see all three sliders moving.</p>
+    
+        <div class="cols">
+            <div class="col">
+                <h5>Mustache-Template</h5>
+                <div id="mustache" class="mdl-mustache mdl-js-mustache">
+                    Waiting for action...
+                </div>
+            </div>
+            <div class="col">
+                <h5>List</h5>
+                <div id="list" class="mdl-content mdl-js-content">
+                    Waiting for action...
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>

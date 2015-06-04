@@ -22,12 +22,12 @@
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
-main() {
+main() &#123;
     registerMdl();
-    componentFactory().run().then((_) {
+    componentFactory().run().then((_) &#123;
         MaterialRadio.widget(dom.querySelector(&quot;#wifi2&quot;)).disable();
-    });
-}</pre>
+    &#125;);
+&#125;</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
@@ -39,6 +39,7 @@ main() {
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
+  &lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
   &lt;p&gt;A radio button can either be a primary action or a secondary action.&lt;&#47;p&gt;
   &lt;section class=&quot;demo-preview-block&quot;&gt;
     &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi1&quot;&gt;

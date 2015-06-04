@@ -22,15 +22,15 @@
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
-main() {
+main() &#123;
     registerAllMdlComponents();
-    componentFactory().run().then((_) {
+    componentFactory().run().then((_) &#123;
         final MaterialIconToggle toggle = MaterialIconToggle.widget(dom.querySelector(&quot;#public-checkbox-1&quot;));
-        new Timer.periodic(new Duration(milliseconds: 500), (final Timer timer) {
+        new Timer.periodic(new Duration(milliseconds: 500), (final Timer timer) &#123;
             toggle.checked = !toggle.checked;
-        });
-    });
-}</pre>
+        &#125;);
+    &#125;);
+&#125;</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
@@ -42,6 +42,7 @@ main() {
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
+  &lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;div class=&quot;demo-icon-toggle-block&quot;&gt;
         &lt;label class=&quot;mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect&quot; for=&quot;checkbox-1&quot;&gt;

@@ -22,31 +22,31 @@
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
-main() {
+main() &#123;
     const int TIMEOUT_IN_SECS = 5;
     registerAllMdlComponents();
-    componentFactory().run().then((_) {
+    componentFactory().run().then((_) &#123;
         final MaterialMenu menu1 = MaterialMenu.widget(dom.querySelector(&quot;#menu1&quot;));
         final dom.DivElement message = dom.querySelector(&quot;#message&quot;);
-        void _showMessage(final int secsToClose) {
-            message.text = &quot;Menu closes in ${secsToClose} seconds...&quot;;
-            if(secsToClose &lt;= 0) {
+        void _showMessage(final int secsToClose) &#123;
+            message.text = &quot;Menu closes in $&#123;secsToClose&#125; seconds...&quot;;
+            if(secsToClose &lt;= 0) &#123;
                 message.text = &quot;&quot;;
-            }
-        }
+            &#125;
+        &#125;
         menu1.show();
         _showMessage(TIMEOUT_IN_SECS);
         int tick = 0;
-        new Timer.periodic(new Duration(milliseconds: 1000) , (final Timer timer) {
+        new Timer.periodic(new Duration(milliseconds: 1000) , (final Timer timer) &#123;
             _showMessage(TIMEOUT_IN_SECS - tick - 1);
-            if(tick &gt;= TIMEOUT_IN_SECS - 1) {
+            if(tick &gt;= TIMEOUT_IN_SECS - 1) &#123;
                 timer.cancel();
                 menu1.hide();
-            }
+            &#125;
             tick++;
-        });
-    });
-}</pre>
+        &#125;);
+    &#125;);
+&#125;</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
@@ -58,6 +58,7 @@ main() {
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
+  &lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
   &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;button id=&quot;clickable1&quot; class=&quot;demo-menu-button-left mdl-button mdl-js-button mdl-button--icon&quot;&gt;
       &lt;span class=&quot;mdl-icon mdl-icon--more-vert&quot;&#47;&gt;
@@ -119,9 +120,9 @@ main() {
   <span class="kw">&lt;li&gt;</span>Stop<span class="kw">&lt;/li&gt;</span>
   <span class="kw">&lt;li&gt;</span>Pause<span class="kw">&lt;/li&gt;</span>
 <span class="kw">&lt;/ul&gt;</span></code></pre>
-<p> 4. Add one or more MDL classes, separated by spaces, to the button and span elements using the <code>class</code> attribute.</p>
+<p> 4. Add one or more MDL classes, separated by spaces, to the button element using the <code>class</code> attribute.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;menu1&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon mdl-icon--more-vert&quot;</span><span class="kw">/&gt;</span>
+  <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>more_vert<span class="kw">&lt;/i&gt;</span>
 <span class="kw">&lt;/button&gt;</span></code></pre>
 <p> 5. Add one or more MDL classes, separated by spaces, to the unordered list and the list items using the <code>class</code> attribute.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-menu mdl-js-menu&quot;</span><span class="ot"> for=</span><span class="st">&quot;menu1&quot;</span><span class="kw">&gt;</span>
@@ -133,7 +134,7 @@ main() {
 <h4 id="examples">Examples</h4>
 <p>A menu with three options.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;menu-speed&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon mdl-icon--more-vert&quot;</span><span class="kw">/&gt;</span>
+  <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>more_vert<span class="kw">&lt;/i&gt;</span>
 <span class="kw">&lt;/button&gt;</span>
 <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-menu mdl-js-menu&quot;</span><span class="ot"> for=</span><span class="st">&quot;menu-speed&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;mdl-menu__item&quot;</span><span class="kw">&gt;</span>Fast<span class="kw">&lt;/li&gt;</span>
@@ -142,7 +143,7 @@ main() {
 <span class="kw">&lt;/ul&gt;</span></code></pre>
 <p>A menu with three options, with ripple effect on button and option links.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;menu-speed&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon mdl-icon--more-vert&quot;</span><span class="kw">/&gt;</span>
+  <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>more_vert<span class="kw">&lt;/i&gt;</span>
 <span class="kw">&lt;/button&gt;</span>
 <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-menu mdl-js-menu mdl-js-ripple-effect&quot;</span><span class="ot"> for=</span><span class="st">&quot;menu-speed&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;mdl-menu__item&quot;</span><span class="kw">&gt;</span>Fast<span class="kw">&lt;/li&gt;</span>
@@ -151,7 +152,7 @@ main() {
 <span class="kw">&lt;/ul&gt;</span></code></pre>
 <p>A menu with three options, the second of which is disabled by default.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;menu-speed&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-icon mdl-icon--more-vert&quot;</span><span class="kw">/&gt;</span>
+  <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>more_vert<span class="kw">&lt;/i&gt;</span>
 <span class="kw">&lt;/button&gt;</span>
 <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-menu mdl-js-menu&quot;</span><span class="ot"> for=</span><span class="st">&quot;menu-speed&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;mdl-menu__item&quot;</span><span class="kw">&gt;</span>Fast<span class="kw">&lt;/li&gt;</span>
@@ -183,16 +184,6 @@ main() {
 <td align="left"><code>mdl-button--icon</code></td>
 <td align="left">Applies <em>icon</em> (small plain circular) display effect to button</td>
 <td align="left">Required on button element</td>
-</tr>
-<tr class="even">
-<td align="left"><code>mdl-icon</code></td>
-<td align="left">Defines span as an MDL icon component</td>
-<td align="left">Required on span element</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>mdl-icon--more-vert</code></td>
-<td align="left">Defines span as an MDL vertical ellipsis icon(1)</td>
-<td align="left">Required on span element</td>
 </tr>
 <tr class="even">
 <td align="left"><code>mdl-menu</code></td>
@@ -231,7 +222,7 @@ main() {
 </tr>
 </tbody>
 </table>
-<p>(1) The &quot;more-vert&quot; icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see <a href="http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html">this page</a>; hover over an icon to see its class name.</p>
+<p>(1) The &quot;more_vert&quot; icon is used here as an example. Other icons can be used by modifying the text. For a list of available icons, see <a href="https://www.google.com/design/icons">this page</a>.</p>
 <blockquote>
 <p><strong>Note:</strong> Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;li class=&quot;mdl-menu__item&quot; disabled&gt;Medium&lt;/li&gt;</code><br />This attribute may be added or removed programmatically via scripting.</p>
 </blockquote>

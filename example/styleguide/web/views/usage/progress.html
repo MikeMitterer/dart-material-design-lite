@@ -22,25 +22,11 @@
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
-main() {
-    final Logger _logger = new Logger(&#39;example.progress.main&#39;);
+main() &#123;
     registerMdl();
-    componentFactory().run().then((_) {
-        _logger.info(&quot;All components upgraded&quot;);
-        &#47;&#47; 1
-        new MaterialProgress(dom.querySelector(&quot;#p1&quot;)).progress = 44;
-        &#47;&#47; 2
-        MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).progress = 33;
-        MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).buffer = 87;
-        (dom.querySelector(&quot;#slider&quot;) as dom.RangeInputElement).onInput.listen((final dom.Event event) {
-            final int value = int.parse((event.target as dom.RangeInputElement).value);
-            final component = new MaterialProgress(dom.querySelector(&quot;#p1&quot;))
-                ..progress = value
-                ..classes.toggle(&quot;test&quot;);
-            _logger.info(&quot;Value: ${component.progress}&quot;);
-        });
-    });
-}</pre>
+    componentFactory().run().then((_) &#123;
+    &#125;);
+&#125;</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
@@ -52,6 +38,7 @@ main() {
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
+  &lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;p&gt;
         Default:

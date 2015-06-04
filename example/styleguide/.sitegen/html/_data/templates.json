@@ -1,16 +1,16 @@
 [
   {
-    "name" : "template-sticky-footer",
+    "name" : "template_sticky-footer",
     "description" : "Sticky footer",
     "preview" : "template-sticky-footer.jpg"
   },
   {
-    "name" : "template-admin",
+    "name" : "template_admin",
     "description" : "Admin template",
     "preview" : "template-admin.jpg"
   },
   {
-    "name" : "template-fixed-header",
+    "name" : "template_fixed-header",
     "description" : "Small apps",
     "preview" : "template-fixed-header.jpg"
   }

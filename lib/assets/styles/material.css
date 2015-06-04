@@ -8367,6 +8367,12 @@ Palettes (10 colors) 50 - 900 possible
   .mdl-layout.is-upgraded .mdl-layout__tab-panel.is-active {
     display: block; }
 
+.mdl-layout__drawer-button::after {
+  font-family: 'Material-Design-Iconic-Font';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f2a1"; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *

@@ -1,0 +1,146 @@
+<div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect usage usage-content">
+    <!-- Panel 1 -->
+    <div class="mdl-accordion">
+        <input type="checkbox" name="mdl-accordion" id="usage-1-check">
+        <label class="mdl-accordion__label mdl-color--200" for="usage-1-check">
+            <span class="mdl-icon mdl-icon--remove-red-eye" title="mdl-icon--remove-red-eye"></span>
+            Basic Usage
+            <span class="mdl-icon mdl-icon--chevron-right indicator"></span>
+        </label>
+        <div class="mdl-accordion--content">
+            <i class="fa fa-eye"></i>
+            <i class="fa fa-chevron-right indicator"></i>
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <!-- TabBar -->
+                <div class="mdl-tabs__tab-bar">
+                    <a href="#dart" class="mdl-tabs__tab is-active">Dart</a>
+                    <a href="#html" class="mdl-tabs__tab">HTML</a>
+                    <a href="#css" class="mdl-tabs__tab">README</a>
+                </div>
+                <!-- Dart-Tab -->
+                <div class="mdl-tabs__panel is-active" id="dart">
+                <pre class="prettyprint linenums lang-dart">
+import &#39;package:mdl&#47;mdl.dart&#39;;
+
+main() &#123;
+    final Logger _logger = new Logger(&#39;main.MaterialContent&#39;);
+    final Model model = new Model();
+    registerMdl();
+    componentFactory().run().then(( final di.Injector injector) &#123;
+        configRouter(injector.get(ViewFactory));
+        final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector(&quot;#mainslider2&quot;));
+        final MaterialContent list = MaterialContent.widget(dom.querySelector(&quot;#list&quot;));
+        final MaterialMustache mustache = MaterialMustache.widget(dom.querySelector(&quot;#mustache&quot;));
+        mustache.template = &quot;&quot;&quot;
+            &lt;div&gt;
+                Slider value: &#123;&#123;sliderValue&#125;&#125;
+                    &lt;ol&gt;
+                    &#123;&#123;#randomValues&#125;&#125;
+                        &lt;li&gt;&#123;&#123; . &#125;&#125;,&lt;&#47;li&gt;
+                    &#123;&#123;&#47;randomValues&#125;&#125;
+                    &#123;&#123;^randomValues &#125;&#125;
+                        &lt;li&gt;No values&lt;&#47;li&gt;
+                    &#123;&#123;&#47;randomValues &#125;&#125;
+                    &lt;&#47;ol&gt;
+            &lt;&#47;div&gt;&quot;&quot;&quot;;
+        mainslider.value = model.sliderValue;
+        mainslider.onInput.listen((_) =&gt; model.sliderValue = mainslider.value);
+        model.onChange.listen((_) &#123;
+            String items() &#123;
+                final StringBuffer line = new StringBuffer();
+                for(int counter = 0; counter &lt; model.sliderValue; counter++) &#123;
+                    final String id = &quot;$&#123;counter + 1&#125;&quot;;
+                    line.write(&quot;&lt;li&gt;&quot;);
+                    line.write(&quot;Item #$&#123;id&#125;&quot;);
+                    line.write(&#39;&lt;button id=&quot;btn$id&quot; class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect&quot;&gt;Button #$&#123;id&#125;&lt;&#47;button&gt;&#39;);
+                    line.write(&quot;&lt;&#47;li&gt;&quot;);
+                &#125;
+                return line.toString();
+            &#125;
+            new Future(() &#123;
+                mainslider.value = model.sliderValue;
+                _logger.info(&quot;Model $&#123;model.sliderValue&#125;&quot;);
+                list.render(&quot;&lt;ul&gt;&quot; + items() + &quot;&lt;&#47;ul&gt;&quot;).then((_) &#123;
+                    for(int counter = 0; counter &lt; model.sliderValue; counter++) &#123;
+                        final dom.Element element  = list.element.querySelector(&quot;#btn$&#123;counter+1&#125;&quot;);
+                        &#47;&#47; check for null - if elements are added to fast it could be possible that
+                        &#47;&#47; the element you are searching for was already removed
+                        if(element != null) &#123;
+                            element.onClick.listen((final dom.MouseEvent event) &#123;
+                                dom.window.alert(&quot;Clicked on Button #$&#123;counter+1&#125;&quot;);
+                            &#125;);
+                        &#125;
+                    &#125;
+                &#125;);
+            &#125;);
+            mustache.render(model);
+        &#125;);
+    &#125;);
+&#125;</pre>
+                </div>
+                <!-- HTML-Tab -->
+                <div class="mdl-tabs__panel" id="html">
+                <div class="linkinfo">
+                    To use any MDL component, you must include the minified CSS file in the &lt;head&gt; section of the page:<br>
+                    <div class="csslink mdl-color-text--accent-500">
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;<br>
+                    </div>
+                    More about <a href="/#/theming">theming...</a>
+                </div>
+                <pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
+&lt;div class=&quot;menu&quot;&gt;
+    &lt;a href=&quot;#&#47;test&quot;&gt;Test&lt;&#47;a&gt; | &lt;a href=&quot;#&#47;test2&quot;&gt;Test II&lt;&#47;a&gt; | &lt;a href=&quot;#&#47;slider&quot;&gt;Slider&lt;&#47;a&gt; | &lt;a href=&quot;#&#47;error&quot;&gt;Error&lt;&#47;a&gt;
+&lt;&#47;div&gt;
+&lt;div class=&quot;demo-preview-block demo-content&quot;&gt;
+    &lt;div id=&quot;main&quot; class=&quot;mdl-content mdl-js-content&quot;&gt;
+        Temp
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt;
+&lt;div class=&quot;demo-preview-block&quot;&gt;
+    &lt;p&gt;I am your main content - I live in index.html&lt;&#47;p&gt;
+    &lt;p&gt;
+        &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+               min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot; id=&quot;mainslider1&quot;&#47;&gt;
+    &lt;&#47;p&gt;
+    &lt;p&gt;
+        &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+               min=&quot;0&quot; max=&quot;100&quot; value=&quot;10&quot; tabindex=&quot;0&quot; id=&quot;mainslider2&quot; step=&quot;1&quot;&#47;&gt;
+    &lt;&#47;p&gt;
+    &lt;p&gt;
+        &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+               min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot; disabled id=&quot;mainslider3&quot;&#47;&gt;
+    &lt;&#47;p&gt;
+    &lt;p&gt;
+        &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+               min=&quot;0&quot; max=&quot;100&quot; value=&quot;10&quot; tabindex=&quot;0&quot; disabled id=&quot;mainslider4&quot;&#47;&gt;
+    &lt;&#47;p&gt;
+    &lt;p&gt;Try to drag the second slider. Click on &lt;a href=&quot;#&#47;slider&quot;&gt;Slider&lt;&#47;a&gt; and you&#39;ll see how the dynamically loaded
+    slider.html reflects your changes in the main model! If the &quot;Slider sample&quot; is loaded drag one of the blue sliders.
+    They return their value to the main model and you&#39;ll see all three sliders moving.&lt;&#47;p&gt;
+    &lt;div class=&quot;cols&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;h5&gt;Mustache-Template&lt;&#47;h5&gt;
+            &lt;div id=&quot;mustache&quot; class=&quot;mdl-mustache mdl-js-mustache&quot;&gt;
+                Waiting for action...
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;h5&gt;List&lt;&#47;h5&gt;
+            &lt;div id=&quot;list&quot; class=&quot;mdl-content mdl-js-content&quot;&gt;
+                Waiting for action...
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt;
+</pre>
+                </div>
+                <!-- CSS-Tab -->
+                <div class="mdl-tabs__panel" id="css">
+<h4>content</h4>
+<p>...will be here soon</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
