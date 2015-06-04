@@ -7,16 +7,16 @@ import 'package:grinder/grinder.dart';
 import 'package:path/path.dart' as Path;
 import 'package:validate/validate.dart';
 
-part 'package:mdl/grinder/samples.dart';
-part 'package:mdl/grinder/config.dart';
-part 'package:mdl/grinder/application.dart';
+part 'grinder/samples.dart';
+part 'grinder/config.dart';
+part 'grinder/application.dart';
 
-part 'package:mdl/grinder/MergeMaster.dart';
-part 'package:mdl/grinder/SampleGenerator.dart';
-part 'package:mdl/grinder/ThemeGenerator.dart';
-part 'package:mdl/grinder/JSConverter.dart';
-part 'package:mdl/grinder/Styleguide.dart';
-part 'package:mdl/grinder/Utils.dart';
+part 'grinder/MergeMaster.dart';
+part 'grinder/SampleGenerator.dart';
+part 'grinder/ThemeGenerator.dart';
+part 'grinder/JSConverter.dart';
+part 'grinder/Styleguide.dart';
+part 'grinder/Utils.dart';
 
 main(args) => grind(args);
 
