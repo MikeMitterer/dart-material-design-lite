@@ -1,7 +1,7 @@
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdl.dart';
 import 'package:mdl/mdldemo.dart';
 
 main() {
@@ -9,7 +9,7 @@ main() {
 
     // registerDemoAnimation and import mdldemo.dart is only necessary for animation sample
     registerDemoAnimation();
-    registerAllMdlComponents();
+    registerMdl();
 
     componentFactory().run().then((_){
 

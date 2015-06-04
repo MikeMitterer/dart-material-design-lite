@@ -26,8 +26,12 @@ class _DemoAnimationCssClasses {
 
     static const String MAIN_CLASS  = "demo-js-animation";
 
-    final String MOVABLE   = 'demo-animation__movable';
-    final String POSITION_PREFIX   = 'demo-animation--position-';
+    final String MOVABLE = 'demo-animation__movable';
+    final String POSITION_PREFIX = 'demo-animation--position-';
+
+    static const String FAST_OUT_SLOW_IN = 'mdl-animation--fast-out-slow-in';
+    static const String LINEAR_OUT_SLOW_IN = 'mdl-animation--linear-out-slow-in';
+    static const String FAST_OUT_LINEAR_IN = 'mdl-animation--fast-out-linear-in';
 
     const _DemoAnimationCssClasses();
 }
@@ -35,7 +39,17 @@ class _DemoAnimationCssClasses {
 /// Store constants in one place so they can be updated easily.
 class _DemoAnimationConstant {
 
-    final int STARTING_POSITION = 1;
+    final int STARTING_POSITION = 0;
+    final int END_POSITION = 5;
+
+    final List<String> ANIMATIONS = const [
+        _DemoAnimationCssClasses.FAST_OUT_LINEAR_IN,
+        _DemoAnimationCssClasses.LINEAR_OUT_SLOW_IN,
+        _DemoAnimationCssClasses.FAST_OUT_SLOW_IN,
+        _DemoAnimationCssClasses.FAST_OUT_LINEAR_IN,
+        _DemoAnimationCssClasses.LINEAR_OUT_SLOW_IN,
+        _DemoAnimationCssClasses.FAST_OUT_SLOW_IN
+    ];
 
     const _DemoAnimationConstant(); }
 
@@ -94,11 +108,13 @@ class DemoAnimation extends MdlComponent {
 
     void _handleClick(final dom.MouseEvent event) {
         movable.classes.remove("${_cssClasses.POSITION_PREFIX}${_position}");
-        _position++;
+        movable.classes.remove(_constant.ANIMATIONS[_position]);
 
-        if (_position > 6) {
-            _position = 1;
+        _position++;
+        if (_position > _constant.END_POSITION) {
+            _position = _constant.STARTING_POSITION;
         }
+        movable.classes.add(_constant.ANIMATIONS[_position]);
         movable.classes.add("${_cssClasses.POSITION_PREFIX}${_position}");
     }
 }
