@@ -123,22 +123,22 @@ class MaterialLayout extends MdlComponent {
     static MaterialLayout widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialLayout;
 
     dom.HtmlElement get header {
-        if(_header == null) { _header = element.querySelector('.' + _cssClasses.HEADER); }
+        //if(_header == null) { _header = element.querySelector('.' + _cssClasses.HEADER); }
         return _header;
     }
 
     dom.HtmlElement get drawer {
-        if(_drawer == null) { _drawer = element.querySelector('.' + _cssClasses.DRAWER); }
+        //if(_drawer == null) { _drawer = element.querySelector('.' + _cssClasses.DRAWER); }
         return _drawer;
     }
 
     dom.HtmlElement get tabBar {
-        if(_tabBar == null) { _tabBar = element.querySelector('.' + _cssClasses.TAB_BAR); }
+        //if(_tabBar == null) { _tabBar = element.querySelector('.' + _cssClasses.TAB_BAR); }
         return _tabBar;
     }
 
     dom.HtmlElement get content {
-        if(_content == null) { _content = element.querySelector('.' + _cssClasses.CONTENT); }
+        //if(_content == null) { _content = element.querySelector('.' + _cssClasses.CONTENT); }
         return _content;
     }
 
@@ -159,6 +159,30 @@ class MaterialLayout extends MdlComponent {
             element.parent.insertBefore(container, element);
             element.remove(); // element.parent.removeChild (element);
             container.append(element);
+
+            final List<dom.Element> directChildren = element.childNodes;
+
+            directChildren.forEach((final dom.Element child) {
+
+                if(child is dom.Element) {
+
+                    if (child.classes.contains(_cssClasses.HEADER)) {
+                        _header = child;
+                    }
+
+                    if (child.classes.contains(_cssClasses.DRAWER)) {
+                        _drawer = child;
+                    }
+
+                    if (child.classes.contains(_cssClasses.CONTENT)) {
+                        _content = child;
+                    }
+                }
+            });
+
+            if (_header != null) {
+                _tabBar = _header.querySelector('.' + _cssClasses.TAB_BAR);
+            }
 
             int mode = _mode.STANDARD;
 

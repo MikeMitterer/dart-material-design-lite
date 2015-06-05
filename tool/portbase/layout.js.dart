@@ -186,10 +186,30 @@ void init() {
     element.parent.removeChild(element);
     container.append(element);
 
-    _header = element.querySelector('.' + _cssClasses.HEADER);
-    _drawer = element.querySelector('.' + _cssClasses.DRAWER);
-    _tabBar = element.querySelector('.' + _cssClasses.TAB_BAR);
-    _content = element.querySelector('.' + _cssClasses.CONTENT);
+    final directChildren = element.childNodes;
+
+    for (final c = 0; c < directChildren.length; c++) {
+
+      final child = directChildren[c];
+      if (child.classList &&
+          child.classes.contains(_cssClasses.HEADER)) {
+        _header = child;
+      }
+
+      if (child.classList &&
+          child.classes.contains(_cssClasses.DRAWER)) {
+        _drawer = child;
+      }
+
+      if (child.classList &&
+          child.classes.contains(_cssClasses.CONTENT)) {
+        _content = child;
+      }
+    }
+
+    if (_header) {
+      _tabBar = _header.querySelector('.' + _cssClasses.TAB_BAR);
+    }
 
     final mode = _Mode.STANDARD;
 

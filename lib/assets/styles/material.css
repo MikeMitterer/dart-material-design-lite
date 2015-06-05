@@ -3506,8 +3506,7 @@ Palettes (10 colors) 50 - 900 possible
   background-position: 50% 50%;
   background-size: cover;
   background-origin: padding-box;
-  background-attachment: scroll;
-  height: 186px; }
+  background-attachment: scroll; }
 
 .mdl-card__title {
   -webkit-box-align: center;
@@ -3519,53 +3518,56 @@ Palettes (10 colors) 50 - 900 possible
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  font-size: 24px;
-  height: 96px;
-  justify-items: stretch;
+  -webkit-box-pack: stretch;
+  -webkit-justify-content: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
   line-height: normal;
-  padding: 8px 16px;
+  padding: 16px 8px;
   -webkit-perspective-origin: 165px 56px;
           perspective-origin: 165px 56px;
   -webkit-transform-origin: 165px 56px;
       -ms-transform-origin: 165px 56px;
-          transform-origin: 165px 56px;
-  width: 100%; }
+          transform-origin: 165px 56px; }
 
 .mdl-card__title-text {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
+  color: black;
   display: block;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  font-size: inherit;
+  font-size: 24px;
   font-weight: 300;
-  height: 96px;
   line-height: normal;
   overflow: hidden;
   -webkit-transform-origin: 149px 48px;
       -ms-transform-origin: 149px 48px;
           transform-origin: 149px 48px;
-  width: 90%; }
+  margin: 0; }
+
+.mdl-card__subtitle-text {
+  font-size: 14px;
+  color: grey;
+  margin: 0; }
 
 .mdl-card__supporting-text {
   color: rgba(0, 0, 0, 0.87);
   font-size: 13px;
   line-height: 18px;
-  margin: 10px 0;
   overflow: hidden;
-  padding: 8px 16px;
+  padding: 16px 8px;
   width: 90%; }
 
 .mdl-card__actions {
   font-size: 16px;
-  height: 50px;
   line-height: normal;
   width: 100%;
   background-color: transparent;
-  padding: 0 8px; }
+  padding: 8px; }
 
 .mdl-card__menu {
   position: absolute;
