@@ -215,7 +215,6 @@ void init() {
   }
 }
 
-/*
 /// Downgrade the component
 /// 
 /// MaterialSlider.prototype.mdlDowngrade_ = /*function*/ () {

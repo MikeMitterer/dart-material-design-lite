@@ -105,21 +105,3 @@ abstract class MdlComponent {
         }
     }
 }
-
-// CustomComponents...
-//abstract class MdlHtmlComponent extends dom.HtmlElement implements MdlComponent {
-//    html.Element element;
-//
-//    MdlHtmlComponent(this.element) : super.created();
-//
-//    MdlHtmlComponent.created() : super.created();
-//
-//    @override
-//    void click() {
-//        // TODO: implement click
-//    }
-//
-//    @override
-//    bool get isContentEditable => false;
-//}
-

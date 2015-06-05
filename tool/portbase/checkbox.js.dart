@@ -219,7 +219,6 @@ void init() {
   }
 }
 
-/*
 /// Downgrade the component.
 /// 
 /// MaterialCheckbox.prototype.mdlDowngrade_ = /*function*/ () {

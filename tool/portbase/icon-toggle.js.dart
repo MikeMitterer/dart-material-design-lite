@@ -202,7 +202,6 @@ void init() {
   }
 }
 
-/*
 /// Downgrade the component
 /// 
 /// MaterialIconToggle.prototype.mdlDowngrade_ = /*function*/ () {

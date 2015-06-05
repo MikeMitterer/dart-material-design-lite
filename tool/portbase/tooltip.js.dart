@@ -92,7 +92,6 @@ void init() {
   }
 }
 
-/*
 /// Downgrade the component
 /// 
 /// MaterialTooltip.prototype.mdlDowngrade_ = /*function*/ () {

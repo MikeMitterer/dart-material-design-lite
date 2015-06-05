@@ -181,7 +181,6 @@ void init() {
   }
 }
 
-/*
 /// Downgrade the component
 /// 
 /// MaterialTextfield.prototype.mdlDowngrade_ = /*function*/ () {

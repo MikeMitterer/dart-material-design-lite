@@ -48,6 +48,7 @@ class JSConverter {
             if(line.contains("'use strict';")) { continue; }
             if(line.contains("* @private")) { continue; }
             if(line.contains("/**")) { continue; }
+            if(line.contains("/*")) { continue; }
             if(line.contains(" */")) { continue; }
 
             String newLine = line.replaceAll("this.element_","element");

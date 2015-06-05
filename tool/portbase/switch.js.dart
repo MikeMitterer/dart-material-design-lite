@@ -222,7 +222,6 @@ void init() {
   }
 }
 
-/*
 /// Downgrade the component.
 /// 
 /// MaterialSwitch.prototype.mdlDowngrade_ = /*function*/ () {
