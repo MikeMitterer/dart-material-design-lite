@@ -78,17 +78,19 @@ class MaterialRipple extends MdlComponent {
     // mouse down after a touch start.
     bool _ignoringMouseDown = false;
 
+    bool _initialized = false;
+
     MaterialRipple.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         _init();
     }
 
-    static MaterialRipple widget(final dom.HtmlElement element) => mdlRippleComponent(element) as MaterialRipple;
+    static MaterialRipple widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialRipple;
 
     dom.HtmlElement get rippleElement {
         if(_rippleElement == null) {
             _rippleElement = element.querySelector(".${_cssClasses.MDL_RIPPLE}");
-            if(_rippleElement == null) {
+            if(_rippleElement == null && _initialized == true && visualDebugging == true) {
                 _logger.warning("No child found with ${_cssClasses.MDL_RIPPLE} in ${element}");
                 element.style.border = "1px solid red";
             }
@@ -131,6 +133,7 @@ class MaterialRipple extends MdlComponent {
             // .addEventListener('blur', -- .onBlur.listen(<Event>);
             eventStreams.add(element.onBlur.listen( _upHandler));
         }
+        _initialized = true;
     }
 
     void _downHandler(final dom.Event event) {
@@ -222,15 +225,12 @@ class MaterialRipple extends MdlComponent {
         if (rippleElement != null) {
             String transformString;
             String scale;
-            //String size;
             String offset = "translate(${_x}px,${_y}px)";
 
             if (start) {
                 scale = _constant.INITIAL_SCALE;
-                // size = _constant.INITIAL_SIZE;
             } else {
                 scale = _constant.FINAL_SCALE;
-                // size = "${_rippleSize}px";
                 if (_recentering) {
                     offset = "translate(${bound.width / 2}px, ${bound.height / 2}'px)";
                 }

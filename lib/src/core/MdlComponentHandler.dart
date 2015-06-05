@@ -223,7 +223,9 @@ class MdlComponentHandler {
 
         final dom.ElementList<dom.HtmlElement> elements = queryBaseElement.querySelectorAll(config.selector);
         elements.forEach((final dom.HtmlElement element) {
+
             _upgradeElement(element, config);
+
             // futureUpgrade.add(_upgradeElement(element, config));
         });
 
@@ -259,7 +261,7 @@ class MdlComponentHandler {
                 config.callbacks.forEach((final MdlCallback callback) => callback(element));
 
                 _markAsUpgraded();
-                _logger.fine("${config.classAsString} -> ${component}");
+                _logger.info("${config.classAsString} -> ${component}");
 
                 // Makes it possible to query for the main element in this component.
                 var jsElement = new JsObject.fromBrowserObject(component.hub);
