@@ -13,7 +13,7 @@ void main() {
     scrollChecker();
 
     registerMdl();
-    upgradeAllRegistered().then((_) {
+    componentFactory().run().then((_) {
 
     });
 }

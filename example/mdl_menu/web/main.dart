@@ -4,15 +4,14 @@ import "dart:async";
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:mdl/mdlcomponets.dart';
-import 'package:mdl/mdldemo.dart';
+import 'package:mdl/mdl.dart';
 
 main() {
     const int TIMEOUT_IN_SECS = 5;
 
     configLogging();
 
-    registerAllMdlComponents();
+    registerMdl();
 
     componentFactory().run().then((_) {
         final MaterialMenu menu1 = MaterialMenu.widget(dom.querySelector("#menu1"));
