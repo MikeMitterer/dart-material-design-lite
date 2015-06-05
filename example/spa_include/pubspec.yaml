@@ -17,8 +17,6 @@ dependencies:
   console_log_handler: any
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
-  prettify: any
-
   mdl:
     path: ../../
 
@@ -26,3 +24,5 @@ dependencies:
 
 transformers:
   - di
+
+
