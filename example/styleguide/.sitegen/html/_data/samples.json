@@ -1,5 +1,5 @@
 [
-  { "name": "accordion", "original": false, "prefix": "mdl_" },
+  { "name": "accordion", "original": false, "prefix": "mdlx_" },
   { "name": "animation", "original": true, "prefix": "mdl_" },
   { "name": "badge", "original": false, "prefix": "mdlx_" },
   { "name": "button", "original": true, "prefix": "mdl_" },
