@@ -90,7 +90,7 @@ class MaterialTabs extends MdlComponent {
 
         // Create new tabs for each tab element
         for (int i = 0; i < _tabs.length; i++) {
-            new MaterialTab(_tabs[i], this);
+            new _MaterialTab(_tabs[i], this);
         }
 
         element.classes.add(_cssClasses.UPGRADED_CLASS);
@@ -113,13 +113,13 @@ class MaterialTabs extends MdlComponent {
     }
 }
 
-class MaterialTab {
+class _MaterialTab {
     final dom.Element tab;
     final MaterialTabs ctx;
 
     static const _MaterialTabsCssClasses _cssClasses = const _MaterialTabsCssClasses();
 
-    MaterialTab(this.tab,this.ctx) {
+    _MaterialTab(this.tab,this.ctx) {
 
         if (tab != null) {
             if (ctx.element.classes.contains(_cssClasses.MDL_JS_RIPPLE_EFFECT)) {
@@ -134,7 +134,7 @@ class MaterialTab {
                 tab.append(rippleContainer);
             }
 
-            tab.onClick.listen( (final dom.Event event) {
+            ctx.eventStreams.add( tab.onClick.listen( (final dom.Event event) {
                 event.preventDefault();
                 event.stopPropagation();
 
@@ -146,7 +146,7 @@ class MaterialTab {
                 ctx._resetPanelState();
                 tab.classes.add(_cssClasses.ACTIVE_CLASS);
                 panel.classes.add(_cssClasses.ACTIVE_CLASS);
-            });
+            }));
         }
     }
 }

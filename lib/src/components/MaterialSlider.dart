@@ -138,13 +138,13 @@ class MaterialSlider extends MdlComponent {
                 backgroundFlex.append(_backgroundUpper);
             }
 
-            element.onInput.listen( _onInput );
+            eventStreams.add(element.onInput.listen( _onInput ));
 
-            element.onChange.listen( _onChange );
+            eventStreams.add(element.onChange.listen( _onChange ));
 
-            element.onMouseUp.listen( _onMouseUp );
+            eventStreams.add(element.onMouseUp.listen( _onMouseUp ));
 
-            element.parent.onMouseDown.listen(_onContainerMouseDown);
+            eventStreams.add(element.parent.onMouseDown.listen(_onContainerMouseDown));
 
             _updateValueStyles();
             element.classes.add(_cssClasses.IS_UPGRADED);

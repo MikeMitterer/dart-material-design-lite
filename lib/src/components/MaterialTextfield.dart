@@ -136,18 +136,18 @@ class MaterialTextfield extends MdlComponent {
                     });
                 }
 
-                input.onInput.listen( (_) => _updateClasses() );
+                eventStreams.add(input.onInput.listen( (_) => _updateClasses() ));
 
                 // .addEventListener('focus', -- .onFocus.listen(<Event>);
-                input.onFocus.listen( _onFocus);
+                eventStreams.add(input.onFocus.listen( _onFocus));
 
                 // .addEventListener('blur', -- .onBlur.listen(<Event>);
-                input.onBlur.listen( _onBlur);
+                eventStreams.add(input.onBlur.listen( _onBlur));
 
                 if (_maxRows != _constant.NO_MAX_ROWS) {
                     // TODO: This should handle pasting multi line text.
                     // Currently doesn't.
-                    element.onKeyDown.listen( _onKeyDown );
+                    eventStreams.add(element.onKeyDown.listen( _onKeyDown ));
                 }
 
                 _updateClasses();

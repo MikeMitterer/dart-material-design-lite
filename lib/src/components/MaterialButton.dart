@@ -80,19 +80,18 @@ class MaterialButton extends MdlComponent {
             final dom.SpanElement rippleContainer = new dom.Element.span();
             rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
 
-            final dom.SpanElement ripple = new dom.Element.span();
-            ripple.classes.add(_cssClasses.RIPPLE);
-            rippleContainer.append(ripple);
+            final dom.SpanElement rippleElement = new dom.Element.span();
+            rippleElement.classes.add(_cssClasses.RIPPLE);
+            rippleContainer.append(rippleElement);
 
-            ripple.onMouseUp.listen(_blurHandler);
+            eventStreams.add(rippleElement.onMouseUp.listen(_blurHandler));
             element.append(rippleContainer);
 
             _logger.fine("MaterialButton - init done...");
         }
 
-        element.onMouseUp.listen(_blurHandler);
-
-        element.onMouseLeave.listen(_blurHandler);
+        eventStreams.add(element.onMouseUp.listen(_blurHandler));
+        eventStreams.add(element.onMouseLeave.listen(_blurHandler));
     }
 
     void _blurHandler(final dom.MouseEvent event) {

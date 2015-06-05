@@ -50,7 +50,7 @@ class MaterialTooltip extends MdlComponent {
     static const _MaterialTooltipConstant _constant = const _MaterialTooltipConstant();
     static const _MaterialTooltipCssClasses _cssClasses = const _MaterialTooltipCssClasses();
 
-    dom.HtmlElement _forEl = null;
+    dom.HtmlElement _forElement = null;
 
     MaterialTooltip.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
@@ -71,13 +71,13 @@ class MaterialTooltip extends MdlComponent {
             if(forElId != null ) {
                 _logger.info("ELEMENT: ${forElId}");
 
-                _forEl = element.parent.querySelector("#${forElId}");
+                _forElement = element.parent.querySelector("#${forElId}");
 
-                if(_forEl != null) {
+                if(_forElement != null) {
                     _logger.info("Found: ${forElId}");
-                    _forEl.onMouseEnter.listen( _handleMouseEnter );
+                    eventStreams.add(_forElement.onMouseEnter.listen( _handleMouseEnter ));
 
-                    _forEl.onMouseLeave.listen( _handleMouseLeave);
+                    eventStreams.add(_forElement.onMouseLeave.listen( _handleMouseLeave));
                 }
             }
         }
@@ -87,7 +87,7 @@ class MaterialTooltip extends MdlComponent {
     void _handleMouseEnter(final dom.MouseEvent event) {
         event.stopPropagation();
 
-        final Math.Rectangle props = _forEl.getBoundingClientRect();
+        final Math.Rectangle props = _forElement.getBoundingClientRect();
         element.style.left = "${props.left + (props.width / 2)}px";
         element.style.marginLeft = "${-1 * (element.offsetWidth / 2)}px";
         element.style.top = "${props.top + props.height + 10}px";

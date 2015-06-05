@@ -19,7 +19,8 @@
 
 part of mdlcore;
 
-const String MDL_WIDGET_PROPERTY = "widget";
+const String MDL_WIDGET_PROPERTY = "mdlwidget";
+const String MDL_RIPPLE_PROPERTY = "mdlripple";
 
 /// Returns the upgraded MDL-Component. If {element} is null it returns a null-MDLComponent
 MdlComponent mdlComponent(final dom.HtmlElement element) {
@@ -36,6 +37,11 @@ MdlComponent mdlComponent(final dom.HtmlElement element) {
 }
 
 abstract class MdlComponent {
+    final Logger _logger = new Logger('mdlcore.MdlComponent');
+
+    /// All the registered Events - helpful for automatically downgrading the element
+    final List<StreamSubscription> eventStreams = new List<StreamSubscription>();
+
     /**
      * If you want to you DI define your bindings like this:
      *      class StyleguideModule extends di.Module {
@@ -85,6 +91,19 @@ abstract class MdlComponent {
     dom.ElementStream<dom.Event>        get onChange => hub.onChange;
     dom.ElementStream<dom.Event>        get onInput =>  hub.onInput;
     dom.ElementStream<dom.MouseEvent>   get onClick =>  hub.onClick;
+
+    /// Cancels all the registered streams
+    void downgrade() {
+        eventStreams.forEach((final StreamSubscription stream) => cancelStream(stream));
+        eventStreams.clear();
+    }
+
+    /// Helper for cancelling streams - checks for null
+    void cancelStream(final StreamSubscription stream) {
+        if(stream != null) {
+            stream.cancel();
+        }
+    }
 }
 
 // CustomComponents...

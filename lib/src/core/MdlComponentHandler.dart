@@ -30,6 +30,10 @@ class _MdlComponentHandlerCssClasses {
 
     final String HTML_DART = "mdl-dart";
 
+    final String DOWNGRADED = "mdl-downgraded";
+
+    final String RIPPLE_EFFECT = "mdl-js-ripple-effect";
+
     const _MdlComponentHandlerCssClasses();
 }
 
@@ -43,6 +47,8 @@ class _MdlComponentHandlerCssClasses {
  */
 class MdlComponentHandler {
     final Logger _logger = new Logger('mdlcore.ComponentHandler');
+
+    final String _DATA_KEY = "data-upgraded";
 
     static const _MdlComponentHandlerCssClasses _cssClasses = const _MdlComponentHandlerCssClasses();
 
@@ -162,6 +168,29 @@ class MdlComponentHandler {
     /// Returns the injector for this module.
     di.Injector get injector => _injector;
 
+    /// downgrade() will be called for the given Component and it's children
+    Future downgradeElement(final dom.HtmlElement element) {
+        Validate.notNull(element,"Element to downgrade must not be null!");
+
+        final Completer completer = new Completer();
+
+        new Future(() {
+            if(element is dom.HtmlElement) {
+
+            final List<dom.Element> children = element.querySelectorAll('[class*="mdl-"]');
+
+            // Children first
+            children.forEach((final dom.Element element) => _deconstructComponent(element));
+
+            _deconstructComponent(element);
+            }
+
+            completer.complete();
+        });
+
+        return completer.future;
+    }
+
     //- private -----------------------------------------------------------------------------------
 
     bool _isRegistered(final MdlConfig config) => _registeredComponents.containsKey(config.classAsString);
@@ -213,15 +242,14 @@ class MdlComponentHandler {
         Validate.notNull(element);
         Validate.notNull(config);
 
-        const String DATA_KEY = "data-upgraded";
-        if (!element.attributes.containsKey(DATA_KEY) || element.attributes[DATA_KEY].contains(config.classAsString) == false) {
+        if (!element.attributes.containsKey(_DATA_KEY) || element.attributes[_DATA_KEY].contains(config.classAsString) == false) {
 
             void _markAsUpgraded() {
-                final List<String> registeredClasses = element.attributes.containsKey(DATA_KEY)
-                ? element.attributes[DATA_KEY].split(",") : new List<String>();
+                final List<String> registeredClasses = element.attributes.containsKey(_DATA_KEY)
+                ? element.attributes[_DATA_KEY].split(",") : new List<String>();
 
                 registeredClasses.add(config.classAsString);
-                element.attributes[DATA_KEY] = registeredClasses.join(",");
+                element.attributes[_DATA_KEY] = registeredClasses.join(",");
             }
 
             try {
@@ -233,12 +261,14 @@ class MdlComponentHandler {
                 _markAsUpgraded();
                 _logger.fine("${config.classAsString} -> ${component}");
 
-                if(config.isWidget) {
+                // Makes it possible to query for the main element in this component.
+                var jsElement = new JsObject.fromBrowserObject(component.hub);
 
-                    // Makes it possible to query for the main element in this component.
-                    var jsElement = new JsObject.fromBrowserObject(component.hub);
+                if(config.isWidget) {
                     jsElement[MDL_WIDGET_PROPERTY] = component;
 
+                } else {
+                    jsElement[MDL_RIPPLE_PROPERTY] = component;
                 }
 
             }
@@ -255,6 +285,41 @@ class MdlComponentHandler {
      */
     di.Injector _createInjector() {
         return new di.ModuleInjector(_modules);
+    }
+
+    /// Downgrades the given {element}
+    void _deconstructComponent(final dom.HtmlElement element) {
+        try {
+            // Also remove the Widget-Property
+            var jsElement = new JsObject.fromBrowserObject(element);
+
+            MdlComponent component;
+            if(jsElement.hasProperty(MDL_RIPPLE_PROPERTY)) {
+
+                component = jsElement[MDL_RIPPLE_PROPERTY] as MdlComponent;
+
+                component.downgrade();
+
+                jsElement.deleteProperty(MDL_RIPPLE_PROPERTY);
+            }
+
+            if(jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {
+                component = jsElement[MDL_WIDGET_PROPERTY] as MdlComponent;
+
+                component.downgrade();
+
+                jsElement.deleteProperty(MDL_WIDGET_PROPERTY);
+            }
+
+            // doesn't mater if it is a widget or a ripple...
+            if(component != null) {
+                component.attributes.remove(_DATA_KEY);
+                component.classes.add(_cssClasses.DOWNGRADED);
+            }
+
+        } on String catch (e) {
+            _logger.severe(e);
+        }
     }
 }
 

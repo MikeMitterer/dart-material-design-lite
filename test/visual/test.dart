@@ -38,6 +38,7 @@ part "components/button_test.dart";
 part "components/checkbox_test.dart";
 part "components/icon_toggle_test.dart";
 
+part "componenthandler/componenthandler_test.dart";
 
 /**
  * run the test with your favorit webserver.
@@ -64,6 +65,8 @@ main() async {
     testButton();
     testCheckbox();
     testIconToggle();
+
+    testComponentHandler();
 }
 
 void configLogging() {

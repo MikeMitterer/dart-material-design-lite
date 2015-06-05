@@ -51,7 +51,7 @@ listSamples() {
     });
 }
 
-@Task()
+@Task("Initializes the sample-array")
 @Depends(initSamples)
 mergeMaster() {
     final MergeMaster mergemaster = new MergeMaster();
@@ -76,7 +76,7 @@ genSamples() {
 
     samples.where((final Sample sample) {
 
-        return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA);
+        return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA) && sample.name == "animation";
 
     })
     .forEach((final Sample sample) {

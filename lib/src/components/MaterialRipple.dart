@@ -83,7 +83,7 @@ class MaterialRipple extends MdlComponent {
         _init();
     }
 
-    static MaterialRipple widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialRipple;
+    static MaterialRipple widget(final dom.HtmlElement element) => mdlRippleComponent(element) as MaterialRipple;
 
     dom.HtmlElement get rippleElement {
         if(_rippleElement == null) {
@@ -118,18 +118,18 @@ class MaterialRipple extends MdlComponent {
 
             _updateDimension();
 
-            element.onMouseDown.listen(_downHandler);
-            element.onTouchStart.listen(_downHandler);
+            eventStreams.add(element.onMouseDown.listen(_downHandler));
+            eventStreams.add(element.onTouchStart.listen(_downHandler));
 
             // .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-            element.onMouseUp.listen( _upHandler);
+            eventStreams.add(element.onMouseUp.listen( _upHandler));
 
             // .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
-            element.onMouseLeave.listen( _upHandler);
-            element.onTouchEnd.listen( _upHandler);
+            eventStreams.add(element.onMouseLeave.listen( _upHandler));
+            eventStreams.add(element.onTouchEnd.listen( _upHandler));
 
             // .addEventListener('blur', -- .onBlur.listen(<Event>);
-            element.onBlur.listen( _upHandler);
+            eventStreams.add(element.onBlur.listen( _upHandler));
         }
     }
 

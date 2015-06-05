@@ -140,27 +140,27 @@ class MaterialSwitch extends MdlComponent {
                 _cssClasses.RIPPLE_EFFECT)) {
                 element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
-                final dom.SpanElement rippleContainer = new dom.SpanElement();
-                rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
-                rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
-                rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
+                final dom.SpanElement rippleContainerElement = new dom.SpanElement();
+                rippleContainerElement.classes.add(_cssClasses.RIPPLE_CONTAINER);
+                rippleContainerElement.classes.add(_cssClasses.RIPPLE_EFFECT);
+                rippleContainerElement.classes.add(_cssClasses.RIPPLE_CENTER);
 
-                rippleContainer.onMouseUp.listen( _onMouseUp);
+                eventStreams.add(rippleContainerElement.onMouseUp.listen( _onMouseUp));
 
                 final dom.SpanElement ripple = new dom.SpanElement();
                 ripple.classes.add(_cssClasses.RIPPLE);
 
-                rippleContainer.append(ripple);
-                element.append(rippleContainer);
+                rippleContainerElement.append(ripple);
+                element.append(rippleContainerElement);
             }
 
-            inputElement.onChange.listen( _onChange );
+            eventStreams.add(inputElement.onChange.listen( _onChange ));
 
-            inputElement.onFocus.listen( _onFocus );
+            eventStreams.add(inputElement.onFocus.listen( _onFocus ));
 
-            inputElement.onBlur.listen( _onBlur );
+            eventStreams.add(inputElement.onBlur.listen( _onBlur ));
 
-            element.onMouseUp.listen( _onMouseUp );
+            eventStreams.add(element.onMouseUp.listen( _onMouseUp ));
 
             _updateClasses();
             element.classes.add(_cssClasses.IS_UPGRADED);

@@ -32,6 +32,8 @@ class _MaterialLayoutCssClasses {
     final String CONTENT = 'mdl-layout__content';
     final String DRAWER_BTN = 'mdl-layout__drawer-button';
 
+    final String ICON = 'material-icons';
+
     final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
     final String RIPPLE_CONTAINER = 'mdl-layout__tab-ripple-container';
     final String RIPPLE = 'mdl-ripple';
@@ -73,6 +75,10 @@ class _MaterialLayoutConstant {
 
     final String MAX_WIDTH = '(max-width: 850px)';
     final int TAB_SCROLL_PIXELS = 100;
+
+    final String MENU_ICON = 'menu';
+    final String CHEVRON_LEFT = 'chevron_left';
+    final String CHEVRON_RIGHT = 'chevron_right';
 
     const _MaterialLayoutConstant();
 }
@@ -212,6 +218,11 @@ class MaterialLayout extends MdlComponent {
                 final dom.DivElement drawerButton = new dom.DivElement();
                 drawerButton.classes.add(_cssClasses.DRAWER_BTN);
 
+                final dom.Element drawerButtonIcon = dom.document.createElement('i');
+                drawerButtonIcon.classes.add(_cssClasses.ICON);
+                drawerButtonIcon.text = _constant.MENU_ICON;
+                drawerButton.append(drawerButtonIcon);
+
                 drawerButton.onClick.listen( _drawerToggleHandler );
 
                 // Add a class if the layout has a drawer, for altering the left padding.
@@ -254,6 +265,11 @@ class MaterialLayout extends MdlComponent {
                 leftButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
                 leftButton.classes.add(_cssClasses.TAB_BAR_LEFT_BUTTON);
 
+                final dom.Element leftButtonIcon = dom.document.createElement('i');
+                leftButtonIcon.classes.add(_cssClasses.ICON);
+                leftButtonIcon.text = _constant.CHEVRON_LEFT;
+                leftButton.append(leftButtonIcon);
+
                 leftButton.onClick.listen( (final dom.MouseEvent event) {
                     tabBar.scrollLeft -= _constant.TAB_SCROLL_PIXELS;
                 });
@@ -262,8 +278,13 @@ class MaterialLayout extends MdlComponent {
                 rightButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
                 rightButton.classes.add(_cssClasses.TAB_BAR_RIGHT_BUTTON);
 
+                final dom.Element rightButtonIcon = dom.document.createElement('i');
+                rightButtonIcon.classes.add(_cssClasses.ICON);
+                leftButtonIcon.text = _constant.CHEVRON_RIGHT;
+                rightButton.append(rightButtonIcon);
+
                 rightButton.onClick.listen( (final dom.MouseEvent event) {
-                    tabBar.scrollLeft += 100;
+                    tabBar.scrollLeft += _constant.TAB_SCROLL_PIXELS;
                 });
 
                 tabContainer.append(leftButton);
