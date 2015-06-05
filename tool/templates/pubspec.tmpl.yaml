@@ -20,4 +20,9 @@ dependencies:
   mdl:
     path: ../../
 
+  di: any
+
+transformers:
+  - di
+
 
