@@ -17,17 +17,17 @@ main() {
         final MaterialButton btnToast = MaterialButton.widget(dom.querySelector("#toast"));
         final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector("#withAction"));
 
-        final MaterialToast toast = new MaterialToast();
+        final MaterialSnackbar snackbar = new MaterialSnackbar();
 
         int mangoCounter = 0;
 
         void _makeSettings() {
-            toast.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
-            toast.position.top = MaterialCheckbox.widget(dom.querySelector("#checkbox-top")).checked;
-            toast.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
-            toast.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
+            snackbar.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
+            snackbar.position.top = MaterialCheckbox.widget(dom.querySelector("#checkbox-top")).checked;
+            snackbar.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
+            snackbar.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
 
-            dom.querySelector("#container").classes.toggle("mdl-toast-container",
+            dom.querySelector("#container").classes.toggle("mdl-snackbar-container",
             MaterialCheckbox.widget(dom.querySelector("#checkbox-use-container")).checked);
         }
 
@@ -35,7 +35,7 @@ main() {
             _logger.info("Click on Toast");
 
             _makeSettings();
-            toast("Toast message").show().then((final MdlDialogStatus status) {
+            snackbar("Toast message").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
         });
@@ -44,7 +44,7 @@ main() {
             _logger.info("Click on withAction");
 
             _makeSettings();
-            toast("Toast message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
+            snackbar("Toast message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
 

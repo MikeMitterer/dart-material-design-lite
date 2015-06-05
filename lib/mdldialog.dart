@@ -31,8 +31,10 @@ import 'package:mdl/mdltemplatecomponents.dart';
 
 part "src/dialog/MaterialDialog.dart";
 part "src/dialog/MaterialAlertDialog.dart";
+
 part "src/dialog/MaterialConfirmDialog.dart";
 
 part "src/dialog/MaterialSnackbar.dart";
+
 
 //part "src/dialog/utils.dart";

@@ -10,17 +10,17 @@ main() &#123;
         final MaterialButton btnToast = MaterialButton.widget(dom.querySelector(&quot;#toast&quot;));
         final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector(&quot;#withAction&quot;));
 
-        final MaterialToast toast = new MaterialToast();
+        final MaterialSnackbar snackbar = new MaterialSnackbar();
 
         int mangoCounter = 0;
 
         void _makeSettings() &#123;
-            toast.position.left = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-left&quot;)).checked;
-            toast.position.top = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-top&quot;)).checked;
-            toast.position.right = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-right&quot;)).checked;
-            toast.position.bottom = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-bottom&quot;)).checked;
+            snackbar.position.left = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-left&quot;)).checked;
+            snackbar.position.top = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-top&quot;)).checked;
+            snackbar.position.right = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-right&quot;)).checked;
+            snackbar.position.bottom = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-bottom&quot;)).checked;
 
-            dom.querySelector(&quot;#container&quot;).classes.toggle(&quot;mdl-toast-container&quot;,
+            dom.querySelector(&quot;#container&quot;).classes.toggle(&quot;mdl-snackbar-container&quot;,
             MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-use-container&quot;)).checked);
         &#125;
 
@@ -28,7 +28,7 @@ main() &#123;
             _logger.info(&quot;Click on Toast&quot;);
 
             _makeSettings();
-            toast(&quot;Toast message&quot;).show().then((final MdlDialogStatus status) &#123;
+            snackbar(&quot;Toast message&quot;).show().then((final MdlDialogStatus status) &#123;
                 _logger.info(status);
             &#125;);
         &#125;);
@@ -37,7 +37,7 @@ main() &#123;
             _logger.info(&quot;Click on withAction&quot;);
 
             _makeSettings();
-            toast(&quot;Toast message&quot;,confirmButton: &quot;OK&quot;).show().then((final MdlDialogStatus status) &#123;
+            snackbar(&quot;Toast message&quot;,confirmButton: &quot;OK&quot;).show().then((final MdlDialogStatus status) &#123;
                 _logger.info(status);
             &#125;);
 

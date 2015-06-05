@@ -302,7 +302,7 @@ class DialogController extends DemoController {
     }
 }
 
-class ToastController extends DemoController {
+class SnackbarController extends DemoController {
     final Logger _logger = new Logger('main.ToastController');
 
     @override
@@ -312,15 +312,15 @@ class ToastController extends DemoController {
         final MaterialButton btnToast = MaterialButton.widget(dom.querySelector("#toast"));
         final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector("#withAction"));
 
-        final MaterialSnackbar toast = new MaterialSnackbar();
+        final MaterialSnackbar snackbar = new MaterialSnackbar();
 
         int mangoCounter = 0;
 
         void _makeSettings() {
-            toast.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
-            toast.position.top = MaterialCheckbox.widget(dom.querySelector("#checkbox-top")).checked;
-            toast.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
-            toast.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
+            snackbar.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
+            snackbar.position.top = MaterialCheckbox.widget(dom.querySelector("#checkbox-top")).checked;
+            snackbar.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
+            snackbar.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
 
             dom.querySelector("#container").classes.toggle("mdl-snackbar-container",
             MaterialCheckbox.widget(dom.querySelector("#checkbox-use-container")).checked);
@@ -330,7 +330,7 @@ class ToastController extends DemoController {
             _logger.info("Click on Toast");
 
             _makeSettings();
-            toast("Toast message").show().then((final MdlDialogStatus status) {
+            snackbar("Snackbar message").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
         });
@@ -339,7 +339,7 @@ class ToastController extends DemoController {
             _logger.info("Click on withAction");
 
             _makeSettings();
-            toast("Toast message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
+            snackbar("Snackbar message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
 
@@ -372,8 +372,11 @@ void configRouter() {
         ..addRoute(name: 'checkbox', path: '/checkbox',
                     enter: view("views/checkbox.html", new DemoController()))
 
+        ..addRoute(name: 'data-table', path: '/data-table',
+                enter: view("views/data-table.html", new DemoController()))
+
         ..addRoute(name: 'dialog', path: '/dialog',
-            enter: view("views/dialog.html", new DialogController()))
+                enter: view("views/dialog.html", new DialogController()))
 
         ..addRoute(name: 'footer', path: '/footer',
                     enter: view("views/footer.html", new DemoController()))
@@ -424,7 +427,7 @@ void configRouter() {
                     enter: view("views/slider.html", new SliderController()))
 
         ..addRoute(name: 'snackbar', path: '/snackbar',
-            enter: view("views/snackbar.html", new ToastController()))
+            enter: view("views/snackbar.html", new SnackbarController()))
 
         ..addRoute(name: 'spinner', path: '/spinner',
                     enter: view("views/spinner.html", new SpinnerController()))

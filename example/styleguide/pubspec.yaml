@@ -24,8 +24,12 @@ dependencies:
 
   di: ">=3.3.4 <4.0.0"
 
-
 transformers:
   - di
+
+#  - $dart2js:
+#      minify: false
+#      sourceMaps: true
+
 
 

@@ -2254,13 +2254,6 @@ Palettes (10 colors) 50 - 900 possible
 .mdl-color-text--accent-A700 {
   color: #c51162 !important; }
 
-@font-face {
-  font-family: 'Material-Design-Iconic-Font';
-  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?v=1.1.1');
-  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
-  font-weight: normal;
-  font-style: normal; }
-
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
@@ -6374,13 +6367,6 @@ Palettes (10 colors) 50 - 900 possible
 
 .mdl-icon--star-outline:before {
   content: "\f2e7"; }
-
-@font-face {
-  font-family: 'Material-Design-Iconic-Font';
-  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?v=1.1.1');
-  src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'), url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
-  font-weight: normal;
-  font-style: normal; }
 
 /* ==========  TYPOGRAPHY  ========== */
 /* We're splitting fonts into "preferred" and "performance" in order to optimize

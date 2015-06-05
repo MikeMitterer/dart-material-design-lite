@@ -30,6 +30,8 @@ class EventCompiler {
 
     static const List<String> datasets = const [ "mdl-click", "mdl-keyup"];
 
+    EventCompiler();
+
     /**
      * {scope} represents an object/class where the functions are located,
      * {element} has children with data-mdl-[eventname] attributes.

@@ -39,6 +39,7 @@ part of mdlapplication;
  *          router.listen();
  *      }
  */
+@di.Injectable()
 class ViewFactory {
     final Logger _logger = new Logger('mdlremote.ViewFactory');
 

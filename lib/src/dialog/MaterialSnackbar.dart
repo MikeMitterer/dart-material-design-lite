@@ -15,9 +15,10 @@ class _MaterialSnackbarCssClasses {
 
 class _SnackbarConfig extends DialogConfig {
     _SnackbarConfig() : super(rootTagInTemplate: "mdl-snackbar",
-        closeOnBackDropClick: false,
-        autoClosePossible: true);
+    closeOnBackDropClick: false,
+    autoClosePossible: true);
 }
+
 
 /// Position on Screen or in container
 class SnackbarPosition {
@@ -157,4 +158,3 @@ class MaterialSnackbar extends MaterialDialog {
         return classes.join(" ");
     }
 }
-        

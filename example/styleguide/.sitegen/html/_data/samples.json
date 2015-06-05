@@ -6,6 +6,7 @@
   { "name": "card", "original": true, "prefix": "mdl_" },
   { "name": "checkbox", "original": true, "prefix": "mdl_" },
   { "name": "content", "original": false, "prefix": "spa_" },
+  { "name": "data-table", "original": true, "prefix": "mdl_" },
   { "name": "dialog", "original": false, "prefix": "mdlx_" },
   { "name": "footer", "original": true, "prefix": "mdl_" },
   { "name": "forms", "original": false, "prefix": "mdlx_" },
