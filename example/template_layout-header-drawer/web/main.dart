@@ -3,17 +3,18 @@ import 'dart:html' as html;
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdl.dart';
 
 void main() {
-    html.querySelector("body").classes.add("update-theme");
     configLogging();
 
     scrollChecker();
 
-    registerAllWskComponents();
-    upgradeAllRegistered();
-    html.querySelector("body").classes.remove("update-theme");
+    registerMdl();
+
+    componentFactory().run().then((_) {
+
+    });
 }
 
 void configLogging() {
@@ -27,7 +28,7 @@ void configLogging() {
 
 void scrollChecker() {
     final html.HtmlElement body = html.querySelector("body");
-    final html.HtmlElement content = html.querySelector(".wsk-layout__content");
+    final html.HtmlElement content = html.querySelector(".mdl-layout__content");
     final html.HtmlElement shadow = html.querySelector(".addscrollshadow");
     final html.ButtonElement button = html.querySelector("#totop");
 
@@ -43,9 +44,9 @@ void scrollChecker() {
         final int top = content.scrollTop;
 
         if(top > 25) {
-            shadow.classes.add("wsk-shadow--z2");
+            shadow.classes.add("mdl-shadow--z2");
         } else {
-            shadow.classes.remove("wsk-shadow--z2");
+            shadow.classes.remove("mdl-shadow--z2");
         }
 
         if(top > 100) {

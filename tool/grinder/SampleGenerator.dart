@@ -193,7 +193,7 @@ class SampleGenerator {
         if(targetYaml.existsSync()) {
             targetYaml.delete();
         }
-        final String contents = srcYaml.readAsStringSync().replaceAll("{{samplename}}",sample.name);
+        final String contents = srcYaml.readAsStringSync().replaceAll("{{samplename}}",sample.name.replaceAll("-","_"));
         targetYaml.writeAsStringSync(contents);
     }
 

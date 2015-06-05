@@ -1,5 +1,5 @@
-name: mdl_data-table_sample
-description: Material Design Lite 'data-table' Sample
+name: mdl_data_table_sample
+description: Material Design Lite 'data_table' Sample
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-material-design-lite
