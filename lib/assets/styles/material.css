@@ -3820,6 +3820,187 @@ Palettes (10 colors) 50 - 900 possible
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/*
+Palettes (14 colors)  50 - 900 + A100 - A700 possible
+    palette-red
+    palette-pink
+    palette-purple
+    palette-deep-purple
+    palette-indigo
+    palette-blue
+    palette-light-blue
+    palette-cyan
+    palette-teal
+    palette-green
+    palette-light-green
+    palette-lime
+    palette-yellow
+    palette-amber
+    palette-orange
+    palette-deep-orange
+
+Palettes (10 colors) 50 - 900 possible
+    palette-brown
+    palette-grey
+    palette-blue-grey
+*/
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+.mdl-data-table {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-collapse: collapse;
+  white-space: nowrap; }
+  .mdl-data-table tbody tr {
+    position: relative;
+    height: 48px;
+    -webkit-transition-duration: 0.28s;
+            transition-duration: 0.28s;
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition-property: background-color;
+            transition-property: background-color; }
+    .mdl-data-table tbody tr:last-of-type {
+      height: 56px; }
+    .mdl-data-table tbody tr.is-selected {
+      background-color: #e0e0e0; }
+    .mdl-data-table tbody tr:hover {
+      background-color: #eeeeee; }
+  .mdl-data-table td, .mdl-data-table th {
+    padding: 0 18px 0 18px;
+    text-align: right; }
+    .mdl-data-table td:first-of-type, .mdl-data-table th:first-of-type {
+      padding-left: 24px; }
+    .mdl-data-table td:last-of-type, .mdl-data-table th:last-of-type {
+      padding-right: 24px; }
+  .mdl-data-table td {
+    position: relative;
+    vertical-align: top;
+    height: 48px;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    padding-top: 12px;
+    box-sizing: border-box; }
+    .mdl-data-table td .mdl-data-table__select {
+      vertical-align: top;
+      position: absolute;
+      top: 0;
+      left: 24px; }
+  .mdl-data-table th {
+    position: relative;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    height: 56px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    letter-spacing: 0;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.54);
+    padding-bottom: 8px;
+    box-sizing: border-box; }
+    .mdl-data-table th .mdl-data-table__select {
+      position: relative;
+      top: 12px; }
+
+.mdl-data-table__select {
+  width: 16px; }
+
+.mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {
+  text-align: left; }
+
+.mdl-data-table__cell--non-numeric {
+  text-align: left; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /* ==========  Color Palettes  ========== */
 /*
 Palettes (14 colors)  50 - 900 + A100 - A700 possible

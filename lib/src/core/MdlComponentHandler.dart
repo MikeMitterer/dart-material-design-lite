@@ -261,7 +261,7 @@ class MdlComponentHandler {
                 config.callbacks.forEach((final MdlCallback callback) => callback(element));
 
                 _markAsUpgraded();
-                _logger.info("${config.classAsString} -> ${component}");
+                _logger.fine("${config.classAsString} -> ${component}");
 
                 // Makes it possible to query for the main element in this component.
                 var jsElement = new JsObject.fromBrowserObject(component.hub);

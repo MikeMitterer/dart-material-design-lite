@@ -37,6 +37,7 @@ part "components/accordion_test.dart";
 part "components/button_test.dart";
 part "components/checkbox_test.dart";
 part "components/icon_toggle_test.dart";
+part "components/data-table_test.dart";
 
 part "componenthandler/componenthandler_test.dart";
 
@@ -65,6 +66,7 @@ main() async {
     testButton();
     testCheckbox();
     testIconToggle();
+    testDataTable();
 
     testComponentHandler();
 }
