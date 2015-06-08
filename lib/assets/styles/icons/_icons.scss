@@ -1,13 +1,4 @@
 @import "icons.orig";
 @import "../fonts/fonts";
 
-@mixin mdl-icon() {
-  font-family: 'Material-Design-Iconic-Font';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.mdl-icon {
-  @include mdl-icon();
-}
 

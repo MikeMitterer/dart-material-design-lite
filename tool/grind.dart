@@ -96,7 +96,7 @@ genStyleguide() {
 
     samples.where((final Sample sample) {
 
-        return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA) &&
+        return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA || sample.type == Type.DartOld) &&
             sample.excludeFromStyleguide == false;
 
     })
