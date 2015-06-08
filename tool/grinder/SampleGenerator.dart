@@ -25,6 +25,7 @@ class SampleGenerator {
 
         _createExamplesDir();
         _createSampleDir(sample);
+        _createSitegenDir(sample);
         _createWebDir(sample);
         _createPackagesFolder(sample);
         _writeYaml(sample);
@@ -37,28 +38,50 @@ class SampleGenerator {
 
     void _copyDemoFiles(final Sample sample) {
         final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
+        final Directory sitegenDir = new Directory("${config.samplesdir}/${sample.dirname}/.sitegen/html/_content");
 
         if(sample.hasDemoHtml) {
 
+            File srcHtmlDemo;
             if(!sample.hasOwnDemoHtml) {
-                final File srcHtmlDemo = new File("${config.demobase}/${sample.name}/demo.html");
-                final File targetDemo = new File("${webDir.path}/index.html");
-                final File demoTemplate = new File("${config.demotemplate}");
-
-                final String content = srcHtmlDemo.readAsStringSync();
-                final String contentTemplate = demoTemplate.readAsStringSync();
-
-                final RegExp regexp = new RegExp(r"<body[^>]*>([^<]*(?:(?!<\/?body)<[^<]*)*)<\/body[^>]*>");
-                final Match match = regexp.firstMatch(content);
-
-                targetDemo.writeAsStringSync(contentTemplate.replaceAll("{{samplename}}",
-                    sample.name).replaceFirst("{{content}}",match.group(1)));
-
-                if(sample.name != "typography") {
-                    Utils.optimizeHeaderTags(targetDemo);
-                }
-                _addDartMainToIndexHTML(targetDemo);
+                srcHtmlDemo = new File("${config.demobase}/${sample.name}/demo.html");
+            } else {
+                srcHtmlDemo = new File("${webDir.path}/index.html");
             }
+
+            final String content = srcHtmlDemo.readAsStringSync();
+            final File sitegenIndexHtml = new File("${sitegenDir.path}/index.html");
+            final File contentTemplateFile = new File("${config.contenttemplate}");
+
+            String contentTemplate = contentTemplateFile.readAsStringSync();
+
+            final RegExp regexp = new RegExp(r"<body[^>]*>([^<]*(?:(?!<\/?body)<[^<]*)*)<\/body[^>]*>",caseSensitive: false);
+            final bool hasBodyContent = regexp.hasMatch(content);
+
+            String bodyContent = "";
+            if(hasBodyContent) {
+                final Match match = regexp.firstMatch(content);
+                bodyContent = match.group(1);
+            } else {
+                bodyContent = content;
+            }
+
+            contentTemplate = contentTemplate.replaceAll("{{title}}",sample.name.toUpperCase());
+            contentTemplate = contentTemplate.replaceAll("{{samplename}}",sample.name);
+            contentTemplate = contentTemplate.replaceAll("{{content}}",bodyContent);
+
+            if(!sample.hasOwnDemoHtml || !sitegenIndexHtml.existsSync()) {
+                contentTemplate = _commentOutScript(contentTemplate);
+                contentTemplate = _removeLoadingBlock(contentTemplate);
+                contentTemplate = _removeDemoPageClass(sample,contentTemplate);
+                contentTemplate = _removeUnnecessaryBlanks(contentTemplate);
+                sitegenIndexHtml.writeAsStringSync(contentTemplate);
+            }
+
+            if(sample.name != "typography") {
+                Utils.optimizeHeaderTags(sitegenIndexHtml);
+            }
+
 
             if(!sample.hasOwnDartMain) {
                 final File targetDartMain = new File("${webDir.path}/main.dart");
@@ -109,6 +132,37 @@ class SampleGenerator {
         }
     }
 
+    String _commentOutScript(final String content) {
+        final RegExp regexp = new RegExp(r"(<script[^>]*>" + "[^<]*(?:(?!<\/?script)<[^<]*)*" + "<\/script[^>]*>)",caseSensitive: false);
+        String retVal = content;
+
+        if(regexp.hasMatch(content)) {
+            regexp.allMatches(content).forEach((final Match match) {
+                retVal = retVal.replaceAll(match.group(0),"<!-- ${match.group(0)} -->");
+            });
+            // return content.replaceAll(regexp,"<!-- here was a script x -->");
+        }
+        return retVal;
+    }
+
+    String _removeLoadingBlock(final String content) {
+        String retVal = content.replaceFirst('<div class="loading">Loading...</div>\n',"");
+        return retVal;
+    }
+
+    String _removeDemoPageClass(final Sample sample,final String content) {
+        return content.replaceAll(new RegExp("[ ]+demo-page--${sample.name}",multiLine: true),"");
+    }
+
+    String _removeUnnecessaryBlanks(final String content) {
+        // if there is a blank line between ~~~~ and the the first tag remove it.
+        String retVal = content.replaceFirst(new RegExp(r"~~~$[\n\r]^(?:(\s)*)$\n",multiLine: true),"\n");
+
+        // move comments to the left
+        retVal = retVal.replaceAll(new RegExp(r"^\s+<!--",multiLine: true),"<!--");
+        return retVal;
+    }
+
     void _createPackagesFolder(final Sample sample) {
         final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
 
@@ -154,6 +208,20 @@ class SampleGenerator {
             sampleDir.createSync();
         }
         //log("${sampleDir.path} created...");
+    }
+
+    void _createSitegenDir(final Sample sample) {
+        final Directory sitegenDir = new Directory("${config.samplesdir}/${sample.dirname}/.sitegen/html/_content");
+
+        if(!sitegenDir.existsSync()) {
+            sitegenDir.createSync(recursive: true);
+        }
+
+        final File srcSite = new File(config.sitetemplate);
+        final File targetSite = new File(("${config.samplesdir}/${sample.dirname}/.sitegen/site.yaml"));
+        if(!targetSite.existsSync()) {
+            srcSite.copySync(targetSite.path);
+        }
     }
 
     void _createExamplesDir() {

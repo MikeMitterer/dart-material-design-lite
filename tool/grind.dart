@@ -9,7 +9,6 @@ import 'package:validate/validate.dart';
 
 part 'grinder/samples.dart';
 part 'grinder/config.dart';
-part 'grinder/application.dart';
 
 part 'grinder/MergeMaster.dart';
 part 'grinder/SampleGenerator.dart';
@@ -76,7 +75,9 @@ genSamples() {
 
     samples.where((final Sample sample) {
 
-        return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA); // && sample.name == "animation";
+        return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA);
+        //return (sample.name == "animation" || sample.name == "badge");
+        //return (sample.name == "tabs");
 
     })
     .forEach((final Sample sample) {

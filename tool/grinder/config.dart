@@ -30,46 +30,50 @@ final Config config = new Config();
  */
 class Config {
 
-    static const String _KEY_SASS_DIR           = "sassdir";
-    static const String _KEY_MDL_DIR            = "mdldir";
-    static const String _KEY_SAMPLES_DIR        = "example";
-    static const String _KEY_THEMES_DIR         = "themesdir";
-    static const String _KEY_GIT_THEMES_DIR     = "gitthemesdir";
-    static const String _KEY_LOGLEVEL           = "loglevel";
-    static const String _KEY_MK_BACKUP          = "mkbackup";
-    static const String _KEY_MAIN_TEMPLATE      = "maintemplate";
-    static const String _KEY_INDEX_TEMPLATE     = "indextemplate";
-    static const String _KEY_YAML_TEMPLATE      = "yamltemplate";
-    static const String _KEY_SCSS_TEMPLATE      = "scsstemplate";
-    static const String _KEY_README_TEMPLATE    = "readmetemplate";
-    static const String _KEY_DEMO_TEMPLATE      = "demotemplate";
-    static const String _KEY_FOLDERS_TO_EXCLUDE = "excludefolder";
-    static const String _KEY_PORT_BASE          = "portbase";
-    static const String _KEY_DEMO_BASE          = "demobase";
-    static const String _KEY_JS_BASE            = "jsbase";
+    static const String _KEY_SASS_DIR                 = "sassdir";
+    static const String _KEY_MDL_DIR                  = "mdldir";
+    static const String _KEY_SAMPLES_DIR              = "example";
+    static const String _KEY_THEMES_DIR               = "themesdir";
+    static const String _KEY_GIT_THEMES_DIR           = "gitthemesdir";
+    static const String _KEY_LOGLEVEL                 = "loglevel";
+    static const String _KEY_MK_BACKUP                = "mkbackup";
+    static const String _KEY_MAIN_TEMPLATE            = "maintemplate";
+    static const String _KEY_INDEX_TEMPLATE           = "indextemplate";
+    static const String _KEY_YAML_TEMPLATE            = "yamltemplate";
+    static const String _KEY_SCSS_TEMPLATE            = "scsstemplate";
+    static const String _KEY_README_TEMPLATE          = "readmetemplate";
+//    static const String _KEY_DEMO_TEMPLATE            = "demotemplate";
+    static const String _KEY_SITEGEN_CONTENT_TEMPLATE = "contenttemplate";
+    static const String _KEY_SITEGEN_SITE_TEMPLATE    = "sitetemplate";
+    static const String _KEY_FOLDERS_TO_EXCLUDE       = "excludefolder";
+    static const String _KEY_PORT_BASE                = "portbase";
+    static const String _KEY_DEMO_BASE                = "demobase";
+    static const String _KEY_JS_BASE                  = "jsbase";
 
     final Map<String,dynamic> _settings = new Map<String,dynamic>();
 
     Config() {
 
-        _settings[_KEY_SASS_DIR]            = 'lib/assets/styles';
-        _settings[_KEY_SAMPLES_DIR]         = 'example';
-        _settings[_KEY_THEMES_DIR]         = 'lib/assets/themes';
-        _settings[_KEY_LOGLEVEL]            = 'info';
-        _settings[_KEY_MK_BACKUP]           = false;
-        _settings[_KEY_MAIN_TEMPLATE]       = "tool/templates/main.tmpl.dart";
-        _settings[_KEY_INDEX_TEMPLATE]      = "tool/templates/index.tmpl.html";
-        _settings[_KEY_YAML_TEMPLATE]       = "tool/templates/pubspec.tmpl.yaml";
-        _settings[_KEY_SCSS_TEMPLATE]       = "tool/templates/material-design-lite.tmpl.scss";
-        _settings[_KEY_README_TEMPLATE]     = "tool/templates/README.tmpl.html";
-        _settings[_KEY_DEMO_TEMPLATE]       = "tool/templates/demo.tmpl.html";
-        _settings[_KEY_FOLDERS_TO_EXCLUDE]  = "demo-images,demo,third_party,variables,resets,fonts,images,mixins,ripple,bottombar,dialog";   // Liste durch , getrennt
-        _settings[_KEY_PORT_BASE]           = "tool/portbase"; // Ziel für die konvertierten JS-Files
-        _settings[_KEY_DEMO_BASE]           = "tool/demobase"; // Ziel für die konvertierten DEMO-Files
-        _settings[_KEY_JS_BASE]             = "tool/jsbase"; // Basis für die JS-Files
+        _settings[_KEY_SASS_DIR]                  = 'lib/assets/styles';
+        _settings[_KEY_SAMPLES_DIR]               = 'example';
+        _settings[_KEY_THEMES_DIR]                = 'lib/assets/themes';
+        _settings[_KEY_LOGLEVEL]                  = 'info';
+        _settings[_KEY_MK_BACKUP]                 = false;
+        _settings[_KEY_MAIN_TEMPLATE]             = "tool/templates/main.tmpl.dart";
+        _settings[_KEY_INDEX_TEMPLATE]            = "tool/templates/index.tmpl.html";
+        _settings[_KEY_YAML_TEMPLATE]             = "tool/templates/pubspec.tmpl.yaml";
+        _settings[_KEY_SCSS_TEMPLATE]             = "tool/templates/material-design-lite.tmpl.scss";
+        _settings[_KEY_README_TEMPLATE]           = "tool/templates/README.tmpl.html";
+//        _settings[_KEY_DEMO_TEMPLATE]             = "tool/templates/demo.tmpl.html";
+        _settings[_KEY_SITEGEN_CONTENT_TEMPLATE]  = "tool/templates/content.tmpl.html";
+        _settings[_KEY_SITEGEN_SITE_TEMPLATE]     = "tool/templates/site.tmpl.yaml";
+        _settings[_KEY_FOLDERS_TO_EXCLUDE]        = "demo-images,demo,third_party,variables,resets,fonts,images,mixins,ripple,bottombar,dialog";   // Liste durch , getrennt
+        _settings[_KEY_PORT_BASE]                 = "tool/portbase"; // Ziel für die konvertierten JS-Files
+        _settings[_KEY_DEMO_BASE]                 = "tool/demobase"; // Ziel für die konvertierten DEMO-Files
+        _settings[_KEY_JS_BASE]                   = "tool/jsbase"; // Basis für die JS-Files
 
-        _settings[_KEY_MDL_DIR]             = _MDL_DIR;
-        _settings[_KEY_GIT_THEMES_DIR]      = _GIT_THEMES_DIR;
+        _settings[_KEY_MDL_DIR]                   = _MDL_DIR;
+        _settings[_KEY_GIT_THEMES_DIR]            = _GIT_THEMES_DIR;
 
     }
 
@@ -99,7 +103,11 @@ class Config {
 
     String get readmetemplate => _settings[_KEY_README_TEMPLATE];
 
-    String get demotemplate => _settings[_KEY_DEMO_TEMPLATE];
+//    String get demotemplate => _settings[_KEY_DEMO_TEMPLATE];
+
+    String get contenttemplate => _settings[_KEY_SITEGEN_CONTENT_TEMPLATE];
+
+    String get sitetemplate => _settings[_KEY_SITEGEN_SITE_TEMPLATE];
 
     String get folderstoexclude => _settings[_KEY_FOLDERS_TO_EXCLUDE];
 
@@ -122,7 +130,8 @@ class Config {
         settings["YAML-Template"]               = yamltemplate;
         settings["SCSS-Template"]               = scsstemplate;
         settings["README-Template"]             = readmetemplate;
-        settings["DEMO-Template"]               = demotemplate;
+        settings["Sitegen content-Template"]    = contenttemplate;
+        settings["Sitegen site-Template"]       = sitetemplate;
         settings["Folders to exclude"]          = folderstoexclude;
         settings["Base-Dir for js2Dart files"]  = portbase;
         settings["Base-Dir for Demo files"]     = demobase;
