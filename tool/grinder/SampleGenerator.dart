@@ -31,6 +31,7 @@ class SampleGenerator {
         _writeYaml(sample);
 
         _copyDemoFiles(sample);
+        _updateYamlBlock(sample);
         _copyReadme(sample);
     }
 
@@ -66,8 +67,6 @@ class SampleGenerator {
                 bodyContent = content;
             }
 
-            contentTemplate = contentTemplate.replaceAll("{{title}}",sample.name.toUpperCase());
-            contentTemplate = contentTemplate.replaceAll("{{samplename}}",sample.name);
             contentTemplate = contentTemplate.replaceAll("{{content}}",bodyContent);
 
             if(!sample.hasOwnDemoHtml || !sitegenIndexHtml.existsSync()) {
@@ -81,7 +80,6 @@ class SampleGenerator {
             if(sample.name != "typography") {
                 Utils.optimizeHeaderTags(sitegenIndexHtml);
             }
-
 
             if(!sample.hasOwnDartMain) {
                 final File targetDartMain = new File("${webDir.path}/main.dart");
@@ -103,19 +101,6 @@ class SampleGenerator {
                     targetCss.deleteSync();
                 }
             }
-
-//            final File targetScss = new File("${webDir.path}/demo.scss");
-//
-//            if(srcScss.existsSync()) {
-//                srcScss.copySync(targetScss.path);
-//                // log.fine("    ${targetScss.path} created...");
-//                //_changeImportStatementInSassFile(targetScss,sample.name);
-//                //_addImportStatementInSassFile(targetScss);
-//            } else {
-//                targetScss.createSync(recursive: true);
-//            }
-//            Utils.sasscAndAutoPrefix(targetScss,targetCss);
-
         }
 
         final File targetScss = new File("${webDir.path}/demo.scss");
@@ -132,6 +117,28 @@ class SampleGenerator {
         }
     }
 
+    void _updateYamlBlock(final Sample sample) {
+        final Directory sitegenDir = new Directory("${config.samplesdir}/${sample.dirname}/.sitegen/html/_content");
+        final File sitegenIndexHtml = new File("${sitegenDir.path}/index.html");
+        final File contentTemplateFile = new File("${config.contenttemplate}");
+
+        String contentTemplate = contentTemplateFile.readAsStringSync();
+        String content = sitegenIndexHtml.readAsStringSync();
+
+        // Remove YAML-Block
+        content = content.replaceFirst(
+            new RegExp(
+                r"(?:([^~]*))~*$[\n\r]",
+                multiLine: true, caseSensitive: false),"");
+
+        contentTemplate = contentTemplate.replaceAll("{{title}}",sample.name.toUpperCase());
+        contentTemplate = contentTemplate.replaceAll("{{prefix}}",sample.prefix);
+        contentTemplate = contentTemplate.replaceAll("{{samplename}}",sample.name);
+        contentTemplate = contentTemplate.replaceAll("{{content}}",content);
+
+        sitegenIndexHtml.writeAsStringSync(contentTemplate);
+    }
+
     String _commentOutScript(final String content) {
         final RegExp regexp = new RegExp(r"(<script[^>]*>" + "[^<]*(?:(?!<\/?script)<[^<]*)*" + "<\/script[^>]*>)",caseSensitive: false);
         String retVal = content;
@@ -142,6 +149,11 @@ class SampleGenerator {
             });
             // return content.replaceAll(regexp,"<!-- here was a script x -->");
         }
+
+        // remove double comments...
+        retVal = retVal.replaceAll("<!-- <!--","<!--");
+        retVal = retVal.replaceAll("--> -->","-->");
+
         return retVal;
     }
 

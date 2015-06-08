@@ -21,51 +21,34 @@
     <!--
     <link rel="canonical" href="http://www.example.com/">
     -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
     <link rel="stylesheet" href="demo.css">
-    <link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         div.loading { display: none; }
         body.mdl-upgrading > * { display: none; }
         body.mdl-upgrading div.loading { display: block; }
         header, body { padding: 0; margin: 0; }
-        .mdl-layout__content > section { margin: 12px; }
+
     </style>
 </head>
 <body class="demo-page demo-page--button mdl-upgrading">  <div class="loading">Loading...</div>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-        <!-- Icon -->
-        <div class="mdl-layout-icon demo-app-icon"></div>
+<div class="mdl-layout mdl-js-layout mdl-color--grey-100">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout--fixed-header mdl-color--grey-100 mdl-color-text--grey-800">
         <div class="mdl-layout__header-row">
-            <!-- Title -->
             <span class="mdl-layout-title">BUTTON-Sample</span>
-            <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
-            <!-- Navigation. We hide it in small screens. -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="#">Hello</a>
-                <a class="mdl-navigation__link" href="#">World.</a>
-                <a class="mdl-navigation__link" href="#">How</a>
-                <a class="mdl-navigation__link" href="#">Are</a>
-                <a class="mdl-navigation__link" href="#">You?</a>
-            </nav>
         </div>
     </header>
-    <div class="mdl-layout__drawer mdl-color--50">
-        <span class="mdl-layout-title mdl-color--primary mdl-color-text--white">Material Design Lite</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link mdl-color-text--primary" href="#">Hello</a>
-            <a class="mdl-navigation__link mdl-color-text--primary" href="#">World.</a>
-            <a class="mdl-navigation__link mdl-color-text--primary" href="#">How</a>
-            <a class="mdl-navigation__link mdl-color-text--primary" href="#">Are</a>
-            <a class="mdl-navigation__link mdl-color-text--primary" href="#">You?</a>
-        </nav>
-    </div>
+    <div class="ribbon mdl-color--primary"></div>
     <main class="mdl-layout__content">
-        <section class="demo-section demo-section--button">
-            <div class="demo-preview-block">
+        <div class="container mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+                <section class="demo-section demo-section--button">
+                    <div class="demo-preview-block">
     <div class="demo-button">Flat: <button class="mdl-button mdl-js-button">Flat</button></div>
     <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised">Raised</button></div>
     <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab"><i class="material-icons">add</i></button></div>
@@ -101,23 +84,23 @@
     <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" disabled><i class="material-icons">add</i></button></div>
     <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" disabled><i class="material-icons">add</i></button></div>
 </div>
-        </section>
-    </main>
-    <footer class="mdl-sticky-mini-footer mdl-color--primary mdl-color-text--white">
-        <div class="mdl-mini-footer--left-section">
-            <div class="mdl-logo">
-                <strong>Material Design</strong> Lite
+                </section>
             </div>
+        </div>
+    </main>
+    <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer--left-section">
             <ul class="mdl-mini-footer--link-list">
                 <li><a href="#">Help</a></li>
-                <li><a href="#">Privacy &amp; Terms</a></li>
+                <li><a href="#">Privacy and Terms</a></li>
+                <li><a href="#">User Agreement</a></li>
             </ul>
-        </div>
-        <div class="mdl-mini-footer--right-section">
-            <button class="mdl-mini-footer--social-btn"></button>
         </div>
     </footer>
 </div>
+<a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/mdl_button/web" target="_blank" id="view-source">
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">pageview</i></button>
+</a>
 <script type="application/dart" src="main.dart"></script>
 <script data-pub-inline src="packages/browser/dart.js"></script>
 </body>

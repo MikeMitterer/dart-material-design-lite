@@ -76,7 +76,7 @@ genSamples() {
     samples.where((final Sample sample) {
 
         return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA);
-        //return (sample.name == "animation" || sample.name == "badge");
+        //return (sample.name == "animation" || sample.name == "badge" || sample.name == "dialog");
         //return (sample.name == "tabs");
 
     })
