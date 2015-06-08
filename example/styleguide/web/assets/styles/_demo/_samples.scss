@@ -8,15 +8,16 @@
     }
 
 
-    .mdl-icon--extension:before {
-        content     : "\f028";
+    .mdl-icon {
         margin-left : 8px;
         /* padding-top: 15px; */
-        margin-top  : 20px;
+        margin-top  : 3px;
         /* top: 5px; */
         /* bottom: 12px; */
         line-height : 45px;
         color       : white;
+
+        font-size: 34px;
         /* text-align: center; */
     }
 
