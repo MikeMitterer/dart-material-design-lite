@@ -6,7 +6,7 @@ main() &#123;
 
     registerMdl();
 
-    upgradeAllRegistered().then((_) &#123;
+    componentFactory().run().then((_) &#123;
         final MaterialInclude include = MaterialInclude.widget(dom.querySelector(&quot;#main&quot;));
 
         include.onLoadEnd.listen((_) &#123;

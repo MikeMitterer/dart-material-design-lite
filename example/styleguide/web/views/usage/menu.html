@@ -24,7 +24,7 @@ import &#39;package:mdl&#47;mdl.dart&#39;;
 
 main() &#123;
     const int TIMEOUT_IN_SECS = 5;
-    registerAllMdlComponents();
+    registerMdl();
     componentFactory().run().then((_) &#123;
         final MaterialMenu menu1 = MaterialMenu.widget(dom.querySelector(&quot;#menu1&quot;));
         final dom.DivElement message = dom.querySelector(&quot;#message&quot;);
@@ -58,7 +58,6 @@ main() &#123;
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
-  &lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
   &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;button id=&quot;clickable1&quot; class=&quot;demo-menu-button-left mdl-button mdl-js-button mdl-button--icon&quot;&gt;
       &lt;span class=&quot;mdl-icon mdl-icon--more-vert&quot;&#47;&gt;

@@ -25,7 +25,7 @@ import &#39;package:mdl&#47;mdl.dart&#39;;
 main() &#123;
     final Logger _logger = new Logger(&#39;main.MaterialInclude&#39;);
     registerMdl();
-    upgradeAllRegistered().then((_) &#123;
+    componentFactory().run().then((_) &#123;
         final MaterialInclude include = MaterialInclude.widget(dom.querySelector(&quot;#main&quot;));
         include.onLoadEnd.listen((_) &#123;
             prettyPrint();
@@ -44,7 +44,6 @@ main() &#123;
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
-&lt;div class=&quot;loading&quot;&gt;Loading...&lt;&#47;div&gt;
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;p&gt;I am your main content - I live in index.html&lt;&#47;p&gt;
     &lt;div id=&quot;main&quot; class=&quot;mdl-include mdl-js-include&quot; data-url=&quot;views&#47;test.html&quot;&gt;

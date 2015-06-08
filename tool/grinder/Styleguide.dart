@@ -60,7 +60,7 @@ class Styleguide {
         // log.fine("Coping CSS's to styleguide $sampleName: ${targetScss.path}");
 
         String content = srcScss.readAsStringSync();
-        content = content.replaceAll(new RegExp(r"@import[^;]*;(\n|\r)*",caseSensitive: false, multiLine: true),"");
+        content = content.replaceAll(new RegExp(r"^\/*@import[^;]*;$(?:\n|\r)*",caseSensitive: false, multiLine: true),"");
 
         targetScss.writeAsStringSync(content);
     }
@@ -68,8 +68,9 @@ class Styleguide {
     void _copySampleViewToStyleguide(final Sample sample, { final List<String> samplesToExclude: const [] }) {
         Validate.notNull(sample);
 
-        final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
-        final File srcSample = new File("${webDir.path}/index.html");
+        //final Directory webDir = new Directory("${config.samplesdir}/${sample.dirname}/web");
+        final Directory sitegenDir = new Directory("${config.samplesdir}/${sample.dirname}/.sitegen/html/_content");
+        final File srcSample = new File("${sitegenDir.path}/index.html");
 
         final Directory targetSampleDir = new Directory("${config.samplesdir}/styleguide/.sitegen/html/_content/views");
         final File targetSample = new File("${targetSampleDir.path}/${sample.name}.html");
@@ -91,25 +92,22 @@ class Styleguide {
 
         String content = srcSample.readAsStringSync();
 
-        content = content.replaceFirstMapped(
-            new RegExp(
-                r"(?:.|\n|\r)*" +
-                r"<body[^>]*>([^<]*(?:(?!<\/?body)<[^<]*)*)<\/body[^>]*>" +
-                r"(?:.|\n|\r)*",
-                multiLine: true, caseSensitive: false),
-                (final Match m) {
-
-                return '${m[1]}';
-            });
-
         content = content.replaceAll(new RegExp(r"<script[^>]*>.*</script>(?:\n|\r)*",caseSensitive: false, multiLine: true),"");
         content = content.replaceAll(new RegExp(r".*<!--[^>]*>.*(?:\n|\r)*",caseSensitive: false, multiLine: true),"");
 
         content = content.replaceAll(new RegExp(r"^",caseSensitive: false, multiLine: true),"    ");
 
+        // YAML-Block
+        content = content.replaceFirst(
+            new RegExp(
+                r"(?:([^~]*))~*$[\n\r]",
+                multiLine: true, caseSensitive: false),"");
+
+        //content = content.replaceAll(new RegExp(r"^",caseSensitive: false, multiLine: true),"    ");
+
         final StringBuffer buffer = new StringBuffer();
 
-        buffer.writeln('<section class="demo-section demo-section--${sample.name}">');
+        buffer.writeln('<section class="demo-section demo-section--${sample.name} demo-page--${sample.name}">');
         buffer.writeln('    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/${sample.name}.html">');
         buffer.writeln("        Loading...");
         buffer.writeln('    </div>');
