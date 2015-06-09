@@ -221,7 +221,18 @@ class MdlComponentHandler {
 //        final List<Future> futureUpgrade = new List<Future>();
 //        final Future future = new Future(() {
 
+        /// Check if {config.selector} is either the class-name or the tag name of {baseElement}
+        /// If so - upgrade
+        void _upgradeBaseElementIfSelectorFits(final dom.Element baseElement) {
+            if(config.isSelectorAClassName && queryBaseElement.classes.contains(config.selector.replaceFirst(".",""))) {
+                _upgradeElement(queryBaseElement, config);
+            } else if(!config.isSelectorAClassName && queryBaseElement.tagName == config.selector) {
+                _upgradeElement(queryBaseElement, config);
+            }
+        }
+
         final dom.ElementList<dom.HtmlElement> elements = queryBaseElement.querySelectorAll(config.selector);
+        _upgradeBaseElementIfSelectorFits(queryBaseElement);
         elements.forEach((final dom.HtmlElement element) {
 
             _upgradeElement(element, config);

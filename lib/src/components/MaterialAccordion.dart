@@ -121,14 +121,20 @@ class MaterialAccordion extends MdlComponent {
                 final String id = "accordion-${label.hashCode}";
                 (label as dom.LabelElement).htmlFor = id;
 
-                dom.InputElement inputElement = null;
+                final dom.InputElement inputElement = new dom.CheckboxInputElement();
                 if(isRadio) {
-                    inputElement = new dom.RadioButtonInputElement();
-                } else {
-                    inputElement = new dom.CheckboxInputElement();
+                    eventStreams.add(
+                        inputElement.onClick.listen((final dom.Event event) {
+                            if(inputElement.checked) {
+                                _uncheckOthers(inputElement);
+                            }
+                    }));
+
                 }
-                inputElement.name = "${_constant.CHECKBOX_NAME}-group-${element.hashCode}";
+
+                inputElement.name = _groupName;
                 inputElement.id = id;
+
                 label.insertAdjacentElement('beforebegin',inputElement);
 
                 if(_isNavigation) {
@@ -160,6 +166,8 @@ class MaterialAccordion extends MdlComponent {
         }
     }
 
+    String get _groupName => "${_constant.CHECKBOX_NAME}-group-${element.hashCode}";
+
     bool get _isNavigation => element.classes.contains(_cssClasses.NAVIGATION);
 
     List<String> _getLinkFragments(final dom.Element panel) {
@@ -177,6 +185,15 @@ class MaterialAccordion extends MdlComponent {
         });
 
         return fragments;
+    }
+
+    void _uncheckOthers(final dom.InputElement elementToExclude) {
+        final List<dom.InputElement> checkboxes = element.querySelectorAll("[name=${_groupName}]") as List<dom.InputElement>;
+        checkboxes.forEach((final dom.InputElement checkbox) {
+            if(checkbox != elementToExclude) {
+                checkbox.checked = false;
+            }
+        });
     }
 }
 

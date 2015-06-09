@@ -1,5 +1,5 @@
 //@import "packages/mdl/assets/themes/amber-indigo/material-design-lite";
-//@import "packages/mdl/assets/styles/material-design-lite";
+@import "packages/mdl/assets/styles/material-design-lite";
 
 @import "packages/mdl/assets/styles/fonts/fonts";
 // for layout
@@ -13,6 +13,7 @@ html, body {
     height: 100%;
     box-sizing: border-box;
 }
+
 
 body {
     margin  : 0;
@@ -78,6 +79,7 @@ body {
                     padding-top : 12px;
                     padding-bottom : 12px;
                     transition: all 0.3s ease-in-out;
+                    opacity: 1;
                 }
 
                 .mdl-accordion--content {
@@ -90,8 +92,8 @@ body {
                         text-transform : capitalize;
                         display        : block;
                     }
-
-                    transition: padding 0.3s ease-in-out;
+                    opacity: 0;
+                    transition: all 0.3s ease-in-out;
 
                 }
             }

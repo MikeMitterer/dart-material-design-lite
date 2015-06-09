@@ -99,6 +99,8 @@ genStyleguide() {
         return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.SPA || sample.type == Type.DartOld) &&
             sample.excludeFromStyleguide == false;
 
+        // return (sample.name == "accordion");
+
     })
     .forEach((final Sample sample) {
         log("Name: ${sample.name.padRight(15)} ${sample.type},\t main.dart: ${sample.hasOwnDartMain},\t Own demo: ${sample.hasOwnDemoHtml}" );
