@@ -231,6 +231,7 @@ class SampleGenerator {
 
         final File srcSite = new File(config.sitetemplate);
         final File targetSite = new File(("${config.samplesdir}/${sample.dirname}/.sitegen/site.yaml"));
+
         if(!targetSite.existsSync()) {
             srcSite.copySync(targetSite.path);
         }
@@ -270,6 +271,11 @@ class SampleGenerator {
 
         final File srcYaml = new File("${config.yamltemplate}");
         final File targetYaml = new File("${config.samplesdir}/${sample.dirname}/pubspec.yaml");
+
+        if(sample.hasOwnPubSpec) {
+            return;
+        }
+
         if(targetYaml.existsSync()) {
             targetYaml.delete();
         }

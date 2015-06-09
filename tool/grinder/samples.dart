@@ -33,6 +33,7 @@ class Sample {
     final bool hasReadme;
     final bool hasOwnDartMain;
     final bool hasOwnDemoHtml;
+    final bool hasOwnPubSpec;
     final bool excludeFromStyleguide;
 
     // Sample has his own demo.scss
@@ -56,13 +57,13 @@ class Sample {
                 final bool hasReadme: true, final bool hasDemoHtml: true,
                 final bool hasOwnDartMain: false, bool hasOwnDemoHtml: false,
                 final bool excludeFromStyleguide: false,
-                final bool hasStyle: true
+                final bool hasStyle: true, final bool hasOwnPubSpec: false
            }) :
                 this.hasScript = hasScript, this.hasDemoCss = hasDemoCss,
                 this.hasReadme = hasReadme,this.hasDemoHtml = hasDemoHtml,
                 this.hasOwnDartMain = hasOwnDartMain, this.hasOwnDemoHtml = hasOwnDemoHtml,
                 this.excludeFromStyleguide = excludeFromStyleguide,
-                this.hasStyle = hasStyle
+                this.hasStyle = hasStyle, this.hasOwnPubSpec = hasOwnPubSpec
             {
 
     scssFile = "_${name}.scss";
@@ -162,7 +163,7 @@ void createSampleList() {
 
     // SPA Samples
     samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
-    samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
+    samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false, hasOwnPubSpec: true));
     samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
 
     // Styleguide!
