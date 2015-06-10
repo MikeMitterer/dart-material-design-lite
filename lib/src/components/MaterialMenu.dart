@@ -244,32 +244,6 @@ class MaterialMenu extends MdlComponent {
             _outline = outline;
             container.insertBefore(outline, element);
 
-//            // Find the "for" element and bind events to it.
-//            // Takes a while until elements are available
-//            new Future.delayed(new Duration(milliseconds: 50),() {
-//
-//            final forElId = element.getAttribute('for');
-//            _logger.fine("forElId $forElId");
-//
-//            dom.Element forEl = null;
-//                if (forElId != null) {
-//
-//                    // getElementById is OK here! element.querySelector not possible!
-//                    forEl = dom.document.getElementById(forElId);
-//                    _logger.fine("forEL $forEl #${forElId}");
-//
-//                    if (forEl != null) {
-//                        _logger.info("$element has a for-ID: #$forElId pointing to $forEl");
-//                        _forElement = forEl;
-//
-//                        // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-//                        forEl.onClick.listen( _handleForClick );
-//                        forEl.onKeyDown.listen( _handleForKeyboardEvent );
-//                    }
-//                }
-//
-//            });
-
             _initForElement();
 
             final List<dom.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM );
@@ -339,24 +313,37 @@ class MaterialMenu extends MdlComponent {
         }
     }
 
+    /// searching the for-Element is a bit complex so it got it's own function.
     void _initForElement() {
         final forElId = element.getAttribute('for');
+
         _logger.fine("forElId $forElId");
 
         dom.Element forEl = null;
         if (forElId != null) {
 
+            void _addEventListeners(final dom.HtmlElement forEl) {
+                _logger.fine("forEL $forEl #${forElId}");
+                if (forEl != null) {
+                    _logger.fine("$element has a for-ID: #$forElId pointing to $forEl");
+                    _forElement = forEl;
+
+                    // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+                    forEl.onClick.listen( _handleForClick );
+                    forEl.onKeyDown.listen( _handleForKeyboardEvent );
+                }
+            }
+
             // getElementById is OK here! element.querySelector not possible!
             forEl = dom.document.getElementById(forElId);
-            _logger.fine("forEL $forEl #${forElId}");
-
-            if (forEl != null) {
-                _logger.info("$element has a for-ID: #$forElId pointing to $forEl");
-                _forElement = forEl;
-
-                // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-                forEl.onClick.listen( _handleForClick );
-                forEl.onKeyDown.listen( _handleForKeyboardEvent );
+            if(forEl != null) {
+                _addEventListeners(forEl);
+            } else {
+                // forEl was not found but maybe just because it takes a while for the DOM
+                // to recognize it... so we wait 50ms
+                new Future.delayed(new Duration(milliseconds: 50),() {
+                    _addEventListeners(dom.document.getElementById(forElId));
+                });
             }
         }
     }
