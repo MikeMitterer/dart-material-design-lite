@@ -16,6 +16,12 @@
 
 .demo-page--menu, .demo-section--menu {
 
+    #message {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
     .demo-preview-block {
         position: relative;
         height: 500px;

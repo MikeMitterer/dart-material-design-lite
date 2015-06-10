@@ -38,6 +38,8 @@ part "components/button_test.dart";
 part "components/checkbox_test.dart";
 part "components/icon_toggle_test.dart";
 part "components/data-table_test.dart";
+part "components/layout_test.dart";
+part "components/menu_test.dart";
 
 part "componenthandler/componenthandler_test.dart";
 
@@ -67,6 +69,8 @@ main() async {
     testCheckbox();
     testIconToggle();
     testDataTable();
+    testLayout();
+    testMenu();
 
     testComponentHandler();
 }

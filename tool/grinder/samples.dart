@@ -130,7 +130,7 @@ void createSampleList() {
     samples.add(new Sample("icon-toggle",Type.Core, hasReadme: false, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("layout",    Type.Core));
     samples.add(new Sample("list",      Type.Core,  hasScript: false));
-    samples.add(new Sample("menu",      Type.Core,  hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("menu",      Type.Core,  hasOwnDartMain: true));
     samples.add(new Sample("palette",   Type.Core,  hasScript: false, hasReadme: false));
     samples.add(new Sample("progress",  Type.Core,  hasDemoCss: false, hasOwnDemoHtml: true, hasOwnDartMain: true));
     samples.add(new Sample("radio",     Type.Core,  hasDemoCss: false, hasOwnDartMain: true));

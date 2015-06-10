@@ -14,17 +14,26 @@ main() {
     registerMdl();
 
     componentFactory().run().then((_) {
-        final MaterialMenu menu1 = MaterialMenu.widget(dom.querySelector("#menu1"));
-        final dom.DivElement message = dom.querySelector("#message");
+        final dom.HtmlElement element = dom.querySelector(".mdl-menu");
+        final MaterialMenu menu1 = MaterialMenu.widget(element);
 
+        void _addMessageDiv() {
+            final dom.HtmlElement element = dom.querySelectorAll(".mdl-menu__container").last.parent;
+            final dom.DivElement message = new dom.DivElement();
+
+            message.id = "message";
+            element.insertAdjacentElement("beforeEnd",message);
+        }
         void _showMessage(final int secsToClose) {
+            final dom.DivElement message = dom.querySelector("#message");
             message.text = "Menu closes in ${secsToClose} seconds...";
             if(secsToClose <= 0) {
-                message.text = "";
+                message.text = "Closed!";
             }
         }
 
         menu1.show();
+        _addMessageDiv();
         _showMessage(TIMEOUT_IN_SECS);
         int tick = 0;
         new Timer.periodic(new Duration(milliseconds: 1000) , (final Timer timer) {

@@ -111,6 +111,8 @@ class MaterialMenu extends MdlComponent {
     /// MaterialMenu.prototype.show = function(evt) {
     void show() {
 
+        _recalcPosition();
+
         if (element != null && _container != null && _outline != null ) {
             // Measure the inner element.
 
@@ -332,7 +334,12 @@ class MaterialMenu extends MdlComponent {
     /// toggling it.
     /// MaterialMenu.prototype.handleForClick_ = function(evt) {
     void _handleForClick(final dom.MouseEvent evt) {
+        _recalcPosition();
+        toggle();
+    }
 
+    /// Recalculates the position of the menu-container depending on the menu settings (left, right...)
+    void _recalcPosition() {
         if (element != null && _forElement != null) {
 
             final rect = _forElement.getBoundingClientRect();
@@ -366,8 +373,6 @@ class MaterialMenu extends MdlComponent {
                 _container.style.top = "${_forElement.offsetTop + _forElement.offsetHeight}px";
             }
         }
-
-        toggle();
     }
 
     /// Handles a keyboard event on the "for" element.

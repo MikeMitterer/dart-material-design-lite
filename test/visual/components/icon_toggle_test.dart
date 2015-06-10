@@ -13,6 +13,13 @@ testIconToggle() {
             expect(element.dataset["upgraded"],"MaterialIconToggle");
         });
 
+        test('> widget', () {
+            final dom.HtmlElement element = dom.document.querySelector("#icon-toggle1");
+
+            final MaterialIconToggle widget = MaterialIconToggle.widget(element);
+            expect(widget,isNotNull);
+
+        }); // end of 'widget' test
 
 
     });

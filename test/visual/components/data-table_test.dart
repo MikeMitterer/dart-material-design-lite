@@ -18,6 +18,13 @@ testDataTable() {
 
         }); // end of 'check if upgraded' test
 
+        test('> widget', () {
+            final dom.TableElement element = dom.document.querySelector("#data-table");
+
+            final MaterialDataTable widget = MaterialDataTable.widget(element);
+            expect(widget,isNotNull);
+
+        }); // end of 'widget' test
 
     });
     // end 'DataTable' group

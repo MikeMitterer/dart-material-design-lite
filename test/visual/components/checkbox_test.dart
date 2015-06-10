@@ -14,6 +14,15 @@ testCheckbox() {
             expect(element.dataset["upgraded"],"MaterialCheckbox");
         });
 
+        test('> widget', () {
+            final dom.HtmlElement element = dom.document.querySelector("#checkbox1");
+
+            final MaterialCheckbox widget = MaterialCheckbox.widget(element);
+            expect(widget,isNotNull);
+
+        }); // end of 'widget' test
+
+
     });
     // end 'Checkbox' group
 }

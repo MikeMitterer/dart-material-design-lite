@@ -8,6 +8,8 @@
     <script src="packages/test/dart.js"></script>
 
     <link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
         .ui-test {
             margin-bottom: 24px;
@@ -24,6 +26,51 @@
             visibility: visible;
             color : green;
         }
+
+        .ui-test--layout {
+            min-height: 450px;
+        }
+
+        .ui-test--layout .mdl-layout__container { width: calc(100% - 36px); }
+        .ui-test--layout .mdl-layout__drawer { height: 330px; }
+        .ui-test--layout .mdl-layout__content {
+            padding: 8px;
+
+            background-color: darkgray;
+            color: white;
+
+            height: 252px;
+            max-height: 252px;
+        }
+        .ui-test--layout .is-small-screen .mdl-layout__content {
+            /* $layout-desktop-header-height: 64px */
+            height: calc(252px + 64px);
+            max-height: calc(252px + 64px);
+        }
+
+        .ui-test--layout .mdl-layout__obfuscator {
+            /* $layout-desktop-header-height: 64px */
+            height: 331px;
+            max-height: 331px;
+        }
+
+        .ui-test--menu {
+            height: 250px;
+            position: relative;
+        }
+
+        .ui-test--menu .demo-menu-button-right {
+            position: absolute;
+            right: 24px;
+            top: 24px;
+        }
+
+        .ui-test--menu .demo-menu-button-left {
+            position: absolute;
+            left: 24px;
+            top: 24px;
+        }
+
     </style>
 </head>
 <body>
@@ -79,7 +126,7 @@
 <div class="ui-test ui-test---icon-toggle">
     <label class="mdl-icon-toggle mdl-js-icon-toggle" for="icon-toggle1">
         <input type="checkbox" id="icon-toggle1" class="mdl-icon-toggle__input"/>
-        <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
+        <i class="mdl-icon-toggle__label material-icons">format_bold</i>
     </label>
 </div>
 
@@ -157,6 +204,88 @@
         </tbody>
     </table>
 
+</div>
+
+<div class="ui-test ui-test--layout">
+    <h5>Fixed drawer with header</h5>
+    <p>The drawer is always open in large screen sizes, functioning as side
+        navigation.</p>
+    <div class="demo-layout">
+        <div id="demo-layout" class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title">Fixed drawer</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expclean">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" name="sample" id="sample-expclean" />
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Material Design Lite</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="#">Hello</a>
+                    <a class="mdl-navigation__link" href="#">World.</a>
+                    <a class="mdl-navigation__link" href="#">How</a>
+                    <a class="mdl-navigation__link" href="#">Are</a>
+                    <a class="mdl-navigation__link" href="#">You?</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="demo-layout__content">
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                    sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<div class="ui-test ui-test--menu">
+    <button id="clickable1" class="demo-menu-button-left mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+    </button>
+
+    <ul id="menu-left" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="clickable1">
+        <li class="mdl-menu__item">5.0 Lollipop</li>
+        <li class="mdl-menu__item">4.4 KitKat</li>
+        <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
+        <li class="mdl-menu__item">Android History</li>
+    </ul>
+
+    <button id="clickable2" class="demo-menu-button-right mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+    </button>
+
+    <ul id="menu-right" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="clickable2">
+        <li class="mdl-menu__item">5.0 Lollipop</li>
+        <li class="mdl-menu__item">4.4 KitKat</li>
+        <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
+        <li class="mdl-menu__item">Android History</li>
+    </ul>
 </div>
 
 </body>
