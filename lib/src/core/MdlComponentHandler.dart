@@ -231,8 +231,9 @@ class MdlComponentHandler {
             }
         }
 
-        final dom.ElementList<dom.HtmlElement> elements = queryBaseElement.querySelectorAll(config.selector);
         _upgradeBaseElementIfSelectorFits(queryBaseElement);
+
+        final dom.ElementList<dom.HtmlElement> elements = queryBaseElement.querySelectorAll(config.selector);
         elements.forEach((final dom.HtmlElement element) {
 
             _upgradeElement(element, config);

@@ -93,11 +93,18 @@ class MaterialMenu extends MdlComponent {
     static const _MaterialMenuConstant _constant = const _MaterialMenuConstant();
     static const _MaterialMenuCssClasses _cssClasses = const _MaterialMenuCssClasses();
 
+    bool _closing = false;
+
     dom.DivElement _container;
     dom.DivElement _outline;
     dom.Element _forElement;
 
-    bool _closing = false;
+    dom.Element get forElement {
+        if(_forElement == null) {
+            _initForElement();
+        }
+        return _forElement;
+    }
 
     MaterialMenu.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
@@ -237,31 +244,33 @@ class MaterialMenu extends MdlComponent {
             _outline = outline;
             container.insertBefore(outline, element);
 
-            // Find the "for" element and bind events to it.
-            // Takes a while until elements are available
-            new Future.delayed(new Duration(milliseconds: 50),() {
+//            // Find the "for" element and bind events to it.
+//            // Takes a while until elements are available
+//            new Future.delayed(new Duration(milliseconds: 50),() {
+//
+//            final forElId = element.getAttribute('for');
+//            _logger.fine("forElId $forElId");
+//
+//            dom.Element forEl = null;
+//                if (forElId != null) {
+//
+//                    // getElementById is OK here! element.querySelector not possible!
+//                    forEl = dom.document.getElementById(forElId);
+//                    _logger.fine("forEL $forEl #${forElId}");
+//
+//                    if (forEl != null) {
+//                        _logger.info("$element has a for-ID: #$forElId pointing to $forEl");
+//                        _forElement = forEl;
+//
+//                        // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+//                        forEl.onClick.listen( _handleForClick );
+//                        forEl.onKeyDown.listen( _handleForKeyboardEvent );
+//                    }
+//                }
+//
+//            });
 
-            final forElId = element.getAttribute('for');
-            _logger.fine("forElId $forElId");
-
-            dom.Element forEl = null;
-                if (forElId != null) {
-
-                    // getElementById is OK here! element.querySelector not possible!
-                    forEl = dom.document.getElementById(forElId);
-                    _logger.fine("forEL $forEl #${forElId}");
-
-                    if (forEl != null) {
-                        _logger.info("$element has a for-ID: #$forElId pointing to $forEl");
-                        _forElement = forEl;
-
-                        // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-                        forEl.onClick.listen( _handleForClick );
-                        forEl.onKeyDown.listen( _handleForKeyboardEvent );
-                    }
-                }
-
-            });
+            _initForElement();
 
             final List<dom.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM );
             items.forEach((final dom.Element item) {
@@ -330,6 +339,28 @@ class MaterialMenu extends MdlComponent {
         }
     }
 
+    void _initForElement() {
+        final forElId = element.getAttribute('for');
+        _logger.fine("forElId $forElId");
+
+        dom.Element forEl = null;
+        if (forElId != null) {
+
+            // getElementById is OK here! element.querySelector not possible!
+            forEl = dom.document.getElementById(forElId);
+            _logger.fine("forEL $forEl #${forElId}");
+
+            if (forEl != null) {
+                _logger.info("$element has a for-ID: #$forElId pointing to $forEl");
+                _forElement = forEl;
+
+                // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+                forEl.onClick.listen( _handleForClick );
+                forEl.onKeyDown.listen( _handleForKeyboardEvent );
+            }
+        }
+    }
+
     /// Handles a click on the "for" element, by positioning the menu and then
     /// toggling it.
     /// MaterialMenu.prototype.handleForClick_ = function(evt) {
@@ -340,11 +371,12 @@ class MaterialMenu extends MdlComponent {
 
     /// Recalculates the position of the menu-container depending on the menu settings (left, right...)
     void _recalcPosition() {
-        if (element != null && _forElement != null) {
+        _logger.info("Recalc $element $forElement");
+        if (element != null && forElement != null) {
 
-            final rect = _forElement.getBoundingClientRect();
+            final rect = forElement.getBoundingClientRect();
 
-            final forRect = _forElement.parent.getBoundingClientRect();
+            final forRect = forElement.parent.getBoundingClientRect();
 
             if (element.classes.contains(_cssClasses.UNALIGNED)) {
                 // Do not position the menu automatically. Requires the developer to
@@ -354,12 +386,12 @@ class MaterialMenu extends MdlComponent {
 
                 // Position below the "for" element, aligned to its right.
                 _container.style.right = "${forRect.right - rect.right + 10}px";
-                _container.style.top = "${_forElement.offsetTop + _forElement.offsetHeight}px";
+                _container.style.top = "${forElement.offsetTop + forElement.offsetHeight}px";
 
             } else if (element.classes.contains(_cssClasses.TOP_LEFT)) {
 
                 // Position above the "for" element, aligned to its left.
-                _container.style.left = "${_forElement.offsetLeft}px";
+                _container.style.left = "${forElement.offsetLeft}px";
                 _container.style.bottom = "${forRect.bottom - rect.top}px";
 
             } else if (element.classes.contains(_cssClasses.TOP_RIGHT)) {
@@ -369,8 +401,8 @@ class MaterialMenu extends MdlComponent {
 
             } else {
                 // Default: position below the "for" element, aligned to its left.
-                _container.style.left = "${_forElement.offsetLeft}px";
-                _container.style.top = "${_forElement.offsetTop + _forElement.offsetHeight}px";
+                _container.style.left = "${forElement.offsetLeft}px";
+                _container.style.top = "${forElement.offsetTop + forElement.offsetHeight}px";
             }
         }
     }
@@ -380,7 +412,7 @@ class MaterialMenu extends MdlComponent {
     void _handleForKeyboardEvent(final dom.KeyboardEvent event) {
         _logger.fine("_handleForKeyboardEvent: $event");
 
-        if (element != null && _container != null && _forElement != null) {
+        if (element != null && _container != null && forElement != null) {
 
             final List<dom.Element> items = element.querySelectorAll('.' + _cssClasses.ITEM + ':not([disabled])');
 
