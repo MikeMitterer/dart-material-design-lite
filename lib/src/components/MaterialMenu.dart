@@ -358,7 +358,8 @@ class MaterialMenu extends MdlComponent {
 
     /// Recalculates the position of the menu-container depending on the menu settings (left, right...)
     void _recalcPosition() {
-        _logger.info("Recalc $element $forElement");
+        _logger.fine("Recalc $element $forElement");
+
         if (element != null && forElement != null) {
 
             final rect = forElement.getBoundingClientRect();
