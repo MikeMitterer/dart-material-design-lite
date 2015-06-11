@@ -50,6 +50,9 @@ class DomRenderer {
     ///
     /// Returns the rendered child
     Future<dom.Element> render(final dom.Element parent, final String content,{ final bool replaceNode: true}) {
+        Validate.notNull(parent);
+        Validate.notBlank(content);
+
         //_logger.info("Content: $content");
 
         final Completer completer = new Completer();
@@ -98,7 +101,12 @@ class DomRenderer {
         return completer.future;
     }
 
-    Future<dom.Element> insert(final dom.Element parent,final dom.Element reference, final String content) {
+    /// Renders {content} and inserts the generated node before {reference}
+    /// If {reference} is null the new node will be added as last child to its {parent}
+    Future<dom.Element> renderBefore(final dom.Element parent,final dom.Element reference, final String content) {
+        Validate.notNull(parent);
+        Validate.notBlank(content);
+
         //_logger.info("Content: $content");
 
         final Completer completer = new Completer();
@@ -115,7 +123,11 @@ class DomRenderer {
 
                 dom.window.requestAnimationFrame( (_) {
 
-                    parent.insertBefore(child,reference);
+                    if(reference != null) {
+                        parent.insertBefore(child,reference);
+                    } else {
+                        parent.insertAdjacentElement("beforeEnd",child);
+                    }
 
                     parent.classes.remove(_cssClasses.LOADING);
                     parent.classes.add(_cssClasses.LOADED);

@@ -49,11 +49,23 @@
             <div class="content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
                 <section class="demo-section demo-section--repeat">
                     <div class="demo-preview-block">
-    <p>I am your main content - I live in index.html</p>
     <div id="main" class="mdl-repeat">
-        <div>Repeat me {{name}}</div>
+        <div class="mdl-repeat--template">
+            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check-{{id}}">
+                <input type="checkbox" id="check-{{id}}" class="mdl-checkbox__input"
+                       data-mdl-click="clicked('{{name}}')" />
+                <span class="mdl-checkbox__label">Repeat me: <strong>{{name}}</strong> (ID: {{id}})</span>
+            </label>
+            <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
+                    data-mdl-click="remove()">Remove</button>
+        </div>
     </div>
+    <!--<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">-->
+        <!--<input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" />-->
+        <!--<span class="mdl-checkbox__label">Check me!</span>-->
+    <!--</label>-->
 </div>
+
                 </section>
             </div>
         </div>

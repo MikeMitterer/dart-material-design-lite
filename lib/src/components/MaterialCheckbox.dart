@@ -138,7 +138,7 @@ class MaterialCheckbox extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialCheckbox - init");
+        _logger.info("MaterialCheckbox - init");
 
         final dom.SpanElement boxOutline = new dom.SpanElement();
         boxOutline.classes.add(_cssClasses.BOX_OUTLINE);

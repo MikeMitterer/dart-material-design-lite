@@ -256,7 +256,9 @@ class MdlComponentHandler {
         Validate.notNull(element);
         Validate.notNull(config);
 
-        if (!element.attributes.containsKey(_DATA_KEY) || element.attributes[_DATA_KEY].contains(config.classAsString) == false) {
+        if (( !element.attributes.containsKey(_DATA_KEY) ||
+            element.attributes[_DATA_KEY].contains(config.classAsString) == false) &&
+            !element.classes.contains("mdl-repeat--template") && !element.parent.classes.contains("mdl-repeat--template")) {
 
             void _markAsUpgraded() {
                 final List<String> registeredClasses = element.attributes.containsKey(_DATA_KEY)
