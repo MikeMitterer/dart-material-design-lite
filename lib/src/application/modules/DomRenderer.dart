@@ -35,7 +35,6 @@ typedef void _DomRenderFunction();
 
 /**
  *  DomRenderer converts a String into HtmlNodes
- *  Needed in mdlremote!
  */
 @di.Injectable()
 class DomRenderer {
@@ -63,7 +62,7 @@ class DomRenderer {
 
             final dom.Element child = new dom.Element.html(content,validator: _validator());
 
-            componentFactory().upgradeElement(child).then((_) {
+            componentFactory().upgradeElement(child).then( (_) {
 
                 dom.window.requestAnimationFrame( (_) {
 
@@ -84,6 +83,44 @@ class DomRenderer {
                 parent.classes.add(_cssClasses.LOADED);
 
                 completer.complete(child);
+                });
+
+            });
+
+        });
+
+        new Future(() {
+            final _DomRenderFunction renderfunction = _renderFunctions.last;
+            _renderFunctions.remove(renderfunction);
+            renderfunction();
+        });
+
+        return completer.future;
+    }
+
+    Future<dom.Element> insert(final dom.Element parent,final dom.Element reference, final String content) {
+        //_logger.info("Content: $content");
+
+        final Completer completer = new Completer();
+
+        // add the render-function to the list where the "new Future" can pick it
+        _renderFunctions.insert(0, () {
+
+            parent.classes.remove(_cssClasses.LOADED);
+            parent.classes.add(_cssClasses.LOADING);
+
+            final dom.Element child = new dom.Element.html(content,validator: _validator());
+
+            componentFactory().upgradeElement(child).then( (_) {
+
+                dom.window.requestAnimationFrame( (_) {
+
+                    parent.insertBefore(child,reference);
+
+                    parent.classes.remove(_cssClasses.LOADING);
+                    parent.classes.add(_cssClasses.LOADED);
+
+                    completer.complete(child);
                 });
 
             });

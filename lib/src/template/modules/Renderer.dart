@@ -17,26 +17,29 @@
  * limitations under the License.
  */
 
-part of mdltemplatecomponents;
+part of mdltemplate;
 
-abstract class TemplateComponent {
+typedef Future _RenderFunction();
 
-    /// Subclasses must override this getter
-    String get template;
+/**
+ * Exchangeable Render function.
+ * {TemplateRenderer} or {ListRenderer} are returning this.
+ * {MdlTemplateComponent} has a Renderer for rendering.
+ *
+ * Sample: (ToDoItem.dart)
+ *
+ *      if(useRenderListFunction) {
+ *           renderer = _listRenderer(element,this,_items,() => template);
+ *
+ *      } else {
+ *           renderer = _templateRenderer(element,this,() => template);
+ *
+ *      }
+ */
+class Renderer {
+    final _RenderFunction _renderFunction;
 
-    /**
-     *  Makes it easy to add functionality to templates
-     *  Sample:
-     *      Template: "{{lambdas.classes}}, {{lambdas.attributes}}
-     *
-     *  class MyClass extends Object with TemplateComponent {
-     *      MyClass() {
-     *          lambdas["classes"] = (_) => "is-enabled";
-     *          lambdas["attributes"] = attributes;
-     *      }
-     *
-     *      String get attributes => "disabled";
-     *  }
-     */
-    final Map<String,LambdaFunction> lambdas = new Map<String,LambdaFunction>();
+    Renderer(this._renderFunction);
+
+    Future render() => _renderFunction();
 }

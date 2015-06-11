@@ -34,10 +34,10 @@ import 'package:route_hierarchical/client.dart';
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponets.dart";
 
-part "src/application/templates/annotations.dart";
-part "src/application/templates/EventCompiler.dart";
+part "src/application/annotations.dart";
 
 part "src/application/modules/DomRenderer.dart";
+part "src/application/modules/EventCompiler.dart";
 part "src/application/modules/ViewFactory.dart";
 
 part "src/application/MaterialContent.dart";

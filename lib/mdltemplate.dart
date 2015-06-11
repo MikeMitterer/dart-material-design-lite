@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-library mdltemplatecomponents;
+library mdltemplate;
 
 import 'dart:html' as dom;
 import 'dart:async';
@@ -31,14 +31,16 @@ import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
 import 'package:mdl/mdlapplication.dart';
 
-part "src/templatecomponents/interfaces.dart";
+part "src/template/MdlTemplateComponent.dart";
 
-part "src/templatecomponents/MaterialMustache.dart";
-part "src/templatecomponents/MdlTemplateComponent.dart";
+part "src/template/components/MaterialMustache.dart";
+part "src/template/components/MaterialRepeat.dart";
 
-part "src/templatecomponents/Renderer.dart";
-part "src/templatecomponents/TemplateRenderer.dart";
-part "src/templatecomponents/ListRenderer.dart";
+part "src/template/interfaces.dart";
+
+part "src/template/modules/Renderer.dart";
+part "src/template/modules/TemplateRenderer.dart";
+part "src/template/modules/ListRenderer.dart";
 
 class MdlTemplateModule extends di.Module {
     MdlTemplateModule() {
@@ -51,6 +53,7 @@ final MdlTemplateModule _templateModule = new MdlTemplateModule();
 void registerMdlTemplateComponents() {
 
     registerMaterialMustache();
+    registerMaterialRepeat();
 
     componentHandler().addModule(_templateModule);
 }

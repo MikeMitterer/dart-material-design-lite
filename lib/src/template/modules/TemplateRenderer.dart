@@ -17,11 +17,11 @@
  * limitations under the License.
  */
 
-part of mdltemplatecomponents;
+part of mdltemplate;
 
 @di.Injectable()
 class TemplateRenderer {
-    final Logger _logger = new Logger('mdltemplatecomponents.TemplateRenderer');
+    final Logger _logger = new Logger('mdltemplate.TemplateRenderer');
 
     /// Adds data to Dom
     DomRenderer _renderer;
@@ -35,6 +35,7 @@ class TemplateRenderer {
         Validate.notNull(parent);
         Validate.notNull(scope);
 
+        /// Trims the template and replaces multiple spaces with a single one
         String _template() {
             final String data = template();
             Validate.notNull(data,"Template for TemplateRenderer must not be null!!!!");

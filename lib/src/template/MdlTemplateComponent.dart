@@ -17,12 +17,12 @@
  * limitations under the License.
  */
 
-part of mdltemplatecomponents;
+part of mdltemplate;
 
 
 /// Basis for all MdlComponents with Templates
 abstract class MdlTemplateComponent extends MdlComponent implements TemplateComponent {
-    final Logger _logger = new Logger('mdltemplatecomponents.MdlTemplateComponent');
+    final Logger _logger = new Logger('mdltemplate.MdlTemplateComponent');
 
     /// {_renderer} takes the template, renders the current object to a resulting String
     /// and adds this String as DOM-Tree to the DOM

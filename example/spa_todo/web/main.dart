@@ -1,13 +1,9 @@
 import "dart:html" as dom;
-import "dart:async";
-import "dart:math" as Math;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
-
-import 'package:route_hierarchical/client.dart';
 
 import "package:mdl_todo_sample/todo.dart";
 

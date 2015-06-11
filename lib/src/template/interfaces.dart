@@ -17,14 +17,26 @@
  * limitations under the License.
  */
 
-part of mdltemplatecomponents;
+part of mdltemplate;
 
-typedef Future _RenderFunction();
+abstract class TemplateComponent {
 
-class Renderer {
-    final _RenderFunction _renderFunction;
+    /// Subclasses must override this getter
+    String get template;
 
-    Renderer(this._renderFunction);
-
-    Future render() => _renderFunction();
+    /**
+     *  Makes it easy to add functionality to templates
+     *  Sample:
+     *      Template: "{{lambdas.classes}}, {{lambdas.attributes}}
+     *
+     *  class MyClass extends Object with TemplateComponent {
+     *      MyClass() {
+     *          lambdas["classes"] = (_) => "is-enabled";
+     *          lambdas["attributes"] = attributes;
+     *      }
+     *
+     *      String get attributes => "disabled";
+     *  }
+     */
+    final Map<String,LambdaFunction> lambdas = new Map<String,LambdaFunction>();
 }

@@ -17,11 +17,11 @@
  * limitations under the License.
  */
 
-part of mdltemplatecomponents;
+part of mdltemplate;
 
 @di.Injectable()
 class ListRenderer {
-    final Logger _logger = new Logger('mdltemplatecomponents.ListRenderer');
+    final Logger _logger = new Logger('mdltemplate.ListRenderer');
 
     /// Adds data to Dom
     DomRenderer _renderer;

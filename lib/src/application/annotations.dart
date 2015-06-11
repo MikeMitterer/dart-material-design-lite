@@ -26,10 +26,10 @@ class MdlComponentModelAnnotation {
 
 
 /**
- * Helps mustache to know which var are available to render
+ * Helps mustache to know which vars are available to render
  * Sample:
  *
- * @MdlComponent
+ * @MdlComponentModel
  * class Model {
  *     int sliderValue = 20;
  * }

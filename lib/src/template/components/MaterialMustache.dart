@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of mdltemplatecomponents;
+part of mdltemplate;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -31,21 +31,13 @@ class _MaterialMustacheCssClasses {
     const _MaterialMustacheCssClasses();
 }
 
-/// Store constants in one place so they can be updated easily.
-class _MaterialMustacheConstant {
-    const _MaterialMustacheConstant();
-}
-
-/// creates MdlConfig for MaterialMustache
-MdlConfig materialMustacheConfig() => new MdlWidgetConfig<MaterialMustache>(
-    _MaterialMustacheCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialMustache.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialMustache() => componentHandler().register(materialMustacheConfig());
+// Store constants in one place so they can be updated easily.
+//class _MaterialMustacheConstant {
+//    const _MaterialMustacheConstant();
+//}
 
 class MaterialMustache extends MdlComponent {
-    final Logger _logger = new Logger('mdlremote.MaterialMustache');
+    final Logger _logger = new Logger('mdltemplate.MaterialMustache');
 
     static const _MaterialMustacheCssClasses _cssClasses = const _MaterialMustacheCssClasses();
 
@@ -82,3 +74,10 @@ class MaterialMustache extends MdlComponent {
     }
 }
 
+/// creates MdlConfig for MaterialMustache
+MdlConfig materialMustacheConfig() => new MdlWidgetConfig<MaterialMustache>(
+    _MaterialMustacheCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialMustache.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialMustache() => componentHandler().register(materialMustacheConfig());

@@ -139,15 +139,5 @@ class MaterialSpinner extends MdlComponent {
         element.append(layer);
     }
 
-    /// Stops the spinner animation.
-    void _stop() {
-        element.classes.remove('is-active');
-    }
-
-    /// Starts the spinner animation.
-    void _start() {
-        element.classes.add('is-active');
-    }
-
 }
 

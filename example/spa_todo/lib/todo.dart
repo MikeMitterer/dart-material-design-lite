@@ -7,7 +7,5 @@ import 'package:logging/logging.dart';
 import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdl.dart';
-import 'package:mdl/mdltemplatecomponents.dart';
-
 
 part "src/ToDoItem.dart";

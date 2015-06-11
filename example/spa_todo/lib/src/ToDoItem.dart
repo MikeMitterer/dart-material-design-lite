@@ -31,11 +31,6 @@ class _ToDoItemComponentCssClasses {
     const _ToDoItemComponentCssClasses();
 }
 
-/// Store constants in one place so they can be updated easily.
-class _ToDoItemComponentConstant {
-    const _ToDoItemComponentConstant();
-}
-
 /// registration-Helper
 void registerToDoItemComponent() => componentFactory().register(new MdlWidgetConfig<ToDoItemComponent>(
     _ToDoItemComponentCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)

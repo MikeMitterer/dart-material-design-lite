@@ -27,7 +27,7 @@ import 'package:validate/validate.dart';
 import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdlapplication.dart';
-import 'package:mdl/mdltemplatecomponents.dart';
+import 'package:mdl/mdltemplate.dart';
 
 part "src/dialog/MaterialDialog.dart";
 part "src/dialog/MaterialAlertDialog.dart";
