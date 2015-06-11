@@ -130,7 +130,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         dom.HtmlElement child1 = element.children[index1];
         dom.HtmlElement child2 = element.children[index2];
 
-        if(index1 == 0 && index2 == _items.length - 1) {
+        if(index2 == _items.length - 1) {
 
             element.insertBefore(child1,child2);
 
@@ -140,7 +140,7 @@ class MaterialRepeat extends MdlTemplateComponent {
                 completer.complete();
             });
 
-        } else if(index1 == _items.length - 1 && index2 == 0) {
+        } else if(index1 == _items.length - 1 ) {
 
             element.insertBefore(child1,child2);
 

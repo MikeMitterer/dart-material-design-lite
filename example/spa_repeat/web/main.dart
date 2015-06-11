@@ -63,42 +63,42 @@ main() {
             await repeater.add(name);
         });
 
-//        new Timer(new Duration(milliseconds: 500), () {
-//            final name = names.getRange(2,3).first;
-//            names.remove(name);
-//            repeater.remove(name);
-//        });
+        new Timer(new Duration(milliseconds: 500), () {
+            final name = names.getRange(2,3).first;
+            names.remove(name);
+            repeater.remove(name);
+        });
 
-//        final hudriwudri = new Name("HudriWudri",removeCallback);
-//        new Timer(new Duration(milliseconds: 1500), () {
-//            names.insert(2,hudriwudri);
-//            repeater.insert(2,hudriwudri);
-//        });
+        final hudriwudri = new Name("HudriWudri",removeCallback);
+        new Timer(new Duration(milliseconds: 1500), () {
+            names.insert(2,hudriwudri);
+            repeater.insert(2,hudriwudri);
+        });
 
-//        new Timer(new Duration(milliseconds: 2500), () {
-//            names.remove(hudriwudri);
-//            repeater.remove(hudriwudri);
-//        });
+        new Timer(new Duration(milliseconds: 2500), () {
+            names.remove(hudriwudri);
+            repeater.remove(hudriwudri);
+        });
 
-//        new Timer(new Duration(milliseconds: 500), () {
-//            int index1 = 2;
-//            int index2 = 0;
-//
-//            final item1 = names[index1];
-//            final item2 = names[index2];
-//
-//            _logger.info("Swap in main: ${item1.name} -> ${item2.name}");
-//            names[index2] = item2;
-//            names[index1] = item1;
-//            repeater.swap(item1,item2);
-//        });
+        new Timer(new Duration(milliseconds: 3500), () async {
+            int index1 = 2;
+            int index2 = 0;
 
-        new Timer(new Duration(milliseconds: 1000), () {
+            final item1 = names[index1];
+            final item2 = names[index2];
+
+            _logger.info("Swap in main: ${item1.name} -> ${item2.name}");
+            names[index2] = item2;
+            names[index1] = item1;
+            await repeater.swap(item1,item2);
+        });
+
+        new Timer(new Duration(milliseconds: 4500), () {
             Stopwatch stopwatch = new Stopwatch()..start();
             final List<Future> futures = new List<Future>();
 
             int i = 0;
-            for(;i < 1000;i++) {
+            for(;i < 10;i++) {
                 final name = new Name("Name: $i",removeCallback);
 
                 names.add(name);
@@ -110,12 +110,12 @@ main() {
             });
         });
 
-        new Timer(new Duration(milliseconds: 2000), ()  {
+        new Timer(new Duration(milliseconds: 6500), ()  {
             final int FPS = (1000 / 50).ceil();
             _logger.info("Frames per sec: ${(1000 / FPS).ceil() }");
 
             int index = 0;
-            for(int i = 0;i < names.length * 10;i++)  {
+            for(int i = 0;i < names.length * 2;i++)  {
                 if(index >= names.length) {
                     index = 0;
                 }
@@ -134,7 +134,7 @@ main() {
                     names[index1] = item2;
                     names[index2] = item1;
 
-                    await repeater.swap(item1,item2);
+                    repeater.swap(item1,item2);
                 });
 
                 index++;
