@@ -63,6 +63,12 @@ main() {
             await repeater.add(name);
         });
 
+        new Timer(new Duration(milliseconds: 200), () {
+            final name = names.getRange(1,2).first; // Mike
+            final MaterialCheckbox checkbox = MaterialCheckbox.widget(dom.querySelector("#check-${name.id}"));
+            checkbox.check(); // check it!
+        });
+
         new Timer(new Duration(milliseconds: 500), () {
             final name = names.getRange(2,3).first;
             names.remove(name);
