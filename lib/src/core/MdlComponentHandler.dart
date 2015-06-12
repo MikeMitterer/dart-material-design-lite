@@ -34,6 +34,8 @@ class _MdlComponentHandlerCssClasses {
 
     final String RIPPLE_EFFECT = "mdl-js-ripple-effect";
 
+    final String REPEAT_TEMPLATE = "mdl-repeat--template";
+
     const _MdlComponentHandlerCssClasses();
 }
 
@@ -256,9 +258,19 @@ class MdlComponentHandler {
         Validate.notNull(element);
         Validate.notNull(config);
 
+        /// If there is a mdl-repeat--template class in the hierarchy stop upgrading!
+        bool _hasRepeatTemplate(final dom.HtmlElement element) {
+            if(element == null) {
+                return false;
+            }
+            if(element.classes.contains(_cssClasses.REPEAT_TEMPLATE)) {
+                return true;
+            }
+            return _hasRepeatTemplate(element.parent);
+        }
+
         if (( !element.attributes.containsKey(_DATA_KEY) ||
-            element.attributes[_DATA_KEY].contains(config.classAsString) == false) &&
-            !element.classes.contains("mdl-repeat--template") && !element.parent.classes.contains("mdl-repeat--template")) {
+            element.attributes[_DATA_KEY].contains(config.classAsString) == false) && !_hasRepeatTemplate(element)) {
 
             void _markAsUpgraded() {
                 final List<String> registeredClasses = element.attributes.containsKey(_DATA_KEY)

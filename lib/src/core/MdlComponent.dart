@@ -30,7 +30,11 @@ MdlComponent mdlComponent(final dom.HtmlElement element) {
     var jsElement = new JsObject.fromBrowserObject(element);
 
     if (!jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {
-        throw "$element is not a MdlComponent!!!";
+        String id = "<not set>";
+        if(element.id != null && element.id.isNotEmpty) {
+            id = element.id;
+        }
+        throw "$element is not a MdlComponent!!! (ID: $id)";
     }
 
     return (jsElement[MDL_WIDGET_PROPERTY] as MdlComponent);
