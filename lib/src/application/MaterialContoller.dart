@@ -33,6 +33,9 @@ abstract class MaterialController {
 
     /// {loaded} is called after {ViewFactory} received the {onLoadEnd} Event
     void loaded(final Route route);
+
+    /// Called before the next controller is loaded
+    void unload() {}
 }
 
 class DummyController extends MaterialController {
@@ -41,5 +44,10 @@ class DummyController extends MaterialController {
     @override
     void loaded(final Route route) {
         _logger.info("View loaded! (Route: ${route.name})");
+    }
+
+    @override
+    void unload() {
+        _logger.info("Unload Controller...");
     }
 }

@@ -43,6 +43,8 @@ part of mdlapplication;
 class ViewFactory {
     final Logger _logger = new Logger('mdlremote.ViewFactory');
 
+    MaterialController _previousController;
+
     RouteEnterEventHandler call(final String url, final MaterialController controller, { final String selector: "#main"}) {
         return (final RouteEnterEvent event) => _enterHandler(event, url, controller, selector);
     }
@@ -65,6 +67,11 @@ class ViewFactory {
             return;
         }
 
+        if(_previousController != null) {
+            _previousController.unload();
+        }
+        _previousController = controller;
+
         request.open("GET", url);
         request.onLoadEnd.listen((final dom.ProgressEvent progressevent) {
             //_logger.info('Request complete ${request.responseText}, Status: ${request.readyState}');
@@ -75,6 +82,7 @@ class ViewFactory {
                 final MaterialContent main = MaterialContent.widget(contentElement);
 
                 main.render(content).then( (_) {
+
                     controller.injector = main.injector;
                     controller.loaded(event.route);
                 });

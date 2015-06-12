@@ -113,6 +113,8 @@ class DemoController extends MaterialController {
 class BadgeController extends DemoController {
     final Logger _logger = new Logger('main.BadgeController');
 
+    bool stopTimer = false;
+
     @override
     void loaded(final Route route) {
         super.loaded(route);
@@ -120,9 +122,10 @@ class BadgeController extends DemoController {
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector("#el1"));
         int counter = 1;
         new Timer.periodic(new Duration(milliseconds: 100), (final Timer timer) {
-            if(counter > 199) {
+            if(counter > 199 || stopTimer) {
                 counter = 1;
                 timer.cancel();
+                stopTimer = false;
             }
             badge1.value = counter.toString();
             _logger.info("Current Badge-Value: ${badge1.value}");
@@ -130,7 +133,14 @@ class BadgeController extends DemoController {
             counter++;
         });
     }
-    // - private ------------------------------------------------------------------------------------------------------
+
+    @override
+    void unload() {
+        stopTimer = true;
+    }
+
+
+// - private ------------------------------------------------------------------------------------------------------
 }
 
 class IconToggleController extends DemoController {
@@ -231,6 +241,127 @@ class RadioController extends DemoController {
 
         MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
 
+    }
+}
+
+/// For Repeat-Sample
+typedef void RemoveCallback(final Name name);
+
+@MdlComponentModel
+/// For Repeat-Sample
+class Name {
+    final Logger _logger = new Logger('main.Name');
+
+    static int _counter = 0;
+    int _id = 0;
+
+    final RemoveCallback _callback;
+
+    final String name;
+
+    String get id => _id.toString();
+
+    Name(this.name,this._callback) { _id = _counter++; }
+
+
+    void clicked(final String value) {
+        _logger.info("Clicked on $value");
+    }
+
+    void remove() {
+        _logger.info("Remove ID $id");
+        _callback(this);
+    }
+}
+
+class RepeatController extends DemoController {
+    final Logger _logger = new Logger('main.RepeatController');
+
+    bool stop = false;
+
+    @override
+    void loaded(final Route route) async {
+        super.loaded(route);
+
+        bool swapping = false;
+        stop = false;
+
+        final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector(".mdl-repeat"));
+
+        final List<Name> names = new List<Name>();
+        final RemoveCallback removeCallback = (final Name nameToRemove) {
+            if(swapping) {
+                _logger.info("Removing items while swapping is not possible...");
+                return;
+            }
+
+            _logger.info("Name to remove: ${nameToRemove.name}");
+            repeater.remove(nameToRemove);
+            names.remove(nameToRemove);
+        };
+
+        names.add(new Name("A - Nicki",removeCallback));
+        names.add(new Name("B - Mike",removeCallback));
+        names.add(new Name("C - Gerda",removeCallback));
+        names.add(new Name("D - Sarah",removeCallback));
+
+        for (int i = 0;i < 10;i++) {
+            names.add(new Name("Name: $i", removeCallback));
+        }
+
+        await Future.forEach(names, (final name) async {
+            await repeater.add(name);
+        });
+
+        final Name name = names.getRange(1, 2).first; // Mike
+        final String idForCheckbox = "#check-${name.id}";
+
+        final MaterialCheckbox checkbox = MaterialCheckbox.widget(dom.querySelector(idForCheckbox));
+        checkbox.check();
+
+        void _swapItems() {
+            final int FPS = (1000 / 5).ceil();
+            int index = 0;
+            swapping = true;
+
+            int numberOwSwaps = 0;
+            final int maxSwaps = names.length * 5;
+            for (int i = 0;i < maxSwaps || stop == true;i++) {
+                if (index >= names.length) {
+                    index = 0;
+                }
+                final int index1 = index;
+                final int index2 = index + 1 < names.length ? index + 1 : 0;
+
+                _logger.fine("Swap $index1 with $index2");
+
+                Timer timer;
+                timer = new Timer(new Duration(milliseconds: (i + 1) * FPS), () async {
+                    if(stop) { timer.cancel(); swapping = false; return; }
+
+                    _logger.fine("InnerSwap $index1 with $index2");
+
+                    final item1 = names[index1];
+                    final item2 = names[index2];
+
+                    names[index1] = item2;
+                    names[index2] = item1;
+
+                    await repeater.swap(item1, item2);
+
+                    numberOwSwaps++;
+                    if(numberOwSwaps >= maxSwaps) { swapping = false;}
+                });
+
+                index++;
+            }
+        }
+        _swapItems();
+    }
+
+    @override
+    void unload() {
+        stop = true;
     }
 }
 
@@ -426,6 +557,9 @@ void configRouter() {
 
         ..addRoute(name: 'radio', path: '/radio',
                     enter: view("views/radio.html", new RadioController()))
+
+        ..addRoute(name: 'repeat', path: '/repeat',
+            enter: view("views/repeat.html", new RepeatController()))
 
         ..addRoute(name: 'shadow', path: '/shadow',
                     enter: view("views/shadow.html", new DemoController()))

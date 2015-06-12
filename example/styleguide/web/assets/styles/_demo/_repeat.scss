@@ -1,0 +1,19 @@
+.demo-page--repeat {
+    .mdl-repeat--template-upgraded {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: center; // ↓
+
+        padding: 12px;
+
+        .mdl-checkbox {
+            margin-top: 0;
+            margin-bottom: 0;
+
+            width: initial;
+        }
+    }
+}

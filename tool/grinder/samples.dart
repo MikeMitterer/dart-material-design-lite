@@ -164,6 +164,7 @@ void createSampleList() {
     // SPA Samples
     samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
     samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false, hasOwnPubSpec: true));
+    samples.add(new Sample("repeat",    Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
     samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
 
     // Styleguide!

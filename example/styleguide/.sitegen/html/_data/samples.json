@@ -22,6 +22,7 @@
   { "name": "panel", "original": false, "prefix": "mdlx_" },
   { "name": "progress", "original": true, "prefix": "mdl_" },
   { "name": "radio", "original": true, "prefix": "mdl_" },
+  { "name": "repeat", "original": false, "prefix": "spa_" },
   { "name": "shadow", "original": true, "prefix": "mdl_" },
   { "name": "slider", "original": true, "prefix": "mdl_" },
   { "name": "snackbar", "original": false, "prefix": "mdlx_" },

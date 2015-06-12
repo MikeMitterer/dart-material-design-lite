@@ -77,30 +77,40 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     /// Removes item from DOM
-    Future remove(final item) async {
+    Future remove(final item) {
         Validate.notNull(item);
+
+        final Completer completer = new Completer();
 
         final int index = _items.indexOf(item);
         _logger.info("Index to remove: $index");
 
         if(index != -1) {
             final dom.HtmlElement child = element.children[index]; //querySelector("> *:nth-child(${index + 1})");
+
             if(child == null) {
                 _logger.warning(
                     "Could not find $item in DOM-Tree (${_MaterialRepeatConstant.WIDGET_SELECTOR})"
                     ", so nothing to remove here...");
-                return;
+                completer.completeError("Could not find $item in DOM-Tree!");
             }
+
             _addBorderIfInDebugMode(child,"red");
-            _logger.info("Child to remove: $child Element ID: ${element.id}");
-            new Timer(new Duration(milliseconds: 500), () {
+            _logger.fine("Child to remove: $child Element ID: ${element.id}");
+
+            new Timer(new Duration(milliseconds: 30), () {
                 _items.remove(item);
                 child.remove();
+                completer.complete();
             });
+
         } else {
             _logger.warning("Could not find $item in ${_MaterialRepeatConstant.WIDGET_SELECTOR}, so nothing to remove here...");
             _logger.warning("Number of items in list: ${_items.length}, First: ${_items.first.name}");
+            completer.completeError("Could not find $item in internal item list!");
         }
+
+        return completer.future;
     }
 
     /// Inserts [item] at position [index]
@@ -124,7 +134,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         final int index1 = _items.indexOf(item1);
         final int index2 = _items.indexOf(item2);
 
-        _logger.info("Swap: ${item1.name} ($index1) -> ${item2.name} ($index2)");
+        _logger.fine("Swap: ${item1.name} ($index1) -> ${item2.name} ($index2)");
 
         _items[index1] = item2;
         _items[index2] = item1;
@@ -149,7 +159,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     //- private -----------------------------------------------------------------------------------
 
     Future _init() async {
-        _logger.info("MaterialRepeat - init");
+        _logger.fine("MaterialRepeat - init");
 
         final dom.Element templateBlock = element.querySelector(".mdl-repeat--template");
         final dom.DivElement temp = new dom.DivElement();
@@ -165,7 +175,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
 
         element.classes.add(_cssClasses.IS_UPGRADED);
-        _logger.info("MaterialRepeat - initialized!");
+        _logger.fine("MaterialRepeat - initialized!");
     }
 
     @override

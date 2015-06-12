@@ -103,6 +103,21 @@ class Styleguide {
                 r"(?:([^~]*))~*$[\n\r]",
                 multiLine: true, caseSensitive: false),"");
 
+        // Mustache-Block (not called - just to remember)
+        void _removeMustacheBlock() {
+            content = content.replaceAll(
+                new RegExp(
+                    // switches for mustache-delimiter
+                    r"(?:(\{\{= \| \| =\}\})|(\|= \{\{ \}\} =\|))",
+                    multiLine: true, caseSensitive: false),"");
+
+            content = content.replaceAll(
+                new RegExp(
+                    // Mustache comment
+                    r"\{\{\![^}]*\}\}",
+                    multiLine: true, caseSensitive: false),"");
+        }
+
         //content = content.replaceAll(new RegExp(r"^",caseSensitive: false, multiLine: true),"    ");
 
         final StringBuffer buffer = new StringBuffer();
@@ -114,7 +129,10 @@ class Styleguide {
         buffer.writeln(content);
         buffer.writeln('</section>');
 
-        targetSample.writeAsStringSync(buffer.toString());
+        // remove blank lines
+        content = buffer.toString().replaceAll(new RegExp(r"(?:(^\s*\n){1})",multiLine: true),"");
+        targetSample.writeAsStringSync(content);
+
         Utils.optimizeHeaderTags(targetSample);
     }
 

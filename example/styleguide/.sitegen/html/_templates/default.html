@@ -91,13 +91,23 @@
 
                 <!-- Panel 4 -->
                 <div class="mdl-accordion">
+                    <label class="mdl-accordion__label">Template based<i class="material-icons indicator">chevron_right</i></label>
+                    <div class="mdl-accordion--content">
+                        {{#_data.templatecomponents}}
+                        <a class="mdl-navigation__link mdl-color-text--primary" href="{{link}}">{{name}}</a>
+                        {{/_data.templatecomponents}}
+                    </div>
+                </div>
+
+                <!-- Panel 5 -->
+                <div class="mdl-accordion">
                     <label class="mdl-accordion__label">Theming<i class="material-icons indicator">chevron_right</i></label>
                     <div class="mdl-accordion--content">
                         <a class="mdl-navigation__link mdl-color-text--primary" href="#/theming">Theming</a>
                     </div>
                 </div>
 
-                <!-- Panel 5 -->
+                <!-- Panel 6 -->
                 <div class="mdl-accordion">
                     <label class="mdl-accordion__label">Samples<i class="material-icons indicator">chevron_right</i></label>
                     <div class="mdl-accordion--content">
@@ -105,7 +115,7 @@
                     </div>
                 </div>
 
-                <!-- Panel 6 -->
+                <!-- Panel 7 -->
                 <div class="mdl-accordion">
                     <label class="mdl-accordion__label">Templates<i class="material-icons indicator">chevron_right</i></label>
                     <div class="mdl-accordion--content">

@@ -1,0 +1,20 @@
+<section class="demo-section demo-section--repeat demo-page--repeat">
+    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/repeat.html">
+        Loading...
+    </div>
+    <div class="demo-preview-block">
+        <div id="main" class="mdl-repeat">
+            {{! ----- Turn off mustache interpretation ---- }} {{= | | =}}
+            <div class="mdl-repeat--template">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check-{{id}}">
+                    <input type="checkbox" id="check-{{id}}" class="mdl-checkbox__input"
+                           data-mdl-click="clicked('{{name}}')" />
+                    <span class="mdl-checkbox__label">Repeat me: <strong>{{name}}</strong> (ID: {{id}})</span>
+                </label>
+                <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
+                        data-mdl-click="remove()">Remove</button>
+            </div>
+            |= {{ }} =|
+        </div>
+    </div>
+</section>
