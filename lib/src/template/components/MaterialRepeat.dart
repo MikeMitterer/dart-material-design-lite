@@ -156,6 +156,21 @@ class MaterialRepeat extends MdlTemplateComponent {
         temp.remove();
     }
 
+    /// Removes all Children
+    Future removeAll() {
+        final Completer completer = new Completer();
+
+        new Future(() {
+            _items.clear();
+            element.children.forEach((final dom.Element child) {
+                child.remove();
+            });
+            completer.complete();
+        });
+
+        return completer.future;
+    }
+
     //- private -----------------------------------------------------------------------------------
 
     Future _init() async {
