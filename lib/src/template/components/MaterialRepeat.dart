@@ -116,8 +116,10 @@ class MaterialRepeat extends MdlTemplateComponent {
         _eventCompiler.compileElement(item,renderedChild);
     }
 
-    Future swap(final item1,final item2) {
-        final Completer completer = new Completer();
+    /// Swaps [item1] and [item2]
+    void swap(final item1,final item2) {
+        Validate.notNull(item1);
+        Validate.notNull(item2);
 
         final int index1 = _items.indexOf(item1);
         final int index2 = _items.indexOf(item2);
@@ -130,67 +132,18 @@ class MaterialRepeat extends MdlTemplateComponent {
         dom.HtmlElement child1 = element.children[index1];
         dom.HtmlElement child2 = element.children[index2];
 
-        if(index2 == _items.length - 1) {
+        // create marker element and insert it where child1 is
+        var temp = new dom.DivElement();
+        child1.parentNode.insertBefore(temp, child1);
 
-            element.insertBefore(child1,child2);
+        // move child1 to right before child2
+        child2.parentNode.insertBefore(child1, child2);
 
-            _logger.info("afterBegin");
-            dom.window.requestAnimationFrame( (_) {
-                element.insertAdjacentElement("afterBegin",child2);
-                completer.complete();
-            });
+        // move child2 to right before where child1 used to be
+        temp.parentNode.insertBefore(child2, temp);
 
-        } else if(index1 == _items.length - 1 ) {
-
-            element.insertBefore(child1,child2);
-
-            _logger.info("beforeEnd");
-            dom.window.requestAnimationFrame( (_) {
-                element.insertAdjacentElement("beforeEnd",child2);
-                completer.complete();
-            });
-
-
-        } else if(index1 - index2 == 1) {
-
-            _logger.info("Insert1 before 2");
-            element.insertBefore(child1,child2);
-            completer.complete();
-
-        } else if(index1 - index2 == -1) {
-
-            _logger.info("Insert2 before 1");
-            element.insertBefore(child2,child1);
-            completer.complete();
-
-        } else if (index2 > index1) {
-
-            element.insertBefore(child2,child1);
-
-                dom.window.requestAnimationFrame( (_) {
-                    child2 = element.children[index2 + 1];
-                    _logger.info("New index II: ${index2 + 1}");
-                    element.insertBefore(child1,child2);
-                    completer.complete();
-                });
-
-        } else if (index1 > index2) {
-
-            element.insertBefore(child1,child2);
-
-            dom.window.requestAnimationFrame( (_) {
-                child1 = element.children[index1 + 1];
-                _logger.info("New index I: ${index1 + 1}");
-                element.insertBefore(child2,child1);
-                completer.complete();
-            });
-
-        } else {
-
-            throw new RangeError("Swap between $index1 and $index2 is not supported!");
-        }
-
-        return completer.future;
+        // remove temporary marker node
+        temp.remove();
     }
 
     //- private -----------------------------------------------------------------------------------

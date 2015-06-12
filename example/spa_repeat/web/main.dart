@@ -81,15 +81,15 @@ main() {
         });
 
         new Timer(new Duration(milliseconds: 3500), () async {
-            int index1 = 2;
-            int index2 = 0;
+            int index1 = 1;
+            int index2 = 2;
 
             final item1 = names[index1];
             final item2 = names[index2];
 
             _logger.info("Swap in main: ${item1.name} -> ${item2.name}");
-            names[index2] = item2;
-            names[index1] = item1;
+            names[index2] = item1;
+            names[index1] = item2;
             await repeater.swap(item1,item2);
         });
 
@@ -110,12 +110,12 @@ main() {
             });
         });
 
-        new Timer(new Duration(milliseconds: 6500), ()  {
+        new Timer(new Duration(milliseconds: 5500), ()  {
             final int FPS = (1000 / 50).ceil();
             _logger.info("Frames per sec: ${(1000 / FPS).ceil() }");
 
             int index = 0;
-            for(int i = 0;i < names.length * 2;i++)  {
+            for(int i = 0;i < names.length * 10;i++)  {
                 if(index >= names.length) {
                     index = 0;
                 }
@@ -134,7 +134,7 @@ main() {
                     names[index1] = item2;
                     names[index2] = item1;
 
-                    repeater.swap(item1,item2);
+                    await repeater.swap(item1,item2);
                 });
 
                 index++;
