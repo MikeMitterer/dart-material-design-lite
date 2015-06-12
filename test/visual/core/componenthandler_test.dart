@@ -32,7 +32,7 @@ testComponentHandler() {
                 mdlComponent(element);
             } on String catch(e) {
 
-                expect(e,"button is not a MdlComponent!!!");
+                expect(e,"button is not a MdlComponent!!! (ID: button-to-downgrade)");
                 foundException = true;
             }
             expect(foundException,isTrue);
@@ -62,7 +62,7 @@ testComponentHandler() {
                 mdlComponent(element);
             } on String catch(e) {
 
-                expect(e,"input is not a MdlComponent!!!");
+                expect(e,"input is not a MdlComponent!!! (ID: checkbox-to-downgrade)");
                 foundException = true;
             }
             expect(foundException,isTrue);
@@ -90,7 +90,7 @@ testComponentHandler() {
                 mdlComponent(element);
             } on String catch(e) {
 
-                expect(e,"input is not a MdlComponent!!!");
+                expect(e,"input is not a MdlComponent!!! (ID: checkbox-to-downgrade-with-ripples)");
                 foundException = true;
             }
             expect(foundException,isTrue);
@@ -112,7 +112,7 @@ testComponentHandler() {
                 mdlComponent(element);
             } on String catch(e) {
 
-                expect(e,"div is not a MdlComponent!!!");
+                expect(e,"div is not a MdlComponent!!! (ID: tab-to-downgrade)");
                 foundException = true;
             }
             expect(foundException,isTrue);

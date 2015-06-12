@@ -33,6 +33,8 @@ import 'package:console_log_handler/console_log_handler.dart';
 
 import "package:mdl/mdl.dart";
 
+part "core/componenthandler_test.dart";
+
 part "components/accordion_test.dart";
 part "components/button_test.dart";
 part "components/checkbox_test.dart";
@@ -41,7 +43,7 @@ part "components/data-table_test.dart";
 part "components/layout_test.dart";
 part "components/menu_test.dart";
 
-part "componenthandler/componenthandler_test.dart";
+part "template/components/repeat_test.dart";
 
 /**
  * run the test with your favorit webserver.
@@ -64,6 +66,8 @@ main() async {
 
     await initComponents();
 
+    testComponentHandler();
+
     testAccordion();
     testButton();
     testCheckbox();
@@ -72,7 +76,7 @@ main() async {
     testLayout();
     testMenu();
 
-    testComponentHandler();
+    testRepeat();
 }
 
 void configLogging() {
