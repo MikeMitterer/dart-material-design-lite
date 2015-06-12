@@ -151,11 +151,16 @@ class MaterialRepeat extends MdlTemplateComponent {
     Future _init() async {
         _logger.info("MaterialRepeat - init");
 
-        _template = element.innerHtml.trim()
+        final dom.Element templateBlock = element.querySelector(".mdl-repeat--template");
+        final dom.DivElement temp = new dom.DivElement();
+        temp.append(templateBlock);
+
+        _template = temp.innerHtml.trim()
             .replaceAll(new RegExp(r"\s+")," ")
             .replaceAll('mdl-repeat--template','mdl-repeat--template-upgraded');
 
-        element.innerHtml = "";
+        templateBlock.remove();
+        temp.remove();
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
 
