@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,27 +8,29 @@
     <title>Material Design Lite</title>
     <!-- Add to homescreen -->
     <!--<link rel="manifest" href="manifest.json">-->
-    <!-- Fallback to homescreen for Chrome <39 on Android -->
+    <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Material Design Lite">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <link rel="icon" sizes="192x192" href="assets/images/touch/chrome-touch-icon-192x192.png">
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/touch/touch-icon-60x60-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch/touch-icon-76x76-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch/touch-icon-120x120-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch/touch-icon-152x152-ipad-retina.png">
     <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-    <meta name="theme-color" content="#3372DF">
+    <meta name="msapplication-TileImage" content="assets/images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#607d8b">
+    <meta name="theme-color" content="#607d8b">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
     <link rel="stylesheet" href="packages/prettify/styles/light.css">
     <script type="text/javascript" src="packages/prettify/js/prettify.js"></script>
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
     <link rel="canonical" href="http://www.example.com/">
     -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-    <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <!-- Styleguide does not include fonts - it uses the MDL/Dart fonts via SCSS (styleguide.scss)
     <!-- Page styles -->
     <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
     <link rel="stylesheet" href="styleguide.css">

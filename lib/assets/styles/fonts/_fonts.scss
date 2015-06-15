@@ -1,40 +1,4 @@
-//$icon-font-path : "packages/mdl/assets/fonts" !default;
-//
-//@font-face {
-//    font-family : 'Material-Design-Iconic-Font';
-//
-//    src         : url($icon-font-path + '/'  + 'Material-Design-Iconic-Font.eot?v=1.1.1');
-//
-//    src         : url($icon-font-path + '/' + 'Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'),
-//                  url($icon-font-path + '/' + 'Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'),
-//                  url($icon-font-path + '/' + 'Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
-//
-//    font-weight : normal;
-//    font-style  : normal;
-//}
+$icon-font-path : "./packages/mdl/assets/fonts" !default;
 
-//@font-face {
-//    font-family: 'Material-Design-Iconic-Font';
-//    src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?v=1.1.1');
-//    src: url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.eot?#iefix&v=1.1.1') format('embedded-opentype'),
-//    url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.woff?v=1.1.1') format('woff'),
-//    url('https://storage.googleapis.com/materialdesignlite/Material-Design-Iconic-Font.ttf?v=1.1.1') format('truetype');
-//    font-weight: normal;
-//    font-style: normal;
-//}
-
-/* ==========  TYPOGRAPHY  ========== */
-
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-
-$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
-$performance_font: 'Helvetica', 'Arial', sans-serif !default;
+@import "../../fonts/material/material";
+@import "../../fonts/roboto/roboto";

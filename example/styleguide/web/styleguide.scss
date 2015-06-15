@@ -1,7 +1,9 @@
+
+@import "packages/mdl/assets/styles/fonts/fonts";
+
 //@import "packages/mdl/assets/themes/amber-indigo/material-design-lite";
 //@import "packages/mdl/assets/styles/material-design-lite";
 
-@import "packages/mdl/assets/styles/fonts/fonts";
 // for layout
 // @import "packages/mdl/assets/styles/icons/icons";
 @import "packages/mdl/assets/styles/mixins/mixins";
@@ -166,8 +168,10 @@ body {
     //    margin-bottom : 12px;
     //}
 
-    h2, h3 {
+    h1, h2, h3, h4, h5 {
         font-size: 24px;
-        line-height: 24px;
+        line-height: 1.3;
+
+        color: $color-primary-dark;
     }
 }

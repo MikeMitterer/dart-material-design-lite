@@ -280,7 +280,7 @@ class RepeatController extends DemoController {
     bool stop = false;
 
     @override
-    void loaded(final Route route) async {
+    void loaded(final Route route) {
         super.loaded(route);
 
         bool swapping = false;
@@ -309,16 +309,6 @@ class RepeatController extends DemoController {
             names.add(new Name("Name: $i", removeCallback));
         }
 
-        await Future.forEach(names, (final name) async {
-            await repeater.add(name);
-        });
-
-        final Name name = names.getRange(1, 2).first; // Mike
-        final String idForCheckbox = "#check-${name.id}";
-
-        final MaterialCheckbox checkbox = MaterialCheckbox.widget(dom.querySelector(idForCheckbox));
-        checkbox.check();
-
         void _swapItems() {
             final int FPS = (1000 / 5).ceil();
             int index = 0;
@@ -337,7 +327,7 @@ class RepeatController extends DemoController {
 
                 Timer timer;
                 timer = new Timer(new Duration(milliseconds: (i + 1) * FPS), () async {
-                    if(stop) { timer.cancel(); swapping = false; return; }
+                    if(stop) { timer.cancel(); swapping = false; return new Future(() {}); }
 
                     _logger.fine("InnerSwap $index1 with $index2");
 
@@ -356,7 +346,21 @@ class RepeatController extends DemoController {
                 index++;
             }
         }
-        _swapItems();
+
+        Future.forEach(names, (final name) async {
+            await repeater.add(name);
+
+        }).then((_) {
+
+            final Name name = names.first; // Nicki
+            final String idForCheckbox = "#check-${name.id}";
+
+            final MaterialCheckbox checkbox = MaterialCheckbox.widget(dom.querySelector(idForCheckbox));
+            checkbox.check();
+
+            _swapItems();
+        });
+
     }
 
     @override

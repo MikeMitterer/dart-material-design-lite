@@ -41,6 +41,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -321,6 +332,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -2254,17 +2276,6 @@ Palettes (10 colors) 50 - 900 possible
 .mdl-color-text--accent-A700 {
   color: #c51162 !important; }
 
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
 /* Typography */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -2305,6 +2316,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -2797,6 +2819,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -2914,6 +2947,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -3037,6 +3081,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -3152,6 +3207,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -3430,6 +3496,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -3617,6 +3694,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -3855,6 +3943,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -4021,6 +4120,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -4081,17 +4191,162 @@ Palettes (10 colors) 50 - 900 possible
 /* SHADOWS */
 /* GRID */
 /* DATA TABLE */
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
+.mdl-icon--spin {
+  -webkit-animation: mdl-icon--spin 2s infinite linear;
+  animation: mdl-icon--spin 2s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+      transform-origin: 50% 50%; }
+
+.mdl-icon--pulse {
+  -webkit-animation: mdl-icon--pulse 1500ms infinite linear;
+  animation: mdl-icon--pulse 5s infinite linear;
+  -webkit-transform-origin: 70% 70%;
+  -ms-transform-origin: 70% 50%;
+      transform-origin: 70% 50%; }
+
+@-webkit-keyframes mdl-icon--spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@keyframes mdl-icon--spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@-webkit-keyframes mdl-icon--pulse {
+  0% {
+    -webkit-transform: scale(1); }
+
+  30% {
+    -webkit-transform: scale(1); }
+
+  40% {
+    -webkit-transform: scale(1.08); }
+
+  50% {
+    -webkit-transform: scale(1); }
+
+  60% {
+    -webkit-transform: scale(0.9); }
+
+  70% {
+    -webkit-transform: scale(1.05); }
+
+  80% {
+    -webkit-transform: scale(1); }
+
+  100% {
+    -webkit-transform: scale(1); } }
+
+@keyframes mdl-icon--pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+
+  30% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+
+  40% {
+    -webkit-transform: scale(1.08);
+            transform: scale(1.08); }
+
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+
+  60% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95); }
+
+  70% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); }
+
+  80% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+.mdl-icon--rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.mdl-icon--rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.mdl-icon--rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg); }
+
+.mdl-icon--flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
+
+.mdl-icon--flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1); }
+
+:root .mdl-icon--rotate-90, :root .mdl-icon--rotate-180, :root .mdl-icon--rotate-270, :root .mdl-icon--flip-horizontal, :root .mdl-icon--flip-vertical {
+  -webkit-filter: none;
+          filter: none; }
+
+.mdl-icon--bounce {
+  display: inline-block;
+  position: relative;
+  -webkit-animation: mdl-icon--bounce 1s infinite linear;
+  animation: mdl-icon--bounce 1s infinite linear; }
+
+@-webkit-keyframes mdl-icon--bounce {
+  0% {
+    top: 0; }
+
+  50% {
+    top: -0.15em; }
+
+  70% {
+    top: -0.18em; }
+
+  100% {
+    top: -0.05em; } }
+
+@keyframes mdl-icon--bounce {
+  0% {
+    top: 0; }
+
+  50% {
+    top: -0.15em; }
+
+  70% {
+    top: -0.18em; }
+
+  100% {
+    top: -0.05em; } }
+
 /* ==========  Icon Toggles  ========== */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -4132,6 +4387,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -4307,6 +4573,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -4568,6 +4845,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -4732,6 +5020,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -5196,6 +5495,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5438,6 +5748,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -5661,6 +5982,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6282,6 +6614,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -6431,6 +6774,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6630,6 +6984,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -6984,6 +7349,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -7440,6 +7816,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7672,6 +8059,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -7869,6 +8267,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8087,6 +8496,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8229,6 +8649,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8430,6 +8861,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -8564,6 +9006,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -8752,6 +9205,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9113,6 +9577,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9283,6 +9758,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
@@ -9508,6 +9994,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-grey
     palette-blue-grey
 */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
 /* ==========  Components  ========== */
@@ -9620,6 +10117,17 @@ Palettes (10 colors) 50 - 900 possible
     palette-brown
     palette-grey
     palette-blue-grey
+*/
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
 */
 /* ==========  Color & Themes  ========== */
 /* ==========  Typography  ========== */
