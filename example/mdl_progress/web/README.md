@@ -1,9 +1,7 @@
-#Progress
-
 ##Introduction
 The Material Design Lite (MDL) **progress** component is a visual indicator of background activity in a web page or application. A progress indicator consists of a (typically) horizontal bar containing some animation that conveys a sense of motion. While some progress devices indicate an approximate or specific percentage of completion, the MDL progress component simply communicates the fact that an activity is ongoing and is not yet complete.
 
-Progress indicators are an established but non-standardized feature in user interfaces, and provide users with a visual clue to an application's status. Their design and use is therefore an important factor in the overall user experience. See the progress component's [Material Design specifications page](http://www.google.com/design/spec/components/progress-activity.html) for details. 
+Progress indicators are an established but non-standardized feature in user interfaces, and provide users with a visual clue to an application's status. Their design and use is therefore an important factor in the overall user experience. See the progress component's [Material Design specifications page](http://www.google.com/design/spec/components/progress-activity.html) for details.
 
 ###To include an MDL **progress** component:
 
@@ -26,7 +24,8 @@ A static (non-animated) progress indicator.
 
 An active (animated) progress indicator.
 ```html
-<div id="progactive" style="width:200px" class="mdl-js-progress mdl-progress__indeterminate"></div>
+<div id="progactive" style="width:200px" class="mdl-js-progress
+ mdl-progress__indeterminate"></div>
 ```
 
 ##Configuration options
@@ -43,4 +42,3 @@ For working examples of the **progress** component, see the MDL [progress demo p
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.
-

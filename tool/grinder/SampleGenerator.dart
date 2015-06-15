@@ -77,9 +77,9 @@ class SampleGenerator {
                 sitegenIndexHtml.writeAsStringSync(contentTemplate);
             }
 
-            if(sample.name != "typography") {
-                Utils.optimizeHeaderTags(sitegenIndexHtml);
-            }
+//            if(sample.name != "typography") {
+//                Utils.optimizeHeaderTags(sitegenIndexHtml);
+//            }
 
             if(!sample.hasOwnDartMain) {
                 final File targetDartMain = new File("${webDir.path}/main.dart");

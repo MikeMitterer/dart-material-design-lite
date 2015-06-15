@@ -133,7 +133,9 @@ class Styleguide {
         content = buffer.toString().replaceAll(new RegExp(r"(?:(^\s*\n){1})",multiLine: true),"");
         targetSample.writeAsStringSync(content);
 
-        Utils.optimizeHeaderTags(targetSample);
+//        if(sample.name != "typography") {
+//            Utils.optimizeHeaderTags(targetSample);
+//        }
     }
 
     void _createUsageContentInStyleguide(final Sample sample) {
@@ -261,8 +263,7 @@ class Styleguide {
             if(result.exitCode != 0) {
                 log(result.stderr);
             } else {
-                Utils.optimizeHeaderTags(targetReadme);
-                //log("    ${targetReadme.path} created...");
+                // Utils.optimizeHeaderTags(targetReadme);
             }
         }
     }

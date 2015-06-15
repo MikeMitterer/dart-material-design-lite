@@ -1,5 +1,3 @@
-#Text field
-
 ##Introduction
 The Material Design Lite (MDL) **text field** component is an enhanced version of the standard HTML `<input type="text">` and `<input type="textarea">` elements. A text field consists of a horizontal line indicating where keyboard input can occur and, typically, text that clearly communicates the intended contents of the text field. The MDL text field component provides various types of text fields, and allows you to add both display and click effects.
 
@@ -130,7 +128,8 @@ Multi-line text field with one visible input line and floating label.
 Multi-line text field with multiple visible input lines and a maximum number of lines.
 ```html
 <div class="mdl-textfield mdl-js-textfield">
-  <textarea class="mdl-textfield__input" type="text" rows="3" maxrows="6" id="schools"></textarea>
+  <textarea class="mdl-textfield__input" type="text" rows="3" maxrows="6"
+   id="schools"></textarea>
   <label class="mdl-textfield__label" for="schools">Schools attended (max. 6)</label>
 </div>
 ```
@@ -225,13 +224,16 @@ Expandable text field with a standard label.
 
 Expandable text field with a floating label.
 ```html
-<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label">
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+ mdl-textfield--floating-label">
   <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable2">
     <i class="material-icons">search</i>
   </label>
   <div class="mdl-textfield__expandable-holder">
     <input class="mdl-textfield__input" type="text" id="search-expandable2" />
-    <label class="mdl-textfield__label" for="search-expandable2">Enter search text below</label>
+    <label class="mdl-textfield__label" for="search-expandable2">
+      Enter search text below
+    </label>
   </div>
 </div>
 ```

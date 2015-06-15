@@ -1,5 +1,3 @@
-#Menu
-
 ##Introduction
 The Material Design Lite (MDL) **menu** component is a user interface element that allows users to select one of a number of options. The selection typically results in an action initiation, a setting change, or other observable effect. Menu options are always presented in sets of two or more, and options may be programmatically enabled or disabled as required. The menu appears when the user is asked to choose among a series of options, and is usually dismissed after the choice is made.
 
@@ -26,7 +24,7 @@ Menus are an established but non-standardized feature in user interfaces, and al
   <li>Pause</li>
 </ul>
 ```
-&nbsp;4. Add one or more MDL classes, separated by spaces, to the button element using the `class` attribute.
+&nbsp;4. Add one or more MDL classes, separated by spaces, to the button and span elements using the `class` attribute.
 ```html
 <button id="menu1" class="mdl-button mdl-js-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
@@ -86,6 +84,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-button` | Defines button as an MDL component | Required on button element |
 | `mdl-js-button` | Assigns basic MDL behavior to button | Required on button element |
 | `mdl-button--icon` | Applies *icon* (small plain circular) display effect to button | Required on button element |
+| `material-icons` | Defines span as a material icon | Required on an inline element |
 | `mdl-menu` | Defines an unordered list container as an MDL component | Required on ul element |
 | `mdl-menu__item` | Defines buttons as MDL menu options and assigns basic MDL behavior | Required on list item elements |
 | `mdl-js-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on unordered list element |
@@ -94,7 +93,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-menu--top-right` | Positions menu above button, aligns right edge of menu with button | Optional; goes on unordered list element |
 | `mdl-menu--bottom-right` | Positions menu below button, aligns right edge of menu with button | Optional; goes on unordered list element |
 
-(1) The "more_vert" icon is used here as an example. Other icons can be used by modifying the text. For a list of available icons, see [this page](https://www.google.com/design/icons).
+(1) The "more-vert" icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see [this page](http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html); hover over an icon to see its class name.
 
 >**Note:** Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<li class="mdl-menu__item" disabled>Medium</li>`
 >This attribute may be added or removed programmatically via scripting.

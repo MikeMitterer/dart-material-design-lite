@@ -114,7 +114,7 @@ void createSampleList() {
     samples.add(new Sample("animation", Type.Core,  hasReadme: false, hasOwnDartMain: true)..jsFile = "demo.js" );
     samples.add(new Sample("badge",     Type.Core,  hasScript: false, hasReadme: false, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("button",    Type.Core,  hasOwnDemoHtml: true ));
-    samples.add(new Sample("card",      Type.Core,  hasScript: false));
+    samples.add(new Sample("card",      Type.Core,  hasScript: false, hasOwnDemoHtml: true));
     samples.add(new Sample("checkbox",  Type.Core,  hasDemoCss: false));
     samples.add(new Sample("data-table",Type.Core,  hasDemoCss: false, hasReadme: false));
 

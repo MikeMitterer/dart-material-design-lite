@@ -1,6 +1,4 @@
-<h4 id="layout-module">Layout module</h4>
-<p>The layout module allows you to build layouts easily, simply by adding a few CSS classes. Everybody loves CSS classes.</p>
-<h5 id="basic-example">Basic Example</h5>
+<h2 id="basic-example">Basic Example</h2>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -26,47 +24,47 @@
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;demo-content&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
   <span class="kw">&lt;/main&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
-<h5 id="layout">Layout</h5>
+<h2 id="layout">Layout</h2>
 <p>The container element.</p>
-<h5 id="options">Options</h5>
+<h3 id="options">Options</h3>
 <ul>
 <li><p><code>mdl-layout--fixed-header</code>:<br /> By default, headers are only shown in larger screens. Using this option makes them visible in smaller screens as well.</p></li>
 <li><p><code>mdl-layout--fixed-drawer</code>:<br /> By default, drawers are only shown in smaller screens. Using this option makes them always visible and open in larger screens, effectively functioning as side navigation. They still open and close normally in smaller screens, to save screen real estate.</p></li>
 <li><p><code>mdl-layout--overlay-drawer-button</code>:<br /> By default, the drawer button pushes down the content, to avoid overlapping issues. You can use this option if you'd like to overlay the drawer button directly on top of the content.</p></li>
 </ul>
-<h5 id="state">State</h5>
+<h3 id="state">State</h3>
 <ul>
 <li><code>is-small-screen</code>:<br /> Utility class that gets added to the layout when in a small screen size.</li>
 </ul>
-<h5 id="mdl-layout__header">mdl-layout__header</h5>
+<h2 id="mdl-layout__header">mdl-layout__header</h2>
 <p>The header element (optional). By default, it's only shown in large screens.</p>
-<h5 id="options-1">Options</h5>
+<h3 id="options-1">Options</h3>
 <ul>
 <li><p><code>mdl-layout__header--transparent</code>:<br /> Makes the background transparent, instead of the default main palette color.</p></li>
 <li><p><code>mdl-layout__header--seamed</code>:<br /> By default, the header casts a shadow onto the content. This option removes the shadow altogether.</p></li>
 <li><p><code>mdl-layout__header--waterfall</code>:<br /> By default, the header casts a shadow onto the content. This option removes the shadow when the page is at the top of the content, and only shows the shadow if the user has scrolled down.</p></li>
 <li><p><code>mdl-layout__header--scroll</code>:<br /> By default, the header stays fixed at the top. This option makes it scroll with the content, so it's only visible at the top of the page.</p></li>
 </ul>
-<h5 id="state-1">State</h5>
+<h3 id="state-1">State</h3>
 <ul>
 <li><code>is-compact</code>:<br /> Utility class that gets added to the header when in waterfall mode the user has scrolled down, and thus the header has collapsed to a single row.</li>
 </ul>
-<h5 id="sub-elements">Sub-elements</h5>
+<h3 id="sub-elements">Sub-elements</h3>
 <ul>
 <li><code>mdl-layout__header-row</code>:<br /> Used inside the header for adding a new row. Headers need at least one of these. Example:</li>
 </ul>
 <p><code>html   &lt;header class=&quot;mdl-layout__header mdl-layout__header--tall&quot;&gt;     &lt;div class=&quot;mdl-layout__header-row&quot;&gt;       &lt;span&gt;Upper row&lt;/span&gt;     &lt;/div&gt;     &lt;div class=&quot;mdl-layout__header-row&quot;&gt;       &lt;span&gt;Middle row&lt;/span&gt;     &lt;/div&gt;     &lt;div class=&quot;mdl-layout__header-row&quot;&gt;       &lt;span&gt;Bottom row&lt;/span&gt;     &lt;/div&gt;   &lt;/header&gt;</code></p>
-<h5 id="mdl-layout__drawer">mdl-layout__drawer</h5>
+<h2 id="mdl-layout__drawer">mdl-layout__drawer</h2>
 <p>The drawer element (optional). By default, it's only shown in small screens, as a collapsible panel.</p>
-<h5 id="options-2">Options</h5>
+<h3 id="options-2">Options</h3>
 <p>None.</p>
-<h5 id="state-2">State</h5>
+<h3 id="state-2">State</h3>
 <ul>
 <li><code>is-visible</code>:<br /> This class is added to the drawer when it is currently visible.</li>
 </ul>
-<h5 id="mdl-layout__tab-bar">mdl-layout__tab-bar</h5>
+<h2 id="mdl-layout__tab-bar">mdl-layout__tab-bar</h2>
 <p>Tabs (optional). Used for tabbing the entire layout. Tabs live inside the header.</p>
-<h5 id="example">Example</h5>
+<h3 id="example">Example</h3>
 <pre class="sourceCode html"><code class="sourceCode html">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;demo-container&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--fixed-header&quot;</span><span class="kw">&gt;</span>
       <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
@@ -97,23 +95,24 @@
       <span class="kw">&lt;/main&gt;</span>
     <span class="kw">&lt;/div&gt;</span>
   <span class="kw">&lt;/div&gt;</span></code></pre>
-<h5 id="options-3">Options</h5>
+<h3 id="options-3">Options</h3>
 <ul>
-<li><code>mdl-layout--fixed-tabs</code>:<br /> Uses fixed tabs, rather than the default scrollable tabs.</li>
+<li><p><code>mdl-js-layout</code>:<br /> Applied to tabs' parent (header), makes the header collapse when scrolled.</p></li>
+<li><p><code>mdl-layout--fixed-tabs</code>:<br /> Uses fixed tabs, rather than the default scrollable tabs.</p></li>
 </ul>
-<h5 id="state-3">State</h5>
+<h3 id="state-3">State</h3>
 <ul>
 <li><code>is-active</code>:<br /> Used in tabs and panels to indicate which are active (i.e., selected/displayed).</li>
 </ul>
-<h5 id="sub-elements-1">Sub-elements</h5>
+<h3 id="sub-elements-1">Sub-elements</h3>
 <ul>
 <li><p><code>mdl-layout__tab-bar</code>:<br /> Container element for the various tabs.</p></li>
 <li><p><code>mdl-layout__tab</code>:<br /> An individual tab. Should contain the tab title (or icon).</p></li>
 <li><p><code>mdl-layout__tab-panel</code>:<br /> An individual panel of tabbed content. Linked to the corresponding tab via its ID.</p></li>
 </ul>
-<h5 id="mdl-layout__content">mdl-layout__content</h5>
+<h2 id="mdl-layout__content">mdl-layout__content</h2>
 <p>Your content goes here :)</p>
-<h5 id="other-options">Other options</h5>
+<h2 id="other-options">Other options</h2>
 <ul>
 <li><p><code>mdl-layout--large-screen-only</code>:<br /> Displays the element in large screens, and hides it in small screens. Example:<br /> <code>html   &lt;header class=&quot;mdl-layout__header&quot;&gt; &lt;div class=&quot;mdl-layout__header-row&quot;&gt;   &lt;span class=&quot;mdl-layout--large-screen-only&quot;&gt;     Some long text that only fits in larger screens.   &lt;/span&gt;   &lt;span class=&quot;mdl-layout--small-screen-only&quot;&gt;Short text&lt;/span&gt; &lt;/div&gt;   &lt;/header&gt;</code></p></li>
 <li><p><code>mdl-layout--small-screen-only</code>:<br /> Displays the element in small screens, and hides it in large screens.</p></li>

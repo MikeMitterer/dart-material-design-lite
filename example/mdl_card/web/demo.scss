@@ -17,10 +17,16 @@
 .demo-page--card, .demo-section--card {
 
     .mdl-card {
-        margin: 20px;
+        margin-bottom: 24px;
+
+        width: auto;
     }
 
     .demo-card--wide {
         width: 600px;
+
+        .is-small-screen & {
+            width: auto;
+        }
     }
 }

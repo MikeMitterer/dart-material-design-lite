@@ -19,8 +19,18 @@
 
 .demo-page--dialog, .demo-section--dialog {
     .demo-button {
-        display: inline-block;
-        margin: 20px 20px 20px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        margin: 0 20px 0px 0;
+
+        .mdl-button {
+            margin-top: 12px;
+        }
     }
 
     .custom-dialog {

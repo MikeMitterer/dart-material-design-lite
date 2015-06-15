@@ -1,9 +1,7 @@
-#Slider
-
 ##Introduction
-The Material Design Lite (MDL) **slider** component is an enhanced version of the new HTML5 `<input type="range">` element. A slider consists of a horizontal line upon which sits a small, movable disc (the *thumb*) and, typically, text that clearly communicates a value that will be set when the user moves it. 
+The Material Design Lite (MDL) **slider** component is an enhanced version of the new HTML5 `<input type="range">` element. A slider consists of a horizontal line upon which sits a small, movable disc (the *thumb*) and, typically, text that clearly communicates a value that will be set when the user moves it.
 
-Sliders are a fairly new feature in user interfaces, and allow users to choose a value from a predetermined range by moving the thumb through the range (lower values to the left, higher values to the right). Their design and use is an important factor in the overall user experience. See the slider component's [Material Design specifications page](http://www.google.com/design/spec/components/sliders.html) for details. 
+Sliders are a fairly new feature in user interfaces, and allow users to choose a value from a predetermined range by moving the thumb through the range (lower values to the left, higher values to the right). Their design and use is an important factor in the overall user experience. See the slider component's [Material Design specifications page](http://www.google.com/design/spec/components/sliders.html) for details.
 
 The enhanced slider component may be initially or programmatically *disabled*.
 
@@ -27,7 +25,8 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 &nbsp;3. Add one or more MDL classes, separated by spaces, to the slider using the `class` attribute.
 ```html
 <p style="width:300px">
-  <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
+  <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4"
+   step="2" />
 </p>
 ```
 
@@ -37,7 +36,8 @@ The slider component is ready for use.
 A slider that controls volume.
 ```html
 <p style="width:300px">
-<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2" />
+<input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4"
+ step="2" />
 </p>
 ```
 
@@ -58,4 +58,3 @@ For working examples of the **slider** component, see the MDL [slider demo page]
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.
-

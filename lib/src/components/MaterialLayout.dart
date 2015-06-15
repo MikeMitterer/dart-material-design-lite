@@ -162,7 +162,7 @@ class MaterialLayout extends MdlComponent {
 
             final List<dom.Element> directChildren = element.childNodes;
 
-            directChildren.forEach((final dom.Element child) {
+            directChildren.forEach((final child) {
 
                 if(child is dom.Element) {
 

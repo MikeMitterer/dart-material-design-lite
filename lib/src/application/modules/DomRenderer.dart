@@ -73,8 +73,8 @@ class DomRenderer {
                     var oldElement = parent.childNodes.last;
                     if(oldElement is dom.Element) {
                         oldElement.style.display = "none";
+                        (componentHandler().downgradeElement(oldElement));
                     }
-                    (componentHandler().downgradeElement(oldElement));
                     oldElement.remove();
                     //_logger.info("Old element removed!");
                 }

@@ -63,12 +63,11 @@ main() &#123;
                 </div>
                 <!-- CSS-Tab -->
                 <div class="mdl-tabs__panel" id="css">
-<h4 id="slider">Slider</h4>
-<h5 id="introduction">Introduction</h5>
+<h2 id="introduction">Introduction</h2>
 <p>The Material Design Lite (MDL) <strong>slider</strong> component is an enhanced version of the new HTML5 <code>&lt;input type=&quot;range&quot;&gt;</code> element. A slider consists of a horizontal line upon which sits a small, movable disc (the <em>thumb</em>) and, typically, text that clearly communicates a value that will be set when the user moves it.</p>
 <p>Sliders are a fairly new feature in user interfaces, and allow users to choose a value from a predetermined range by moving the thumb through the range (lower values to the left, higher values to the right). Their design and use is an important factor in the overall user experience. See the slider component's <a href="http://www.google.com/design/spec/components/sliders.html">Material Design specifications page</a> for details.</p>
 <p>The enhanced slider component may be initially or programmatically <em>disabled</em>.</p>
-<h5 id="to-include-an-mdl-slider-component">To include an MDL <strong>slider</strong> component:</h5>
+<h3 id="to-include-an-mdl-slider-component">To include an MDL <strong>slider</strong> component:</h3>
 <p> 1. Code a <code>&lt;p&gt;</code> paragraph element and style it as desired. Include a CSS <code>width</code> property (directly or via a CSS class), which determines the slider's size.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> style=</span><span class="st">&quot;width:300px&quot;</span><span class="kw">&gt;</span>
 ...
@@ -79,15 +78,17 @@ main() &#123;
 <span class="kw">&lt;/p&gt;</span></code></pre>
 <p> 3. Add one or more MDL classes, separated by spaces, to the slider using the <code>class</code> attribute.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> style=</span><span class="st">&quot;width:300px&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-slider mdl-js-slider&quot;</span><span class="ot"> type=</span><span class="st">&quot;range&quot;</span><span class="ot"> id=</span><span class="st">&quot;s1&quot;</span><span class="ot"> min=</span><span class="st">&quot;0&quot;</span><span class="ot"> max=</span><span class="st">&quot;10&quot;</span><span class="ot"> value=</span><span class="st">&quot;4&quot;</span><span class="ot"> step=</span><span class="st">&quot;2&quot;</span> <span class="kw">/&gt;</span>
+  <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-slider mdl-js-slider&quot;</span><span class="ot"> type=</span><span class="st">&quot;range&quot;</span><span class="ot"> id=</span><span class="st">&quot;s1&quot;</span><span class="ot"> min=</span><span class="st">&quot;0&quot;</span><span class="ot"> max=</span><span class="st">&quot;10&quot;</span><span class="ot"> value=</span><span class="st">&quot;4&quot;</span>
+<span class="ot">   step=</span><span class="st">&quot;2&quot;</span> <span class="kw">/&gt;</span>
 <span class="kw">&lt;/p&gt;</span></code></pre>
 <p>The slider component is ready for use.</p>
 <h4 id="example">Example</h4>
 <p>A slider that controls volume.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> style=</span><span class="st">&quot;width:300px&quot;</span><span class="kw">&gt;</span>
-<span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-slider mdl-js-slider&quot;</span><span class="ot"> type=</span><span class="st">&quot;range&quot;</span><span class="ot"> id=</span><span class="st">&quot;s1&quot;</span><span class="ot"> min=</span><span class="st">&quot;0&quot;</span><span class="ot"> max=</span><span class="st">&quot;10&quot;</span><span class="ot"> value=</span><span class="st">&quot;4&quot;</span><span class="ot"> step=</span><span class="st">&quot;2&quot;</span> <span class="kw">/&gt;</span>
+<span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-slider mdl-js-slider&quot;</span><span class="ot"> type=</span><span class="st">&quot;range&quot;</span><span class="ot"> id=</span><span class="st">&quot;s1&quot;</span><span class="ot"> min=</span><span class="st">&quot;0&quot;</span><span class="ot"> max=</span><span class="st">&quot;10&quot;</span><span class="ot"> value=</span><span class="st">&quot;4&quot;</span>
+<span class="ot"> step=</span><span class="st">&quot;2&quot;</span> <span class="kw">/&gt;</span>
 <span class="kw">&lt;/p&gt;</span></code></pre>
-<h5 id="configuration-options">Configuration options</h5>
+<h2 id="configuration-options">Configuration options</h2>
 <p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the slider. The table below lists the available classes and their effects.</p>
 <table>
 <thead>
@@ -113,9 +114,9 @@ main() &#123;
 <blockquote>
 <p><strong>Note:</strong> A disabled version of the slider is provided, and is invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot; id=&quot;s1&quot; min=&quot;0&quot; max=&quot;10&quot; value=&quot;4&quot; step=&quot;2&quot; disabled /&gt;</code><br />This attribute may be added or removed programmatically via scripting.</p>
 </blockquote>
-<h5 id="more-information">More information</h5>
+<h2 id="more-information">More information</h2>
 <p>For working examples of the <strong>slider</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/slider">slider demo page</a>.</p>
-<h5 id="license">License</h5>
+<h2 id="license">License</h2>
 <p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>
 
                 </div>

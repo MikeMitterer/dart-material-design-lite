@@ -1,9 +1,8 @@
-<h4 id="text-field">Text field</h4>
-<h5 id="introduction">Introduction</h5>
+<h2 id="introduction">Introduction</h2>
 <p>The Material Design Lite (MDL) <strong>text field</strong> component is an enhanced version of the standard HTML <code>&lt;input type=&quot;text&quot;&gt;</code> and <code>&lt;input type=&quot;textarea&quot;&gt;</code> elements. A text field consists of a horizontal line indicating where keyboard input can occur and, typically, text that clearly communicates the intended contents of the text field. The MDL text field component provides various types of text fields, and allows you to add both display and click effects.</p>
 <p>Text fields are a common feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the text field component's <a href="http://www.google.com/design/spec/components/text-fields.html">Material Design specifications page</a> for details.</p>
 <p>The enhanced text field component has a more vivid visual look than a standard text field, and may be initially or programmatically <em>disabled</em>.</p>
-<h5 id="to-include-a-single-line-mdl-text-field-component">To include a <em>single-line</em> MDL <strong>text field</strong> component:</h5>
+<h3 id="to-include-a-single-line-mdl-text-field-component">To include a <em>single-line</em> MDL <strong>text field</strong> component:</h3>
 <p> 1. Code a <code>&lt;div&gt;</code> element to hold the text field.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
 ...
@@ -47,7 +46,7 @@
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;phone&quot;</span><span class="kw">&gt;</span>Phone<span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__error&quot;</span><span class="kw">&gt;</span>Digits only<span class="kw">&lt;/span&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
-<h5 id="to-include-a-multi-line-mdl-text-field-component">To include a <em>multi-line</em> MDL <strong>text field</strong> component:</h5>
+<h3 id="to-include-a-multi-line-mdl-text-field-component">To include a <em>multi-line</em> MDL <strong>text field</strong> component:</h3>
 <p> 1. Code a <code>&lt;div&gt;</code> element to hold the text field.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
 ...
@@ -80,10 +79,11 @@
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p>Multi-line text field with multiple visible input lines and a maximum number of lines.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;textarea</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> rows=</span><span class="st">&quot;3&quot;</span><span class="ot"> maxrows=</span><span class="st">&quot;6&quot;</span><span class="ot"> id=</span><span class="st">&quot;schools&quot;</span><span class="kw">&gt;&lt;/textarea&gt;</span>
+  <span class="kw">&lt;textarea</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> rows=</span><span class="st">&quot;3&quot;</span><span class="ot"> maxrows=</span><span class="st">&quot;6&quot;</span>
+<span class="ot">   id=</span><span class="st">&quot;schools&quot;</span><span class="kw">&gt;&lt;/textarea&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;schools&quot;</span><span class="kw">&gt;</span>Schools attended (max. 6)<span class="kw">&lt;/label&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
-<h5 id="to-include-an-expandable-mdl-text-field-component">To include an <em>expandable</em> MDL <strong>text field</strong> component:</h5>
+<h3 id="to-include-an-expandable-mdl-text-field-component">To include an <em>expandable</em> MDL <strong>text field</strong> component:</h3>
 <p> 1. Code an &quot;outer&quot; <code>&lt;div&gt;</code> element to hold the expandable text field.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
 ...
@@ -151,16 +151,19 @@
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p>Expandable text field with a floating label.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable</span>
+<span class="st"> mdl-textfield--floating-label&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="ot"> for=</span><span class="st">&quot;search-expandable2&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>search<span class="kw">&lt;/i&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__expandable-holder&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;search-expandable2&quot;</span> <span class="kw">/&gt;</span>
-    <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;search-expandable2&quot;</span><span class="kw">&gt;</span>Enter search text below<span class="kw">&lt;/label&gt;</span>
+    <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;search-expandable2&quot;</span><span class="kw">&gt;</span>
+      Enter search text below
+    <span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
-<h5 id="configuration-options">Configuration options</h5>
+<h2 id="configuration-options">Configuration options</h2>
 <p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the text field. The table below lists the available classes and their effects.</p>
 <table>
 <thead>
@@ -232,7 +235,7 @@
 <blockquote>
 <p><strong>Note:</strong> Disabled versions of each text field type are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;input class=&quot;mdl-textfield mdl-js-textfield&quot; type=&quot;text&quot; disabled /&gt;</code><br />This attribute may be added or removed programmatically via scripting.</p>
 </blockquote>
-<h5 id="more-information">More information</h5>
+<h2 id="more-information">More information</h2>
 <p>For working examples of the <strong>text field</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/textfield">text field demo page</a>.</p>
-<h5 id="license">License</h5>
+<h2 id="license">License</h2>
 <p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>

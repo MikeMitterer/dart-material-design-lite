@@ -161,8 +161,13 @@ body {
 .demo-section {
     margin-top    : 24px;
 
-    h1, h2, h3, h4, h5 {
-        margin-top    : 24px;
-        margin-bottom : 12px;
+    //h1, h2, h3, h4, h5 {
+    //    margin-top    : 24px;
+    //    margin-bottom : 12px;
+    //}
+
+    h2, h3 {
+        font-size: 24px;
+        line-height: 24px;
     }
 }
