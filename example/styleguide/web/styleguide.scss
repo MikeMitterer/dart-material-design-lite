@@ -1,7 +1,8 @@
 @import "config";
 @import "packages/mdl/assets/styles/_config/show_config";
 
-//@import "packages/mdl/assets/styles/fonts/fonts";
+// Only needed to switch themes correctly!!!!!
+@import "packages/mdl/assets/styles/fonts/fonts";
 
 //@import "packages/mdl/assets/themes/amber-indigo/material-design-lite";
 //@import "packages/mdl/assets/styles/material-design-lite";
