@@ -6,9 +6,9 @@
     src: local('Roboto-Regular'),
     local('Roboto-Regular'),
 
-     url($icon-font-path + '/roboto/'  + 'Roboto-Regular.woff2') format('woff2'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Regular.woff') format('woff'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Regular.ttf') format('truetype');
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Regular.woff2') format('woff2'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Regular.woff') format('woff'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -19,9 +19,9 @@
     src: local('Roboto-Thin'),
     local('Roboto-Thin'),
 
-     url($icon-font-path + '/roboto/'  + 'Roboto-Thin.woff2') format('woff2'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Thin.woff') format('woff'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Thin.ttf') format('truetype');
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Thin.woff2') format('woff2'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Thin.woff') format('woff'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Thin.ttf') format('truetype');
 }
 
 @font-face {
@@ -32,9 +32,9 @@
     src: local('Roboto-Light'),
     local('Roboto-Light'),
 
-     url($icon-font-path + '/roboto/'  + 'Roboto-Light.woff2') format('woff2'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Light.woff') format('woff'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Light.ttf') format('truetype');
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Light.woff2') format('woff2'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Light.woff') format('woff'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Light.ttf') format('truetype');
 }
 
 @font-face {
@@ -45,9 +45,9 @@
     src: local('Roboto-Medium'),
     local('Roboto-Medium'),
 
-     url($icon-font-path + '/roboto/'  + 'Roboto-Medium.woff2') format('woff2'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Medium.woff') format('woff'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Medium.ttf') format('truetype');
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Medium.woff2') format('woff2'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Medium.woff') format('woff'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Medium.ttf') format('truetype');
 }
 
 @font-face {
@@ -58,7 +58,7 @@
     src: local('Roboto-Bold'),
     local('Roboto-Bold'),
 
-     url($icon-font-path + '/roboto/'  + 'Roboto-Bold.woff2') format('woff2'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Bold.woff') format('woff'),
-     url($icon-font-path + '/roboto/'  + 'Roboto-Bold.ttf') format('truetype');
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Bold.woff2') format('woff2'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Bold.woff') format('woff'),
+     url(package-root("assets/fonts/roboto/")  + 'Roboto-Bold.ttf') format('truetype');
 }

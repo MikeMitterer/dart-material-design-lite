@@ -17,6 +17,10 @@ $_show_config_info_for_mdl: 1 !default;
     package-root:          (package-root())                        #{package-root()}
     package-assets:        (package-assets("upload/sample.svg"))   #{package-assets("upload/sample.svg")}
 
+    Fonts:
+    ----------
+    Location:              (package-root("assets/fonts"))          #{package-root("assets/fonts")}
+
     Colors:
     ----------
     Theme:                  ($theme-name)                 #{$theme-name}
