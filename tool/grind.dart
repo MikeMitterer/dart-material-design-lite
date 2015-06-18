@@ -110,7 +110,7 @@ genStyleguide() {
 }
 
 @Task()
-@Depends(initSamples)
+@Depends(initSamples, genCss)
 genThemes() {
     final ThemeGenerator generator = new ThemeGenerator();
     generator.generate();

@@ -52,7 +52,6 @@ class MaterialButton extends MdlComponent {
 
     MaterialButton.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
-        _logger.fine("MaterialButton - CTOR");
         _init();
     }
 
@@ -87,7 +86,7 @@ class MaterialButton extends MdlComponent {
             eventStreams.add(rippleElement.onMouseUp.listen(_blurHandler));
             element.append(rippleContainer);
 
-            _logger.fine("MaterialButton - init done...");
+            _logger.finer("MaterialButton - init done...");
         }
 
         eventStreams.add(element.onMouseUp.listen(_blurHandler));
@@ -95,7 +94,7 @@ class MaterialButton extends MdlComponent {
     }
 
     void _blurHandler(final dom.MouseEvent event) {
-        _logger.fine("blur...");
+        _logger.finer("blur...");
         element.blur();
     }
 }

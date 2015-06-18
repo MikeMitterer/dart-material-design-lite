@@ -104,6 +104,10 @@ class EventCompiler {
 
             final List<dom.Element> elements = element.querySelectorAll("[data-${dataset}]");
 
+            if(elements.isNotEmpty) {
+                //_logger.info("Searching for '[data-${dataset}] in $element, found ${elements.length} subelements.");
+            }
+
             elements.forEach( (final dom.Element element) {
                 //_logger.info("$dataset for $element");
 
@@ -127,12 +131,13 @@ class EventCompiler {
                 }
 
                 datasets[dataset](element,(final dom.Event event) {
+                    //_logger.info("Compiled ${datasets[dataset]} for $element...");
                     _invokeFunction(myClassInstanceMirror,getFunctionName(),getParams(),event);
                 });
             });
 
         });
-        _logger.info("Events compiled...");
+        _logger.fine("Events compiled...");
     }
 
     //- private -----------------------------------------------------------------------------------

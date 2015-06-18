@@ -144,7 +144,7 @@ class MdlComponentHandler {
 
             _configs.forEach((final MdlConfig config) {
                 _upgradeDom(element,config);
-                _logger.fine("${config.selector} upgraded with ${config.classAsString}...");
+                _logger.finer("${config.selector} upgraded with ${config.classAsString}...");
             });
 
             element.classes.remove(_cssClasses.UPGRADING);
@@ -287,7 +287,7 @@ class MdlComponentHandler {
                 config.callbacks.forEach((final MdlCallback callback) => callback(element));
 
                 _markAsUpgraded();
-                _logger.fine("${config.classAsString} -> ${component}");
+                _logger.finer("${config.classAsString} -> ${component}");
 
                 // Makes it possible to query for the main element in this component.
                 var jsElement = new JsObject.fromBrowserObject(component.hub);

@@ -1,0 +1,10 @@
+@import "../variables/variables";
+
+$md5-fingerprint-f839391181:       "mdl";
+
+$package-name:                      $md5-fingerprint-f839391181;
+$package-assets:                    "assets/styles" !default;
+
+// relative to DOCROOT (web/assets/styles would be 2 for example)
+// packages/mdl/assets/styles/material.min.css would be 4
+$package-css-output-depth:          4 !default;

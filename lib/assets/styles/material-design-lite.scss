@@ -1,11 +1,18 @@
-/* Material Design Lite */
+//----------------------------------------------------------------------------------------------------------------------
+// Material Design Lite
+//----------------------------------------------------------------------------------------------------------------------
 
 // Material Colors
 @import "palette/color-definitions.scss";
 
-// Color-Theme
-// $palette-primary: $palette-red;
-// $palette-accent: $palette-pink; // All pallets except brown, grey and blue-grey
+// Color-Theme (default, defined in palette/_themes.scss)
+// $theme-name: "blue_grey-pink";
+// $palette-primary: $palette-blue-grey;
+// $palette-accent: $palette-pink;
+
+// Config for this package
+@import "_config/config";
+@import "_config/show_config";
 
 // Resets and dependencies
 @import "resets/resets";
