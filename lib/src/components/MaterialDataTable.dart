@@ -72,18 +72,18 @@ class MaterialDataTable extends MdlComponent {
             final dom.LabelElement headerCheckbox = _createCheckbox(null, rows);
             th.append(headerCheckbox);
             firstHeader.parent.insertBefore(th, firstHeader);
-        }
 
-        for (int i = 0; i < rows.length; i++) {
+            for (int i = 0; i < rows.length; i++) {
 
-            final dom.HtmlElement firstCell = rows[i].querySelector('td');
-            if (firstCell != null) {
+                final dom.HtmlElement firstCell = rows[i].querySelector('td');
+                if (firstCell != null) {
 
-                final dom.HtmlElement td = dom.document.createElement('td');
+                    final dom.HtmlElement td = dom.document.createElement('td');
 
-                final dom.LabelElement rowCheckbox = _createCheckbox(rows[i],null);
-                td.append(rowCheckbox);
-                rows[i].insertBefore(td, firstCell);
+                    final dom.LabelElement rowCheckbox = _createCheckbox(rows[i],null);
+                    td.append(rowCheckbox);
+                    rows[i].insertBefore(td, firstCell);
+                }
             }
         }
 

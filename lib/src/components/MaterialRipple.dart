@@ -72,6 +72,8 @@ class MaterialRipple extends MdlComponent {
     int _rippleSize = 0;
     int _x = 0;
     int _y = 0;
+    int _boundHeight = 0;
+    int _boundWidth = 0;
 
     // Touch start produces a compat mouse down event, which would cause a
     // second ripples. To avoid that, we use this property to ignore the first
@@ -118,7 +120,7 @@ class MaterialRipple extends MdlComponent {
             // mouse down after a touch start.
             _ignoringMouseDown = false;
 
-            _updateDimension();
+            //_updateDimension();
 
             eventStreams.add(element.onMouseDown.listen(_downHandler));
             eventStreams.add(element.onTouchStart.listen(_downHandler));
@@ -140,6 +142,15 @@ class MaterialRipple extends MdlComponent {
         //event.preventDefault();
         //event.stopPropagation();
 
+        if (rippleElement.style.width == null && rippleElement.style.height == null) {
+            final dom.Rectangle rect = element.getBoundingClientRect();
+            _boundHeight = rect.height;
+            _boundWidth = rect.width;
+            _rippleSize = (Math.sqrt(rect.width * rect.width + rect.height * rect.height) * 2 + 2).toInt();
+            rippleElement.style.width = "${_rippleSize}px";
+            rippleElement.style.height = "${_rippleSize}px";
+        }
+        
         rippleElement.classes.add(_cssClasses.IS_VISIBLE);
 
         if (event.type == 'mousedown' && _ignoringMouseDown) {
@@ -234,7 +245,7 @@ class MaterialRipple extends MdlComponent {
             } else {
                 scale = _constant.FINAL_SCALE;
                 if (_recentering) {
-                    offset = "translate(${bound.width / 2}px, ${bound.height / 2}'px)";
+                    offset = "translate(${_boundWidth / 2}px, ${_boundHeight / 2}'px)";
                 }
             }
 

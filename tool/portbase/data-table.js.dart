@@ -127,18 +127,18 @@ void init() {
       final headerCheckbox = _createCheckbox(null, rows);
       th.append(headerCheckbox);
       firstHeader.parent.insertBefore(th, firstHeader);
-    }
 
-    for (final i = 0; i < rows.length; i++) {
+      for (final i = 0; i < rows.length; i++) {
 
-      final firstCell = rows[i].querySelector('td');
-      if (firstCell) {
+        final firstCell = rows[i].querySelector('td');
+        if (firstCell) {
 
-        final td = document.createElement('td');
+          final td = document.createElement('td');
 
-        final rowCheckbox = _createCheckbox(rows[i]);
-        td.append(rowCheckbox);
-        rows[i].insertBefore(td, firstCell);
+          final rowCheckbox = _createCheckbox(rows[i]);
+          td.append(rowCheckbox);
+          rows[i].insertBefore(td, firstCell);
+        }
       }
     }
 

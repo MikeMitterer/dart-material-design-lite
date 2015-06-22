@@ -514,6 +514,13 @@ body {
 main {
   display: block; }
 
+/*
+* Apply no display to elements with the hidden attribute.
+* IE 9 and 10 support.
+*/
+*[hidden] {
+  display: none !important; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *

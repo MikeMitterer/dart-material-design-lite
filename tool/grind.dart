@@ -55,7 +55,9 @@ listSamples() {
 mergeMaster() {
     final MergeMaster mergemaster = new MergeMaster();
 
-    samples.where((final Sample sample) => sample.type == Type.Core).forEach((final Sample sample) {
+    samples.where((final Sample sample) => (sample.type == Type.Core || sample.type == Type.Ignore))
+        .forEach( (final Sample sample) {
+
         log("Name: ${sample.name.padRight(15)} ${sample.type}");
 
         mergemaster.copyOrigFiles(sample);

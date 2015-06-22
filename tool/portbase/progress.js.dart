@@ -56,7 +56,7 @@ void setProgress(final p) {
 void setBuffer(final p) {
 
   _bufferbar.style.width = p + '%';
-  _auxbar.style.width = (100-p) + '%';
+  _auxbar.style.width = (100 - p) + '%';
 }
 
 /// Initialize element.

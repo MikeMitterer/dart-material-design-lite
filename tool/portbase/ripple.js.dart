@@ -56,6 +56,17 @@ class _MaterialRippleCssClasses {
 /// MaterialRipple.prototype.downHandler_ = function(event) {
 void _downHandler(final html.Event event) {
 
+  if (!_rippleElement.style.width && !_rippleElement.style.height) {
+
+    final rect = element.getBoundingClientRect();
+    boundHeight = rect.height;
+    boundWidth = rect.width;
+    _rippleSize = Math.sqrt(rect.width * rect.width +
+        rect.height * rect.height) * 2 + 2;
+    _rippleElement.style.width = _rippleSize + 'px';
+    _rippleElement.style.height = _rippleSize + 'px';
+  }
+
   _rippleElement.classes.add(_cssClasses.IS_VISIBLE);
 
   if (event.type == 'mousedown' && _ignoringMouseDown) {
@@ -129,15 +140,6 @@ void init() {
       // mouse down after a touch start.
       _ignoringMouseDown = false;
 
-      if (_rippleElement) {
-
-        final bound = element.getBoundingClientRect();
-        _rippleSize = Math.sqrt(bound.width * bound.width +
-            bound.height * bound.height) * 2 + 2;
-        _rippleElement.style.width = _rippleSize + 'px';
-        _rippleElement.style.height = _rippleSize + 'px';
-      }
-
       _boundDownHandler = downHandler;
       element.addEventListener('mousedown',
         boundDownHandler);
@@ -192,8 +194,8 @@ void init() {
             scale = _constant.FINAL_SCALE;
             size = _rippleSize + 'px';
             if (recentering) {
-              offset = 'translate(' + bound.width / 2 + 'px, ' +
-                bound.height / 2 + 'px)';
+              offset = 'translate(' + boundWidth / 2 + 'px, ' +
+                boundHeight / 2 + 'px)';
             }
           }
 
@@ -224,7 +226,6 @@ void init() {
   }
 }
 
-/*
 /// Downgrade the component
 /// 
 /// MaterialRipple.prototype.mdlDowngrade_ = /*function*/ () {

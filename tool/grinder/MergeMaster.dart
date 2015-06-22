@@ -22,7 +22,7 @@ part of gensamples;
 class MergeMaster {
 
     void copyOrigFiles(final Sample sample) {
-        Validate.isTrue(sample.type == Type.Core);
+        Validate.isTrue(sample.type == Type.Core || sample.type == Type.Ignore);
         Validate.notNull(sample);
 
         final String mdlDir = config.mdldir;

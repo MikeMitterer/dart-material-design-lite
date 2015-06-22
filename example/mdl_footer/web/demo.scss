@@ -17,8 +17,10 @@
 .demo-page--footer, .demo-section--footer {
     padding: 0;
 
-    .mdl-mega-footer,
-    .mdl-mini-footer {
-        margin-bottom: 16px;
+    .mdl-layout__content {
+        .mdl-mega-footer,
+        .mdl-mini-footer {
+            margin-bottom: 16px;
+        }
     }
 }
