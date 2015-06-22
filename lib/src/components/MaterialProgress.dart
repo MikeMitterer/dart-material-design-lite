@@ -79,7 +79,8 @@ class MaterialProgress extends MdlComponent {
     static MaterialProgress widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialProgress;
 
     /// MaterialProgress.prototype.setProgress = function(p) {
-    void set progress(final int width) {
+    void set progress(int width) {
+        width = Math.max(0,Math.min(100,width));
 
         if (element.classes.contains(_cssClasses.INDETERMINATE_CLASS)) {
             return;
@@ -96,7 +97,9 @@ class MaterialProgress extends MdlComponent {
     }
 
     /// MaterialProgress.prototype.setBuffer = function(p) {
-    void set buffer(final int width) {
+    void set buffer(int width) {
+        width = Math.max(0,Math.min(100,width));
+
         _bufferbar.style.width = "${width}%";
         _auxbar.style.width = "${100 - width}%";
     }

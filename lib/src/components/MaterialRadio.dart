@@ -52,6 +52,8 @@ class _MaterialRadioCssClasses {
 
     final String RIPPLE = 'mdl-ripple';
 
+    final String GROUP = 'mdl-radio-group';
+
     const _MaterialRadioCssClasses();
 }
 
@@ -126,6 +128,8 @@ class MaterialRadio extends MdlComponent {
     /// @public
     /// MaterialRadio.prototype.check = /*function*/ () {
     void check() {
+
+        _uncheckSiblings();
 
         btnElement.checked = true;
         _updateClasses(btnElement, element);
@@ -249,5 +253,20 @@ class MaterialRadio extends MdlComponent {
         });
     }
 
+    /// Looks for the parent class .mdl-radio-group. If it finds the class
+    /// it iterates over its children and unchecks each mdl-radio child.
+    void _uncheckSiblings() {
+        if(element.parent.classes.contains(_cssClasses.GROUP)) {
+            final dom.HtmlElement group = element.parent;
+            group.children.forEach((final dom.Element child) {
+                final MaterialRadio widget = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
+
+                if(widget != null && widget != this) {
+                    widget.uncheck();
+                }
+
+            });
+        }
+    }
 }
 

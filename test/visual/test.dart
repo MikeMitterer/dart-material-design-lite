@@ -42,6 +42,8 @@ part "components/icon_toggle_test.dart";
 part "components/data-table_test.dart";
 part "components/layout_test.dart";
 part "components/menu_test.dart";
+part "components/progress_test.dart";
+part "components/radio_test.dart";
 
 part "template/components/repeat_test.dart";
 
@@ -75,6 +77,8 @@ main() async {
     testDataTable();
     testLayout();
     testMenu();
+    testProgress();
+    testRadio();
 
     testRepeat();
 }
