@@ -1,0 +1,116 @@
+//---
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+@import "../variables";
+
+$notification-baseline-grid:            8px !default;
+$notification-swift-ease-out-duration : 0.2s !default;
+
+$notification-height: $notification-baseline-grid * 3 !default;
+$notification-margin: $notification-baseline-grid * 1 !default;
+
+$notification-swift-ease-in-duration: 0.2s !default;
+$notification-swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
+$notification-swift-ease-in: all $notification-swift-ease-in-duration $notification-swift-ease-in-timing-function !default;
+
+$notification-swift-ease-out-duration : 0.2s !default;
+$notification-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
+$notification-swift-ease-out : all $notification-swift-ease-out-duration $notification-swift-ease-out-timing-function !default;
+
+$notification-z-index: 90 !default;
+
+$notification-layout-breakpoint-sm:     600px !default;
+
+$notification-color: invert($text-color-primary) !default;
+$notification-button-color: nth($palette-accent, 5) !default;
+$notification-background: nth($palette-grey, 9) !default;
+
+
+$notification-container-z-index: 3; // mdl-layout__drawer: 5
+$notification-container-width: 300px;
+
+.mdl-notification-container {
+    z-index: $notification-container-z-index;
+    position: absolute;
+    right : 12px;
+    top: 12px;
+    bottom: 12px;
+    min-width: $notification-container-width;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start; // ↓
+    align-content: space-between; // =
+    align-items: center; // ⇾
+
+    &.is-visible {
+        background-color: rgba(0, 0, 0, 0.25);
+        visibility: visible;
+
+        .mdl-notification {
+            opacity    : 1;
+            transition : $notification-swift-ease-in;
+            //transform  : translate3d(0, 0, 0) scale(1.0);
+        }
+    }
+
+    &.is-hidden {
+        .mdl-notification {
+            // hidden
+            opacity    : 0;
+            transition     : $notification-swift-ease-out;
+            //transform      : translate3d(0, 100%, 0) scale(0.2);
+        }
+    }
+
+    .mdl-notification {
+        background-color: white;
+
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        min-height: 48px;
+        min-width: $notification-container-width - 12px;
+        max-width: $notification-container-width - 12px;
+        width: $notification-container-width - 12px;
+
+        padding-left: 24px;
+        padding-right: 24px;
+
+        border-radius: 2px;
+        font-size: 14px;
+        cursor: default;
+
+        margin-bottom: 12px;
+
+        .mdl-notification__close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+
+            font-size: 12px;
+        }
+    }
+}

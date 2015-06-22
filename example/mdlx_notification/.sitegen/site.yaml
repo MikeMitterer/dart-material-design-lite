@@ -1,0 +1,3 @@
+template_dir: ../_templates
+assets_dir: ../_assets
+watchfolder1: ../../lib/assets/styles/notification

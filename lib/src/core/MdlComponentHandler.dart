@@ -264,7 +264,7 @@ class MdlComponentHandler {
         Validate.notNull(element);
         Validate.notNull(config);
 
-        /// If there is a mdl-repeat--template class in the hierarchy stop upgrading!
+        /// If there is a tag with template attribute - ignore it!
         bool _hasRepeatTemplate(final dom.HtmlElement element) {
             if(element == null) {
                 return false;

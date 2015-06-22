@@ -29,6 +29,10 @@ class TemplateRenderer {
     /// changes something like data-mdl-click="check({{id}})" into a callable Component function
     EventCompiler _eventCompiler;
 
+    /// Defines if new nodes are added to the parent or of the old node will be replaced by
+    /// the new one.
+    bool appendNewNodes = false;
+
     TemplateRenderer(this._renderer, this._eventCompiler);
 
     Renderer call(final dom.Element parent,final Object scope, String template() ) {
@@ -49,8 +53,8 @@ class TemplateRenderer {
 
             final Template mustacheTemplate = new Template(_template(),htmlEscapeValues: false);
 
-            await _renderer.render(parent,mustacheTemplate.renderString(scope));
-            _eventCompiler.compileElement(scope,parent);
+            final dom.Element child = await _renderer.render(parent,mustacheTemplate.renderString(scope),replaceNode: !appendNewNodes);
+            _eventCompiler.compileElement(scope,child);
         }
 
         return new Renderer(_render);

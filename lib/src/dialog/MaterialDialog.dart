@@ -58,17 +58,23 @@ class DialogConfig {
     /// A Toast-Message for example can have a Timer and closes automatically, not so an AlertDialog
     final bool autoClosePossible;
 
+    /// In most cased a newly created Dialog replaces the previous one. This
+    /// is not the case, for example, with Notifications
+    final bool appendNewDialog;
+
     DialogConfig({ final String rootTagInTemplate: "mdl-dialog",
                    final bool closeOnBackDropClick: true,
                    final bool acceptEscToClose: true,
                    final String parentSelector: _DEFAULT_PARENT_SELECTOR,
-                   final bool autoClosePossible: false })
+                   final bool autoClosePossible: false,
+                   final bool appendNewDialog: false })
 
     : this.rootTagInTemplate = rootTagInTemplate,
       this.closeOnBackDropClick = closeOnBackDropClick,
       this.acceptEscToClose = acceptEscToClose,
       this.parentSelector = parentSelector,
-      this.autoClosePossible = autoClosePossible {
+      this.autoClosePossible = autoClosePossible,
+      this.appendNewDialog = appendNewDialog {
 
         Validate.notBlank(rootTagInTemplate);
     }
@@ -82,6 +88,9 @@ abstract class MaterialDialog extends Object with TemplateComponent {
     static final Map<String,MaterialDialog> _dialogElements = new Map<String,MaterialDialog>();
 
     static const _MaterialDialogCssClasses _cssClasses = const _MaterialDialogCssClasses();
+
+    static int idCounter = 0;
+    int _autoIncrementID = 0;
 
     /// AutoClose-Timer
     Timer _autoCloseTimer = null;
@@ -112,7 +121,7 @@ abstract class MaterialDialog extends Object with TemplateComponent {
     Future<MdlDialogStatus> show({ final Duration timeout,void dialogIDCallback(final String dialogId) }) {
         Validate.isTrue(_completer == null);
 
-        _logger.info("show");
+        _logger.info("show start");
 
         _completer = new Completer<MdlDialogStatus>();
 
@@ -126,18 +135,22 @@ abstract class MaterialDialog extends Object with TemplateComponent {
 
         _dialogContainer.classes.add(_cssClasses.APPENDING);
 
-        if (_parent.querySelector(_containerSelector) == null) {
+        if (_parent.querySelector(".${_containerClass}") == null) {
             _parent.append(_dialogContainer);
         }
 
-        final TemplateRenderer templateRenderer = componentFactory().injector.get(TemplateRenderer);
-        final Renderer renderer = templateRenderer.call(_dialogContainer,this,() => template);
-
         // Now - add the template into the _dialogContainer
-        renderer.render().then((_) {
+        _renderer.render().then((_) {
+
+            _autoIncrementID = idCounter;
+
             if(dialogIDCallback != null) {
                 dialogIDCallback(hashCode.toString());
             }
+
+            final dom.HtmlElement dialog = _dialogContainer.children.last;
+            dialog.id = _elementID;
+
             _dialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
             _dialogContainer.classes.add(_cssClasses.IS_VISIBLE);
             _dialogContainer.classes.remove(_cssClasses.APPENDING);
@@ -148,7 +161,9 @@ abstract class MaterialDialog extends Object with TemplateComponent {
             if(timeout != null) {
                 _startTimeoutTimer(timeout);
             }
-            _logger.info("show end");
+
+            idCounter++;
+            _logger.info("show end (Dialog is rendered (ID: ${_elementID}))");
         });
 
         return _completer.future;
@@ -168,8 +183,6 @@ abstract class MaterialDialog extends Object with TemplateComponent {
         // Hide makes it possible to fade out the dialog
         return _hide(status);
     }
-
-    int get numberOfDialogs => _dialogElements.length;
 
     String get id => hashCode.toString();
 
@@ -195,11 +208,7 @@ abstract class MaterialDialog extends Object with TemplateComponent {
     /// mdl-dialog-container or mdl-toast-container
     String get _containerClass => "${_config.rootTagInTemplate}${_cssClasses.CONTAINER_POSTFIX}";
 
-    String get _elementID => "mdl-element-${hashCode.toString()}";
-
-    /// identifies the container
-    /// <div class="mdl-toast-container" id="dialog9234848">...</div>
-    String get _containerSelector => ".${_containerClass}";
+    String get _elementID => "mdl-element-${hashCode.toString()}-${_autoIncrementID}";
 
     /// identifies the element
     /// <mdl-dialog id="xxxxx">...</mdl-dialog>
@@ -207,8 +216,10 @@ abstract class MaterialDialog extends Object with TemplateComponent {
 
     /// Hides the dialog and leaves it in the DOM
     Future _hide(final MdlDialogStatus status) {
+        _logger.shout("Hide");
+
         // is null if no other Dialog is open
-        if(_dialogContainer != null) {
+        if(_dialogContainer != null && _dialogContainer.children.length == 0) {
             _dialogContainer.classes.remove(_cssClasses.IS_VISIBLE);
             _dialogContainer.classes.add(_cssClasses.IS_HIDDEN);
         }
@@ -220,21 +231,22 @@ abstract class MaterialDialog extends Object with TemplateComponent {
 
     /// The dialog gets removed from the DOM
     void _destroy(final MdlDialogStatus status) {
-        _logger.info("_destroy - selector ${_containerSelector} brought: $_container");
+        _logger.info("_destroy - selector .${_containerClass} brought: $_container");
 
         if (_element != null) {
+
+            //_element.style.border = "1px solid red";
+            _logger.info("Element removed! (ID: ${_element.id})");
             _element.remove();
+
+        } else {
+            _logger.info("Could not find element with ID: ${_elementSelector}");
         }
 
-        dom.document.querySelectorAll(".${_containerClass}").forEach((final dom.Element container) {
-//            container.querySelectorAll(_config.rootTagInTemplate).forEach((final dom.Element element) {
-//                _logger.info("Element ${element} removed!");
-//                if (!element.classes.contains(_cssClasses.WAITING_FOR_CONFIRMATION)) {
-//
-//                }
-//            });
+        dom.document.querySelectorAll(".${_containerClass}").forEach( (final dom.Element container) {
 
-            if (!container.classes.contains(_cssClasses.APPENDING) && container.classes.contains(_cssClasses.IS_DELETABLE)) {
+            if (!container.classes.contains(_cssClasses.APPENDING)
+                && container.classes.contains(_cssClasses.IS_DELETABLE) && container.children.length == 0) {
                 container.remove();
                 _logger.info("Container removed!");
             }
@@ -249,7 +261,7 @@ abstract class MaterialDialog extends Object with TemplateComponent {
     }
 
     /// If there is a container class {dialog} will be added otherwise a container is created
-    /// Container class sample: mdl-dialog-container, mdl-toast-container
+    /// Container class sample: mdl-dialog-container, mdl-toast-container, mdl-notification-container
     dom.DivElement _prepareContainer() {
 
         dom.HtmlElement container = _container;;
@@ -259,10 +271,11 @@ abstract class MaterialDialog extends Object with TemplateComponent {
             container.classes.add(_containerClass);
             container.classes.add(_cssClasses.IS_DELETABLE);
         }
-        container.classes.add(_cssClasses.IS_HIDDEN);
-        container.classes.remove(_cssClasses.IS_VISIBLE);
 
-        //container.attributes["id"] = _containerID;
+        if(container.children.length == 0) {
+            container.classes.add(_cssClasses.IS_HIDDEN);
+            container.classes.remove(_cssClasses.IS_VISIBLE);
+        }
 
         return container;
     }
@@ -310,5 +323,13 @@ abstract class MaterialDialog extends Object with TemplateComponent {
             _keyboardEventSubscription.cancel();
             _keyboardEventSubscription = null;
         }
+    }
+
+    Renderer get _renderer {
+        final TemplateRenderer templateRenderer = componentFactory().injector.get(TemplateRenderer);
+        templateRenderer.appendNewNodes = _config.appendNewDialog;
+
+        final Renderer renderer = templateRenderer.call(_dialogContainer,this,() => template);
+        return renderer;
     }
 }

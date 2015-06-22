@@ -6,23 +6,6 @@ class MaterialAlertDialog extends MaterialDialog {
 
     static const String _DEFAULT_OK_BUTTON = "OK";
 
-    @override
-    String template = """
-        <div class="mdl-dialog">
-          <div class="mdl-dialog__content">
-            {{#hasTitle}}
-            <h5>{{title}}</h5>
-            {{/hasTitle}}
-            <p>{{text}}</p>
-          </div>
-          <div class="mdl-dialog__actions" layout="row">
-              <button class="mdl-button mdl-js-button mdl-button--colored" data-mdl-click="onClose()">
-                  {{okButton}}
-              </button>
-          </div>
-        </div>
-        """;
-
     String title = "";
     String text = "";
     String okButton = _DEFAULT_OK_BUTTON;
@@ -51,4 +34,22 @@ class MaterialAlertDialog extends MaterialDialog {
 
     // - private ----------------------------------------------------------------------------------
 
+    // - Template ---------------------------------------------------------------------------------
+
+    @override
+    String template = """
+        <div class="mdl-dialog">
+          <div class="mdl-dialog__content">
+            {{#hasTitle}}
+            <h5>{{title}}</h5>
+            {{/hasTitle}}
+            <p>{{text}}</p>
+          </div>
+          <div class="mdl-dialog__actions" layout="row">
+              <button class="mdl-button mdl-js-button mdl-button--colored" data-mdl-click="onClose()">
+                  {{okButton}}
+              </button>
+          </div>
+        </div>
+        """;
 }
