@@ -34,9 +34,14 @@ class _MdlComponentHandlerCssClasses {
 
     final String RIPPLE_EFFECT = "mdl-js-ripple-effect";
 
-    final String REPEAT_TEMPLATE = "mdl-repeat--template";
-
     const _MdlComponentHandlerCssClasses();
+}
+
+class _MdlComponentHandlerCssAttributes {
+
+    final String REPEAT_TEMPLATE = "template";
+
+    const _MdlComponentHandlerCssAttributes();
 }
 
 /**
@@ -53,6 +58,7 @@ class MdlComponentHandler {
     final String _DATA_KEY = "data-upgraded";
 
     static const _MdlComponentHandlerCssClasses _cssClasses = const _MdlComponentHandlerCssClasses();
+    static const _MdlComponentHandlerCssAttributes _cssAttributes = const _MdlComponentHandlerCssAttributes();
 
     final Map<String, MdlConfig> _registeredComponents = new HashMap<String, MdlConfig>();
 
@@ -263,7 +269,7 @@ class MdlComponentHandler {
             if(element == null) {
                 return false;
             }
-            if(element.classes.contains(_cssClasses.REPEAT_TEMPLATE)) {
+            if(element.attributes.containsKey(_cssAttributes.REPEAT_TEMPLATE)) {
                 return true;
             }
             return _hasRepeatTemplate(element.parent);

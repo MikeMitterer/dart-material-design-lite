@@ -33,6 +33,14 @@ testRepeat() {
 
             checkbox.check();
 
+            // second radio in last div.template
+            final dom.HtmlElement radioInput = element.querySelectorAll(".template").last.querySelectorAll(".mdl-radio")[1].querySelector("input");
+            expect(radioInput,isNotNull);
+
+            final MaterialRadio radio = MaterialRadio.widget(radioInput);
+            expect(radio,isNotNull);
+            radio.check();
+
         }); // end of 'Add items' test
 
     });
