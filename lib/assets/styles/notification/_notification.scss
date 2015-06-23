@@ -51,6 +51,8 @@ $notification-color-info: $palette-blue-400 !default;
 $notification-color-warning: $palette-orange-500 !default;
 $notification-color-error: $palette-red-900 !default;
 
+$notification-color-subtitle: $palette-grey-500 !default;
+
 .mdl-notification-container {
     z-index: $notification-container-z-index;
     position: absolute;
@@ -122,7 +124,7 @@ $notification-color-error: $palette-red-900 !default;
         h1,h2,h3,h4,h5,h6 { margin-top: 0; margin-bottom: 0; }
 
         h1 { font-size: 24px; }
-        h2,h3,h4,h5,h6 { font-size: 14px; }
+        h2,h3,h4,h5,h6 { font-size: 14px; line-height: 16px; color: $notification-color-subtitle; }
 
         &.mdl-notification--debug {
             .mdl-notification__avatar { color: $notification-color-debug;  &:before { content: "bug_report"; } }

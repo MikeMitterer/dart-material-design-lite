@@ -15,9 +15,9 @@ main() {
 
     componentFactory().run().then((_) {
         final MaterialButton btnNotification = MaterialButton.widget(dom.querySelector("#notification"));
-        final MaterialTextfield title = MaterialTextfield.widget(dom.querySelector("#title"));
-        final MaterialTextfield subtitle = MaterialTextfield.widget(dom.querySelector("#subtitle"));
-        final MaterialTextfield content = MaterialTextfield.widget(dom.querySelector("#content"));
+        final MaterialTextfield title = MaterialTextfield.widget(dom.querySelector("#notification-title"));
+        final MaterialTextfield subtitle = MaterialTextfield.widget(dom.querySelector("#notification-subtitle"));
+        final MaterialTextfield content = MaterialTextfield.widget(dom.querySelector("#notification-content"));
         final MaterialRadioGroup notificationtype = MaterialRadioGroup.widget(dom.querySelector("#notification-type"));
 
         title.hub.onKeyUp.listen((_) => btnNotification.enabled = title.value.isNotEmpty);

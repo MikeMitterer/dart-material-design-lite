@@ -151,12 +151,13 @@ void createSampleList() {
     samples.add(new Sample("third_party",Type.Extra));
 
     // MDL/Dart
-    samples.add(new Sample("accordion", Type.Dart, hasOwnDemoHtml: true));
-    samples.add(new Sample("dialog",    Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("forms",     Type.Dart, hasOwnDemoHtml: true));
-    samples.add(new Sample("nav-pills", Type.Dart, hasOwnDemoHtml: true));
-    samples.add(new Sample("panel",     Type.Dart, hasOwnDemoHtml: true));
-    samples.add(new Sample("snackbar",  Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("accordion",     Type.Dart, hasOwnDemoHtml: true));
+    samples.add(new Sample("dialog",        Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("forms",         Type.Dart, hasOwnDemoHtml: true));
+    samples.add(new Sample("nav-pills",     Type.Dart, hasOwnDemoHtml: true));
+    samples.add(new Sample("notification",  Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("panel",         Type.Dart, hasOwnDemoHtml: true));
+    samples.add(new Sample("snackbar",      Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
 
     // MDL/Dart old
     samples.add(new Sample("icons",Type.DartOld));

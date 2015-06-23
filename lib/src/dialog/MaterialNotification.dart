@@ -15,7 +15,8 @@ class _NotificationConfig extends DialogConfig {
 
         closeOnBackDropClick: false,
         autoClosePossible: true,
-        appendNewDialog: true
+        appendNewDialog: true,
+        acceptEscToClose: false
 
     );
 }
