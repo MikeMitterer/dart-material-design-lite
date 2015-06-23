@@ -7107,19 +7107,19 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
       color: #9e9e9e; }
     .mdl-notification-container .mdl-notification.mdl-notification--debug .mdl-notification__avatar {
       color: #aed581; }
-      .mdl-notification-container .mdl-notification.mdl-notification--debug .mdl-notification__avatar:before {
+      .mdl-notification-container .mdl-notification.mdl-notification--debug .mdl-notification__avatar::before {
         content: "bug_report"; }
     .mdl-notification-container .mdl-notification.mdl-notification--info .mdl-notification__avatar {
       color: #42a5f5; }
-      .mdl-notification-container .mdl-notification.mdl-notification--info .mdl-notification__avatar:before {
+      .mdl-notification-container .mdl-notification.mdl-notification--info .mdl-notification__avatar::before {
         content: "info"; }
     .mdl-notification-container .mdl-notification.mdl-notification--warning .mdl-notification__avatar {
       color: #ff9800; }
-      .mdl-notification-container .mdl-notification.mdl-notification--warning .mdl-notification__avatar:before {
+      .mdl-notification-container .mdl-notification.mdl-notification--warning .mdl-notification__avatar::before {
         content: "warning"; }
     .mdl-notification-container .mdl-notification.mdl-notification--error .mdl-notification__avatar {
       color: #b71c1c; }
-      .mdl-notification-container .mdl-notification.mdl-notification--error .mdl-notification__avatar:before {
+      .mdl-notification-container .mdl-notification.mdl-notification--error .mdl-notification__avatar::before {
         content: "error"; }
     .mdl-notification-container .mdl-notification .mdl-notification__close {
       position: absolute;

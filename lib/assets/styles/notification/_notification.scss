@@ -127,19 +127,19 @@ $notification-color-subtitle: $palette-grey-500 !default;
         h2,h3,h4,h5,h6 { font-size: 14px; line-height: 16px; color: $notification-color-subtitle; }
 
         &.mdl-notification--debug {
-            .mdl-notification__avatar { color: $notification-color-debug;  &:before { content: "bug_report"; } }
+            .mdl-notification__avatar { color: $notification-color-debug;  &::before { content: "bug_report"; } }
         }
 
         &.mdl-notification--info {
-            .mdl-notification__avatar { color : $notification-color-info; &:before { content : "info"; } }
+            .mdl-notification__avatar { color : $notification-color-info; &::before { content : "info"; } }
         }
 
         &.mdl-notification--warning {
-            .mdl-notification__avatar { color: $notification-color-warning; &:before { content: "warning"; } }
+            .mdl-notification__avatar { color: $notification-color-warning; &::before { content: "warning"; } }
         }
 
         &.mdl-notification--error {
-            .mdl-notification__avatar { color: $notification-color-error; &:before { content: "error"; } }
+            .mdl-notification__avatar { color: $notification-color-error; &::before { content: "error"; } }
         }
 
         .mdl-notification__close {

@@ -83,7 +83,23 @@ class MaterialNotification extends MaterialDialog {
     // - private ----------------------------------------------------------------------------------
 
     String _notificationType(_) {
-        return type.toString().replaceFirst("${type.runtimeType.toString()}.","").toLowerCase();
+
+        switch(type) {
+            case NotificationType.DEBUG:
+                return "debug";
+
+            case NotificationType.INFO:
+                return "info";
+
+            case NotificationType.WARNING:
+                return "warning";
+
+            case NotificationType.ERROR:
+                return "error";
+
+            default:
+                return "info";
+        }
     }
 
     // - Template ---------------------------------------------------------------------------------
