@@ -19,31 +19,37 @@
 
 @import "../variables";
 
-$notification-baseline-grid:            8px !default;
-$notification-swift-ease-out-duration : 0.2s !default;
+//$notification-baseline-grid:            8px !default;
+//$notification-swift-ease-out-duration : 0.2s !default;
+//
+//$notification-height: $notification-baseline-grid * 3 !default;
+//$notification-margin: $notification-baseline-grid * 1 !default;
 
-$notification-height: $notification-baseline-grid * 3 !default;
-$notification-margin: $notification-baseline-grid * 1 !default;
-
-$notification-swift-ease-in-duration: 0.2s !default;
+$notification-swift-ease-in-duration: 1s !default;
 $notification-swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
 $notification-swift-ease-in: all $notification-swift-ease-in-duration $notification-swift-ease-in-timing-function !default;
 
-$notification-swift-ease-out-duration : 0.2s !default;
+$notification-swift-ease-out-duration : 1s !default;
 $notification-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
 $notification-swift-ease-out : all $notification-swift-ease-out-duration $notification-swift-ease-out-timing-function !default;
 
 $notification-z-index: 90 !default;
 
-$notification-layout-breakpoint-sm:     600px !default;
-
-$notification-color: invert($text-color-primary) !default;
-$notification-button-color: nth($palette-accent, 5) !default;
-$notification-background: nth($palette-grey, 9) !default;
-
+//$notification-layout-breakpoint-sm:     600px !default;
+//
+//$notification-color: invert($text-color-primary) !default;
+//$notification-button-color: nth($palette-accent, 5) !default;
+//$notification-background: nth($palette-grey, 9) !default;
 
 $notification-container-z-index: 3; // mdl-layout__drawer: 5
-$notification-container-width: 300px;
+$notification-container-width: 336px;
+
+$notification-baseline-grid : 8px !default;
+
+$notification-color-debug: $palette-light-green-300 !default;
+$notification-color-info: $palette-blue-400 !default;
+$notification-color-warning: $palette-orange-500 !default;
+$notification-color-error: $palette-red-900 !default;
 
 .mdl-notification-container {
     z-index: $notification-container-z-index;
@@ -52,16 +58,19 @@ $notification-container-width: 300px;
     top: 12px;
     bottom: 12px;
     min-width: $notification-container-width;
+    max-width: $notification-container-width;;
 
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-start; // ↓
     align-content: space-between; // =
     align-items: center; // ⇾
 
+    overflow : scroll;
+
     &.is-visible {
-        background-color: rgba(0, 0, 0, 0.25);
+        background-color: rgba(0, 0, 0, 0);
         visibility: visible;
 
         .mdl-notification {
@@ -81,36 +90,103 @@ $notification-container-width: 300px;
     }
 
     .mdl-notification {
+        position: relative;
+        box-sizing: border-box;
         background-color: white;
 
-        position: relative;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start; // ⇾
-        align-content: space-between; // ||
-        align-items: flex-start; // ↓
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start; // ↓
+        align-content: space-between; // =
+        align-items: flex-start; // ⇾
+        flex-shrink: 0;  // min-height bug
 
         min-height: 48px;
         min-width: $notification-container-width - 12px;
         max-width: $notification-container-width - 12px;
         width: $notification-container-width - 12px;
 
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
 
+        //border: 1px solid lightgray;
         border-radius: 2px;
         font-size: 14px;
         cursor: default;
 
         margin-bottom: 12px;
 
+        h1,h2,h3,h4,h5,h6 { margin-top: 0; margin-bottom: 0; }
+
+        h1 { font-size: 24px; }
+        h2,h3,h4,h5,h6 { font-size: 14px; }
+
+        &.mdl-notification--debug {
+            .mdl-notification__avatar { color: $notification-color-debug;  &:before { content: "bug_report"; } }
+        }
+
+        &.mdl-notification--info {
+            .mdl-notification__avatar { color : $notification-color-info; &:before { content : "info"; } }
+        }
+
+        &.mdl-notification--warning {
+            .mdl-notification__avatar { color: $notification-color-warning; &:before { content: "warning"; } }
+        }
+
+        &.mdl-notification--error {
+            .mdl-notification__avatar { color: $notification-color-error; &:before { content: "error"; } }
+        }
+
         .mdl-notification__close {
             position: absolute;
             top: 8px;
-            right: 8px;
+            right: 12px;
 
             font-size: 12px;
+        }
+
+        .mdl-notification__content {
+            font-size: 14px;
+
+            .mdl-notification__title {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start; // ⇾
+                align-content: space-between; // ||
+                align-items: center; // ↓
+
+
+
+                .mdl-notification__avatar {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center; // ⇾
+                    align-content: space-between; // ||
+                    align-items: center; // ↓
+
+                    font-size: 50px;
+
+                    min-width: 50px;
+                    max-width: 50px;
+                    min-height: 50px;
+                    max-height: 50px;
+                    // border: 1px solid blue;
+                    // border-radius: 25px;
+
+                    margin-right: 8px;
+                }
+            }
+
+            .mdl-notification__text {
+                margin-top: 16px;
+                // margin-bottom: 8px; // In sum - 24px if there is a content!
+            }
+
         }
     }
 }

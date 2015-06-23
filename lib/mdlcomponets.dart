@@ -63,6 +63,7 @@ void registerMdlComponents() {
     registerMaterialMenu();
     registerMaterialProgress();
     registerMaterialRadio();
+    registerMaterialRadioGroup();
     registerMaterialSlider();
     registerMaterialSpinner();
     registerMaterialSwitch();

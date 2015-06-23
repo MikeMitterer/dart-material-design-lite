@@ -158,7 +158,7 @@ abstract class MaterialDialog extends Object with TemplateComponent {
             if(_config.acceptEscToClose) {
                 _addEscListener();
             }
-            if(timeout != null) {
+            if(timeout != null && _config.autoClosePossible == true) {
                 _startTimeoutTimer(timeout);
             }
 
@@ -216,7 +216,6 @@ abstract class MaterialDialog extends Object with TemplateComponent {
 
     /// Hides the dialog and leaves it in the DOM
     Future _hide(final MdlDialogStatus status) {
-        _logger.shout("Hide");
 
         // is null if no other Dialog is open
         if(_dialogContainer != null && _dialogContainer.children.length == 0) {

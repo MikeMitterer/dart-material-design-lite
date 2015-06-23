@@ -25,6 +25,7 @@ part of mdlcomponents;
 class _MaterialRadioCssClasses {
 
     static const String MAIN_CLASS  = "mdl-js-radio";
+    static const String GROUP_CLASS = 'mdl-radio-group';
 
     final String IS_FOCUSED = 'is-focused';
 
@@ -52,8 +53,6 @@ class _MaterialRadioCssClasses {
 
     final String RIPPLE = 'mdl-ripple';
 
-    final String GROUP = 'mdl-radio-group';
-
     const _MaterialRadioCssClasses();
 }
 
@@ -70,6 +69,14 @@ MdlConfig materialRadioConfig() => new MdlWidgetConfig<MaterialRadio>(
 
 /// registration-Helper
 void registerMaterialRadio() => componentHandler().register(materialRadioConfig());
+
+/// creates MdlConfig for MaterialRadio
+MdlConfig materialRadioGroupConfig() => new MdlWidgetConfig<MaterialRadioGroup>(
+    _MaterialRadioCssClasses.GROUP_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    => new MaterialRadioGroup.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialRadioGroup() => componentHandler().register(materialRadioGroupConfig());
 
 /**
  * Sample:
@@ -139,10 +146,11 @@ class MaterialRadio extends MdlComponent {
     /// @public
     /// MaterialRadio.prototype.uncheck = /*function*/ () {
     void uncheck() {
-
         btnElement.checked = false;
         _updateClasses(btnElement, element);
     }
+
+    bool get checked => btnElement.checked;
 
     String get value => btnElement.value;
 
@@ -256,7 +264,7 @@ class MaterialRadio extends MdlComponent {
     /// Looks for the parent class .mdl-radio-group. If it finds the class
     /// it iterates over its children and unchecks each mdl-radio child.
     void _uncheckSiblings() {
-        if(element.parent.classes.contains(_cssClasses.GROUP)) {
+        if(element.parent.classes.contains(_MaterialRadioCssClasses.GROUP_CLASS)) {
             final dom.HtmlElement group = element.parent;
             group.children.forEach((final dom.Element child) {
                 final MaterialRadio widget = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
@@ -266,6 +274,53 @@ class MaterialRadio extends MdlComponent {
                 }
 
             });
+        }
+    }
+}
+
+class MaterialRadioGroup extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialRadioGroup');
+
+    static const _MaterialRadioCssClasses _cssClasses = const _MaterialRadioCssClasses();
+
+    factory MaterialRadioGroup(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadioGroup;
+
+    MaterialRadioGroup.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector) {
+        _init();
+    }
+
+    static MaterialRadioGroup widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadioGroup;
+
+    bool get hasValue {
+        bool _hasValue = false;
+        element.children.forEach((final dom.HtmlElement child) {
+            final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
+            if(radio.checked) {
+                _hasValue = true;
+            }
+        });
+        return _hasValue;
+    }
+
+    String get value {
+        String _value = "";
+        element.children.forEach((final dom.HtmlElement child) {
+            final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
+            if(radio.checked) {
+                _value = radio.value;
+            }
+        });
+        return _value;
+    }
+
+    //- private -----------------------------------------------------------------------------------
+
+    void _init() {
+        _logger.fine("MaterialRadioGroup - init");
+
+        if (element != null) {
+            element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
 }

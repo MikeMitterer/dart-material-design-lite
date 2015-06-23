@@ -21,43 +21,25 @@
 @import "packages/mdl/assets/styles/notification/notification";
 
 
-.demo-page--snackbar, .demo-section--snackbar {
-    .demo-button {
-        display: inline-block;
-        margin: 20px 20px 20px 0;
-    }
+.demo-page--notification, .demo-section--notification {
+    .form {
+        .mdl-radio-group {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ⇾
+            align-content: space-between; // ||
+            align-items: flex-start; // ↓
 
-    .container {
-        position: relative;
-        border: 1px dotted black;
-        min-height: 200px;
-        border-radius: 5px;
-        padding: 5px;
-    }
+            .mdl-radio {
+                margin-right: 1em;
+            }
 
-    .status {
-        margin: 12px;
-        span {
-            font-weight: bold;
-        }
-    }
-
-    .position {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start; // ⇾
-        align-content: space-between; // ||
-        align-items: flex-start; // ↓
-
-        margin-left: 24px;
-
-        > * {
-            margin-right: 10px;
+            margin-bottom: 16px;
         }
 
-        .mdl-checkbox {
-            width: 80px;
+        .mdl-button {
+            margin-left: 0;
         }
     }
 }
