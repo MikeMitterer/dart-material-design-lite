@@ -57,7 +57,7 @@ class MaterialNotification extends MaterialDialog {
         this.subtitle = subtitle;
         this.content = content;
 
-        if(type == NotificationType.ERROR) {
+        if(type == NotificationType.ERROR || type == NotificationType.WARNING) {
             timeout = LONG_DELAY;
         }
 
@@ -89,7 +89,7 @@ class MaterialNotification extends MaterialDialog {
 
     @override
     String template = """
-    <div class="mdl-notification mdl-notification--{{lambdas.type}} mdl-shadow--2dp">
+    <div class="mdl-notification mdl-notification--{{lambdas.type}} mdl-shadow--3dp">
             <i class="mdl-icon material-icons mdl-notification__close" data-mdl-click="onClose()">clear</i>
             <div class="mdl-notification__content">
             <div class="mdl-notification__title">

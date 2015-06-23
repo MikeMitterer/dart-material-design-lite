@@ -23,6 +23,12 @@
 
 .demo-page--notification, .demo-section--notification {
     .form {
+        .mdl-textfield {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+        }
+
         .mdl-radio-group {
             display: flex;
             flex-direction: row;
@@ -41,6 +47,9 @@
         .mdl-button {
             margin-left: 0;
         }
+    }
+    .info {
+        margin-top: 24px;
     }
 }
 
