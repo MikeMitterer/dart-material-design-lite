@@ -30,8 +30,8 @@ enum NotificationType {
 class MaterialNotification extends MaterialDialog {
     final Logger _logger = new Logger('mdldialog.MaterialNotification');
 
-    static const int LONG_DELAY = 6500;
-    static const int SHORT_DELAY = 3000;
+    static const int LONG_DELAY = 10000;
+    static const int SHORT_DELAY = 6500;
 
     NotificationType type = NotificationType.INFO;
 

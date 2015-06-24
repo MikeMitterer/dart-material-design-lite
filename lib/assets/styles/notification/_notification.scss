@@ -157,7 +157,9 @@ $notification-color-subtitle: $palette-grey-500 !default;
         .mdl-notification__content {
             font-size: 14px;
             width: 100%;
+
             overflow: hidden;
+            word-wrap: break-word;
 
             .mdl-notification__title {
                 display: flex;
