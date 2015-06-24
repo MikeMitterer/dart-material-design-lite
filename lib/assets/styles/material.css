@@ -7100,11 +7100,18 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
       margin-top: 0;
       margin-bottom: 0; }
     .mdl-notification-container .mdl-notification h1 {
-      font-size: 24px; }
+      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 32px;
+      -moz-osx-font-smoothing: grayscale; }
     .mdl-notification-container .mdl-notification h2, .mdl-notification-container .mdl-notification h3, .mdl-notification-container .mdl-notification h4, .mdl-notification-container .mdl-notification h5, .mdl-notification-container .mdl-notification h6 {
-      font-size: 14px;
-      line-height: 16px;
-      color: #9e9e9e; }
+      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0.04em;
+      opacity: 0.87; }
     .mdl-notification-container .mdl-notification.mdl-notification--debug .mdl-notification__avatar {
       color: #aed581; }
       .mdl-notification-container .mdl-notification.mdl-notification--debug .mdl-notification__avatar::before {
@@ -7127,7 +7134,9 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
       right: 12px;
       font-size: 12px; }
     .mdl-notification-container .mdl-notification .mdl-notification__content {
-      font-size: 14px; }
+      font-size: 14px;
+      width: 100%;
+      overflow: hidden; }
       .mdl-notification-container .mdl-notification .mdl-notification__content .mdl-notification__title {
         display: -webkit-box;
         display: -webkit-flex;
@@ -7182,8 +7191,43 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
           min-height: 50px;
           max-height: 50px;
           margin-right: 8px; }
+        .mdl-notification-container .mdl-notification .mdl-notification__content .mdl-notification__title + .mdl-notification__text {
+          margin-top: 16px; }
       .mdl-notification-container .mdl-notification .mdl-notification__content .mdl-notification__text {
-        margin-top: 16px; }
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-align-content: space-between;
+            -ms-flex-line-pack: justify;
+                align-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        .mdl-notification-container .mdl-notification .mdl-notification__content .mdl-notification__text .mdl-notification__avatar {
+          vertical-align: middle;
+          font-size: 50px;
+          margin-right: 12px; }
+          .mdl-notification-container .mdl-notification .mdl-notification__content .mdl-notification__text .mdl-notification__avatar + span {
+            max-width: 262px;
+            font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.04em; }
 
 .mdl-panel {
   padding: 8px 16px;

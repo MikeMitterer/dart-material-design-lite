@@ -20,7 +20,10 @@ main() {
         final MaterialTextfield content = MaterialTextfield.widget(dom.querySelector("#notification-content"));
         final MaterialRadioGroup notificationtype = MaterialRadioGroup.widget(dom.querySelector("#notification-type"));
 
-        title.hub.onKeyUp.listen((_) => btnNotification.enabled = title.value.isNotEmpty);
+        void _checkIfButtonShouldBeEnabled(_) { btnNotification.enabled = (title.value.isNotEmpty || content.value.isNotEmpty); }
+
+        title.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
+        content.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
 
         int counter = 0;
         btnNotification.onClick.listen( (_) {
@@ -36,13 +39,14 @@ main() {
                     default: type = NotificationType.INFO;
                 }
             }
+
             _logger.info("NT ${notificationtype.value} - ${notificationtype.hasValue}");
 
             final MaterialNotification notification = new MaterialNotification();
+            final String titleToShow = title.value.isNotEmpty ? "${title.value} (#${counter})" : "";
 
-            notification("${title.value} (#${counter})",
-                    content.value,
-                    type: type,subtitle: subtitle.value).show().then((final MdlDialogStatus status) {
+            notification(content.value, type: type,title: titleToShow, subtitle: subtitle.value)
+                .show().then((final MdlDialogStatus status) {
 
                 _logger.info(status);
             });

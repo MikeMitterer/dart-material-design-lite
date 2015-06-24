@@ -28,7 +28,9 @@ main() &#123;
         final MaterialTextfield subtitle = MaterialTextfield.widget(dom.querySelector(&quot;#notification-subtitle&quot;));
         final MaterialTextfield content = MaterialTextfield.widget(dom.querySelector(&quot;#notification-content&quot;));
         final MaterialRadioGroup notificationtype = MaterialRadioGroup.widget(dom.querySelector(&quot;#notification-type&quot;));
-        title.hub.onKeyUp.listen((_) =&gt; btnNotification.enabled = title.value.isNotEmpty);
+        void _checkIfButtonShouldBeEnabled(_) &#123; btnNotification.enabled = (title.value.isNotEmpty || content.value.isNotEmpty); &#125;
+        title.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
+        content.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
         int counter = 0;
         btnNotification.onClick.listen( (_) &#123;
             _logger.info(&quot;Click on Notification&quot;);
@@ -44,9 +46,9 @@ main() &#123;
             &#125;
             _logger.info(&quot;NT $&#123;notificationtype.value&#125; - $&#123;notificationtype.hasValue&#125;&quot;);
             final MaterialNotification notification = new MaterialNotification();
-            notification(&quot;$&#123;title.value&#125; (#$&#123;counter&#125;)&quot;,
-                    content.value,
-                    type: type,subtitle: subtitle.value).show().then((final MdlDialogStatus status) &#123;
+            final String titleToShow = title.value.isNotEmpty ? &quot;$&#123;title.value&#125; (#$&#123;counter&#125;)&quot; : &quot;&quot;;
+            notification(content.value, type: type,title: titleToShow, subtitle: subtitle.value)
+                .show().then((final MdlDialogStatus status) &#123;
                 _logger.info(status);
             &#125;);
             counter++;

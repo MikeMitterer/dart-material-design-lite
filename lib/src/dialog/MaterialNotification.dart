@@ -45,13 +45,28 @@ class MaterialNotification extends MaterialDialog {
         lambdas["type"] = _notificationType;
     }
 
-    MaterialNotification call(final String title, final String content,
-            { final NotificationType type: NotificationType.INFO, final String subtitle: "" } ) {
+    /**
+     * [content] must be set, all other params are optional.
+     * [type] - defines if the notification is an Error-, Debug-, Info- or Warning-Message
+     * [titel] - The notification headline, [subtitle] - the subtitle
+     *
+     * Sample:
+     *
+     *     final MaterialNotification notification = new MaterialNotification();
+     *
+     *     notification("This is my message",type: NotificationType.INFO,title: "Title", subtitle: "Subheadline")
+     *     .show().then((final MdlDialogStatus status) {
+     *
+     *     });
+     *
+     */
+    MaterialNotification call(final String content,
+            { final NotificationType type: NotificationType.INFO, final String title: "", final String subtitle: "" } ) {
 
-        Validate.notNull(type);
-        Validate.notBlank(title);
-        Validate.notNull(content);
-        Validate.notNull(subtitle);
+        Validate.notNull(type,"Notification-Type must not be null!");
+        Validate.notNull(title,"Notification-Title must not be null!");
+        Validate.notNull(content,"Notification-Content must not be null!");
+        Validate.notNull(subtitle,"Notification-Subtitle must not be null!");
 
         this.type = type;
         this.title = title;
@@ -65,6 +80,7 @@ class MaterialNotification extends MaterialDialog {
         return this;
     }
 
+    bool get hasTitle => title != null && title.isNotEmpty;
     bool get hasSubTitle => subtitle != null && subtitle.isNotEmpty;
     bool get hasContent => content != null && content.isNotEmpty;
 
@@ -109,6 +125,7 @@ class MaterialNotification extends MaterialDialog {
     <div class="mdl-notification mdl-notification--{{lambdas.type}} mdl-shadow--3dp">
             <i class="mdl-icon material-icons mdl-notification__close" data-mdl-click="onClose()">clear</i>
             <div class="mdl-notification__content">
+            {{#hasTitle}}
             <div class="mdl-notification__title">
                 <div class="mdl-notification__avatar material-icons"></div>
                 <div class="mdl-notification__headline">
@@ -118,9 +135,15 @@ class MaterialNotification extends MaterialDialog {
                     {{/hasSubTitle}}
                 </div>
             </div>
+            {{/hasTitle}}
             {{#hasContent}}
                 <div class="mdl-notification__text">
+                {{^hasTitle}}
+                    <span class="mdl-notification__avatar material-icons"></span>
+                {{/hasTitle}}
+                <span>
                     {{content}}
+                </span>
                 </div>
             {{/hasContent}}
             </div>

@@ -18,6 +18,7 @@
 //
 
 @import "../variables";
+@import "../typography/mixins";
 
 //$notification-baseline-grid:            8px !default;
 //$notification-swift-ease-out-duration : 0.2s !default;
@@ -43,6 +44,8 @@ $notification-z-index: 90 !default;
 
 $notification-container-z-index: 3; // mdl-layout__drawer: 5
 $notification-container-width: 336px;
+
+$notification-width: $notification-container-width - 12px;
 
 $notification-baseline-grid : 8px !default;
 
@@ -105,9 +108,9 @@ $notification-color-subtitle: $palette-grey-500 !default;
         flex-shrink: 0;  // min-height bug
 
         min-height: 48px;
-        min-width: $notification-container-width - 12px;
-        max-width: $notification-container-width - 12px;
-        width: $notification-container-width - 12px;
+        min-width: $notification-width;
+        max-width: $notification-width;
+        width: $notification-width;
 
         padding-left: 16px;
         padding-right: 16px;
@@ -123,8 +126,8 @@ $notification-color-subtitle: $palette-grey-500 !default;
 
         h1,h2,h3,h4,h5,h6 { margin-top: 0; margin-bottom: 0; }
 
-        h1 { font-size: 24px; }
-        h2,h3,h4,h5,h6 { font-size: 14px; line-height: 16px; color: $notification-color-subtitle; }
+        h1 { @include typo-headline($usePreferred: true); }
+        h2,h3,h4,h5,h6 { @include typo-subhead($colorContrast: true,$usePreferred: true) }
 
         &.mdl-notification--debug {
             .mdl-notification__avatar { color: $notification-color-debug;  &::before { content: "bug_report"; } }
@@ -152,6 +155,8 @@ $notification-color-subtitle: $palette-grey-500 !default;
 
         .mdl-notification__content {
             font-size: 14px;
+            width: 100%;
+            overflow: hidden;
 
             .mdl-notification__title {
                 display: flex;
@@ -160,8 +165,6 @@ $notification-color-subtitle: $palette-grey-500 !default;
                 justify-content: flex-start; // ⇾
                 align-content: space-between; // ||
                 align-items: center; // ↓
-
-
 
                 .mdl-notification__avatar {
                     display: flex;
@@ -182,11 +185,34 @@ $notification-color-subtitle: $palette-grey-500 !default;
 
                     margin-right: 8px;
                 }
+
+                + .mdl-notification__text {
+                    margin-top: 16px;
+                }
             }
 
+
+
             .mdl-notification__text {
-                margin-top: 16px;
-                // margin-bottom: 8px; // In sum - 24px if there is a content!
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: flex-start; // ⇾
+                align-content: space-between; // ||
+                align-items: center; // ↓
+
+                .mdl-notification__avatar {
+
+                    vertical-align: middle;
+                    font-size: 50px;
+                    margin-right: 12px;
+
+                    + span {
+                        max-width: $notification-width - 62px;
+                        @include typo-subhead($usePreferred: true);
+
+                    }
+                }
             }
 
         }
