@@ -61,9 +61,10 @@ $notification-color-subtitle: $palette-grey-500 !default;
     position: absolute;
     right : 12px;
     top: 12px;
-    bottom: 12px;
+    //bottom: 12px;
     min-width: $notification-container-width;
     max-width: $notification-container-width;;
+    max-height: calc(100vh - 12px);
 
     display: flex;
     flex-direction: column;

@@ -7015,9 +7015,9 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
   position: absolute;
   right: 12px;
   top: 12px;
-  bottom: 12px;
   min-width: 336px;
   max-width: 336px;
+  max-height: calc(100vh - 12px);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
