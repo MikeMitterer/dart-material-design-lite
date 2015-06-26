@@ -3,7 +3,14 @@ samplename: observe
 sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/spa_observe/web
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div class="demo-preview-block">
-    <p>Wait 2 secs - A timer will add 10 more List-Items!</p>
+    <p>
+        Wait 2 secs - A timer will add 10 more List-Items!<br>
+        If you "REMOVE" "German" - it will be replace with "Austrian"
+    </p>
+    <p>
+        Now it's: <span class="mdl-property" data-mdl-property="time"></span><br>
+        Nr. of records: <span class="mdl-property" data-mdl-property="records"></span><br>
+    </p>
     <div class="mdl-repeat" data-mdl-list="language in languages">
         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
         <div template class="language" >
