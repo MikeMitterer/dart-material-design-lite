@@ -33,7 +33,7 @@ import 'package:di/di.dart' as di;
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
 import 'package:mdl/mdlapplication.dart';
-import 'package:mdl/mdlcollection.dart';
+import 'package:mdl/mdlobservable.dart';
 
 part "src/template/MdlTemplateComponent.dart";
 

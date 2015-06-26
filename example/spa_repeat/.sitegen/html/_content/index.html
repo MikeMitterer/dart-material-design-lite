@@ -3,16 +3,6 @@ samplename: repeat
 sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/spa_repeat/web
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div class="demo-preview-block">
-    <div id="autolist" class="mdl-repeat" data-mdl-list="language in languages">
-        {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
-        <div template class="language" >
-            Language: {{language.name}} ({{language.type}})
-            <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
-                    data-mdl-click="remove({{language.name}})">Remove</button>
-        </div>
-        |= {{ }} =| {{! ----- Turn on mustache ---- }}
-    </div>
-
     <div id="main" class="mdl-repeat">
         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
         <div template >

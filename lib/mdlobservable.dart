@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-library mdlcollection;
+library mdlobservable;
 
 import 'dart:collection';
 import "dart:async";
@@ -29,11 +29,16 @@ enum ListChangeType {
 }
 
 class ListChangedEvent<T> {
+    /// [changetype] shows what changed
     final ListChangeType changetype;
-    final Object item;
-    final int index;
 
-    ListChangedEvent(this.changetype,{ final Object this.item, final index: -1 }) : this.index = index;
+    /// [item] is set on ADD, REMOVE and update
+    final Object item;
+
+    /// [prevItem] is set on UPDATE and defines the old Entry
+    final Object prevItem;
+
+    ListChangedEvent(this.changetype,{ final Object this.item, final this.prevItem });
 }
 
 @MdlComponentModel
@@ -56,13 +61,13 @@ class ObservableList<T> extends ListBase<T> {
     }
 
     void operator []=(int index, T value) {
-        _innerList[index] = value;
-
         // remove + removeRange uses [] to set the new items
         // This flag avoids troubles
         if(!_changing) {
-            _controller.add(new ListChangedEvent<T>(ListChangeType.UPDATE,item: value, index: index));
+            _controller.add(new ListChangedEvent<T>(ListChangeType.UPDATE,item: value, prevItem: _innerList[index]));
         }
+
+        _innerList[index] = value;
     }
 
     T operator [](int index) => _innerList[index];

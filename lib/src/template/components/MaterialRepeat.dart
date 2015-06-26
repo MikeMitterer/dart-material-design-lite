@@ -127,6 +127,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         _addBorderIfInDebugMode(child,"blue");
 
         final dom.HtmlElement renderedChild = await _repeatRenderer.renderBefore(element,child,_mustacheTemplate.renderString(item));
+        _addBorderIfInDebugMode(renderedChild,"green");
 
         scope = scope != null ? scope : item;
         _eventCompiler.compileElement(scope,renderedChild);
@@ -262,10 +263,12 @@ class MaterialRepeat extends MdlTemplateComponent {
                         break;
 
                     case ListChangeType.UPDATE:
-                        final Map itemToRemove = _items[event.index];
+                        final Map itemToRemove = _getItemFromInternalList(event.prevItem);
+                        final int index = _items.indexOf(itemToRemove);
+
                         remove(itemToRemove).then((_) {
-                            if(event.index < _items.length) {
-                                insert(event.index, { itemName : event.item },scope: rootContext);
+                            if(index < _items.length) {
+                                insert(index, { itemName : event.item },scope: rootContext);
                             } else {
                                 add( { itemName : event.item },scope: rootContext);
                             }
