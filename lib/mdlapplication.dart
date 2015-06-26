@@ -34,8 +34,6 @@ import 'package:route_hierarchical/client.dart';
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponets.dart";
 
-part "src/application/annotations.dart";
-
 part "src/application/modules/DomRenderer.dart";
 part "src/application/modules/EventCompiler.dart";
 part "src/application/modules/ViewFactory.dart";

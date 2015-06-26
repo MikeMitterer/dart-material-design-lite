@@ -49,6 +49,15 @@
             <div class="content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
                 <section class="demo-section demo-section--repeat">
                     <div class="demo-preview-block">
+    <div id="autolist" class="mdl-repeat" data-mdl-list="language in languages">
+         
+        <div template class="language" >
+            Language: {{language.name}} ({{language.type}})
+            <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
+                    data-mdl-click="remove({{language.name}})">Remove</button>
+        </div>
+         
+    </div>
     <div id="main" class="mdl-repeat">
          
         <div template >
@@ -59,15 +68,6 @@
             </label>
             <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
                     data-mdl-click="remove()">Remove</button>
-        </div>
-         
-    </div>
-    <div id="autolist" class="mdl-repeat" data-mdl-list="language in languages">
-         
-        <div template class="language" >
-            Language: {{language.name}} ({{language.type}})
-            <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
-                    data-mdl-click="remove({{language.name}})">Remove</button>
         </div>
          
     </div>

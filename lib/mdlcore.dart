@@ -32,6 +32,8 @@ import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 import 'package:di/di.dart' as di;
 
+part "src/core/annotations.dart";
+
 part "src/core/MdlComponentHandler.dart";
 part "src/core/MdlConfig.dart";
 part "src/core/MdlComponent.dart";

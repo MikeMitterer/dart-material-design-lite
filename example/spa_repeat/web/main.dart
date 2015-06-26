@@ -4,6 +4,7 @@ import "dart:math" as Math;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
+import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlcollection.dart';
@@ -36,20 +37,18 @@ class Name {
     }
 }
 
+@MdlComponentModel
 class _Language {
     final String name;
     final String type;
     _Language(this.name, this.type);
 }
 
-class _Programming extends _Language {
-    _Programming(final String name) : super(name,"programming");
-}
 class _Natural extends _Language {
     _Natural(final String name) : super(name,"natural");
 }
 
-@MdlComponentModel
+@MdlComponentModel @di.Injectable()
 class AppController {
     final Logger _logger = new Logger('main.AppController');
 
@@ -64,18 +63,16 @@ class AppController {
     }
 
     void remove(final String language) {
-        _logger.shout("Remove $language clicked!!!!!");
+        _logger.info("Remove $language clicked!!!!!");
 
         final _Language lang = languages.firstWhere(
                 (final _Language check) {
 
                     final bool result = (check.name.toLowerCase() == language.toLowerCase());
-                    _logger.info("Check: ${check.name} -> $language, Result: $result");
+                    _logger.fine("Check: ${check.name} -> $language, Result: $result");
 
                     return result;
                 });
-
-        _logger.shout("Lang: $lang");
 
         if(language == "German") {
             int index = languages.indexOf(lang);
@@ -96,10 +93,10 @@ main() {
     registerMdl();
 
 
-    componentFactory().rootContext(AppController).run().then((_) {
+    componentFactory().rootContext(AppController).run(enableVisualDebugging: true).then((_) {
         new AppController();
 
-        // _addNamesProgrammatically();
+        _addNamesProgrammatically();
 
     });
 
@@ -109,7 +106,6 @@ Future _addNamesProgrammatically() async {
     final Logger _logger = new Logger('main._addNamesProgrammatically');
 
     final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector("#main.mdl-repeat"));
-    repeater.visualDebugging = true;
 
     final List<Name> names = new List<Name>();
     final RemoveCallback removeCallback = (final Name nameToRemove) {

@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of mdlapplication;
+part of mdlcore;
 
 /// Mustache (+mirrors) needs to know which classes to include
 class MdlComponentModelAnnotation {
@@ -42,4 +42,3 @@ class MdlComponentModelAnnotation {
  * mustache.render(model);
  */
 const MdlComponentModelAnnotation MdlComponentModel = const MdlComponentModelAnnotation();
-

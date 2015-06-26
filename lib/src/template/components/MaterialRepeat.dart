@@ -87,7 +87,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         final Completer completer = new Completer();
 
         final int index = _items.indexOf(item);
-        _logger.info("Index to remove: $index");
+        _logger.fine("Index to remove: $index");
 
         if(index != -1) {
             final dom.HtmlElement child = element.children[index]; //querySelector("> *:nth-child(${index + 1})");
@@ -209,12 +209,17 @@ class MaterialRepeat extends MdlTemplateComponent {
         }
     }
 
-
     void _initListFromRootContext() {
         Validate.isTrue(element.dataset.containsKey(_constant.DATA_LIST));
 
-        final String dataset = element.dataset[_constant.DATA_LIST];
+        final String dataset = element.dataset[_constant.DATA_LIST].trim();
         final List<String> parts = dataset.split(" ");
+
+        if(parts.length != 3) {
+            throw new ArgumentError("data-${_constant.DATA_LIST} must have the following format: <item> in <listname> "
+                "but was: $dataset!");
+        }
+
         final String listName = dataset.split(" ").last;
         final String itemName = dataset.split(" ").first;
 
@@ -248,22 +253,26 @@ class MaterialRepeat extends MdlTemplateComponent {
             _logger.info("List ist Observable!");
             (list as ObservableList).onChange.listen((final ListChangedEvent event) {
                 switch(event.changetype) {
-                    case ChangeType.ADD:
+                    case ListChangeType.ADD:
                         add( { itemName : event.item },scope: rootContext);
                         break;
 
-                    case ChangeType.CLEAR:
+                    case ListChangeType.CLEAR:
                         removeAll();
                         break;
 
-                    case ChangeType.UPDATE:
+                    case ListChangeType.UPDATE:
                         final Map itemToRemove = _items[event.index];
                         remove(itemToRemove).then((_) {
-                            insert(event.index, { itemName : event.item },scope: rootContext);
+                            if(event.index < _items.length) {
+                                insert(event.index, { itemName : event.item },scope: rootContext);
+                            } else {
+                                add( { itemName : event.item },scope: rootContext);
+                            }
                         });
                         break;
 
-                    case ChangeType.REMOVE:
+                    case ListChangeType.REMOVE:
                             final Map itemToRemove = _getItemFromInternalList(event.item);
                             remove(itemToRemove);
                         break;

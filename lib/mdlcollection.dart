@@ -22,18 +22,21 @@ library mdlcollection;
 import 'dart:collection';
 import "dart:async";
 
-enum ChangeType {
+import 'package:mdl/mdlcore.dart';
+
+enum ListChangeType {
     ADD, UPDATE, REMOVE, CLEAR
 }
 
 class ListChangedEvent<T> {
-    final ChangeType changetype;
+    final ListChangeType changetype;
     final Object item;
     final int index;
 
     ListChangedEvent(this.changetype,{ final Object this.item, final index: -1 }) : this.index = index;
 }
 
+@MdlComponentModel
 class ObservableList<T> extends ListBase<T> {
 
     final List<T> _innerList = new List();
@@ -58,7 +61,7 @@ class ObservableList<T> extends ListBase<T> {
         // remove + removeRange uses [] to set the new items
         // This flag avoids troubles
         if(!_changing) {
-            _controller.add(new ListChangedEvent<T>(ChangeType.UPDATE,item: value, index: index));
+            _controller.add(new ListChangedEvent<T>(ListChangeType.UPDATE,item: value, index: index));
         }
     }
 
@@ -66,27 +69,27 @@ class ObservableList<T> extends ListBase<T> {
 
     void add(final T value) {
         _innerList.add(value);
-        _controller.add(new ListChangedEvent<T>(ChangeType.ADD,item: value));
+        _controller.add(new ListChangedEvent<T>(ListChangeType.ADD,item: value));
     }
 
     void addAll(Iterable<T> all) {
         _innerList.addAll(all);
         all.forEach((final element) {
-            _controller.add(new ListChangedEvent<T>(ChangeType.ADD,item: element));
+            _controller.add(new ListChangedEvent<T>(ListChangeType.ADD,item: element));
         });
     }
 
     @override
     void clear() {
         super.clear();
-        _controller.add(new ListChangedEvent<T>(ChangeType.CLEAR));
+        _controller.add(new ListChangedEvent<T>(ListChangeType.CLEAR));
     }
 
     @override
     void removeRange(int start, int end) {
         RangeError.checkValidRange(start, end, this.length);
         for(int index = start;index < end;index++) {
-            _controller.add(new ListChangedEvent<T>(ChangeType.REMOVE,item: _innerList[index] ));
+            _controller.add(new ListChangedEvent<T>(ListChangeType.REMOVE,item: _innerList[index] ));
         }
         _changing = true;
         super.removeRange(start,end);
@@ -95,7 +98,7 @@ class ObservableList<T> extends ListBase<T> {
 
     @override
     bool remove(final Object element) {
-        _controller.add(new ListChangedEvent<T>(ChangeType.REMOVE,item: element ));
+        _controller.add(new ListChangedEvent<T>(ListChangeType.REMOVE,item: element ));
 
         _changing = true;
         final bool result = super.remove(element);
