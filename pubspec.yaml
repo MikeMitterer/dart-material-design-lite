@@ -13,13 +13,15 @@ dependencies:
 
   logging: ">=0.9.3 <0.10.0"
   logging_handlers: ">=0.8.0 <0.9.0"
-  console_log_handler: ">=0.1.4 <0.2.0"
+  console_log_handler: any
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
   route_hierarchical: '>=0.6.1 <0.7.0'
 
   mustache: any
     #git: git://github.com/xxgreg/mustache
+
+  dnd: any
 
   validate: any
 

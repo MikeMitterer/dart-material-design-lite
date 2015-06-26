@@ -19,6 +19,9 @@
 
 library mdltemplate;
 
+@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
+import 'dart:mirrors';
+
 import 'dart:html' as dom;
 import 'dart:async';
 
@@ -30,6 +33,7 @@ import 'package:di/di.dart' as di;
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
 import 'package:mdl/mdlapplication.dart';
+import 'package:mdl/mdlcollection.dart';
 
 part "src/template/MdlTemplateComponent.dart";
 

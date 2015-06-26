@@ -1,0 +1,59 @@
+title: D&D
+samplename: dnd
+sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/mdlx_dnd/web
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<div class="demo-preview-block">
+
+    <h2>Drag & Drop (experimental)</h2>
+
+    <div class="danddcontainer">
+        <div class="choose ">
+
+            <h6>Choose language</h6>
+            <div class="source langbox">
+                <mdl-draggable class="language" ng-repeat="language in languages"
+                               data-to-drag="language"
+                               drop-zone="language.type">{{language.name}}
+                </mdl-draggable>
+            </div>
+        </div>
+
+        <div class="accept">
+            <div class="langbox">
+
+                <h6>Programming languages</h6>
+                <mdl-dropzone class="programming"
+                              name="'programming'"
+                              on-drop-success="addToProgrammingLanguages(data)">
+
+
+                    <!-- programming language item becomes a 'draggable' item and can be dragged to 'trash' -->
+                    <mdl-draggable class="language" ng-repeat="language in programming"
+                                   data-to-drag="language"
+                                   drop-zone="'trash'">{{language.name}}
+                    </mdl-draggable>
+                </mdl-dropzone>
+            </div>
+
+            <div class="langbox">
+
+                <h6>Natural languages</h6>
+                <mdl-dropzone class="natural"
+                              name="'natural'"
+                              on-drop-success="addToNaturalLanguages(data)">
+
+                    <!-- natural language item becomes a 'draggable' item and can be dragged to 'trash' -->
+                    <mdl-draggable class="language" ng-repeat="language in natural"
+                                   data-to-drag="language"
+                                   drop-zone="'trash'">{{language.name}}
+                    </mdl-draggable>
+                </mdl-dropzone>
+            </div>
+        </div>
+        <div class="trash">
+            <h6>Trash</h6>
+            <mdl-dropzone class="trashbox"  name="'trash'" on-drop-success="moveToTrash(data)"></mdl-dropzone>
+        </div>
+    </div>
+
+</div>

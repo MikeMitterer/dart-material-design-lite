@@ -19,6 +19,11 @@
 
 part of mdlcore;
 
+class _RootContext { const _RootContext(); }
+
+/// Identifies your AppController
+final di.Key MDLROOTCONTEXT = new di.Key(_RootContext);
+
 /// Store strings for class names defined by this component that are used in Dart.
 class _MdlComponentHandlerCssClasses {
 
@@ -107,32 +112,6 @@ class MdlComponentHandler {
     @deprecated
     Future upgradeAllRegistered() => run();
 
-    /**
-     * Upgrades all registered components found in the current DOM. This
-     * should be called in your main-function.
-     * At the beginning of the upgrade-process it adds the css-classes
-     * mdl-js, mdl-dart and mdl-upgrading to the <html>-element.
-     * If all components are ready it removes mdl-upgrading.
-     *
-     * Sample:
-     *        main() {
-     *        registerMdl();
-     *
-     *        componentFactory().run().then( (_) {
-     *
-     *              });
-     *        }
-     */
-    Future<di.Injector> run( { final enableVisualDebugging: false } ) {
-        final dom.Element body = dom.querySelector("body");
-
-        _enableVisualDebugging = enableVisualDebugging;
-        //_modules.add(new di.Module()..bind(DomRenderer));
-
-        _injector = _createInjector();
-
-        return upgradeElement(body);
-    }
 
     /// Upgrades all children for {element} and returns the current Injector
     Future<di.Injector> upgradeElement(final dom.HtmlElement element) {
@@ -166,16 +145,6 @@ class MdlComponentHandler {
         return future;
     }
 
-    MdlComponentHandler addModule(final di.Module module) {
-        if(_modules.indexOf(module) == -1) {
-            _modules.add(module);
-        }
-        return this;
-    }
-
-    /// Returns the injector for this module.
-    di.Injector get injector => _injector;
-
     /// downgrade() will be called for the given Component and it's children
     Future downgradeElement(final dom.HtmlElement element) {
         Validate.notNull(element,"Element to downgrade must not be null!");
@@ -197,6 +166,73 @@ class MdlComponentHandler {
         });
 
         return completer.future;
+    }
+
+    //- DI ----------------------------------------------------------------------------------------
+
+    /**
+     * Upgrades all registered components found in the current DOM. This
+     * should be called in your main-function.
+     * At the beginning of the upgrade-process it adds the css-classes
+     * mdl-js, mdl-dart and mdl-upgrading to the <html>-element.
+     * If all components are ready it removes mdl-upgrading.
+     *
+     * Sample:
+     *        main() {
+     *        registerMdl();
+     *
+     *        componentFactory().run().then( (_) {
+     *
+     *              });
+     *        }
+     */
+    Future<di.Injector> run( { final enableVisualDebugging: false } ) {
+        final dom.Element body = dom.querySelector("body");
+
+        _enableVisualDebugging = enableVisualDebugging;
+        //_modules.add(new di.Module()..bind(DomRenderer));
+
+        _injector = _createInjector();
+
+        return upgradeElement(body);
+    }
+
+    /**
+     * In most cases this is your AppController
+     *
+     * Sample:
+     *        @MdlComponentModel @di.Injectable()
+     *        class AppController {
+     *
+     *        }
+     *
+     *        main() {
+     *        registerMdl();
+     *
+     *        componentFactory().rootContext(AppController).run().then( (final di.Injector injector) {
+     *                  new AppController();
+     *              });
+     *        }
+     */
+    MdlComponentHandler rootContext(final Type rootContext) {
+        _modules.add(new di.Module()..bindByKey(MDLROOTCONTEXT, toImplementation: rootContext));
+        return this;
+    }
+
+    /// Add your App-specific modules
+    MdlComponentHandler addModule(final di.Module module) {
+        if(_modules.indexOf(module) == -1) {
+            _modules.add(module);
+        }
+        return this;
+    }
+
+    /// Returns the injector for this module.
+    di.Injector get injector {
+        if(_injector == null) {
+            _injector = _createInjector();
+        }
+        return _injector;
     }
 
     //- private -----------------------------------------------------------------------------------

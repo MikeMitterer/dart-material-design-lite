@@ -32,6 +32,8 @@ class _MaterialRepeatConstant {
 
     static const String WIDGET_SELECTOR = "mdl-repeat";
 
+    final String DATA_LIST = "mdl-list";
+
     const _MaterialRepeatConstant();
 }    
 
@@ -39,7 +41,7 @@ class _MaterialRepeatConstant {
 class MaterialRepeat extends MdlTemplateComponent {
     final Logger _logger = new Logger('mdltemplate.MaterialRepeat');
 
-    //static const _MaterialRepeatConstant _constant = const _MaterialRepeatConstant();
+    static const _MaterialRepeatConstant _constant = const _MaterialRepeatConstant();
     static const _MaterialRepeatCssClasses _cssClasses = const _MaterialRepeatCssClasses();
 
     /// Adds data to Dom
@@ -66,12 +68,14 @@ class MaterialRepeat extends MdlTemplateComponent {
     static MaterialRepeat widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialRepeat;
 
     /// Adds {item} to DOM, inside of {element}
-    Future add(final item) async {
+    Future add(final item,{ var scope: null }) async {
         Validate.notNull(item);
 
         _items.add(item);
         final dom.HtmlElement renderedChild = await _repeatRenderer.render(element,_mustacheTemplate.renderString(item),replaceNode: false);
-        _eventCompiler.compileElement(item,renderedChild);
+
+        scope = scope != null ? scope : item;
+        _eventCompiler.compileElement(scope,renderedChild);
 
         _logger.fine("Renderer $item");
     }
@@ -114,7 +118,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     /// Inserts [item] at position [index]
-    Future insert(final int index,final item) async {
+    Future insert(final int index,final item,{ var scope: null }) async {
         //Validate.isTrue(index < 0 || index > _items.length,"Index must be > 0 and < ${_items.length}");
         Validate.notNull(item);
 
@@ -123,7 +127,9 @@ class MaterialRepeat extends MdlTemplateComponent {
         _addBorderIfInDebugMode(child,"blue");
 
         final dom.HtmlElement renderedChild = await _repeatRenderer.renderBefore(element,child,_mustacheTemplate.renderString(item));
-        _eventCompiler.compileElement(item,renderedChild);
+
+        scope = scope != null ? scope : item;
+        _eventCompiler.compileElement(scope,renderedChild);
     }
 
     /// Swaps [item1] and [item2]
@@ -185,6 +191,10 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
 
+        if(element.dataset.containsKey(_constant.DATA_LIST)) {
+            _initListFromRootContext();
+        }
+
         element.classes.add(_cssClasses.IS_UPGRADED);
         _logger.fine("MaterialRepeat - initialized!");
     }
@@ -196,6 +206,69 @@ class MaterialRepeat extends MdlTemplateComponent {
     void _addBorderIfInDebugMode(final dom.HtmlElement child,final String color) {
         if(visualDebugging) {
             child.style.border = "1px solid $color";
+        }
+    }
+
+
+    void _initListFromRootContext() {
+        Validate.isTrue(element.dataset.containsKey(_constant.DATA_LIST));
+
+        final String dataset = element.dataset[_constant.DATA_LIST];
+        final List<String> parts = dataset.split(" ");
+        final String listName = dataset.split(" ").last;
+        final String itemName = dataset.split(" ").first;
+
+        Object rootContext;
+        try {
+            rootContext = injector.getByKey(MDLROOTCONTEXT);
+
+        } on Error {
+
+            throw new ArgumentError("Could not find rootContext. "
+                "Please define something like this: "
+                "componentFactory().rootContext(AppController).run().then((_) { ... }");
+        }
+
+        _logger.info("Itemname: $itemName, Listname: $listName in $rootContext");
+
+        final InstanceMirror myClassInstanceMirror = reflect(rootContext);
+        final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(listName));
+        _logger.info(getField);
+
+        final List list = getField.reflectee;
+        list.forEach( (final item) => add({ itemName : item },scope: rootContext));
+
+        Map _getItemFromInternalList(final item) {
+            return _items.firstWhere((final Map<String,dynamic> map) {
+                return map.containsKey(itemName) && map[itemName] == item;
+            });
+        }
+
+        if(list is ObservableList) {
+            _logger.info("List ist Observable!");
+            (list as ObservableList).onChange.listen((final ListChangedEvent event) {
+                switch(event.changetype) {
+                    case ChangeType.ADD:
+                        add( { itemName : event.item },scope: rootContext);
+                        break;
+
+                    case ChangeType.CLEAR:
+                        removeAll();
+                        break;
+
+                    case ChangeType.UPDATE:
+                        final Map itemToRemove = _items[event.index];
+                        remove(itemToRemove).then((_) {
+                            insert(event.index, { itemName : event.item },scope: rootContext);
+                        });
+                        break;
+
+                    case ChangeType.REMOVE:
+                            final Map itemToRemove = _getItemFromInternalList(event.item);
+                            remove(itemToRemove);
+                        break;
+                }
+            });
         }
     }
 

@@ -1,0 +1,131 @@
+//---
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+//@import "packages/mdl/assets/styles/material-design-lite";
+@import "config";
+@import "packages/mdl/assets/styles/mixins/mixins";
+@import "packages/mdl/assets/styles/dragdrop/dragdrop";
+
+.demo-page--dnd, .demo-section--dnd {
+    .danddcontainer {
+        display        : block;
+        flex-direction : column;
+        flex-wrap      : wrap;
+        max-width      : 500px;
+        max-height     : 400px;
+        overflow       : scroll;
+        border         : 1px dotted black;
+    }
+
+    .accept {
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        flex-grow       : 1;
+        justify-content : space-between;
+    }
+
+    .source, .programming, .natural, .trash .language {
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : flex-start;
+        padding         : 10px 10px 0 0;
+        align-items     : center;
+    }
+
+    .langbox {
+        min-width  : 200px;
+        box-sizing : border-box;
+    }
+
+    .choose .source {
+        min-height : 100px;
+        min-width  : 250px;
+        margin     : 0 0 10px 0;
+        border     : 1px solid green;
+    }
+
+    .programming, .natural {
+        flex-grow     : 1;
+        align-content : flex-start;
+        align-items   : flex-start;
+    }
+
+    .language {
+        border        : 1px solid gray;
+        border-radius : 3px;
+        margin        : 0 0 10px 10px;
+        width         : 70px;
+        height        : 20px;
+        padding       : 5px 10px 5px 10px;
+        overflow      : scroll;
+    }
+
+    .accept > div {
+        display        : flex;
+        flex-direction : column;
+        flex-grow      : 1;
+        margin         : 10px 0;
+        max-width      : 245px;
+        min-width      : 245px;
+    }
+
+    /*.accept > div:last-child {*/
+    /*margin-right: 0;*/
+    /*}*/
+    /*
+    Calc max-width:
+      body padding 24px!
+
+      200 [min-width flexbox] x 2 [nr of boxes] + 10 [margin for one box] + (24 x 2) [body padding] + 10 [margin box] */
+    @media screen and (max-width : 548px) {
+        .accept {
+            flex-direction : column;
+            align-items    : stretch;
+        }
+
+        .accept > div, .choose .source {
+            max-width : inherit;
+            min-width : inherit;
+        }
+    }
+
+    .accept > div {
+        min-height : 80px;
+    }
+
+    .natural, .programming {
+        flex-grow : 1;
+    }
+
+    .accept .natural {
+        border : 1px solid red;
+    }
+
+    .accept .programming {
+        border : 1px solid blue;
+    }
+
+    .trash .trashbox {
+        border           : 1px solid black;
+        background-color : darkgray;
+        min-height       : 80px;
+    }
+}
+

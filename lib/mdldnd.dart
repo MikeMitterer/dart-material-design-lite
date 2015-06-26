@@ -17,23 +17,24 @@
  * limitations under the License.
  */
 
-/**
- * The core - handles the initialisation process and
- * defines the base-class for all components
- */
-library mdlcore;
+library mdldnd;
 
 import 'dart:html' as dom;
-import 'dart:collection';
+import 'dart:math' as Math;
 import 'dart:async';
-import 'dart:js';
-
 import 'package:logging/logging.dart';
-import 'package:validate/validate.dart';
+import 'package:browser_detect/browser_detect.dart';
 import 'package:di/di.dart' as di;
 
-part "src/core/MdlComponentHandler.dart";
-part "src/core/MdlConfig.dart";
-part "src/core/MdlComponent.dart";
+import 'package:dnd/dnd.dart';
 
+import "package:mdl/mdlcore.dart";
+import "package:mdl/mdlcomponets.dart";
 
+part "src/dnd/MaterialDraggable.dart";
+part "src/dnd/MaterialDropZone.dart";
+
+void registerMdlDND() {
+    registerMaterialDraggable();
+    registerMaterialDropZone();
+}

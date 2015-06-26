@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-//@TestOn("dartium")
+@TestOn("content-shell")
 
 library mdl.unit.test;
 
@@ -33,16 +33,18 @@ import 'package:logging_handlers/logging_handlers_shared.dart';
 import "package:mdl/mdlutils.dart";
 
 part "utils/utils_test.dart";
+part "utils/observables_test.dart";
 
 /**
- * run the test with: pub run test:test -p dartium test/unit/test.dart
+ * run the test with: pub run test -p content-shell test/unit/test.dart
  */
 main() async {
-    final Logger _logger = new Logger('wsk_material.unit.test');
+    //final Logger _logger = new Logger('mdl.unit.test.main');
 
     configLogging();
 
-    testDataAttribute();
+    //testDataAttribute();
+    testObservables();
 }
 
 void configLogging() {
