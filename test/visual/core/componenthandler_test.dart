@@ -9,7 +9,7 @@ testComponentHandler() {
         test('> downgrade Button', () async {
             final dom.ButtonElement element = dom.document.querySelector("#button-to-downgrade");
 
-            MdlComponent component = mdlComponent(element);
+            MdlComponent component = mdlComponent(element,null);
 
             expect(element,isNotNull);
             expect(component,isNotNull);
@@ -29,7 +29,7 @@ testComponentHandler() {
 
             bool foundException = false;
             try {
-                mdlComponent(element);
+                mdlComponent(element,null);
             } on String catch(e) {
 
                 expect(e,"button is not a MdlComponent!!! (ID: button-to-downgrade)");
@@ -44,7 +44,7 @@ testComponentHandler() {
         test('> downgrade Checkbox', () async {
             final dom.HtmlElement element = dom.document.querySelector("#checkbox-to-downgrade");
 
-            MdlComponent component = mdlComponent(element);
+            MdlComponent component = mdlComponent(element,null);
 
             expect(element,isNotNull);
             expect(component,isNotNull);
@@ -59,7 +59,7 @@ testComponentHandler() {
 
             bool foundException = false;
             try {
-                mdlComponent(element);
+                mdlComponent(element,null);
             } on String catch(e) {
 
                 expect(e,"input is not a MdlComponent!!! (ID: checkbox-to-downgrade)");
@@ -72,7 +72,7 @@ testComponentHandler() {
         test('> downgrade Checkbox with Ripples', () async {
             final dom.HtmlElement element = dom.document.querySelector("#checkbox-to-downgrade-with-ripples");
 
-            MdlComponent component = mdlComponent(element);
+            MdlComponent component = mdlComponent(element,null);
 
             expect(element,isNotNull);
             expect(component,isNotNull);
@@ -87,7 +87,7 @@ testComponentHandler() {
 
             bool foundException = false;
             try {
-                mdlComponent(element);
+                mdlComponent(element,null);
             } on String catch(e) {
 
                 expect(e,"input is not a MdlComponent!!! (ID: checkbox-to-downgrade-with-ripples)");
@@ -100,7 +100,7 @@ testComponentHandler() {
         test('> downgrade Tabs', () async {
             final dom.HtmlElement element = dom.document.querySelector("#tab-to-downgrade");
 
-            MdlComponent component = mdlComponent(element);
+            MdlComponent component = mdlComponent(element,null);
 
             expect(element,isNotNull);
             expect(component,isNotNull);
@@ -109,7 +109,7 @@ testComponentHandler() {
 
             bool foundException = false;
             try {
-                mdlComponent(element);
+                mdlComponent(element,null);
             } on String catch(e) {
 
                 expect(e,"div is not a MdlComponent!!! (ID: tab-to-downgrade)");
