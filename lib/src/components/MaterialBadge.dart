@@ -54,7 +54,7 @@ class MaterialBadge extends MdlComponent {
         _init();
     }
 
-    static MaterialBadge widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialBadge;
+    static MaterialBadge widget(final dom.HtmlElement element) => mdlComponent(element,MaterialBadge) as MaterialBadge;
 
     // Central Element - by default this is where mdl-js-badge was found (element)
     // html.Element get hub => element;

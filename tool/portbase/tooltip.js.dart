@@ -1,6 +1,7 @@
 import 'dart:html' as html;
 import 'dart:math' as Math;
 
+/// license
 /// Copyright 2015 Google Inc. All Rights Reserved.
 /// 
 /// Licensed under the Apache License, Version 2.0 (the "License");
@@ -86,6 +87,10 @@ void init() {
       _forElement.onMouseEnter.listen( boundMouseEnterHandler,
           false);
 
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+      _forElement.onClick.listen( boundMouseEnterHandler,
+          false);
+
 	// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
       _forElement.onMouseLeave.listen( boundMouseLeaveHandler);
     }
@@ -98,6 +103,7 @@ void init() {
 void _mdlDowngrade() {
   if (_forElement) {
     _forElement.removeEventListener('mouseenter', boundMouseEnterHandler, false);
+    _forElement.removeEventListener('click', boundMouseEnterHandler, false);
     _forElement.removeEventListener('mouseleave', boundMouseLeaveHandler);
   }
 }

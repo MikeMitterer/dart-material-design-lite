@@ -50,7 +50,7 @@ class MaterialMustache extends MdlComponent {
         _init();
     }
 
-    static MaterialMustache widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialMustache;
+    static MaterialMustache widget(final dom.HtmlElement element) => mdlComponent(element,MaterialMustache) as MaterialMustache;
 
     // Central Element - by default this is where mdl-js-mustache was found (element)
     // dom.Element get hub => inputElement;

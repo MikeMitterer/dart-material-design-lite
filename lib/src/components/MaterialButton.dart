@@ -55,7 +55,7 @@ class MaterialButton extends MdlComponent {
         _init();
     }
 
-    static MaterialButton widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialButton;
+    static MaterialButton widget(final dom.HtmlElement element) => mdlComponent(element,MaterialButton) as MaterialButton;
 
     /// Disable button.
     void disable() {

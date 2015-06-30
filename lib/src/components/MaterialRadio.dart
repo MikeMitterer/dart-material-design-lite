@@ -93,14 +93,14 @@ class MaterialRadio extends MdlComponent {
 
     dom.RadioButtonInputElement _btnElement = null;
 
-    factory MaterialRadio(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadio;
+    //factory MaterialRadio(final dom.HtmlElement element) => mdlComponent(element,MaterialRadio) as MaterialRadio;
 
     MaterialRadio.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         _init();
     }
 
-    static MaterialRadio widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadio;
+    static MaterialRadio widget(final dom.HtmlElement element) => mdlComponent(element,MaterialRadio) as MaterialRadio;
 
 
     dom.Element get hub => btnElement;
@@ -283,14 +283,14 @@ class MaterialRadioGroup extends MdlComponent {
 
     static const _MaterialRadioCssClasses _cssClasses = const _MaterialRadioCssClasses();
 
-    factory MaterialRadioGroup(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadioGroup;
+    //factory MaterialRadioGroup(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadioGroup;
 
     MaterialRadioGroup.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         _init();
     }
 
-    static MaterialRadioGroup widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadioGroup;
+    static MaterialRadioGroup widget(final dom.HtmlElement element) => mdlComponent(element,MaterialRadioGroup) as MaterialRadioGroup;
 
     bool get hasValue {
         bool _hasValue = false;

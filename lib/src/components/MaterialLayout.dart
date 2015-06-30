@@ -120,7 +120,7 @@ class MaterialLayout extends MdlComponent {
         _init();
     }
 
-    static MaterialLayout widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialLayout;
+    static MaterialLayout widget(final dom.HtmlElement element) => mdlComponent(element,MaterialLayout) as MaterialLayout;
 
     dom.HtmlElement get header {
         //if(_header == null) { _header = element.querySelector('.' + _cssClasses.HEADER); }

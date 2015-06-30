@@ -1,6 +1,7 @@
 import 'dart:html' as html;
 import 'dart:math' as Math;
 
+/// license
 /// Copyright 2015 Google Inc. All Rights Reserved.
 /// 
 /// Licensed under the Apache License, Version 2.0 (the "License");
@@ -69,14 +70,14 @@ void _selectRow(final checkbox, row, rows) {
       if (checkbox.checked) {
         for (i = 0; i < rows.length; i++) {
           el = rows[i].querySelector('td').querySelector('.mdl-checkbox');
-          el.widget.check();
+          el.MaterialCheckbox.check();
           rows[i].classes.add(_cssClasses.IS_SELECTED);
         }
 
       } else {
         for (i = 0; i < rows.length; i++) {
           el = rows[i].querySelector('td').querySelector('.mdl-checkbox');
-          el.widget.uncheck();
+          el.MaterialCheckbox.uncheck();
           rows[i].classes.remove(_cssClasses.IS_SELECTED);
         }
       }

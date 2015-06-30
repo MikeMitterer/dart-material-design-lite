@@ -87,7 +87,7 @@ class MaterialRipple extends MdlComponent {
         _init();
     }
 
-    static MaterialRipple widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialRipple;
+    static MaterialRipple widget(final dom.HtmlElement element) => mdlComponent(element,MaterialRipple) as MaterialRipple;
 
     dom.HtmlElement get rippleElement {
         if(_rippleElement == null) {

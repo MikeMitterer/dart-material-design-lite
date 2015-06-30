@@ -90,7 +90,7 @@ class MaterialCheckbox extends MdlComponent {
         _init();
     }
 
-    static MaterialCheckbox widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialCheckbox;
+    static MaterialCheckbox widget(final dom.HtmlElement element) => mdlComponent(element,MaterialCheckbox) as MaterialCheckbox;
 
     dom.Element get hub => inputElement;
 

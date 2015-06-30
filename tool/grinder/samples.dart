@@ -29,6 +29,7 @@ class Sample {
     
     final bool hasScript;
     final bool hasDemoHtml;
+    final bool hasSnippet;
     final bool hasDemoCss;
     final bool hasReadme;
     final bool hasOwnDartMain;
@@ -54,13 +55,13 @@ class Sample {
 
     Sample(this.name,this.type,
            {    final hasScript: true, final hasDemoCss: true,
-                final bool hasReadme: true, final bool hasDemoHtml: true,
+                final bool hasReadme: true, final bool hasDemoHtml: true, final bool hasSnippet: false,
                 final bool hasOwnDartMain: false, bool hasOwnDemoHtml: false,
                 final bool excludeFromStyleguide: false,
                 final bool hasStyle: true, final bool hasOwnPubSpec: false
            }) :
                 this.hasScript = hasScript, this.hasDemoCss = hasDemoCss,
-                this.hasReadme = hasReadme,this.hasDemoHtml = hasDemoHtml,
+                this.hasReadme = hasReadme,this.hasDemoHtml = hasDemoHtml, this.hasSnippet = hasSnippet,
                 this.hasOwnDartMain = hasOwnDartMain, this.hasOwnDemoHtml = hasOwnDemoHtml,
                 this.excludeFromStyleguide = excludeFromStyleguide,
                 this.hasStyle = hasStyle, this.hasOwnPubSpec = hasOwnPubSpec
@@ -112,9 +113,9 @@ final List<Sample> samples = new List<Sample>();
 void createSampleList() {
     // MDL Core
     samples.add(new Sample("animation", Type.Core,  hasReadme: false, hasOwnDartMain: true)..jsFile = "demo.js" );
-    samples.add(new Sample("badge",     Type.Core,  hasScript: false, hasReadme: false, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("button",    Type.Core,  hasOwnDemoHtml: true ));
-    samples.add(new Sample("card",      Type.Core,  hasScript: false, hasOwnDemoHtml: true));
+    samples.add(new Sample("badge",     Type.Core,  hasDemoCss: false, hasScript: false, hasReadme: false, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("button",    Type.Core,  hasDemoCss: false, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false ));
+    samples.add(new Sample("card",      Type.Core,  hasDemoCss: false, hasScript: false, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("checkbox",  Type.Core,  hasDemoCss: false));
     samples.add(new Sample("data-table",Type.Core,  hasDemoCss: false, hasReadme: false));
 
@@ -130,7 +131,7 @@ void createSampleList() {
     samples.add(new Sample("icon-toggle",Type.Core, hasReadme: false, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("layout",    Type.Core));
     samples.add(new Sample("list",      Type.Core,  hasScript: false));
-    samples.add(new Sample("menu",      Type.Core,  hasOwnDartMain: true));
+    samples.add(new Sample("menu",      Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("palette",   Type.Core,  hasScript: false, hasReadme: false));
     samples.add(new Sample("progress",  Type.Core,  hasDemoCss: false, hasOwnDemoHtml: true, hasOwnDartMain: true));
     samples.add(new Sample("radio",     Type.Core,  hasDemoCss: false, hasOwnDartMain: true));

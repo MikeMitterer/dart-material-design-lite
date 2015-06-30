@@ -76,7 +76,7 @@ class MaterialTextfield extends MdlComponent {
         _init();
     }
 
-    static MaterialTextfield widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialTextfield;
+    static MaterialTextfield widget(final dom.HtmlElement element) => mdlComponent(element,MaterialTextfield) as MaterialTextfield;
 
     dom.Element get hub => input;
 

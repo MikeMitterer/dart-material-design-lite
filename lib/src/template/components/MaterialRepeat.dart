@@ -65,7 +65,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         _init();
     }
     
-    static MaterialRepeat widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialRepeat;
+    static MaterialRepeat widget(final dom.HtmlElement element) => mdlComponent(element,MaterialRepeat) as MaterialRepeat;
 
     /// Adds {item} to DOM, inside of {element}
     Future add(final item,{ var scope: null }) async {

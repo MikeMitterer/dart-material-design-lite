@@ -85,7 +85,7 @@ class DemoAnimation extends MdlComponent {
         _init();
     }
 
-    static DemoAnimation widget(final dom.HtmlElement element) => mdlComponent(element) as DemoAnimation;
+    static DemoAnimation widget(final dom.HtmlElement element) => mdlComponent(element,DemoAnimation) as DemoAnimation;
 
     dom.HtmlElement get movable {
         if(_movable == null) {

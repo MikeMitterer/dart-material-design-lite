@@ -1,4 +1,5 @@
 /**
+ * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -72,13 +73,13 @@ MaterialDataTable.prototype.selectRow_ = function(checkbox, row, rows) {
       if (checkbox.checked) {
         for (i = 0; i < rows.length; i++) {
           el = rows[i].querySelector('td').querySelector('.mdl-checkbox');
-          el.widget.check();
+          el.MaterialCheckbox.check();
           rows[i].classList.add(this.CssClasses_.IS_SELECTED);
         }
       } else {
         for (i = 0; i < rows.length; i++) {
           el = rows[i].querySelector('td').querySelector('.mdl-checkbox');
-          el.widget.uncheck();
+          el.MaterialCheckbox.uncheck();
           rows[i].classList.remove(this.CssClasses_.IS_SELECTED);
         }
       }

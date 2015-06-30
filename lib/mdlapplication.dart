@@ -39,8 +39,8 @@ part "src/application/modules/EventCompiler.dart";
 part "src/application/modules/ViewFactory.dart";
 part "src/application/modules/Scope.dart";
 
-part "src/application/MaterialContent.dart";
-part "src/application/MaterialInclude.dart";
+part "src/application/components/MaterialContent.dart";
+part "src/application/components/MaterialInclude.dart";
 
 part "src/application/MaterialContoller.dart";
 

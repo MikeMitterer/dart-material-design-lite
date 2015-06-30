@@ -57,7 +57,7 @@ class MaterialTooltip extends MdlComponent {
         _init();
     }
 
-    static MaterialTooltip widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialTooltip;
+    static MaterialTooltip widget(final dom.HtmlElement element) => mdlComponent(element,MaterialTooltip) as MaterialTooltip;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -77,6 +77,8 @@ class MaterialTooltip extends MdlComponent {
                     _logger.info("Found: ${forElId}");
                     eventStreams.add(_forElement.onMouseEnter.listen( _handleMouseEnter ));
 
+                    eventStreams.add(_forElement.onClick.listen( _handleMouseEnter ));
+
                     eventStreams.add(_forElement.onMouseLeave.listen( _handleMouseLeave));
                 }
             }
@@ -86,6 +88,11 @@ class MaterialTooltip extends MdlComponent {
     /// Handle mouseenter for tooltip.
     void _handleMouseEnter(final dom.MouseEvent event) {
         event.stopPropagation();
+
+        if(element.classes.contains(_cssClasses.IS_ACTIVE)) {
+            element.classes.remove(_cssClasses.IS_ACTIVE);
+            return;
+        }
 
         final Math.Rectangle props = _forElement.getBoundingClientRect();
         element.style.left = "${props.left + (props.width / 2)}px";

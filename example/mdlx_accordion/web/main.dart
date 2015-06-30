@@ -6,11 +6,15 @@ import 'package:console_log_handler/console_log_handler.dart';
 import 'package:mdl/mdl.dart';
 
 main() {
+    final Logger _logger = new Logger('accordion.main');
+
     configLogging();
 
     registerMdl();
 
     componentFactory().run().then((_) {
+        final MaterialAccordion accordion = MaterialAccordion.widget(dom.querySelector(".mdl-js-accordion"));
+        _logger.info(accordion.parent);
 
     });
 }

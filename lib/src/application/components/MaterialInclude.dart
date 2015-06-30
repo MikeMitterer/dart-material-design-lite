@@ -64,7 +64,7 @@ class MaterialInclude extends MdlComponent {
         _init();
     }
 
-    static MaterialInclude widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialInclude;
+    static MaterialInclude widget(final dom.HtmlElement element) => mdlComponent(element,MaterialInclude) as MaterialInclude;
 
     // Central Element - by default this is where mdl-js-include was found (element)
     // html.Element get hub => inputElement;

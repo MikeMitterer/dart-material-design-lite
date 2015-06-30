@@ -19,9 +19,6 @@
 
 library mdlutils;
 
-import 'dart:collection';
-import "dart:async";
-
 /**
  * Helper for requesting a proper value
  * from the components HTML-Element

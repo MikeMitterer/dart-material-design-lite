@@ -19,26 +19,30 @@
 .mdl-tooltip {
   transform: scale(0);
   transform-origin: top center;
+  will-change: transform;
+  z-index: 999;
   background: $tooltip-background-color;
   border-radius: 2px;
   color: $tooltip-text-color;
-  display: none;
+  display: inline-block;
   font-size: 10px;
+  font-weight: 500;
   line-height: 14px;
   max-width: 170px;
-  padding: 4px 8px;
-  position: absolute;
+  position: fixed;
+  top: -500px;
+  left: -500px;
+  padding: 8px;
   text-align: center;
 }
 .mdl-tooltip.is-active {
-  display: inline-block;
   animation: pulse 200ms $animation-curve-linear-out-slow-in forwards;
 }
 
 .mdl-tooltip--large {
   line-height: 14px;
   font-size: 14px;
-  padding: 15px 16px;
+  padding: 16px;
 }
 
 @keyframes pulse {

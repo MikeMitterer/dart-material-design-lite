@@ -1,17 +1,17 @@
 part of mdldialog;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialSnackbarCssClasses {
-
-    final String WSK_SNACKBAR_CONTAINER = 'mdl-snackbar__container';
-
-    final String IS_VISIBLE = 'is-visible';
-    final String IS_HIDDEN  = 'is-hidden';
-
-    const _MaterialSnackbarCssClasses();
-}
+// Store strings for class names defined by this component that are used in
+// Dart. This allows us to simply change it in one place should we
+// decide to modify at a later date.
+//class _MaterialSnackbarCssClasses {
+//
+//    final String WSK_SNACKBAR_CONTAINER = 'mdl-snackbar__container';
+//
+//    final String IS_VISIBLE = 'is-visible';
+//    final String IS_HIDDEN  = 'is-hidden';
+//
+//    const _MaterialSnackbarCssClasses();
+//}
 
 class _SnackbarConfig extends DialogConfig {
     _SnackbarConfig() : super(rootTagInTemplate: "mdl-snackbar",

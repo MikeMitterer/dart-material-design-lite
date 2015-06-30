@@ -49,7 +49,7 @@ class MaterialDraggable extends MdlComponent {
         
     }
     
-    static MaterialDraggable widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialDraggable;
+    static MaterialDraggable widget(final dom.HtmlElement element) => mdlComponent(element,MaterialDraggable) as MaterialDraggable;
     
     // Central Element - by default this is where mdldraggable can be found (element)
     // html.Element get hub => inputElement;

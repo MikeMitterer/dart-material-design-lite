@@ -77,7 +77,7 @@ class MaterialIconToggle extends MdlComponent {
         _init();
     }
 
-    static MaterialIconToggle widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialIconToggle;
+    static MaterialIconToggle widget(final dom.HtmlElement element) => mdlComponent(element,MaterialIconToggle) as MaterialIconToggle;
 
     // Central Element - by default this is where mdl-icon-toggle was found (element)
     dom.Element get hub => inputElement;

@@ -65,7 +65,7 @@ class MaterialTabs extends MdlComponent {
         _init();
     }
 
-    static MaterialTabs widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialTabs;
+    static MaterialTabs widget(final dom.HtmlElement element) => mdlComponent(element,MaterialTabs) as MaterialTabs;
 
     //- private -----------------------------------------------------------------------------------
 

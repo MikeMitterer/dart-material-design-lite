@@ -65,7 +65,7 @@ class MaterialSpinner extends MdlComponent {
         _init();
     }
 
-    static MaterialSpinner widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialSpinner;
+    static MaterialSpinner widget(final dom.HtmlElement element) => mdlComponent(element,MaterialSpinner) as MaterialSpinner;
 
     /**
     * Stops the spinner animation.

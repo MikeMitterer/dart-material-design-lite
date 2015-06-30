@@ -1,6 +1,7 @@
 import 'dart:html' as html;
 import 'dart:math' as Math;
 
+/// license
 /// Copyright 2015 Google Inc. All Rights Reserved.
 /// 
 /// Licensed under the Apache License, Version 2.0 (the "License");
@@ -103,7 +104,6 @@ void init() {
 }
 
 /// Downgrade the element.
-/// 
 /// MaterialButton.prototype.mdlDowngrade_ = /*function*/ () {
 void _mdlDowngrade() {
   if (_rippleElement) {

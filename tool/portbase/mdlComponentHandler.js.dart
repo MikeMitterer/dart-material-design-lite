@@ -1,6 +1,7 @@
 import 'dart:html' as html;
 import 'dart:math' as Math;
 
+/// license
 /// Copyright 2015 Google Inc. All Rights Reserved.
 /// 
 /// Licensed under the Apache License, Version 2.0 (the "License");
@@ -103,13 +104,13 @@ final componentHandler = ( /*function*/ () {
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
-        registeredClass.callbacks.forEach(function (callback) {
+        registeredClass.callbacks.forEach(function(callback) {
           callback(element);
         });
 
         if (registeredClass.widget) {
           // Assign per element instance for control over API
-          element.widget = instance;
+          element[jsClass] = instance;
         }
 
       } else {
@@ -144,8 +145,10 @@ final componentHandler = ( /*function*/ () {
       }
     });
 
-    if (config.constructor.prototype.hasOwnProperty(componentConfigProperty_)) {
-      throw 'MDL component classes must not have ' + componentConfigProperty_ + ' defined as a property.';
+    if (config.constructor.prototype
+        .hasOwnProperty(componentConfigProperty_)) {
+      throw 'MDL component classes must not have ' + componentConfigProperty_ +
+          ' defined as a property.';
     }
 
     final found = findRegisteredClass_(config.classAsString, newConfig);
@@ -180,8 +183,8 @@ final componentHandler = ( /*function*/ () {
 
 /// Finds a created component by a given DOM node.
 /// 
-/// param node
-/// returns {*}
+/// param {!Element} node
+/// return {*}
   function findCreatedComponentByNodeInternal(node) {
 
     for (final n = 0; n < createdComponents_.length; n++) {
@@ -197,12 +200,12 @@ final componentHandler = ( /*function*/ () {
 /// Execute if found.
 /// Remove component from createdComponents list.
 /// 
-/// param component
+/// param {*} component
   function deconstructComponentInternal(component) {
     if (component &&
-      component[componentConfigProperty_]
-      .classConstructor.prototype
-      .hasOwnProperty(downgradeMethod_)) {
+        component[componentConfigProperty_]
+          .classConstructor.prototype
+          .hasOwnProperty(downgradeMethod_)) {
       component[downgradeMethod_]();
 
       final componentIndex = createdComponents_.indexOf(component);
@@ -210,7 +213,8 @@ final componentHandler = ( /*function*/ () {
 
       final upgrades = component._element.dataset.upgraded.split(',');
 
-      final componentPlace = upgrades.indexOf(component[componentConfigProperty_].classAsString);
+      final componentPlace = upgrades.indexOf(
+          component[componentConfigProperty_].classAsString);
       upgrades.splice(componentPlace, 1);
       component._element.dataset.upgraded = upgrades.join(',');
 
@@ -222,7 +226,7 @@ final componentHandler = ( /*function*/ () {
 
 /// Downgrade either a given node, an array of nodes, or a NodeList.
 /// 
-/// param nodes
+/// param {*} nodes
   function downgradeNodesInternal(nodes) {
 
     final downgradeNode = function(node) {
@@ -266,6 +270,6 @@ window.addEventListener('load', /*function*/ () {
 
   } else {
     componentHandler.upgradeElement =
-        componentHandler.register = function () { }
+        componentHandler.register = /*function*/ () {}
   }
 });

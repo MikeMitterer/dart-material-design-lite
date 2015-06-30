@@ -48,7 +48,7 @@ class MaterialDropZone extends MdlComponent {
         
     }
     
-    static MaterialDropZone widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialDropZone;
+    static MaterialDropZone widget(final dom.HtmlElement element) => mdlComponent(element,MaterialDropZone) as MaterialDropZone;
     
     // Central Element - by default this is where mdl-dropzone can be found (element)
     // html.Element get hub => inputElement;

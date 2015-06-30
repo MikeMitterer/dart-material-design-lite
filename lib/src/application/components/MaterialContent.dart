@@ -50,7 +50,7 @@ class MaterialContent extends MdlComponent {
         _init();
     }
 
-    static MaterialContent widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialContent;
+    static MaterialContent widget(final dom.HtmlElement element) => mdlComponent(element,MaterialContent) as MaterialContent;
 
 
     // Central Element - by default this is where mdl-js-content was found (element)

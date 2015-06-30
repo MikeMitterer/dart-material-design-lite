@@ -73,7 +73,7 @@ class MaterialSlider extends MdlComponent {
         _init();
     }
 
-    static MaterialSlider widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialSlider;
+    static MaterialSlider widget(final dom.HtmlElement element) => mdlComponent(element,MaterialSlider) as MaterialSlider;
 
     dom.RangeInputElement get slider => super.element as dom.RangeInputElement;
 

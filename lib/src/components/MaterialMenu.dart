@@ -111,7 +111,7 @@ class MaterialMenu extends MdlComponent {
         _init();
     }
 
-    static MaterialMenu widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialMenu;
+    static MaterialMenu widget(final dom.HtmlElement element) => mdlComponent(element,MaterialMenu) as MaterialMenu;
 
     /// Displays the menu.
     /// @public

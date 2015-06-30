@@ -93,7 +93,7 @@ class MaterialAccordion extends MdlComponent {
         _init();
     }
 
-    static MaterialAccordion widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialAccordion;
+    static MaterialAccordion widget(final dom.HtmlElement element) => mdlComponent(element,MaterialAccordion) as MaterialAccordion;
 
 
     //- private -----------------------------------------------------------------------------------

@@ -84,9 +84,6 @@ class DialogConfig {
 abstract class MaterialDialog extends Object with TemplateComponent {
     final Logger _logger = new Logger('mdldialog.DialogElement');
 
-    /// All Dialogs
-    static final Map<String,MaterialDialog> _dialogElements = new Map<String,MaterialDialog>();
-
     static const _MaterialDialogCssClasses _cssClasses = const _MaterialDialogCssClasses();
 
     static int idCounter = 0;

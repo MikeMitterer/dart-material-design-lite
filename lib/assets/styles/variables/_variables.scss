@@ -168,8 +168,10 @@ $input-text-error-color: rgb(222, 50, 38) !default;
 // =========  Card  =========
 
 $card-background-color: ($color-white) !default;
+$card-text-color: ($color-black) !default;
 $card-image-placeholder-color: ($color-accent) !default;
 $card-supporting-text-text-color: $text-color-primary !default;
+$card-border-color: rgba(0,0,0,0.1) !default;
 
 // Heading back
 $heading-back-border: 0 none ($color-white) !default;
@@ -209,7 +211,7 @@ $default-dropdown-bg-color: ($color-white) !default;
 // =========  Tooltips  =========
 
 $tooltip-text-color: ($color-white) !default;
-$tooltip-background-color: rgba($color-black, 0.9) !default;
+$tooltip-background-color: rgba($palette-grey-700, 0.9) !default;
 
 // =========  Footer  =========
 
@@ -383,7 +385,7 @@ $card-width: 330px !default;
 $card-height: 200px !default;
 $card-font-size: 16px !default;
 $card-title-font-size: 24px !default;
-$card-horizontal-padding: 8px !default;
+$card-horizontal-padding: 16px !default;
 $card-vertical-padding: 16px !default;
 
 $card-title-perspective-origin-x: 165px !default;

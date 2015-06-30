@@ -55,7 +55,7 @@ class MaterialProgress extends MdlComponent {
     dom.DivElement _bufferbar;
     dom.DivElement _auxbar;
 
-    factory MaterialProgress(final dom.HtmlElement element) => mdlComponent(element) as MaterialProgress;
+    //factory MaterialProgress(final dom.HtmlElement element) => mdlComponent(element,MaterialProgress) as MaterialProgress;
 
     //    factory MaterialProgress() =>  new html.Element.tag('mdl-progress');
 //
@@ -76,7 +76,7 @@ class MaterialProgress extends MdlComponent {
 //        _init();
 //    }
 
-    static MaterialProgress widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialProgress;
+    static MaterialProgress widget(final dom.HtmlElement element) => mdlComponent(element,MaterialProgress) as MaterialProgress;
 
     /// MaterialProgress.prototype.setProgress = function(p) {
     void set progress(int width) {

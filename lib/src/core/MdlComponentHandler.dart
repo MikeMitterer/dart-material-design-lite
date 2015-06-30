@@ -335,7 +335,26 @@ class MdlComponentHandler {
                 var jsElement = new JsObject.fromBrowserObject(component.hub);
 
                 if(config.isWidget) {
-                    jsElement[MDL_WIDGET_PROPERTY] = component;
+
+                    // remember all the registered components in MDL_WIDGET_PROPERTY
+                    if(jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {
+                        final List<String> componentsForElement = (jsElement[MDL_WIDGET_PROPERTY] as String).split(",");
+                        if(!componentsForElement.contains(config.classAsString)) {
+                            componentsForElement.add(config.classAsString);
+                            jsElement[MDL_WIDGET_PROPERTY] = componentsForElement.join(",");
+                        }
+
+                        // MDL/JS want's to go this route - not sure if it makes sense!!!!
+                        if(componentsForElement.length > 1) {
+                            _logger.warning("$element has more than one components. ($componentsForElement)\n"
+                                "This can lead into problems with 'MdlComponent.parent'...");
+                        }
+                    } else {
+                        jsElement[MDL_WIDGET_PROPERTY] = config.classAsString;
+                    }
+
+                    // register the component
+                    jsElement[config.classAsString] = component;
 
                 } else {
                     jsElement[MDL_RIPPLE_PROPERTY] = component;
@@ -357,7 +376,7 @@ class MdlComponentHandler {
         return new di.ModuleInjector(_modules);
     }
 
-    /// Downgrades the given {element}
+    /// Downgrades the given {element} with all it's components
     void _deconstructComponent(final dom.HtmlElement element) {
         try {
             // Also remove the Widget-Property
@@ -374,9 +393,13 @@ class MdlComponentHandler {
             }
 
             if(jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {
-                component = jsElement[MDL_WIDGET_PROPERTY] as MdlComponent;
 
-                component.downgrade();
+                final List<String> componentsForElement = (jsElement[MDL_WIDGET_PROPERTY] as String).split(",");
+                componentsForElement.forEach((final String componentName) {
+                    component = jsElement[componentName] as MdlComponent;
+                    component.downgrade();
+                    jsElement.deleteProperty(componentName);
+                });
 
                 jsElement.deleteProperty(MDL_WIDGET_PROPERTY);
             }

@@ -28,8 +28,10 @@ class MergeMaster {
         final String mdlDir = config.mdldir;
 
         final Directory mdlSampleDir = new Directory("${mdlDir}/${sample.name}");
+        final Directory mdlSnippetDir = new Directory("${mdlDir}/${sample.name}/snippets");
         final Directory sassDir = new Directory("${config.sassdir}/${sample.name}");
         final Directory demoBaseDir = new Directory("${config.demobase}/${sample.name}");
+        final Directory demoBaseSnippetDir = new Directory("${config.demobase}/${sample.name}/snippets");
 
         if(!mdlSampleDir.existsSync()) {
             throw "${mdlSampleDir.path} does not exist!";
@@ -37,6 +39,9 @@ class MergeMaster {
 
         if(sample.hasDemoHtml) {
             demoBaseDir.createSync(recursive: true);
+        }
+        if(sample.hasSnippet) {
+            demoBaseSnippetDir.createSync(recursive: true);
         }
 
         final File srcSCSS = new File("${mdlSampleDir.path}/${sample.scssFile}");
@@ -53,6 +58,15 @@ class MergeMaster {
             final File srcDemoHtml = new File("${mdlSampleDir.path}/${sample.htmlDemo}");
             final File targetDemoHtml = new File("${demoBaseDir.path}/${sample.htmlDemo}");
             srcDemoHtml.copySync(targetDemoHtml.path);
+        }
+
+        if(sample.hasSnippet) {
+            mdlSnippetDir.listSync(recursive: false).forEach((final FileSystemEntity entity) {
+                final File src = new File(entity.path);
+                final File target = new File(entity.path.replaceFirst(mdlSnippetDir.path,demoBaseSnippetDir.path));
+                src.copySync(target.path);
+                log("${src.path} -> ${target.path}");
+            });
         }
 
         if(sample.hasDemoCss) {

@@ -83,7 +83,7 @@ class MaterialSwitch extends MdlComponent {
         _init();
     }
 
-    static MaterialSwitch widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialSwitch;
+    static MaterialSwitch widget(final dom.HtmlElement element) => mdlComponent(element,MaterialSwitch) as MaterialSwitch;
 
     dom.CheckboxInputElement get inputElement {
         if(_inputElement == null) { _inputElement = element.querySelector(".${_cssClasses.INPUT}"); }

@@ -51,7 +51,7 @@ class MaterialDataTable extends MdlComponent {
         _init();
     }
 
-    static MaterialDataTable widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialDataTable;
+    static MaterialDataTable widget(final dom.HtmlElement element) => mdlComponent(element,MaterialDataTable) as MaterialDataTable;
 
     // Central Element - by default this is where mdl-data-table can be found (element)
     // html.Element get hub => inputElement;
