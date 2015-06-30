@@ -224,6 +224,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         final String listName = dataset.split(" ").last;
         final String itemName = dataset.split(" ").first;
 
+/*
         Object rootContext;
         try {
             rootContext = injector.getByKey(MDLROOTCONTEXT);
@@ -234,15 +235,17 @@ class MaterialRepeat extends MdlTemplateComponent {
                 "Please define something like this: "
                 "componentFactory().rootContext(AppController).run().then((_) { ... }");
         }
+*/
+        scope.context = scope.parentContext;
 
-        _logger.info("Itemname: $itemName, Listname: $listName in $rootContext");
+        _logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}");
 
-        final InstanceMirror myClassInstanceMirror = reflect(rootContext);
+        final InstanceMirror myClassInstanceMirror = reflect(scope.context);
         final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(listName));
         _logger.info(getField);
 
         final List list = getField.reflectee;
-        list.forEach( (final item) => add({ itemName : item },scope: rootContext));
+        list.forEach( (final item) => add({ itemName : item },scope: scope.context));
 
         Map _getItemFromInternalList(final item) {
             return _items.firstWhere((final Map<String,dynamic> map) {
@@ -255,7 +258,7 @@ class MaterialRepeat extends MdlTemplateComponent {
             (list as ObservableList).onChange.listen((final ListChangedEvent event) {
                 switch(event.changetype) {
                     case ListChangeType.ADD:
-                        add( { itemName : event.item },scope: rootContext);
+                        add( { itemName : event.item },scope: scope.context);
                         break;
 
                     case ListChangeType.CLEAR:
@@ -268,9 +271,9 @@ class MaterialRepeat extends MdlTemplateComponent {
 
                         remove(itemToRemove).then((_) {
                             if(index < _items.length) {
-                                insert(index, { itemName : event.item },scope: rootContext);
+                                insert(index, { itemName : event.item },scope: scope.context);
                             } else {
-                                add( { itemName : event.item },scope: rootContext);
+                                add( { itemName : event.item },scope: scope.context);
                             }
                         });
                         break;

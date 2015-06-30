@@ -1,0 +1,24 @@
+<section class="demo-section demo-section--observe demo-page--observe">
+    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/observe.html">
+        Loading...
+    </div>
+    <div class="demo-preview-block">
+        <p>
+            Wait 2 secs - A timer will add 10 more List-Items!<br>
+            If you "REMOVE" "German" - it will be replace with "Austrian"
+        </p>
+        <p>
+            Now it's: <span class="mdl-property" data-mdl-property="time"></span><br>
+            Nr. of records: <span class="mdl-property" data-mdl-property="records"></span><br>
+        </p>
+        <div class="mdl-repeat" data-mdl-list="language in languages">
+             
+            <div template class="language" >
+                Language: {{language.name}} ({{language.type}})
+                <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
+                        data-mdl-click="remove({{language.name}})">Remove</button>
+            </div>
+             
+        </div>
+    </div>
+</section>

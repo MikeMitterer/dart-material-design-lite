@@ -18,6 +18,32 @@
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+@MdlComponentModel
+class Model &#123;
+    static Model _model;
+    final StreamController _controller = new StreamController&lt;ModelChangedEvent&gt;.broadcast();
+    Stream&lt;ModelChangedEvent&gt; onChange;
+    int _sliderValue = 20;
+    List&lt;int&gt; randomValues = new List&lt;int&gt;();
+    factory Model() &#123;
+        if(_model == null) &#123;  _model = new Model._internal(); &#125;
+        return _model;
+    &#125;
+    int get sliderValue =&gt; _sliderValue;
+    set sliderValue(final int value) &#123;
+        _sliderValue = value;
+        randomValues.clear();
+        for(int counter = 0;counter &lt; _sliderValue;counter++) &#123;
+            randomValues.add(new Math.Random().nextInt(1000));
+        &#125;
+        _controller.add(new ModelChangedEvent());
+    &#125;
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+    Model._internal() &#123;
+        onChange = _controller.stream;
+    &#125;
+&#125;
 
 main() &#123;
     final Logger _logger = new Logger(&#39;main.MaterialContent&#39;);
@@ -73,7 +99,49 @@ main() &#123;
             mustache.render(model);
         &#125;);
     &#125;);
-&#125;</pre>
+&#125;
+class DemoController extends MaterialController &#123;
+    final Model _model = new Model();
+    MaterialSlider _slider5;
+    MaterialSlider _slider2;
+    @override
+    void loaded(final Route route) &#123;
+        _slider5 = MaterialSlider.widget(dom.querySelector(&quot;#slider5&quot;));
+        _slider2 = MaterialSlider.widget(dom.querySelector(&quot;#slider2&quot;));
+        if(_slider5 == null) &#123;
+            &#47;&#47; ERROR-PAGE not slider 5
+            return;
+        &#125;
+        _slider5.value = _model.sliderValue;
+        _slider2.value = _model.sliderValue;
+        _slider5.onChange.listen((_) =&gt; _model.sliderValue = _slider5.value);
+        _slider2.onChange.listen((_) =&gt; _model.sliderValue = _slider2.value);
+
+        _model.onChange.listen((_) =&gt; _modelChanged());
+    &#125;
+    &#47;&#47; - private ------------------------------------------------------------------------------------------------------
+    void _modelChanged() &#123;
+        _slider5.value = _model.sliderValue;
+        _slider2.value = _model.sliderValue;
+    &#125;
+&#125;
+void configRouter(final ViewFactory view) &#123;
+    final Router router = new Router(useFragment: true);
+    router.root
+        ..addRoute(name: &#39;test&#39;, path: &#39;&#47;test&#39;,
+            enter: view(&quot;views&#47;test.html&quot;, new DummyController()))
+        ..addRoute(name: &#39;test2&#39;, path: &#39;&#47;test2&#39;,
+            enter: view(&quot;views&#47;test2.html&quot;, new DummyController()))
+        ..addRoute(name: &#39;slider&#39;, path: &#39;&#47;slider&#39;,
+            enter: view(&quot;views&#47;slider.html&quot;, new DemoController()))
+        ..addRoute(name: &#39;error&#39;, path: &#39;&#47;error&#39;,
+            enter: view(&quot;views&#47;doesnotexist.html&quot;, new DemoController()))
+        ..addRoute(name: &#39;home&#39;, defaultRoute: true, path: &#39;&#47;&#39;,
+            enter: view(&quot;views&#47;home.html&quot; ,new DummyController()))
+    ;
+    router.listen();
+&#125;
+</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">

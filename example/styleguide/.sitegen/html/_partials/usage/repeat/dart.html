@@ -1,141 +1,181 @@
 import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 
+@MdlComponentModel
+class Name &#123;
+    final Logger _logger = new Logger(&#39;main.Name&#39;);
+
+    static int _counter = 0;
+    int _id = 0;
+
+    final RemoveCallback _callback;
+
+    final String name;
+
+    String get id =&gt; _id.toString();
+
+    Name(this.name,this._callback) &#123; _id = _counter++; &#125;
+
+
+    void clicked(final String value) &#123;
+        _logger.info(&quot;Clicked on $value&quot;);
+    &#125;
+
+    void remove() &#123;
+        _logger.info(&quot;Remove ID $id&quot;);
+        _callback(this);
+    &#125;
+&#125;
 
 main() &#123;
     final Logger _logger = new Logger(&#39;main.MaterialRepeat&#39;);
 
+
     registerMdl();
 
-    componentFactory().run().then((_) async &#123;
-        final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector(&quot;.mdl-repeat&quot;));
-        repeater.visualDebugging = true;
 
-        final List&lt;Name&gt; names = new List&lt;Name&gt;();
-        final RemoveCallback removeCallback = (final Name nameToRemove) &#123;
-            _logger.info(&quot;Name to remove: $&#123;nameToRemove.name&#125;&quot;);
+    componentFactory().run(enableVisualDebugging: true).then((_) &#123;
 
-            repeater.remove(nameToRemove);
-            names.remove(nameToRemove);
-        &#125;;
+        Future _addNamesProgrammatically() async &#123;
+            final Logger _logger = new Logger(&#39;main._addNamesProgrammatically&#39;);
 
-        names.add(new Name(&quot;A - Nicki&quot;,removeCallback));
-        names.add(new Name(&quot;B - Mike&quot;,removeCallback));
-        names.add(new Name(&quot;C - Gerda&quot;,removeCallback));
-        names.add(new Name(&quot;D - Sarah&quot;,removeCallback));
+            final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector(&quot;#main.mdl-repeat&quot;));
 
-        await Future.forEach(names, (final name) async &#123;
-            await repeater.add(name);
-        &#125;);
+            final List&lt;Name&gt; names = new List&lt;Name&gt;();
+            final RemoveCallback removeCallback = (final Name nameToRemove) &#123;
+                _logger.info(&quot;Name to remove: $&#123;nameToRemove.name&#125;&quot;);
 
-        void _test0(final int milliseconds) &#123;
+                repeater.remove(nameToRemove);
+                names.remove(nameToRemove);
+            &#125;;
 
-            new Timer(new Duration(milliseconds: milliseconds), () &#123;
-                final name = names.getRange(1, 2).first; &#47;&#47; Mike
-                final String idForCheckbox = &quot;#check-$&#123;name.id&#125;&quot;;
+            names.add(new Name(&quot;A - Nicki&quot;,removeCallback));
+            names.add(new Name(&quot;B - Mike&quot;,removeCallback));
+            names.add(new Name(&quot;C - Gerda&quot;,removeCallback));
+            names.add(new Name(&quot;D - Sarah&quot;,removeCallback));
 
-                final MaterialCheckbox checkbox = MaterialCheckbox.widget(dom.querySelector(idForCheckbox));
-                checkbox.check();
-                &#47;&#47; check it!
-            &#125;);
-        &#125;
-
-        void _test1(final int milliseconds) &#123;
-            new Timer(new Duration(milliseconds: milliseconds), () &#123;
-                final name = names.getRange(2,3).first;
-                names.remove(name);
-                repeater.remove(name);
-            &#125;);
-        &#125;
-
-        void _test2(final int milliseconds) &#123;
-
-            final hudriwudri = new Name(&quot;HudriWudri&quot;,removeCallback);
-            new Timer(new Duration(milliseconds: milliseconds), () &#123;
-                names.insert(2,hudriwudri);
-                repeater.insert(2,hudriwudri);
+            await Future.forEach(names, (final name) async &#123;
+                await repeater.add(name);
             &#125;);
 
-            new Timer(new Duration(milliseconds: milliseconds + 1000), () &#123;
-                names.remove(hudriwudri);
-                repeater.remove(hudriwudri);
-            &#125;);
-        &#125;
+            void _test0(final int milliseconds) &#123;
 
-        void _test3(final int milliseconds) &#123;
-            new Timer(new Duration(milliseconds: milliseconds), () async &#123;
-                int index1 = 1;
-                int index2 = 2;
+                new Timer(new Duration(milliseconds: milliseconds), () &#123;
+                    final name = names.getRange(1, 2).first; &#47;&#47; Mike
+                    final String idForCheckbox = &quot;#check-$&#123;name.id&#125;&quot;;
 
-                final item1 = names[index1];
-                final item2 = names[index2];
-
-                _logger.info(&quot;Swap in main: $&#123;item1.name&#125; -&gt; $&#123;item2.name&#125;&quot;);
-                names[index2] = item1;
-                names[index1] = item2;
-                await repeater.swap(item1,item2);
-            &#125;);
-        &#125;
-
-        void _test4(final int milliseconds) &#123;
-            new Timer(new Duration(milliseconds: milliseconds), () &#123;
-                Stopwatch stopwatch = new Stopwatch()
-                    ..start();
-                final List&lt;Future&gt; futures = new List&lt;Future&gt;();
-
-                int i = 0;
-                for (;i &lt; 10;i++) &#123;
-                    final name = new Name(&quot;Name: $i&quot;, removeCallback);
-
-                    names.add(name);
-                    futures.add(repeater.add(name));
-                &#125;
-                Future.wait(futures).then((_) &#123;
-                    stopwatch.stop();
-                    _logger.info(&quot;Adding $&#123;i&#125; number of items took $&#123;stopwatch.elapsedMilliseconds&#125;ms&quot;);
+                    final MaterialCheckbox checkbox = MaterialCheckbox.widget(dom.querySelector(idForCheckbox));
+                    checkbox.check();
+                    &#47;&#47; check it!
                 &#125;);
-            &#125;);
-        &#125;
+            &#125;
 
-        void _test5(final int milliseconds) &#123;
+            void _test1(final int milliseconds) &#123;
+                new Timer(new Duration(milliseconds: milliseconds), () &#123;
+                    final name = names.getRange(2,3).first;
+                    names.remove(name);
+                    repeater.remove(name);
+                &#125;);
+            &#125;
 
-            new Timer(new Duration(milliseconds: milliseconds), () &#123;
-                final int FPS = (1000 &#47; 50).ceil();
-                _logger.info(&quot;Frames per sec: $&#123;(1000 &#47; FPS).ceil() &#125;&quot;);
+            void _test2(final int milliseconds) &#123;
 
-                int index = 0;
-                for (int i = 0;i &lt; names.length * 10;i++) &#123;
-                    if (index &gt;= names.length) &#123;
-                        index = 0;
+                final hudriwudri = new Name(&quot;HudriWudri&quot;,removeCallback);
+                new Timer(new Duration(milliseconds: milliseconds), () &#123;
+                    names.insert(2,hudriwudri);
+                    repeater.insert(2,hudriwudri);
+                &#125;);
+
+                new Timer(new Duration(milliseconds: milliseconds + 1000), () &#123;
+                    names.remove(hudriwudri);
+                    repeater.remove(hudriwudri);
+                &#125;);
+            &#125;
+
+            void _test3(final int milliseconds) &#123;
+                new Timer(new Duration(milliseconds: milliseconds), () async &#123;
+                    int index1 = 1;
+                    int index2 = 2;
+
+                    final item1 = names[index1];
+                    final item2 = names[index2];
+
+                    _logger.fine(&quot;Swap in main: $&#123;item1.name&#125; -&gt; $&#123;item2.name&#125;&quot;);
+                    names[index2] = item1;
+                    names[index1] = item2;
+                    await repeater.swap(item1,item2);
+                &#125;);
+            &#125;
+
+            void _test4(final int milliseconds) &#123;
+                new Timer(new Duration(milliseconds: milliseconds), () &#123;
+                    Stopwatch stopwatch = new Stopwatch()
+                        ..start();
+                    final List&lt;Future&gt; futures = new List&lt;Future&gt;();
+
+                    int i = 0;
+                    for (;i &lt; 10;i++) &#123;
+                        final name = new Name(&quot;Name: $i&quot;, removeCallback);
+
+                        names.add(name);
+                        futures.add(repeater.add(name));
                     &#125;
-                    final int index1 = index;
-                    final int index2 = index + 1 &lt; names.length ? index + 1 : 0;
-
-                    _logger.info(&quot;Swap $index1 with $index2&quot;);
-
-                    new Future.delayed(new Duration(milliseconds: (i + 1) * FPS), () async &#123;
-
-                        _logger.info(&quot;InnerSwap $index1 with $index2&quot;);
-
-                        final item1 = names[index1];
-                        final item2 = names[index2];
-
-                        names[index1] = item2;
-                        names[index2] = item1;
-
-                        await repeater.swap(item1, item2);
+                    Future.wait(futures).then((_) &#123;
+                        stopwatch.stop();
+                        _logger.info(&quot;Adding $&#123;i&#125; number of items took $&#123;stopwatch.elapsedMilliseconds&#125;ms&quot;);
                     &#125;);
+                &#125;);
+            &#125;
 
-                    index++;
-                &#125;
-            &#125;);
+            void _test5(final int milliseconds) &#123;
+
+                new Timer(new Duration(milliseconds: milliseconds), () &#123;
+                    final int FPS = (1000 &#47; 50).ceil();
+                    _logger.info(&quot;Frames per sec: $&#123;(1000 &#47; FPS).ceil() &#125;&quot;);
+
+                    int index = 0;
+                    for (int i = 0;i &lt; names.length * 10;i++) &#123;
+                        if (index &gt;= names.length) &#123;
+                            index = 0;
+                        &#125;
+                        final int index1 = index;
+                        final int index2 = index + 1 &lt; names.length ? index + 1 : 0;
+
+                        _logger.fine(&quot;Swap $index1 with $index2&quot;);
+
+                        new Future.delayed(new Duration(milliseconds: (i + 1) * FPS), () async &#123;
+
+                            _logger.fine(&quot;InnerSwap $index1 with $index2&quot;);
+
+                            final item1 = names[index1];
+                            final item2 = names[index2];
+
+                            names[index1] = item2;
+                            names[index2] = item1;
+
+                            await repeater.swap(item1, item2);
+                        &#125;);
+
+                        index++;
+                    &#125;
+                &#125;);
+            &#125;
+
+            _test0(500);
+            _test1(1500);
+            _test2(2500);
+            _test3(4500);
+            _test4(5500);
+            _test5(6500);
+
         &#125;
 
-        _test0(500);
-        _test1(1500);
-        _test2(2500);
-        _test3(4500);
-        _test4(5500);
-        _test5(6500);
+        _addNamesProgrammatically();
+
 
     &#125;);
+
 &#125;
+
+
+

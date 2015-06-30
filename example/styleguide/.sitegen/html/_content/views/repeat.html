@@ -4,7 +4,7 @@
     </div>
     <div class="demo-preview-block">
         <div id="main" class="mdl-repeat">
-            {{! ----- Turn off mustache interpretation ---- }} {{= | | =}}
+            {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
             <div template >
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check-{{id}}">
                     <input type="checkbox" id="check-{{id}}" class="mdl-checkbox__input"
@@ -14,7 +14,7 @@
                 <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
                         data-mdl-click="remove()">Remove</button>
             </div>
-            |= {{ }} =|
+            |= {{ }} =| {{! ----- Turn on mustache ---- }}
         </div>
     </div>
 </section>

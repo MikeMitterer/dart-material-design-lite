@@ -179,30 +179,40 @@ class Styleguide {
         final targetDart = new File("${targetUsageDir.path}/dart.html");
 
         String content = srcDart.readAsStringSync();
-        content = content.replaceAll(new RegExp(r"(?:.|\n|\r)*main\(\)",multiLine: true),"main()");
+        if(content.contains("@MdlComponentModel")) {
+            final int index = content.indexOf("\@MdlComponentModel");
+            content = "import 'package:mdl/mdl.dart';\nimport 'package:mdl/mdlobservable.dart';\n\n" +
+                content.substring(index);
 
-        final StringBuffer buffer = new StringBuffer();
-        int counter = 0;
+            content = content.replaceAll(new RegExp(r"void configLogging\(\) {(?:[^}]|\n|\r)*?}",multiLine: true),"");
 
-        buffer.writeln("import 'package:mdl/mdl.dart';");
-        buffer.writeln("\n");
-        for(int index = 0;index < content.codeUnits.length;index++) {
-            final int unit = content.codeUnitAt(index);
-            final String char = new String.fromCharCode(unit);
+        } else {
+            content = content.replaceAll(new RegExp(r"(?:.|\n|\r)*main\(\)",multiLine: true),"main()");
 
-            buffer.writeCharCode(unit);
-            if(char == "{") {
-                counter++;
-            } else if(char == "}") {
-                counter--;
-                if(counter == 0) {
-                    break;
+            final StringBuffer buffer = new StringBuffer();
+            int counter = 0;
+
+            buffer.writeln("import 'package:mdl/mdl.dart';");
+            buffer.writeln("\n");
+            for(int index = 0;index < content.codeUnits.length;index++) {
+                final int unit = content.codeUnitAt(index);
+                final String char = new String.fromCharCode(unit);
+
+                buffer.writeCharCode(unit);
+                if(char == "{") {
+                    counter++;
+                } else if(char == "}") {
+                    counter--;
+                    if(counter == 0) {
+                        break;
+                    }
                 }
-            }
 
-            //log(char);
-        };
-        content = buffer.toString();
+                //log(char);
+            };
+            content = buffer.toString();
+        }
+
         content = content.replaceFirst(new RegExp(r".*configLogging\(\);\n\n*",multiLine: true),"");
 
         //log(new HtmlEscape().convert(buffer.toString()));

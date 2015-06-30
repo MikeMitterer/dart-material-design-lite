@@ -21,7 +21,7 @@ part of mdltemplate;
 
 
 /// Basis for all MdlComponents with Templates
-abstract class MdlTemplateComponent extends MdlComponent implements TemplateComponent {
+abstract class MdlTemplateComponent extends MdlComponent implements TemplateComponent, ScopeAware {
     final Logger _logger = new Logger('mdltemplate.MdlTemplateComponent');
 
     /// {_renderer} takes the template, renders the current object to a resulting String
@@ -44,13 +44,17 @@ abstract class MdlTemplateComponent extends MdlComponent implements TemplateComp
      */
     final Map<String,LambdaFunction> lambdas = new Map<String,LambdaFunction>();
 
-    MdlTemplateComponent(final dom.Element element,final di.Injector injector) : super(element,injector) {
+    Scope scope;
+
+    MdlTemplateComponent(final dom.Element element,final di.Injector injector)
+      : super(element,injector) {
 
         Validate.notNull(element);
         Validate.notNull(injector);
 
         final TemplateRenderer templateRenderer = injector.get(TemplateRenderer);
         _renderer = templateRenderer.call(element,this,() => template);
+        scope = new Scope(this, mdlParentScope(this));
     }
 
     Future render() {

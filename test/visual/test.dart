@@ -34,6 +34,7 @@ import 'package:console_log_handler/console_log_handler.dart';
 import "package:mdl/mdl.dart";
 
 part "core/componenthandler_test.dart";
+part "core/component_test.dart";
 
 part "components/accordion_test.dart";
 part "components/button_test.dart";
@@ -69,6 +70,7 @@ main() async {
     await initComponents();
 
     testComponentHandler();
+    testComponent();
 
     testAccordion();
     testButton();

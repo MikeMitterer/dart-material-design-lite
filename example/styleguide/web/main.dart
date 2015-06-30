@@ -25,6 +25,7 @@ import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdldemo.dart';
+import 'package:mdl/mdlobservable.dart';
 
 import 'package:route_hierarchical/client.dart';
 import 'package:prettify/prettify.dart';
@@ -34,11 +35,83 @@ import "package:mdl/mdldialog.dart";
 
 import "package:mdl_styleguide/customdialog.dart";
 
-class ModelChangedEvent {
+/**
+ * Main Controller - you can get the AppController via injector.getByKey(MDLROOTCONTEXT)
+ */
+@MdlComponentModel @di.Injectable()
+class AppController {
+  final Logger _logger = new Logger('main.AppController');
 
+  final ObservableList<_Language>  languages = new ObservableList<_Language>();
+  final ObservableProperty<String> time = new ObservableProperty<String>("",interval: new Duration(seconds: 1));
+  final ObservableProperty<String> records = new ObservableProperty<String>("");
+
+
+  AppController() {
+    records.observes(() => (languages.isNotEmpty ? languages.length.toString() : "<empty>"));
+    time.observes(() => _getTime());
+
+    languages.add(new _Natural("English"));
+    languages.add(new _Natural("German"));
+    languages.add(new _Natural("Italian"));
+    languages.add(new _Natural("French"));
+    languages.add(new _Natural("Spanish"));
+
+    new Timer(new Duration(seconds: 2),() {
+      for(int index = 0;index < 10;index++) {
+        languages.add(new _Natural("Sample - $index"));
+      }
+    });
+  }
+
+  /// HTML-Part: data-mdl-click="remove({{language.name}})">Remove</button>
+  void remove(final String language) {
+    _logger.info("Remove $language clicked!!!!!");
+
+    final _Language lang = languages.firstWhere(
+            (final _Language check) {
+
+          final bool result = (check.name.toLowerCase() == language.toLowerCase());
+          _logger.fine("Check: ${check.name} -> $language, Result: $result");
+
+          return result;
+        });
+
+    if(language == "German") {
+
+      int index = languages.indexOf(lang);
+      languages[index] = new _Natural("Austrian");
+
+    } else {
+      languages.remove(lang);
+    }
+  }
+
+  //- private -----------------------------------------------------------------------------------
+
+  String _getTime() {
+    final DateTime now = new DateTime.now();
+    return "${now.hour.toString().padLeft(2,"0")}:${now.minute.toString().padLeft(2,"0")}:${now.second.toString().padLeft(2,"0")}";
+  }
 }
 
-/// Model is a Singleton
+//------ ObserverSample - start -------------------------------------------------------------------
+@MdlComponentModel
+class _Language {
+  final String name;
+  final String type;
+  _Language(this.name, this.type);
+}
+
+class _Natural extends _Language {
+  _Natural(final String name) : super(name,"natural");
+}
+
+class ModelChangedEvent {}
+
+/// Model is a Singleton, Simple sample for observing a model.
+/// Used for changing the "title". The according controller sets the title and
+/// "main" shows the title
 class Model {
 
     final StreamController _controller = new StreamController<ModelChangedEvent>.broadcast();
@@ -63,7 +136,10 @@ class Model {
 
 class StyleguideModule extends di.Module {
     StyleguideModule() {
+
         bind( Model,toValue: new Model() );
+        bind(AppController);
+
     }
 }
 
@@ -78,7 +154,7 @@ main() {
     // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
     registerDemoAnimation();
 
-    componentFactory().addModule(new StyleguideModule()).run().then(( final di.Injector injector) {
+    componentFactory().rootContext(AppController).addModule(new StyleguideModule()).run().then(( final di.Injector injector) {
         final Model model = injector.get(Model);
 
         configRouter();
@@ -89,6 +165,7 @@ main() {
     });
 }
 
+/// Default Controller!!! PrettyPrints the source that comes within the "Usage" block
 class DemoController extends MaterialController {
 
     @override
@@ -600,6 +677,9 @@ void configRouter() {
 
         ..addRoute(name: 'notification', path: '/notification',
             enter: view("views/notification.html", new NotificationController()))
+
+        ..addRoute(name: 'observe', path: '/observe',
+            enter: view("views/observe.html", new DemoController()))
 
         ..addRoute(name: 'palette', path: '/palette',
                     enter: view("views/palette.html", new DemoController()))

@@ -19,6 +19,7 @@
   { "name": "menu", "original": true, "prefix": "mdl_" },
   { "name": "nav-pills", "original": false, "prefix": "mdlx_" },
   { "name": "notification", "original": false, "prefix": "mdlx_" },
+  { "name": "observe", "original": true, "prefix": "spa_" },
   { "name": "palette", "original": true, "prefix": "mdl_" },
   { "name": "panel", "original": false, "prefix": "mdlx_" },
   { "name": "progress", "original": true, "prefix": "mdl_" },

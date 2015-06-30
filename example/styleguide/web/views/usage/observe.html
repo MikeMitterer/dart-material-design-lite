@@ -1,0 +1,121 @@
+<div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect usage usage-observe">
+    <!-- Panel 1 -->
+    <div class="mdl-accordion">
+        <label class="mdl-accordion__label mdl-color--200">
+            <i class="material-icons mdl-icon--remove-red-eye">remove_red_eye</i>
+            Basic Usage
+            <i class="material-icons indicator">chevron_right</i>
+        </label>
+        <div class="mdl-accordion--content">
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <!-- TabBar -->
+                <div class="mdl-tabs__tab-bar">
+                    <a href="#dart" class="mdl-tabs__tab is-active">Dart</a>
+                    <a href="#html" class="mdl-tabs__tab">HTML</a>
+                    <a href="#css" class="mdl-tabs__tab">README</a>
+                </div>
+                <!-- Dart-Tab -->
+                <div class="mdl-tabs__panel is-active" id="dart">
+                <pre class="prettyprint linenums lang-dart">
+import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+@MdlComponentModel
+class _Language &#123;
+    final String name;
+    final String type;
+    _Language(this.name, this.type);
+&#125;
+class _Natural extends _Language &#123;
+    _Natural(final String name) : super(name,&quot;natural&quot;);
+&#125;
+@MdlComponentModel @di.Injectable()
+class AppController &#123;
+    final Logger _logger = new Logger(&#39;main.AppController&#39;);
+    final ObservableList&lt;_Language&gt;  languages = new ObservableList&lt;_Language&gt;();
+    final ObservableProperty&lt;String&gt; time = new ObservableProperty&lt;String&gt;(&quot;&quot;,interval: new Duration(seconds: 1));
+    final ObservableProperty&lt;String&gt; records = new ObservableProperty&lt;String&gt;(&quot;&quot;);
+    AppController() &#123;
+        records.observes(() =&gt; (languages.isNotEmpty ? languages.length.toString() : &quot;&lt;empty&gt;&quot;));
+        time.observes(() =&gt; _getTime());
+        languages.add(new _Natural(&quot;English&quot;));
+        languages.add(new _Natural(&quot;German&quot;));
+        languages.add(new _Natural(&quot;Italian&quot;));
+        languages.add(new _Natural(&quot;French&quot;));
+        languages.add(new _Natural(&quot;Spanish&quot;));
+        new Timer(new Duration(seconds: 2),() &#123;
+          for(int index = 0;index &lt; 10;index++) &#123;
+            languages.add(new _Natural(&quot;Sample - $index&quot;));
+          &#125;
+        &#125;);
+    &#125;
+    void remove(final String language) &#123;
+        _logger.info(&quot;Remove $language clicked!!!!!&quot;);
+        final _Language lang = languages.firstWhere(
+                (final _Language check) &#123;
+                    final bool result = (check.name.toLowerCase() == language.toLowerCase());
+                    _logger.fine(&quot;Check: $&#123;check.name&#125; -&gt; $language, Result: $result&quot;);
+                    return result;
+                &#125;);
+        if(language == &quot;German&quot;) &#123;
+            int index = languages.indexOf(lang);
+            languages[index] = new _Natural(&quot;Austrian&quot;);
+        &#125; else &#123;
+            languages.remove(lang);
+        &#125;
+    &#125;
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+    String _getTime() &#123;
+      final DateTime now = new DateTime.now();
+      return &quot;$&#123;now.hour.toString().padLeft(2,&quot;0&quot;)&#125;:$&#123;now.minute.toString().padLeft(2,&quot;0&quot;)&#125;:$&#123;now.second.toString().padLeft(2,&quot;0&quot;)&#125;&quot;;
+    &#125;
+&#125;
+main() &#123;
+    final Logger _logger = new Logger(&#39;main.MaterialRepeat&#39;);
+    registerMdl();
+    componentFactory().rootContext(AppController).run(enableVisualDebugging: true).then((_) &#123;
+        new AppController();
+    &#125;);
+&#125;
+
+</pre>
+                </div>
+                <!-- HTML-Tab -->
+                <div class="mdl-tabs__panel" id="html">
+                <div class="linkinfo">
+                    To use any MDL component, you must include the minified CSS file in the &lt;head&gt; section of the page:<br>
+                    <div class="csslink mdl-color-text--accent-500">
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;<br>
+                    </div>
+                    More about <a href="/#/theming">theming...</a>
+                </div>
+                <pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;demo-preview-block&quot;&gt;
+    &lt;p&gt;
+        Wait 2 secs - A timer will add 10 more List-Items!&lt;br&gt;
+        If you &quot;REMOVE&quot; &quot;German&quot; - it will be replace with &quot;Austrian&quot;
+    &lt;&#47;p&gt;
+    &lt;p&gt;
+        Now it&#39;s: &lt;span class=&quot;mdl-property&quot; data-mdl-property=&quot;time&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
+        Nr. of records: &lt;span class=&quot;mdl-property&quot; data-mdl-property=&quot;records&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
+    &lt;&#47;p&gt;
+    &lt;div class=&quot;mdl-repeat&quot; data-mdl-list=&quot;language in languages&quot;&gt;
+         
+        &lt;div template class=&quot;language&quot; &gt;
+            Language: {{language.name}} ({{language.type}})
+            &lt;button class=&quot;mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect&quot;
+                    data-mdl-click=&quot;remove({{language.name}})&quot;&gt;Remove&lt;&#47;button&gt;
+        &lt;&#47;div&gt;
+         
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt;
+</pre>
+                </div>
+                <!-- CSS-Tab -->
+                <div class="mdl-tabs__panel" id="css">
+<h4>observe</h4>
+<p>...will be here soon</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

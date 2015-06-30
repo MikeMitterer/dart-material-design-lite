@@ -35,17 +35,18 @@ class _MaterialPropertyConstant {
     const _MaterialPropertyConstant();
 }    
 
-class MaterialProperty extends MdlComponent {
+class MaterialProperty extends MdlComponent implements ScopeAware {
     final Logger _logger = new Logger('mdltemplate.MaterialProperty');
 
-    //static const _MaterialPropertyConstant _constant = const _MaterialPropertyConstant();
     static const _MaterialPropertyCssClasses _cssClasses = const _MaterialPropertyCssClasses();
+
+    Scope scope;
 
     MaterialProperty.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
-        
+
+        scope = new Scope(this, mdlParentScope(this));
         _init();
-        
     }
     
     static MaterialProperty widget(final dom.HtmlElement element) => mdlComponent(element) as MaterialProperty;
@@ -64,29 +65,18 @@ class MaterialProperty extends MdlComponent {
 
     void _init() {
         _logger.info("MaterialProperty - init");
-        
-//        final dom.DivElement sample = new dom.DivElement();
-//        sample.text = "Your MaterialProperty-Component works!";
-//        element.append(sample);
 
         if(element.dataset.containsKey("mdl-property")) {
             final String fieldname = element.dataset["mdl-property"].trim();
 
-            Object rootContext;
-            try {
-                rootContext = injector.getByKey(MDLROOTCONTEXT);
+            scope.context = scope.parentContext;
 
-            } on Error {
-
-                throw new ArgumentError("Could not find rootContext. "
-                    "Please define something like this: "
-                    "componentFactory().rootContext(AppController).run().then((_) { ... }");
-            }
-
-            final InstanceMirror myClassInstanceMirror = reflect(rootContext);
+            final InstanceMirror myClassInstanceMirror = reflect(scope.context);
             final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(fieldname));
             final val = getField.reflectee;
+
             if(val != null && val is ObservableProperty) {
+
                 final ObservableProperty prop = val;
                 if(prop.value != null) {
                     element.text = prop.value.toString();;

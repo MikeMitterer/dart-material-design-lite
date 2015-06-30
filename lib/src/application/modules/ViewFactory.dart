@@ -73,7 +73,7 @@ class ViewFactory {
         _previousController = controller;
 
         request.open("GET", url);
-        request.onLoadEnd.listen((final dom.ProgressEvent progressevent) {
+        request.onLoadEnd.listen((final dom.ProgressEvent progressEvent) {
             //_logger.info('Request complete ${request.responseText}, Status: ${request.readyState}');
 
             if (request.readyState == dom.HttpRequest.DONE) {

@@ -55,15 +55,33 @@ class ObservableProperty<T> {
 
     void observes( T observe() ) {
         _observe = observe;
+
         if(_observe != null) {
-            new Timer.periodic(_interval,(final Timer timer) {
+            // first timer comes after short period - this shows the value
+            // for the first time
+            new Timer(new Duration(milliseconds: 100),() {
+              _setValue();
+
+              // second timer comes after specified time
+              new Timer.periodic(_interval,(final Timer timer) {
                 final T newValue = _observe();
                 if(newValue != _value) {
-                    value = newValue;
+                  value = newValue;
                 }
+              });
             });
         }
     }
 
     // - private ----------------------------------------------------------------------------------
+
+    void _setValue() {
+        if(_observe != null) {
+            final T newValue = _observe();
+            if(newValue != _value) {
+              value = newValue;
+              }
+          }
+     }
+
 }

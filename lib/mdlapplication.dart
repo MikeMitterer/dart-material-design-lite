@@ -37,6 +37,7 @@ import "package:mdl/mdlcomponets.dart";
 part "src/application/modules/DomRenderer.dart";
 part "src/application/modules/EventCompiler.dart";
 part "src/application/modules/ViewFactory.dart";
+part "src/application/modules/Scope.dart";
 
 part "src/application/MaterialContent.dart";
 part "src/application/MaterialInclude.dart";
@@ -63,6 +64,7 @@ class MdlModule extends di.Module {
         bind(DomRenderer);
         bind(EventCompiler);
         bind(ViewFactory);
+        bind(RootScope);
     }
 }
 

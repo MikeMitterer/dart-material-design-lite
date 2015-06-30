@@ -76,7 +76,7 @@ abstract class MdlComponent {
     MdlComponent(this.element,this.injector);
 
     /**
-     * Main element. If there is no chile element like in mdl-button
+     * Main element. If there is no child element like in mdl-button
      *      <button class="mdl-button mdl-js-button">Flat</button>
      * hub = button = element
      *
@@ -107,5 +107,27 @@ abstract class MdlComponent {
         if(stream != null) {
             stream.cancel();
         }
+    }
+
+    MdlComponent get parent => _getMdlParent(element);
+
+    //- private -----------------------------------------------------------------------------------
+
+    MdlComponent _getMdlParent(final dom.HtmlElement element) {
+        MdlComponent parent;
+
+        try {
+            parent = mdlComponent(element.parent);
+
+            // Exception means here there is a parent (dom.Element) but this parent is not
+            // a MdlComponent - so continue the search for the next parent
+        } catch(e) {
+            return _getMdlParent(element.parent);
+        }
+
+        if(parent != null) {
+            return parent;
+        }
+        return null;
     }
 }
