@@ -74,7 +74,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 ##More information
 For working examples of the **radio** component, see the MDL [radio demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/radio).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

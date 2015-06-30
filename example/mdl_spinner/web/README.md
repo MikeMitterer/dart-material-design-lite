@@ -47,7 +47,3 @@ The MDL CSS classes apply various predefined visual enhancements to the spinner.
 
 ##More information
 For working examples of the **spinner** component, see the MDL [spinner demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/spinner).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

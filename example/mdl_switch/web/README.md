@@ -63,7 +63,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 ##More information
 For working examples of the **switch** component, see the MDL [switch demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/switch).
-
-## License
-
-Copyright Google, 2015. Licensed under an Apache-2 license.

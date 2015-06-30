@@ -1,5 +1,5 @@
 name: mdl_notification_sample
-description: Material Design Lite 'snackbar' Sample
+description: Material Design Lite 'notification' Sample
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-material-design-lite
