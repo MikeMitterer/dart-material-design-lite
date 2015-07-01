@@ -30,67 +30,89 @@
         max-height     : 500px;
         overflow       : scroll;
         padding        : 12px;
-
         border         : 1px dotted black;
-    }
 
-    .accept {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center; // ⇾
-        align-content: stretch; // ||
-        align-items: stretch; // ↓
+        // IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container"
+        .mdl-repeat {
+            position: relative;
+        }
 
-        flex-grow       : 1;
-
-        .langbox {
-            min-width: calc(50% - 24px);
-            box-sizing : border-box;
-            margin: 0 12px;
-
-            .programming .mdl-repeat, .natural .mdl-repeat {
+        .choose {
+            .source {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                justify-content: flex-start; // ⇾
+                justify-content: space-around; // ⇾
                 align-content: space-between; // ||
                 align-items: flex-start; // ↓
-            }
 
+                padding: 10px;
+                min-height : 100px;
+                min-width  : 250px;
+                border     : 1px solid green;
+
+            }
+        }
+
+        .accept {
+            display         : flex;
+            flex-direction  : row;
+            flex-wrap       : wrap;
+            justify-content : center; // ⇾
+            align-content   : stretch; // ||
+            align-items     : stretch; // ↓
+            flex-grow       : 1;
+
+            .langbox {
+                min-width  : calc(50% - 24px);
+                box-sizing : border-box;
+                margin     : 0 6px;
+
+                .programming , .natural  {
+                    overflow: scroll;
+                }
+
+                .programming .mdl-repeat, .natural .mdl-repeat {
+                    display         : flex;
+                    flex-direction  : row;
+                    flex-wrap       : wrap;
+                    justify-content : flex-start; // ⇾
+                    align-content   : space-between; // ||
+                    align-items     : flex-start; // ↓
+                }
+
+            }
         }
 
     }
 
-    .source, .programming, .natural, .trash .language {
+    .programming, .natural, .trash .language {
         display         : flex;
         flex-direction  : row;
         flex-wrap       : wrap;
-        justify-content : flex-start;
+        justify-content : flex-start; // ⇾
+        align-content   : space-around; // ||
+        align-items     : flex-start;  // ↓
+
         padding         : 10px 10px 0 0;
-        align-items     : flex-start;
+
     }
+
 
     .programming, .natural {
-        min-height : 80px;
+        min-height : 90px;
+        padding: 10px;
     }
     
-
-    .choose .source {
-        min-height : 100px;
-        min-width  : 250px;
-        margin     : 0 0 10px 0;
-        border     : 1px solid green;
-    }
 
     .language {
         border        : 1px solid gray;
         border-radius : 3px;
-        margin        : 0 0 10px 10px;
+        margin        : 5px;
         width         : 70px;
         height        : 20px;
         padding       : 5px 10px 5px 10px;
-        overflow      : scroll;
+        overflow      : hidden;
     }
 
     .accept > div {

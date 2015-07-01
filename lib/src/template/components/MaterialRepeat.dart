@@ -322,9 +322,10 @@ void registerMaterialRepeat() {
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialRepeat.fromElement(element,injector)
     );
     
-    // if you want <mdl-repeat></mdl-repeat> set isSelectorAClassName to false.
+    // If you want <mdl-repeat></mdl-repeat> set selectorType to SelectorType.TAG.
+    // If you want <div mdl-repeat></div> set selectorType to SelectorType.ATTRIBUTE.
     // By default it's used as a class name. (<div class="mdl-repeat"></div>)
-    config.isSelectorAClassName = true;
+    config.selectorType = SelectorType.CLASS;
 
     componentFactory().register(config);
 }

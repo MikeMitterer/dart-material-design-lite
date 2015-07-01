@@ -23,6 +23,8 @@ typedef void MdlCallback(final dom.HtmlElement element);
 
 typedef MdlComponent MdlComponentFactory(final dom.HtmlElement element,final di.Injector injector);
 
+enum SelectorType { CLASS, TAG, ATTRIBUTE }
+
 class MdlConfig<T extends MdlComponent> {
     final List<MdlCallback> callbacks = new List<MdlCallback>();
 
@@ -40,12 +42,24 @@ class MdlConfig<T extends MdlComponent> {
     String _selector;
 
     /// by default {selector} is a css-class-name.
-    /// If {isSelectorAClassName} is set to false
-    bool isSelectorAClassName = true;
+    SelectorType selectorType = SelectorType.CLASS;
 
-    /// Returns the appropriate selector for this component. Either a class-selector
+    /// Returns the appropriate selector for this component. Either a class-selector, attribute-selector
     /// or a Tag-Name
-    String get selector => isSelectorAClassName ? ".${_selector}" : _selector;
+    String get selector {
+
+        switch(selectorType) {
+            case SelectorType.TAG:
+                return _selector;
+
+            case SelectorType.ATTRIBUTE:
+                return "[${_selector}]";
+
+            case SelectorType.CLASS:
+            default:
+                return ".${_selector}";
+        }
+    }
 
     /// The higher the priority the later the component will be upgraded.
     /// This is important for the ripple-effect. Must be called as last upgrade process

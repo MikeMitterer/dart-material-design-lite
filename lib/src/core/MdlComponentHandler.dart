@@ -269,15 +269,22 @@ class MdlComponentHandler {
         /// Check if {config.selector} is either the class-name or the tag name of {baseElement}
         /// If so - upgrade
         void _upgradeBaseElementIfSelectorFits(final dom.Element baseElement) {
+            bool upgrade = false;
+            switch(config.selectorType) {
+                case SelectorType.TAG:
+                    upgrade = baseElement.tagName.toLowerCase() == config.selector;
+                    break;
 
-            if(config.isSelectorAClassName && queryBaseElement.classes.contains(config.selector.replaceFirst(".",""))) {
+                case SelectorType.ATTRIBUTE:
+                    upgrade = baseElement.attributes.containsKey(config.selector.replaceAll(new RegExp(r"\[|\]"),""));
+                    break;
 
-                _upgradeElement(queryBaseElement, config);
-
-            } else if(!config.isSelectorAClassName && queryBaseElement.tagName.toLowerCase() == config.selector) {
-
-                _upgradeElement(queryBaseElement, config);
-
+                case SelectorType.CLASS:
+                default:
+                    upgrade = baseElement.classes.contains(config.selector.replaceFirst(".",""));
+            }
+            if(upgrade) {
+                _upgradeElement(baseElement, config);
             }
         }
 

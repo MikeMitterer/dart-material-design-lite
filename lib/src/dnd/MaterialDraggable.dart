@@ -87,13 +87,6 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
         _consumedData = data;
     }
 
-    // --------------------------------------------------------------------------------------------
-    // EventHandler
-
-    void handleButtonClick() {
-        _logger.info("Event: handleButtonClick");
-    }    
-    
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
@@ -141,11 +134,8 @@ void registerMaterialDraggable() {
         _MaterialDraggableConstant.WIDGET_SELECTOR,
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialDraggable.fromElement(element,injector)
     );
-    
-    // if you want <mdldraggable></mdldraggable> set isSelectorAClassName to false.
-    // By default it's used as a class name. (<div class="mdldraggable"></div>)
-    config.isSelectorAClassName = false;
-    
+
+    config.selectorType = SelectorType.TAG;
     componentHandler().register(config);
 }
 

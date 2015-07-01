@@ -175,10 +175,7 @@ void registerMaterialDropZone() {
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialDropZone.fromElement(element,injector)
     );
     
-    // if you want <mdl-dropzone></mdl-dropzone> set isSelectorAClassName to false.
-    // By default it's used as a class name. (<div class="mdl-dropzone"></div>)
-    config.isSelectorAClassName = false;
-    
+    config.selectorType = SelectorType.TAG;
     componentHandler().register(config);
 }
 

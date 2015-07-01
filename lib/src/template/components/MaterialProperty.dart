@@ -108,7 +108,7 @@ void registerMaterialProperty() {
     
     // if you want <mdl-property></mdl-property> set isSelectorAClassName to false.
     // By default it's used as a class name. (<div class="mdl-property"></div>)
-    config.isSelectorAClassName = true;
+    config.selectorType = SelectorType.CLASS;
     
     componentHandler().register(config);
 }

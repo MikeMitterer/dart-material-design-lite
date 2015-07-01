@@ -10,6 +10,7 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/ex
         <div class="choose ">
 
             <h6>Choose language</h6>
+                <!-- IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container" -->
                 <div class="mdl-repeat source langbox" data-mdl-list="language in languages">
                     {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
                     <mdl-draggable template class="language" data-mdl-consume="language" drop-zone="{{language.type}}">
@@ -23,13 +24,12 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/ex
             <div class="langbox">
 
                 <h6>Programming languages</h6>
-                <mdl-dropzone class="programming"
-                              name="programming"
+                <mdl-dropzone class="programming" name="programming"
                               on-drop-success="addToProgrammingLanguages(data)">
 
 
                     <!-- programming language item becomes a 'draggable' item and can be dragged to 'trash' -->
-                    <!-- -->
+                    <!-- IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container" -->
                     <div class="mdl-repeat" data-mdl-list="language in programming">
                         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
                         <mdl-draggable template class="language" data-mdl-consume="language" drop-zone="trash">
@@ -43,11 +43,11 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/ex
             <div class="langbox">
 
                 <h6>Natural languages</h6>
-                <mdl-dropzone class="natural"
-                              name="natural"
+                <mdl-dropzone class="natural" name="natural"
                               on-drop-success="addToNaturalLanguages(data)">
 
                     <!-- natural language item becomes a 'draggable' item and can be dragged to 'trash' -->
+                    <!-- IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container" -->
                     <div class="mdl-repeat" data-mdl-list="language in natural">
                         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
                         <mdl-draggable template class="language" data-mdl-consume="language" drop-zone="trash">
@@ -60,7 +60,8 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/ex
         </div>
         <div class="trash">
             <h6>Trash</h6>
-            <mdl-dropzone class="trashbox"  name="trash" on-drop-success="moveToTrash(data)"></mdl-dropzone>
+            <mdl-dropzone class="trashbox" name="trash"
+                          on-drop-success="moveToTrash(data)"></mdl-dropzone>
         </div>
     </div>
 
