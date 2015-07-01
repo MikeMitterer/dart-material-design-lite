@@ -18,6 +18,23 @@
  */
 
 part of mdldnd;
+
+/// Singleton - used by MaterialDraggable and MaterialDroppable
+class DragInfo {
+    static DragInfo _draginfo;
+
+    var data;
+    List<String> allowedDropZones = [];
+
+    factory DragInfo () {
+        if(_draginfo == null) {
+            _draginfo = new DragInfo._internal();
+        }
+        return _draginfo;
+    }
+
+    DragInfo._internal();
+}
  
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -25,7 +42,11 @@ part of mdldnd;
 class _MaterialDraggableCssClasses {
 
     final String IS_UPGRADED = 'is-upgraded';
-    
+
+    final String DRAGGABLE      = 'mdl-draggable';
+
+    final String DND_DRAGGABLE  = 'dnd-draggable';
+
     const _MaterialDraggableCssClasses(); }
     
 /// Store constants in one place so they can be updated easily.
@@ -36,11 +57,16 @@ class _MaterialDraggableConstant {
     const _MaterialDraggableConstant();
 }    
 
-class MaterialDraggable extends MdlComponent {
+class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
     final Logger _logger = new Logger('mdldnd.MaterialDraggable');
 
-    //static const _MaterialDraggableConstant _constant = const _MaterialDraggableConstant();
     static const _MaterialDraggableCssClasses _cssClasses = const _MaterialDraggableCssClasses();
+
+    final DragInfo _dragInfo = new DragInfo();
+
+    Draggable _draggable;
+
+    var _consumedData;
 
     MaterialDraggable.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
@@ -53,7 +79,14 @@ class MaterialDraggable extends MdlComponent {
     
     // Central Element - by default this is where mdldraggable can be found (element)
     // html.Element get hub => inputElement;
-    
+
+    get _isDisabled => ElementProperties.hasAttributeOrClass(element,[ 'disabled', 'is-disabled' ]);
+
+    void consume(final data) {
+        //_logger.info("Consumed: $data");
+        _consumedData = data;
+    }
+
     // --------------------------------------------------------------------------------------------
     // EventHandler
 
@@ -65,15 +98,41 @@ class MaterialDraggable extends MdlComponent {
 
     void _init() {
         _logger.info("MaterialDraggable - init");
-        
-        final dom.DivElement sample = new dom.DivElement();
-        sample.text = "Your MaterialDraggable-Component works!";
-        element.append(sample);
+
+        element.classes.add(_cssClasses.DRAGGABLE);
+        element.classes.add(_cssClasses.DND_DRAGGABLE);
+
+        _draggable = new Draggable(element, avatarHandler: new AvatarHandler.clone());
+
+        _draggable.onDragStart.listen(_onDragStart);
+        _draggable.onDragEnd.listen(_onDragEnd);
+
 
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
-    
 
+    void _onDragStart(final DraggableEvent event) {
+        _logger.info("_onDragStart ${event}");
+
+        if (_isDisabled) {
+            return;
+        }
+
+        List<String> _allowedDropZones() {
+            if(element.attributes.containsKey("drop-zone")) {
+                return element.attributes["drop-zone"].split(",");
+            }
+            return new List<String>();
+        }
+
+        _dragInfo.allowedDropZones = _allowedDropZones();
+        _dragInfo.data = _consumedData;
+    }
+
+    void _onDragEnd(final DraggableEvent event) {
+        _logger.info("_onDragEnd ${event}");
+        _dragInfo.data = null;
+    }
 }
 
 /// registration-Helper

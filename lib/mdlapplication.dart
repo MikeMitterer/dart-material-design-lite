@@ -34,6 +34,11 @@ import 'package:route_hierarchical/client.dart';
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponets.dart";
 
+part "src/application/interfaces.dart";
+
+part "src/application/mirrors/StringToFunction.dart";
+part "src/application/mirrors/Invoke.dart";
+
 part "src/application/modules/DomRenderer.dart";
 part "src/application/modules/EventCompiler.dart";
 part "src/application/modules/ViewFactory.dart";

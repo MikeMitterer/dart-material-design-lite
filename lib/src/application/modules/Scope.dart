@@ -45,10 +45,6 @@ Scope mdlParentScope(final MdlComponent component) {
   return mdlParentScope(component.parent);
 }
 
-abstract class ScopeAware {
-    Scope get scope;
-}
-
 class Scope {
     final Logger _logger = new Logger('mdlapplication.Scope');
 
@@ -57,9 +53,7 @@ class Scope {
     Object _context;
     Object _rootContext;
 
-    Scope(this._context,this._parentScope) {
-
-    }
+    Scope(this._context,this._parentScope);
 
     Object get context => _context;
     void set context(final Object cntxt) {

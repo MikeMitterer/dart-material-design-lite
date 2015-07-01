@@ -73,6 +73,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         _items.add(item);
         final dom.HtmlElement renderedChild = await _repeatRenderer.render(element,_mustacheTemplate.renderString(item),replaceNode: false);
+        _addDataToDataConsumer(renderedChild,item);
 
         scope = scope != null ? scope : item;
         _eventCompiler.compileElement(scope,renderedChild);
@@ -128,6 +129,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         final dom.HtmlElement renderedChild = await _repeatRenderer.renderBefore(element,child,_mustacheTemplate.renderString(item));
         _addBorderIfInDebugMode(renderedChild,"green");
+        _addDataToDataConsumer(renderedChild,item);
 
         scope = scope != null ? scope : item;
         _eventCompiler.compileElement(scope,renderedChild);
@@ -184,14 +186,16 @@ class MaterialRepeat extends MdlTemplateComponent {
         final dom.Element templateBlock = element.querySelector("[template]");
         templateBlock.attributes.remove("template");
 
-        _template = templateBlock.parent.innerHtml.trim()
+        _template = templateBlock.outerHtml.trim()
             .replaceAll(new RegExp(r"\s+")," ")
             .replaceAll(new RegExp(r""),"");
 
+        // _logger.info("Template: ${_template}");
         templateBlock.remove();
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
 
+        /// Sample: <mdl-draggable class="mdl-repeat" data-mdl-list="language in languages">
         if(element.dataset.containsKey(_constant.DATA_LIST)) {
             _initListFromRootContext();
         }
@@ -287,6 +291,24 @@ class MaterialRepeat extends MdlTemplateComponent {
         }
     }
 
+    void _addDataToDataConsumer(final dom.HtmlElement element,final item) {
+        final MdlComponent component = mdlComponent(element,null);
+        if(component == null ||
+            !element.dataset.containsKey("mdl-consume") ||
+            !(item is Map)) {
+            return;
+        }
+        if(component is MdlDataConsumer) {
+            final MdlDataConsumer consumer = component as MdlDataConsumer;
+            final String consume = element.dataset["mdl-consume"];
+
+            if((item as Map).containsKey(consume)) {
+                final data = (item as Map)[consume];
+                consumer.consume(data);
+            }
+        }
+    }
+
     //- Template -----------------------------------------------------------------------------------
     
     @override
@@ -303,7 +325,7 @@ void registerMaterialRepeat() {
     // if you want <mdl-repeat></mdl-repeat> set isSelectorAClassName to false.
     // By default it's used as a class name. (<div class="mdl-repeat"></div>)
     config.isSelectorAClassName = true;
-    
+
     componentFactory().register(config);
 }
 

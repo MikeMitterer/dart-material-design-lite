@@ -19,6 +19,9 @@
 
 library mdlutils;
 
+import "dart:html" as dom;
+import "package:validate/validate.dart";
+
 /**
  * Helper for requesting a proper value
  * from the components HTML-Element
@@ -69,6 +72,27 @@ class _DataValue {
             return handleEmptyStringAs;
         }
 
+        return false;
+    }
+}
+
+class ElementProperties {
+
+    /// Checks if the [element] has either the class set or if the attribute is available
+    static bool hasAttributeOrClass(final dom.Element element,final List<String> classesOrAttributes) {
+        Validate.notNull(element);
+        Validate.notNull(classesOrAttributes);
+
+        for(final String classOrAttribute in classesOrAttributes) {
+            final bool hasClass = element.classes.contains(classOrAttribute);
+            if(hasClass) {
+                return true;
+            }
+            final bool isAttributeSet = element.attributes.containsKey(classOrAttribute);
+            if(isAttributeSet) {
+                return ((new _DataValue(element.attributes[classOrAttribute])).asBool(handleEmptyStringAs: true));
+            }
+        }
         return false;
     }
 }

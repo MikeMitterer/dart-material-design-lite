@@ -38,4 +38,8 @@ part "src/core/MdlComponentHandler.dart";
 part "src/core/MdlConfig.dart";
 part "src/core/MdlComponent.dart";
 
+abstract class MdlDataConsumer {
+    void consume(final data);
+}
+
 

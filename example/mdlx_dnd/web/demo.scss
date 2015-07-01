@@ -26,18 +26,40 @@
         display        : block;
         flex-direction : column;
         flex-wrap      : wrap;
-        max-width      : 500px;
-        max-height     : 400px;
+        max-width      : 600px;
+        max-height     : 500px;
         overflow       : scroll;
+        padding        : 12px;
+
         border         : 1px dotted black;
     }
 
     .accept {
-        display         : flex;
-        flex-direction  : row;
-        flex-wrap       : wrap;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center; // ⇾
+        align-content: stretch; // ||
+        align-items: stretch; // ↓
+
         flex-grow       : 1;
-        justify-content : space-between;
+
+        .langbox {
+            min-width: calc(50% - 24px);
+            box-sizing : border-box;
+            margin: 0 12px;
+
+            .programming .mdl-repeat, .natural .mdl-repeat {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start; // ⇾
+                align-content: space-between; // ||
+                align-items: flex-start; // ↓
+            }
+
+        }
+
     }
 
     .source, .programming, .natural, .trash .language {
@@ -46,25 +68,19 @@
         flex-wrap       : wrap;
         justify-content : flex-start;
         padding         : 10px 10px 0 0;
-        align-items     : center;
+        align-items     : flex-start;
     }
 
-    .langbox {
-        min-width  : 200px;
-        box-sizing : border-box;
+    .programming, .natural {
+        min-height : 80px;
     }
+    
 
     .choose .source {
         min-height : 100px;
         min-width  : 250px;
         margin     : 0 0 10px 0;
         border     : 1px solid green;
-    }
-
-    .programming, .natural {
-        flex-grow     : 1;
-        align-content : flex-start;
-        align-items   : flex-start;
     }
 
     .language {

@@ -53,43 +53,51 @@
     <div class="danddcontainer">
         <div class="choose ">
             <h6>Choose language</h6>
-            <div class="source langbox">
-                <mdl-draggable class="language" ng-repeat="language in languages"
-                               data-to-drag="language"
-                               drop-zone="language.type">
-                </mdl-draggable>
-            </div>
+                <div class="mdl-repeat source langbox" data-mdl-list="language in languages">
+                     
+                    <mdl-draggable template class="language" data-mdl-consume="language" drop-zone="{{language.type}}">
+                        {{language.name}}
+                    </mdl-draggable>
+                     
+                </div>
         </div>
         <div class="accept">
             <div class="langbox">
                 <h6>Programming languages</h6>
                 <mdl-dropzone class="programming"
-                              name="'programming'"
+                              name="programming"
                               on-drop-success="addToProgrammingLanguages(data)">
 
                     <!-- programming language item becomes a 'draggable' item and can be dragged to 'trash' -->
-                    <mdl-draggable class="language" ng-repeat="language in programming"
-                                   data-to-drag="language"
-                                   drop-zone="'trash'">
-                    </mdl-draggable>
+                    <!-- -->
+                    <div class="mdl-repeat" data-mdl-list="language in programming">
+                         
+                        <mdl-draggable template class="language" data-mdl-consume="language" drop-zone="trash">
+                            {{language.name}}
+                        </mdl-draggable>
+                         
+                    </div>
                 </mdl-dropzone>
             </div>
             <div class="langbox">
                 <h6>Natural languages</h6>
                 <mdl-dropzone class="natural"
-                              name="'natural'"
+                              name="natural"
                               on-drop-success="addToNaturalLanguages(data)">
                     <!-- natural language item becomes a 'draggable' item and can be dragged to 'trash' -->
-                    <mdl-draggable class="language" ng-repeat="language in natural"
-                                   data-to-drag="language"
-                                   drop-zone="'trash'">
-                    </mdl-draggable>
+                    <div class="mdl-repeat" data-mdl-list="language in natural">
+                         
+                        <mdl-draggable template class="language" data-mdl-consume="language" drop-zone="trash">
+                            {{language.name}}
+                        </mdl-draggable>
+                         
+                    </div>
                 </mdl-dropzone>
             </div>
         </div>
         <div class="trash">
             <h6>Trash</h6>
-            <mdl-dropzone class="trashbox"  name="'trash'" on-drop-success="moveToTrash(data)"></mdl-dropzone>
+            <mdl-dropzone class="trashbox"  name="trash" on-drop-success="moveToTrash(data)"></mdl-dropzone>
         </div>
     </div>
 </div>

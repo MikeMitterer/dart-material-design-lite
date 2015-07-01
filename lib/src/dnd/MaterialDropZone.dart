@@ -24,7 +24,13 @@ part of mdldnd;
 class _MaterialDropZoneCssClasses {
 
     final String IS_UPGRADED = 'is-upgraded';
-    
+
+    final String DROPZONE       = 'mdl-dropzone';
+
+    final String INVALID        = 'dnd-invalid';
+    final String OVER           = 'dnd-over';
+
+
     const _MaterialDropZoneCssClasses(); }
     
 /// Store constants in one place so they can be updated easily.
@@ -35,15 +41,22 @@ class _MaterialDropZoneConstant {
     const _MaterialDropZoneConstant();
 }    
 
-class MaterialDropZone extends MdlComponent {
+class MaterialDropZone extends MdlComponent implements ScopeAware {
     final Logger _logger = new Logger('mdldnd.MaterialDropZone');
 
     //static const _MaterialDropZoneConstant _constant = const _MaterialDropZoneConstant();
     static const _MaterialDropZoneCssClasses _cssClasses = const _MaterialDropZoneCssClasses();
 
+    final DragInfo _dragInfo = new DragInfo();
+    Dropzone _dropzone;
+
+    Scope scope;
+
     MaterialDropZone.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
-        
+
+        scope = new Scope(this, mdlParentScope(this));
+
         _init();
         
     }
@@ -52,7 +65,9 @@ class MaterialDropZone extends MdlComponent {
     
     // Central Element - by default this is where mdl-dropzone can be found (element)
     // html.Element get hub => inputElement;
-    
+
+    Function onDropSuccessCallback;
+
     // --------------------------------------------------------------------------------------------
     // EventHandler
 
@@ -65,13 +80,92 @@ class MaterialDropZone extends MdlComponent {
     void _init() {
         _logger.info("MaterialDropZone - init");
 
-        final dom.DivElement sample = new dom.DivElement();
-        sample.text = "Your MaterialDropZone-Component works!";
-        element.append(sample);
+        element.classes.add(_cssClasses.DROPZONE);
+
+        _dropzone = new Dropzone(element, overClass: _cssClasses.OVER ,acceptor: new _MdlAcceptor(_dragInfo,_getZoneNames));
+        _dropzone.onDrop.listen(_onDrop);
+
+        if(element.attributes.containsKey("on-drop-success")) {
+            final String functionToCall = element.attributes["on-drop-success"];
+            scope.context = scope.parentContext;
+
+            onDropSuccessCallback = (final data) {
+                final Invoke invoke = new Invoke(scope);
+                final StringToFunction stf = new StringToFunction(functionToCall);
+
+                _logger.info("Function: ${stf.functionAsString}");
+                _logger.info("Params: ${stf.params}");
+
+                invoke.function(stf,varsToReplace: { "data" : data });
+            };
+        }
 
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
-    
+
+    void _onDrop(final DropzoneEvent event) {
+        _logger.info("OnDrop!");
+        element.classes.remove(_cssClasses.INVALID);
+
+        if (onDropSuccessCallback != null) {
+            _logger.info("Call callback");
+            onDropSuccessCallback(_dragInfo.data);
+        }
+    }
+
+    List<String> _getZoneNames() {
+        if(element.attributes.containsKey("name")) {
+            return element.attributes["name"].split(",");
+        }
+        return new List<String>();
+    }
+}
+
+/**
+ * WskAngularAcceptor that accepts [Draggable]s with a valid drop-zone set
+ */
+class _MdlAcceptor extends Acceptor {
+    final _logger = new Logger('wsk_angular.wsk_dragdrop.WskAngularAcceptor');
+
+    final DragInfo _dragDropService;
+    final _getZoneNamesCallback;
+
+    _MdlAcceptor(this._dragDropService,void getZoneNames())
+    : _getZoneNamesCallback = getZoneNames {
+        Validate.notNull(_dragDropService);
+        Validate.notNull(getZoneNames);
+    }
+
+    @override
+    bool accepts(final dom.Element draggableElement,final int draggableId,final dom.Element dropzoneElement) {
+        final bool isValid = _isDragZoneValid();
+
+        //if(!isValid) {
+        //    dropzoneElement.classes.add("dnd-invalid");
+        //} else {
+        //    dropzoneElement.classes.remove("dnd-invalid");
+        //}
+
+        return isValid;
+    }
+
+    // -- private ---------------------------------------------------------------------------------
+
+    bool _isDragZoneValid() {
+        final List<String> _dropZoneNames = _getZoneNamesCallback();
+
+        if (_dropZoneNames.isEmpty && _dragDropService.allowedDropZones.isEmpty) {
+            _logger.info("DragZone is allowed because dropZoneNames and allowedDropZones are empty!");
+            return true;
+        }
+        for (final String dropZone in _dragDropService.allowedDropZones) {
+            if (_dropZoneNames.contains(dropZone)) {
+                return true;
+            }
+        }
+        _logger.info("DragZone is NOT allowed. $_dropZoneNames not found in allowedDropZones (${_dragDropService.allowedDropZones})");
+        return false;
+    }
 }
 
 /// registration-Helper

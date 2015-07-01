@@ -137,6 +137,7 @@ class MdlComponentHandler {
 
             dom.querySelector("body").classes.remove(_cssClasses.UPGRADING);
             dom.querySelector("html").classes.add(_cssClasses.UPGRADED);
+
             _logger.info("All components are upgraded...");
 
             return _injector;
@@ -268,10 +269,15 @@ class MdlComponentHandler {
         /// Check if {config.selector} is either the class-name or the tag name of {baseElement}
         /// If so - upgrade
         void _upgradeBaseElementIfSelectorFits(final dom.Element baseElement) {
+
             if(config.isSelectorAClassName && queryBaseElement.classes.contains(config.selector.replaceFirst(".",""))) {
+
                 _upgradeElement(queryBaseElement, config);
-            } else if(!config.isSelectorAClassName && queryBaseElement.tagName == config.selector) {
+
+            } else if(!config.isSelectorAClassName && queryBaseElement.tagName.toLowerCase() == config.selector) {
+
                 _upgradeElement(queryBaseElement, config);
+
             }
         }
 
@@ -300,7 +306,7 @@ class MdlComponentHandler {
         Validate.notNull(element);
         Validate.notNull(config);
 
-        /// If there is a tag with template attribute - ignore it!
+        /// If there is a tag with template attribute - ignore this element!
         bool _hasRepeatTemplate(final dom.HtmlElement element) {
             if(element == null) {
                 return false;
@@ -344,7 +350,7 @@ class MdlComponentHandler {
                             jsElement[MDL_WIDGET_PROPERTY] = componentsForElement.join(",");
                         }
 
-                        // MDL/JS want's to go this route - not sure if it makes sense!!!!
+                        // MDL/JS wants to go this route - not sure if it makes sense!!!!
                         if(componentsForElement.length > 1) {
                             _logger.warning("$element has more than one components. ($componentsForElement)\n"
                                 "This can lead into problems with 'MdlComponent.parent'...");

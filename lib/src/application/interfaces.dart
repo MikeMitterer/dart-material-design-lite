@@ -17,27 +17,9 @@
  * limitations under the License.
  */
 
-library mdldnd;
+part of mdlapplication;
 
-import 'dart:html' as dom;
-import 'dart:math' as Math;
-import 'dart:async';
-import 'package:logging/logging.dart';
-import 'package:browser_detect/browser_detect.dart';
-import 'package:di/di.dart' as di;
-import 'package:validate/validate.dart';
-
-import 'package:dnd/dnd.dart';
-
-import "package:mdl/mdlcore.dart";
-import "package:mdl/mdlcomponets.dart";
-import "package:mdl/mdlapplication.dart";
-import "package:mdl/mdlutils.dart";
-
-part "src/dnd/MaterialDraggable.dart";
-part "src/dnd/MaterialDropZone.dart";
-
-void registerMdlDND() {
-    registerMaterialDraggable();
-    registerMaterialDropZone();
+///
+abstract class ScopeAware {
+    Scope get scope;
 }

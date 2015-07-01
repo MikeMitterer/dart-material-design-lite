@@ -2,10 +2,13 @@ import "dart:html" as dom;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
+import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdl.dart';
+import 'package:mdl/mdlobservable.dart';
 import "package:mdl/mdldnd.dart";
 
+@MdlComponentModel
 class _Language {
     final String name;
     final String type;
@@ -20,12 +23,13 @@ class _Natural extends _Language {
     _Natural(final String name) : super(name,"natural");
 }
 
+@MdlComponentModel @di.Injectable()
 class AppController {
     final _logger = new Logger('dnd.AppController');
 
-    final List<_Language> languages = new List<_Language>();
-    final List<_Language> natural = new List<_Language>();
-    final List<_Language> programming = new List<_Language>();
+    final ObservableList<_Language> languages = new ObservableList<_Language>();
+    final ObservableList<_Language> natural = new ObservableList<_Language>();
+    final ObservableList<_Language> programming = new ObservableList<_Language>();
 
     AppController() {
         languages.add(new _Natural("English"));

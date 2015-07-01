@@ -63,33 +63,39 @@ class DomRenderer {
             parent.classes.remove(_cssClasses.LOADED);
             parent.classes.add(_cssClasses.LOADING);
 
-            final dom.Element child = new dom.Element.html(content,validator: _validator());
+            try {
+                final dom.Element child = new dom.Element.html(content, validator: _validator());
 
-            componentFactory().upgradeElement(child).then( (_) {
+                componentFactory().upgradeElement(child).then( (_) {
 
-                dom.window.requestAnimationFrame( (_) {
+                    dom.window.requestAnimationFrame( (_) {
 
-                if(replaceNode && parent.childNodes.length > 0 && parent.childNodes.last != null) {
-                    var oldElement = parent.childNodes.last;
-                    if(oldElement is dom.Element) {
-                        oldElement.style.display = "none";
-                        (componentHandler().downgradeElement(oldElement));
-                    }
-                    oldElement.remove();
-                    //_logger.info("Old element removed!");
-                }
+                        if(replaceNode && parent.childNodes.length > 0 && parent.childNodes.last != null) {
+                            var oldElement = parent.childNodes.last;
+                            if(oldElement is dom.Element) {
+                                oldElement.style.display = "none";
+                                (componentHandler().downgradeElement(oldElement));
+                            }
+                            oldElement.remove();
+                            //_logger.info("Old element removed!");
+                        }
 
-                //element.append(child);
-                parent.insertAdjacentElement("beforeEnd",child);
+                        //element.append(child);
+                        parent.insertAdjacentElement("beforeEnd",child);
 
-                parent.classes.remove(_cssClasses.LOADING);
-                parent.classes.add(_cssClasses.LOADED);
+                        parent.classes.remove(_cssClasses.LOADING);
+                        parent.classes.add(_cssClasses.LOADED);
 
-                completer.complete(child);
+                        completer.complete(child);
+                    });
+
                 });
 
-            });
-
+            } on Error catch(e) {
+                _logger.shout("Invalid content:\n\t$content\n"
+                    "Usually this error occures if content has not just ONE single root element.");
+                //throw e;
+            }
         });
 
         new Future(() {
