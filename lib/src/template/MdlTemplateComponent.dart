@@ -44,7 +44,7 @@ abstract class MdlTemplateComponent extends MdlComponent implements TemplateComp
      */
     final Map<String,LambdaFunction> lambdas = new Map<String,LambdaFunction>();
 
-    Scope scope;
+    Scope _scope;
 
     MdlTemplateComponent(final dom.Element element,final di.Injector injector)
       : super(element,injector) {
@@ -54,7 +54,6 @@ abstract class MdlTemplateComponent extends MdlComponent implements TemplateComp
 
         final TemplateRenderer templateRenderer = injector.get(TemplateRenderer);
         _renderer = templateRenderer.call(element,this,() => template);
-        scope = new Scope(this, mdlParentScope(this));
     }
 
     Future render() {
@@ -64,5 +63,12 @@ abstract class MdlTemplateComponent extends MdlComponent implements TemplateComp
     void set renderer(final Renderer renderer) {
         Validate.notNull(renderer);
         _renderer = renderer;
+    }
+
+    Scope get scope {
+        if(_scope == null) {
+            _scope = new Scope(this, mdlParentScope(this));
+        }
+        return _scope;
     }
 }

@@ -21,6 +21,11 @@ part of mdlcore;
 
 class _RootContext { const _RootContext(); }
 
+@MdlComponentModel @di.Injectable()
+class MdlAppController {
+    void run() {}
+}
+
 /// Identifies your AppController
 final di.Key MDLROOTCONTEXT = new di.Key(_RootContext);
 
@@ -187,7 +192,7 @@ class MdlComponentHandler {
      *              });
      *        }
      */
-    Future<di.Injector> run( { final enableVisualDebugging: false } ) {
+    Future<MdlAppController> run( { final enableVisualDebugging: false } ) {
         final dom.Element body = dom.querySelector("body");
 
         _enableVisualDebugging = enableVisualDebugging;
@@ -195,7 +200,9 @@ class MdlComponentHandler {
 
         _injector = _createInjector();
 
-        return upgradeElement(body);
+        return upgradeElement(body).then((_) => new Future<MdlAppController>(() {
+                return _injector.getByKey(MDLROOTCONTEXT) as MdlAppController;
+        }));
     }
 
     /**

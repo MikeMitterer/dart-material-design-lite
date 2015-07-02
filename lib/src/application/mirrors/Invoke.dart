@@ -54,4 +54,17 @@ class Invoke {
         _logger.info("Invoke Function: ${stringToFunction.functionAsString}(${stringToFunction.params})");
         myClassInstanceMirror.invoke(myFunction,params);
     }
+
+    dynamic field(final String fieldname) {
+        Validate.notBlank(fieldname);
+
+        final InstanceMirror myClassInstanceMirror = reflect(_scope.context);
+        final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(fieldname));
+
+        final obj = getField.reflectee;
+
+        _logger.info("Invoke Field: ${obj}");
+        return obj;
+    }
 }
+

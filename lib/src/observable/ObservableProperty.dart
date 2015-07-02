@@ -28,47 +28,56 @@ class PropertyChangeEvent<T> {
 
 @MdlComponentModel
 class ObservableProperty<T> {
-    final StreamController _controller = new StreamController<PropertyChangeEvent<T>>.broadcast();
+    final Logger _logger = new Logger('mdlobservable.ObservableProperty');
 
     T _value;
     Function _observe;
     Duration _interval = new Duration(milliseconds: 100);
 
-    Stream<PropertyChangeEvent<T>> onChange;
+    StreamController<PropertyChangeEvent<T>> _onChange;
 
     ObservableProperty(this._value,{ T observe(), final Duration interval } ) {
-        onChange = _controller.stream;
-
+        _logger.info("Constructor PROP ${_value}");
         if(interval != null) {
             _interval = interval;
         }
-        observes(observe);
+        if(observe != null) {
+            observes(observe);
+        }
+    }
+
+    Stream<PropertyChangeEvent<T>> get onChange {
+        if(_onChange == null) {
+            _onChange = new StreamController<PropertyChangeEvent<T>>.broadcast();
+        }
+        return _onChange.stream;
     }
 
     void set value(final T val) {
         final T old = _value;
         _value = val;
-        _controller.add(new PropertyChangeEvent(val,old));
+
+        //_logger.info("Value: $val");
+        _fire(new PropertyChangeEvent(val,old));
     }
 
     T get value => _value;
 
     void observes( T observe() ) {
+        _logger.info("Observes $observe");
         _observe = observe;
 
         if(_observe != null) {
             // first timer comes after short period - this shows the value
             // for the first time
-            new Timer(new Duration(milliseconds: 100),() {
+            new Timer(new Duration(milliseconds: 50),() {
               _setValue();
 
               // second timer comes after specified time
               new Timer.periodic(_interval,(final Timer timer) {
-                final T newValue = _observe();
-                if(newValue != _value) {
-                  value = newValue;
-                }
+                  _setValue();
               });
+
             });
         }
     }
@@ -84,4 +93,10 @@ class ObservableProperty<T> {
           }
      }
 
+    void _fire(final PropertyChangeEvent<T> event) {
+        if(_onChange == null) {
+            _onChange = new StreamController<PropertyChangeEvent<T>>.broadcast();
+        }
+        _onChange.add(event);
+    }
 }

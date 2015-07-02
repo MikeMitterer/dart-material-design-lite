@@ -34,13 +34,18 @@ Object mdlRootContext() {
 
 /// Looks for a SCOPE-AWARE!!!-Parent
 Scope mdlParentScope(final MdlComponent component) {
-  //Validate.isNotNull(component);
+  final Logger _logger = new Logger('mdlapplication.mdlParentScope');
 
   if(component.parent == null) {
+      _logger.fine("$component has no parent!");
     return null;
   }
   if(component.parent is ScopeAware) {
+
     return (component.parent as ScopeAware).scope;
+
+  } else {
+        _logger.fine("${component.parent} (ID: ${component.parent.element.id}) is a MdlComponent but not ScopeAware!");
   }
   return mdlParentScope(component.parent);
 }

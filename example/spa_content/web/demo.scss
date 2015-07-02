@@ -1,11 +1,33 @@
 //@import "packages/mdl/assets/styles/material-design-lite";
 
 .demo-page--content {
+
+    .demo-section {
+        min-height: initial !important;
+    }
+
     .demo-preview-block {
         background-color: transparent;
     }
 
     li {
         margin-bottom: 10px;
+
+        .mdl-button {
+            margin-left: 12px;
+        }
+    }
+
+    .cols {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        .col {
+            width: calc(50% - 12px);
+        }
     }
 }

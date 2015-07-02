@@ -51,9 +51,11 @@ class MaterialRepeat extends MdlTemplateComponent {
     /// changes something like data-mdl-click="check({{id}})" into a callable Component function
     final EventCompiler _eventCompiler;
 
+    /// Uses for rendering this component
     Template _mustacheTemplate;
 
-    /// will be set to innerHtml of this component
+    /// Will be set to outerHtml of this component.
+    /// This component stamps out the html-tag marked with attribute "template"
     String _template = "<div>not set</div>";
 
     /// {_items} holds all the items to render
@@ -179,10 +181,16 @@ class MaterialRepeat extends MdlTemplateComponent {
         return completer.future;
     }
 
+    @override
+    /// dummy - no main-Template for this component.
+    /// items are rendered in add and insert!
+    Future render() => new Future(() {} );
+
+
     //- private -----------------------------------------------------------------------------------
 
-    Future _init() async {
-        _logger.fine("MaterialRepeat - init");
+    void _init() {
+        _logger.info("MaterialRepeat - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialRepeatConstant.WIDGET_SELECTOR);
@@ -199,18 +207,20 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
 
-        /// Sample: <mdl-draggable class="mdl-repeat" data-mdl-list="language in languages">
+        /// Sample: <mdl-repeat for-each="language in languages">...</mdl-repeat>
         if(element.attributes.containsKey(_constant.FOR_EACH)) {
-            _initListFromRootContext();
+            new Future.delayed(new Duration(milliseconds: 50), _postInit);
         }
 
         element.classes.add(_cssClasses.IS_UPGRADED);
         _logger.fine("MaterialRepeat - initialized!");
     }
 
-    @override
-    /// dummy - not main-Template
-    Future render() => new Future(() {} );
+    /// Wait until component is initialized - otherwise we have not a valid DOM structure.
+    /// Means - parent is not ready and if we have not parent Scope fails...
+    void _postInit() {
+        _initListFromParentContext();
+    }
 
     void _addBorderIfInDebugMode(final dom.HtmlElement child,final String color) {
         if(visualDebugging) {
@@ -218,7 +228,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         }
     }
 
-    void _initListFromRootContext() {
+    void _initListFromParentContext() {
         Validate.isTrue(element.attributes.containsKey(_constant.FOR_EACH));
 
         final String dataset = element.attributes[_constant.FOR_EACH].trim();
@@ -234,7 +244,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         scope.context = scope.parentContext;
 
-        _logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}");
+        _logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}, Parent: ${element.parent}");
 
         final InstanceMirror myClassInstanceMirror = reflect(scope.context);
         final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(listName));
@@ -250,7 +260,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         }
 
         if(list is ObservableList) {
-            _logger.info("List ist Observable!");
+            //_logger.info("List ist Observable!");
             (list as ObservableList).onChange.listen((final ListChangedEvent event) {
                 switch(event.changetype) {
                     case ListChangeType.ADD:

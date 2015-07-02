@@ -117,6 +117,10 @@ class MaterialTextfield extends MdlComponent {
 
     String get value => _relaxedInput.value;
 
+    void set value(final String value) {
+        _relaxedInput.value = value;
+    }
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {

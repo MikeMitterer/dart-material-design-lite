@@ -66,6 +66,8 @@ part "src/application/Utils.dart";
 class MdlModule extends di.Module {
 
     MdlModule() {
+        bindByKey(MDLROOTCONTEXT, toImplementation: MdlAppController);
+
         bind(DomRenderer);
         bind(EventCompiler);
         bind(ViewFactory);

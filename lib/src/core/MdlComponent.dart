@@ -39,7 +39,7 @@ class WrongComponentTypeException implements Exception {
  *          mdlComponent(MaterialAccordion,element) as MaterialAccordion;
  */
 MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
-    final Logger _logger = new Logger('mdlcore.mdlComponent');
+    //final Logger _logger = new Logger('mdlcore.mdlComponent');
 
     if(element == null) {
         return element as MdlComponent;
@@ -47,6 +47,8 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
     var jsElement = new JsObject.fromBrowserObject(element);
 
     void _listNames(var jsElement) {
+        final Logger _logger = new Logger('mdlcore.mdlComponent._listNames');
+
         final List<String> componentsForElement = (jsElement[MDL_WIDGET_PROPERTY] as String).split(",");
         componentsForElement.forEach((final String name) {
             _logger.warning("Registered Component $name for $element");
@@ -66,7 +68,7 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
     String typeAsString;
     if(type != null) {
         typeAsString = type.toString();
-        _logger.info("Looking for $typeAsString!");
+        //_logger.fine("Looking for $typeAsString!");
 
     } else {
         // If there is not "type" but more then one components - throw exception!
@@ -81,7 +83,7 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
 
     // OK we found the right type - return the component
     if(jsElement.hasProperty(typeAsString)) {
-        _logger.info("Found $typeAsString");
+        //_logger.fine("Found $typeAsString");
         return (jsElement[typeAsString] as MdlComponent);
     }
 
@@ -168,18 +170,22 @@ abstract class MdlComponent {
     MdlComponent _getMdlParent(final dom.HtmlElement element) {
         MdlComponent parent;
 
+        //_logger.info("Check if $element has a parent: ${element.parent}");
         try {
+
             // null means return the first available component.
             // If there are more than one component - it throws an Exception
             parent = mdlComponent(element.parent,null);
 
         } on WrongComponentTypeException catch(wct) {
+            _logger.warning(wct);
             throw wct;
         }
 
         catch(e) {
             // Exception means there is a parent (dom.Element) but this parent is not
             // a MdlComponent - so continue the search for the next parent
+            // _logger.warning("Checking $element (ID: ${element.id}) brought: $e");
             return _getMdlParent(element.parent);
         }
 

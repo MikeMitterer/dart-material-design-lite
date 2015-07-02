@@ -31,11 +31,6 @@ class _ToDoItemComponentCssClasses {
     const _ToDoItemComponentCssClasses();
 }
 
-/// registration-Helper
-void registerToDoItemComponent() => componentFactory().register(new MdlWidgetConfig<ToDoItemComponent>(
-    _ToDoItemComponentCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-        => new ToDoItemComponent.fromElement(element,injector)));
-
 @MdlComponentModel
 class ToDoItem {
     final Logger _logger = new Logger('todo.ToDoItem');
@@ -44,9 +39,9 @@ class ToDoItem {
     int id;
 
     bool checked;
-    final String item;
+    final String name;
 
-    ToDoItem(this.checked, this.item) : id = counter { counter++; }
+    ToDoItem(this.checked, this.name) : id = counter { counter++; }
 }
 
 class ModelChangedEvent {
@@ -55,101 +50,36 @@ class ModelChangedEvent {
 }
 
 @MdlComponentModel
-class ToDoItemComponent extends MdlTemplateComponent {
+class ToDoItemComponent extends MdlTemplateComponent implements ScopeAware {
     final Logger _logger = new Logger('todo.ToDoItemComponent');
 
-    //static const _ToDoItemConstant _constant = const _ToDoItemConstant();
     static const _ToDoItemComponentCssClasses _cssClasses = const _ToDoItemComponentCssClasses();
 
-    final List<ToDoItem> _items = new List<ToDoItem>();
+    final ObservableList<ToDoItem> items = new ObservableList<ToDoItem>();
 
     final StreamController _controller = new StreamController<ModelChangedEvent>.broadcast();
     Stream<ModelChangedEvent> onModelChange;
 
-    final TemplateRenderer _templateRenderer;
-    final ListRenderer _listRenderer;
-
     ToDoItemComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector),
-            _templateRenderer = injector.get(TemplateRenderer), _listRenderer = injector.get(ListRenderer) {
+        : super(element,injector) {
 
         onModelChange = _controller.stream;
-
-        _listRenderer.listTag = "<div>";
-        _listRenderer.itemTag = "";
 
         _init();
     }
 
-    static ToDoItemComponent widget(final dom.HtmlElement element) => mdlComponent(element) as ToDoItemComponent;
+    static ToDoItemComponent widget(final dom.HtmlElement element) => mdlComponent(element,ToDoItemComponent) as ToDoItemComponent;
 
-    bool useRenderListFunction = true;
-
-    @override
-    String get template {
-        if(useRenderListFunction) {
-            return _template_for_render_list;
-        }
-        return _template_for_mustache_list;
-    }
-
-    String _template_for_mustache_list = """
-        <div>
-            <ul>
-                {{#items}}
-                    <li>
-                        <div class="row">
-                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{id}}">
-                                {{#checked}}
-                                    <input type="checkbox" id="check{{id}}" class="mdl-checkbox__input" checked data-mdl-click="check({{id}})"/>
-                                {{/checked}}
-                                {{^checked}}
-                                    <input type="checkbox" id="check{{id}}" class="mdl-checkbox__input" data-mdl-click="check({{id}})"/>
-                                {{/checked}}
-                                <span class="mdl-checkbox__label">{{item}}</span>
-                            </label>
-                            <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
-                                data-mdl-click="remove({{id}})">
-                                Remove
-                            </button>
-                        </div>
-                    </li>
-                {{/items}}
-            </ul>
-        </div>
-        """.trim().replaceAll(new RegExp(r"\s+")," ");
-
-    String _template_for_render_list = """
-            <div class="row">
-                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{id}}">
-                    {{#checked}}
-                        <input type="checkbox" id="check{{id}}" class="mdl-checkbox__input" checked data-mdl-click="check({{id}})"/>
-                    {{/checked}}
-                    {{^checked}}
-                        <input type="checkbox" id="check{{id}}" class="mdl-checkbox__input" data-mdl-click="check({{id}})"/>
-                    {{/checked}}
-                    <span class="mdl-checkbox__label">{{item}}</span>
-                </label>
-                <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
-                    data-mdl-click="remove({{id}})">
-                    Remove
-                </button>
-            </div>
-        """.trim().replaceAll(new RegExp(r"\s+")," ");
-
-    List<ToDoItem> get items => _items;
 
     void addItem(final ToDoItem value) {
-        _items.add(value);
-        _render();
+        items.add(value);
         _controller.add(new ModelChangedEvent(value));
     }
 
     void remove(final String id) {
-        _logger.info("Click $id");
+        _logger.info("Remove $id");
         final ToDoItem item = _getItem(id);
-        _items.remove(item);
-        _render();
+        items.remove(item);
         _controller.add(new ModelChangedEvent(item));
 
     }
@@ -163,37 +93,31 @@ class ToDoItemComponent extends MdlTemplateComponent {
         _controller.add(new ModelChangedEvent(item));
     }
 
-    int get incrementalIndex => items.isNotEmpty ? ToDoItem.counter : -1;
+    int get incrementalIndex => items.isNotEmpty ? ToDoItem.counter : 0;
 
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
         _logger.info("ToDoItem - init");
-        element.classes.add(_cssClasses.IS_UPGRADED);
 
-        _items.add(new ToDoItem(false,"Mike (Cnt 0)"));
-        _items.add(new ToDoItem(true,"Gerda (Cnt 1)"));
-        _items.add(new ToDoItem(false,"Sarah (Cnt 2)"));
-
-        for(int counter = 3;counter < 1000;counter++) {
-           _items.add(new ToDoItem(false,"Cnt $counter"));
-        }
-
-        if(useRenderListFunction) {
-            renderer = _listRenderer(element,this,_items,() => template);
-        } else {
-            renderer = _templateRenderer(element,this,() => template);
-        }
+        // items.add(new ToDoItem(false,"Mike (Cnt 0)"));
+        // items.add(new ToDoItem(true,"Gerda (Cnt 1)"));
+        // items.add(new ToDoItem(false,"Sarah (Cnt 2)"));
+        //
+        // for(int counter = 3;counter < 1000;counter++) {
+        //    items.add(new ToDoItem(false,"Cnt $counter"));
+        // }
 
         _render();
-        _logger.info("ToDoItem - init done!");
 
+        _logger.info("ToDoItem - init done!");
+        element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
     ToDoItem _getItem(final String id) {
-        for(int counter = 0;counter < _items.length;counter++) {
-            if(_items[counter].id == int.parse(id)) {
-                return _items[counter];
+        for(int counter = 0;counter < items.length;counter++) {
+            if(items[counter].id == int.parse(id)) {
+                return items[counter];
             }
         }
         return null;
@@ -205,16 +129,47 @@ class ToDoItemComponent extends MdlTemplateComponent {
         render().then((_) {
             stopwatch.stop();
 
-            String message;
-            if(useRenderListFunction) {
-                message = "Data rendered with ListRenderer (${_items.length}), took ${stopwatch.elapsedMilliseconds}ms";
-            } else {
-                message = "Data rendered with TemplateRenderer (${_items.length}), took ${stopwatch.elapsedMilliseconds}ms";
-            }
+            final String message = "Data rendered with TemplateRenderer (${items.length}), "
+                "took ${stopwatch.elapsedMilliseconds}ms";
 
             _logger.info(message);
         });
 
     }
+
+    //- Template -----------------------------------------------------------------------------------
+
+    @override
+    String template = """
+        <mdl-repeat for-each="item in items">
+            {{! ----- Turn off default mustache interpretation ---- }} {{= | | =}}
+            <div template class="row">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{item.id}}">
+                    {{#item.checked}}
+                        <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" checked data-mdl-click="check({{item.id}})"/>
+                    {{/item.checked}}
+                    {{^item.checked}}
+                        <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" data-mdl-click="check({{item.id}})"/>
+                    {{/item.checked}}
+                    <span class="mdl-checkbox__label">{{item.name}}</span>
+                </label>
+                <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
+                    data-mdl-click="remove({{item.id}})">
+                    Remove
+                </button>
+            </div>
+            |= {{ }} =| {{! ----- Turn on mustache ---- }}
+        </mdl-repeat>
+        """.trim().replaceAll(new RegExp(r"\s+")," ");
 }
 
+/// registration-Helper
+void registerToDoItemComponent() {
+    final MdlConfig config = new MdlWidgetConfig<ToDoItemComponent>(
+        _ToDoItemComponentCssClasses.MAIN_CLASS,
+            (final dom.HtmlElement element, final di.Injector injector) => new ToDoItemComponent.fromElement(element, injector));
+
+    config.selectorType = SelectorType.CLASS;
+
+    componentHandler().register(config);
+}

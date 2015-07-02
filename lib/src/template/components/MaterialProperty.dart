@@ -70,29 +70,24 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
             final String fieldname = element.dataset["mdl-property"].trim();
 
             scope.context = scope.parentContext;
+            final val = (new Invoke(scope)).field(fieldname);
 
-            final InstanceMirror myClassInstanceMirror = reflect(scope.context);
-            final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(fieldname));
-            final val = getField.reflectee;
+            void _setValue(final val) {
+                element.text = (val != null ? val.toString() : "");
+            }
 
             if(val != null && val is ObservableProperty) {
-
                 final ObservableProperty prop = val;
-                if(prop.value != null) {
-                    element.text = prop.value.toString();;
-                } else {
-                    element.text = "";
-                }
-                prop.onChange.listen((final PropertyChangeEvent event) {
-                    if(event.value != null) {
-                        element.text = event.value.toString();
-                    } else {
-                        element.text = "";
-                    }
-                });
-            }
-            //_logger.info(getField);
 
+                _setValue(prop.value);
+                prop.onChange.listen( (final PropertyChangeEvent event) => _setValue(event.value));
+
+            } else {
+
+                _setValue(val);
+            }
+
+            //_logger.info("Property done!");
         }
         
         element.classes.add(_cssClasses.IS_UPGRADED);
