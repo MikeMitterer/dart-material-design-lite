@@ -20,6 +20,8 @@
 part of mdlapplication;
 
 class Invoke {
+    final Logger _logger = new Logger('mdlapplication.Invoke');
+
     final Scope _scope;
 
     Invoke(this._scope) {
@@ -49,6 +51,7 @@ class Invoke {
             }
         });
 
+        _logger.info("Invoke Function: ${stringToFunction.functionAsString}(${stringToFunction.params})");
         myClassInstanceMirror.invoke(myFunction,params);
     }
 }

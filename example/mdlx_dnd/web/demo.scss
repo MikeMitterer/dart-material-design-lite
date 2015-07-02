@@ -27,15 +27,10 @@
         flex-direction : column;
         flex-wrap      : wrap;
         max-width      : 600px;
-        max-height     : 500px;
+        max-height: 500px;
         overflow       : scroll;
         padding        : 12px;
         border         : 1px dotted black;
-
-        // IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container"
-        .mdl-repeat {
-            position: relative;
-        }
 
         .choose {
             .source {
@@ -68,16 +63,12 @@
                 box-sizing : border-box;
                 margin     : 0 6px;
 
-                .programming , .natural  {
-                    overflow: scroll;
-                }
-
                 .programming .mdl-repeat, .natural .mdl-repeat {
                     display         : flex;
                     flex-direction  : row;
                     flex-wrap       : wrap;
                     justify-content : flex-start; // ⇾
-                    align-content   : space-between; // ||
+                    align-content   : flex-start; // ||
                     align-items     : flex-start; // ↓
                 }
 

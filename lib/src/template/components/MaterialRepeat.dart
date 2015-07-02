@@ -32,7 +32,8 @@ class _MaterialRepeatConstant {
 
     static const String WIDGET_SELECTOR = "mdl-repeat";
 
-    final String DATA_LIST = "mdl-list";
+    final String FOR_EACH   = "for-each";
+    final String CONSUMES    = "consumes";
 
     const _MaterialRepeatConstant();
 }    
@@ -183,6 +184,9 @@ class MaterialRepeat extends MdlTemplateComponent {
     Future _init() async {
         _logger.fine("MaterialRepeat - init");
 
+        /// Recommended - add SELECTOR as class
+        element.classes.add(_MaterialRepeatConstant.WIDGET_SELECTOR);
+
         final dom.Element templateBlock = element.querySelector("[template]");
         templateBlock.attributes.remove("template");
 
@@ -196,7 +200,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
 
         /// Sample: <mdl-draggable class="mdl-repeat" data-mdl-list="language in languages">
-        if(element.dataset.containsKey(_constant.DATA_LIST)) {
+        if(element.attributes.containsKey(_constant.FOR_EACH)) {
             _initListFromRootContext();
         }
 
@@ -215,31 +219,19 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     void _initListFromRootContext() {
-        Validate.isTrue(element.dataset.containsKey(_constant.DATA_LIST));
+        Validate.isTrue(element.attributes.containsKey(_constant.FOR_EACH));
 
-        final String dataset = element.dataset[_constant.DATA_LIST].trim();
+        final String dataset = element.attributes[_constant.FOR_EACH].trim();
         final List<String> parts = dataset.split(" ");
 
         if(parts.length != 3) {
-            throw new ArgumentError("data-${_constant.DATA_LIST} must have the following format: <item> in <listname> "
+            throw new ArgumentError("${_constant.FOR_EACH} must have the following format: '<item> in <listname>'"
                 "but was: $dataset!");
         }
 
         final String listName = dataset.split(" ").last;
         final String itemName = dataset.split(" ").first;
 
-/*
-        Object rootContext;
-        try {
-            rootContext = injector.getByKey(MDLROOTCONTEXT);
-
-        } on Error {
-
-            throw new ArgumentError("Could not find rootContext. "
-                "Please define something like this: "
-                "componentFactory().rootContext(AppController).run().then((_) { ... }");
-        }
-*/
         scope.context = scope.parentContext;
 
         _logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}");
@@ -292,20 +284,33 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     void _addDataToDataConsumer(final dom.HtmlElement element,final item) {
-        final MdlComponent component = mdlComponent(element,null);
-        if(component == null ||
-            !element.dataset.containsKey("mdl-consume") ||
-            !(item is Map)) {
+        Validate.notNull(element);
+
+        if(!element.attributes.containsKey(_constant.CONSUMES)) {
             return;
         }
+
+        Validate.isTrue(item is Map,"Datatype for $item must be 'Map' but was '${item.runtimeType}'");
+
+        final MdlComponent component = mdlComponent(element,null);
+        if(component == null) {
+            _logger.warning("Could not add data to data-consumer becaus it is not a MdlComponent. ($element)");
+            return;
+        }
+
         if(component is MdlDataConsumer) {
             final MdlDataConsumer consumer = component as MdlDataConsumer;
-            final String consume = element.dataset["mdl-consume"];
+            final String consume = element.attributes[_constant.CONSUMES];
 
             if((item as Map).containsKey(consume)) {
                 final data = (item as Map)[consume];
                 consumer.consume(data);
+
+            } else {
+                _logger.warning("Could not find '$consume' in $item - so no data was added to $element");
             }
+        } else {
+            _logger.warning("$component is not a 'MdlDataConsumer' - so adding data was not possible.");
         }
     }
 
@@ -325,7 +330,7 @@ void registerMaterialRepeat() {
     // If you want <mdl-repeat></mdl-repeat> set selectorType to SelectorType.TAG.
     // If you want <div mdl-repeat></div> set selectorType to SelectorType.ATTRIBUTE.
     // By default it's used as a class name. (<div class="mdl-repeat"></div>)
-    config.selectorType = SelectorType.CLASS;
+    config.selectorType = SelectorType.TAG;
 
     componentFactory().register(config);
 }

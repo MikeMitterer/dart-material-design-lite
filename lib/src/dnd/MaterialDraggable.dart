@@ -41,7 +41,7 @@ class DragInfo {
 /// decide to modify at a later date.
 class _MaterialDraggableCssClasses {
 
-    final String IS_UPGRADED = 'is-upgraded';
+    final String IS_UPGRADED    = 'is-upgraded';
 
     final String DRAGGABLE      = 'mdl-draggable';
 
@@ -54,6 +54,8 @@ class _MaterialDraggableConstant {
 
     static const String WIDGET_SELECTOR = "mdl-draggable";
 
+    final String DROP_ZONE = "drop-zone";
+
     const _MaterialDraggableConstant();
 }    
 
@@ -61,6 +63,7 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
     final Logger _logger = new Logger('mdldnd.MaterialDraggable');
 
     static const _MaterialDraggableCssClasses _cssClasses = const _MaterialDraggableCssClasses();
+    static const _MaterialDraggableConstant _constants = const _MaterialDraggableConstant();
 
     final DragInfo _dragInfo = new DragInfo();
 
@@ -80,7 +83,7 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
     // Central Element - by default this is where mdldraggable can be found (element)
     // html.Element get hub => inputElement;
 
-    get _isDisabled => ElementProperties.hasAttributeOrClass(element,[ 'disabled', 'is-disabled' ]);
+    get _isDisabled => ElementProperties.isDisabled(element);
 
     void consume(final data) {
         //_logger.info("Consumed: $data");
@@ -112,8 +115,8 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
         }
 
         List<String> _allowedDropZones() {
-            if(element.attributes.containsKey("drop-zone")) {
-                return element.attributes["drop-zone"].split(",");
+            if(element.attributes.containsKey(_constants.DROP_ZONE)) {
+                return element.attributes[_constants.DROP_ZONE].split(",");
             }
             return new List<String>();
         }

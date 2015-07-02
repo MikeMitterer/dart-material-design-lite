@@ -23,6 +23,7 @@ enum ListChangeType {
     ADD, UPDATE, REMOVE, CLEAR
 }
 
+/// Propagated if List changes
 class ListChangedEvent<T> {
     /// [changetype] shows what changed
     final ListChangeType changetype;
@@ -40,13 +41,16 @@ class ListChangedEvent<T> {
 class ObservableList<T> extends ListBase<T> {
 
     final List<T> _innerList = new List();
-    final StreamController _controller = new StreamController<ListChangedEvent<T>>.broadcast();
     bool _changing = false;
 
-    Stream<ListChangedEvent<T>> onChange;
+    StreamController<ListChangedEvent<T>> _onChange;
 
-    ObservableList() {
-        onChange = _controller.stream;
+    /// Propagated Event-Listener
+    Stream<ListChangedEvent<T>> get onChange {
+        if(_onChange == null) {
+            _onChange = new StreamController<ListChangedEvent<T>>.broadcast(onCancel: () => _onChange = null);
+        }
+        return _onChange.stream;
     }
 
     int get length => _innerList.length;
@@ -59,7 +63,7 @@ class ObservableList<T> extends ListBase<T> {
         // remove + removeRange uses [] to set the new items
         // This flag avoids troubles
         if(!_changing) {
-            _controller.add(new ListChangedEvent<T>(ListChangeType.UPDATE,item: value, prevItem: _innerList[index]));
+            _fire(new ListChangedEvent<T>(ListChangeType.UPDATE,item: value, prevItem: _innerList[index]));
         }
 
         _innerList[index] = value;
@@ -69,27 +73,27 @@ class ObservableList<T> extends ListBase<T> {
 
     void add(final T value) {
         _innerList.add(value);
-        _controller.add(new ListChangedEvent<T>(ListChangeType.ADD,item: value));
+        _fire(new ListChangedEvent<T>(ListChangeType.ADD,item: value));
     }
 
     void addAll(Iterable<T> all) {
         _innerList.addAll(all);
         all.forEach((final element) {
-            _controller.add(new ListChangedEvent<T>(ListChangeType.ADD,item: element));
+            _fire(new ListChangedEvent<T>(ListChangeType.ADD,item: element));
         });
     }
 
     @override
     void clear() {
         super.clear();
-        _controller.add(new ListChangedEvent<T>(ListChangeType.CLEAR));
+        _fire(new ListChangedEvent<T>(ListChangeType.CLEAR));
     }
 
     @override
     void removeRange(int start, int end) {
         RangeError.checkValidRange(start, end, this.length);
         for(int index = start;index < end;index++) {
-            _controller.add(new ListChangedEvent<T>(ListChangeType.REMOVE,item: _innerList[index] ));
+            _fire(new ListChangedEvent<T>(ListChangeType.REMOVE,item: _innerList[index] ));
         }
         _changing = true;
         super.removeRange(start,end);
@@ -98,7 +102,7 @@ class ObservableList<T> extends ListBase<T> {
 
     @override
     bool remove(final Object element) {
-        _controller.add(new ListChangedEvent<T>(ListChangeType.REMOVE,item: element ));
+        _fire(new ListChangedEvent<T>(ListChangeType.REMOVE,item: element ));
 
         _changing = true;
         final bool result = super.remove(element);
@@ -107,5 +111,12 @@ class ObservableList<T> extends ListBase<T> {
         return result;
     }
 
+    //- private -----------------------------------------------------------------------------------
 
+    void _fire(final ListChangedEvent<T> event) {
+        if(_onChange == null) {
+            _onChange = new StreamController<ListChangedEvent<T>>.broadcast(onCancel: () => _onChange = null);
+        }
+        _onChange.add(event);
+    }
 }

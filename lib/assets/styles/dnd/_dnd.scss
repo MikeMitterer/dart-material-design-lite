@@ -1,0 +1,8 @@
+.mdl-dnd {
+
+}
+
+// IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container"
+.mdl-dnd__drag-container {
+    position: relative;
+}

@@ -53,30 +53,27 @@
     <div class="danddcontainer">
         <div class="choose ">
             <h6>Choose language</h6>
-                <!-- IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container" -->
-                <div class="mdl-repeat source langbox" data-mdl-list="language in languages">
+                <mdl-repeat class="source langbox mdl-dnd__drag-container" for-each="language in languages">
                      
-                    <mdl-draggable template class="language" data-mdl-consume="language" drop-zone="{{language.type}}">
+                    <mdl-draggable template class="language" consumes="language" drop-zone="{{language.type}}">
                         {{language.name}}
                     </mdl-draggable>
                      
-                </div>
+                </mdl-repeat>
         </div>
         <div class="accept">
             <div class="langbox">
                 <h6>Programming languages</h6>
                 <mdl-dropzone class="programming" name="programming"
                               on-drop-success="addToProgrammingLanguages(data)">
-
                     <!-- programming language item becomes a 'draggable' item and can be dragged to 'trash' -->
-                    <!-- IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container" -->
-                    <div class="mdl-repeat" data-mdl-list="language in programming">
+                    <mdl-repeat for-each="language in programming" class="mdl-dnd__drag-container">
                          
-                        <mdl-draggable template class="language" data-mdl-consume="language" drop-zone="trash">
+                        <mdl-draggable template class="language" consumes="language" drop-zone="trash">
                             {{language.name}}
                         </mdl-draggable>
                          
-                    </div>
+                    </mdl-repeat>
                 </mdl-dropzone>
             </div>
             <div class="langbox">
@@ -84,14 +81,13 @@
                 <mdl-dropzone class="natural" name="natural"
                               on-drop-success="addToNaturalLanguages(data)">
                     <!-- natural language item becomes a 'draggable' item and can be dragged to 'trash' -->
-                    <!-- IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container" -->
-                    <div class="mdl-repeat" data-mdl-list="language in natural">
+                    <mdl-repeat for-each="language in natural" class="mdl-dnd__drag-container">
                          
-                        <mdl-draggable template class="language" data-mdl-consume="language" drop-zone="trash">
+                        <mdl-draggable template class="language" consumes="language" drop-zone="trash">
                             {{language.name}}
                         </mdl-draggable>
                          
-                    </div>
+                    </mdl-repeat>
                 </mdl-dropzone>
             </div>
         </div>

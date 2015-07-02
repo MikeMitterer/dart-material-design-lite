@@ -6546,6 +6546,9 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     .mdl-dialog-container .mdl-dialog.mdl-content-overflow .mdl-actions {
       border-top: 1px solid; }
 
+.mdl-dnd__drag-container {
+  position: relative; }
+
 form.mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;

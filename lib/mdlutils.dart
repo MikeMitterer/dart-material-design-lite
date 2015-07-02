@@ -77,6 +77,8 @@ class _DataValue {
 }
 
 class ElementProperties {
+    static const String DISABLED    = "disabled";
+    static const String IS_DISABLED = "id-disabled";
 
     /// Checks if the [element] has either the class set or if the attribute is available
     static bool hasAttributeOrClass(final dom.Element element,final List<String> classesOrAttributes) {
@@ -95,5 +97,8 @@ class ElementProperties {
         }
         return false;
     }
+
+    /// Checks if [element] has either the attribute "disabled" set or if it has a 'is-disabled' class
+    static bool isDisabled(final dom.Element element) => hasAttributeOrClass(element,[ DISABLED, IS_DISABLED]);
 }
 

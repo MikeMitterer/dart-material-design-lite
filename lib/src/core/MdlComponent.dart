@@ -31,6 +31,7 @@ class WrongComponentTypeException implements Exception {
  *
  * Returns the upgraded MDL-Component. If {element} is null it returns a null-MDLComponent
  * [type] The requested type. If [type] is null it returns the first available type.
+ *
  * If [type] is null and if there are more than one types available it throws and error!
  *
  * Sample:
