@@ -244,7 +244,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         scope.context = scope.parentContext;
 
-        //_logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}, Parent: ${element.parent}");
+        _logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}, Parent: ${element.parent}");
 
         final List list = new Invoke(scope).field(listName);
         list.forEach( (final item) => add({ itemName : item },scope: scope.context));

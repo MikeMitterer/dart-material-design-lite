@@ -66,6 +66,7 @@ class Scope {
       _context = cntxt;
     }
 
+    /// Returns the next SCOPE-AWARE-Parent ( implements ScopeAware )
     Object get parentContext {
         if(_parentScope != null) {
             return _parentScope.context;

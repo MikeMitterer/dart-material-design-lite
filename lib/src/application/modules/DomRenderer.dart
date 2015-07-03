@@ -172,9 +172,9 @@ class DomRenderer {
 class _AllowAllAttributesNodeValidator implements dom.NodeValidator {
 
     bool allowsAttribute(dom.Element element, String attributeName, String value) {
-        if (attributeName == 'is' || attributeName.startsWith('on')) {
-            return false;
-        }
+        // if (attributeName == 'is' || attributeName.startsWith('on')) {
+        //     return false;
+        // }
         return true;
     }
 

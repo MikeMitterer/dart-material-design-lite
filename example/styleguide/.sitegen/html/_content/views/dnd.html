@@ -1,0 +1,53 @@
+<section class="demo-section demo-section--dnd demo-page--dnd">
+    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/dnd.html">
+        Loading...
+    </div>
+    <div class="demo-preview-block">
+        <h2>Drag & Drop (experimental)</h2>
+        <div class="danddcontainer">
+            <div class="choose ">
+                <h6>Choose language</h6>
+                    <mdl-repeat class="source langbox mdl-dnd__drag-container" for-each="language in languages">
+                        {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+                        <mdl-draggable template class="language" consumes="language" drop-zone="{{language.type}}">
+                            {{language.name}}
+                        </mdl-draggable>
+                        |= {{ }} =| {{! ----- Turn on mustache ---- }}
+                    </mdl-repeat>
+            </div>
+            <div class="accept">
+                <div class="langbox">
+                    <h6>Programming languages</h6>
+                    <mdl-dropzone class="programming" name="programming"
+                                  on-drop-success="addToProgrammingLanguages(data)">
+                        <mdl-repeat for-each="language in programming" class="mdl-dnd__drag-container">
+                            {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+                            <mdl-draggable template class="language" consumes="language" drop-zone="trash">
+                                {{language.name}}
+                            </mdl-draggable>
+                            |= {{ }} =| {{! ----- Turn on mustache ---- }}
+                        </mdl-repeat>
+                    </mdl-dropzone>
+                </div>
+                <div class="langbox">
+                    <h6>Natural languages</h6>
+                    <mdl-dropzone class="natural" name="natural"
+                                  on-drop-success="addToNaturalLanguages(data)">
+                        <mdl-repeat for-each="language in natural" class="mdl-dnd__drag-container">
+                            {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+                            <mdl-draggable template class="language" consumes="language" drop-zone="trash">
+                                {{language.name}}
+                            </mdl-draggable>
+                            |= {{ }} =| {{! ----- Turn on mustache ---- }}
+                        </mdl-repeat>
+                    </mdl-dropzone>
+                </div>
+            </div>
+            <div class="trash">
+                <h6>Trash</h6>
+                <mdl-dropzone class="trashbox" name="trash"
+                              on-drop-success="moveToTrash(data)"></mdl-dropzone>
+            </div>
+        </div>
+    </div>
+</section>

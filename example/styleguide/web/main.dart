@@ -43,7 +43,7 @@ import "package:mdl_styleguide/todo.dart";
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
-    // Observe-Sample
+    // Observe-Sample + DND
     final ObservableList<_Language> languages = new ObservableList<_Language>();
     final ObservableProperty<String> time = new ObservableProperty<String>("", interval: new Duration(seconds: 1));
     final ObservableProperty<String> records = new ObservableProperty<String>("");
@@ -52,6 +52,10 @@ class Application extends MaterialApplication {
     final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
     final ObservableProperty<String> nrOfItemsDone = new ObservableProperty<String>("",
         interval: new Duration(milliseconds: 500));
+    
+    // DND-Sample
+    final ObservableList<_Language> natural = new ObservableList<_Language>();
+    final ObservableList<_Language> programming = new ObservableList<_Language>();
 
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
@@ -92,6 +96,34 @@ class Application extends MaterialApplication {
         }
     }
 
+    /// DND-Sample
+    void addToProgrammingLanguages(final _Language language) {
+        if(language.type == "programming") {
+            if(!programming.contains(language)) {
+                programming.add(language);
+            }
+        }
+    }
+
+    /// DND-Sample
+    void addToNaturalLanguages(final _Language language) {
+        if(language.type == "natural") {
+            if(!natural.contains(language)) {
+                natural.add(language);
+            }
+        }
+    }
+
+    /// DND-Sample
+    void moveToTrash(final _Language language) {
+        if(language.type == "programming" && programming.contains(language)) {
+            programming.remove(language);
+
+        } else if(language.type == "natural" && natural.contains(language)) {
+            natural.remove(language);
+        }
+    }
+    
     //- private -----------------------------------------------------------------------------------
 
     String _getTime() {
@@ -114,6 +146,7 @@ main() {
     enableTheming();
 
     registerMdl();
+    registerMdlDND();
 
     // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
     registerDemoAnimation();
@@ -185,9 +218,83 @@ class BadgeController extends DemoController {
     void unload() {
         stopTimer = true;
     }
+    // - private ------------------------------------------------------------------------------------------------------
+}
 
+class DialogController extends DemoController {
+    final Logger _logger = new Logger('main.DialogController');
 
-// - private ------------------------------------------------------------------------------------------------------
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector("#alertdialog"));
+        final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector("#confirmdialog"));
+        final MaterialButton btnCustomDialog = MaterialButton.widget(dom.querySelector("#customdialog"));
+
+        final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
+        final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
+        final CustomDialog customDialog = new CustomDialog();
+
+        int mangoCounter = 0;
+
+        btnAlertDialog.onClick.listen((_) {
+            _logger.info("Click on AlertButton");
+            alertDialog("Testmessage").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+        });
+
+        btnConfirmDialog.onClick.listen((_) {
+            _logger.info("Click on ConfirmButton");
+            confirmDialog("Testmessage").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+        });
+
+        btnCustomDialog.onClick.listen((_) {
+            _logger.info("Click on ConfirmButton");
+            customDialog(title: "Mango #${mangoCounter} (Fruit)",
+                yesButton: "I buy it!", noButton: "Not now").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+                mangoCounter++;
+            });
+        });
+    }
+}
+
+class DNDController extends DemoController {
+    final Logger _logger = new Logger('main.DNDController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+        
+        _addLanguages();
+    }
+
+    @override
+    void unload() {
+        final Application  app = componentFactory().application;
+        app.languages.clear();
+        app.programming.clear();
+        app.natural.clear();
+    }
+
+    // - private ------------------------------------------------------------------------------------------------------
+
+    _addLanguages() {
+        final Application  app = componentFactory().application;
+        app.languages.add(new _Natural("English"));
+        app.languages.add(new _Natural("German"));
+        app.languages.add(new _Natural("Italian"));
+        app.languages.add(new _Natural("French"));
+        app.languages.add(new _Natural("Spanish"));
+
+        app.languages.add(new _Programming("CPP"));
+        app.languages.add(new _Programming("Dart"));
+        app.languages.add(new _Programming("Java"));
+    }
 }
 
 class IconToggleController extends DemoController {
@@ -316,6 +423,10 @@ class _Language {
 
 class _Natural extends _Language {
     _Natural(final String name) : super(name, "natural");
+}
+
+class _Programming extends _Language {
+    _Programming(final String name) : super(name,"programming");
 }
 
 class ObserverController extends DemoController {
@@ -553,48 +664,6 @@ class SpinnerController extends DemoController {
     }
 }
 
-class DialogController extends DemoController {
-    final Logger _logger = new Logger('main.DialogController');
-
-    @override
-    void loaded(final Route route) {
-        super.loaded(route);
-
-        final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector("#alertdialog"));
-        final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector("#confirmdialog"));
-        final MaterialButton btnCustomDialog = MaterialButton.widget(dom.querySelector("#customdialog"));
-
-        final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
-        final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
-        final CustomDialog customDialog = new CustomDialog();
-
-        int mangoCounter = 0;
-
-        btnAlertDialog.onClick.listen((_) {
-            _logger.info("Click on AlertButton");
-            alertDialog("Testmessage").show().then((final MdlDialogStatus status) {
-                _logger.info(status);
-            });
-        });
-
-        btnConfirmDialog.onClick.listen((_) {
-            _logger.info("Click on ConfirmButton");
-            confirmDialog("Testmessage").show().then((final MdlDialogStatus status) {
-                _logger.info(status);
-            });
-        });
-
-        btnCustomDialog.onClick.listen((_) {
-            _logger.info("Click on ConfirmButton");
-            customDialog(title: "Mango #${mangoCounter} (Fruit)",
-                yesButton: "I buy it!", noButton: "Not now").show().then((final MdlDialogStatus status) {
-                _logger.info(status);
-                mangoCounter++;
-            });
-        });
-    }
-}
-
 class SnackbarController extends DemoController {
     final Logger _logger = new Logger('main.SnackbarController');
 
@@ -717,6 +786,9 @@ void configRouter() {
 
         ..addRoute(name: 'dialog', path: '/dialog',
             enter: view("views/dialog.html", new DialogController()))
+
+        ..addRoute(name: 'dnd', path: '/dnd',
+            enter: view("views/dnd.html", new DNDController()))
 
         ..addRoute(name: 'footer', path: '/footer',
             enter: view("views/footer.html", new DemoController()))

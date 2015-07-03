@@ -27,6 +27,7 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/ex
                               on-drop-success="addToProgrammingLanguages(data)">
 
                     <!-- programming language item becomes a 'draggable' item and can be dragged to 'trash' -->
+                    <!-- mdl-repeat takes its for-each param from the next SCOPE-AWARE-Parent (mld-dropzone is not SCOPE-AWARE) -->
                     <mdl-repeat for-each="language in programming" class="mdl-dnd__drag-container">
                         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
                         <mdl-draggable template class="language" consumes="language" drop-zone="trash">
@@ -44,6 +45,7 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/ex
                               on-drop-success="addToNaturalLanguages(data)">
 
                     <!-- natural language item becomes a 'draggable' item and can be dragged to 'trash' -->
+                    <!-- mdl-repeat takes its for-each param from the next SCOPE-AWARE-Parent (mld-dropzone is not SCOPE-AWARE) -->
                     <mdl-repeat for-each="language in natural" class="mdl-dnd__drag-container">
                         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
                         <mdl-draggable template class="language" consumes="language" drop-zone="trash">

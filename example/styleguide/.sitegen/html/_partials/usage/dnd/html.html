@@ -1,0 +1,48 @@
+&lt;div class=&quot;demo-preview-block&quot;&gt;
+    &lt;h2&gt;Drag &amp; Drop (experimental)&lt;&#47;h2&gt;
+    &lt;div class=&quot;danddcontainer&quot;&gt;
+        &lt;div class=&quot;choose &quot;&gt;
+            &lt;h6&gt;Choose language&lt;&#47;h6&gt;
+                &lt;mdl-repeat class=&quot;source langbox mdl-dnd__drag-container&quot; for-each=&quot;language in languages&quot;&gt;
+                    {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+                    &lt;mdl-draggable template class=&quot;language&quot; consumes=&quot;language&quot; drop-zone=&quot;{{language.type}}&quot;&gt;
+                        {{language.name}}
+                    &lt;&#47;mdl-draggable&gt;
+                    |= {{ }} =| {{! ----- Turn on mustache ---- }}
+                &lt;&#47;mdl-repeat&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;accept&quot;&gt;
+            &lt;div class=&quot;langbox&quot;&gt;
+                &lt;h6&gt;Programming languages&lt;&#47;h6&gt;
+                &lt;mdl-dropzone class=&quot;programming&quot; name=&quot;programming&quot;
+                              on-drop-success=&quot;addToProgrammingLanguages(data)&quot;&gt;
+                    &lt;mdl-repeat for-each=&quot;language in programming&quot; class=&quot;mdl-dnd__drag-container&quot;&gt;
+                        {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+                        &lt;mdl-draggable template class=&quot;language&quot; consumes=&quot;language&quot; drop-zone=&quot;trash&quot;&gt;
+                            {{language.name}}
+                        &lt;&#47;mdl-draggable&gt;
+                        |= {{ }} =| {{! ----- Turn on mustache ---- }}
+                    &lt;&#47;mdl-repeat&gt;
+                &lt;&#47;mdl-dropzone&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;langbox&quot;&gt;
+                &lt;h6&gt;Natural languages&lt;&#47;h6&gt;
+                &lt;mdl-dropzone class=&quot;natural&quot; name=&quot;natural&quot;
+                              on-drop-success=&quot;addToNaturalLanguages(data)&quot;&gt;
+                    &lt;mdl-repeat for-each=&quot;language in natural&quot; class=&quot;mdl-dnd__drag-container&quot;&gt;
+                        {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+                        &lt;mdl-draggable template class=&quot;language&quot; consumes=&quot;language&quot; drop-zone=&quot;trash&quot;&gt;
+                            {{language.name}}
+                        &lt;&#47;mdl-draggable&gt;
+                        |= {{ }} =| {{! ----- Turn on mustache ---- }}
+                    &lt;&#47;mdl-repeat&gt;
+                &lt;&#47;mdl-dropzone&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;trash&quot;&gt;
+            &lt;h6&gt;Trash&lt;&#47;h6&gt;
+            &lt;mdl-dropzone class=&quot;trashbox&quot; name=&quot;trash&quot;
+                          on-drop-success=&quot;moveToTrash(data)&quot;&gt;&lt;&#47;mdl-dropzone&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt;

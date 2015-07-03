@@ -1,0 +1,80 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+
+@MdlComponentModel
+class _Language &#123;
+    final String name;
+    final String type;
+
+    _Language(this.name, this.type);
+&#125;
+
+class _Programming extends _Language &#123;
+    _Programming(final String name) : super(name,&quot;programming&quot;);
+&#125;
+class _Natural extends _Language &#123;
+    _Natural(final String name) : super(name,&quot;natural&quot;);
+&#125;
+
+@MdlComponentModel @di.Injectable()
+class Application extends MaterialApplication &#123;
+    final _logger = new Logger(&#39;dnd.Application&#39;);
+
+    final ObservableList&lt;_Language&gt; languages = new ObservableList&lt;_Language&gt;();
+    final ObservableList&lt;_Language&gt; natural = new ObservableList&lt;_Language&gt;();
+    final ObservableList&lt;_Language&gt; programming = new ObservableList&lt;_Language&gt;();
+
+    Application() &#123;
+        languages.add(new _Natural(&quot;English&quot;));
+        languages.add(new _Natural(&quot;German&quot;));
+        languages.add(new _Natural(&quot;Italian&quot;));
+        languages.add(new _Natural(&quot;French&quot;));
+        languages.add(new _Natural(&quot;Spanish&quot;));
+
+        languages.add(new _Programming(&quot;CPP&quot;));
+        languages.add(new _Programming(&quot;Dart&quot;));
+        languages.add(new _Programming(&quot;Java&quot;));
+    &#125;
+
+    @override
+    void run() &#123;
+
+    &#125;
+
+    void addToProgrammingLanguages(final _Language language) &#123;
+        if(language.type == &quot;programming&quot;) &#123;
+            if(!programming.contains(language)) &#123;
+                programming.add(language);
+            &#125;
+        &#125;
+    &#125;
+
+    void addToNaturalLanguages(final _Language language) &#123;
+        if(language.type == &quot;natural&quot;) &#123;
+            if(!natural.contains(language)) &#123;
+                natural.add(language);
+            &#125;
+        &#125;
+    &#125;
+
+    void moveToTrash(final _Language language) &#123;
+        if(language.type == &quot;programming&quot; &amp;&amp; programming.contains(language)) &#123;
+            programming.remove(language);
+
+        &#125; else if(language.type == &quot;natural&quot; &amp;&amp; natural.contains(language)) &#123;
+            natural.remove(language);
+        &#125;
+    &#125;
+&#125;
+
+main() &#123;
+    final Logger _logger = new Logger(&#39;dnd.Main&#39;);
+
+    registerMdl();
+    registerMdlDND();
+
+    componentFactory().rootContext(Application).run().then((final MaterialApplication application) &#123;
+        application.run();
+    &#125;);
+&#125;
+

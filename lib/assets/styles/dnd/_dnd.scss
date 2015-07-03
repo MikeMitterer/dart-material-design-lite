@@ -1,8 +1,70 @@
-.mdl-dnd {
-
-}
-
 // IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container"
 .mdl-dnd__drag-container {
     position: relative;
 }
+
+mdl-dropzone { display: block; }
+mdl-draggable { display: block; }
+
+@mixin keyframes-swing() {
+    15% {
+        transform: translateX(5px);
+    }
+    30% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(3px);
+    }
+    65% {
+        transform: translateX(-3px);
+    }
+    80% {
+        transform: translateX(2px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes swing {
+    @include keyframes-swing();
+}
+
+@keyframes swing {
+    @include keyframes-swing();
+}
+
+// DND-Classes defined in DND lib
+.dnd-draggable {
+    cursor: url(package-docroot() + "/packages/dnd/cursor/openhand.cur"), move; /* Cursor for IE. */
+    cursor: url(package-docroot() + "/packages/dnd/cursor/openhand.cur") 7 5, move; /* Cursor for FF and Chrome (setting midpoint). */
+}
+
+.dnd-invalid {
+    animation: swing 1s ease;
+    animation-iteration-count: 1;
+
+    cursor: no-drop;
+    cursor: not-allowed;
+}
+
+.dnd-over {
+    opacity: 1;
+
+    transition: background 0.3s ease;
+
+    border: 2px dashed #1c691b !important;
+    border-radius: 5px;
+    background-color: rgba(149, 255, 149,0.6) !important;;
+
+}
+
+.dnd-dragging {
+    opacity: 0.5;
+}
+
+.dnd-dragging, .dnd-drag-occurring {
+    cursor: url(package-docroot() + "/packages/dnd/cursor/closedhand.cur"), move; /* Cursor for IE. */
+    cursor: url(package-docroot() + "/packages/dnd/cursor/closedhand.cur") 7 5, move; /* Cursor for FF and Chrome (setting midpoint). */
+}
+

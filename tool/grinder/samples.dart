@@ -41,6 +41,7 @@ class Sample {
     //final bool hasOwnDemoSCSS;
 
     /// does lib/assets/styles/<samplename> exist (not the case for example for content, include...)
+    /// Wird nur bei Type.Core überprüft
     final bool hasStyle;
 
     String scssFile;
@@ -154,6 +155,7 @@ void createSampleList() {
     // MDL/Dart
     samples.add(new Sample("accordion",     Type.Dart, hasOwnDemoHtml: true));
     samples.add(new Sample("dialog",        Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("dnd",           Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("forms",         Type.Dart, hasOwnDemoHtml: true));
     samples.add(new Sample("nav-pills",     Type.Dart, hasOwnDemoHtml: true));
     samples.add(new Sample("notification",  Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
@@ -164,11 +166,11 @@ void createSampleList() {
     samples.add(new Sample("icons",Type.DartOld));
 
     // SPA Samples
-    samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
-    samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false, hasOwnPubSpec: true));
-    samples.add(new Sample("observe",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
-    samples.add(new Sample("repeat",    Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
-    samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasStyle: false));
+    samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true));
+    samples.add(new Sample("observe",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("repeat",    Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
 
     // Styleguide!
     samples.add(new Sample("styleguide",Type.Styleguide));
