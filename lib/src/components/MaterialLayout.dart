@@ -189,7 +189,7 @@ class MaterialLayout extends MdlComponent {
             // Keep an eye on screen size, and add/remove auxiliary class for styling
             // of small screens.
             _screenSizeMediaQuery = dom.window.matchMedia(_constant.MAX_WIDTH);
-            _screenSizeMediaQuery.onChange.listen(_screenSizeHandler);
+            _screenSizeMediaQuery.addListener( (_) => _screenSizeHandler());
             _screenSizeHandler();
 
             if (header != null) {
@@ -373,8 +373,8 @@ class MaterialLayout extends MdlComponent {
     }
 
     /// Handles changes in screen size.
-    void _screenSizeHandler([final dom.Event event]) {
-
+    void _screenSizeHandler() {
+        _logger.info("ScreenSite changed!");
         if (_screenSizeMediaQuery.matches) {
             element.classes.add(_cssClasses.IS_SMALL_SCREEN);
         }
