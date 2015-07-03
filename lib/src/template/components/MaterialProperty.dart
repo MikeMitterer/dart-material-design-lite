@@ -32,6 +32,8 @@ class _MaterialPropertyConstant {
 
     static const String WIDGET_SELECTOR = "mdl-property";
 
+    final String OBSERVE = "observe";
+
     const _MaterialPropertyConstant();
 }    
 
@@ -39,6 +41,7 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
     final Logger _logger = new Logger('mdltemplate.MaterialProperty');
 
     static const _MaterialPropertyCssClasses _cssClasses = const _MaterialPropertyCssClasses();
+    static const _MaterialPropertyConstant _constant = const _MaterialPropertyConstant();
 
     Scope scope;
 
@@ -50,24 +53,26 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
     }
     
     static MaterialProperty widget(final dom.HtmlElement element) => mdlComponent(element,MaterialProperty) as MaterialProperty;
-    
-    // Central Element - by default this is where mdl-property can be found (element)
-    // html.Element get hub => inputElement;
-    
+
+    @public
+    void set value(final val) => element.text = (val != null ? val.toString() : "");
+
+    @public
+    String get value => element.text.trim();
+
     // --------------------------------------------------------------------------------------------
     // EventHandler
 
-    void handleButtonClick() {
-        _logger.info("Event: handleButtonClick");
-    }    
-    
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
         _logger.info("MaterialProperty - init");
 
-        if(element.dataset.containsKey("mdl-property")) {
-            final String fieldname = element.dataset["mdl-property"].trim();
+        /// Recommended - add SELECTOR as class
+        element.classes.add(_MaterialPropertyConstant.WIDGET_SELECTOR);
+
+        if(element.attributes.containsKey(_constant.OBSERVE)) {
+            final String fieldname = element.attributes[_constant.OBSERVE].trim();
 
             scope.context = scope.parentContext;
             final val = (new Invoke(scope)).field(fieldname);
@@ -103,7 +108,7 @@ void registerMaterialProperty() {
     
     // if you want <mdl-property></mdl-property> set isSelectorAClassName to false.
     // By default it's used as a class name. (<div class="mdl-property"></div>)
-    config.selectorType = SelectorType.CLASS;
+    config.selectorType = SelectorType.TAG;
     
     componentHandler().register(config);
 }

@@ -102,7 +102,7 @@ class DemoAnimation extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("DemoAnimation - init");
+        _logger.fine("DemoAnimation - init");
         element.onClick.listen(_handleClick);
     }
 

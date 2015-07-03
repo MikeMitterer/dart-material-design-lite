@@ -56,8 +56,8 @@ main() {
     configLogging();
     registerMdl();
 
-    componentFactory().run().then(( final di.Injector injector) {
-        configRouter(injector.get(ViewFactory));
+    componentFactory().run().then((_) {
+        configRouter(componentFactory().injector.get(ViewFactory));
 
         final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector("#mainslider2"));
         final MaterialContent list = MaterialContent.widget(dom.querySelector("#list"));

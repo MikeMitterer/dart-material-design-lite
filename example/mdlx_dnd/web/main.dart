@@ -24,14 +24,14 @@ class _Natural extends _Language {
 }
 
 @MdlComponentModel @di.Injectable()
-class AppController {
-    final _logger = new Logger('dnd.AppController');
+class Application extends MaterialApplication {
+    final _logger = new Logger('dnd.Application');
 
     final ObservableList<_Language> languages = new ObservableList<_Language>();
     final ObservableList<_Language> natural = new ObservableList<_Language>();
     final ObservableList<_Language> programming = new ObservableList<_Language>();
 
-    AppController() {
+    Application() {
         languages.add(new _Natural("English"));
         languages.add(new _Natural("German"));
         languages.add(new _Natural("Italian"));
@@ -41,6 +41,11 @@ class AppController {
         languages.add(new _Programming("CPP"));
         languages.add(new _Programming("Dart"));
         languages.add(new _Programming("Java"));
+    }
+
+    @override
+    void run() {
+
     }
 
     void addToProgrammingLanguages(final _Language language) {
@@ -77,8 +82,8 @@ main() {
     registerMdl();
     registerMdlDND();
 
-    componentFactory().rootContext(AppController).run().then((_) {
-        new AppController();
+    componentFactory().rootContext(Application).run().then((final MaterialApplication application) {
+        application.run();
     });
 }
 

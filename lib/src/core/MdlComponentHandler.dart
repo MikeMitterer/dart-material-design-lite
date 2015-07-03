@@ -21,14 +21,6 @@ part of mdlcore;
 
 class _RootContext { const _RootContext(); }
 
-@MdlComponentModel @di.Injectable()
-class MdlAppController {
-    void run() {}
-}
-
-/// Identifies your AppController
-final di.Key MDLROOTCONTEXT = new di.Key(_RootContext);
-
 /// Store strings for class names defined by this component that are used in Dart.
 class _MdlComponentHandlerCssClasses {
 
@@ -143,7 +135,7 @@ class MdlComponentHandler {
             dom.querySelector("body").classes.remove(_cssClasses.UPGRADING);
             dom.querySelector("html").classes.add(_cssClasses.UPGRADED);
 
-            _logger.info("All components are upgraded...");
+            _logger.fine("All components are upgraded...");
 
             return _injector;
         });
@@ -192,7 +184,7 @@ class MdlComponentHandler {
      *              });
      *        }
      */
-    Future<MdlAppController> run( { final enableVisualDebugging: false } ) {
+    Future<MaterialApplication> run( { final enableVisualDebugging: false } ) {
         final dom.Element body = dom.querySelector("body");
 
         _enableVisualDebugging = enableVisualDebugging;
@@ -200,8 +192,8 @@ class MdlComponentHandler {
 
         _injector = _createInjector();
 
-        return upgradeElement(body).then((_) => new Future<MdlAppController>(() {
-                return _injector.getByKey(MDLROOTCONTEXT) as MdlAppController;
+        return upgradeElement(body).then((_) => new Future<MaterialApplication>(() {
+                return _injector.get(MaterialApplication) as MaterialApplication;
         }));
     }
 
@@ -223,7 +215,7 @@ class MdlComponentHandler {
      *        }
      */
     MdlComponentHandler rootContext(final Type rootContext) {
-        _modules.add(new di.Module()..bindByKey(MDLROOTCONTEXT, toImplementation: rootContext));
+        _modules.add(new di.Module()..bind(MaterialApplication, toImplementation: rootContext));
         return this;
     }
 
@@ -241,6 +233,35 @@ class MdlComponentHandler {
             _injector = _createInjector();
         }
         return _injector;
+    }
+
+    /**
+     * Returns your Application-Object.
+     *
+     * Define it like this:
+     *
+     *     @MdlComponentModel @di.Injectable()
+     *     class Application extends MaterialApplication {
+     *         Application() { }
+     *
+     *         @override
+     *         void run() {
+     *             // App logic
+     *         }
+     *     }
+     *
+     *     main() {
+     *         registerMdl();
+     *
+     *         componentFactory().rootContext(Application).run()
+     *             .then((final MaterialApplication application) {
+     *                 application.run();
+     *         });
+     *     }
+     *
+     */
+    MaterialApplication get application {
+        return injector.get(MaterialApplication);
     }
 
     //- private -----------------------------------------------------------------------------------

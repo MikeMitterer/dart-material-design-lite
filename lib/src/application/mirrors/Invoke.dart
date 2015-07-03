@@ -51,7 +51,7 @@ class Invoke {
             }
         });
 
-        _logger.info("Invoke Function: ${stringToFunction.functionAsString}(${stringToFunction.params})");
+        _logger.fine("Function: ${stringToFunction.functionAsString}(${stringToFunction.params})");
         myClassInstanceMirror.invoke(myFunction,params);
     }
 
@@ -63,7 +63,7 @@ class Invoke {
 
         final obj = getField.reflectee;
 
-        _logger.info("Invoke Field: ${obj}");
+        _logger.fine("Field: ${obj}");
         return obj;
     }
 }

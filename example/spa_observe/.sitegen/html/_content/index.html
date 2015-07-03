@@ -8,8 +8,8 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/ex
         If you "REMOVE" "German" - it will be replace with "Austrian"
     </p>
     <p>
-        Now it's: <span class="mdl-property" data-mdl-property="time"></span><br>
-        Nr. of records: <span class="mdl-property" data-mdl-property="records"></span><br>
+        Now it's: <mdl-property observe="time"></mdl-property><br>
+        Nr. of records: <mdl-property observe="records"></mdl-property><br>
     </p>
     <mdl-repeat for-each="language in languages">
         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}

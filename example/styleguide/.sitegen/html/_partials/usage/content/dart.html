@@ -43,8 +43,8 @@ main() &#123;
 
     registerMdl();
 
-    componentFactory().run().then(( final di.Injector injector) &#123;
-        configRouter(injector.get(ViewFactory));
+    componentFactory().run().then((_) &#123;
+        configRouter(componentFactory().injector.get(ViewFactory));
 
         final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector(&quot;#mainslider2&quot;));
         final MaterialContent list = MaterialContent.widget(dom.querySelector(&quot;#list&quot;));

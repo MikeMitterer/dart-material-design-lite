@@ -8,10 +8,10 @@
             If you "REMOVE" "German" - it will be replace with "Austrian"
         </p>
         <p>
-            Now it's: <span class="mdl-property" data-mdl-property="time"></span><br>
-            Nr. of records: <span class="mdl-property" data-mdl-property="records"></span><br>
+            Now it's: <mdl-property observe="time"></mdl-property><br>
+            Nr. of records: <mdl-property observe="records"></mdl-property><br>
         </p>
-        <div class="mdl-repeat" data-mdl-list="language in languages">
+        <mdl-repeat for-each="language in languages">
              
             <div template class="language" >
                 Language: {{language.name}} ({{language.type}})
@@ -19,6 +19,6 @@
                         data-mdl-click="remove({{language.name}})">Remove</button>
             </div>
              
-        </div>
+        </mdl-repeat>
     </div>
 </section>

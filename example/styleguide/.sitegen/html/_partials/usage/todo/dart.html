@@ -1,5 +1,50 @@
 import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 
+@MdlComponentModel @di.Injectable()
+class Application implements MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+
+    final ObservableProperty&lt;String&gt; nrOfItems = new ObservableProperty&lt;String&gt;(&quot;&quot;);
+    final ObservableProperty&lt;String&gt; nrOfItemsDone = new ObservableProperty&lt;String&gt;(&quot;&quot;,
+        interval: new Duration(milliseconds: 500));
+
+    Application() &#123;
+    &#125;
+
+    @override
+    void run() &#123;
+        final MaterialButton addButton = MaterialButton.widget(dom.querySelector(&quot;#add&quot;));
+        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector(&quot;#item&quot;));
+        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector(&quot;#todo&quot;));
+
+        nrOfItems.observes( () =&gt; todo.items.length &gt; 0 ? todo.items.length.toString() : &quot;&lt;no records&gt;&quot;);
+        nrOfItemsDone.observes(() &#123;
+            int done = 0;
+            todo.items.forEach((final ToDoItem item) &#123; done += item.checked ? 1 : 0; &#125;);
+            return done;
+        &#125;);
+
+        addButton.onClick.listen((_) =&gt; _addItem());
+        item.hub.onKeyDown.listen((final dom.KeyboardEvent event) &#123;
+            if(event.keyCode == 13) &#123;
+                event.preventDefault();
+                event.stopPropagation();
+                _addItem();
+                item.value = &quot;&quot;;
+            &#125;
+        &#125;);
+    &#125;
+
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+
+    void _addItem() &#123;
+        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector(&quot;#item&quot;));
+        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector(&quot;#todo&quot;));
+
+        todo.addItemOnTop(new ToDoItem(false,&quot;Cnt $&#123;todo.incrementalIndex&#125; ($&#123;item.value&#125;)&quot;));
+    &#125;
+&#125;
 
 main() &#123;
     final Logger _logger = new Logger(&#39;main.ToDo&#39;);
@@ -7,25 +52,12 @@ main() &#123;
     registerMdl();
     registerToDoItemComponent();
 
-    componentFactory().run().then((_) &#123;
+    componentFactory().rootContext(Application).run()
+        .then( (final MaterialApplication application) &#123;
 
-        final MaterialButton addButton = MaterialButton.widget(dom.querySelector(&quot;#add&quot;));
-        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector(&quot;#item&quot;));
-        final ToDoItemComponent items = ToDoItemComponent.widget(dom.querySelector(&quot;#todo&quot;));
-        final dom.SpanElement nrofitems = dom.querySelector(&quot;#nrofitems&quot;);
-
-        void _setNrOfItems() &#123;
-            nrofitems.text = items.items.length.toString();
-        &#125;
-        _setNrOfItems();
-
-        addButton.onClick.listen((_) &#123;
-            _logger.info(item.value);
-            items.addItem(new ToDoItem(false,&quot;Cnt $&#123;items.incrementalIndex&#125; ($&#123;item.value&#125;)&quot;));
-            _setNrOfItems();
-        &#125;);
-
-        items.onModelChange.listen((_) =&gt; _setNrOfItems());
+            application.run();
 
     &#125;);
 &#125;
+
+

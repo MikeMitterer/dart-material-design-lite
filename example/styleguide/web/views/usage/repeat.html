@@ -45,7 +45,7 @@ main() &#123;
     componentFactory().run(enableVisualDebugging: true).then((_) &#123;
         Future _addNamesProgrammatically() async &#123;
             final Logger _logger = new Logger(&#39;main._addNamesProgrammatically&#39;);
-            final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector(&quot;#main.mdl-repeat&quot;));
+            final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector(&quot;#main&quot;));
             final List&lt;Name&gt; names = new List&lt;Name&gt;();
             final RemoveCallback removeCallback = (final Name nameToRemove) &#123;
                 _logger.info(&quot;Name to remove: $&#123;nameToRemove.name&#125;&quot;);
@@ -164,7 +164,7 @@ main() &#123;
                 </div>
                 <pre class="prettyprint linenums lang-html">
 &lt;div class=&quot;demo-preview-block&quot;&gt;
-    &lt;div id=&quot;main&quot; class=&quot;mdl-repeat&quot;&gt;
+    &lt;mdl-repeat id=&quot;main&quot;&gt;
          
         &lt;div template &gt;
             &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;check-{{id}}&quot;&gt;
@@ -176,7 +176,7 @@ main() &#123;
                     data-mdl-click=&quot;remove()&quot;&gt;Remove&lt;&#47;button&gt;
         &lt;&#47;div&gt;
          
-    &lt;&#47;div&gt;
+    &lt;&#47;mdl-repeat&gt;
 &lt;&#47;div&gt;
 </pre>
                 </div>

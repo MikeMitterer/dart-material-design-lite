@@ -13,17 +13,20 @@ class _Natural extends _Language &#123;
 &#125;
 
 @MdlComponentModel @di.Injectable()
-class AppController &#123;
-    final Logger _logger = new Logger(&#39;main.AppController&#39;);
+class Application extends MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
 
     final ObservableList&lt;_Language&gt;  languages = new ObservableList&lt;_Language&gt;();
     final ObservableProperty&lt;String&gt; time = new ObservableProperty&lt;String&gt;(&quot;&quot;,interval: new Duration(seconds: 1));
     final ObservableProperty&lt;String&gt; records = new ObservableProperty&lt;String&gt;(&quot;&quot;);
 
-    AppController() &#123;
+    Application() &#123;
         records.observes(() =&gt; (languages.isNotEmpty ? languages.length.toString() : &quot;&lt;empty&gt;&quot;));
         time.observes(() =&gt; _getTime());
+    &#125;
 
+    @override
+    void run() &#123;
         languages.add(new _Natural(&quot;English&quot;));
         languages.add(new _Natural(&quot;German&quot;));
         languages.add(new _Natural(&quot;Italian&quot;));
@@ -31,9 +34,9 @@ class AppController &#123;
         languages.add(new _Natural(&quot;Spanish&quot;));
 
         new Timer(new Duration(seconds: 2),() &#123;
-          for(int index = 0;index &lt; 10;index++) &#123;
-            languages.add(new _Natural(&quot;Sample - $index&quot;));
-          &#125;
+            for(int index = 0;index &lt; 10;index++) &#123;
+                languages.add(new _Natural(&quot;Sample - $index&quot;));
+            &#125;
         &#125;);
     &#125;
 
@@ -72,9 +75,9 @@ main() &#123;
 
     registerMdl();
 
-    componentFactory().rootContext(AppController).run(enableVisualDebugging: true).then((_) &#123;
-        new AppController();
-
+    componentFactory().rootContext(Application).run(enableVisualDebugging: true)
+        .then((final MaterialApplication application) &#123;
+            application.run();
     &#125;);
 
 &#125;

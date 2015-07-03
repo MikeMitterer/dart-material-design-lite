@@ -4,10 +4,10 @@
         If you &quot;REMOVE&quot; &quot;German&quot; - it will be replace with &quot;Austrian&quot;
     &lt;&#47;p&gt;
     &lt;p&gt;
-        Now it&#39;s: &lt;span class=&quot;mdl-property&quot; data-mdl-property=&quot;time&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
-        Nr. of records: &lt;span class=&quot;mdl-property&quot; data-mdl-property=&quot;records&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
+        Now it&#39;s: &lt;mdl-property observe=&quot;time&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
+        Nr. of records: &lt;mdl-property observe=&quot;records&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
     &lt;&#47;p&gt;
-    &lt;div class=&quot;mdl-repeat&quot; data-mdl-list=&quot;language in languages&quot;&gt;
+    &lt;mdl-repeat for-each=&quot;language in languages&quot;&gt;
         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
         &lt;div template class=&quot;language&quot; &gt;
             Language: {{language.name}} ({{language.type}})
@@ -15,5 +15,5 @@
                     data-mdl-click=&quot;remove({{language.name}})&quot;&gt;Remove&lt;&#47;button&gt;
         &lt;&#47;div&gt;
         |= {{ }} =| {{! ----- Turn on mustache ---- }}
-    &lt;&#47;div&gt;
+    &lt;&#47;mdl-repeat&gt;
 &lt;&#47;div&gt;

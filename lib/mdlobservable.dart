@@ -23,7 +23,6 @@ import 'dart:collection';
 import "dart:async";
 
 import 'package:logging/logging.dart';
-import 'package:console_log_handler/console_log_handler.dart';
 import "package:mdl/mdlcore.dart";
 
 part "src/observable/ObservableList.dart";

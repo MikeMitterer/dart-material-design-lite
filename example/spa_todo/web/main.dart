@@ -9,21 +9,28 @@ import 'package:mdl/mdl.dart';
 import "package:mdl_todo_sample/todo.dart";
 
 @MdlComponentModel @di.Injectable()
-class AppController extends MdlAppController {
-    final Logger _logger = new Logger('main.AppController');
+class Application implements MaterialApplication {
+    final Logger _logger = new Logger('main.Application');
 
     final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
+    final ObservableProperty<String> nrOfItemsDone = new ObservableProperty<String>("",
+        interval: new Duration(milliseconds: 500));
 
-    AppController() {
-        _logger.info("AppController");
+    Application() {
     }
 
+    @override
     void run() {
         final MaterialButton addButton = MaterialButton.widget(dom.querySelector("#add"));
         final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
         final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
 
         nrOfItems.observes( () => todo.items.length > 0 ? todo.items.length.toString() : "<no records>");
+        nrOfItemsDone.observes(() {
+            int done = 0;
+            todo.items.forEach((final ToDoItem item) { done += item.checked ? 1 : 0; });
+            return done;
+        });
 
         addButton.onClick.listen((_) => _addItem());
         item.hub.onKeyDown.listen((final dom.KeyboardEvent event) {
@@ -42,7 +49,7 @@ class AppController extends MdlAppController {
         final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
         final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
 
-        todo.addItem(new ToDoItem(false,"Cnt ${todo.incrementalIndex} (${item.value})"));
+        todo.addItemOnTop(new ToDoItem(false,"Cnt ${todo.incrementalIndex} (${item.value})"));
     }
 }
 
@@ -54,8 +61,11 @@ main() {
     registerMdl();
     registerToDoItemComponent();
 
-    componentFactory().rootContext(AppController).run().then( (final MdlAppController controller) {
-        controller.run();
+    componentFactory().rootContext(Application).run()
+        .then( (final MaterialApplication application) {
+
+            application.run();
+
     });
 }
 

@@ -42,3 +42,9 @@ class MdlComponentModelAnnotation {
  * mustache.render(model);
  */
 const MdlComponentModelAnnotation MdlComponentModel = const MdlComponentModelAnnotation();
+
+/**
+ * Helper for Transformer to generate documentation
+ */
+class MdlPublicFunctionAnnotation { const MdlPublicFunctionAnnotation(); }
+const MdlPublicFunctionAnnotation public = const MdlPublicFunctionAnnotation();

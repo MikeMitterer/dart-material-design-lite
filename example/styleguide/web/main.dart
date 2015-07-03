@@ -34,112 +34,76 @@ import 'package:di/di.dart' as di;
 import "package:mdl/mdldialog.dart";
 
 import "package:mdl_styleguide/customdialog.dart";
+import "package:mdl_styleguide/todo.dart";
 
 /**
- * Main Controller - you can get the AppController via injector.getByKey(MDLROOTCONTEXT)
+ * Application - you can get the Application via injector.getByKey(MDLROOTCONTEXT)
  */
 @MdlComponentModel @di.Injectable()
-class AppController {
-  final Logger _logger = new Logger('main.AppController');
+class Application extends MaterialApplication {
+    final Logger _logger = new Logger('main.Application');
 
-  final ObservableList<_Language>  languages = new ObservableList<_Language>();
-  final ObservableProperty<String> time = new ObservableProperty<String>("",interval: new Duration(seconds: 1));
-  final ObservableProperty<String> records = new ObservableProperty<String>("");
+    // Observe-Sample
+    final ObservableList<_Language> languages = new ObservableList<_Language>();
+    final ObservableProperty<String> time = new ObservableProperty<String>("", interval: new Duration(seconds: 1));
+    final ObservableProperty<String> records = new ObservableProperty<String>("");
 
+    // To-Do-Sample
+    final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
+    final ObservableProperty<String> nrOfItemsDone = new ObservableProperty<String>("",
+        interval: new Duration(milliseconds: 500));
 
-  AppController() {
-    records.observes(() => (languages.isNotEmpty ? languages.length.toString() : "<empty>"));
-    time.observes(() => _getTime());
+    /// Title will be displayed
+    final ObservableProperty<String> title = new ObservableProperty<String>("");
 
-    languages.add(new _Natural("English"));
-    languages.add(new _Natural("German"));
-    languages.add(new _Natural("Italian"));
-    languages.add(new _Natural("French"));
-    languages.add(new _Natural("Spanish"));
+    Application() {
+        _logger.info("Application created");
 
-    new Timer(new Duration(seconds: 2),() {
-      for(int index = 0;index < 10;index++) {
-        languages.add(new _Natural("Sample - $index"));
-      }
-    });
-  }
-
-  /// HTML-Part: data-mdl-click="remove({{language.name}})">Remove</button>
-  void remove(final String language) {
-    _logger.info("Remove $language clicked!!!!!");
-
-    final _Language lang = languages.firstWhere(
-            (final _Language check) {
-
-          final bool result = (check.name.toLowerCase() == language.toLowerCase());
-          _logger.fine("Check: ${check.name} -> $language, Result: $result");
-
-          return result;
-        });
-
-    if(language == "German") {
-
-      int index = languages.indexOf(lang);
-      languages[index] = new _Natural("Austrian");
-
-    } else {
-      languages.remove(lang);
-    }
-  }
-
-  //- private -----------------------------------------------------------------------------------
-
-  String _getTime() {
-    final DateTime now = new DateTime.now();
-    return "${now.hour.toString().padLeft(2,"0")}:${now.minute.toString().padLeft(2,"0")}:${now.second.toString().padLeft(2,"0")}";
-  }
-}
-
-//------ ObserverSample - start -------------------------------------------------------------------
-@MdlComponentModel
-class _Language {
-  final String name;
-  final String type;
-  _Language(this.name, this.type);
-}
-
-class _Natural extends _Language {
-  _Natural(final String name) : super(name,"natural");
-}
-
-class ModelChangedEvent {}
-
-/// Model is a Singleton, Simple sample for observing a model.
-/// Used for changing the "title". The according controller sets the title and
-/// "main" shows the title
-class Model {
-
-    final StreamController _controller = new StreamController<ModelChangedEvent>.broadcast();
-
-    Stream<ModelChangedEvent> onChange;
-
-    Model() {
-        onChange = _controller.stream;
+        records.observes(() => (languages.isNotEmpty ? languages.length.toString() : "<empty>"));
+        time.observes(() => _getTime());
     }
 
-    String _title = "";
+    @override
+    void run() {
+    }
 
-    String get title => _title;
+    /**
+     * Observe + Repeat Sample
+     * HTML-Part:
+     *      <button ... data-mdl-click="remove({{language.name}})">Remove</button>
+     */
+    void remove(final String language) {
+        _logger.info("Remove $language clicked!!!!!");
 
-    set title(final String value) {
-        _title = value;
-        _controller.add(new ModelChangedEvent());
+        final _Language lang = languages.firstWhere(
+                (final _Language check) {
+                final bool result = (check.name.toLowerCase() == language.toLowerCase());
+                _logger.fine("Check: ${check.name} -> $language, Result: $result");
+
+                return result;
+            });
+
+        if (language == "German") {
+            int index = languages.indexOf(lang);
+            languages[index] = new _Natural("Austrian");
+        }
+        else {
+            languages.remove(lang);
+        }
     }
 
     //- private -----------------------------------------------------------------------------------
+
+    String _getTime() {
+        final DateTime now = new DateTime.now();
+        return "${now.hour.toString().padLeft(2, "0")}:${now.minute.toString().padLeft(
+            2, "0")}:${now.second.toString().padLeft(2, "0")}";
+    }
 }
 
 class StyleguideModule extends di.Module {
     StyleguideModule() {
-
-        bind( Model,toValue: new Model() );
-        bind(AppController);
-
+       // Nothing interesting here - just a reminder how to use a Module
     }
 }
 
@@ -154,14 +118,16 @@ main() {
     // registerDemoAnimation and import wskdemo.dart is on necessary for animation sample
     registerDemoAnimation();
 
-    componentFactory().rootContext(AppController).addModule(new StyleguideModule()).run().then(( final di.Injector injector) {
-        final Model model = injector.get(Model);
+    // register this Demo-Specific Component
+    registerToDoItemComponent();
+
+    componentFactory().rootContext(Application)
+    .addModule(new StyleguideModule()).run()
+    .then((final MaterialApplication application) {
 
         configRouter();
 
-        model.onChange.listen((_) {
-            dom.querySelector("#title").text = model.title;
-        });
+        application.run();
     });
 }
 
@@ -170,21 +136,25 @@ class DemoController extends MaterialController {
 
     @override
     void loaded(final Route route) {
-        final Model _model = injector.get(Model);
+//        final Model _model = injector.get(Model);
+//
+//        _model.title = route.name;
 
-        _model.title = route.name;
+        final Application app = componentFactory().application;
+        app.title.value = route.name;
 
         final dom.HtmlElement element = dom.querySelector("#usage");
-        if(element != null) {
+        if (element != null) {
             final MaterialInclude usage = MaterialInclude.widget(element);
-            if(usage != null) {
+            if (usage != null) {
                 usage.onLoadEnd.listen((_) => prettyPrint());
             }
-        } else {
+        }
+        else {
             prettyPrint();
         }
     }
-    // - private ------------------------------------------------------------------------------------------------------
+// - private ------------------------------------------------------------------------------------------------------
 }
 
 class BadgeController extends DemoController {
@@ -199,7 +169,7 @@ class BadgeController extends DemoController {
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector("#el1"));
         int counter = 1;
         new Timer.periodic(new Duration(milliseconds: 100), (final Timer timer) {
-            if(counter > 199 || stopTimer) {
+            if (counter > 199 || stopTimer) {
                 counter = 1;
                 timer.cancel();
                 stopTimer = false;
@@ -231,7 +201,6 @@ class IconToggleController extends DemoController {
         new Timer.periodic(new Duration(milliseconds: 500), (final Timer timer) {
             toggle.checked = !toggle.checked;
         });
-
     }
 // - private ------------------------------------------------------------------------------------------------------
 }
@@ -253,13 +222,13 @@ class MenuController extends DemoController {
             final dom.DivElement message = new dom.DivElement();
 
             message.id = "message";
-            element.insertAdjacentElement("beforeEnd",message);
+            element.insertAdjacentElement("beforeEnd", message);
         }
 
         void _showMessage(final int secsToClose) {
             final dom.DivElement message = dom.querySelector("#message");
             message.text = "Menu closes in ${secsToClose} seconds...";
-            if(secsToClose <= 0) {
+            if (secsToClose <= 0) {
                 message.text = "Closed!";
             }
         }
@@ -268,16 +237,14 @@ class MenuController extends DemoController {
         _addMessageDiv();
         _showMessage(TIMEOUT_IN_SECS);
         int tick = 0;
-        new Timer.periodic(new Duration(milliseconds: 1000) , (final Timer timer) {
-
+        new Timer.periodic(new Duration(milliseconds: 1000), (final Timer timer) {
             _showMessage(TIMEOUT_IN_SECS - tick - 1);
-            if(tick >= TIMEOUT_IN_SECS - 1) {
+            if (tick >= TIMEOUT_IN_SECS - 1) {
                 timer.cancel();
                 menu1.hide();
             }
             tick++;
         });
-
     }
 // - private ------------------------------------------------------------------------------------------------------
 }
@@ -287,30 +254,40 @@ class NotificationController extends DemoController {
 
     @override
     void loaded(final Route route) {
-
         final MaterialButton btnNotification = MaterialButton.widget(dom.querySelector("#notification"));
         final MaterialTextfield title = MaterialTextfield.widget(dom.querySelector("#notification-title"));
         final MaterialTextfield subtitle = MaterialTextfield.widget(dom.querySelector("#notification-subtitle"));
         final MaterialTextfield content = MaterialTextfield.widget(dom.querySelector("#notification-content"));
         final MaterialRadioGroup notificationtype = MaterialRadioGroup.widget(dom.querySelector("#notification-type"));
 
-        void _checkIfButtonShouldBeEnabled(_) { btnNotification.enabled = (title.value.isNotEmpty || content.value.isNotEmpty); }
+        void _checkIfButtonShouldBeEnabled(_) {
+            btnNotification.enabled = (title.value.isNotEmpty || content.value.isNotEmpty);
+        }
 
-        title.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
-        content.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
+        title.hub.onKeyUp.listen(_checkIfButtonShouldBeEnabled);
+        content.hub.onKeyUp.listen(_checkIfButtonShouldBeEnabled);
 
         int counter = 0;
-        btnNotification.onClick.listen( (_) {
+        btnNotification.onClick.listen((_) {
             _logger.info("Click on Notification");
 
             NotificationType type = NotificationType.INFO;
-            if(notificationtype.hasValue) {
-                switch(notificationtype.value) {
-                    case "debug":   type = NotificationType.DEBUG; break;
-                    case "info":    type = NotificationType.INFO; break;
-                    case "warning": type = NotificationType.WARNING; break;
-                    case "error":   type = NotificationType.ERROR; break;
-                    default: type = NotificationType.INFO;
+            if (notificationtype.hasValue) {
+                switch (notificationtype.value) {
+                    case "debug":
+                        type = NotificationType.DEBUG;
+                        break;
+                    case "info":
+                        type = NotificationType.INFO;
+                        break;
+                    case "warning":
+                        type = NotificationType.WARNING;
+                        break;
+                    case "error":
+                        type = NotificationType.ERROR;
+                        break;
+                    default:
+                        type = NotificationType.INFO;
                 }
             }
             _logger.info("NT ${notificationtype.value} - ${notificationtype.hasValue}");
@@ -318,9 +295,8 @@ class NotificationController extends DemoController {
             final MaterialNotification notification = new MaterialNotification();
             final String titleToShow = title.value.isNotEmpty ? "${title.value} (#${counter})" : "";
 
-            notification(content.value, type: type,title: titleToShow, subtitle: subtitle.value)
-                .show().then((final MdlDialogStatus status) {
-
+            notification(content.value, type: type, title: titleToShow, subtitle: subtitle.value)
+            .show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
             counter++;
@@ -328,6 +304,53 @@ class NotificationController extends DemoController {
     }
 
     // - private ------------------------------------------------------------------------------------------------------
+}
+
+@MdlComponentModel
+class _Language {
+    final String name;
+    final String type;
+
+    _Language(this.name, this.type);
+}
+
+class _Natural extends _Language {
+    _Natural(final String name) : super(name, "natural");
+}
+
+class ObserverController extends DemoController {
+    final Logger _logger = new Logger('main.ObserverController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        _addLanguages();
+    }
+
+
+    // - private ------------------------------------------------------------------------------------------------------
+
+    void unload() {
+        final Application app = componentFactory().application;
+        app.languages.clear();
+    }
+
+    void _addLanguages() {
+        final Application app = componentFactory().application;
+
+        app.languages.add(new _Natural("English"));
+        app.languages.add(new _Natural("German"));
+        app.languages.add(new _Natural("Italian"));
+        app.languages.add(new _Natural("French"));
+        app.languages.add(new _Natural("Spanish"));
+
+        new Timer(new Duration(seconds: 2), () {
+            for (int index = 0; index < 10; index++) {
+                app.languages.add(new _Natural("Sample - $index"));
+            }
+        });
+    }
 }
 
 class ProgressController extends DemoController {
@@ -338,7 +361,7 @@ class ProgressController extends DemoController {
         super.loaded(route);
 
         // 1
-        new MaterialProgress(dom.querySelector("#p1")).progress = 44;
+        MaterialProgress.widget(dom.querySelector("#p1")).progress = 44;
 
         // 2
         MaterialProgress.widget(dom.querySelector("#p3")).progress = 33;
@@ -347,13 +370,12 @@ class ProgressController extends DemoController {
         (dom.querySelector("#slider") as dom.RangeInputElement).onInput.listen((final dom.Event event) {
             final int value = int.parse((event.target as dom.RangeInputElement).value);
 
-            final component = new MaterialProgress(dom.querySelector("#p1"))
+            final component = MaterialProgress.widget(dom.querySelector("#p1"))
                 ..progress = value
                 ..classes.toggle("test");
 
             _logger.info("Value: ${component.progress}");
         });
-
     }
 }
 
@@ -365,15 +387,14 @@ class RadioController extends DemoController {
         super.loaded(route);
 
         MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
-
     }
 }
 
 /// For Repeat-Sample
 typedef void RemoveCallback(final Name name);
 
-@MdlComponentModel
 /// For Repeat-Sample
+@MdlComponentModel
 class Name {
     final Logger _logger = new Logger('main.Name');
 
@@ -386,7 +407,9 @@ class Name {
 
     String get id => _id.toString();
 
-    Name(this.name,this._callback) { _id = _counter++; }
+    Name(this.name, this._callback) {
+        _id = _counter++;
+    }
 
 
     void clicked(final String value) {
@@ -415,7 +438,7 @@ class RepeatController extends DemoController {
 
         final List<Name> names = new List<Name>();
         final RemoveCallback removeCallback = (final Name nameToRemove) {
-            if(swapping) {
+            if (swapping) {
                 _logger.info("Removing items while swapping is not possible...");
                 return;
             }
@@ -425,12 +448,12 @@ class RepeatController extends DemoController {
             names.remove(nameToRemove);
         };
 
-        names.add(new Name("A - Nicki",removeCallback));
-        names.add(new Name("B - Mike",removeCallback));
-        names.add(new Name("C - Gerda",removeCallback));
-        names.add(new Name("D - Sarah",removeCallback));
+        names.add(new Name("A - Nicki", removeCallback));
+        names.add(new Name("B - Mike", removeCallback));
+        names.add(new Name("C - Gerda", removeCallback));
+        names.add(new Name("D - Sarah", removeCallback));
 
-        for (int i = 0;i < 10;i++) {
+        for (int i = 0; i < 10; i++) {
             names.add(new Name("Name: $i", removeCallback));
         }
 
@@ -441,7 +464,7 @@ class RepeatController extends DemoController {
 
             int numberOwSwaps = 0;
             final int maxSwaps = names.length * 5;
-            for (int i = 0;i < maxSwaps || stop == true;i++) {
+            for (int i = 0; i < maxSwaps || stop == true; i++) {
                 if (index >= names.length) {
                     index = 0;
                 }
@@ -452,7 +475,11 @@ class RepeatController extends DemoController {
 
                 Timer timer;
                 timer = new Timer(new Duration(milliseconds: (i + 1) * FPS), () async {
-                    if(stop) { timer.cancel(); swapping = false; return new Future(() {}); }
+                    if (stop) {
+                        timer.cancel();
+                        swapping = false;
+                        return new Future(() {});
+                    }
 
                     _logger.fine("InnerSwap $index1 with $index2");
 
@@ -465,7 +492,9 @@ class RepeatController extends DemoController {
                     await repeater.swap(item1, item2);
 
                     numberOwSwaps++;
-                    if(numberOwSwaps >= maxSwaps) { swapping = false;}
+                    if (numberOwSwaps >= maxSwaps) {
+                        swapping = false;
+                    }
                 });
 
                 index++;
@@ -474,9 +503,7 @@ class RepeatController extends DemoController {
 
         Future.forEach(names, (final name) async {
             await repeater.add(name);
-
         }).then((_) {
-
             final Name name = names.first; // Nicki
             final String idForCheckbox = "#check-${name.id}";
 
@@ -485,7 +512,6 @@ class RepeatController extends DemoController {
 
             _swapItems();
         });
-
     }
 
     @override
@@ -507,7 +533,6 @@ class SliderController extends DemoController {
         slider2.onChange.listen((_) {
             slider4.value = slider2.value;
         });
-
     }
 }
 
@@ -525,7 +550,6 @@ class SpinnerController extends DemoController {
         button.onClick.listen((_) {
             spinner.active = !spinner.active;
         });
-
     }
 }
 
@@ -563,8 +587,7 @@ class DialogController extends DemoController {
         btnCustomDialog.onClick.listen((_) {
             _logger.info("Click on ConfirmButton");
             customDialog(title: "Mango #${mangoCounter} (Fruit)",
-            yesButton: "I buy it!", noButton: "Not now").show().then((final MdlDialogStatus status) {
-
+                yesButton: "I buy it!", noButton: "Not now").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
                 mangoCounter++;
             });
@@ -573,7 +596,7 @@ class DialogController extends DemoController {
 }
 
 class SnackbarController extends DemoController {
-    final Logger _logger = new Logger('main.ToastController');
+    final Logger _logger = new Logger('main.SnackbarController');
 
     @override
     void loaded(final Route route) {
@@ -593,10 +616,10 @@ class SnackbarController extends DemoController {
             snackbar.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
 
             dom.querySelector("#container").classes.toggle("mdl-snackbar-container",
-            MaterialCheckbox.widget(dom.querySelector("#checkbox-use-container")).checked);
+                MaterialCheckbox.widget(dom.querySelector("#checkbox-use-container")).checked);
         }
 
-        btnToast.onClick.listen( (_) {
+        btnToast.onClick.listen((_) {
             _logger.info("Click on Toast");
 
             _makeSettings();
@@ -605,16 +628,63 @@ class SnackbarController extends DemoController {
             });
         });
 
-        btnWithAction.onClick.listen( (_) {
+        btnWithAction.onClick.listen((_) {
             _logger.info("Click on withAction");
 
             _makeSettings();
-            snackbar("Snackbar message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
+            snackbar("Snackbar message", confirmButton: "OK").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
+        });
+    }
+}
 
+class ToDoController extends DemoController {
+    final Logger _logger = new Logger('main.ToDoController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final Application app = componentFactory().application;
+        final MaterialButton addButton = MaterialButton.widget(dom.querySelector("#add"));
+        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
+        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
+
+        app.nrOfItems.observes( () => todo.items.length > 0 ? todo.items.length.toString() : "<no records>");
+        app.nrOfItemsDone.observes(() {
+            int done = 0;
+            todo.items.forEach((final ToDoItem item) { done += item.checked ? 1 : 0; });
+            return done;
         });
 
+        addButton.onClick.listen((_) => _addItem());
+        item.hub.onKeyDown.listen((final dom.KeyboardEvent event) {
+            if(event.keyCode == 13) {
+                event.preventDefault();
+                event.stopPropagation();
+                _addItem();
+                item.value = "";
+            }
+        });
+    }
+
+    @override
+    void unload() {
+        final Application app = componentFactory().application;
+
+        /// Cleanup - not really necessary but nice style
+        app.nrOfItems.pause();
+        app.nrOfItemsDone.pause();
+    }
+
+    //- private -----------------------------------------------------------------------------------
+
+    void _addItem() {
+        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
+        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
+
+        todo.addItemOnTop(new ToDoItem(false,"Cnt ${todo.incrementalIndex} (${item.value})"));
     }
 }
 
@@ -625,31 +695,31 @@ void configRouter() {
     router.root
 
         ..addRoute(name: 'accordion', path: '/accordion',
-                    enter: view("views/accordion.html", new DemoController()))
+            enter: view("views/accordion.html", new DemoController()))
 
         ..addRoute(name: 'animation', path: '/animation',
-                    enter: view("views/animation.html", new DemoController()))
+            enter: view("views/animation.html", new DemoController()))
 
         ..addRoute(name: 'badge', path: '/badge',
-                    enter: view("views/badge.html", new BadgeController()))
+            enter: view("views/badge.html", new BadgeController()))
 
         ..addRoute(name: 'button', path: '/button',
-                    enter: view("views/button.html", new DemoController()))
+            enter: view("views/button.html", new DemoController()))
 
         ..addRoute(name: 'card', path: '/card',
-                    enter: view("views/card.html", new DemoController()))
+            enter: view("views/card.html", new DemoController()))
 
         ..addRoute(name: 'checkbox', path: '/checkbox',
-                    enter: view("views/checkbox.html", new DemoController()))
+            enter: view("views/checkbox.html", new DemoController()))
 
         ..addRoute(name: 'data-table', path: '/data-table',
-                enter: view("views/data-table.html", new DemoController()))
+            enter: view("views/data-table.html", new DemoController()))
 
         ..addRoute(name: 'dialog', path: '/dialog',
-                enter: view("views/dialog.html", new DialogController()))
+            enter: view("views/dialog.html", new DialogController()))
 
         ..addRoute(name: 'footer', path: '/footer',
-                    enter: view("views/footer.html", new DemoController()))
+            enter: view("views/footer.html", new DemoController()))
 
         ..addRoute(name: 'getting started', path: '/gettingstarted',
             enter: view("views/gettingstarted.html", new DemoController()))
@@ -661,16 +731,16 @@ void configRouter() {
             enter: view("views/icons.html", new DemoController()))
 
         ..addRoute(name: 'icon-toggle', path: '/icon-toggle',
-                    enter: view("views/icon-toggle.html", new IconToggleController()))
+            enter: view("views/icon-toggle.html", new IconToggleController()))
 
         ..addRoute(name: 'layout', path: '/layout',
-                    enter: view("views/layout.html", new DemoController()))
+            enter: view("views/layout.html", new DemoController()))
 
         ..addRoute(name: 'list', path: '/list',
-                    enter: view("views/list.html", new DemoController()))
+            enter: view("views/list.html", new DemoController()))
 
         ..addRoute(name: 'menu', path: '/menu',
-                    enter: view("views/menu.html", new MenuController()))
+            enter: view("views/menu.html", new MenuController()))
 
         ..addRoute(name: 'nav-pills', path: '/nav-pills',
             enter: view("views/nav-pills.html", new DemoController()))
@@ -679,63 +749,65 @@ void configRouter() {
             enter: view("views/notification.html", new NotificationController()))
 
         ..addRoute(name: 'observe', path: '/observe',
-            enter: view("views/observe.html", new DemoController()))
+            enter: view("views/observe.html", new ObserverController()))
 
         ..addRoute(name: 'palette', path: '/palette',
-                    enter: view("views/palette.html", new DemoController()))
+            enter: view("views/palette.html", new DemoController()))
 
         ..addRoute(name: 'panel', path: '/panel',
             enter: view("views/panel.html", new DemoController()))
 
         ..addRoute(name: 'progress', path: '/progress',
-                    enter: view("views/progress.html", new ProgressController()))
+            enter: view("views/progress.html", new ProgressController()))
 
         ..addRoute(name: 'radio', path: '/radio',
-                    enter: view("views/radio.html", new RadioController()))
+            enter: view("views/radio.html", new RadioController()))
 
         ..addRoute(name: 'repeat', path: '/repeat',
             enter: view("views/repeat.html", new RepeatController()))
 
         ..addRoute(name: 'shadow', path: '/shadow',
-                    enter: view("views/shadow.html", new DemoController()))
+            enter: view("views/shadow.html", new DemoController()))
 
         ..addRoute(name: 'samples', path: '/samples',
             enter: view("views/samples.html", new DemoController()))
 
         ..addRoute(name: 'slider', path: '/slider',
-                    enter: view("views/slider.html", new SliderController()))
+            enter: view("views/slider.html", new SliderController()))
 
         ..addRoute(name: 'snackbar', path: '/snackbar',
             enter: view("views/snackbar.html", new SnackbarController()))
 
         ..addRoute(name: 'spinner', path: '/spinner',
-                    enter: view("views/spinner.html", new SpinnerController()))
+            enter: view("views/spinner.html", new SpinnerController()))
 
         ..addRoute(name: 'switch', path: '/switch',
-                    enter: view("views/switch.html", new DemoController()))
+            enter: view("views/switch.html", new DemoController()))
 
         ..addRoute(name: 'tabs', path: '/tabs',
-                    enter: view("views/tabs.html", new DemoController()))
+            enter: view("views/tabs.html", new DemoController()))
 
         ..addRoute(name: 'templates', path: '/templates',
             enter: view("views/templates.html", new DemoController()))
 
         ..addRoute(name: 'textfield', path: '/textfield',
-                    enter: view("views/textfield.html", new DemoController()))
+            enter: view("views/textfield.html", new DemoController()))
 
         ..addRoute(name: 'theming', path: '/theming',
             enter: view("views/theming.html", new DemoController()))
 
-
         ..addRoute(name: 'tooltip', path: '/tooltip',
-                    enter: view("views/tooltip.html", new DemoController()))
+            enter: view("views/tooltip.html", new DemoController()))
+
+        ..addRoute(name: 'todo', path: '/todo',
+            enter: view("views/todo.html", new ToDoController()))
 
         ..addRoute(name: 'typography', path: '/typography',
             enter: view("views/typography.html", new DemoController()))
-    
+
 
         ..addRoute(name: 'home', defaultRoute: true, path: '/',
-            enter: view("views/home.html" ,new DemoController()))
+            enter: view("views/home.html", new DemoController()))
 
     ;
 
@@ -744,12 +816,12 @@ void configRouter() {
 
 void enableTheming() {
     final Uri uri = Uri.parse(dom.document.baseUri.toString());
-    if(uri.queryParameters.containsKey("theme")) {
+    if (uri.queryParameters.containsKey("theme")) {
         final dom.LinkElement link = new dom.LinkElement();
         link.rel = "stylesheet";
         link.id = "theme";
 
-        final String theme = uri.queryParameters['theme'].replaceFirst("/","");
+        final String theme = uri.queryParameters['theme'].replaceFirst("/", "");
         bool isThemeOK = false;
 
         // dev/testing
@@ -760,14 +832,13 @@ void enableTheming() {
 
         isThemeOK = true;
 
-        if(isThemeOK) {
+        if (isThemeOK) {
             final dom.LinkElement defaultTheme = dom.querySelector("#theme");
-            if(defaultTheme != null) {
+            if (defaultTheme != null) {
                 defaultTheme.replaceWith(link);
 
                 //dom.querySelector("#themename").text = theme;
             }
-
         }
     }
 }

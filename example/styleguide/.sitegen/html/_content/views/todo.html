@@ -4,13 +4,14 @@
     </div>
     <div class="demo-preview-block">
         <div class="mdl-textfield mdl-js-textfield">
-            <input id="item" class="mdl-textfield__input" type="text" id="sample1" />
+            <input id="item" class="mdl-textfield__input" type="text" id="sample1" autofocus />
             <label class="mdl-textfield__label" for="sample1">Type Something...</label>
         </div>
         <button id="add" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
             Add
         </button>
-        <span id="nrofitems"></span>
+        <mdl-property observe="nrOfItemsDone"></mdl-property> /
+        <mdl-property observe="nrOfItems"></mdl-property>
         <div id="todo" class="todo-items"></div>
     </div>
 </section>

@@ -93,7 +93,7 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialDraggable - init");
+        _logger.fine("MaterialDraggable - init");
 
         element.classes.add(_cssClasses.DRAGGABLE);
         element.classes.add(_cssClasses.DND_DRAGGABLE);
@@ -108,7 +108,7 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
     }
 
     void _onDragStart(final DraggableEvent event) {
-        _logger.info("_onDragStart ${event}");
+        _logger.fine("_onDragStart ${event}");
 
         if (_isDisabled) {
             return;
@@ -126,7 +126,7 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
     }
 
     void _onDragEnd(final DraggableEvent event) {
-        _logger.info("_onDragEnd ${event}");
+        _logger.fine("_onDragEnd ${event}");
         _dragInfo.data = null;
     }
 }

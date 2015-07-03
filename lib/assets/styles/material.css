@@ -7297,6 +7297,9 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
       color: rgba(0, 0, 0, 0.87);
       background-color: white; }
 
+.mdl-property {
+  display: inline; }
+
 .mdl-snackbar-container.is-visible .mdl-snackbar {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);

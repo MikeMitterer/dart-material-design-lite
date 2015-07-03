@@ -39,7 +39,7 @@ main() &#123;
         Future _addNamesProgrammatically() async &#123;
             final Logger _logger = new Logger(&#39;main._addNamesProgrammatically&#39;);
 
-            final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector(&quot;#main.mdl-repeat&quot;));
+            final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector(&quot;#main&quot;));
 
             final List&lt;Name&gt; names = new List&lt;Name&gt;();
             final RemoveCallback removeCallback = (final Name nameToRemove) &#123;

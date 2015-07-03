@@ -17,30 +17,31 @@
  * limitations under the License.
  */
 
+part of mdlcore;
+
 /**
- * The core - handles the initialisation process and
- * defines the base-class for all components
+ * Basis for your Application
+ *
+ * Sample:
+ *      class Application extends MaterialApplication {
+ *          ...
+ *          @override
+ *          void run() {
+ *              ...
+ *          }
+ *      }
+ *
+ *      main() {
+ *          registerMdl();
+ *
+ *          componentFactory().rootContext(Application).run()
+ *              .then( (final MaterialApplication application) {
+ *
+ *              application.run();
+ *          });
+ *      }
  */
-library mdlcore;
-
-import 'dart:html' as dom;
-import 'dart:collection';
-import 'dart:async';
-import 'dart:js';
-
-import 'package:logging/logging.dart';
-import 'package:validate/validate.dart';
-import 'package:di/di.dart' as di;
-
-part "src/core/annotations.dart";
-part "src/core/interfaces.dart";
-
-part "src/core/MdlComponentHandler.dart";
-part "src/core/MdlConfig.dart";
-part "src/core/MdlComponent.dart";
-
-abstract class MdlDataConsumer {
-    void consume(final data);
+@MdlComponentModel @di.Injectable()
+class MaterialApplication {
+    void run() {}
 }
-
-

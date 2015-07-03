@@ -76,6 +76,6 @@ void registerMdlComponents() {
     registerMaterialRipple();
 }
 
-Future<di.Injector> upgradeCoreComponents() {
+Future<MaterialApplication> upgradeCoreComponents() {
     return componentHandler().run();
 }

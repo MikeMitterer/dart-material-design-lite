@@ -190,7 +190,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialRepeat - init");
+        _logger.fine("MaterialRepeat - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialRepeatConstant.WIDGET_SELECTOR);
@@ -244,13 +244,9 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         scope.context = scope.parentContext;
 
-        _logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}, Parent: ${element.parent}");
+        //_logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}, Parent: ${element.parent}");
 
-        final InstanceMirror myClassInstanceMirror = reflect(scope.context);
-        final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(listName));
-        _logger.info(getField);
-
-        final List list = getField.reflectee;
+        final List list = new Invoke(scope).field(listName);
         list.forEach( (final item) => add({ itemName : item },scope: scope.context));
 
         Map _getItemFromInternalList(final item) {
@@ -267,21 +263,34 @@ class MaterialRepeat extends MdlTemplateComponent {
                         add( { itemName : event.item },scope: scope.context);
                         break;
 
+                    case ListChangeType.INSERT:
+                        int index = 0;
+                        if(event.prevItem != null) {
+                            final Map prevItem = _getItemFromInternalList(event.prevItem);
+                            index = _items.indexOf(prevItem);
+                        }
+                        insert(index, { itemName : event.item },scope: scope.context);
+
+                        break;
+
                     case ListChangeType.CLEAR:
                         removeAll();
                         break;
 
                     case ListChangeType.UPDATE:
+
                         final Map itemToRemove = _getItemFromInternalList(event.prevItem);
-                        final int index = _items.indexOf(itemToRemove);
+                        int index = _items.indexOf(itemToRemove);
 
                         remove(itemToRemove).then((_) {
+
                             if(index < _items.length) {
                                 insert(index, { itemName : event.item },scope: scope.context);
                             } else {
                                 add( { itemName : event.item },scope: scope.context);
                             }
                         });
+
                         break;
 
                     case ListChangeType.REMOVE:

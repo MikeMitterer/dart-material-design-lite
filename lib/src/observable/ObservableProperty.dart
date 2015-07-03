@@ -33,11 +33,12 @@ class ObservableProperty<T> {
     T _value;
     Function _observe;
     Duration _interval = new Duration(milliseconds: 100);
+    bool _pause = false;
 
     StreamController<PropertyChangeEvent<T>> _onChange;
 
     ObservableProperty(this._value,{ T observe(), final Duration interval } ) {
-        _logger.info("Constructor PROP ${_value}");
+
         if(interval != null) {
             _interval = interval;
         }
@@ -48,7 +49,7 @@ class ObservableProperty<T> {
 
     Stream<PropertyChangeEvent<T>> get onChange {
         if(_onChange == null) {
-            _onChange = new StreamController<PropertyChangeEvent<T>>.broadcast();
+            _onChange = new StreamController<PropertyChangeEvent<T>>.broadcast(onCancel: () => _onChange = null);
         }
         return _onChange.stream;
     }
@@ -63,25 +64,48 @@ class ObservableProperty<T> {
 
     T get value => _value;
 
+    /**
+     * Observe values in your app
+     * Sample:
+     *      final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
+     *      ...
+     *      nrOfItems.observes( () => items.length > 0 ? items.length.toString() : "<no records>");
+     *
+     *  HTML:
+     *      <mdl-property consumes="nrOfItems"></mdl-property>
+     */
     void observes( T observe() ) {
-        _logger.info("Observes $observe");
         _observe = observe;
+        run();
+    }
 
+    /// Pauses the checks - no further observation.
+    /// Observing can be restarted via [run]
+    void pause() {
+        _pause = true;
+    }
+
+    /// Continues with the checks.
+    void run() {
         if(_observe != null) {
             // first timer comes after short period - this shows the value
             // for the first time
             new Timer(new Duration(milliseconds: 50),() {
-              _setValue();
+                _setValue();
 
-              // second timer comes after specified time
-              new Timer.periodic(_interval,(final Timer timer) {
-                  _setValue();
-              });
-
+                // second timer comes after specified time
+                new Timer.periodic(_interval,(final Timer timer) {
+                    if(_pause) {
+                        _logger.info("Pause");
+                        timer.cancel();
+                        _pause = false;
+                        return;
+                    }
+                    _setValue();
+                });
             });
         }
     }
-
     // - private ----------------------------------------------------------------------------------
 
     void _setValue() {
@@ -94,9 +118,8 @@ class ObservableProperty<T> {
      }
 
     void _fire(final PropertyChangeEvent<T> event) {
-        if(_onChange == null) {
-            _onChange = new StreamController<PropertyChangeEvent<T>>.broadcast();
+        if(_onChange != null && _onChange.hasListener) {
+            _onChange.add(event);
         }
-        _onChange.add(event);
     }
 }

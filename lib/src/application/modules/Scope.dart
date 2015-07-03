@@ -22,12 +22,13 @@ part of mdlapplication;
 Object mdlRootContext() {
     Object rootContext;
     try {
-        rootContext = componentFactory().injector.getByKey(MDLROOTCONTEXT);
+        rootContext = componentFactory().injector.get(MaterialApplication);
     }
     on Error {
-        throw new ArgumentError("Could not find rootContext. "
-        "Please define something like this: "
-        "componentFactory().rootContext(AppController).run().then((_) { ... }");
+        throw new ArgumentError("Could not find rootContext.\n"
+        "Please define something like this: \n"
+        "class Applicaiton extends MaterialApplication { ... } \n"
+        "componentFactory().rootContext(Application).run().then((_) { ... }");
     }
     return rootContext;
 }

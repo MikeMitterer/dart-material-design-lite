@@ -3,7 +3,7 @@
         Loading...
     </div>
     <div class="demo-preview-block">
-        <div id="main" class="mdl-repeat">
+        <mdl-repeat id="main">
             {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
             <div template >
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check-{{id}}">
@@ -15,6 +15,6 @@
                         data-mdl-click="remove()">Remove</button>
             </div>
             |= {{ }} =| {{! ----- Turn on mustache ---- }}
-        </div>
+        </mdl-repeat>
     </div>
 </section>

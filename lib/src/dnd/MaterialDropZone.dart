@@ -72,17 +72,10 @@ class MaterialDropZone extends MdlComponent implements ScopeAware {
 
     Function onDropSuccessCallback;
 
-    // --------------------------------------------------------------------------------------------
-    // EventHandler
-
-    void handleButtonClick() {
-        _logger.info("Event: handleButtonClick");
-    }    
-    
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialDropZone - init");
+        _logger.finer("MaterialDropZone - init");
 
         element.classes.add(_cssClasses.DROPZONE);
 
@@ -106,11 +99,11 @@ class MaterialDropZone extends MdlComponent implements ScopeAware {
     }
 
     void _onDrop(final DropzoneEvent event) {
-        _logger.info("OnDrop!");
+        _logger.fine("OnDrop!");
         element.classes.remove(_cssClasses.INVALID);
 
         if (onDropSuccessCallback != null) {
-            _logger.info("Call callback");
+            _logger.fine("Call callback");
             onDropSuccessCallback(_dragInfo.data);
         }
     }
@@ -131,7 +124,7 @@ class MaterialDropZone extends MdlComponent implements ScopeAware {
  * WskAngularAcceptor that accepts [Draggable]s with a valid drop-zone set
  */
 class _MdlAcceptor extends Acceptor {
-    final _logger = new Logger('wsk_angular.wsk_dragdrop.WskAngularAcceptor');
+    final _logger = new Logger('mdldnd._MdlAcceptor');
 
     final DragInfo _dragDropService;
     final _getZoneNamesCallback;
@@ -156,7 +149,7 @@ class _MdlAcceptor extends Acceptor {
         final List<String> _dropZoneNames = _getZoneNamesCallback();
 
         if (_dropZoneNames.isEmpty && _dragDropService.allowedDropZones.isEmpty) {
-            _logger.info("DragZone is allowed because dropZoneNames and allowedDropZones are empty!");
+            _logger.fine("DragZone is allowed because dropZoneNames and allowedDropZones are empty!");
             return true;
         }
         for (final String dropZone in _dragDropService.allowedDropZones) {
@@ -164,7 +157,7 @@ class _MdlAcceptor extends Acceptor {
                 return true;
             }
         }
-        _logger.info("DragZone is NOT allowed. $_dropZoneNames not found in allowedDropZones (${_dragDropService.allowedDropZones})");
+        _logger.fine("DropZone $_dropZoneNames not found in allowedDropZones (${_dragDropService.allowedDropZones})");
         return false;
     }
 }

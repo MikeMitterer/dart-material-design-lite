@@ -20,7 +20,7 @@
 part of mdlobservable;
 
 enum ListChangeType {
-    ADD, UPDATE, REMOVE, CLEAR
+    ADD, INSERT, UPDATE, REMOVE, CLEAR
 }
 
 /// Propagated if List changes
@@ -32,16 +32,21 @@ class ListChangedEvent<T> {
     final Object item;
 
     /// [prevItem] is set on UPDATE and defines the old Entry
+    /// It is also set on INSERT. It defines the previous items a the given index
     final Object prevItem;
 
     ListChangedEvent(this.changetype,{ final Object this.item, final this.prevItem });
 }
 
+/**
+ * List that sends [ListChangeEvents] to the listener if this list changes
+ * Supported methods:
+ *      Add, insert, update ([]), remove, clear, removeAll
+ */
 @MdlComponentModel
 class ObservableList<T> extends ListBase<T> {
 
     final List<T> _innerList = new List();
-    bool _changing = false;
 
     StreamController<ListChangedEvent<T>> _onChange;
 
@@ -60,11 +65,9 @@ class ObservableList<T> extends ListBase<T> {
     }
 
     void operator []=(int index, T value) {
-        // remove + removeRange uses [] to set the new items
-        // This flag avoids troubles
-        if(!_changing) {
-            _fire(new ListChangedEvent<T>(ListChangeType.UPDATE,item: value, prevItem: _innerList[index]));
-        }
+        _fire(new ListChangedEvent<T>(ListChangeType.UPDATE,
+            item: value,
+            prevItem: _innerList[index]));
 
         _innerList[index] = value;
     }
@@ -83,10 +86,34 @@ class ObservableList<T> extends ListBase<T> {
         });
     }
 
+
+    @override
+    void insert(int index, T element) {
+        RangeError.checkValueInInterval(index, 0, length, "index");
+
+        if(index == _innerList.length) {
+            add(element);
+
+        } else {
+            if(index == 0) {
+
+                _fire(new ListChangedEvent<T>(ListChangeType.INSERT,item: element));
+                _innerList.insert(index,element);
+
+            } else {
+
+                _fire(new ListChangedEvent<T>(ListChangeType.INSERT,
+                    item: element, prevItem: _innerList[index]));
+
+                _innerList.insert(index,element);
+            }
+        }
+    }
+
     @override
     void clear() {
-        super.clear();
         _fire(new ListChangedEvent<T>(ListChangeType.CLEAR));
+        _innerList.clear();
     }
 
     @override
@@ -95,28 +122,20 @@ class ObservableList<T> extends ListBase<T> {
         for(int index = start;index < end;index++) {
             _fire(new ListChangedEvent<T>(ListChangeType.REMOVE,item: _innerList[index] ));
         }
-        _changing = true;
-        super.removeRange(start,end);
-        _changing = false;
+        _innerList.removeRange(start,end);
     }
 
     @override
     bool remove(final Object element) {
         _fire(new ListChangedEvent<T>(ListChangeType.REMOVE,item: element ));
-
-        _changing = true;
-        final bool result = super.remove(element);
-        _changing = false;
-
-        return result;
+        return _innerList.remove(element);
     }
 
     //- private -----------------------------------------------------------------------------------
 
     void _fire(final ListChangedEvent<T> event) {
-        if(_onChange == null) {
-            _onChange = new StreamController<ListChangedEvent<T>>.broadcast(onCancel: () => _onChange = null);
+        if( _onChange != null && _onChange.hasListener) {
+            _onChange.add(event);
         }
-        _onChange.add(event);
     }
 }

@@ -32,6 +32,11 @@
 
         .mdl-button {
             margin-top: 12px;
+            margin-right: 12px;
+
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 

@@ -91,7 +91,7 @@ class DomRenderer {
 
                 });
 
-            } on Error catch(e) {
+            } on Error {
                 _logger.shout("Invalid content:\n\t$content\n"
                     "Usually this error occures if content has not just ONE single root element.");
                 //throw e;
