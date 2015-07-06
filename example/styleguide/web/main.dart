@@ -777,6 +777,9 @@ void configRouter() {
         ..addRoute(name: 'card', path: '/card',
             enter: view("views/card.html", new DemoController()))
 
+        ..addRoute(name: 'contribute', path: '/contribute',
+            enter: view("views/contribute.html", new DemoController()))
+
         ..addRoute(name: 'checkbox', path: '/checkbox',
             enter: view("views/checkbox.html", new DemoController()))
 

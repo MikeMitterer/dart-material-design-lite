@@ -137,11 +137,13 @@ body {
     }
 
     > .mdl-sticky-mini-footer {
-        .sitegen-link, .mm-link { margin-bottom: 0; }
+        .gh-link, .mm-link { margin-bottom: 0; }
+
         .additional-info {
+            font-size: 12px;
+
             @media (max-width: 870px) {
                 display: none;
-
             }
         }
         .mm-link {
