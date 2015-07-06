@@ -1,5 +1,10 @@
 [
   {
+    "name" : "template_android-dot-com",
+    "description" : "Android WebSite",
+    "preview" : "template-android-dot-com.jpg"
+  },
+  {
     "name" : "template_sticky-footer",
     "description" : "Sticky footer",
     "preview" : "template-sticky-footer.jpg"
