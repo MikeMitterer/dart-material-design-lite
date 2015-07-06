@@ -253,6 +253,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 
 >**Note:** Disabled versions of each text field type are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input class="mdl-textfield mdl-js-textfield" type="text" disabled />`
 >This attribute may be added or removed programmatically via scripting.
-
-##More information
-For working examples of the **text field** component, see the MDL [text field demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/textfield).

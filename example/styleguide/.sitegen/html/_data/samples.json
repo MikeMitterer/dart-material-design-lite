@@ -16,7 +16,7 @@
   { "name": "icons", "original": true, "prefix": "mdlo_" },
   { "name": "include", "original": false, "prefix": "spa_" },
   { "name": "layout", "original": true, "prefix": "mdl_" },
-  { "name": "list", "original": true, "prefix": "mdl_" },
+  { "name": "list", "original": true, "prefix": "mdlo_" },
   { "name": "menu", "original": true, "prefix": "mdl_" },
   { "name": "nav-pills", "original": false, "prefix": "mdlx_" },
   { "name": "notification", "original": false, "prefix": "mdlx_" },

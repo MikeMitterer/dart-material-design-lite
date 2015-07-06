@@ -109,6 +109,3 @@ The MDL CSS classes apply various predefined visual enhancements and behavioral 
 | `mdl-cell--top` | Aligns the cell to the top of the parent | Optional on "inner" div elements |
 | `mdl-cell--middle` | Aligns the cell to the middle of the parent | Optional on "inner" div elements |
 |`mdl-cell--bottom` | Aligns the cell to the bottom of the parent | Optional on "inner" div elements |
-
-##More information
-For working examples of the **grid** component, see the MDL [grid demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/grid).

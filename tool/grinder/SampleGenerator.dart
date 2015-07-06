@@ -305,7 +305,8 @@ class SampleGenerator {
             entity.path.endsWith("/demo.dart.html") ||
             entity.path.endsWith("/demo.scss") ||
             entity.path.endsWith("/demo.orig.scss") ||
-            entity.path.endsWith("/demo.dart.scss")
+            entity.path.endsWith("/demo.dart.scss") ||
+            entity.path.contains("snippet")
             ) {
                 return false;
             }

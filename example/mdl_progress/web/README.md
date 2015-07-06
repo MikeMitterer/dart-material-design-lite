@@ -35,6 +35,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 |-----------|--------|---------|
 | `mdl-js-progress` | Assigns basic MDL behavior to progress indicator | Required |
 | `mdl-progress__indeterminate` | Applies animation effect | Optional |
-
-##More information
-For working examples of the **progress** component, see the MDL [progress demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/progress).

@@ -232,10 +232,10 @@ void init() {
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
         _header.onClick.listen(
           headerClickHandler);
-      } else if (element.classes.contains(
+      } else if (_header.classes.contains(
           _cssClasses.HEADER_SCROLL)) {
         mode = _Mode.SCROLL;
-        container.classlist.add(_cssClasses.HAS_SCROLLING_HEADER);
+        container.classes.add(_cssClasses.HAS_SCROLLING_HEADER);
       }
 
       if (mode == _Mode.STANDARD) {

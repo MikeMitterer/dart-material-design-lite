@@ -24,3 +24,10 @@ dependencies:
 
 transformers:
   - di
+
+#  - $dart2js:
+#      minify: false
+#      sourceMaps: true
+
+
+

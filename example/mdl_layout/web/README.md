@@ -322,6 +322,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `is-active` | Defines tab as default active tab | Optional; goes on tab bar anchor element and associated tab section element|
 | `mdl-layout__tab-panel` | Defines container as tab content panel | Required on tab section elements |
 | `mdl-layout--fixed-tabs` | Defines MDL tab bar as fixed | Optional; goes on outer div element (not div inside header) |
-
-##More information
-For working examples of the **layout** component, see the MDL [layout demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/layout).

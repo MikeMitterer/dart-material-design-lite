@@ -145,6 +145,3 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-tabs__tab` | Defines an anchor (link) as an MDL tab activator | Required on all links in first "inner" div element |
 | `is-active` | Defines a tab as the default display tab | Required on one (and only one) of the "inner" div (tab) elements |
 | `mdl-tabs__panel` | Defines a container as tab content | Required on each of the "inner" div (tab) elements |
-
-##More information
-For working examples of the **tab** component, see the MDL [tab demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/tabs).

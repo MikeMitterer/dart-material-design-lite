@@ -117,32 +117,31 @@ void createSampleList() {
     samples.add(new Sample("badge",     Type.Core,  hasDemoCss: false, hasScript: false, hasReadme: false, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("button",    Type.Core,  hasDemoCss: false, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false ));
     samples.add(new Sample("card",      Type.Core,  hasDemoCss: false, hasScript: false, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
-    samples.add(new Sample("checkbox",  Type.Core,  hasDemoCss: false));
-    samples.add(new Sample("data-table",Type.Core,  hasDemoCss: false, hasReadme: false));
+    samples.add(new Sample("checkbox",  Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("data-table",Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));
 
-    samples.add(new Sample("footer",    Type.Core,  hasScript: false)
+    samples.add(new Sample("footer",    Type.Core,  hasScript: false, hasSnippet: true, hasDemoHtml: false, hasDemoCss: false)
         ..scssFile = "_mega_footer.scss"
         ..scssFileTarget = "_mega_footer.orig.scss");
 
-    samples.add(new Sample("footer",    Type.Core,  hasScript: false)
+    samples.add(new Sample("footer",    Type.Core,  hasScript: false, hasSnippet: true, hasDemoHtml: false, hasDemoCss: false)
         ..scssFile = "_mini_footer.scss"
         ..scssFileTarget = "_mini_footer.orig.scss");
 
-    samples.add(new Sample("grid",      Type.Core,  hasScript: false));
-    samples.add(new Sample("icon-toggle",Type.Core, hasReadme: false, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("layout",    Type.Core));
-    samples.add(new Sample("list",      Type.Core,  hasScript: false));
+    samples.add(new Sample("grid",      Type.Core,  hasScript: false, hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
+    samples.add(new Sample("icon-toggle",Type.Core, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
+    samples.add(new Sample("layout",    Type.Core,  hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
     samples.add(new Sample("menu",      Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("palette",   Type.Core,  hasScript: false, hasReadme: false));
-    samples.add(new Sample("progress",  Type.Core,  hasDemoCss: false, hasOwnDemoHtml: true, hasOwnDartMain: true));
-    samples.add(new Sample("radio",     Type.Core,  hasDemoCss: false, hasOwnDartMain: true));
-    samples.add(new Sample("shadow",    Type.Core,  hasScript: false));
-    samples.add(new Sample("slider",    Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("spinner",   Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("switch",    Type.Core,  hasDemoCss: false));
-    samples.add(new Sample("tabs",      Type.Core));
-    samples.add(new Sample("textfield", Type.Core));
-    samples.add(new Sample("tooltip",   Type.Core));
+    samples.add(new Sample("progress",  Type.Core,  hasDemoCss: false, hasOwnDemoHtml: true, hasOwnDartMain: true, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("radio",     Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("shadow",    Type.Core,  hasScript: false, hasSnippet: false));
+    samples.add(new Sample("slider",    Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("spinner",   Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("switch",    Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("tabs",      Type.Core,  hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
+    samples.add(new Sample("textfield", Type.Core,  hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
+    samples.add(new Sample("tooltip",   Type.Core,  hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
     samples.add(new Sample("typography",Type.Core,  hasScript: false));
 
     samples.add(new Sample("ripple",    Type.Ignore,  hasDemoCss: false, hasDemoHtml: false, hasReadme: false, excludeFromStyleguide: true ));
@@ -163,7 +162,8 @@ void createSampleList() {
     samples.add(new Sample("snackbar",      Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
 
     // MDL/Dart old
-    samples.add(new Sample("icons",Type.DartOld));
+    samples.add(new Sample("icons",Type.DartOld, hasScript: false, hasDemoHtml: false, hasDemoCss: false));
+    samples.add(new Sample("list", Type.DartOld, hasScript: false, hasDemoHtml: false, hasDemoCss: false));
 
     // SPA Samples
     samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));

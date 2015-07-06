@@ -41,6 +41,9 @@ class MergeMaster {
             demoBaseDir.createSync(recursive: true);
         }
         if(sample.hasSnippet) {
+            if(demoBaseSnippetDir.existsSync()) {
+                demoBaseSnippetDir.deleteSync(recursive: true);
+            }
             demoBaseSnippetDir.createSync(recursive: true);
         }
 
@@ -65,7 +68,7 @@ class MergeMaster {
                 final File src = new File(entity.path);
                 final File target = new File(entity.path.replaceFirst(mdlSnippetDir.path,demoBaseSnippetDir.path));
                 src.copySync(target.path);
-                log("${src.path} -> ${target.path}");
+                //log("${src.path} -> ${target.path}");
             });
         }
 

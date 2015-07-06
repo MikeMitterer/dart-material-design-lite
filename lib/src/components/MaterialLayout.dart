@@ -175,6 +175,7 @@ class MaterialLayout extends MdlComponent {
                     }
 
                     if (child.classes.contains(_cssClasses.CONTENT)) {
+                        _logger.info("Found content");
                         _content = child;
                     }
                 }
@@ -206,7 +207,7 @@ class MaterialLayout extends MdlComponent {
                     header.onClick.listen( _headerClickHandler);
 
                 }
-                else if (element.classes.contains(
+                else if (header.classes.contains(
                         _cssClasses.HEADER_SCROLL)) {
                         mode = _mode.SCROLL;
                         container.classes.add(_cssClasses.HAS_SCROLLING_HEADER);
