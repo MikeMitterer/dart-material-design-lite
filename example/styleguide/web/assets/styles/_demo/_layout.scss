@@ -13,20 +13,57 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// Colors + Theming
+.demo-page--layout, .demo-section--layout {
+    .demo-layout {
+        width    : 100%;
+        float    : left;
+        margin   : 0 40px 40px 0;
+        border   : 1px solid #888888;
+        position : relative;
+        height   : 300px;
 
-.demo-section--layout {
+        .mdl-layout .mdl-layout__content {
+            -ms-flex          : 0 1 auto;
+            display           : inline-block;
+            overflow-y        : scroll;
+            overflow-x        : hidden;
+            -webkit-box-flex  : 1;
+            -webkit-flex-grow : 1;
+            -ms-flex-positive : 1;
+            flex-grow         : 1;
+            z-index           : 1;
 
-    .screenshot {
-        max-width:90%;
-        height:auto;
-        position: relative;
-        display:block;
-        margin:0 auto;
+            .page-content {
+                padding: 8px;
 
-        img {
-            width:100% !important;
-            height:100% !important;
-            display:block;
+                &:before {
+                    content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et                       dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet                       clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,                       consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,                       sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\A\ALorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et                       dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet                       clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,                       consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,                       sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\A\ALorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et                       dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet                       clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,                       consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,                       sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\A\A";
+                    white-space : pre-line;
+                }
+            }
         }
+
+        .mdl-layout--fixed-drawer>.mdl-layout__content {
+            margin-left: 240px;
+        }
+    }
+
+    .demo-layout__content-red {
+        height     : 1000px;
+        background : linear-gradient(($palette-red-50), ($palette-red-100));
+        padding    : 8px;
+    }
+
+    .demo-layout__content-green {
+        height     : 1000px;
+        background : linear-gradient(($palette-green-50), ($palette-green-100));
+        padding    : 8px;
+    }
+
+    .demo-layout__content-blue {
+        height     : 1000px;
+        background : linear-gradient(($palette-blue-50), ($palette-blue-100));
+        padding    : 8px;
     }
 }

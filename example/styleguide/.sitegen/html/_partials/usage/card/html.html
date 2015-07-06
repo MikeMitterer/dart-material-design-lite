@@ -1,20 +1,121 @@
   &lt;div class=&quot;demo-preview-block&quot;&gt;
+      &lt;h2&gt;Wide card with share menu button&lt;&#47;h2&gt;
+      &lt;style&gt;
+          .demo-card-wide.mdl-card {
+              width: 512px;
+          }
+          .demo-card-wide &gt; .mdl-card__title {
+              color: #fff;
+              height: 176px;
+              background: url(&#39;demo-images&#47;welcome_card.jpg&#39;) center &#47; cover;
+          }
+          .demo-card-wide &gt; .mdl-card__menu {
+              color: #fff;
+          }
+      &lt;&#47;style&gt;
+      &lt;div class=&quot;mdl-card mdl-shadow--2dp demo-card-wide&quot;&gt;
+          &lt;div class=&quot;mdl-card__title&quot;&gt;
+              &lt;h2 class=&quot;mdl-card__title-text mdl-color-text--white&quot;&gt;Welcome&lt;&#47;h2&gt;
+          &lt;&#47;div&gt;
+          &lt;div class=&quot;mdl-card__supporting-text&quot;&gt;
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Mauris sagittis pellentesque lacus eleifend lacinia...
+          &lt;&#47;div&gt;
+          &lt;div class=&quot;mdl-card__actions mdl-card--border&quot;&gt;
+              &lt;a class=&quot;mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect&quot;&gt;
+                  Get Started
+              &lt;&#47;a&gt;
+          &lt;&#47;div&gt;
+          &lt;div class=&quot;mdl-card__menu&quot;&gt;
+              &lt;button id=&quot;share-demo&quot; class=&quot;mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect&quot;&gt;
+                  &lt;i class=&quot;material-icons&quot;&gt;share&lt;&#47;i&gt;
+              &lt;&#47;button&gt;
+              &lt;ul class=&quot;mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect&quot; for=&quot;share-demo&quot;&gt;
+                  &lt;button class=&quot;mdl-menu__item&quot;&gt;Item 1&lt;&#47;button&gt;
+                  &lt;button class=&quot;mdl-menu__item&quot;&gt;Item 2&lt;&#47;button&gt;
+                  &lt;button class=&quot;mdl-menu__item&quot; disabled&gt;Item 3&lt;&#47;button&gt;
+              &lt;&#47;ul&gt;
+          &lt;&#47;div&gt;
+      &lt;&#47;div&gt;
+      &lt;h2&gt;Square card&lt;&#47;h2&gt;
+      &lt;style&gt;
+          .demo-card-square.mdl-card {
+              width: 320px;
+              height: 320px;
+          }
+          .demo-card-square &gt; .mdl-card__title {
+              color: #fff;
+              background:
+              url(&#39;demo-images&#47;dog.png&#39;) bottom right 15% no-repeat #46B6AC;
+          }
+      &lt;&#47;style&gt;
+      &lt;div class=&quot;mdl-card mdl-shadow--2dp demo-card-square&quot;&gt;
+          &lt;div class=&quot;mdl-card__title mdl-card--expand&quot;&gt;
+              &lt;h2 class=&quot;mdl-card__title-text&quot;&gt;Update&lt;&#47;h2&gt;
+          &lt;&#47;div&gt;
+          &lt;div class=&quot;mdl-card__supporting-text&quot;&gt;
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Aenan convallis.
+          &lt;&#47;div&gt;
+          &lt;div class=&quot;mdl-card__actions mdl-card--border&quot;&gt;
+              &lt;a class=&quot;mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect&quot;&gt;
+                  View Updates
+              &lt;&#47;a&gt;
+          &lt;&#47;div&gt;
+      &lt;&#47;div&gt;
+      &lt;h2&gt;Image card&lt;&#47;h2&gt;
+      &lt;style&gt;
+          .demo-card-image.mdl-card {
+              width: 256px;
+              height: 256px;
+              background: url(&#39;demo-images&#47;image_card.jpg&#39;) center &#47; cover;
+          }
+          .demo-card-image &gt; .mdl-card__actions {
+              height: 52px;
+              padding: 16px;
+              background: rgba(0, 0, 0, 0.2);
+          }
+          .demo-card-image__filename {
+              color: #fff;
+          }
+      &lt;&#47;style&gt;
+      &lt;div class=&quot;mdl-card mdl-shadow--2dp demo-card-image&quot;&gt;
+          &lt;div class=&quot;mdl-card__title mdl-card--expand&quot;&gt;&lt;&#47;div&gt;
+          &lt;div class=&quot;mdl-card__actions&quot;&gt;
+              &lt;span class=&quot;demo-card-image__filename&quot;&gt;Image.jpg&lt;&#47;span&gt;
+          &lt;&#47;div&gt;
+      &lt;&#47;div&gt;
+      &lt;h2&gt;Event card&lt;&#47;h2&gt;
+      &lt;style&gt;
+          .demo-card-event.mdl-card {
+              width: 256px;
+              height: 256px;
+              background: #3E4EB8;
+          }
+          .demo-card-event &gt; .mdl-card__actions {
+              border-color: rgba(255, 255, 255, 0.2);
+          }
+          .demo-card-event &gt; .mdl-card__title,
+          .demo-card-event &gt; .mdl-card__actions &gt; .mdl-button {
+              color: #fff;
+          }
+      &lt;&#47;style&gt;
+      &lt;div class=&quot;mdl-card mdl-shadow--2dp demo-card-event&quot;&gt;
+          &lt;div class=&quot;mdl-card__title mdl-card--expand&quot;&gt;
+              &lt;h4 class=&quot;mdl-color-text--white&quot;&gt;
+                  Featured event:&lt;br&gt;
+                  May 24, 2016&lt;br&gt;
+                  7-11pm
+              &lt;&#47;h4&gt;
+          &lt;&#47;div&gt;
+          &lt;div class=&quot;mdl-card__actions mdl-card--border&quot;&gt;
+              &lt;a class=&quot;mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect&quot;&gt;
+                  Add to Calendar
+              &lt;&#47;a&gt;
+          &lt;&#47;div&gt;
+      &lt;&#47;div&gt;
     &lt;div class=&quot;mdl-card mdl-shadow--2dp&quot;&gt;
-      &lt;div class=&quot;mdl-card__title&quot;&gt;
-         &lt;h2 class=&quot;mdl-card__title-text mdl-color-text--accent&quot;&gt;Integer lectus lacus, condimentum vitae lectus vitae&lt;&#47;h2&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-card__supporting-text&quot;&gt;
-        March 24th, 2014
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-card__supporting-text&quot;&gt;
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia. Donec ut risus suscipit, convallis diam et, mattis urna. Phasellus sit amet ipsum nisl. Aliquam sed dictum neque. Vestibulum tempus at lacus et volutpat. Mauris molestie vel mauris id scelerisque.
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-card__actions&quot;&gt;
-         &lt;a href=&quot;#&quot; class=&quot;mdl-button&quot;&gt;Some Action&lt;&#47;a&gt;
-      &lt;&#47;div&gt;
-    &lt;&#47;div&gt;
-    &lt;div class=&quot;mdl-card mdl-shadow--3dp demo-card--wide&quot;&gt;
-      &lt;div class=&quot;mdl-card__title&quot;&gt;
+      &lt;div class=&quot;mdl-card__title mdl-color--primary&quot;&gt;
          &lt;h2 class=&quot;mdl-card__title-text mdl-color-text--accent&quot;&gt;Integer lectus lacus, condimentum vitae lectus vitae&lt;&#47;h2&gt;
       &lt;&#47;div&gt;
       &lt;div class=&quot;mdl-card__supporting-text&quot;&gt;
@@ -28,21 +129,7 @@
       &lt;&#47;div&gt;
     &lt;&#47;div&gt;
     &lt;div class=&quot;mdl-card mdl-shadow--4dp&quot;&gt;
-      &lt;div class=&quot;mdl-card__title&quot;&gt;
-         &lt;h2 class=&quot;mdl-card__title-text mdl-color-text--accent&quot;&gt;Integer lectus lacus, condimentum vitae lectus vitae&lt;&#47;h2&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-card__supporting-text&quot;&gt;
-        March 24th, 2014
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-card__supporting-text&quot;&gt;
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia. Donec ut risus suscipit, convallis diam et, mattis urna. Phasellus sit amet ipsum nisl. Aliquam sed dictum neque. Vestibulum tempus at lacus et volutpat. Mauris molestie vel mauris id scelerisque.
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-card__actions&quot;&gt;
-         &lt;a href=&quot;#&quot; class=&quot;mdl-button&quot;&gt;Some Action&lt;&#47;a&gt;
-      &lt;&#47;div&gt;
-    &lt;&#47;div&gt;
-    &lt;div class=&quot;mdl-card mdl-shadow--4dp&quot;&gt;
-      &lt;div class=&quot;mdl-card__title&quot;&gt;
+      &lt;div class=&quot;mdl-card__title mdl-color--primary&quot;&gt;
          &lt;h2 class=&quot;mdl-card__title-text mdl-color-text--accent&quot;&gt;Integer lectus lacus, condimentum vitae lectus vitae&lt;&#47;h2&gt;
       &lt;&#47;div&gt;
       &lt;div class=&quot;mdl-card__supporting-text&quot;&gt;
@@ -55,7 +142,7 @@
          &lt;a href=&quot;#&quot; class=&quot;mdl-button&quot;&gt;Some Action&lt;&#47;a&gt;
       &lt;&#47;div&gt;
       &lt;div class=&quot;mdl-card__menu&quot;&gt;
-        &lt;button id=&quot;btn&quot; class=&quot;mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon&quot;&gt;
+        &lt;button id=&quot;btn&quot; class=&quot;mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color-text--white&quot;&gt;
           &lt;i class=&quot;material-icons&quot;&gt;more_vert&lt;&#47;i&gt;
         &lt;&#47;button&gt;
         &lt;ul class=&quot;mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect&quot; for=&quot;btn&quot;&gt;

@@ -25,13 +25,13 @@ main() &#123;
     componentFactory().run().then((_) &#123;
         _logger.info(&quot;All components upgraded&quot;);
         &#47;&#47; 1
-        new MaterialProgress(dom.querySelector(&quot;#p1&quot;)).progress = 44;
+        MaterialProgress.widget(dom.querySelector(&quot;#p1&quot;)).progress = 44;
         &#47;&#47; 2
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).progress = 33;
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).buffer = 87;
         (dom.querySelector(&quot;#slider&quot;) as dom.RangeInputElement).onInput.listen((final dom.Event event) &#123;
             final int value = int.parse((event.target as dom.RangeInputElement).value);
-            final component = new MaterialProgress(dom.querySelector(&quot;#p1&quot;))
+            final component = MaterialProgress.widget(dom.querySelector(&quot;#p1&quot;))
                 ..progress = value
                 ..classes.toggle(&quot;test&quot;);
             _logger.info(&quot;Value: $&#123;component.progress&#125;&quot;);
@@ -52,15 +52,15 @@ main() &#123;
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;p&gt;
         Default:
-    &lt;div id=&quot;p1&quot; class=&quot;mdl-js-progress&quot;&gt;&lt;&#47;div&gt;
+    &lt;div id=&quot;p1&quot; class=&quot;mdl-progress mdl-js-progress&quot;&gt;&lt;&#47;div&gt;
     &lt;&#47;p&gt;
     &lt;p&gt;
         Indeterminate:
-    &lt;div id=&quot;p2&quot; class=&quot;mdl-js-progress mdl-progress__indeterminate&quot;&gt;&lt;&#47;div&gt;
+    &lt;div id=&quot;p2&quot; class=&quot;mdl-progress mdl-js-progress mdl-progress__indeterminate&quot;&gt;&lt;&#47;div&gt;
     &lt;&#47;p&gt;
     &lt;p&gt;
         Buffering:
-    &lt;div id=&quot;p3&quot; class=&quot;mdl-js-progress&quot;&gt;&lt;&#47;div&gt;
+    &lt;div id=&quot;p3&quot; class=&quot;mdl-progress mdl-js-progress&quot;&gt;&lt;&#47;div&gt;
     &lt;&#47;p&gt;
     &lt;h5&gt;Data binding&lt;&#47;h5&gt;
     &lt;div&gt;Drag me and check how the &quot;Default&quot; bar reacts...&lt;&#47;div&gt;
@@ -111,8 +111,6 @@ main() &#123;
 </tr>
 </tbody>
 </table>
-<h2 id="more-information">More information</h2>
-<p>For working examples of the <strong>progress</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/progress">progress demo page</a>.</p>
 
                 </div>
             </div>

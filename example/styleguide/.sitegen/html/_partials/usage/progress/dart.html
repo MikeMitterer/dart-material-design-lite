@@ -9,7 +9,7 @@ main() &#123;
         _logger.info(&quot;All components upgraded&quot;);
 
         &#47;&#47; 1
-        new MaterialProgress(dom.querySelector(&quot;#p1&quot;)).progress = 44;
+        MaterialProgress.widget(dom.querySelector(&quot;#p1&quot;)).progress = 44;
 
         &#47;&#47; 2
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).progress = 33;
@@ -18,7 +18,7 @@ main() &#123;
         (dom.querySelector(&quot;#slider&quot;) as dom.RangeInputElement).onInput.listen((final dom.Event event) &#123;
             final int value = int.parse((event.target as dom.RangeInputElement).value);
 
-            final component = new MaterialProgress(dom.querySelector(&quot;#p1&quot;))
+            final component = MaterialProgress.widget(dom.querySelector(&quot;#p1&quot;))
                 ..progress = value
                 ..classes.toggle(&quot;test&quot;);
 

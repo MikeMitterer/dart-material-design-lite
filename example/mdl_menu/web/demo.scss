@@ -16,39 +16,28 @@
 
 .demo-page--menu, .demo-section--menu {
 
-    #message {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-
     .demo-preview-block {
-        position: relative;
-        height: 500px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center; // ⇾
+        align-content: space-around; // ||
+        align-items: flex-start; // ↓
+
+        &> div {
+            width: 40%;
+            min-width: 200px;
+            margin-bottom: 24px;
+
+            &:nth-child(even) {
+                margin-left: 24px;
+            }
+        }
     }
 
-    .demo-menu-button-left {
-        position: absolute;
-        left: 24px;
-        top: 230px;
+    #message {
+        width: 100%;
     }
 
-    .demo-menu-button-left2 {
-        position: absolute;
-        left: 72px;
-        top: 230px;
-    }
-
-    .demo-menu-button-right {
-        position: absolute;
-        right: 24px;
-        top: 230px;
-    }
-
-    .demo-menu-button-right2 {
-        position: absolute;
-        right: 72px;
-        top: 230px;
-    }
 }
 

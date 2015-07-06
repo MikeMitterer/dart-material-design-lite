@@ -262,6 +262,8 @@ class SampleGenerator {
             content = content.replaceAll("www.github.com/google/material-design-lite/src/$sampleName/demo.html",
             "https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/$sampleName");
 
+            content = content.replaceAll("sourceCode html","prettyprint linenums lang-html");
+
             targetREADME.writeAsStringSync(content);
         }
     }

@@ -24,12 +24,12 @@ class Styleguide {
     void generate(final Sample sample) {
         final Sample sampleStyleguide = samples.firstWhere((final Sample sample) => sample.type == Type.Styleguide);
 
-        _copyDemoCssToStyleguide(sample,samplesToExclude: [ "layout" ]);
-        _copySampleViewToStyleguide(sample,samplesToExclude: [ "layout" ]);
+        _copyDemoCssToStyleguide(sample,samplesToExclude: [ "layout1" ]);
+        _copySampleViewToStyleguide(sample,samplesToExclude: [ "layout1" ]);
         _createUsageContentInStyleguide(sample);
 
         _createDartPartialInStyleguide(sample);
-        _createHtmlPartialInStyleguide(sample,samplesToExclude: [ "layout" ]);
+        _createHtmlPartialInStyleguide(sample,samplesToExclude: [ "layout1" ]);
         _createReadmePartialInStyleguide(sample);
     }
 

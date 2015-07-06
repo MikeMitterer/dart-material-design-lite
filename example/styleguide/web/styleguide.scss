@@ -46,10 +46,10 @@ body {
 }
 
 
-.mdl-layout {
+.styleguide.mdl-layout {
     flex-grow: 1;
 
-    .mdl-layout__header {
+    > .mdl-layout__header {
         .mdl-layout__header-row {
 
             padding-left: 24px;
@@ -67,7 +67,7 @@ body {
         }
     }
 
-    .mdl-layout__drawer {
+    > .mdl-layout__drawer {
         //.mdl-layout-title {
         //    color            : $layout-header-text-color;
         //    background-color : $layout-header-bg-color;
@@ -96,6 +96,7 @@ body {
                         padding        : 5px 48px 5px 48px;
                         text-transform : capitalize;
                         display        : block;
+                        font-weight    : 600;
                     }
                     opacity: 0;
                     transition: all 0.3s ease-in-out;
@@ -106,7 +107,7 @@ body {
     }
 
 
-    .mdl-layout__content {
+    > .mdl-layout__content {
 
         box-sizing      : border-box;
 

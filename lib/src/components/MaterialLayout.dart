@@ -175,7 +175,6 @@ class MaterialLayout extends MdlComponent {
                     }
 
                     if (child.classes.contains(_cssClasses.CONTENT)) {
-                        _logger.info("Found content");
                         _content = child;
                     }
                 }
@@ -375,7 +374,7 @@ class MaterialLayout extends MdlComponent {
 
     /// Handles changes in screen size.
     void _screenSizeHandler() {
-        _logger.info("ScreenSite changed!");
+
         if (_screenSizeMediaQuery.matches) {
             element.classes.add(_cssClasses.IS_SMALL_SCREEN);
         }
@@ -456,6 +455,7 @@ class MaterialLayoutTab {
 
             tab.onClick.listen( (final dom.MouseEvent event) {
                 event.preventDefault();
+                event.stopPropagation();
 
                 final String attribHref = tab.attributes["href"];
                 final href = attribHref.split('#')[1];
