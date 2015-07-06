@@ -24,7 +24,52 @@ portable, and &mdash; most importantly &mdash; usable web pages.
 
 [Demo][mdldemo] (transpiled JS-Version)
 
-## Getting started
+## Quick Start
+
+In `pubspec.yaml` specify the `mdl`, `browser` and `di` packages as dependencies, as well as the `di` transformer.
+
+```yaml
+dependencies:
+  mdl: "^1.0.0"
+  browser: '^0.10.0'
+  di: "^3.3.4"
+transformers:
+  - di
+```
+
+Add the style to your `index.html`
+
+```html
+<link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
+```
+
+Initialize the mdl library from your `main.dart`
+
+```dart
+import 'package:mdl/mdl.dart' as mdl;
+
+
+main() async {
+  mdl.registerMdl();
+  await mdl.componentFactory().run();
+}
+
+```
+
+
+## Icons
+
+Material Design Lite uses the official [Material Icons font](https://www.google.com/design/icons/). We recommend you include it using:
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+```
+
+You can check for other options on the [Developer's Guide](http://google.github.io/material-design-icons/#icon-font-for-the-web).
+
+
+## Demos and examples
 ...
 Check out the [samples][]
 ## Features and bugs
