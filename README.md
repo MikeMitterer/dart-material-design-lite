@@ -1,28 +1,11 @@
 # Material Design Lite for Dart
 
-##Introduction
-**Material Design Light (MDL)** is a library of components for web developers based on Google's **Material Design** 
-philosophy: "A visual language for our users that synthesizes the classic principles of good design with 
-the innovation and possibility of technology and science." Understanding the goals and principles of 
-Material Design is critical to the proper use of the MDL components. 
-If you have not yet read the [Material Design Introduction](http://www.google.com/design/spec/material-design/introduction.html), 
-you should do so before attempting to use the components.
+> A library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in CSS, Dart, and HTML
+([MDL Dart website][mdldemo]).
 
-The MDL components are created with CSS, Dart, and HTML. 
-You can use the components to construct web pages and web apps that are attractive, 
-consistent, and functional. Pages developed with MDL will adhere to modern web design principles 
-like browser portability, device independence, and graceful degradation.
-
-The MDL component library includes new versions of common user interface controls 
-such as buttons, check boxes, and text fields, adapted to follow Material Design concepts. 
-The library also includes enhanced and specialized features like cards, column layouts, sliders, spinners, tabs, typography, and more.
-
-MDL is free to download and use, and may be used with or without any build library or development environment 
-(such as [Material Design Lite](https://github.com/MikeMitterer/dart-material-design-lite)). 
-It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more productive, 
-portable, and &mdash; most importantly &mdash; usable web pages.
-
-[Demo][mdldemo] (transpiled JS-Version)
+Material Design Lite lets you add a Material Design look and feel to your static content websites. It doesn’t rely on any JavaScript
+frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
+from the get-go.
 
 ## Quick Start
 
@@ -37,7 +20,7 @@ transformers:
   - di
 ```
 
-Add the style to your `index.html`
+Add the mdl style sheet to your `index.html`
 
 ```html
 <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
@@ -69,7 +52,7 @@ Material Design Lite uses the official [Material Icons font](https://www.google.
 You can check for other options on the [Developer's Guide](http://google.github.io/material-design-icons/#icon-font-for-the-web).
 
 
-## Demos and examples
+## Examples
 ...
 Check out the [samples][]
 ## Features and bugs
@@ -100,7 +83,7 @@ or **star** this repo here on GitHub
 
 [tracker]: https://github.com/MikeMitterer/dart-material-design-lite/issues
 [mdlmaterial]: https://github.com/MikeMitterer/dart-material-design-lite
-[mdldemo]: http://mdl.mikemitterer.at/
+[mdldemo]: http://www.material-design-lite.pub
 [mdlangular]: https://github.com/MikeMitterer/dart-mdl-angular
 [samples]: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example
 [promoimage]: https://github.com/MikeMitterer/dart-material-design-lite/blob/master/lib/images/mdl.mikemitterer.at-720px.jpg?raw=true
