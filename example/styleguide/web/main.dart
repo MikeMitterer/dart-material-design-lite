@@ -28,6 +28,8 @@ import 'package:mdl/mdldemo.dart';
 import 'package:mdl/mdlobservable.dart';
 
 import 'package:route_hierarchical/client.dart';
+import 'package:route_hierarchical/link_matcher.dart';
+
 import 'package:prettify/prettify.dart';
 import 'package:di/di.dart' as di;
 
