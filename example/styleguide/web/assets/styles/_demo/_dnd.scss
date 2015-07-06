@@ -22,7 +22,7 @@
         flex-direction : column;
         flex-wrap      : wrap;
         max-width      : 600px;
-        max-height: 500px;
+        max-height: 550px;
         overflow       : scroll;
         padding        : 12px;
         border         : 1px dotted black;
@@ -99,6 +99,8 @@
         height        : 20px;
         padding       : 5px 10px 5px 10px;
         overflow      : hidden;
+
+        user-select: none;
     }
 
     .accept > div {

@@ -169,9 +169,6 @@ class DemoController extends MaterialController {
 
     @override
     void loaded(final Route route) {
-//        final Model _model = injector.get(Model);
-//
-//        _model.title = route.name;
 
         final Application app = componentFactory().application;
         app.title.value = route.name;

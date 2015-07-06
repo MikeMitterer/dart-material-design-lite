@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="description" content="Material Design Lite (MDL/Dart) for Dart is a library of components for web developers based on Google's Material Design, ported to Dart.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BUTTON</title>
     <!-- Add to homescreen for Chrome on Android -->
@@ -24,6 +24,7 @@
     <!--<link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>-->
     <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
     <link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
+    <link rel="stylesheet" href="prism-default.css">
     <link rel="stylesheet" href="demo.css">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -70,12 +71,12 @@
     <div class="demo-button">Flat: <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary">Flat</button></div>
     <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">Raised</button></div>
     <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--primary"><i class="material-icons">add</i></button></div>
-    <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-button--primary"><i class="material-icons">add</i></button></div>
+    <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-button--primary"><i class="material-icons">mood</i></button></div>
     <h5>.mdl-button--accent</h5>
     <div class="demo-button">Flat: <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">Flat</button></div>
     <div class="demo-button">Raised: <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Raised</button></div>
     <div class="demo-button">FAB: <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">add</i></button></div>
-    <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">add</i></button></div>
+    <div class="demo-button">Icon: <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">mood</i></button></div>
     <h5>.mdl-button--mini-fab</h5>
     <div class="demo-button"><button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-button--mini-fab mdl-js-ripple-effect"><i class="material-icons">add</i></button></div>
     <h5>Disabled</h5>
@@ -93,6 +94,11 @@
             <p class="sitegen-link">Page was generated with <a href="https://pub.dartlang.org/packages/sitegen" target="_blank">SiteGen.</a>
              <span class="additional-info">The static site generator for Dart.</span></p>
         </div>
+        <div class="mdl-mini-footer--right-section">
+            <p class="mm-link">Brought to you by:
+                <a href="http://www.mikemitterer.at/" target="_blank">Mike Mitterer, IT-Consulting and Development Ltd.</a>
+                </p>
+        </div>
     </footer>
 </div>
 <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/mdl_button/web" target="_blank" id="view-source">
@@ -100,5 +106,14 @@
 </a>
 <script type="application/dart" src="main.dart"></script>
 <script data-pub-inline src="packages/browser/dart.js"></script>
+<!-- Analytics -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-64837522-2', 'auto');
+    ga('send', 'pageview');
+</script>
 </body>
 </html>

@@ -49,6 +49,10 @@ body {
 .styleguide.mdl-layout {
     flex-grow: 1;
 
+    &.is-small-screen {
+
+    }
+
     > .mdl-layout__header {
         .mdl-layout__header-row {
 
@@ -74,6 +78,8 @@ body {
         //}
         overflow: scroll;
         border-right: none;
+
+        height: calc(100% - 48px);
 
         .mdl-navigation {
             //padding-top : 24px;
@@ -130,6 +136,24 @@ body {
         }
     }
 
+    > .mdl-sticky-mini-footer {
+        .sitegen-link, .mm-link { margin-bottom: 0; }
+        .additional-info {
+            @media (max-width: 870px) {
+                display: none;
+
+            }
+        }
+        .mm-link {
+            font-size: 12px;
+            // margin-right: 12px;
+
+            @media (max-width: 680px) {
+                display: none;
+            }
+        }
+
+    }
 }
 
 .usage {
