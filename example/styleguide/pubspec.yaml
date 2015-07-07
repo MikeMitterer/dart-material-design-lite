@@ -24,12 +24,15 @@ dependencies:
 
   di: ">=3.3.4 <4.0.0"
 
+  dart_to_js_script_rewriter: "^0.1.0+1"
+
 transformers:
   - di
+  - dart_to_js_script_rewriter
 
-  - $dart2js:
-      minify: false
-      sourceMaps: true
+#  - $dart2js:
+#      minify: false
+#      sourceMaps: true
 
 
 
