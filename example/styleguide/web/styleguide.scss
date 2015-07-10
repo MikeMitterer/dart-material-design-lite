@@ -134,7 +134,14 @@ body {
             padding    : 8px;
             height: 24px;
         }
+
+        h6 {
+            margin-bottom: 0;
+            line-height: initial;
+        }
     }
+
+
 
     > .mdl-sticky-mini-footer {
         .gh-link, .mm-link { margin-bottom: 0; }
