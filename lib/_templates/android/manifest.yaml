@@ -1,0 +1,15 @@
+# templatename is not optional!
+templatename: MDL Android Template
+
+prompts:
+  package:
+    type: lowercasee
+    question: "Enter the package-name:"
+
+  email:
+    type: input
+    question: "Your email address:"
+
+  name:
+    type: input
+    question: "Your name:"
