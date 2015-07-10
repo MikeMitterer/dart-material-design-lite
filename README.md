@@ -7,6 +7,53 @@ Material Design Lite lets you add a Material Design look and feel to your static
 frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
 from the get-go.
 
+## StageDive
+MDL/Dart has StageDive support!  
+Try it out and follow these steps:
+
+```bash
+# if you don't have mdl installed
+pub cache add mdl
+
+# if you don't have stagedive installed or if you want to update stagedive
+pub global activate stagedive
+
+# if you don't have sitegen installed or if you want to update sitegen
+# sitegen - will later act as a local server
+pub global activate sitegen
+
+stagedive -l
+
+# You should see something like this
+#   'MDL Android Template'    Package: mdl            Template name: android        Version: 1.0.1
+#   'Simple Console'          Package: stagedive      Template name: console        Version: 0.2.3
+
+# Now lets generate a new (-n) folder: android
+stagedive -n android -p mdl -t android
+
+# This is what stagedive asks you
+#   Your email address: office@mikemitterer
+#   Your name: Mike
+#   Enter the package-name: android_mdl
+#
+#   'MDL Android Template' created! (android)
+
+# move the the newly created dir
+cd android
+
+# Update everything
+pub update
+
+# Serve the site (you are in 'android'!)
+sitegen -x
+
+# In Chromium/Dartium
+localhost:8000
+```
+
+This is how it stagedive get's it's [template](https://goo.gl/O2gis7) 
+
+
 ## Quick Start
 
 In `pubspec.yaml` specify the `mdl`, `browser` and `di` packages as dependencies, as well as the `di` transformer.
