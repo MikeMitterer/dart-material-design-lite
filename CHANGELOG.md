@@ -1,6 +1,19 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.0.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.0.0...v1.0.1) - 2015-07-10##
+
+###Chore###
+* update introduction to match mdl [86d2207](https://github.com/mikemitterer/dart-material-design-lite/commit/86d2207126c6ebb4a19fca6ef86c137ad500c7c5)
+* add a quick start section [aac4ef4](https://github.com/mikemitterer/dart-material-design-lite/commit/aac4ef4e14446050aadb7cb57d4b90f86c9a004c)
+
+###Feature###
+* StageDive support [d383a7d](https://github.com/mikemitterer/dart-material-design-lite/commit/d383a7d52b382f2689a197601f3e140d0eb0ef6d)
+
+###Docs###
+* Android Temppate added [cb0093c](https://github.com/mikemitterer/dart-material-design-lite/commit/cb0093c787b82f7a711a6cc29bcf23832999c9fd)
+* Link to GH [7d56009](https://github.com/mikemitterer/dart-material-design-lite/commit/7d56009d14a32f3f2722d6a6d31a851c787d6d56)
+
 ##[v1.0.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v0.9.1...v1.0.0) - 2015-07-06##
 
 ###Bugs###
