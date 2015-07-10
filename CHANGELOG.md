@@ -1,6 +1,11 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.0.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.0.1...v1.0.2) - 2015-07-10##
+
+###Docs###
+* How to use stagedive [18907af](https://github.com/mikemitterer/dart-material-design-lite/commit/18907af79a62d69d31bb7d7fd8b39c737dc83407)
+
 ##[v1.0.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.0.0...v1.0.1) - 2015-07-10##
 
 ###Chore###
