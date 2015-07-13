@@ -1,24 +1,21 @@
 name: mdl_template_dashboard
-description: Material Design Lite 'dashboard' Template
-version: 0.1.0
-author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-material-design-lite
+version: 0.0.1
+description: Material Design Lite 'Dashboard' Template
+#author: <your name> <email@example.com>
+#homepage: https://www.example.com
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
 
 dependencies:
   browser: any
 
-  intl: any
-  args: any
-  validate: any
-  browser_detect: any
+  mdl:
+    path: ../..
 
   logging: any
   logging_handlers: any
   console_log_handler: any
-  #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
-
-  mdl:
-    path: ../../
 
   di: any
 

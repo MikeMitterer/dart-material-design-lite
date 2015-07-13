@@ -1,5 +1,21 @@
 <!doctype html>
-<html lang="">
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,12 +42,10 @@
     <link rel="canonical" href="http://www.example.com/">
     -->
 
-      <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
-      <link rel="stylesheet" href="styles.css">
-
-      <!--<link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">-->
-      <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">-->
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="material.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
     #view-source {
       position: fixed;
@@ -44,127 +58,114 @@
     }
     </style>
   </head>
-  <body class="mdl-base">
-    <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent is-casting-shadow mdl-color-text--white">
-        <!-- Title -->
-        <span class="mdl-layout-title">The Newist</span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-            <span class="mdl-icon mdl-icon--search"></span>
-          </label>
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" id="search">
-          </div>
-        </div>
-      </header>
-      <main class="mdl-layout__content mdl-grid">
-        <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
-          <div class="mdl-card--img-container mdl-color-text--grey-50">
-            <h3><a href="entry.html">Coffee Pic</a></h3>
-          </div>
-          <div class="mdl-card--bottom meta mdl-color-text--grey-600">
-            <img src="images/logo.svg" class="logo">
-            <div>
-              <strong>The Newist</strong>
-              <span>2 days ago</span>
+  <body>
+    <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+      <main class="mdl-layout__content">
+        <div class="demo-blog__posts mdl-grid">
+          <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
+            <div class="mdl-card__media mdl-color-text--grey-50">
+              <h3><a href="entry.html">Coffee Pic</a></h3>
+            </div>
+            <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+              <div class="minilogo"></div>
+              <div>
+                <strong>The Newist</strong>
+                <span>2 days ago</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
-          <div class="mdl-card--img-container mdl-color--primary mdl-color-text--grey-600">
-            <img src="images/logo.svg">
-            +1,337
-          </div>
-          <div class="mdl-card--bottom meta mdl-color-text--grey-600">
-            <div>
-              <strong>The Newist</strong>
+          <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
+            <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent"><i class="material-icons mdl-color-text--white">add</i></button>
+            <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
+              <img src="images/logo.png">
+              +1,337
             </div>
-            <ul class="mdl-menu mdl-js-menu" for="menubtn">
-              <button class="mdl-menu__item mdl-js-ripple-effect">New Article</button>
-              <button class="mdl-menu__item mdl-js-ripple-effect">Spam Readers</button>
-              <button class="mdl-menu__item mdl-js-ripple-effect">Pointless Button</button>
-            </ul>
-            <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-              <span class="mdl-icon mdl-icon--menu"></span>
-            </button>
-          </div>
-        </div>
-        <div class="mdl-card on-the-road-again mdl-cell mdl-cell--8-col">
-          <div class="mdl-card--img-container mdl-color-text--grey-50">
-            <h3><a href="entry.html">On the road again</a></h3>
-          </div>
-          <div class="mdl-color-text--grey-600 mdl-card--lower">
-            Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
-          </div>
-          <div class="mdl-card--bottom meta mdl-color-text--grey-600">
-            <img src="images/logo.svg" class="logo">
-            <div>
-              <strong>The Newist</strong>
-              <span>2 days ago</span>
+            <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
+              <div>
+                <strong>The Newist</strong>
+              </div>
+              <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
+                <button class="mdl-menu__item mdl-js-ripple-effect">About</button>
+                <button class="mdl-menu__item mdl-js-ripple-effect">Message</button>
+                <button class="mdl-menu__item mdl-js-ripple-effect">Favorite</button>
+                <button class="mdl-menu__item mdl-js-ripple-effect">Search</button>
+              </ul>
+              <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                <i class="material-icons">more_vert</i>
+              </button>
             </div>
           </div>
-        </div>
-        <div class="mdl-card subscribe mdl-color-text--grey-600 mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
-          <div class="mdl-card--header">
-            <h3>About</h3>
-          </div>
-          <div class="mdl-card--lower mdl-color-text--grey-600">
-            Elit ullamco pariatur irure quis Lorem consectetur dolor tempor minim ullamco velit. Dolor enim proident aliquip quis sit ullamco cupidatat aliqua ullamco proident ex non culpa. In laboris cillum ipsum adipisicing mollit. Irure ea et non anim labore exercitation consectetur cupidatat ea. Adipisicing eu pariatur commodo quis aute et consequat labore occaecat. Occaecat et cupidatat esse dolore officia incididunt ad in labore proident cupidatat. Ipsum ad qui quis occaecat culpa consequat minim. Ipsum culpa enim elit pariatur incididunt ad anim. Mollit laboris eu officia ipsum sit sit exercitation dolor adipisicing nulla. Ea eu consectetur eu laboris fugiat irure deserunt veniam in esse nulla et.
-          </div>
-          <div class="mdl-card--bottom meta">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--share"></span></button>
-            <ul class="social">
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--grade"></span></button>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--invert-colors"></span></button>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--language"></span></button>
-            </ul>
-          </div>
-        </div>
-        <div class="mdl-card amazing mdl-cell mdl-cell--8-col">
-          <div class="mdl-card--header mdl-color--accent mdl-color-text--grey-50">
-            <h3 class="quote"><a href="entry.html">I couldn’t take any pictures but this was an amazing thing…</a></h3>
-          </div>
-          <div class="mdl-card--lower mdl-color-text--grey-600">
-            Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
-          </div>
-          <div class="mdl-card--bottom meta mdl-color-text--grey-600">
-            <img src="images/logo.svg" class="logo">
-            <div>
-              <strong>The Newist</strong>
-              <span>2 days ago</span>
+          <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__media mdl-color-text--grey-50">
+              <h3><a href="entry.html">On the road again</a></h3>
+            </div>
+            <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+              Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+            </div>
+            <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+              <div class="minilogo"></div>
+              <div>
+                <strong>The Newist</strong>
+                <span>2 days ago</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="empty mdl-cell mdl-cell--4-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <div class="mdl-card shopping mdl-cell mdl-cell--8-col">
-          <div class="mdl-card--img-container mdl-color-text--grey-50">
-            <h3><a href="entry.html">Shopping</a></h3>
-          </div>
-          <div class="mdl-color-text--grey-600 mdl-card--lower">
-            Ea mollit dolore esse velit mollit in dolore nostrud nulla sint. Ex occaecat dolor consectetur aliqua occaecat proident nisi. Esse do aute sit labore ipsum. Enim sunt anim et do magna occaecat consequat occaecat commodo sunt proident. Officia esse irure cillum laborum nostrud consequat nulla quis nostrud tempor dolore commodo.
-          </div>
-          <div class="mdl-card--bottom meta mdl-color-text--grey-600">
-            <img src="images/logo.svg" class="logo">
-            <div>
-              <strong>The Newist</strong>
-              <span>2 days ago</span>
+          <div class="mdl-card amazing mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__title mdl-color-text--grey-50">
+              <h3 class="quote"><a href="entry.html">I couldn’t take any pictures but this was an amazing thing…</a></h3>
+            </div>
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+              Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+            </div>
+            <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+              <div class="minilogo"></div>
+              <div>
+                <strong>The Newist</strong>
+                <span>2 days ago</span>
+              </div>
             </div>
           </div>
+          <div class="mdl-card shopping mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__media mdl-color-text--grey-50">
+              <h3><a href="entry.html">Shopping</a></h3>
+            </div>
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+              Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+            </div>
+            <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+              <div class="minilogo"></div>
+              <div>
+                <strong>The Newist</strong>
+                <span>2 days ago</span>
+              </div>
+            </div>
+          </div>
+          <nav class="demo-nav mdl-cell mdl-cell--12-col">
+            <div class="section-spacer"></div>
+            <a href="entry.html" class="demo-nav__button">
+              More
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                <i class="material-icons">arrow_forward</i>
+              </button>
+            </a>
+          </nav>
         </div>
-        <div class="empty mdl-cell mdl-cell--4-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <nav class="mdl-color-text--grey-50 mdl-cell mdl-cell--8-col">
-          More <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><span class="mdl-icon mdl-icon--arrow-forward"></span></button>
-        </nav>
+        <footer class="mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+            <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter"></button>
+            <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger"></button>
+            <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus"></button>
+          </div>
+          <div class="mdl-mini-footer--right-section">
+            <button class="mdl-mini-footer--social-btn social-btn__share"><i class="material-icons">share</i></button>
+          </div>
+        </footer>
       </main>
       <div class="mdl-layout__obfuscator"></div>
     </div>
-    <a href="https://github.com/google/material-design-lite/blob/master/templates/blog/index.html" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-color--accent"><span class="mdl-icon mdl-icon--pageview"/></a>
-    <!-- start Autogenerated with gensamples.dart -->
-    <script type="application/dart" src="main.dart"></script>
-    <script type="text/javascript" src="packages/browser/dart.js"></script>
-    <!-- end Autogenerated with gensamples.dart -->
+  <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/master/example/template_blog" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
+
+  <script type="application/dart" src="main.dart"></script>
+  <script data-pub-inline src="packages/browser/dart.js"></script>
   </body>
 </html>

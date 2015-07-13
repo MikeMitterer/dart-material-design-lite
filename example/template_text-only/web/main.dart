@@ -1,21 +1,17 @@
-import "dart:html" as dom;
+import 'dart:html' as html;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
-import "package:mdl/mdldialog.dart";
 
-main() {
-    final Logger _logger = new Logger('template.Main');
+final Logger _logger = new Logger('layout-header-drawer-footer');
 
+void main() async {
     configLogging();
 
     registerMdl();
-
-    upgradeAllRegistered().then((_) {
-
-    });
+    await componentFactory().run();
 }
 
 void configLogging() {
@@ -26,3 +22,4 @@ void configLogging() {
     Logger.root.level = Level.INFO;
     Logger.root.onRecord.listen(new LogConsoleHandler());
 }
+
