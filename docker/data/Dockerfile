@@ -19,11 +19,14 @@ MAINTAINER Mike Mitterer <office@mikemitterer.at>
 RUN apk-install bash
 RUN apk-install mc
 
-RUN mkdir /data
-
-VOLUME /data
-
 COPY .bashrc /root/
-ADD example.tgz /data/
+
+RUN mkdir /data
+VOLUME /data
+# ADD example.tgz /data/
+
+#RUN mkdir -p /usr/share/nginx/html
+#VOLUME /usr/share/nginx/html
+#ADD example.tgz /usr/share/nginx/html/
 
 CMD ["true"]

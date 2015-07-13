@@ -58,6 +58,9 @@
     locked at the top -->
       <style>
           .layout-transparent {
+              box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
               background: url('demo-images/transparent.jpg') center / cover;
           }
           .layout-transparent .mdl-layout__header,
@@ -101,6 +104,20 @@
 
   <h2>Fixed drawer, no header</h2>
   <p> No header, and the drawer stays open on larger screens (fixed drawer).</p>
+    <style>
+        .fixed-drawer-container {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2),
+            0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            width: 100%;
+            position: relative;
+            height: 300px;
+        }
+        .fixed-drawer-container .mdl-layout__content {
+            background: white;
+        }
+    </style>
+    <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
   <div class="demo-layout fixed-drawer-container">
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <header class="mdl-layout__header">
@@ -136,8 +153,22 @@
   <h2>Fixed header and drawer</h2>
   <p>The drawer is always open in large screens. The header is always shown,
       even in small screens.</p>
-  <!-- Always shows a header, even in smaller screens. -->
-  <div class="demo-layout">
+    <style>
+        .fixed-header-drawer-container {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2),
+            0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            width: 100%;
+            position: relative;
+            height: 300px;
+        }
+        .fixed-header-drawer-container .mdl-layout__content {
+            background: white;
+        }
+    </style>
+    <!-- The drawer is always open in large screens. The header is always shown,
+    even in small screens. -->
+  <div class="demo-layout fixed-header-drawer-container">
       <div class="demo-layout">
           <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
               mdl-layout--fixed-header">
@@ -193,8 +224,7 @@
             overflow: visible;
         }
     </style>
-    <div class="demo-layout">
-        <div class="scrolling-header-container">
+    <div class="demo-layout scrolling-header-container">
          <!-- Uses a header that scrolls with the text, rather than staying
               locked at the top -->
           <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
@@ -226,11 +256,11 @@
                   <div class="page-content"></div>
               </main>
           </div>
-            </div>
   </div>
 
   <h2>Waterfall header</h2>
   <p>Uses a header that contracts as the page scrolls down.</p>
+    <!-- Uses a header that contracts as the page scrolls down. -->
   <div class="demo-layout">
       <style>
           .waterfall-header-container {
@@ -301,8 +331,21 @@
 
   <h2>Scrollable tabs</h2>
   <p>Simple header with scrollable tabs.</p>
-  <div class="demo-layout">
+  <div class="demo-layout scrollable-tabs-container">
       <!-- Simple header with scrollable tabs. -->
+      <style>
+          .scrollable-tabs-container {
+              box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+              width: 100%;
+              position: relative;
+              height: 300px;
+          }
+          .scrollable-tabs-container .mdl-layout__content {
+              background: white;
+          }
+      </style>
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <header class="mdl-layout__header">
               <div class="mdl-layout__header-row">
@@ -347,8 +390,21 @@
 
   <h2>Fixed tabs</h2>
   <p>Simple header with fixed tabs.</p>
-  <div class="demo-layout">
+  <div class="demo-layout fixed-tabs-container">
       <!-- Simple header with fixed tabs. -->
+      <style>
+          .fixed-tabs-container {
+              box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+              width: 100%;
+              position: relative;
+              height: 300px;
+          }
+          .fixed-tabs-container .mdl-layout__content {
+              background: white;
+          }
+      </style>
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
             mdl-layout--fixed-tabs">
           <header class="mdl-layout__header">

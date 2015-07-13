@@ -7,13 +7,11 @@ import 'package:mdl/mdl.dart';
 
 final Logger _logger = new Logger('layout-header-drawer-footer');
 
-void main() {
+void main() async {
     configLogging();
 
     registerMdl();
-    componentFactory().run().then((_) {
-
-    });
+    await componentFactory().run();
 }
 
 void configLogging() {

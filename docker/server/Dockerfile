@@ -11,14 +11,20 @@
 # Test with bash:
 #   docker run -ti mikemitterer/mdl-server bash
 #   docker run --volumes-from mdl-data --name mdl-server -ti mikemitterer/mdl-server bash
+#   docker run --volumes-from vol-mdl-live --name mdl-server -ti mikemitterer/mdl-server bash
 #------------------------------------------------------------------------------
 
 FROM nginx
 
 MAINTAINER Mike Mitterer <office@mikemitterer.at>
 
+# RUN apt-get update && apt-get install -y \
+#    rsync
+
 RUN mv /usr/share/nginx/html /usr/share/nginx/html.off
-RUN ln -s /data /usr/share/nginx/html
+#RUN ln -s /data /usr/share/nginx/html
+
+#RUN rsync -avz --delete /data/ /usr/share/nginx/html/
 
 COPY .bashrc /root/
 
