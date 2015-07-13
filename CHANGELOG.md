@@ -1,6 +1,11 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.0.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.0.2...v1.0.3) - 2015-07-13##
+
+###Docs###
+* Benefits of MDL/Dart [6c485e0](https://github.com/mikemitterer/dart-material-design-lite/commit/6c485e041aaa015ea3825512ee78e7f040fd9a77)
+
 ##[v1.0.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.0.1...v1.0.2) - 2015-07-10##
 
 ###Docs###
