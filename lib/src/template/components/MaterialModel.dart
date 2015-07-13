@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-part of template;
+part of mdltemplate;
  
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -82,7 +82,7 @@ void registerMaterialModel() {
     // If you want <mdl-model></mdl-model> set selectorType to SelectorType.TAG.
     // If you want <div mdl-model></div> set selectorType to SelectorType.ATTRIBUTE.
     // By default it's used as a class name. (<div class="mdl-model"></div>)
-    config.selectorType = SelectorType.CLASS;
+    config.selectorType = SelectorType.ATTRIBUTE;
     
     componentHandler().register(config);
 }
