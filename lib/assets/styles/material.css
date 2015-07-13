@@ -323,6 +323,39 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu, .m
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
+/*
+ * Make html take up the entire screen
+ * Then set touch-action to avoid touch delay on mobile IE
+ */
+html {
+  width: 100%;
+  height: 100%;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation; }
+
+/*
+* Make body take up the entire screen
+* Remove body margin so layout containers don't cause extra overflow.
+*/
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0; }
+
+/*
+ * Main display reset for IE support.
+ * Source: http://weblog.west-wind.com/posts/2015/Jan/12/main-HTML5-Tag-not-working-in-Internet-Explorer-91011
+ */
+main {
+  display: block; }
+
+/*
+* Apply no display to elements with the hidden attribute.
+* IE 9 and 10 support.
+*/
+*[hidden] {
+  display: none !important; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -2935,14 +2968,13 @@ ul, ol {
     background-color: rgba(0, 0, 0, 0.12); }
   .mdl-button:active {
     background-color: rgba(158, 158, 158, 0.4); }
-  .mdl-button[disabled][disabled] {
-    color: rgba(0, 0, 0, 0.26);
-    cursor: auto;
-    background-color: transparent; }
   .mdl-button.mdl-button--colored {
     color: #3f51b5; }
     .mdl-button.mdl-button--colored:focus:not(:active) {
       background-color: rgba(0, 0, 0, 0.12); }
+
+input.mdl-button[type="submit"] {
+  -webkit-appearance: none; }
 
 .mdl-button--raised {
   background: rgba(158, 158, 158, 0.2);
@@ -2964,10 +2996,6 @@ ul, ol {
       background-color: #3f51b5; }
     .mdl-button--raised.mdl-button--colored .mdl-ripple {
       background: white; }
-  .mdl-button--raised[disabled][disabled] {
-    background-color: rgba(0, 0, 0, 0.12);
-    color: rgba(0, 0, 0, 0.26);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-button--fab {
   border-radius: 50%;
@@ -3015,10 +3043,6 @@ ul, ol {
       background-color: #ff4081; }
     .mdl-button--fab.mdl-button--colored .mdl-ripple {
       background: white; }
-  .mdl-button--fab[disabled][disabled] {
-    background-color: rgba(0, 0, 0, 0.12);
-    color: rgba(0, 0, 0, 0.26);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .mdl-button--icon {
   border-radius: 50%;
@@ -3080,6 +3104,23 @@ ul, ol {
     color: white;
     background-color: #ff4081; }
 
+.mdl-button[disabled][disabled] {
+  color: rgba(0, 0, 0, 0.26);
+  cursor: auto;
+  background-color: transparent; }
+.mdl-button--fab[disabled][disabled] {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+.mdl-button--raised[disabled][disabled] {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+.mdl-button--colored[disabled][disabled] {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3124,6 +3165,7 @@ ul, ol {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 16px;
+  font-weight: 400;
   min-height: 200px;
   overflow: hidden;
   width: 330px;
@@ -4889,7 +4931,8 @@ ul, ol {
           flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  position: relative; }
+  position: relative;
+  -webkit-overflow-scrolling: touch; }
 
 .mdl-layout.is-small-screen .mdl-layout--large-screen-only {
   display: none; }
@@ -5225,7 +5268,8 @@ ul, ol {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  z-index: 1; }
+  z-index: 1;
+  -webkit-overflow-scrolling: touch; }
   .mdl-layout--fixed-drawer > .mdl-layout__content {
     margin-left: 240px; }
   .mdl-layout__container.has-scrolling-header .mdl-layout__content {
@@ -5737,18 +5781,13 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded.is-lowest-value ~ .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px; }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
-      border: 1.8px solid rgba(0, 0, 0, 0.26);
-      -webkit-transform: scale(1.33);
-              transform: scale(1.33);
-      box-shadow: none; }
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.12);
+      background: rgba(0, 0, 0, 0.12); }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-moz-range-thumb {
-      border: 1.8px solid rgba(0, 0, 0, 0.26);
-      transform: scale(1.33);
-      box-shadow: none; }
-    .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active) ~ .mdl-slider__background-flex > .mdl-slider__background-upper {
-      left: 8px; }
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.12);
+      background: rgba(0, 0, 0, 0.12); }
     .mdl-slider.is-upgraded.is-lowest-value:active::-webkit-slider-thumb {
-      border: 1.5px solid rgba(0, 0, 0, 0.26);
+      border: 1.6px solid rgba(0, 0, 0, 0.26);
       -webkit-transform: scale(1.5);
               transform: scale(1.5); }
     .mdl-slider.is-upgraded.is-lowest-value:active ~ .mdl-slider__background-flex > .mdl-slider__background-upper {
@@ -5759,9 +5798,9 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded.is-lowest-value::-ms-thumb {
       background: radial-gradient(circle closest-side, transparent 0%, transparent 66.67%, rgba(0, 0, 0, 0.26) 66.67%, rgba(0, 0, 0, 0.26) 100%); }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-ms-thumb {
-      -ms-transform: scale(0.5);
-          transform: scale(0.5);
-      background: radial-gradient(circle closest-side, transparent 0%, transparent 75%, rgba(0, 0, 0, 0.26) 75%, rgba(0, 0, 0, 0.26) 100%); }
+      background: radial-gradient(circle closest-side, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 25%, rgba(0, 0, 0, 0.26) 25%, rgba(0, 0, 0, 0.26) 37.5%, rgba(0, 0, 0, 0.12) 37.5%, rgba(0, 0, 0, 0.12) 100%);
+      -ms-transform: scale(1);
+          transform: scale(1); }
     .mdl-slider.is-upgraded.is-lowest-value:active::-ms-thumb {
       -ms-transform: scale(0.5625);
           transform: scale(0.5625);
@@ -5770,8 +5809,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       background: transparent; }
     .mdl-slider.is-upgraded.is-lowest-value::-ms-fill-upper {
       margin-left: 6px; }
-    .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-ms-fill-upper {
-      margin-left: 8px; }
     .mdl-slider.is-upgraded.is-lowest-value:active::-ms-fill-upper {
       margin-left: 9px; }
     .mdl-slider.is-upgraded:disabled:focus::-webkit-slider-thumb, .mdl-slider.is-upgraded:disabled:active::-webkit-slider-thumb, .mdl-slider.is-upgraded:disabled::-webkit-slider-thumb {
@@ -6606,6 +6643,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   display: inline-block;
   box-sizing: border-box;
   width: 300px;
+  max-width: 100%;
   margin: 0;
   padding: 20px 0; }
   .mdl-textfield .mdl-button {
@@ -6626,7 +6664,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 .mdl-textfield__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  display: block;
+  display: inline-block;
   font-size: 16px;
   margin: 0;
   padding: 4px 0;
@@ -6990,9 +7028,9 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-align-content: space-between;
-        -ms-flex-line-pack: justify;
-            align-content: space-between;
+    -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
@@ -7001,7 +7039,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     top: -11px;
     right: -24px;
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 12px;
     width: 22px;
     height: 22px;

@@ -99,6 +99,8 @@ class MaterialMenu extends MdlComponent {
     dom.DivElement _outline;
     dom.Element _forElement;
 
+    StreamSubscription _animationStream = null;
+
     dom.Element get forElement {
         if(_forElement == null) {
             _initForElement();
@@ -518,11 +520,15 @@ class MaterialMenu extends MdlComponent {
     void _addAnimationEndListener() {
 
         final cleanup = (_) {
+            if(_animationStream != null) {
+                _animationStream.cancel();
+                _animationStream = null;
+            }
             element.classes.remove(_cssClasses.IS_ANIMATING);
         };
 
         // Remove animation class once the transition is done.
-        element.onTransitionEnd.listen(cleanup);
+        _animationStream = element.onTransitionEnd.listen(cleanup);
     }
 }
 

@@ -329,7 +329,9 @@ void _applyClip(final height, width) {
 /// MaterialMenu.prototype.addAnimationEndListener_ = /*function*/ () {
 void _addAnimationEndListener() {
 
-  final cleanup = /*function*/ () {
+  final cleanup = function () {
+    element.removeEventListener('transitionend', cleanup);
+    element.removeEventListener('webkitTransitionEnd', cleanup);
     element.classes.remove(_cssClasses.IS_ANIMATING);
   };
 

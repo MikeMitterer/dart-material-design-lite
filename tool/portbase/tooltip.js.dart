@@ -52,10 +52,26 @@ void _handleMouseEnter(final html.Event event) {
   event.stopPropagation();
 
   final props = event.target.getBoundingClientRect();
-  element.style.left = props.left + (props.width / 2) + 'px';
-  element.style.marginLeft = -1 * (element.offsetWidth / 2) + 'px';
+
+  final left = props.left + (props.width / 2);
+
+  final marginLeft = -1 * (element.offsetWidth / 2);
+
+  if (left + marginLeft < 0) {
+    element.style.left = 0;
+    element.style.marginLeft = 0;
+
+  } else {
+    element.style.left = left + 'px';
+    element.style.marginLeft = marginLeft + 'px';
+  }
+
   element.style.top = props.top + props.height + 10 + 'px';
   element.classes.add(_cssClasses.IS_ACTIVE);
+
+	// .addEventListener('scroll', -- .onScroll.listen(<Event>);
+  window.onScroll.listen( boundMouseLeaveHandler, false);
+  window.addEventListener('touchmove', boundMouseLeaveHandler, false);
 }
 
 /// Handle mouseleave for tooltip.
@@ -65,6 +81,8 @@ void _handleMouseLeave(final html.Event event) {
 
   event.stopPropagation();
   element.classes.remove(_cssClasses.IS_ACTIVE);
+  window.removeEventListener('scroll', boundMouseLeaveHandler);
+  window.removeEventListener('touchmove', boundMouseLeaveHandler, false);
 }
 
 /// Initialize element.
