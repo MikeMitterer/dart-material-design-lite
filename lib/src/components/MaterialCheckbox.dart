@@ -135,6 +135,8 @@ class MaterialCheckbox extends MdlComponent {
     void set disabled(final bool _disabled) => _disabled ? disable() : enable();
     bool get disabled => inputElement.disabled;
 
+    String get value => inputElement.value;
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {

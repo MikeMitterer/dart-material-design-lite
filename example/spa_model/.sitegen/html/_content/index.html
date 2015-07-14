@@ -3,7 +3,26 @@ samplename: model
 sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/spa_model/web
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div class="demo-preview-block">
-    <model>Your sample works</model>
+    <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" id="sample1" mdl-model="modelTest.minimodel"/>
+        <label class="mdl-textfield__label" for="sample1">Type Something...</label>
+    </div>
+
+    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" value="android" mdl-model="modelTest.os1"/>
+        <span class="mdl-checkbox__label">Android</span>
+    </label>
+    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+        <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" value="ios" mdl-model="modelTest.os2"/>
+        <span class="mdl-checkbox__label">iOS</span>
+    </label>
+
+    <div class="output mdl-color--200 mdl-color-text--white">
+        Text in TextField: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.minimodel"></mdl-property><br>
+        OS1: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.os1"></mdl-property><br>
+        OS2: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.os2"></mdl-property><br>
+    </div>
+
 </div>
 
 

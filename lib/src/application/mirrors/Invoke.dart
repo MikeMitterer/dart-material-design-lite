@@ -55,13 +55,29 @@ class Invoke {
         myClassInstanceMirror.invoke(myFunction,params);
     }
 
+    /// Returns the object for the given [fieldname]. If [fieldname] is separated with dots
+    /// it iterates through all the fields and returns the object for the last part of [fieldname]
+    ///
+    /// Example:
+    ///     final val = (new Invoke(_scope)).field("proxy.name");
+    ///
+    ///     val becomes the "name"-Object
+    ///
     dynamic field(final String fieldname) {
         Validate.notBlank(fieldname);
 
-        final InstanceMirror myClassInstanceMirror = reflect(_scope.context);
-        final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(fieldname));
+        Object context = _scope.context;
+        final List<String> names = fieldname.split(".");
 
-        final obj = getField.reflectee;
+        names.forEach((final String name) {
+            final InstanceMirror myClassInstanceMirror = reflect(context);
+            final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(name));
+
+            context = getField.reflectee;
+        });
+
+
+        final obj = context;
 
         _logger.fine("Field: ${obj}");
         return obj;

@@ -78,6 +78,7 @@ class MaterialTextfield extends MdlComponent {
 
     static MaterialTextfield widget(final dom.HtmlElement element) => mdlComponent(element,MaterialTextfield) as MaterialTextfield;
 
+    /// MaterialTextfield is one of the few exception where hub != element
     dom.Element get hub => input;
 
     dom.HtmlElement get input {
@@ -119,6 +120,7 @@ class MaterialTextfield extends MdlComponent {
 
     void set value(final String value) {
         _relaxedInput.value = value;
+        _updateClasses();
     }
 
     //- private -----------------------------------------------------------------------------------

@@ -1,25 +1,23 @@
 //@import "packages/mdl/assets/styles/material-design-lite";
 
-.demo-page--observe, .demo-section--observe {
-    .mdl-repeat div {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start; // ⇾
-        align-content: space-between; // ||
-        align-items: center; // ↓
+.demo-page--model, .demo-section--model {
+    .mdl-textfield { width: 100%; }
 
-        padding: 12px;
-
-        .mdl-checkbox {
-            margin-top: 0;
-            margin-bottom: 0;
-
-            width: initial;
-        }
+    .mdl-checkbox {
+        margin-bottom: 12px;
     }
 
-    .mdl-property {
-        font-weight: bold;
+    .output {
+        margin: 6px;
+        padding: 6px;
+        border: 1px;
+        border-radius: 5px;
+
+        .mdl-property {
+            font-size: 16px;
+            font-weight: bold;
+
+            line-height: 24px;
+        }
     }
 }

@@ -41,14 +41,15 @@ class MaterialModel extends MdlComponent {
     //static const _MaterialModelConstant _constant = const _MaterialModelConstant();
     static const _MaterialModelCssClasses _cssClasses = const _MaterialModelCssClasses();
 
+    Scope _scope;
+
     MaterialModel.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
-        
+
+        _scope = new Scope(this, mdlParentScope(this));
         _init();
         
     }
-    
-    static MaterialModel widget(final dom.HtmlElement element) => mdlComponent(MaterialModel,element) as MaterialModel;
     
     // Central Element - by default this is where mdl-model can be found (element)
     // html.Element get hub => inputElement;
@@ -63,18 +64,24 @@ class MaterialModel extends MdlComponent {
 
     void _init() {
         _logger.info("MaterialModel - init");
-        
-        final dom.DivElement sample = new dom.DivElement();
-        sample.text = "Your MaterialModel-Component works!";
-        element.append(sample);
-        
+
+        _logger.info("ParentScope: ${_scope.parentContext}");
+        final String fieldname = element.attributes[_MaterialModelConstant.WIDGET_SELECTOR].trim();
+
+        _scope.context = _scope.parentContext;
+
+        final ModelObserver observer = new ModelObserver(element);
+        _logger.info("Observer: ${observer}");
+
+        observer.observe(_scope,fieldname);
+
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 }
 
 /// registration-Helper
 void registerMaterialModel() {
-    final MdlConfig config = new MdlWidgetConfig<MaterialModel>(
+    final MdlConfig config = new MdlConfig<MaterialModel>(
         _MaterialModelConstant.WIDGET_SELECTOR,
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialModel.fromElement(element,injector)
     );
@@ -83,7 +90,10 @@ void registerMaterialModel() {
     // If you want <div mdl-model></div> set selectorType to SelectorType.ATTRIBUTE.
     // By default it's used as a class name. (<div class="mdl-model"></div>)
     config.selectorType = SelectorType.ATTRIBUTE;
-    
+
+    // Sets priority to 5 - means all Components get upgraded (priority 1) before this component
+    config.priority = 5;
+
     componentHandler().register(config);
 }
 
