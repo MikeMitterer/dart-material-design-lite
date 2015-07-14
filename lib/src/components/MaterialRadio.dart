@@ -283,8 +283,6 @@ class MaterialRadioGroup extends MdlComponent {
 
     static const _MaterialRadioCssClasses _cssClasses = const _MaterialRadioCssClasses();
 
-    //factory MaterialRadioGroup(final dom.HtmlElement element) => mdlComponent(element) as MaterialRadioGroup;
-
     MaterialRadioGroup.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         _init();

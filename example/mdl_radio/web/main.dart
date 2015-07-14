@@ -5,13 +5,21 @@ import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
 
-main() {
+main() async {
+    final Logger _logger = new Logger('mdl_radio.main');
+
     configLogging();
 
     registerMdl();
 
-    componentFactory().run().then((_) {
-        MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
+    await componentFactory().run();
+    MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
+
+    MaterialButton.widget(dom.querySelector("#show-wifi-value")).onClick.listen((_) {
+        final MaterialRadioGroup group = MaterialRadioGroup.widget(dom.querySelector("#wifi"));
+        final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
+
+        alertDialog("Value is: ${group.value}").show();
     });
 }
 
