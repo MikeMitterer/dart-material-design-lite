@@ -18,15 +18,17 @@ FROM nginx
 
 MAINTAINER Mike Mitterer <office@mikemitterer.at>
 
+COPY .bashrc /root/
+
 # RUN apt-get update && apt-get install -y \
 #    rsync
 
 RUN mv /usr/share/nginx/html /usr/share/nginx/html.off
-#RUN ln -s /data /usr/share/nginx/html
+# RUN ln -s /data /usr/share/nginx/html
+# RUN rsync -avz --delete /data/ /usr/share/nginx/html/
 
-#RUN rsync -avz --delete /data/ /usr/share/nginx/html/
+# ADD example.tgz /usr/share/nginx/html/
 
-COPY .bashrc /root/
 
 
 
