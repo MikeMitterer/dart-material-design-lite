@@ -36,6 +36,7 @@ abstract class ModelObserver<T extends MdlComponent> {
 
         }
 
+        throw new ArgumentError("${element} cannot be observed. Probably not a MdlComponent!");
     }
 
     void observe(final Scope scope,final String fieldname);
@@ -79,9 +80,7 @@ class TextFieldObserver implements ModelObserver<MaterialTextfield> {
     TextFieldObserver._internal(this._textfield) {
         Validate.notNull(_textfield);
     }
-
 }
-
 
 class CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
     final Logger _logger = new Logger('mdltemplate.CheckBoxObserver');
