@@ -220,6 +220,8 @@ class MaterialRadio extends MdlComponent {
                 _updateClasses(button, radios[i]);
             }
         }
+
+        _informParentAboutChange();
     }
 
     /// Handle focus.
@@ -276,12 +278,30 @@ class MaterialRadio extends MdlComponent {
             });
         }
     }
+
+    /// If this radio has a parent with .mdl-radio-group set it calls it's childChanged functions
+    void _informParentAboutChange() {
+        if(element.parent.classes.contains(_MaterialRadioCssClasses.GROUP_CLASS)) {
+            final MaterialRadioGroup group = MaterialRadioGroup.widget(element.parent);
+            if(group != null) {
+                group.childChanged(this);
+            }
+        }
+    }
+}
+
+/// Fired by [MaterialRadioGroup] on [childChanged]
+class MaterialRadioGroupChangedEvent {
+    final MaterialRadioGroup group;
+    MaterialRadioGroupChangedEvent(this.group);
 }
 
 class MaterialRadioGroup extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialRadioGroup');
 
     static const _MaterialRadioCssClasses _cssClasses = const _MaterialRadioCssClasses();
+
+    StreamController<MaterialRadioGroupChangedEvent> _onChange;
 
     MaterialRadioGroup.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
@@ -294,7 +314,7 @@ class MaterialRadioGroup extends MdlComponent {
         bool _hasValue = false;
         element.children.forEach((final dom.HtmlElement child) {
             final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
-            if(radio.checked) {
+            if(radio != null && radio.checked) {
                 _hasValue = true;
             }
         });
@@ -304,12 +324,42 @@ class MaterialRadioGroup extends MdlComponent {
     String get value {
         String _value = "";
         element.children.forEach((final dom.HtmlElement child) {
+
             final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
-            if(radio.checked) {
+            if(radio != null && radio.checked) {
                 _value = radio.value;
             }
+
         });
         return _value;
+    }
+
+    void set value(final String val) {
+        element.children.forEach((final dom.HtmlElement child) {
+
+            final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
+            if(radio != null) {
+
+                if(radio.value == val) {
+                    radio.check();
+                } else {
+                    radio.uncheck();
+                }
+
+            }
+        });
+    }
+
+    /// Called in the children's _onChange function to inform its parent about changes
+    void childChanged(final MaterialRadio child) {
+        _fire(new MaterialRadioGroupChangedEvent(this));
+    }
+
+    Stream<MaterialRadioGroupChangedEvent> get onChange {
+        if(_onChange == null) {
+            _onChange = new StreamController<MaterialRadioGroupChangedEvent>.broadcast(onCancel: () => _onChange = null);
+        }
+        return _onChange.stream;
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -319,6 +369,12 @@ class MaterialRadioGroup extends MdlComponent {
 
         if (element != null) {
             element.classes.add(_cssClasses.IS_UPGRADED);
+        }
+    }
+
+    void _fire(final MaterialRadioGroupChangedEvent event) {
+        if(_onChange != null && _onChange.hasListener) {
+            _onChange.add(event);
         }
     }
 }

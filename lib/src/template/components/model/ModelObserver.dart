@@ -34,6 +34,10 @@ abstract class ModelObserver<T extends MdlComponent> {
 
             return new CheckBoxObserver._internal(component);
 
+        } else if(component is MaterialRadioGroup) {
+
+            return new RadioObserver._internal(component);
+
         }
 
         throw new ArgumentError("${element} cannot be observed. Probably not a MdlComponent!");
@@ -97,6 +101,7 @@ class CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
             final ObservableProperty prop = val;
 
             _checkbox.onClick.listen((_) => prop.value = _checkbox.checked ? _checkbox.value : "");
+
             prop.onChange.listen( (final PropertyChangeEvent event) =>
                 _checkbox.value == prop.value ? _checkbox.checked = true : _checkbox.checked = false);
 
@@ -115,6 +120,44 @@ class CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
 
     CheckBoxObserver._internal(this._checkbox) {
         Validate.notNull(_checkbox);
+    }
+
+}
+
+class RadioObserver implements ModelObserver<MaterialRadioGroup> {
+    final Logger _logger = new Logger('mdltemplate.RadioObserver');
+
+    final MaterialRadioGroup _radioGroup;
+
+    void observe(final Scope scope,final String fieldname) {
+        Validate.notNull(scope);
+        Validate.notBlank(fieldname);
+
+        final val = (new Invoke(scope)).field(fieldname);
+        if (val != null && val is ObservableProperty) {
+
+            final ObservableProperty prop = val;
+
+            _radioGroup.onChange.listen((_) => _radioGroup.hasValue ? prop.value = _radioGroup.value : prop.value = "");
+
+            prop.onChange.listen( (final PropertyChangeEvent event) => _radioGroup.value = prop.value.toString() );
+            _radioGroup.value = prop.value.toString();
+
+        } else if(val != null) {
+
+            _radioGroup.value = val.toString();
+            _logger.warning("${fieldname} is not Observable, MaterialRadioGroup will not be able to set its value!");
+
+        } else {
+
+            throw new ArgumentError("${fieldname} is null!");
+        }
+    }
+
+    //- private -----------------------------------------------------------------------------------
+
+    RadioObserver._internal(this._radioGroup) {
+        Validate.notNull(_radioGroup);
     }
 
 }

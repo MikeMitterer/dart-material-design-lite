@@ -15,6 +15,9 @@ class ModelTest {
 
     ObservableProperty<String> os1 = new ObservableProperty<String>("");
     ObservableProperty<String> os2 = new ObservableProperty<String>("");
+
+    ObservableProperty<String> wifi = new ObservableProperty<String>("never");
+
 }
 
 @MdlComponentModel @di.Injectable()
