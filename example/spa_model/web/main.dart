@@ -9,15 +9,18 @@ import 'package:di/di.dart' as di;
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
 
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel
 class ModelTest {
-    ObservableProperty<String> minimodel = new ObservableProperty<String>("test");
+    final ObservableProperty<String> minimodel = new ObservableProperty<String>("test");
 
-    ObservableProperty<String> os1 = new ObservableProperty<String>("");
-    ObservableProperty<String> os2 = new ObservableProperty<String>("");
+    final ObservableProperty<String> os1 = new ObservableProperty<String>("");
+    final ObservableProperty<String> os2 = new ObservableProperty<String>("");
 
-    ObservableProperty<String> wifi = new ObservableProperty<String>("never");
+    final ObservableProperty<String> wifi = new ObservableProperty<String>("never");
 
+    final List<ObservableProperty<String>> lights = [ new ObservableProperty<String>(""), new ObservableProperty<String>("") ];
+
+    final ObservableProperty<int> intensity = new ObservableProperty<int>(90);
 }
 
 @MdlComponentModel @di.Injectable()
@@ -28,6 +31,7 @@ class Application extends MaterialApplication {
 
     Application() {
         _bind();
+        modelTest.lights;
     }
 
     @override

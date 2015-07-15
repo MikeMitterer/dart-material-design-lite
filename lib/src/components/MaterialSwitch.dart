@@ -85,6 +85,18 @@ class MaterialSwitch extends MdlComponent {
 
     static MaterialSwitch widget(final dom.HtmlElement element) => mdlComponent(element,MaterialSwitch) as MaterialSwitch;
 
+    /**
+     * Makes it possible to get the "widget" from the components input-element instead of its mdl-class
+     * Sample:
+     *      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+     *          <input type="checkbox" id="switch-1" class="mdl-switch__input" />
+     *          <span class="mdl-switch__label">Switch me</span>
+     *      </label>
+     *
+     *      final MaterialSwitch switch = MaterialSwitch.widget(dom.querySelector("#switch-1"));
+     */
+    dom.Element get hub => inputElement;
+
     dom.CheckboxInputElement get inputElement {
         if(_inputElement == null) { _inputElement = element.querySelector(".${_cssClasses.INPUT}"); }
         return _inputElement;
@@ -114,10 +126,18 @@ class MaterialSwitch extends MdlComponent {
         _updateClasses();
     }
 
+    /// Returns the checked-state
+    bool get checked => inputElement.checked;
+
+    void set checked(final bool _checked) => _checked ? on() : off();
+
+    /// Returns the value for the given [inputElement]
+    String get value => inputElement.value.trim();
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialSwitch - init");
+        _logger.fine("MaterialSwitch - init");
 
         if (element != null) {
 

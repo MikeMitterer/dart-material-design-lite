@@ -63,16 +63,14 @@ class MaterialModel extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialModel - init");
+        _logger.fine("MaterialModel - init");
 
-        _logger.info("ParentScope: ${_scope.parentContext}");
+        //_logger.info("ParentScope: ${_scope.parentContext}");
         final String fieldname = element.attributes[_MaterialModelConstant.WIDGET_SELECTOR].trim();
 
         _scope.context = _scope.parentContext;
 
         final ModelObserver observer = new ModelObserver(element);
-        _logger.info("Observer: ${observer}");
-
         observer.observe(_scope,fieldname);
 
         element.classes.add(_cssClasses.IS_UPGRADED);

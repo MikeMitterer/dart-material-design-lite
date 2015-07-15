@@ -38,12 +38,27 @@ abstract class ModelObserver<T extends MdlComponent> {
 
             return new RadioObserver._internal(component);
 
+        } else if(component is MaterialSwitch) {
+
+            return new SwitchObserver._internal(component);
+
+        } else if(component is MaterialSlider) {
+
+            return new SliderObserver._internal(component);
+
         }
 
         throw new ArgumentError("${element} cannot be observed. Probably not a MdlComponent!");
     }
 
     void observe(final Scope scope,final String fieldname);
+
+    static int toInt(final dynamic value) {
+        if(value is num) {
+            return (value as num).toInt();
+        }
+        return int.parse(value.toString());
+    }
 
     //- private -----------------------------------------------------------------------------------
 }
@@ -64,9 +79,9 @@ class TextFieldObserver implements ModelObserver<MaterialTextfield> {
             final ObservableProperty prop = val;
 
             _textfield.onInput.listen((_) => prop.value = _textfield.value);
-            prop.onChange.listen( (final PropertyChangeEvent event) => _textfield.value = prop.value);
+            prop.onChange.listen( (final PropertyChangeEvent event) => _textfield.value = prop.value.toString());
 
-            _textfield.value = prop.value;
+            _textfield.value = prop.value.toString();
 
         } else if(val != null) {
 
@@ -103,7 +118,9 @@ class CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
             _checkbox.onClick.listen((_) => prop.value = _checkbox.checked ? _checkbox.value : "");
 
             prop.onChange.listen( (final PropertyChangeEvent event) =>
-                _checkbox.value == prop.value ? _checkbox.checked = true : _checkbox.checked = false);
+                _checkbox.value == prop.value.toString() ? _checkbox.checked = true : _checkbox.checked = false);
+
+            _checkbox.checked = _checkbox.value == prop.value.toString();
 
         } else if(val != null) {
 
@@ -146,7 +163,7 @@ class RadioObserver implements ModelObserver<MaterialRadioGroup> {
         } else if(val != null) {
 
             _radioGroup.value = val.toString();
-            _logger.warning("${fieldname} is not Observable, MaterialRadioGroup will not be able to set its value!");
+            _logger.warning("${fieldname} is not Observable, RadioObserver will not be able to set its value!");
 
         } else {
 
@@ -160,4 +177,81 @@ class RadioObserver implements ModelObserver<MaterialRadioGroup> {
         Validate.notNull(_radioGroup);
     }
 
+}
+
+class SwitchObserver implements ModelObserver<MaterialSwitch> {
+    final Logger _logger = new Logger('mdltemplate.SwitchObserver');
+
+    final MaterialSwitch _switch;
+
+    void observe(final Scope scope,final String fieldname) {
+        Validate.notNull(scope);
+        Validate.notBlank(fieldname);
+
+        final val = (new Invoke(scope)).field(fieldname);
+        if (val != null && val is ObservableProperty) {
+
+            final ObservableProperty prop = val;
+
+            _switch.onClick.listen((_) => prop.value = _switch.checked ? _switch.value : "");
+
+            prop.onChange.listen( (final PropertyChangeEvent event) =>
+                _switch.value == prop.value.toString() ? _switch.checked = true : _switch.checked = false);
+
+            _switch.checked = _switch.value.toString() == prop.value;
+
+        } else if(val != null) {
+
+            _switch.checked = _switch.value.toString() == val.toString();
+            _logger.warning("${fieldname} is not Observable, SwitchObserver will not be able to set its value!");
+
+        } else {
+
+            throw new ArgumentError("${fieldname} is null!");
+        }
+    }
+
+    //- private -----------------------------------------------------------------------------------
+
+    SwitchObserver._internal(this._switch) {
+        Validate.notNull(_switch);
+    }
+}
+
+class SliderObserver implements ModelObserver<MaterialSlider> {
+    final Logger _logger = new Logger('mdltemplate.SliderObserver');
+
+    final MaterialSlider _slider;
+
+    void observe(final Scope scope,final String fieldname) {
+        Validate.notNull(scope);
+        Validate.notBlank(fieldname);
+
+        final val = (new Invoke(scope)).field(fieldname);
+        if (val != null && val is ObservableProperty) {
+
+            final ObservableProperty prop = val;
+
+            _slider.onInput.listen( (_) => prop.value = _slider.value);
+
+            prop.onChange.listen( (final PropertyChangeEvent event) => _slider.value = ModelObserver.toInt(prop.value));
+
+            _slider.value = ModelObserver.toInt(prop.value);
+
+        } else if(val != null) {
+
+            _slider.value = ModelObserver.toInt(val.toString());
+            _logger.warning("${fieldname} is not Observable, SliderObserver will not be able to set its value!");
+
+        } else {
+
+            throw new ArgumentError("${fieldname} is null!");
+        }
+    }
+
+    //- private -----------------------------------------------------------------------------------
+
+    SliderObserver._internal(this._slider) {
+        Validate.notNull(_slider);
+    }
 }

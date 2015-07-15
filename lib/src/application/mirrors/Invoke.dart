@@ -71,9 +71,24 @@ class Invoke {
 
         names.forEach((final String name) {
             final InstanceMirror myClassInstanceMirror = reflect(context);
-            final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(name));
 
-            context = getField.reflectee;
+            if(!name.contains(new RegExp(r"\[[^\]]*\]$"))) {
+
+                final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(name));
+                context = getField.reflectee;
+
+            } else {
+                final List<String> parts = name.trim().split(new RegExp(r"(\[|\])"));
+                //_logger.info("FFFFFx $name >${parts[1]}<, ${parts.length}");
+
+                final InstanceMirror instanceMirror = myClassInstanceMirror.getField(new Symbol(parts[0]));
+                final Symbol function = new Symbol("[]");
+
+                final InstanceMirror getField = instanceMirror.invoke(function,[ int.parse(parts[1]) ]);
+                context = getField.reflectee;
+                // _logger.info("Value $context");
+            }
+
         });
 
 

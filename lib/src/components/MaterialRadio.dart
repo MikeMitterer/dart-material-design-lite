@@ -103,6 +103,16 @@ class MaterialRadio extends MdlComponent {
     static MaterialRadio widget(final dom.HtmlElement element) => mdlComponent(element,MaterialRadio) as MaterialRadio;
 
 
+    /**
+     * Makes it possible to get the "widget" from the components input-element instead of its mdl-class
+     * Sample:
+     *      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi2">
+     *          <input type="radio" id="wifi2" class="mdl-radio__button" name="wifi[]" value="2"/>
+     *          <span class="mdl-radio__label">Only when plugged in</span>
+     *      </label>
+     *
+     *      MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
+     */
     dom.Element get hub => btnElement;
 
     dom.RadioButtonInputElement get btnElement {
@@ -151,6 +161,8 @@ class MaterialRadio extends MdlComponent {
     }
 
     bool get checked => btnElement.checked;
+
+    void set checked(final bool value) => value ? check() : uncheck();
 
     String get value => btnElement.value;
 

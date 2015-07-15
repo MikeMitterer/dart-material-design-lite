@@ -59,6 +59,8 @@ class _MaterialCheckboxConstant {
     
     final int TINY_TIMEOUT_IN_MS = 100;
 
+    final String DEFAULT_OFF_VALUE = "off";
+
     const _MaterialCheckboxConstant();
 }
 
@@ -92,6 +94,16 @@ class MaterialCheckbox extends MdlComponent {
 
     static MaterialCheckbox widget(final dom.HtmlElement element) => mdlComponent(element,MaterialCheckbox) as MaterialCheckbox;
 
+    /**
+     * Makes it possible to get the "widget" from the components input-element instead of its mdl-class
+     * Sample:
+     *      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+     *          <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" />
+     *          <span class="mdl-checkbox__label">I'm just a Material girl in a Material world</span>
+     *      </label>
+     *
+     *      MaterialCheckbox.widget(dom.querySelector("#checkbox-2")).disable();
+     */
     dom.Element get hub => inputElement;
 
     dom.CheckboxInputElement get inputElement {
@@ -135,7 +147,7 @@ class MaterialCheckbox extends MdlComponent {
     void set disabled(final bool _disabled) => _disabled ? disable() : enable();
     bool get disabled => inputElement.disabled;
 
-    String get value => inputElement.value;
+    String get value => inputElement.value.trim();
 
     //- private -----------------------------------------------------------------------------------
 

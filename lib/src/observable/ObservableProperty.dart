@@ -85,7 +85,7 @@ class ObservableProperty<T> {
         _pause = true;
     }
 
-    /// Continues with the checks.
+    /// Continues with the checks. Manually calling this function is only necessary after [pause]
     void run() {
         if(_observe != null) {
             // first timer comes after short period - this shows the value

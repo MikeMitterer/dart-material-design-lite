@@ -67,7 +67,7 @@
                        mdl-model="modelTest.os2"/>
                 <span class="mdl-checkbox__label">iOS</span>
             </label>
-            iOS-checkbox has no "value" set. So it show shows the default value!
+            iOS-checkbox has no "value" set. So it shows the default value!
         </div>
         <div class="mdl-radio-group" mdl-model="modelTest.wifi">
             <div class="choose">Choose WIFI:</div>
@@ -84,12 +84,31 @@
                 <span class="mdl-radio__label">Never</span>
             </label>
         </div>
+        <div class="switch-group">
+            <div class="choose">Lights:</div>
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-bedroom">
+                <input type="checkbox" id="switch-bedroom" class="mdl-switch__input" mdl-model="modelTest.lights[0]"/>
+                <span class="mdl-switch__label">Bedroom</span>
+            </label>
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-livingroom">
+                <input type="checkbox" id="switch-livingroom" class="mdl-switch__input" mdl-model="modelTest.lights[1]" />
+                <span class="mdl-switch__label">Living room</span>
+            </label>
+        </div>
+    </div>
+    <div class="slider">
+        <div class="choose">Intensity:</div>
+        <input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0"
+               mdl-model="modelTest.intensity"/>
     </div>
     <div class="output mdl-color--200 mdl-color-text--white">
         Text in TextField: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.minimodel"></mdl-property><br>
         OS1: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.os1"></mdl-property><br>
         OS2: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.os2"></mdl-property><br>
         WIFI: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.wifi"></mdl-property><br>
+        Light #1: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.lights[0]"></mdl-property><br>
+        Light #2: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.lights[1]"></mdl-property><br>
+        Intensity: <mdl-property class="mdl-color-text--accent-500" observe="modelTest.intensity"></mdl-property><br>
     </div>
 </div>
 
