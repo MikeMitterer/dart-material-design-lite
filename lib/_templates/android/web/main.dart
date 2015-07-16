@@ -7,7 +7,7 @@ import 'package:mdl/mdl.dart';
 
 final Logger _logger = new Logger('layout-header-drawer-footer');
 
-void main() async {
+main() async {
     configLogging();
 
     registerMdl();

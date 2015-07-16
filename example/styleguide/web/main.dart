@@ -833,6 +833,9 @@ void configRouter() {
         ..addRoute(name: 'list', path: '/list',
             enter: view("views/list.html", new DemoController()))
 
+        ..addRoute(name: 'materialdesign', path: '/materialdesign',
+            enter: view("views/materialdesign.html", new DemoController()))
+
         ..addRoute(name: 'menu', path: '/menu',
             enter: view("views/menu.html", new MenuController()))
 
@@ -856,6 +859,9 @@ void configRouter() {
 
         ..addRoute(name: 'progress', path: '/progress',
             enter: view("views/progress.html", new ProgressController()))
+
+        ..addRoute(name: 'quickstart', path: '/quickstart',
+            enter: view("views/quickstart.html", new DemoController()))
 
         ..addRoute(name: 'radio', path: '/radio',
             enter: view("views/radio.html", new RadioController()))

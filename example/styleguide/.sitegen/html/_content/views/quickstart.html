@@ -1,0 +1,63 @@
+<section class="demo-section demo-section--quickstart">
+    <article class="quickstart sample">
+        <div>
+            <h3>Quick Start</h3>
+            <p>
+                MDL/Dart comes with <a href="https://pub.dartlang.org/packages/stagedive" target="_blank">StageDive</a> support!<br>
+                Try it out an follow these steps:
+            </p>
+            <pre class="prettyprint lang-bash">
+# if you don't have mdl installed
+pub cache add mdl
+&nbsp;
+# if you don't have stagedive installed or if you want to update stagedive
+pub global activate stagedive
+&nbsp;
+# if you don't have sitegen installed or if you want to update sitegen
+# sitegen - will later act as a local server
+pub global activate sitegen
+&nbsp;
+stagedive -l
+&nbsp;
+# You should see something like this
+&nbsp;
+#   'MDL Android Template'         Package: mdl          Template name: android
+#   'MDL Android Template'         Package: mdl          Template name: android
+#   'MDL Article Template'         Package: mdl          Template name: article
+#   'MDL Android Template'         Package: mdl          Template name: blog
+#   'MDL Blog Template'            Package: mdl          Template name: dashboard
+#   'MDL Fixed-Header Template'    Package: mdl          Template name: fixed-header
+#   'MDL Sample Template'          Package: mdl          Template name: sample
+#   'MDL Sticky-Footer Template'   Package: mdl          Template name: sticky-footer
+#   'MDL Text-Only Template'       Package: mdl          Template name: text-only
+&nbsp;
+# Now lets generate a new (-n) folder: android
+stagedive -n android -p mdl -t android
+&nbsp;
+# This is what stagedive asks you
+#   Your email address: office@mikemitterer
+#   Your name: Mike
+#   Enter the package-name: android_mdl
+#
+#   'MDL Android Template' created! (android)
+&nbsp;
+# move the the newly created dir
+cd android
+&nbsp;
+# Update everything
+pub update
+&nbsp;
+# Serve the site (you are in 'android'!)
+sitegen -x
+&nbsp;
+# In Chromium/Dartium
+localhost:8000</pre>
+
+        <h4>Hint</h4>
+            <p>Short form for the last 4 commands:
+                <pre class="prettyprint linenums lang-bash">cd android/ && pub update && sitegen -x || cd -</pre>
+            </p>
+        </div>
+
+    </article>
+</section>

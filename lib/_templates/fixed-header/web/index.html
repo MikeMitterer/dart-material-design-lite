@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
+    <link rel="stylesheet" href="styles/demo.css">
+
+    <!--<link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">-->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">-->
+
+    <style>
+        div.loading { display: none; }
+        body.mdl-upgrading > * { display: none; }
+        body.mdl-upgrading div.loading { display: block; }
+    </style>
+
+</head>
+
+<body class="mdl-typography mdl-base mdl-upgrading"> <div class="loading">Loading...</div>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <!-- Icon -->
+        <div class="mdl-layout-icon demo-app-icon"></div>
+
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Material Design Lite</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="#">Hello</a>
+                <a class="mdl-navigation__link" href="#">World.</a>
+                <a class="mdl-navigation__link" href="#">How</a>
+                <a class="mdl-navigation__link" href="#">Are</a>
+                <a class="mdl-navigation__link" href="#">You?</a>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-color--50">
+        <span class="mdl-layout-title mdl-color--primary mdl-color-text--white">Material Design Lite</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">Hello</a>
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">World.</a>
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">How</a>
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">Are</a>
+            <a class="mdl-navigation__link mdl-color-text--primary" href="#">You?</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+            <section>
+                <div class="mdl-panel mdl-panel--shadow">
+                    <h3 class="mdl-color-text--primary">Material Design Lite</h3>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </div>
+            </section>
+    </main>
+    <footer class="mdl-sticky-mini-footer mdl-color--primary mdl-color-text--white">
+        <div class="mdl-mini-footer--left-section">
+            <div class="mdl-logo">
+                <strong>Material Design</strong> Lite
+            </div>
+            <ul class="mdl-mini-footer--link-list">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Privacy &amp; Terms</a></li>
+            </ul>
+        </div>
+        <div class="mdl-mini-footer--right-section">
+            <button class="mdl-mini-footer--social-btn"></button>
+        </div>
+    </footer>
+</div>
+<script type="application/dart" src="main.dart"></script>
+<script data-pub-inline src="packages/browser/dart.js"></script>
+</body>
+</html>

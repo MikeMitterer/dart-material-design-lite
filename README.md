@@ -1,5 +1,4 @@
 # Material Design Lite for Dart
-
 > A library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in CSS, Dart, and HTML
 ([MDL Dart website][mdldemo]).
 
@@ -7,7 +6,13 @@ Material Design Lite lets you add a Material Design look and feel to your static
 frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
 from the get-go.
 
-## StageDive
+## New
+- mdl-model Component, Check out the [sample](http://samples.material-design-lite.pub/spa_model/index.html)
+- More samples with **StageDive** support
+- [Quick-Start-Section](http://www.material-design-lite.pub/#/quickstart)
+- More infos on ["home"](http://www.material-design-lite.pub/#/quickstart)
+
+## Quick Start with StageDive
 MDL/Dart has StageDive support!  
 Try it out and follow these steps:
 
@@ -25,8 +30,16 @@ pub global activate sitegen
 stagedive -l
 
 # You should see something like this
-#   'MDL Android Template'    Package: mdl            Template name: android        Version: 1.0.1
-#   'Simple Console'          Package: stagedive      Template name: console        Version: 0.2.3
+
+#   'MDL Android Template'         Package: mdl          Template name: android        Version: 1.x
+#   'MDL Android Template'         Package: mdl          Template name: android        Version: 1.x
+#   'MDL Article Template'         Package: mdl          Template name: article        Version: 1.x
+#   'MDL Android Template'         Package: mdl          Template name: blog           Version: 1.x
+#   'MDL Blog Template'            Package: mdl          Template name: dashboard      Version: 1.x
+#   'MDL Fixed-Header Template'    Package: mdl          Template name: fixed-header   Version: 1.x
+#   'MDL Sample Template'          Package: mdl          Template name: sample         Version: 1.x
+#   'MDL Sticky-Footer Template'   Package: mdl          Template name: sticky-footer  Version: 1.x
+#   'MDL Text-Only Template'       Package: mdl          Template name: text-only      Version: 1.x
 
 # Now lets generate a new (-n) folder: android
 stagedive -n android -p mdl -t android
@@ -51,8 +64,10 @@ sitegen -x
 localhost:8000
 ```
 
-This is how it stagedive get's it's [template](https://goo.gl/O2gis7) 
+### Hint
+Short form for the last 4 commands: `cd android/ && pub update && sitegen -x || cd -`
 
+This is how it stagedive gets its [template](https://goo.gl/O2gis7) 
 
 ## Quick Start
 

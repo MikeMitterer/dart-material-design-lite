@@ -1,0 +1,18 @@
+# templatename is not optional!
+templatename: MDL Article Template
+
+prompts:
+  package:
+    type: lowercasee
+    question: "Enter the package-name:"
+    hint: "This is the 'name: ' in your pubspec.yaml. [ name: mdl_<%= package %>_sample ]"
+
+  email:
+    type: input
+    question: "Your email address:"
+    hint: "Part of author: in pubspec.yaml"
+
+  name:
+    type: input
+    question: "Your name:"
+    hint: "Part of author: in pubspec.yaml"

@@ -1,0 +1,22 @@
+name: <%= package %>
+version: 0.0.1
+description: Material Design Lite '<%= templatename %>'
+author: <<%= name %>> <<%= email %>>
+#homepage: https://www.example.com
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+dependencies:
+  browser: any
+
+  mdl: '>=1.0.0 <2.0.0'
+
+  logging: any
+  logging_handlers: any
+  console_log_handler: any
+
+  di: any
+
+transformers:
+  - di
