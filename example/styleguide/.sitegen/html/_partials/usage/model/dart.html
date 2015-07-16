@@ -1,0 +1,51 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+
+@MdlComponentModel
+class ModelTest &#123;
+    final ObservableProperty&lt;String&gt; minimodel = new ObservableProperty&lt;String&gt;(&quot;test&quot;);
+
+    final ObservableProperty&lt;String&gt; os1 = new ObservableProperty&lt;String&gt;(&quot;&quot;);
+    final ObservableProperty&lt;String&gt; os2 = new ObservableProperty&lt;String&gt;(&quot;&quot;);
+
+    final ObservableProperty&lt;String&gt; wifi = new ObservableProperty&lt;String&gt;(&quot;never&quot;);
+
+    final List&lt;ObservableProperty&lt;String&gt;&gt; lights = [ new ObservableProperty&lt;String&gt;(&quot;&quot;), new ObservableProperty&lt;String&gt;(&quot;&quot;) ];
+
+    final ObservableProperty&lt;int&gt; intensity = new ObservableProperty&lt;int&gt;(90);
+&#125;
+
+@MdlComponentModel @di.Injectable()
+class Application extends MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+
+    final ModelTest modelTest = new ModelTest();
+
+    Application() &#123;
+        _bind();
+    &#125;
+
+    @override
+    void run() &#123;
+    &#125;
+
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+
+    void _bind() &#123;
+        modelTest.os1.onChange.listen((final PropertyChangeEvent event) &#123;
+            _logger.info(&quot;OS1-Value changed from: $&#123;event.oldValue&#125; to $&#123;event.value&#125;&quot;);
+        &#125;);
+    &#125;
+&#125;
+
+main() async &#123;
+    final Logger _logger = new Logger(&#39;main.Model&#39;);
+
+    registerMdl();
+
+    final MaterialApplication application = await componentFactory().
+    rootContext(Application).run(enableVisualDebugging: true);
+
+    application.run();
+&#125;
+

@@ -1,0 +1,178 @@
+<div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect usage usage-model">
+    <!-- Panel 1 -->
+    <div class="mdl-accordion">
+        <label class="mdl-accordion__label mdl-color--200">
+            <i class="material-icons mdl-icon--remove-red-eye">remove_red_eye</i>
+            Basic Usage
+            <i class="material-icons indicator">chevron_right</i>
+        </label>
+        <div class="mdl-accordion--content">
+            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <!-- TabBar -->
+                <div class="mdl-tabs__tab-bar">
+                    <a href="#dart" class="mdl-tabs__tab is-active">Dart</a>
+                    <a href="#html" class="mdl-tabs__tab">HTML</a>
+                    <a href="#css" class="mdl-tabs__tab">README</a>
+                </div>
+                <!-- Dart-Tab -->
+                <div class="mdl-tabs__panel is-active" id="dart">
+                <pre class="prettyprint linenums lang-dart">
+import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+@MdlComponentModel
+class ModelTest &#123;
+    final ObservableProperty&lt;String&gt; minimodel = new ObservableProperty&lt;String&gt;(&quot;test&quot;);
+    final ObservableProperty&lt;String&gt; os1 = new ObservableProperty&lt;String&gt;(&quot;&quot;);
+    final ObservableProperty&lt;String&gt; os2 = new ObservableProperty&lt;String&gt;(&quot;&quot;);
+    final ObservableProperty&lt;String&gt; wifi = new ObservableProperty&lt;String&gt;(&quot;never&quot;);
+    final List&lt;ObservableProperty&lt;String&gt;&gt; lights = [ new ObservableProperty&lt;String&gt;(&quot;&quot;), new ObservableProperty&lt;String&gt;(&quot;&quot;) ];
+    final ObservableProperty&lt;int&gt; intensity = new ObservableProperty&lt;int&gt;(90);
+&#125;
+@MdlComponentModel @di.Injectable()
+class Application extends MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+    final ModelTest modelTest = new ModelTest();
+    Application() &#123;
+        _bind();
+    &#125;
+    @override
+    void run() &#123;
+    &#125;
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+    void _bind() &#123;
+        modelTest.os1.onChange.listen((final PropertyChangeEvent event) &#123;
+            _logger.info(&quot;OS1-Value changed from: $&#123;event.oldValue&#125; to $&#123;event.value&#125;&quot;);
+        &#125;);
+    &#125;
+&#125;
+main() async &#123;
+    final Logger _logger = new Logger(&#39;main.Model&#39;);
+    registerMdl();
+    final MaterialApplication application = await componentFactory().
+    rootContext(Application).run(enableVisualDebugging: true);
+    application.run();
+&#125;
+</pre>
+                </div>
+                <!-- HTML-Tab -->
+                <div class="mdl-tabs__panel" id="html">
+                <div class="linkinfo">
+                    To use any MDL component, you must include the minified CSS file in the &lt;head&gt; section of the page:<br>
+                    <div class="csslink mdl-color-text--accent-500">
+                    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;<br>
+                    </div>
+                    More about <a href="/#/theming">theming...</a>
+                </div>
+                <pre class="prettyprint linenums lang-html">
+&lt;div class=&quot;demo-preview-block&quot;&gt;
+    &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+        &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample1&quot; mdl-model=&quot;modelTest.minimodel&quot;&#47;&gt;
+        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample1&quot;&gt;Type Something...&lt;&#47;label&gt;
+    &lt;&#47;div&gt;
+    &lt;div class=&quot;groups&quot;&gt;
+        &lt;div class=&quot;mdl-checkbox-group&quot;&gt;
+            &lt;div class=&quot;choose&quot;&gt;Choose OS:&lt;&#47;div&gt;
+            &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;checkbox-1&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-1&quot; class=&quot;mdl-checkbox__input&quot; value=&quot;android&quot;
+                       mdl-model=&quot;modelTest.os1&quot;&#47;&gt;
+                &lt;span class=&quot;mdl-checkbox__label&quot;&gt;Android&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;checkbox-2&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-2&quot; class=&quot;mdl-checkbox__input&quot;
+                       mdl-model=&quot;modelTest.os2&quot;&#47;&gt;
+                &lt;span class=&quot;mdl-checkbox__label&quot;&gt;iOS&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            iOS-checkbox has no &quot;value&quot; set. So it shows the default value!
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-radio-group&quot; mdl-model=&quot;modelTest.wifi&quot;&gt;
+            &lt;div class=&quot;choose&quot;&gt;Choose WIFI:&lt;&#47;div&gt;
+            &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi1&quot;&gt;
+                &lt;input type=&quot;radio&quot; id=&quot;wifi1&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;always&quot;&#47;&gt;
+                &lt;span class=&quot;mdl-radio__label&quot;&gt;Always&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi2&quot;&gt;
+                &lt;input type=&quot;radio&quot; id=&quot;wifi2&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;plugged in&quot;&#47;&gt;
+                &lt;span class=&quot;mdl-radio__label&quot;&gt;Only when plugged in&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi3&quot;&gt;
+                &lt;input type=&quot;radio&quot; id=&quot;wifi3&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;never&quot;&#47;&gt;
+                &lt;span class=&quot;mdl-radio__label&quot;&gt;Never&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;switch-group&quot;&gt;
+            &lt;div class=&quot;choose&quot;&gt;Lights:&lt;&#47;div&gt;
+            &lt;label class=&quot;mdl-switch mdl-js-switch mdl-js-ripple-effect&quot; for=&quot;switch-bedroom&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; id=&quot;switch-bedroom&quot; class=&quot;mdl-switch__input&quot; mdl-model=&quot;modelTest.lights[0]&quot;&#47;&gt;
+                &lt;span class=&quot;mdl-switch__label&quot;&gt;Bedroom&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-switch mdl-js-switch mdl-js-ripple-effect&quot; for=&quot;switch-livingroom&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; id=&quot;switch-livingroom&quot; class=&quot;mdl-switch__input&quot; mdl-model=&quot;modelTest.lights[1]&quot; &#47;&gt;
+                &lt;span class=&quot;mdl-switch__label&quot;&gt;Living room&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;div&gt;
+    &lt;div class=&quot;slider&quot;&gt;
+        &lt;div class=&quot;choose&quot;&gt;Intensity:&lt;&#47;div&gt;
+        &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot;
+               mdl-model=&quot;modelTest.intensity&quot;&#47;&gt;
+    &lt;&#47;div&gt;
+    &lt;div class=&quot;output mdl-color--200 mdl-color-text--white&quot;&gt;
+        Text in TextField: &lt;mdl-property class=&quot;mdl-color-text--accent-500&quot; observe=&quot;modelTest.minimodel&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
+        OS1: &lt;mdl-property class=&quot;mdl-color-text--accent-500&quot; observe=&quot;modelTest.os1&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
+        OS2: &lt;mdl-property class=&quot;mdl-color-text--accent-500&quot; observe=&quot;modelTest.os2&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
+        WIFI: &lt;mdl-property class=&quot;mdl-color-text--accent-500&quot; observe=&quot;modelTest.wifi&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
+        Light #1: &lt;mdl-property class=&quot;mdl-color-text--accent-500&quot; observe=&quot;modelTest.lights[0]&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
+        Light #2: &lt;mdl-property class=&quot;mdl-color-text--accent-500&quot; observe=&quot;modelTest.lights[1]&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
+        Intensity: &lt;mdl-property class=&quot;mdl-color-text--accent-500&quot; observe=&quot;modelTest.intensity&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
+    &lt;&#47;div&gt;
+&lt;&#47;div&gt;
+</pre>
+                </div>
+                <!-- CSS-Tab -->
+                <div class="mdl-tabs__panel" id="css">
+<h2 id="introduction">Introduction</h2>
+<p>With the Material Design Lite (MDL) <strong>model</strong> component you can automatically observer your data-model.</p>
+<h3 id="to-include-an-mdl-model-component">To include an MDL <strong>model</strong> component:</h3>
+<p> 1. Code one of the supported elements for example a checkbox:</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot;</span><span class="ot"> for=</span><span class="st">&quot;checkbox-1&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> id=</span><span class="st">&quot;checkbox-1&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox__input&quot;</span><span class="ot"> value=</span><span class="st">&quot;android&quot;</span><span class="kw">/&gt;</span>
+    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox__label&quot;</span><span class="kw">&gt;</span>Android<span class="kw">&lt;/span&gt;</span>
+<span class="kw">&lt;/label&gt;</span></code></pre>
+<p> 2. Add the mdl-model attribute to your component and specify the variable you want to observe. In this<br />case &quot;myModel&quot;</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot;</span><span class="ot"> for=</span><span class="st">&quot;checkbox-1&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> id=</span><span class="st">&quot;checkbox-1&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox__input&quot;</span><span class="ot"> value=</span><span class="st">&quot;android&quot;</span>
+<span class="ot">           mdl-model=</span><span class="st">&quot;myModel&quot;</span><span class="kw">/&gt;</span>
+    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox__label&quot;</span><span class="kw">&gt;</span>Android<span class="kw">&lt;/span&gt;</span>
+<span class="kw">&lt;/label&gt;</span></code></pre>
+<p> 3. In your Application-class - add the model you want to observe, in this case &quot;myModel&quot;. The variable-type should be<br />ObservableProperty to provide the full functionality.</p>
+<pre class="dartlang"><code>@MdlComponentModel @di.Injectable()
+class Application extends MaterialApplication {
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+    final ObservableProperty&lt;String&gt; myModel = new ObservableProperty&lt;String&gt;(&quot;&quot;);
+    Application() {
+    }
+    @override
+    void run() {
+    }
+}
+main() async {
+    registerMdl();
+    final MaterialApplication application = await componentFactory().
+    rootContext(Application).run(enableVisualDebugging: true);
+    application.run();
+}</code></pre>
+<h3 id="supported-components">Supported components</h3>
+<p>You can use mdl-model with the following components:</p>
+<ul>
+<li>mdl-checkbox</li>
+<li>mdl-textfield</li>
+<li>mdl-radio-group</li>
+<li>mdl-switch</li>
+<li>mdl-slider</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,10 +19,15 @@
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
-main() &#123;
+main() async &#123;
+    final Logger _logger = new Logger(&#39;mdl_radio.main&#39;);
     registerMdl();
-    componentFactory().run().then((_) &#123;
-        MaterialRadio.widget(dom.querySelector(&quot;#wifi2&quot;)).disable();
+    await componentFactory().run();
+    MaterialRadio.widget(dom.querySelector(&quot;#wifi2&quot;)).disable();
+    MaterialButton.widget(dom.querySelector(&quot;#show-wifi-value&quot;)).onClick.listen((_) &#123;
+        final MaterialRadioGroup group = MaterialRadioGroup.widget(dom.querySelector(&quot;#wifi&quot;));
+        final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
+        alertDialog(&quot;Value is: $&#123;group.value&#125;&quot;).show();
     &#125;);
 &#125;</pre>
                 </div>
@@ -36,26 +41,30 @@ main() &#123;
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
-  &lt;div class=&quot;demo-preview-block&quot;&gt;
-  &lt;p&gt;A radio button can either be a primary action or a secondary action.&lt;&#47;p&gt;
-  &lt;section class=&quot;demo-preview-block&quot;&gt;
-    &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi1&quot;&gt;
-      &lt;input type=&quot;radio&quot; id=&quot;wifi1&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;1&quot; checked &#47;&gt;
-      &lt;span class=&quot;mdl-radio__label&quot;&gt;Always&lt;&#47;span&gt;
-    &lt;&#47;label&gt;
-    &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi2&quot;&gt;
-      &lt;input type=&quot;radio&quot; id=&quot;wifi2&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;2&quot; &#47;&gt;
-      &lt;span class=&quot;mdl-radio__label&quot;&gt;Only when plugged in&lt;&#47;span&gt;
-    &lt;&#47;label&gt;
-    &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi3&quot;&gt;
-      &lt;input type=&quot;radio&quot; id=&quot;wifi3&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;3&quot; &#47;&gt;
-      &lt;span class=&quot;mdl-radio__label&quot;&gt;Never&lt;&#47;span&gt;
-    &lt;&#47;label&gt;
-    &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi4&quot;&gt;
-      &lt;input type=&quot;radio&quot; id=&quot;wifi4&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;3&quot; disabled &#47;&gt;
-      &lt;span class=&quot;mdl-radio__label&quot;&gt;Unavailable option&lt;&#47;span&gt;
-    &lt;&#47;label&gt;
-      &lt;&#47;div&gt;
+&lt;div class=&quot;demo-preview-block&quot;&gt;
+    &lt;p&gt;A radio button can either be a primary action or a secondary action.&lt;&#47;p&gt;
+    &lt;section class=&quot;demo-preview-block&quot;&gt;
+        &lt;div id=&quot;wifi&quot; class=&quot;mdl-radio-group&quot;&gt;
+            &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi1&quot;&gt;
+                &lt;input type=&quot;radio&quot; id=&quot;wifi1&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;1&quot; checked&#47;&gt;
+                &lt;span class=&quot;mdl-radio__label&quot;&gt;Always&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi2&quot;&gt;
+                &lt;input type=&quot;radio&quot; id=&quot;wifi2&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;2&quot;&#47;&gt;
+                &lt;span class=&quot;mdl-radio__label&quot;&gt;Only when plugged in&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi3&quot;&gt;
+                &lt;input type=&quot;radio&quot; id=&quot;wifi3&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;3&quot;&#47;&gt;
+                &lt;span class=&quot;mdl-radio__label&quot;&gt;Never&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi4&quot;&gt;
+                &lt;input type=&quot;radio&quot; id=&quot;wifi4&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;3&quot; disabled&#47;&gt;
+                &lt;span class=&quot;mdl-radio__label&quot;&gt;Unavailable option&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;button id=&quot;show-wifi-value&quot; class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect&quot;&gt;Show value&lt;&#47;button&gt;
+        &lt;&#47;div&gt;
 &lt;&#47;section&gt;
 </pre>
                 </div>

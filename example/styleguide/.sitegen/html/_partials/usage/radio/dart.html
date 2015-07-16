@@ -1,10 +1,18 @@
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
-main() &#123;
+main() async &#123;
+    final Logger _logger = new Logger(&#39;mdl_radio.main&#39;);
+
     registerMdl();
 
-    componentFactory().run().then((_) &#123;
-        MaterialRadio.widget(dom.querySelector(&quot;#wifi2&quot;)).disable();
+    await componentFactory().run();
+    MaterialRadio.widget(dom.querySelector(&quot;#wifi2&quot;)).disable();
+
+    MaterialButton.widget(dom.querySelector(&quot;#show-wifi-value&quot;)).onClick.listen((_) &#123;
+        final MaterialRadioGroup group = MaterialRadioGroup.widget(dom.querySelector(&quot;#wifi&quot;));
+        final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
+
+        alertDialog(&quot;Value is: $&#123;group.value&#125;&quot;).show();
     &#125;);
 &#125;

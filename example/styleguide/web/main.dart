@@ -39,6 +39,23 @@ import "package:mdl_styleguide/customdialog.dart";
 import "package:mdl_styleguide/todo.dart";
 
 /**
+ * Used for mdl-model sample
+ */
+@MdlComponentModel
+class ModelTest {
+    final ObservableProperty<String> minimodel = new ObservableProperty<String>("test");
+
+    final ObservableProperty<String> os1 = new ObservableProperty<String>("");
+    final ObservableProperty<String> os2 = new ObservableProperty<String>("");
+
+    final ObservableProperty<String> wifi = new ObservableProperty<String>("never");
+
+    final List<ObservableProperty<String>> lights = [ new ObservableProperty<String>(""), new ObservableProperty<String>("") ];
+
+    final ObservableProperty<int> intensity = new ObservableProperty<int>(90);
+}
+
+/**
  * Application - you can get the Application via injector.getByKey(MDLROOTCONTEXT)
  */
 @MdlComponentModel @di.Injectable()
@@ -58,6 +75,9 @@ class Application extends MaterialApplication {
     // DND-Sample
     final ObservableList<_Language> natural = new ObservableList<_Language>();
     final ObservableList<_Language> programming = new ObservableList<_Language>();
+
+    // Model-Sample
+    final ModelTest modelTest = new ModelTest();
 
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
@@ -815,6 +835,9 @@ void configRouter() {
 
         ..addRoute(name: 'menu', path: '/menu',
             enter: view("views/menu.html", new MenuController()))
+
+        ..addRoute(name: 'model', path: '/model',
+            enter: view("views/model.html", new DemoController()))
 
         ..addRoute(name: 'nav-pills', path: '/nav-pills',
             enter: view("views/nav-pills.html", new DemoController()))

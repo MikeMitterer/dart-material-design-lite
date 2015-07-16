@@ -1,0 +1,52 @@
+.demo-page--model, .demo-section--model {
+    .mdl-textfield { width: 100%; }
+
+    .groups {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        > div {
+            width: calc(30% - 24px);
+
+            min-width: 100px;
+            max-width: 200px;
+            padding: 12px;
+
+        }
+
+        .mdl-checkbox {
+            margin-bottom: 12px;
+        }
+
+        .mdl-radio {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .mdl-switch {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+    }
+    .choose {
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    .output {
+        margin: 6px;
+        padding: 6px;
+        border: 1px;
+        border-radius: 5px;
+
+        .mdl-property {
+            font-size: 16px;
+            font-weight: bold;
+
+            line-height: 24px;
+        }
+    }
+}

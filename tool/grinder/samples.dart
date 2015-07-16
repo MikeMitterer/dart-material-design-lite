@@ -168,6 +168,7 @@ void createSampleList() {
     // SPA Samples
     samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true));
+    samples.add(new Sample("model",     Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("observe",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("repeat",    Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
