@@ -40,9 +40,10 @@ part "src/template/MdlTemplateComponent.dart";
 part "src/template/components/MaterialMustache.dart";
 part "src/template/components/MaterialRepeat.dart";
 part "src/template/components/MaterialProperty.dart";
-
-part "src/template/components/model/ModelObserver.dart";
 part "src/template/components/MaterialModel.dart";
+
+part "src/template/components/model/ModelObserverFactory.dart";
+part "src/template/components/model/ModelObserver.dart";
 
 part "src/template/interfaces.dart";
 
@@ -54,6 +55,7 @@ class MdlTemplateModule extends di.Module {
     MdlTemplateModule() {
         bind(TemplateRenderer);
         bind(ListRenderer);
+        bind(ModelObserverFactory);
     }
 }
 final MdlTemplateModule _templateModule = new MdlTemplateModule();

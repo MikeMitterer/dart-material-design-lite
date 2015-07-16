@@ -313,7 +313,7 @@ class MaterialRadioGroup extends MdlComponent {
 
     static const _MaterialRadioCssClasses _cssClasses = const _MaterialRadioCssClasses();
 
-    StreamController<MaterialRadioGroupChangedEvent> _onChange;
+    StreamController<MaterialRadioGroupChangedEvent> _onGroupChange;
 
     MaterialRadioGroup.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
@@ -367,11 +367,11 @@ class MaterialRadioGroup extends MdlComponent {
         _fire(new MaterialRadioGroupChangedEvent(this));
     }
 
-    Stream<MaterialRadioGroupChangedEvent> get onChange {
-        if(_onChange == null) {
-            _onChange = new StreamController<MaterialRadioGroupChangedEvent>.broadcast(onCancel: () => _onChange = null);
+    Stream<MaterialRadioGroupChangedEvent> get onGroupChange {
+        if(_onGroupChange == null) {
+            _onGroupChange = new StreamController<MaterialRadioGroupChangedEvent>.broadcast(onCancel: () => _onGroupChange = null);
         }
-        return _onChange.stream;
+        return _onGroupChange.stream;
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -385,8 +385,8 @@ class MaterialRadioGroup extends MdlComponent {
     }
 
     void _fire(final MaterialRadioGroupChangedEvent event) {
-        if(_onChange != null && _onChange.hasListener) {
-            _onChange.add(event);
+        if(_onGroupChange != null && _onGroupChange.hasListener) {
+            _onGroupChange.add(event);
         }
     }
 }

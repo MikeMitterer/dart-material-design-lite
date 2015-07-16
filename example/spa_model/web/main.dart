@@ -31,7 +31,6 @@ class Application extends MaterialApplication {
 
     Application() {
         _bind();
-        modelTest.lights;
     }
 
     @override

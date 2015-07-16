@@ -42,9 +42,10 @@ class MaterialModel extends MdlComponent {
     static const _MaterialModelCssClasses _cssClasses = const _MaterialModelCssClasses();
 
     Scope _scope;
+    final ModelObserverFactory _observerFactory;
 
     MaterialModel.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector) {
+        : super(element,injector), _observerFactory = injector.get(ModelObserverFactory) {
 
         _scope = new Scope(this, mdlParentScope(this));
         _init();
@@ -70,7 +71,7 @@ class MaterialModel extends MdlComponent {
 
         _scope.context = _scope.parentContext;
 
-        final ModelObserver observer = new ModelObserver(element);
+        final ModelObserver observer = _observerFactory.createFor(element);
         observer.observe(_scope,fieldname);
 
         element.classes.add(_cssClasses.IS_UPGRADED);

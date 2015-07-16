@@ -22,34 +22,6 @@ part of mdltemplate;
 abstract class ModelObserver<T extends MdlComponent> {
     final Logger _logger = new Logger('mdltemplate.ModelObserver');
 
-    factory ModelObserver(final dom.Element element) {
-        Validate.notNull(element);
-
-        final MdlComponent component = mdlComponent(element,null);
-        if(component is MaterialTextfield) {
-
-            return new TextFieldObserver._internal(component);
-
-        } else if(component is MaterialCheckbox) {
-
-            return new CheckBoxObserver._internal(component);
-
-        } else if(component is MaterialRadioGroup) {
-
-            return new RadioObserver._internal(component);
-
-        } else if(component is MaterialSwitch) {
-
-            return new SwitchObserver._internal(component);
-
-        } else if(component is MaterialSlider) {
-
-            return new SliderObserver._internal(component);
-
-        }
-
-        throw new ArgumentError("${element} cannot be observed. Probably not a MdlComponent!");
-    }
 
     void observe(final Scope scope,final String fieldname);
 
@@ -64,7 +36,7 @@ abstract class ModelObserver<T extends MdlComponent> {
 }
 
 
-class TextFieldObserver implements ModelObserver<MaterialTextfield> {
+class _TextFieldObserver implements ModelObserver<MaterialTextfield> {
     final Logger _logger = new Logger('mdltemplate.TextFieldObserver');
 
     final MaterialTextfield _textfield;
@@ -96,12 +68,12 @@ class TextFieldObserver implements ModelObserver<MaterialTextfield> {
 
     //- private -----------------------------------------------------------------------------------
 
-    TextFieldObserver._internal(this._textfield) {
+    _TextFieldObserver._internal(this._textfield) {
         Validate.notNull(_textfield);
     }
 }
 
-class CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
+class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
     final Logger _logger = new Logger('mdltemplate.CheckBoxObserver');
 
     final MaterialCheckbox _checkbox;
@@ -135,13 +107,13 @@ class CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
 
     //- private -----------------------------------------------------------------------------------
 
-    CheckBoxObserver._internal(this._checkbox) {
+    _CheckBoxObserver._internal(this._checkbox) {
         Validate.notNull(_checkbox);
     }
 
 }
 
-class RadioObserver implements ModelObserver<MaterialRadioGroup> {
+class _RadioObserver implements ModelObserver<MaterialRadioGroup> {
     final Logger _logger = new Logger('mdltemplate.RadioObserver');
 
     final MaterialRadioGroup _radioGroup;
@@ -155,7 +127,7 @@ class RadioObserver implements ModelObserver<MaterialRadioGroup> {
 
             final ObservableProperty prop = val;
 
-            _radioGroup.onChange.listen((_) => _radioGroup.hasValue ? prop.value = _radioGroup.value : prop.value = "");
+            _radioGroup.onGroupChange.listen((_) => _radioGroup.hasValue ? prop.value = _radioGroup.value : prop.value = "");
 
             prop.onChange.listen( (final PropertyChangeEvent event) => _radioGroup.value = prop.value.toString() );
             _radioGroup.value = prop.value.toString();
@@ -173,13 +145,13 @@ class RadioObserver implements ModelObserver<MaterialRadioGroup> {
 
     //- private -----------------------------------------------------------------------------------
 
-    RadioObserver._internal(this._radioGroup) {
+    _RadioObserver._internal(this._radioGroup) {
         Validate.notNull(_radioGroup);
     }
 
 }
 
-class SwitchObserver implements ModelObserver<MaterialSwitch> {
+class _SwitchObserver implements ModelObserver<MaterialSwitch> {
     final Logger _logger = new Logger('mdltemplate.SwitchObserver');
 
     final MaterialSwitch _switch;
@@ -213,12 +185,12 @@ class SwitchObserver implements ModelObserver<MaterialSwitch> {
 
     //- private -----------------------------------------------------------------------------------
 
-    SwitchObserver._internal(this._switch) {
+    _SwitchObserver._internal(this._switch) {
         Validate.notNull(_switch);
     }
 }
 
-class SliderObserver implements ModelObserver<MaterialSlider> {
+class _SliderObserver implements ModelObserver<MaterialSlider> {
     final Logger _logger = new Logger('mdltemplate.SliderObserver');
 
     final MaterialSlider _slider;
@@ -251,7 +223,7 @@ class SliderObserver implements ModelObserver<MaterialSlider> {
 
     //- private -----------------------------------------------------------------------------------
 
-    SliderObserver._internal(this._slider) {
+    _SliderObserver._internal(this._slider) {
         Validate.notNull(_slider);
     }
 }

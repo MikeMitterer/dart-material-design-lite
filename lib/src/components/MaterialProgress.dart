@@ -55,26 +55,10 @@ class MaterialProgress extends MdlComponent {
     dom.DivElement _bufferbar;
     dom.DivElement _auxbar;
 
-    //factory MaterialProgress(final dom.HtmlElement element) => mdlComponent(element,MaterialProgress) as MaterialProgress;
-
-    //    factory MaterialProgress() =>  new html.Element.tag('mdl-progress');
-//
-//    MaterialProgress.created() : super.created() {
-//        _logger.info("created");
-//        classes.add("mdl-js-progress");
-//        element = this;
-//        _init();
-//    }
-
     MaterialProgress.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         _init();
     }
-
-//    init(final html.HtmlElement element) {
-//        this.element = element;
-//        _init();
-//    }
 
     static MaterialProgress widget(final dom.HtmlElement element) => mdlComponent(element,MaterialProgress) as MaterialProgress;
 

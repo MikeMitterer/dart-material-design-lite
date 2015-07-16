@@ -38,7 +38,7 @@ class _MaterialBadgeConstant {
 /// creates MdlConfig for MaterialBadge
 MdlConfig materialBadgeConfig() => new MdlWidgetConfig<MaterialBadge>(
     _MaterialBadgeCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialBadge.fromElement(element,injector));
+        => new MaterialBadge.fromElement(element,injector));
 
 /// registration-Helper
 void registerMaterialBadge() => componentHandler().register(materialBadgeConfig());
