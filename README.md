@@ -10,7 +10,7 @@ from the get-go.
 - mdl-model Component, Check out the [sample](http://samples.material-design-lite.pub/spa_model/index.html)
 - More samples with **StageDive** support
 - [Quick-Start-Section](http://www.material-design-lite.pub/#/quickstart)
-- More infos on ["home"](http://www.material-design-lite.pub/#/quickstart)
+- More infos on ["home"](http://www.material-design-lite.pub/)
 
 ## Quick Start with StageDive
 MDL/Dart has StageDive support!  
