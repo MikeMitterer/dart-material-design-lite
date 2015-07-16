@@ -1,6 +1,15 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.1.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.0.3...v1.1.0) - 2015-07-16##
+
+###Feature###
+* mdl-model added, works for checkbox,radio-group, slider, textfield and switch [98cec09](https://github.com/mikemitterer/dart-material-design-lite/commit/98cec091e74a19983b2a728b381d50e3a3e39e68)
+
+###Docs###
+* Added more StageDive-Templates, QuickStart-Section [7353881](https://github.com/mikemitterer/dart-material-design-lite/commit/73538817656717ea436292018d19bd1ad2ed3fd1)
+* Improved Radio-Sample with RadioGroup [a92941a](https://github.com/mikemitterer/dart-material-design-lite/commit/a92941a60b2bc4b159d5212f92b0886109d3dcc1)
+
 ##[v1.0.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.0.2...v1.0.3) - 2015-07-13##
 
 ###Docs###
