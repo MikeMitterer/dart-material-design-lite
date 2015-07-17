@@ -101,6 +101,42 @@ main() async {
 
 ```
 
+If you use **DI** initialize the mdl library as follows:  
+**DON'T USE ASYNC** otherwise you'll get an 'Uninitialized Module.DEFAULT_REFLECTOR' error
+
+```dart
+import 'package:mdl/mdl.dart' as mdl;
+
+@MdlComponentModel @di.Injectable()
+class Application extends mdl.MaterialApplication {
+
+    Application() {
+    }
+
+    @override
+    void run() {
+        // add your logic...
+    }
+}
+
+// Don't use async here - this would kill the di transformer 
+main() {
+    mdl.registerMdl();
+
+    componentFactory().rootContext(Application).addModule(new SampleModule()).run()
+        .then( (final MaterialApplication application) {
+
+        application.run();
+    });
+}
+
+class SampleModule extends di.Module {
+    SampleModule() {
+        // -- services (Example)
+        // bind(SignalService, toImplementation: SignalServiceImpl);
+    }
+}
+```
 
 ## Icons
 
