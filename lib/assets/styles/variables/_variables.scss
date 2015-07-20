@@ -1,3 +1,4 @@
+@import "functions";
 @import "../palette/color-definitions";
 @import "../palette/theme";
 
@@ -18,6 +19,14 @@ $preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
 $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 
 // =========  Color & Themes  =========
+
+// Define whether individual color pallet items should have classes created.
+// Setting this to true will remove individual color classes for each color in the pallets.
+// To improve overall performance (assuming they aren't used) by:
+// * Saving server bandwidth sending the extra classes
+// * Save client computation against the classes
+// it is RECOMMENDED you set this to true.
+$trim-color-classes: false !default;
 
 // Use color primarily for emphasis. Choose colors that fit with
 // your brand and provide good contrast between visual components.
@@ -42,6 +51,13 @@ $color-accent-contrast: $color-dark-contrast !default;
 
 $text-color-primary: rgba($color-black, 0.87) !default;
 $text-link-color: $color-accent !default;
+
+// Define whether to target elements directly for typographic enhancements.
+// Turning this off means you need to use mdl-* classes more often.
+// Other components may also fail to adhere to MD without these rules.
+// It is strongly recommended you leave this as true.
+
+$target-elements-directly: true !default;
 
 // =========  Components  =========
 
@@ -107,7 +123,7 @@ $layout-drawer-border-color: ($palette-grey-300) !default;
 $layout-text-color: ($palette-grey-800) !default;
 $layout-drawer-navigation-color: #757575 !default;
 $layout-drawer-navigation-link-active-background: ($color-light-contrast) !default;
-$layout-drawer-naviagtion-link-active-color: ($color-primary) !default;
+$layout-drawer-navigation-link-active-color: ($color-primary) !default;
 
 // Header
 $layout-header-bg-color: ($color-primary) !default;
@@ -256,8 +272,8 @@ $spinner-arc-time: 1333ms;
 // How much the start location of the arc should rotate each time.
 $spinner-arc-start-rot: 216deg;
 
-$spinner-duration: 360deg * $spinner-arc-time / (
-    $spinner-arc-start-rot + (360deg - $spinner-arc-size));
+$spinner-duration: 360 * $spinner-arc-time / (
+    strip-units($spinner-arc-start-rot + (360deg - $spinner-arc-size)));
 
 
 // RADIO

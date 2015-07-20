@@ -744,8 +744,8 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0; }
 
 /**
-* Styles for HTML elements
-*/
+  * Styles for HTML elements
+  */
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 56px;
@@ -3097,193 +3097,6 @@ ul, ol {
 /* SHADOWS */
 /* GRID */
 /* DATA TABLE */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* Typography */
-/* Shadows */
-/* Animations */
-.mdl-shadow--2dp {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-
-.mdl-shadow--3dp {
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
-
-.mdl-shadow--4dp {
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
-
-.mdl-shadow--6dp {
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2); }
-
-.mdl-shadow--8dp {
-  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
-
-.mdl-shadow--16dp {
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*------------------------------------*\
-    $CONTENTS
-\*------------------------------------*/
-/**
- * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
- * -----Typography
- * -----Colors
- * -----Textfield
- * -----Switch
- * -----Spinner
- * -----Radio
- * -----Menu
- * -----List
- * -----Layout
- * -----Icon toggles
- * -----Footer
- * -----Column
- * -----Checkbox
- * -----Card
- * -----Button
- * -----Animation
- * -----Progress
- * -----Badge
- * -----Shadows
- * -----Grid
- * -----Data table
- */
-/* ==========  TYPOGRAPHY  ========== */
-/* We're splitting fonts into "preferred" and "performance" in order to optimize
-   page loading. For important text, such as the body, we want it to load
-   immediately and not wait for the web font load, whereas for other sections,
-   such as headers and titles, we're OK with things taking a bit longer to load.
-   We do have some optional classes and parameters in the mixins, in case you
-   definitely want to make sure you're using the preferred font and don't mind
-   the performance hit.
-   We should be able to improve on this once CSS Font Loading L3 becomes more
-   widely available.
-*/
-/* ==========  COLORS  ========== */
-/**
-*
-* Material design color palettes.
-* @see http://www.google.com/design/spec/style/color.html
-*
-**/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color & Themes  ========== */
-/* ==========  Typography  ========== */
-/* ==========  Components  ========== */
-/* ==========  Standard Buttons  ========== */
-/* ==========  Icon Toggles  ========== */
-/* ==========  Radio Buttons  ========== */
-/* ==========  Ripple effect  ========== */
-/* ==========  Layout  ========== */
-/* ==========  Content Tabs  ========== */
-/* ==========  Checkboxes  ========== */
-/* ==========  Switches  ========== */
-/* ==========  Spinner  ========== */
-/* ==========  Text fields  ========== */
-/* ==========  Card  ========== */
-/* ==========  Sliders ========== */
-/* ========== Progress ========== */
-/* ==========  List ========== */
-/* ==========  Item ========== */
-/* ==========  Dropdown menu ========== */
-/* ==========  Tooltips  ========== */
-/* ==========  Footer  ========== */
-/* TEXTFIELD */
-/* SWITCH */
-/* SPINNER */
-/* RADIO */
-/* MENU */
-/* LIST */
-/* ICONS */
-/* ICON TOGGLE */
-/* FOOTER */
-/*mega-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/*mini-footer*/
-/**************
- *
- * Sizes
- *
- *************/
-/* COLUMN LAYOUT */
-/* CHECKBOX */
-/* CARD */
-/* Card dimensions */
-/* Cover image */
-/* BUTTON */
-/**
- *
- * Dimensions
- *
- */
-/* ANIMATION */
-/* PROGRESS */
-/* BADGE */
-/* SHADOWS */
-/* GRID */
-/* DATA TABLE */
 .mdl-ripple {
   background: rgb(0,0,0);
   border-radius: 50%;
@@ -4980,35 +4793,35 @@ input.mdl-button[type="submit"] {
   color: rgb(158,158,158);
   background-color: rgb(66,66,66); }
 
-.mdl-mega-footer--top-section:after, .mdl-mega-footer--middle-section:after, .mdl-mega-footer--bottom-section:after {
+.mdl-mega-footer--top-section:after, .mdl-mega-footer--middle-section:after, .mdl-mega-footer--bottom-section:after, .mdl-mega-footer__top-section:after, .mdl-mega-footer__middle-section:after, .mdl-mega-footer__bottom-section:after {
   content: '';
   display: block;
   clear: both; }
 
-.mdl-mega-footer--left-section {
+.mdl-mega-footer--left-section, .mdl-mega-footer__left-section {
   margin-bottom: 16px; }
 
-.mdl-mega-footer--right-section {
+.mdl-mega-footer--right-section, .mdl-mega-footer__right-section {
   margin-bottom: 16px; }
 
-.mdl-mega-footer--right-section a {
+.mdl-mega-footer--right-section a, .mdl-mega-footer__right-section a {
   display: block;
   margin-bottom: 16px;
   color: inherit;
   text-decoration: none; }
 
 @media screen and (min-width: 760px) {
-  .mdl-mega-footer--left-section {
+  .mdl-mega-footer--left-section, .mdl-mega-footer__left-section {
     float: left; }
-  .mdl-mega-footer--right-section {
+  .mdl-mega-footer--right-section, .mdl-mega-footer__right-section {
     float: right; }
-  .mdl-mega-footer--right-section a {
+  .mdl-mega-footer--right-section a, .mdl-mega-footer__right-section a {
     display: inline-block;
     margin-left: 16px;
     line-height: 36px;
     vertical-align: middle; } }
 
-.mdl-mega-footer--social-btn {
+.mdl-mega-footer--social-btn, .mdl-mega-footer__social-btn {
   width: 36px;
   height: 36px;
   padding: 0;
@@ -5016,35 +4829,35 @@ input.mdl-button[type="submit"] {
   background-color: rgb(158,158,158);
   border: none; }
 
-.mdl-mega-footer--drop-down-section {
+.mdl-mega-footer--drop-down-section, .mdl-mega-footer__drop-down-section {
   display: block;
   position: relative; }
 
 @media screen and (min-width: 760px) {
-  .mdl-mega-footer--drop-down-section {
+  .mdl-mega-footer--drop-down-section, .mdl-mega-footer__drop-down-section {
     width: 33%; }
-  .mdl-mega-footer--drop-down-section:nth-child(1), .mdl-mega-footer--drop-down-section:nth-child(2) {
+  .mdl-mega-footer--drop-down-section:nth-child(1), .mdl-mega-footer--drop-down-section:nth-child(2), .mdl-mega-footer__drop-down-section:nth-child(1), .mdl-mega-footer__drop-down-section:nth-child(2) {
     float: left; }
-  .mdl-mega-footer--drop-down-section:nth-child(3) {
+  .mdl-mega-footer--drop-down-section:nth-child(3), .mdl-mega-footer__drop-down-section:nth-child(3) {
     float: right; }
-    .mdl-mega-footer--drop-down-section:nth-child(3):after {
+    .mdl-mega-footer--drop-down-section:nth-child(3):after, .mdl-mega-footer__drop-down-section:nth-child(3):after {
       clear: right; }
-  .mdl-mega-footer--drop-down-section:nth-child(4) {
+  .mdl-mega-footer--drop-down-section:nth-child(4), .mdl-mega-footer__drop-down-section:nth-child(4) {
     clear: right;
     float: right; }
-  .mdl-mega-footer--middle-section:after {
+  .mdl-mega-footer--middle-section:after, .mdl-mega-footer__middle-section:after {
     content: '';
     display: block;
     clear: both; }
-  .mdl-mega-footer--bottom-section {
+  .mdl-mega-footer--bottom-section, .mdl-mega-footer__bottom-section {
     padding-top: 0; } }
 
 @media screen and (min-width: 1024px) {
-  .mdl-mega-footer--drop-down-section, .mdl-mega-footer--drop-down-section:nth-child(3), .mdl-mega-footer--drop-down-section:nth-child(4) {
+  .mdl-mega-footer--drop-down-section, .mdl-mega-footer--drop-down-section:nth-child(3), .mdl-mega-footer--drop-down-section:nth-child(4), .mdl-mega-footer__drop-down-section, .mdl-mega-footer__drop-down-section:nth-child(3), .mdl-mega-footer__drop-down-section:nth-child(4) {
     width: 24%;
     float: left; } }
 
-.mdl-mega-footer--heading-checkbox {
+.mdl-mega-footer--heading-checkbox, .mdl-mega-footer__heading-checkbox {
   position: absolute;
   width: 100%;
   height: 55.8px;
@@ -5054,17 +4867,17 @@ input.mdl-button[type="submit"] {
   cursor: pointer;
   z-index: 1;
   opacity: 0; }
-  .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer--heading:after {
+  .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer--heading:after, .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer__heading:after, .mdl-mega-footer__heading-checkbox ~ .mdl-mega-footer--heading:after, .mdl-mega-footer__heading-checkbox ~ .mdl-mega-footer__heading:after {
     font-family: 'Material Icons';
     content: '\E5CE'; }
 
-.mdl-mega-footer--heading-checkbox:checked ~ ul {
+.mdl-mega-footer--heading-checkbox:checked ~ ul, .mdl-mega-footer__heading-checkbox:checked ~ ul {
   display: none; }
-.mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer--heading:after {
+.mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer--heading:after, .mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer__heading:after, .mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer--heading:after, .mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer__heading:after {
   font-family: 'Material Icons';
   content: '\E5CF'; }
 
-.mdl-mega-footer--heading {
+.mdl-mega-footer--heading, .mdl-mega-footer__heading {
   position: relative;
   width: 100%;
   padding-right: 39.8px;
@@ -5078,7 +4891,7 @@ input.mdl-button[type="submit"] {
   overflow: hidden;
   color: rgb(224,224,224); }
 
-.mdl-mega-footer--heading:after {
+.mdl-mega-footer--heading:after, .mdl-mega-footer__heading:after {
   content: '';
   position: absolute;
   top: 0;
@@ -5088,39 +4901,39 @@ input.mdl-button[type="submit"] {
   height: 23.8px;
   background-size: cover; }
 
-.mdl-mega-footer--link-list {
+.mdl-mega-footer--link-list, .mdl-mega-footer__link-list {
   list-style: none;
   margin: 0;
   padding: 0;
   margin-bottom: 32px; }
-  .mdl-mega-footer--link-list:after {
+  .mdl-mega-footer--link-list:after, .mdl-mega-footer__link-list:after {
     clear: both;
     display: block;
     content: ''; }
 
-.mdl-mega-footer--link-list li {
+.mdl-mega-footer--link-list li, .mdl-mega-footer__link-list li {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0;
   line-height: 20px; }
 
-.mdl-mega-footer--link-list a {
+.mdl-mega-footer--link-list a, .mdl-mega-footer__link-list a {
   color: inherit;
   text-decoration: none;
   white-space: nowrap; }
 
 @media screen and (min-width: 760px) {
-  .mdl-mega-footer--heading-checkbox {
+  .mdl-mega-footer--heading-checkbox, .mdl-mega-footer__heading-checkbox {
     display: none; }
-    .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer--heading:after {
+    .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer--heading:after, .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer__heading:after, .mdl-mega-footer__heading-checkbox ~ .mdl-mega-footer--heading:after, .mdl-mega-footer__heading-checkbox ~ .mdl-mega-footer__heading:after {
       background-image: none; }
-  .mdl-mega-footer--heading-checkbox:checked ~ ul {
+  .mdl-mega-footer--heading-checkbox:checked ~ ul, .mdl-mega-footer__heading-checkbox:checked ~ ul {
     display: block; }
-  .mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer--heading:after {
+  .mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer--heading:after, .mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer__heading:after, .mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer--heading:after, .mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer__heading:after {
     content: ''; } }
 
-.mdl-mega-footer--bottom-section {
+.mdl-mega-footer--bottom-section, .mdl-mega-footer__bottom-section {
   padding-top: 16px;
   margin-bottom: 16px; }
 
@@ -5128,7 +4941,7 @@ input.mdl-button[type="submit"] {
   margin-bottom: 16px;
   color: white; }
 
-.mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li {
+.mdl-mega-footer--bottom-section .mdl-mega-footer--link-list li, .mdl-mega-footer__bottom-section .mdl-mega-footer__link-list li {
   float: left;
   margin-bottom: 0;
   margin-right: 16px; }
@@ -5311,7 +5124,7 @@ input.mdl-button[type="submit"] {
   .mdl-mini-footer .mdl-logo {
     line-height: 36px; }
 
-.mdl-mini-footer--link-list {
+.mdl-mini-footer--link-list, .mdl-mini-footer__link-list {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5322,32 +5135,32 @@ input.mdl-button[type="submit"] {
   list-style: none;
   margin: 0;
   padding: 0; }
-  .mdl-mini-footer--link-list li {
+  .mdl-mini-footer--link-list li, .mdl-mini-footer__link-list li {
     margin-bottom: 0;
     margin-right: 16px; }
     @media screen and (min-width: 760px) {
-      .mdl-mini-footer--link-list li {
+      .mdl-mini-footer--link-list li, .mdl-mini-footer__link-list li {
         line-height: 36px; } }
-  .mdl-mini-footer--link-list a {
+  .mdl-mini-footer--link-list a, .mdl-mini-footer__link-list a {
     color: inherit;
     text-decoration: none;
     white-space: nowrap; }
 
-.mdl-mini-footer--left-section {
+.mdl-mini-footer--left-section, .mdl-mini-footer__left-section {
   display: inline-block;
   -webkit-box-ordinal-group: 1;
   -webkit-order: 0;
       -ms-flex-order: 0;
           order: 0; }
 
-.mdl-mini-footer--right-section {
+.mdl-mini-footer--right-section, .mdl-mini-footer__right-section {
   display: inline-block;
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
       -ms-flex-order: 1;
           order: 1; }
 
-.mdl-mini-footer--social-btn {
+.mdl-mini-footer--social-btn, .mdl-mini-footer__social-btn {
   width: 36px;
   height: 36px;
   padding: 0;
@@ -9075,6 +8888,193 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
             transform: scale(1);
     opacity: 1;
     visibility: visible; } }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* ICONS */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/*mini-footer*/
+/**************
+ *
+ * Sizes
+ *
+ *************/
+/* COLUMN LAYOUT */
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+.mdl-shadow--2dp {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+
+.mdl-shadow--3dp {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12); }
+
+.mdl-shadow--4dp {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
+
+.mdl-shadow--6dp {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2); }
+
+.mdl-shadow--8dp {
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); }
+
+.mdl-shadow--16dp {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.

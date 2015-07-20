@@ -115,22 +115,35 @@ class MdlComponentHandler {
         Validate.notNull(_injector,"Injector must not be null - did you call run?");
         Validate.notNull(element,"Component must not be null!");
 
+        return upgradeElements( [ element] );
+    }
+
+    /// Upgrades a specific list of elements rather than all in the DOM.
+    Future<di.Injector> upgradeElements(final List<dom.HtmlElement> elements) {
+        Validate.notNull(_injector,"Injector must not be null - did you call run?");
+        Validate.notNull(elements,"List of elements must not be null!");
+
         dom.querySelector("html")
             ..classes.add(_cssClasses.HTML_JS)
             ..classes.add(_cssClasses.HTML_DART)
             ..classes.remove(_cssClasses.UPGRADED);
 
-        final Future<di.Injector> future = new Future<di.Injector>( () {
+            final Future<di.Injector> future = new Future<di.Injector>( () {
 
-            element.classes.add(_cssClasses.UPGRADING);
+                elements.forEach((final dom.HtmlElement element) {
 
-            _configs.forEach((final MdlConfig config) {
-                _upgradeDom(element,config);
-                _logger.finer("${config.selector} upgraded with ${config.classAsString}...");
-            });
+                    element.classes.add(_cssClasses.UPGRADING);
 
-            element.classes.remove(_cssClasses.UPGRADING);
-            element.classes.add(_cssClasses.UPGRADED);
+                    _configs.forEach((final MdlConfig config) {
+                        _upgradeDom(element,config);
+                        _logger.finer("${config.selector} upgraded with ${config.classAsString}...");
+                    });
+
+                    element.classes.remove(_cssClasses.UPGRADING);
+                    element.classes.add(_cssClasses.UPGRADED);
+
+                });
+
 
             dom.querySelector("body").classes.remove(_cssClasses.UPGRADING);
             dom.querySelector("html").classes.add(_cssClasses.UPGRADED);

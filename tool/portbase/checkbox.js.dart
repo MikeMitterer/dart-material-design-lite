@@ -239,5 +239,6 @@ void _mdlDowngrade() {
 // componentHandler.register({
 //   constructor: MaterialCheckbox,
 //   classAsString: 'MaterialCheckbox',
-//   cssClass: 'mdl-js-checkbox'
+//   cssClass: 'mdl-js-checkbox',
+//   widget: true
 // });

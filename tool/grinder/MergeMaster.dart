@@ -125,6 +125,11 @@ class MergeMaster {
 
         srcVariables.copySync(targetVariables.path);
 
+        final File srcFunctions = new File("${mdlDir}/_functions.scss");
+        final File targetFunctions = new File("${sassDir}/variables/_functions.orig.scss");
+
+        srcFunctions.copySync(targetFunctions.path);
+
         final File srcColordef = new File("${mdlDir}/_color-definitions.scss");
         final File targetColordev = new File("${sassDir}/palette/_color-definitions.orig.scss");
 

@@ -130,8 +130,8 @@ final componentHandler = ( /*function*/ () {
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
 
-        for (final j = 0, len = registeredClass.callbacks.length; j < len; i++) {
-          registeredClass.callbacks[i](element);
+        for (final j = 0, len = registeredClass.callbacks.length; j < len; j++) {
+          registeredClass.callbacks[j](element);
         }
 
         if (registeredClass.widget) {
@@ -147,6 +147,30 @@ final componentHandler = ( /*function*/ () {
       final ev = document.createEvent('Events');
       ev.initEvent('mdl-componentupgraded', true, true);
       element.dispatchEvent(ev);
+    }
+  }
+
+/// Upgrades a specific list of elements rather than all in the DOM.
+/// param {HTMLElement | [HTMLElement] | NodeList | HTMLCollection} elements
+/// The elements we wish to upgrade.
+  function upgradeElementsInternal(elements) {
+    if (!Array.isArray(elements)) {
+      if (typeof elements.item == 'function') {
+        elements = Array.prototype.slice.call(elements);
+
+      } else {
+        elements = [elements];
+      }
+    }
+
+    for (final i = 0, n = elements.length, element; i < n; i++) {
+      element = elements[i];
+      if (element instanceof HTMLElement) {
+        if (element.children.length > 0) {
+          upgradeElementsInternal(element.children);
+        }
+        upgradeElementInternal(element);
+      }
     }
   }
 
@@ -278,6 +302,7 @@ final componentHandler = ( /*function*/ () {
   return {
     upgradeDom: upgradeDomInternal,
     upgradeElement: upgradeElementInternal,
+    upgradeElements: upgradeElementsInternal,
     upgradeAllRegistered: upgradeAllRegisteredInternal,
     registerUpgradedCallback: registerUpgradedCallbackInternal,
     register: registerInternal,
