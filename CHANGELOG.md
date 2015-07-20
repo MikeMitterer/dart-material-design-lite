@@ -1,6 +1,15 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.1.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.1.1...v1.1.2) - 2015-07-20##
+
+###Feature###
+* Merged MDL/JS-Master CW 29 [38ee761](https://github.com/mikemitterer/dart-material-design-lite/commit/38ee76186de3bcff6c0dd9f7f6963e398a2f5e57)
+* ObservableList supports removeWhere [d25c473](https://github.com/mikemitterer/dart-material-design-lite/commit/d25c47380d3abe4eac8c1beeba592c940c26c509)
+
+###Docs###
+* Avoid main() async if using DI [8b5a1d7](https://github.com/mikemitterer/dart-material-design-lite/commit/8b5a1d72b38f8cace5799545bfc2b9c53ec6cfa6)
+
 ##[v1.1.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.0.3...v1.1.0) - 2015-07-16##
 
 ###Feature###
