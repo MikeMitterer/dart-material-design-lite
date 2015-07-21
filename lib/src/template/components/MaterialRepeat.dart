@@ -106,6 +106,8 @@ class MaterialRepeat extends MdlTemplateComponent {
             _addBorderIfInDebugMode(child,"red");
             _logger.fine("Child to remove: $child Element ID: ${element.id}");
 
+            componentHandler().downgradeElement(child);
+
             new Timer(new Duration(milliseconds: 30), () {
                 _items.remove(item);
                 child.remove();

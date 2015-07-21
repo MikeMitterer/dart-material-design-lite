@@ -46,9 +46,11 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
     void _listNames(var jsElement) {
         final Logger _logger = new Logger('mdlcore.mdlComponent._listNames');
 
-        final List<String> componentsForElement = (jsElement[_MDL_WIDGET_PROPERTY] as String).split(",");
+        final List<String> componentsForElement = (jsElement[_MDL_COMPONENT_PROPERTY] as String).split(",");
+
+        _logger.info("Registered Component for $element:");
         componentsForElement.forEach((final String name) {
-            _logger.warning("Registered Component $name for $element");
+            _logger.warning(" -> $name");
         });
     }
 
@@ -58,8 +60,7 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
         if(element.id != null && element.id.isNotEmpty) {
             id = element.id;
         }
-        throw "$element is not a MdlComponent!!! (ID: $id)";
-
+        throw "$element is not a MdlComponent!!! (ID: $id, ${element.classes}, ${element.dataset['upgraded']})";
     }
 
     String typeAsString;
@@ -92,7 +93,7 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
     _listNames(jsElement);
 
     throw "$element is not a ${typeAsString}-Component!!!\n(ID: ${element.id}, class: ${element.classes})\n"
-    "These components are available: ${jsElement[_MDL_COMPONENT_PROPERTY] as String}";
+        "These components are available: ${jsElement[_MDL_COMPONENT_PROPERTY] as String}";
 }
 
 /// Calls the MdlComponents attached-function for the given [element] and all it's childrens
@@ -103,17 +104,17 @@ void callAttached(final dom.Element element) {
 
     if(element is dom.HtmlElement) {
 
-        try {
-            final MdlComponent component = mdlComponent(element as dom.HtmlElement,null);
-            if(component != null) {
+        var jsElement = new JsObject.fromBrowserObject(element);
+        if(jsElement.hasProperty(_MDL_COMPONENT_PROPERTY)) {
+            final List<String> componentsForElement = (jsElement[_MDL_COMPONENT_PROPERTY] as String).split(",");
+            componentsForElement.forEach((final String componentName) {
+
+                final MdlComponent component = jsElement[componentName] as MdlComponent;
                 component.attached();
-            }
 
-            // Ignore exception - it's OK here
-        } on String catch (e) {
-
-            //_logger.info("$e");
+            });
         }
+
     }
 
     // Iterate through all children

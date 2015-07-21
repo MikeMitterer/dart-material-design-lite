@@ -41,7 +41,7 @@ class ModelObserverFactory {
 
         } else {
 
-            throw new ArgumentError("${element} cannot be observed. Probably not a MdlComponent!");
+            throw new ArgumentError("${element} cannot be observed. Probably not a MdlComponent! Type: ${type}");
 
         }
     }

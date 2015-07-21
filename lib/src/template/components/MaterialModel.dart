@@ -46,27 +46,23 @@ class MaterialModel extends MdlComponent {
 
     MaterialModel.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector), _observerFactory = injector.get(ModelObserverFactory) {
+    }
 
+    @override
+    void attached() {
         _scope = new Scope(this, mdlParentScope(this));
         _init();
-        
     }
     
     // Central Element - by default this is where mdl-model can be found (element)
     // html.Element get hub => inputElement;
-    
-    // - EventHandler -----------------------------------------------------------------------------
-
-    void handleButtonClick() {
-        _logger.info("Event: handleButtonClick");
-    }    
     
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
         _logger.fine("MaterialModel - init");
 
-        //_logger.info("ParentScope: ${_scope.parentContext}");
+        _logger.info("ParentScope: ${_scope.parentContext}");
         final String fieldname = element.attributes[_MaterialModelConstant.WIDGET_SELECTOR].trim();
 
         _scope.context = _scope.parentContext;
@@ -89,9 +85,6 @@ void registerMaterialModel() {
     // If you want <div mdl-model></div> set selectorType to SelectorType.ATTRIBUTE.
     // By default it's used as a class name. (<div class="mdl-model"></div>)
     config.selectorType = SelectorType.ATTRIBUTE;
-
-    // Sets priority to 5 - means all Components get upgraded (priority 1) before this component
-    config.priority = 5;
 
     componentHandler().register(config);
 }

@@ -77,7 +77,7 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialProperty - init");
+        _logger.fine("MaterialProperty - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialPropertyConstant.WIDGET_SELECTOR);
