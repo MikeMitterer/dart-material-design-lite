@@ -19,7 +19,26 @@
 
 part of mdlapplication;
 
-///
+/**
+ * A Component with this interface can handle "Data-Requests" from its child (MdlComponent)
+ * For "ScopeAware-Components" make sure you create the Scope in [attached] this guaranties that
+ * the component is in the DOM and has all it's necessary parent-elements.
+ * Initialisation should also be done in [attached]!
+ *
+ * Implementation:
+ *      class MySampleComponent extends MdlComponent implements ScopeAware {
+ *          Scope scope;
+ *
+ *          MySampleComponent() {
+ *          }
+ *
+ *          @override
+ *          void attached() {
+ *              scope = new Scope(this,mdlParentScope(this));
+ *              _init();
+ *          }
+ *      }
+ */
 abstract class ScopeAware {
     Scope get scope;
 }

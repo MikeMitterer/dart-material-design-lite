@@ -19,6 +19,15 @@
 
 part of mdlcore;
 
+/// Thrown if you try to register more than one widget per element
+/// Multiple components per element are allowed but not multiple widgets!
+class MultipleWidgetException implements Exception {
+    factory MultipleWidgetException([var message]) => new Exception(message);
+}
+
+const String _MDL_WIDGET_PROPERTY       = "mdlwidget";
+const String _MDL_COMPONENT_PROPERTY    = "mdlcomponent";
+
 class _RootContext { const _RootContext(); }
 
 /// Store strings for class names defined by this component that are used in Dart.
@@ -315,9 +324,6 @@ class MdlComponentHandler {
         Validate.notNull(queryBaseElement);
         Validate.notNull(config);
 
-//        final List<Future> futureUpgrade = new List<Future>();
-//        final Future future = new Future(() {
-
         /// Check if {config.selector} is either the class-name or the tag name of {baseElement}
         /// If so - upgrade
         void _upgradeBaseElementIfSelectorFits(final dom.Element baseElement) {
@@ -347,12 +353,8 @@ class MdlComponentHandler {
 
             _upgradeElement(element, config);
 
-            // futureUpgrade.add(_upgradeElement(element, config));
         });
 
-//        });
-//        futureUpgrade.add(future);
-//        Future.wait(futureUpgrade);
     }
 
     /**
@@ -374,6 +376,19 @@ class MdlComponentHandler {
                 return true;
             }
             return _hasRepeatTemplate(element.parent);
+        }
+
+        /// Check if element is already in DOM (assume that if it finds a 'body' it is in DOM)
+        /// Is not the case for dynamically added components ([DomRenderer])
+        bool _isInDom(final dom.Element element) {
+            if(element.parent != null) {
+                if(element.parent.tagName.toLowerCase() == "body") {
+                    return true;
+                }
+                return _isInDom(element.parent);
+            }
+
+            return false;
         }
 
         if (( !element.attributes.containsKey(_DATA_KEY) ||
@@ -399,30 +414,45 @@ class MdlComponentHandler {
                 // Makes it possible to query for the main element in this component.
                 var jsElement = new JsObject.fromBrowserObject(component.hub);
 
-                if(config.isWidget) {
-
-                    // remember all the registered components in MDL_WIDGET_PROPERTY
-                    if(jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {
-                        final List<String> componentsForElement = (jsElement[MDL_WIDGET_PROPERTY] as String).split(",");
-                        if(!componentsForElement.contains(config.classAsString)) {
-                            componentsForElement.add(config.classAsString);
-                            jsElement[MDL_WIDGET_PROPERTY] = componentsForElement.join(",");
-                        }
-
-                        // MDL/JS wants to go this route - not sure if it makes sense!!!!
-                        if(componentsForElement.length > 1) {
-                            _logger.warning("$element has more than one components. ($componentsForElement)\n"
-                                "This can lead into problems with 'MdlComponent.parent'...");
-                        }
-                    } else {
-                        jsElement[MDL_WIDGET_PROPERTY] = config.classAsString;
+                /// Every Widget is a Component but not every Component is a Widget
+                void _registerWidget() {
+                    if(jsElement.hasProperty(_MDL_WIDGET_PROPERTY)) {
+                        final String name = jsElement[_MDL_WIDGET_PROPERTY];
+                        throw new MultipleWidgetException("There is already a widget registered for $element, Type: $name!\n"
+                        "Only one widget per element is allowed!");
                     }
 
-                    // register the component
-                    jsElement[config.classAsString] = component;
+                    // Store the widget-name as String (registration comes a few lines below)
+                    jsElement[_MDL_WIDGET_PROPERTY] = config.classAsString;
+                }
 
-                } else {
-                    jsElement[MDL_RIPPLE_PROPERTY] = component;
+                if(config.isWidget) {
+                    _registerWidget();
+                }
+
+                /// remember all the registered components in _MDL_COMPONENT_PROPERTY
+                /// Widget names are stored as comma separated list
+                /// Every Widget is a Component but not every Component is a Widget
+                void _registerComponent() {
+                    // Add first element if property is not available
+                    if(!jsElement.hasProperty(_MDL_COMPONENT_PROPERTY)) {
+                        jsElement[_MDL_COMPONENT_PROPERTY] = config.classAsString;
+                    }
+
+                    final List<String> componentsForElement = (jsElement[_MDL_COMPONENT_PROPERTY] as String).split(",");
+                    if(!componentsForElement.contains(config.classAsString)) {
+                        componentsForElement.add(config.classAsString);
+                        jsElement[_MDL_COMPONENT_PROPERTY] = componentsForElement.join(",");
+                    }
+
+                    // register the component with it's name. It makes no difference if the component is a widget or not
+                    jsElement[config.classAsString] = component;
+                }
+
+                _registerComponent();
+
+                if(_isInDom(element)) {
+                    callAttached(element);
                 }
 
             }
@@ -448,25 +478,23 @@ class MdlComponentHandler {
             var jsElement = new JsObject.fromBrowserObject(element);
 
             MdlComponent component;
-            if(jsElement.hasProperty(MDL_RIPPLE_PROPERTY)) {
+            if(jsElement.hasProperty(_MDL_COMPONENT_PROPERTY)) {
 
-                component = jsElement[MDL_RIPPLE_PROPERTY] as MdlComponent;
-
-                component.downgrade();
-
-                jsElement.deleteProperty(MDL_RIPPLE_PROPERTY);
-            }
-
-            if(jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {
-
-                final List<String> componentsForElement = (jsElement[MDL_WIDGET_PROPERTY] as String).split(",");
+                final List<String> componentsForElement = (jsElement[_MDL_COMPONENT_PROPERTY] as String).split(",");
                 componentsForElement.forEach((final String componentName) {
+
                     component = jsElement[componentName] as MdlComponent;
                     component.downgrade();
                     jsElement.deleteProperty(componentName);
+
                 });
 
-                jsElement.deleteProperty(MDL_WIDGET_PROPERTY);
+                jsElement.deleteProperty(_MDL_COMPONENT_PROPERTY);
+            }
+
+            if(jsElement.hasProperty(_MDL_WIDGET_PROPERTY)) {
+                // Component is already downgraded (All MdlComponents are listed in _MDL_COMPONENT_PROPERTY)
+                jsElement.deleteProperty(_MDL_WIDGET_PROPERTY);
             }
 
             // doesn't mater if it is a widget or a ripple...

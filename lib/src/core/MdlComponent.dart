@@ -19,81 +19,6 @@
 
 part of mdlcore;
 
-const String MDL_WIDGET_PROPERTY = "mdlwidget";
-const String MDL_RIPPLE_PROPERTY = "mdlripple";
-
-class WrongComponentTypeException implements Exception {
-    factory WrongComponentTypeException([var message]) => new Exception(message);
-}
-
-/**
- * [element] The element where a MDL-Component is registered
- *
- * Returns the upgraded MDL-Component. If {element} is null it returns a null-MDLComponent
- * [type] The requested type. If [type] is null it returns the first available type.
- *
- * If [type] is null and if there are more than one types available it throws and error!
- *
- * Sample:
- *      static MaterialAccordion widget(final dom.HtmlElement element) =>
- *          mdlComponent(MaterialAccordion,element) as MaterialAccordion;
- */
-MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
-    //final Logger _logger = new Logger('mdlcore.mdlComponent');
-
-    if(element == null) {
-        return element as MdlComponent;
-    }
-    var jsElement = new JsObject.fromBrowserObject(element);
-
-    void _listNames(var jsElement) {
-        final Logger _logger = new Logger('mdlcore.mdlComponent._listNames');
-
-        final List<String> componentsForElement = (jsElement[MDL_WIDGET_PROPERTY] as String).split(",");
-        componentsForElement.forEach((final String name) {
-            _logger.warning("Registered Component $name for $element");
-        });
-    }
-
-    // If element has not MDL_WIDGET_PROPERTY it is not a MDLComponent
-    if (!jsElement.hasProperty(MDL_WIDGET_PROPERTY)) {
-        String id = "<not set>";
-        if(element.id != null && element.id.isNotEmpty) {
-            id = element.id;
-        }
-        throw "$element is not a MdlComponent!!! (ID: $id)";
-
-    }
-
-    String typeAsString;
-    if(type != null) {
-        typeAsString = type.toString();
-        //_logger.fine("Looking for $typeAsString!");
-
-    } else {
-        // If there is not "type" but more then one components - throw exception!
-        final List<String> componentsForElement = (jsElement[MDL_WIDGET_PROPERTY] as String).split(",");
-        if(componentsForElement.length > 1) {
-            throw new WrongComponentTypeException("$element has more than one components registered. ($componentsForElement)\n"
-                "Please specify the requested type.\n"
-                "Usually this is a 'MdlComponent.parent' problem...");
-        }
-        typeAsString = componentsForElement.first;
-    }
-
-    // OK we found the right type - return the component
-    if(jsElement.hasProperty(typeAsString)) {
-        //_logger.fine("Found $typeAsString");
-        return (jsElement[typeAsString] as MdlComponent);
-    }
-
-    // Show the available names
-    _listNames(jsElement);
-
-    throw "$element is not a ${typeAsString}-Component!!!\n(ID: ${element.id}, class: ${element.classes})\n"
-        "These components are available: ${jsElement[MDL_WIDGET_PROPERTY] as String}";
-}
-
 abstract class MdlComponent {
     final Logger _logger = new Logger('mdlcore.MdlComponent');
 
@@ -164,6 +89,12 @@ abstract class MdlComponent {
     }
 
     MdlComponent get parent => _getMdlParent(element);
+
+    /// Called after [DomRenderer] has added this component to the DOM or
+    /// if [MdlComponentHandler] hast upgrade the component and it's already in the DOM!
+    void attached() {
+        // _logger.info("${this} attached!");
+    }
 
     //- private -----------------------------------------------------------------------------------
 

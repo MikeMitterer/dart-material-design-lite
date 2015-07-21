@@ -63,8 +63,10 @@ class MdlConfig<T extends MdlComponent> {
 
     /// The higher the priority the later the component will be upgraded.
     /// This is important for the ripple-effect. Must be called as last upgrade process
-    /// Default {priority} is 1, materialRippleConfig sets {priority} to 10
-    int priority = 1;
+    /// Default {priority} is 5, materialRippleConfig sets {priority} to 10
+    /// It's important do know that MdlWidgetConfig gets [priority] 1
+    /// This guaranties that a widget exists always before it's properties
+    int priority = 5;
 
     /// Avoids problems with Components and Helpers like MaterialRipple
     final bool isWidget;
@@ -91,8 +93,14 @@ class MdlConfig<T extends MdlComponent> {
 
 /// Helps to decide what is a real Widget and what is just a helper.
 /// MaterialRipple would be such a "helper"
+///
+/// MdlWidgetConfig sets [priority] to 1. (default is 5) This guaranties that a widget will be created before it's
+/// (MdlComponent) properties!
 class MdlWidgetConfig<T extends MdlComponent> extends MdlConfig<T> {
     MdlWidgetConfig(final String selector,
                     T componentFactory(final dom.HtmlElement element,final di.Injector injector)) :
-                        super(selector, componentFactory, isWidget: true);
+                        super(selector, componentFactory, isWidget: true) {
+
+        priority = 1;
+    }
 }

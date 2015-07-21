@@ -83,10 +83,13 @@ class DomRenderer {
                         //element.append(child);
                         parent.insertAdjacentElement("beforeEnd",child);
 
+                        callAttached(child);
+
                         parent.classes.remove(_cssClasses.LOADING);
                         parent.classes.add(_cssClasses.LOADED);
 
                         completer.complete(child);
+
                     });
 
                 });
@@ -135,10 +138,13 @@ class DomRenderer {
                         parent.insertAdjacentElement("beforeEnd",child);
                     }
 
+                    callAttached(child);
+
                     parent.classes.remove(_cssClasses.LOADING);
                     parent.classes.add(_cssClasses.LOADED);
 
                     completer.complete(child);
+
                 });
 
             });
@@ -156,7 +162,7 @@ class DomRenderer {
 
     //- private -----------------------------------------------------------------------------------
 
-    dom.NodeValidator _validator() {
+        dom.NodeValidator _validator() {
         final dom.NodeValidator validator = new dom.NodeValidatorBuilder.common()  // html5 + Templating
             ..allowNavigation()
             ..allowImages()
@@ -167,6 +173,8 @@ class DomRenderer {
 
         return validator;
     }
+
+
 }
 
 class _AllowAllAttributesNodeValidator implements dom.NodeValidator {

@@ -43,6 +43,18 @@ class DataAttribute {
     static _DataValue forValue(final dynamic value) {
         return new _DataValue(value);
     }
+
+    static _DataValue forAttribute(final dom.HtmlElement element,final String name) {
+        Validate.notNull(element,"Element for attribute $name must not be null");
+        Validate.notNull(name,"Attribute-Name for $element must not be null");
+        Validate.notBlank(name,"Attribute-Name for $element must not be blank");
+
+        if(!element.attributes.containsKey(name)) {
+            throw new ArgumentError("$element has not attribute '$name'");
+        }
+        final String value = element.attributes[name];
+        return new _DataValue(value);
+    }
 }
 
 class _DataValue {
@@ -73,6 +85,13 @@ class _DataValue {
         }
 
         return false;
+    }
+
+    String asString() {
+        if(_value is String) {
+            return _value;
+        }
+        return _value.toString();
     }
 }
 

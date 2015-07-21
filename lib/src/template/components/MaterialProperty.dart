@@ -48,8 +48,13 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
     MaterialProperty.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
 
-        scope = new Scope(this, mdlParentScope(this));
-        _init();
+//        _logger.info("Vor SCOPE1----------");
+//
+//        scope = new Scope(this, mdlParentScope(this));
+//
+//        _logger.info("Nach SCOPE1______ ${scope.parentContext} ___________");
+//
+//        _init();
     }
     
     static MaterialProperty widget(final dom.HtmlElement element) => mdlComponent(element,MaterialProperty) as MaterialProperty;
@@ -60,13 +65,19 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
     @public
     String get value => element.text.trim();
 
+    @override
+    void attached() {
+        scope = new Scope(this,mdlParentScope(this));
+        _init();
+    }
+
     // --------------------------------------------------------------------------------------------
     // EventHandler
 
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialProperty - init");
+        _logger.info("MaterialProperty - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialPropertyConstant.WIDGET_SELECTOR);
@@ -101,7 +112,7 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
 
 /// registration-Helper
 void registerMaterialProperty() {
-    final MdlConfig config = new MdlWidgetConfig<MaterialProperty>(
+    final MdlConfig config = new MdlConfig<MaterialProperty>(
         _MaterialPropertyConstant.WIDGET_SELECTOR,
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialProperty.fromElement(element,injector)
     );
@@ -109,7 +120,7 @@ void registerMaterialProperty() {
     // if you want <mdl-property></mdl-property> set isSelectorAClassName to false.
     // By default it's used as a class name. (<div class="mdl-property"></div>)
     config.selectorType = SelectorType.TAG;
-    
+
     componentHandler().register(config);
 }
 

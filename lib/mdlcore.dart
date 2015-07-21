@@ -34,6 +34,7 @@ import 'package:di/di.dart' as di;
 
 part "src/core/annotations.dart";
 part "src/core/interfaces.dart";
+part "src/core/utils.dart";
 
 part "src/core/MdlComponentHandler.dart";
 part "src/core/MdlConfig.dart";
