@@ -26,6 +26,8 @@ class _MaterialAccordionCssClasses {
 
     static const String MAIN_CLASS  = "mdl-js-accordion";
 
+    final String GROUP              = "mdl-accordion-group";
+
     final String ACCORDION_TYPE     = "mdl-accordion--radio-type";
     final String NAVIGATION         = "mdl-accordion--navigation";
 
@@ -80,7 +82,7 @@ void registerMaterialAccordion() => componentHandler().register(materialAccordio
  *           <p class="mdl-accordion--body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente eligendi nulla illo culpa ab in at adipisci eveniet id itaque maxime soluta recusandae doloribus laboriosam dignissimos est aut cupiditate delectus.</p>
  *       </div>
  *   </div>
- *    </div><!-- .mdl-accordion -->
+ *   </div><!-- .mdl-accordion -->
  */
 class MaterialAccordion extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialAccordion');
@@ -88,35 +90,43 @@ class MaterialAccordion extends MdlComponent {
     static const _MaterialAccordionConstant _constant = const _MaterialAccordionConstant();
     static const _MaterialAccordionCssClasses _cssClasses = const _MaterialAccordionCssClasses();
 
+    dom.HtmlElement _group = null;
+
     MaterialAccordion.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
-        _init();
+        //_init();
     }
 
     static MaterialAccordion widget(final dom.HtmlElement element) => mdlComponent(element,MaterialAccordion) as MaterialAccordion;
 
-
+    @override
+    void attached() {
+        _init();
+    }
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialAccordion - init");
+        _logger.info("MaterialAccordion - init");
 
         bool hasRipples = false;
         if (element != null) {
-            if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
-                element.classes.add(_cssClasses.RIPPLE_EFFECT_IGNORE_EVENTS);
+            if (group.classes.contains(_cssClasses.RIPPLE_EFFECT) ||
+                element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
+
+                group.classes.add(_cssClasses.RIPPLE_EFFECT_IGNORE_EVENTS);
                 hasRipples = true;
+
+                element.classes.add(_cssClasses.RIPPLE_EFFECT);
             }
 
-            final bool isRadio = element.classes.contains(_cssClasses.ACCORDION_TYPE);
+            final bool isRadio = group.classes.contains(_cssClasses.ACCORDION_TYPE);
 
-            final List<dom.Element> panels = element.querySelectorAll(".${_cssClasses.ACCORDION}");
+            //final List<dom.Element> panels = element.querySelectorAll(".${_cssClasses.ACCORDION}");
 
             // Select element label
-            panels.forEach( (final dom.HtmlElement panel) {
+            //panels.forEach( (final dom.HtmlElement panel) {
+            final dom.HtmlElement panel = element;
                 final dom.Element label = panel.querySelector(".${_cssClasses.ACCORDION_LABEL}");
-
-                _logger.fine("Found $label");
 
                 final String id = "accordion-${label.hashCode}";
                 (label as dom.LabelElement).htmlFor = id;
@@ -160,15 +170,34 @@ class MaterialAccordion extends MdlComponent {
                     label.append(rippleContainer);
                 }
 
-            });
+            //});
 
             element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
 
-    String get _groupName => "${_constant.CHECKBOX_NAME}-group-${element.hashCode}";
+    /// Searches for a parent element with mdl-accordion-group
+    dom.HtmlElement get group {
+        dom.HtmlElement _findAccordionGroup(final dom.HtmlElement el) {
+            if(el == null) {
+                throw new ArgumentError("${_cssClasses.MAIN_CLASS} must have a ${_cssClasses.GROUP} set!");
+            }
+            if(el.classes.contains(_cssClasses.GROUP)) {
+                return el;
+            }
+            return _findAccordionGroup(el.parent);
+        }
+        if(_group == null) {
+            _group = _findAccordionGroup(element);
+        }
+        return _group;
+    }
 
-    bool get _isNavigation => element.classes.contains(_cssClasses.NAVIGATION);
+    /// Returns a unique group name
+    String get _groupName => "${_constant.CHECKBOX_NAME}-group-${group.hashCode}";
+
+    /// Check if this is a "menu" (if parent has mdl-accordion--navigation set)
+    bool get _isNavigation => group.classes.contains(_cssClasses.NAVIGATION);
 
     List<String> _getLinkFragments(final dom.Element panel) {
         final List<String> fragments = new List<String>();
@@ -187,8 +216,9 @@ class MaterialAccordion extends MdlComponent {
         return fragments;
     }
 
+    /// If this is a radio-style-accordion [_uncheckOthers] closes (unchecks) siblings
     void _uncheckOthers(final dom.InputElement elementToExclude) {
-        final List<dom.InputElement> checkboxes = element.querySelectorAll("[name=${_groupName}]") as List<dom.InputElement>;
+        final List<dom.InputElement> checkboxes = group.querySelectorAll("[name=${_groupName}]") as List<dom.InputElement>;
         checkboxes.forEach((final dom.InputElement checkbox) {
             if(checkbox != elementToExclude) {
                 checkbox.checked = false;

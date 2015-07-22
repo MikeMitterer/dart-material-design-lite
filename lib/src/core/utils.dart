@@ -46,7 +46,7 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
     void _listNames(var jsElement) {
         final Logger _logger = new Logger('mdlcore.mdlComponent._listNames');
 
-        final List<String> componentsForElement = (jsElement[_MDL_COMPONENT_PROPERTY] as String).split(",");
+        final List<String> componentsForElement = (jsElement[MDL_COMPONENT_PROPERTY] as String).split(",");
 
         _logger.info("Registered Component for $element:");
         componentsForElement.forEach((final String name) {
@@ -55,7 +55,7 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
     }
 
     // If element has not MDL_WIDGET_PROPERTY it is not a MDLComponent
-    if (!jsElement.hasProperty(_MDL_COMPONENT_PROPERTY)) {
+    if (!jsElement.hasProperty(MDL_COMPONENT_PROPERTY)) {
         String id = "<not set>";
         if(element.id != null && element.id.isNotEmpty) {
             id = element.id;
@@ -74,7 +74,7 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
 
     } else {
         // If there is not "type" but more then one components - throw exception!
-        final List<String> componentsForElement = (jsElement[_MDL_COMPONENT_PROPERTY] as String).split(",");
+        final List<String> componentsForElement = (jsElement[MDL_COMPONENT_PROPERTY] as String).split(",");
         if(componentsForElement.length > 1) {
             throw new WrongComponentTypeException("$element has more than one components registered. ($componentsForElement)\n"
             "Please specify the requested type.\n"
@@ -93,32 +93,5 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
     _listNames(jsElement);
 
     throw "$element is not a ${typeAsString}-Component!!!\n(ID: ${element.id}, class: ${element.classes})\n"
-        "These components are available: ${jsElement[_MDL_COMPONENT_PROPERTY] as String}";
-}
-
-/// Calls the MdlComponents attached-function for the given [element] and all it's childrens
-/// Usually you don't call this function manually. It is called when [DomRenderer] adds the component
-/// to the DOM or after [MdlComponentHandler] has upgraded [element]
-void callAttached(final dom.Element element) {
-    //final Logger _logger = new Logger('mdlcore.callAttached');
-
-    if(element is dom.HtmlElement) {
-
-        var jsElement = new JsObject.fromBrowserObject(element);
-        if(jsElement.hasProperty(_MDL_COMPONENT_PROPERTY)) {
-            final List<String> componentsForElement = (jsElement[_MDL_COMPONENT_PROPERTY] as String).split(",");
-            componentsForElement.forEach((final String componentName) {
-
-                final MdlComponent component = jsElement[componentName] as MdlComponent;
-                component.attached();
-
-            });
-        }
-
-    }
-
-    // Iterate through all children
-    element.children.forEach( (final dom.Element child)  {
-        callAttached(child);
-    });
+        "These components are available: ${jsElement[MDL_COMPONENT_PROPERTY] as String}";
 }

@@ -25,8 +25,11 @@ class MultipleWidgetException implements Exception {
     factory MultipleWidgetException([var message]) => new Exception(message);
 }
 
+/// Property for the Components JsObject to save/register the component
+const String MDL_COMPONENT_PROPERTY     = "mdlcomponent";
+
+/// Property for the Components JsObject to save/register the component it component is a Widget
 const String _MDL_WIDGET_PROPERTY       = "mdlwidget";
-const String _MDL_COMPONENT_PROPERTY    = "mdlcomponent";
 
 class _RootContext { const _RootContext(); }
 
@@ -430,19 +433,24 @@ class MdlComponentHandler {
                     _registerWidget();
                 }
 
-                /// remember all the registered components in _MDL_COMPONENT_PROPERTY
+                /// remember all the registered components in MDL_COMPONENT_PROPERTY
                 /// Widget names are stored as comma separated list
                 /// Every Widget is a Component but not every Component is a Widget
                 void _registerComponent() {
-                    // Add first element if property is not available
-                    if(!jsElement.hasProperty(_MDL_COMPONENT_PROPERTY)) {
-                        jsElement[_MDL_COMPONENT_PROPERTY] = config.classAsString;
+                    if(jsElement.hasProperty(config.classAsString)) {
+                        throw new ArgumentError("$element has already a ${config.classAsString} registered!");
                     }
 
-                    final List<String> componentsForElement = (jsElement[_MDL_COMPONENT_PROPERTY] as String).split(",");
+                    // Add first element if property is not available
+                    if(!jsElement.hasProperty(MDL_COMPONENT_PROPERTY)) {
+                        jsElement[MDL_COMPONENT_PROPERTY] = config.classAsString;
+                    }
+
+                    final List<String> componentsForElement = (jsElement[MDL_COMPONENT_PROPERTY] as String).split(",");
                     if(!componentsForElement.contains(config.classAsString)) {
                         componentsForElement.add(config.classAsString);
-                        jsElement[_MDL_COMPONENT_PROPERTY] = componentsForElement.join(",");
+                        jsElement[MDL_COMPONENT_PROPERTY] = componentsForElement.join(",");
+
                     }
 
                     // register the component with it's name. It makes no difference if the component is a widget or not
@@ -452,7 +460,7 @@ class MdlComponentHandler {
                 _registerComponent();
 
                 if(_isInDom(element)) {
-                    callAttached(element);
+                    component.attached();
                 }
 
             }
@@ -478,9 +486,9 @@ class MdlComponentHandler {
             var jsElement = new JsObject.fromBrowserObject(element);
 
             MdlComponent component;
-            if(jsElement.hasProperty(_MDL_COMPONENT_PROPERTY)) {
+            if(jsElement.hasProperty(MDL_COMPONENT_PROPERTY)) {
 
-                final List<String> componentsForElement = (jsElement[_MDL_COMPONENT_PROPERTY] as String).split(",");
+                final List<String> componentsForElement = (jsElement[MDL_COMPONENT_PROPERTY] as String).split(",");
                 componentsForElement.forEach((final String componentName) {
 
                     component = jsElement[componentName] as MdlComponent;
@@ -489,11 +497,11 @@ class MdlComponentHandler {
 
                 });
 
-                jsElement.deleteProperty(_MDL_COMPONENT_PROPERTY);
+                jsElement.deleteProperty(MDL_COMPONENT_PROPERTY);
             }
 
             if(jsElement.hasProperty(_MDL_WIDGET_PROPERTY)) {
-                // Component is already downgraded (All MdlComponents are listed in _MDL_COMPONENT_PROPERTY)
+                // Component is already downgraded (All MdlComponents are listed in MDL_COMPONENT_PROPERTY)
                 jsElement.deleteProperty(_MDL_WIDGET_PROPERTY);
             }
 

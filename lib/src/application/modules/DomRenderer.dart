@@ -83,7 +83,7 @@ class DomRenderer {
                         //element.append(child);
                         parent.insertAdjacentElement("beforeEnd",child);
 
-                        callAttached(child);
+                        _callAttached(child);
 
                         parent.classes.remove(_cssClasses.LOADING);
                         parent.classes.add(_cssClasses.LOADED);
@@ -138,7 +138,7 @@ class DomRenderer {
                         parent.insertAdjacentElement("beforeEnd",child);
                     }
 
-                    callAttached(child);
+                    _callAttached(child);
 
                     parent.classes.remove(_cssClasses.LOADING);
                     parent.classes.add(_cssClasses.LOADED);
@@ -162,7 +162,7 @@ class DomRenderer {
 
     //- private -----------------------------------------------------------------------------------
 
-        dom.NodeValidator _validator() {
+    dom.NodeValidator _validator() {
         final dom.NodeValidator validator = new dom.NodeValidatorBuilder.common()  // html5 + Templating
             ..allowNavigation()
             ..allowImages()
@@ -174,6 +174,30 @@ class DomRenderer {
         return validator;
     }
 
+    /// Calls the MdlComponents attached-function for the given [element] and all it's children.
+    void _callAttached(final dom.Element element) {
+        //final Logger _logger = new Logger('mdlcore.callAttached');
+
+        if(element is dom.HtmlElement) {
+
+            var jsElement = new JsObject.fromBrowserObject(element);
+            if(jsElement.hasProperty(MDL_COMPONENT_PROPERTY)) {
+                final List<String> componentsForElement = (jsElement[MDL_COMPONENT_PROPERTY] as String).split(",");
+                componentsForElement.forEach((final String componentName) {
+
+                    final MdlComponent component = jsElement[componentName] as MdlComponent;
+                    component.attached();
+                    //_logger.info("Attached ${component}");
+                });
+            }
+
+        }
+
+        // Iterate through all children
+        element.children.forEach( (final dom.Element child)  {
+            _callAttached(child);
+        });
+    }
 
 }
 

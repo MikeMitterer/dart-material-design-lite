@@ -54,15 +54,11 @@ class MaterialModel extends MdlComponent {
         _init();
     }
     
-    // Central Element - by default this is where mdl-model can be found (element)
-    // html.Element get hub => inputElement;
-    
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
         _logger.fine("MaterialModel - init");
 
-        //_logger.info("ParentScope: ${_scope.parentContext}");
         final String fieldname = element.attributes[_MaterialModelConstant.WIDGET_SELECTOR].trim();
 
         _scope.context = _scope.parentContext;

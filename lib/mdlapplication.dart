@@ -26,6 +26,7 @@ import 'dart:mirrors';
 
 import 'dart:html' as dom;
 import 'dart:async';
+import 'dart:js';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';

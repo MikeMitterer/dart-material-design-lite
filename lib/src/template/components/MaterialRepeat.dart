@@ -33,7 +33,7 @@ class _MaterialRepeatConstant {
     static const String WIDGET_SELECTOR = "mdl-repeat";
 
     final String FOR_EACH   = "for-each";
-    final String CONSUMES    = "consumes";
+    final String CONSUMES   = "consumes";
 
     const _MaterialRepeatConstant();
 }    
@@ -246,7 +246,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         scope.context = scope.parentContext;
 
-        _logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}, Parent: ${element.parent}");
+        //_logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}, Parent: ${element.parent}");
 
         final List list = new Invoke(scope).field(listName);
         list.forEach( (final item) => add({ itemName : item },scope: scope.context));
@@ -343,7 +343,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
 /// registration-Helper
 void registerMaterialRepeat() {
-    final MdlConfig config = new MdlWidgetConfig<MaterialRepeat>(
+    final MdlConfig config = new MdlConfig<MaterialRepeat>(
         _MaterialRepeatConstant.WIDGET_SELECTOR,
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialRepeat.fromElement(element,injector)
     );
