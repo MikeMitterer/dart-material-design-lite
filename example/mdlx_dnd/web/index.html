@@ -54,13 +54,13 @@
     <div class="danddcontainer">
         <div class="choose ">
             <h6>Choose language</h6>
-                <mdl-repeat class="source langbox mdl-dnd__drag-container" for-each="language in languages">
+                <div mdl-repeat="language in languages" class="source langbox mdl-dnd__drag-container" >
                      
                     <mdl-draggable template class="language" consumes="language" drop-zone="{{language.type}}">
                         {{language.name}}
                     </mdl-draggable>
                      
-                </mdl-repeat>
+                </div>
         </div>
         <div class="accept">
             <div class="langbox">
@@ -69,13 +69,13 @@
                               on-drop-success="addToProgrammingLanguages(data)">
                     <!-- programming language item becomes a 'draggable' item and can be dragged to 'trash' -->
                     <!-- mdl-repeat takes its for-each param from the next SCOPE-AWARE-Parent (mld-dropzone is not SCOPE-AWARE) -->
-                    <mdl-repeat for-each="language in programming" class="mdl-dnd__drag-container">
+                    <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
                          
                         <mdl-draggable template class="language" consumes="language" drop-zone="trash">
                             {{language.name}}
                         </mdl-draggable>
                          
-                    </mdl-repeat>
+                    </div>
                 </mdl-dropzone>
             </div>
             <div class="langbox">
@@ -84,13 +84,13 @@
                               on-drop-success="addToNaturalLanguages(data)">
                     <!-- natural language item becomes a 'draggable' item and can be dragged to 'trash' -->
                     <!-- mdl-repeat takes its for-each param from the next SCOPE-AWARE-Parent (mld-dropzone is not SCOPE-AWARE) -->
-                    <mdl-repeat for-each="language in natural" class="mdl-dnd__drag-container">
+                    <div mdl-repeat="language in natural" class="mdl-dnd__drag-container">
                          
                         <mdl-draggable template class="language" consumes="language" drop-zone="trash">
                             {{language.name}}
                         </mdl-draggable>
                          
-                    </mdl-repeat>
+                    </div>
                 </mdl-dropzone>
             </div>
         </div>

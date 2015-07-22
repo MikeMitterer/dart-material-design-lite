@@ -21,31 +21,29 @@ part of mdltemplate;
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
-class _MaterialPropertyCssClasses {
+class _MaterialObserveCssClasses {
 
     final String IS_UPGRADED = 'is-upgraded';
     
-    const _MaterialPropertyCssClasses(); }
+    const _MaterialObserveCssClasses(); }
     
 /// Store constants in one place so they can be updated easily.
-class _MaterialPropertyConstant {
+class _MaterialObserveConstant {
 
-    static const String WIDGET_SELECTOR = "mdl-property";
+    static const String WIDGET_SELECTOR = "mdl-observe";
 
-    final String OBSERVE = "observe";
-
-    const _MaterialPropertyConstant();
+    const _MaterialObserveConstant();
 }    
 
-class MaterialProperty extends MdlComponent implements ScopeAware {
-    final Logger _logger = new Logger('mdltemplate.MaterialProperty');
+class MaterialObserve extends MdlComponent implements ScopeAware {
+    final Logger _logger = new Logger('mdltemplate.MaterialObserve');
 
-    static const _MaterialPropertyCssClasses _cssClasses = const _MaterialPropertyCssClasses();
-    static const _MaterialPropertyConstant _constant = const _MaterialPropertyConstant();
+    static const _MaterialObserveCssClasses _cssClasses = const _MaterialObserveCssClasses();
+    static const _MaterialObserveConstant _constant = const _MaterialObserveConstant();
 
     Scope scope;
 
-    MaterialProperty.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialObserve.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
 
 //        _logger.info("Vor SCOPE1----------");
@@ -57,7 +55,7 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
 //        _init();
     }
     
-    static MaterialProperty widget(final dom.HtmlElement element) => mdlComponent(element,MaterialProperty) as MaterialProperty;
+    static MaterialObserve widget(final dom.HtmlElement element) => mdlComponent(element,MaterialObserve) as MaterialObserve;
 
     @public
     void set value(final val) => element.text = (val != null ? val.toString() : "");
@@ -77,13 +75,13 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialProperty - init");
+        _logger.fine("MaterialObserve - init");
 
         /// Recommended - add SELECTOR as class
-        element.classes.add(_MaterialPropertyConstant.WIDGET_SELECTOR);
+        element.classes.add(_MaterialObserveConstant.WIDGET_SELECTOR);
 
-        if(element.attributes.containsKey(_constant.OBSERVE)) {
-            final String fieldname = element.attributes[_constant.OBSERVE].trim();
+        if(element.attributes[_MaterialObserveConstant.WIDGET_SELECTOR].isNotEmpty) {
+            final String fieldname = element.attributes[_MaterialObserveConstant.WIDGET_SELECTOR].trim();
 
             scope.context = scope.parentContext;
             final val = (new Invoke(scope)).field(fieldname);
@@ -111,15 +109,15 @@ class MaterialProperty extends MdlComponent implements ScopeAware {
 }
 
 /// registration-Helper
-void registerMaterialProperty() {
-    final MdlConfig config = new MdlConfig<MaterialProperty>(
-        _MaterialPropertyConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialProperty.fromElement(element,injector)
+void registerMaterialObserve() {
+    final MdlConfig config = new MdlConfig<MaterialObserve>(
+        _MaterialObserveConstant.WIDGET_SELECTOR,
+            (final dom.HtmlElement element,final di.Injector injector) => new MaterialObserve.fromElement(element,injector)
     );
     
     // if you want <mdl-property></mdl-property> set isSelectorAClassName to false.
     // By default it's used as a class name. (<div class="mdl-property"></div>)
-    config.selectorType = SelectorType.TAG;
+    config.selectorType = SelectorType.ATTRIBUTE;
 
     componentHandler().register(config);
 }

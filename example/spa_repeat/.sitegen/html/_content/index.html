@@ -3,7 +3,7 @@ samplename: repeat
 sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/spa_repeat/web
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div class="demo-preview-block">
-    <mdl-repeat id="main">
+    <div mdl-repeat id="main">
         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
         <div template >
             <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check-{{id}}">
@@ -15,7 +15,7 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/ex
                     data-mdl-click="remove()">Remove</button>
         </div>
         |= {{ }} =| {{! ----- Turn on mustache ---- }}
-    </mdl-repeat>
+    </div>
 </div>
 
 

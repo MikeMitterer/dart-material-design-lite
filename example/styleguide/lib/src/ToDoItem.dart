@@ -136,7 +136,7 @@ class ToDoItemComponent extends MdlTemplateComponent implements ScopeAware {
 
     @override
     String template = """
-        <mdl-repeat for-each="item in items">
+        <div mdl-repeat="item in items">
             {{! ----- Turn off default mustache interpretation ---- }} {{= | | =}}
             <div template class="row">
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{item.id}}">
@@ -154,7 +154,7 @@ class ToDoItemComponent extends MdlTemplateComponent implements ScopeAware {
                 </button>
             </div>
             |= {{ }} =| {{! ----- Turn on mustache ---- }}
-        </mdl-repeat>
+        </div>
         """.trim().replaceAll(new RegExp(r"\s+")," ");
 }
 

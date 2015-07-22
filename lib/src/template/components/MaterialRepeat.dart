@@ -32,7 +32,21 @@ class _MaterialRepeatConstant {
 
     static const String WIDGET_SELECTOR = "mdl-repeat";
 
-    final String FOR_EACH   = "for-each";
+    /**
+     * Used if child is a 'MdlDataConsumer' - e.g. MaterialDraggable
+     *
+     *      <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
+     *          {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+     *          <mdl-draggable template class="language" consumes="language" drop-zone="trash">
+     *              {{language.name}}
+     *          </mdl-draggable>
+     *          |= {{ }} =| {{! ----- Turn on mustache ---- }}
+     *      </div>
+     *
+     *      class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
+     *          ...
+     *      }
+     */
     final String CONSUMES   = "consumes";
 
     const _MaterialRepeatConstant();
@@ -209,8 +223,8 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
 
-        /// Sample: <mdl-repeat for-each="language in languages">...</mdl-repeat>
-        if(element.attributes.containsKey(_constant.FOR_EACH)) {
+        /// Sample: <div mdl-repeat="language in languages">...</div>
+        if(element.attributes[_MaterialRepeatConstant.WIDGET_SELECTOR].isNotEmpty) {
             new Future.delayed(new Duration(milliseconds: 50), _postInit);
         }
 
@@ -231,13 +245,14 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     void _initListFromParentContext() {
-        Validate.isTrue(element.attributes.containsKey(_constant.FOR_EACH));
+        Validate.isTrue(element.attributes[_MaterialRepeatConstant.WIDGET_SELECTOR].isNotEmpty);
+        Validate.isTrue(element.attributes[_MaterialRepeatConstant.WIDGET_SELECTOR].contains(new RegExp(r" in ")));
 
-        final String dataset = element.attributes[_constant.FOR_EACH].trim();
+        final String dataset = element.attributes[_MaterialRepeatConstant.WIDGET_SELECTOR].trim();
         final List<String> parts = dataset.split(" ");
 
         if(parts.length != 3) {
-            throw new ArgumentError("${_constant.FOR_EACH} must have the following format: '<item> in <listname>'"
+            throw new ArgumentError("${_MaterialRepeatConstant.WIDGET_SELECTOR} must have the following format: '<item> in <listname>'"
                 "but was: $dataset!");
         }
 
@@ -304,6 +319,21 @@ class MaterialRepeat extends MdlTemplateComponent {
         }
     }
 
+    /**
+     * Used if child is a 'MdlDataConsumer' - e.g. MaterialDraggable
+     *
+     *      <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
+     *          {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+     *          <mdl-draggable template class="language" consumes="language" drop-zone="trash">
+     *              {{language.name}}
+     *          </mdl-draggable>
+     *          |= {{ }} =| {{! ----- Turn on mustache ---- }}
+     *      </div>
+     *
+     *      class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
+     *          ...
+     *      }
+     */
     void _addDataToDataConsumer(final dom.HtmlElement element,final item) {
         Validate.notNull(element);
 
@@ -315,7 +345,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         final MdlComponent component = mdlComponent(element,null);
         if(component == null) {
-            _logger.warning("Could not add data to data-consumer becaus it is not a MdlComponent. ($element)");
+            _logger.warning("Could not add data to data-consumer because it is not a MdlComponent. ($element)");
             return;
         }
 
@@ -351,7 +381,7 @@ void registerMaterialRepeat() {
     // If you want <mdl-repeat></mdl-repeat> set selectorType to SelectorType.TAG.
     // If you want <div mdl-repeat></div> set selectorType to SelectorType.ATTRIBUTE.
     // By default it's used as a class name. (<div class="mdl-repeat"></div>)
-    config.selectorType = SelectorType.TAG;
+    config.selectorType = SelectorType.ATTRIBUTE;
 
     componentFactory().register(config);
 }

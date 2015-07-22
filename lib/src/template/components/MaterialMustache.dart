@@ -70,6 +70,7 @@ class MaterialMustache extends MdlComponent {
 
     void _init() {
         _logger.fine("MaterialMustache - init");
+
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 }

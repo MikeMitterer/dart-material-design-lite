@@ -75,6 +75,9 @@ class MaterialDropZone extends MdlComponent implements ScopeAware {
     void _init() {
         _logger.finer("MaterialDropZone - init");
 
+        /// Recommended - add SELECTOR as class
+        element.classes.add(_MaterialDropZoneConstant.WIDGET_SELECTOR);
+
         element.classes.add(_cssClasses.DROPZONE);
 
         _dropzone = new Dropzone(element, overClass: _cssClasses.OVER ,acceptor: new _MdlAcceptor(_dragInfo,_getZoneNames));

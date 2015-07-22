@@ -106,7 +106,7 @@ class MaterialAccordion extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialAccordion - init");
+        _logger.fine("MaterialAccordion - init");
 
         bool hasRipples = false;
         if (element != null) {

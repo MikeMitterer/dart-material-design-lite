@@ -59,6 +59,9 @@ class MaterialModel extends MdlComponent {
     void _init() {
         _logger.fine("MaterialModel - init");
 
+        /// Recommended - add SELECTOR as class
+        element.classes.add(_MaterialModelConstant.WIDGET_SELECTOR);
+
         final String fieldname = element.attributes[_MaterialModelConstant.WIDGET_SELECTOR].trim();
 
         _scope.context = _scope.parentContext;

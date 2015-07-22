@@ -99,10 +99,10 @@ main() &#123;
         If you &quot;REMOVE&quot; &quot;German&quot; - it will be replace with &quot;Austrian&quot;
     &lt;&#47;p&gt;
     &lt;p&gt;
-        Now it&#39;s: &lt;mdl-property observe=&quot;time&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
-        Nr. of records: &lt;mdl-property observe=&quot;records&quot;&gt;&lt;&#47;mdl-property&gt;&lt;br&gt;
+        Now it&#39;s: &lt;span mdl-observe=&quot;time&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
+        Nr. of records: &lt;span mdl-observe=&quot;records&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
     &lt;&#47;p&gt;
-    &lt;mdl-repeat for-each=&quot;language in languages&quot;&gt;
+    &lt;div mdl-repeat=&quot;language in languages&quot;&gt;
          
         &lt;div template class=&quot;language&quot; &gt;
             Language: {{language.name}} ({{language.type}})
@@ -110,7 +110,7 @@ main() &#123;
                     data-mdl-click=&quot;remove({{language.name}})&quot;&gt;Remove&lt;&#47;button&gt;
         &lt;&#47;div&gt;
          
-    &lt;&#47;mdl-repeat&gt;
+    &lt;&#47;div&gt;
 &lt;&#47;div&gt;
 </pre>
                 </div>
