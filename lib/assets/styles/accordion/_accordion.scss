@@ -61,7 +61,7 @@ mdl-accordion-group {
         }
 
         /* Labels */
-        label {
+        .mdl-accordion__label {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
@@ -115,7 +115,7 @@ mdl-accordion-group {
             }
         }
 
-        input:checked + label {
+        input:checked + .mdl-accordion__label {
             color: $accordion-active-text-color;
 
             .indicator {

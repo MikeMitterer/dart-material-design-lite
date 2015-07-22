@@ -6886,7 +6886,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
   /* Panel Content */ }
   .mdl-accordion-group .mdl-accordion input[name^='mdl-accordion'] {
     display: none; }
-  .mdl-accordion-group .mdl-accordion label {
+  .mdl-accordion-group .mdl-accordion .mdl-accordion__label {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -6913,11 +6913,11 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
     font-size: 16px;
     -webkit-transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
             transition: all 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
-    .debug .mdl-accordion-group .mdl-accordion label {
+    .debug .mdl-accordion-group .mdl-accordion .mdl-accordion__label {
       border: 1px solid red; }
-    .mdl-accordion-group .mdl-accordion label:hover {
+    .mdl-accordion-group .mdl-accordion .mdl-accordion__label:hover {
       color: black; }
-    .mdl-accordion-group .mdl-accordion label .indicator {
+    .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator {
       position: absolute;
       top: 12px;
       right: 16px;
@@ -6926,9 +6926,9 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       font-weight: 100;
       font-size: 18px;
       color: rgba(0, 0, 0, 0.6); }
-      .debug .mdl-accordion-group .mdl-accordion label .indicator {
+      .debug .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator {
         border: 1px solid green; }
-    .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container {
+    .mdl-accordion-group .mdl-accordion .mdl-accordion__label .mdl-accordion__ripple-container {
       display: block;
       position: absolute;
       height: 100%;
@@ -6937,18 +6937,18 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       top: 0;
       z-index: 1;
       overflow: hidden; }
-      .mdl-accordion-group .mdl-accordion label .mdl-accordion__ripple-container .mdl-ripple {
+      .mdl-accordion-group .mdl-accordion .mdl-accordion__label .mdl-accordion__ripple-container .mdl-ripple {
         background: #3f51b5; }
-  .mdl-accordion-group .mdl-accordion input:checked + label {
+  .mdl-accordion-group .mdl-accordion input:checked + .mdl-accordion__label {
     color: black; }
-    .mdl-accordion-group .mdl-accordion input:checked + label .indicator {
+    .mdl-accordion-group .mdl-accordion input:checked + .mdl-accordion__label .indicator {
       -webkit-transform: rotate(90deg);
           -ms-transform: rotate(90deg);
               transform: rotate(90deg);
       -webkit-transition: 0.3s ease-in-out;
               transition: 0.3s ease-in-out;
       color: rgb(#3f51b5); }
-      .debug .mdl-accordion-group .mdl-accordion input:checked + label .indicator {
+      .debug .mdl-accordion-group .mdl-accordion input:checked + .mdl-accordion__label .indicator {
         border: 1px solid red; }
   .mdl-accordion-group .mdl-accordion .mdl-accordion--content {
     overflow: auto;
