@@ -123,10 +123,6 @@ class MaterialClass extends MdlComponent {
 
         });
 
-        final dom.DivElement div = new dom.DivElement();
-        div.appendText("Your '${_MaterialClassConstant.WIDGET_SELECTOR}' component works!");
-        element.append(div);
-        
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
