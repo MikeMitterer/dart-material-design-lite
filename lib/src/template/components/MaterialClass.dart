@@ -36,15 +36,13 @@ class _MaterialClassConstant {
 }    
 
 @MdlComponentModel
-class MaterialClass extends MdlComponent implements ScopeAware {
+class MaterialClass extends MdlComponent {
     final Logger _logger = new Logger('mdltemplate.MaterialClass');
 
     //static const _MaterialClassConstant _constant = const _MaterialClassConstant();
     static const _MaterialClassCssClasses _cssClasses = const _MaterialClassCssClasses();
 
     bool _isElementAWidget = null;
-
-    Scope scope;
 
     MaterialClass.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
@@ -54,7 +52,6 @@ class MaterialClass extends MdlComponent implements ScopeAware {
     
     @override
     void attached() {
-        scope = new Scope(this,mdlParentScope(this));
         _init();
     }
 
@@ -69,22 +66,23 @@ class MaterialClass extends MdlComponent implements ScopeAware {
 
 
     void _init() {
-        _logger.info("MaterialClass - init");
+        _logger.fine("MaterialClass - init");
         
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialClassConstant.WIDGET_SELECTOR);
 
         final Map<String,String> conditions = _splitConditions();
         conditions.forEach((final String varname,final String classname) {
-            _logger.info("Var: $varname -> $classname");
+            //_logger.info("Var: $varname -> $classname");
 
+            Scope scope;
             if(_isWidget ) {
 
                 final MdlComponent component = mdlComponent(element,null);
-                final Scope componentScope = new Scope(component,mdlParentScope(component));
-                scope.context = componentScope.context;
+                scope.context = new Scope(component,mdlParentScope(component));
 
             } else {
+                scope = new Scope(this,mdlParentScope(this));
                 scope.context = scope.parentContext;
             }
 
