@@ -1,6 +1,11 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.2.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.2.0...v1.2.1) - 2015-07-23##
+
+###Refactor###
+* Removed all unnecessary files form styles [520f938](https://github.com/mikemitterer/dart-material-design-lite/commit/520f938d9286b8c527a268a3dadc9fb783127207)
+
 ##[v1.2.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.1.2...v1.2.0) - 2015-07-23##
 
 ###Feature###
