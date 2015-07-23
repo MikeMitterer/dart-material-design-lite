@@ -17,13 +17,13 @@
  * limitations under the License.
  */
 
-part of mdltemplate;
+part of mdldirective;
 
 typedef ModelObserver ModelObserverBuilder(final MdlComponent component);
 
 @di.Injectable()
 class ModelObserverFactory {
-    final Logger _logger = new Logger('mdltemplate.ModelObserverFactory');
+    final Logger _logger = new Logger('mdldirective.ModelObserverFactory');
 
     final Map<Type,ModelObserverBuilder> _builders = new Map<Type,ModelObserverBuilder>();
 

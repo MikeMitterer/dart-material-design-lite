@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-part of mdltemplate;
+part of mdldirective;
  
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -36,7 +36,11 @@ class _MaterialClassConstant {
 }    
 
 /**
- * Checks the given condition and adds the given class-name to the components [element]
+ * Checks the given condition and adds the given class-name to the components [element].
+ * Format: [!]<variable> : '<classname>'
+ *
+ * If you put a exclamation mark in front of <variable> the returned value will be inverted
+ * Variable-Context is "parent". parent is either the next "[ScopeAware]' parent or root-context (MaterialApplication)
  *
  * Sample:
  *
@@ -60,7 +64,7 @@ class _MaterialClassConstant {
  */
 @MdlComponentModel
 class MaterialClass extends MdlComponent {
-    final Logger _logger = new Logger('mdltemplate.MaterialClass');
+    final Logger _logger = new Logger('mdldirective.MaterialClass');
 
     //static const _MaterialClassConstant _constant = const _MaterialClassConstant();
     static const _MaterialClassCssClasses _cssClasses = const _MaterialClassCssClasses();
@@ -94,30 +98,50 @@ class MaterialClass extends MdlComponent {
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialClassConstant.WIDGET_SELECTOR);
 
-        final Map<String,String> conditions = _splitConditions();
-        conditions.forEach((final String varname,final String classname) {
+        final Map<String,String> conditions = _splitConditions(_attribute);
+        conditions.forEach((String varname,final String classname) {
             //_logger.info("Var: $varname -> $classname");
+
+            final bool negateValue = varname.startsWith("!");
+            if(negateValue) {
+                varname = varname.replaceFirst("!","");
+            }
 
             Scope scope;
             if(_isWidget ) {
 
                 final MdlComponent component = mdlComponent(element,null);
-                scope.context = new Scope(component,mdlParentScope(component));
+                scope = new Scope(component,mdlParentScope(component));
 
             } else {
                 scope = new Scope(this,mdlParentScope(this));
-                scope.context = scope.parentContext;
             }
+
+            scope.context = scope.parentContext;
 
             final val = (new Invoke(scope)).field(varname);
             if (val != null && val is ObservableProperty) {
+
                 final ObservableProperty prop = val;
-                prop.onChange.listen((_) {
-                    if(prop.toBool()) {
+
+                void _setValue(final bool value) {
+
+                    if(value) {
                         element.classes.add(classname);
                     } else {
                         element.classes.remove(classname);
                     }
+
+                    if(_isWidget) {
+                        final MdlComponent component = mdlComponent(element,null);
+                        component.update();
+                    }
+                }
+
+                _setValue(negateValue == false ? prop.toBool() : !prop.toBool() );
+
+                prop.onChange.listen((_) {
+                    _setValue(negateValue == false ? prop.toBool() : !prop.toBool());
                 });
             }
 
@@ -126,40 +150,16 @@ class MaterialClass extends MdlComponent {
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
-    /// Splits the attributes value (condition) into varnames and classnames.
-    /// Format: <condition> : '<classname>', <condition> : '<classname>' ...
-    Map<String,String> _splitConditions() {
-        final Map<String,String> result = new Map<String,String>();
-
-        if(element.attributes[_MaterialClassConstant.WIDGET_SELECTOR].isNotEmpty) {
-            final List<String> conditions = element.attributes[_MaterialClassConstant.WIDGET_SELECTOR].split(",");
-            conditions.forEach((final String condition) {
-                final List<String> details = condition.split(":");
-                if(details.length == 2) {
-
-                    final String varname = details.first.trim();
-                    final String classname = details.last.replaceAll("'","").trim();
-                    result[varname] = classname;
-                    //_logger.info("Var: $varname -> $classname");
-
-                } else {
-
-                    _logger.shout("Wrong condition format! Format should be <condition> : '<classname>' but was ${condition}");
-
-                }
-            });
-        }
-
-        return result;
-    }
-
-    /// Returns true if current element is a MDLWidget (MdlConfig.isWidget...)
+    /// Returns true if current element is a 'MaterialWidget' (MdlConfig.isWidget...)
     bool get _isWidget {
         if(_isElementAWidget == null) {
             _isElementAWidget = isMdlWidget(element);
         }
         return _isElementAWidget;
     }
+
+    /// Returns the components attribute
+    String get _attribute => element.attributes[_MaterialClassConstant.WIDGET_SELECTOR];
 }
 
 /// registration-Helper

@@ -130,6 +130,10 @@ class MaterialTextfield extends MdlComponent {
         change(value);
     }
 
+    /// Updated the components CSS-Classes usually called from [MaterialAttribute] or [MaterialClass]
+    @override
+    void update() { _updateClasses(); }
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {

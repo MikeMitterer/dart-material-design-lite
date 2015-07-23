@@ -17,10 +17,10 @@
  * limitations under the License.
  */
 
-part of mdltemplate;
+part of mdldirective;
 
 abstract class ModelObserver<T extends MdlComponent> {
-    final Logger _logger = new Logger('mdltemplate.ModelObserver');
+    final Logger _logger = new Logger('mdldirective.ModelObserver');
 
 
     void observe(final Scope scope,final String fieldname);
@@ -37,7 +37,7 @@ abstract class ModelObserver<T extends MdlComponent> {
 
 
 class _TextFieldObserver implements ModelObserver<MaterialTextfield> {
-    final Logger _logger = new Logger('mdltemplate.TextFieldObserver');
+    final Logger _logger = new Logger('mdldirective.TextFieldObserver');
 
     final MaterialTextfield _textfield;
 
@@ -74,7 +74,7 @@ class _TextFieldObserver implements ModelObserver<MaterialTextfield> {
 }
 
 class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
-    final Logger _logger = new Logger('mdltemplate.CheckBoxObserver');
+    final Logger _logger = new Logger('mdldirective.CheckBoxObserver');
 
     final MaterialCheckbox _checkbox;
 
@@ -90,9 +90,9 @@ class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
             _checkbox.onClick.listen((_) => prop.value = _checkbox.checked ? _checkbox.value : "");
 
             prop.onChange.listen( (final PropertyChangeEvent event) =>
-                _checkbox.value == prop.value.toString() ? _checkbox.checked = true : _checkbox.checked = false);
+                _checkbox.value == prop.value.toString() || prop.toBool() ? _checkbox.checked = true : _checkbox.checked = false);
 
-            _checkbox.checked = _checkbox.value == prop.value.toString();
+            _checkbox.checked = _checkbox.value == prop.value.toString() || prop.toBool();
 
         } else if(val != null) {
 
@@ -114,7 +114,7 @@ class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
 }
 
 class _RadioObserver implements ModelObserver<MaterialRadioGroup> {
-    final Logger _logger = new Logger('mdltemplate.RadioObserver');
+    final Logger _logger = new Logger('mdldirective.RadioObserver');
 
     final MaterialRadioGroup _radioGroup;
 
@@ -152,7 +152,7 @@ class _RadioObserver implements ModelObserver<MaterialRadioGroup> {
 }
 
 class _SwitchObserver implements ModelObserver<MaterialSwitch> {
-    final Logger _logger = new Logger('mdltemplate.SwitchObserver');
+    final Logger _logger = new Logger('mdldirective.SwitchObserver');
 
     final MaterialSwitch _switch;
 
@@ -168,9 +168,9 @@ class _SwitchObserver implements ModelObserver<MaterialSwitch> {
             _switch.onClick.listen((_) => prop.value = _switch.checked ? _switch.value : "");
 
             prop.onChange.listen( (final PropertyChangeEvent event) =>
-                _switch.value == prop.value.toString() ? _switch.checked = true : _switch.checked = false);
+                _switch.value == prop.value.toString() || prop.toBool() ? _switch.checked = true : _switch.checked = false);
 
-            _switch.checked = _switch.value.toString() == prop.value;
+            _switch.checked = _switch.value.toString() == prop.value || prop.toBool();
 
         } else if(val != null) {
 
@@ -191,7 +191,7 @@ class _SwitchObserver implements ModelObserver<MaterialSwitch> {
 }
 
 class _SliderObserver implements ModelObserver<MaterialSlider> {
-    final Logger _logger = new Logger('mdltemplate.SliderObserver');
+    final Logger _logger = new Logger('mdldirective.SliderObserver');
 
     final MaterialSlider _slider;
 

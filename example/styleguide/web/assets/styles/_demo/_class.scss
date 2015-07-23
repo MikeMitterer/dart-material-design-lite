@@ -1,0 +1,18 @@
+.demo-page--class, .demo-section--class {
+    .testtext {
+        padding: 8px;
+        background-color: lightgray;
+        border-radius: 5px;
+
+        box-sizing: border-box;
+        border: 1px solid white;
+    }
+
+    .testtext.withborder {
+        border: 1px solid red;
+    }
+
+    .switches {
+        margin-top: 12px;
+    }
+}

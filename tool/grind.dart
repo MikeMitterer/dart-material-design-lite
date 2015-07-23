@@ -78,7 +78,7 @@ genSamples() {
     samples.where((final Sample sample) {
 
         return (sample.type == Type.Core || sample.type == Type.DartOld
-            || sample.type == Type.Dart || sample.type == Type.SPA);
+            || sample.type == Type.Dart || sample.type == Type.Directive || sample.type == Type.SPA);
 
         //return (sample.name == "animation" || sample.name == "badge" || sample.name == "dialog");
         //return (sample.name == "tabs");
@@ -100,7 +100,7 @@ genStyleguide() {
 
     samples.where((final Sample sample) {
 
-        return (sample.type == Type.Core || sample.type == Type.Dart ||
+        return (sample.type == Type.Core || sample.type == Type.Dart || sample.type == Type.Directive ||
                 sample.type == Type.SPA || sample.type == Type.DartOld) &&
                     sample.excludeFromStyleguide == false;
 

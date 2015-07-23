@@ -17,17 +17,15 @@
  * limitations under the License.
  */
 
-library mdltemplate;
+library mdldirective;
 
 @MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
 import 'dart:mirrors';
 
 import 'dart:html' as dom;
-import 'dart:async';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
-import 'package:mustache/mustache.dart';
 import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdlcore.dart';
@@ -35,29 +33,31 @@ import 'package:mdl/mdlcomponets.dart';
 import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdlobservable.dart';
 
-part "src/template/MdlTemplateComponent.dart";
+part "src/directive/components/MaterialObserve.dart";
+part "src/directive/components/MaterialModel.dart";
+part "src/directive/components/MaterialClass.dart";
+part "src/directive/components/MaterialAttribute.dart";
 
-part "src/template/components/MaterialMustache.dart";
-part "src/template/components/MaterialRepeat.dart";
+part "src/directive/components/model/ModelObserverFactory.dart";
+part "src/directive/components/model/ModelObserver.dart";
 
-part "src/template/interfaces.dart";
+part "src/directive/utils.dart";
 
-part "src/template/modules/Renderer.dart";
-part "src/template/modules/TemplateRenderer.dart";
-part "src/template/modules/ListRenderer.dart";
-
-class MdlTemplateModule extends di.Module {
-    MdlTemplateModule() {
-        bind(TemplateRenderer);
-        bind(ListRenderer);
+class MdlDirectiveModule extends di.Module {
+    MdlDirectiveModule() {
+        bind(ModelObserverFactory);
     }
 }
-final MdlTemplateModule _templateModule = new MdlTemplateModule();
+final MdlDirectiveModule _directiveModule = new MdlDirectiveModule();
 
-void registerMdlTemplateComponents() {
 
-    registerMaterialMustache();
-    registerMaterialRepeat();
+void registerMdlDirectiveComponents() {
 
-    componentHandler().addModule(_templateModule);
+    registerMaterialObserve();
+    registerMaterialModel();
+    registerMaterialClass();
+    registerMaterialAttribute();
+
+    componentHandler().addModule(_directiveModule);
+
 }

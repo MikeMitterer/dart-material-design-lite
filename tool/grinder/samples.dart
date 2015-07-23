@@ -20,7 +20,7 @@
 part of gensamples;
 
 enum Type {
-    Core, Extra, Dart, DartOld, SPA, Styleguide, Template, Ignore
+    Core, Extra, Dart, Directive, DartOld, SPA, Styleguide, Template, Ignore
 }
 
 class Sample {
@@ -88,6 +88,9 @@ class Sample {
             case Type.Dart:
                 return "mdlx_";
 
+            case Type.Directive:
+                return "mdld_";
+
             case Type.DartOld:
                 return "mdlo_";
 
@@ -147,7 +150,7 @@ void createSampleList() {
     samples.add(new Sample("ripple",    Type.Ignore,  hasDemoCss: false, hasDemoHtml: false, hasReadme: false, excludeFromStyleguide: true ));
 
     // MDL Extras
-    samples.add(new Sample("resets",Type.Extra));
+    samples.add(new Sample("resets",     Type.Extra));
     samples.add(new Sample("demo-images",Type.Extra));
     samples.add(new Sample("third_party",Type.Extra));
 
@@ -165,12 +168,16 @@ void createSampleList() {
     samples.add(new Sample("icons",Type.DartOld, hasScript: false, hasDemoHtml: false, hasDemoCss: false));
     samples.add(new Sample("list", Type.DartOld, hasScript: false, hasDemoHtml: false, hasDemoCss: false));
 
+    // Directives
+    samples.add(new Sample("attribute", Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("class",     Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("model",     Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("observe",   Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("repeat",    Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+
     // SPA Samples
     samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true));
-    samples.add(new Sample("model",     Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("observe",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("repeat",    Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
 
     // Styleguide!

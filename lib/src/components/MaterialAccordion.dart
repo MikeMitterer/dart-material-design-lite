@@ -180,7 +180,7 @@ class MaterialAccordion extends MdlComponent {
     dom.HtmlElement get group {
         dom.HtmlElement _findAccordionGroup(final dom.HtmlElement el) {
             if(el == null) {
-                throw new ArgumentError("${_cssClasses.MAIN_CLASS} must have a ${_cssClasses.GROUP} set!");
+                throw new ArgumentError("${_MaterialAccordionCssClasses.MAIN_CLASS} must have a ${_cssClasses.GROUP} set!");
             }
             if(el.classes.contains(_cssClasses.GROUP)) {
                 return el;

@@ -1,0 +1,23 @@
+//@import "packages/mdl/assets/styles/material-design-lite";
+
+.demo-page--attribute, .demo-section--attribute {
+    .mdl-textfield__label {
+
+        > .enabled {
+            display: none;
+        }
+
+        > .disabled {
+            display: inline;
+        }
+
+        &.enabled > {
+            .enabled {
+                display: inline;
+            }
+            .disabled {
+                display: none;
+            }
+        }
+    }
+}

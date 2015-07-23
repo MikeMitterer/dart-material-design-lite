@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-part of mdltemplate;
+part of mdldirective;
  
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -36,7 +36,7 @@ class _MaterialModelConstant {
 }    
 
 class MaterialModel extends MdlComponent {
-    final Logger _logger = new Logger('template.MaterialModel');
+    final Logger _logger = new Logger('mdldirective.MaterialModel');
 
     //static const _MaterialModelConstant _constant = const _MaterialModelConstant();
     static const _MaterialModelCssClasses _cssClasses = const _MaterialModelCssClasses();

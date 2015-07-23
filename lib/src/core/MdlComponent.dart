@@ -95,9 +95,11 @@ abstract class MdlComponent {
     ///
     /// If you need a components parent then 'init' your component in [attached] instead of
     /// CTOR.fromElement(..)
-    void attached() {
-        // _logger.info("${this} attached!");
-    }
+    void attached() {  /* _logger.info("${this} attached!"); */ }
+
+    /// Called by the framework after styles or attributes are updated from an external
+    /// Component like [MaterialAttribute] or [MaterialClass]
+    void update() { /* _logger.info("${this} updated!"); */ }
 
     //- private -----------------------------------------------------------------------------------
 

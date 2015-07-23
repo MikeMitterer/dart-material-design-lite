@@ -1,0 +1,32 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+
+@MdlComponentModel @di.Injectable()
+class Application extends MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+
+    final ObservableProperty&lt;bool&gt; checkBorder = new ObservableProperty&lt;bool&gt;(false);
+
+    Application() &#123;
+    &#125;
+
+    @override
+    void run() &#123;
+    &#125;
+
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+
+&#125;
+
+main() async &#123;
+    final Logger _logger = new Logger(&#39;main.Class&#39;);
+
+    registerMdl();
+
+    final MaterialApplication application = await componentFactory().
+        rootContext(Application).run(enableVisualDebugging: true);
+
+    application.run();
+&#125;
+
+

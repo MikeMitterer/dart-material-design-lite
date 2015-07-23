@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-part of mdltemplate;
+part of mdldirective;
  
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
@@ -36,7 +36,7 @@ class _MaterialObserveConstant {
 }    
 
 class MaterialObserve extends MdlComponent implements ScopeAware {
-    final Logger _logger = new Logger('mdltemplate.MaterialObserve');
+    final Logger _logger = new Logger('mdldirective.MaterialObserve');
 
     static const _MaterialObserveCssClasses _cssClasses = const _MaterialObserveCssClasses();
     static const _MaterialObserveConstant _constant = const _MaterialObserveConstant();

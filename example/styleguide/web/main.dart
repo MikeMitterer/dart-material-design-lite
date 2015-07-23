@@ -79,6 +79,12 @@ class Application extends MaterialApplication {
     // Model-Sample
     final ModelTest modelTest = new ModelTest();
 
+    // Attribute-Sample
+    final ObservableProperty<bool> checkAttribute = new ObservableProperty<bool>(false);
+
+    // Class-Sample
+    final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);
+
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
 
@@ -788,6 +794,9 @@ void configRouter() {
         ..addRoute(name: 'animation', path: '/animation',
             enter: view("views/animation.html", new DemoController()))
 
+        ..addRoute(name: 'attribute', path: '/attribute',
+            enter: view("views/attribute.html", new DemoController()))
+
         ..addRoute(name: 'badge', path: '/badge',
             enter: view("views/badge.html", new BadgeController()))
 
@@ -802,6 +811,9 @@ void configRouter() {
 
         ..addRoute(name: 'checkbox', path: '/checkbox',
             enter: view("views/checkbox.html", new DemoController()))
+
+        ..addRoute(name: 'class', path: '/class',
+            enter: view("views/class.html", new DemoController()))
 
         ..addRoute(name: 'data-table', path: '/data-table',
             enter: view("views/data-table.html", new DemoController()))
