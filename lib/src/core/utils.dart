@@ -95,3 +95,11 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
     throw "$element is not a ${typeAsString}-Component!!!\n(ID: ${element.id}, class: ${element.classes})\n"
         "These components are available: ${jsElement[MDL_COMPONENT_PROPERTY] as String}";
 }
+
+/// Checks if [element] is a "Widget" (usually this means a UI-Element)
+/// MdlConfig.isWidget...
+bool isMdlWidget(final dom.HtmlElement element) {
+    Validate.notNull(element);
+    var jsElement = new JsObject.fromBrowserObject(element);
+    return jsElement.hasProperty(_MDL_WIDGET_PROPERTY);
+}

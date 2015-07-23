@@ -92,6 +92,9 @@ abstract class MdlComponent {
 
     /// Called after [DomRenderer] has added this component to the DOM or
     /// if [MdlComponentHandler] hast upgrade the component and it's already in the DOM!
+    ///
+    /// If you need a components parent then 'init' your component in [attached] instead of
+    /// CTOR.fromElement(..)
     void attached() {
         // _logger.info("${this} attached!");
     }

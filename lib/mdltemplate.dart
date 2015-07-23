@@ -41,6 +41,7 @@ part "src/template/components/MaterialMustache.dart";
 part "src/template/components/MaterialRepeat.dart";
 part "src/template/components/MaterialObserve.dart";
 part "src/template/components/MaterialModel.dart";
+part "src/template/components/MaterialClass.dart";
 
 part "src/template/components/model/ModelObserverFactory.dart";
 part "src/template/components/model/ModelObserver.dart";
@@ -66,6 +67,7 @@ void registerMdlTemplateComponents() {
     registerMaterialRepeat();
     registerMaterialObserve();
     registerMaterialModel();
+    registerMaterialClass();
 
     componentHandler().addModule(_templateModule);
 }

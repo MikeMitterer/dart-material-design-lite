@@ -106,6 +106,20 @@ class ObservableProperty<T> {
             });
         }
     }
+
+    /// Converts [value] to bool. If [value] is a String, "true", "on", "1" are valid boolean values
+    bool toBool() {
+        if(value is bool) {
+            return value as bool;
+        }
+
+        if(value is num) {
+            return (value as num).toInt() == 1;
+        }
+        final String stringvalue = "$value".toLowerCase();
+        return stringvalue == "true" || stringvalue == "on" || stringvalue == "1" || stringvalue == "yes";
+    }
+
     // - private ----------------------------------------------------------------------------------
 
     void _setValue() {
