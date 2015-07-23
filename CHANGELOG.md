@@ -1,6 +1,25 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.2.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.1.2...v1.2.0) - 2015-07-23##
+
+###Feature###
+* mdl-class added + works [89f9e7f](https://github.com/mikemitterer/dart-material-design-lite/commit/89f9e7fbf32f3c5c2c165bceda10874b1c3bc333)
+* Components attached() function will be called after Component is added to the DOM, better differentiation between Widget + Component [16d7acb](https://github.com/mikemitterer/dart-material-design-lite/commit/16d7acba7102c8cf03e5a14fa4d49908b4207110)
+
+###Bugs###
+* Wrong link to GH [22169a4](https://github.com/mikemitterer/dart-material-design-lite/commit/22169a412bdafa872e0b3a981379ff33ef2e4570)
+* AccordionLabel changed from 'label' to '.mdl-accordion__label' [7a57dcf](https://github.com/mikemitterer/dart-material-design-lite/commit/7a57dcff8790f85e892c31664b57054e35f57d1a)
+* callAttached called only the first registered MdlComponent [f21c2e8](https://github.com/mikemitterer/dart-material-design-lite/commit/f21c2e85b01c1b3f377ec3f641d6a7fee5e4edf3)
+
+###Docs###
+* mdl-attribute + mdl-class added to styleguide [f2fa90d](https://github.com/mikemitterer/dart-material-design-lite/commit/f2fa90da01124968a1be3cbc968e6cb99eef7e7c)
+* MaterialClass [dd285ea](https://github.com/mikemitterer/dart-material-design-lite/commit/dd285ea006b11cbd2971de01d0b33273a4a2c41e)
+
+###Refactor###
+* Tag mdl-repeat changed to Attribute, Tag mdl-property changed to Attribute (mdl-observe) [c016336](https://github.com/mikemitterer/dart-material-design-lite/commit/c0163364bce802f414c931a96adf247f9c3a7498)
+* MdlAccordion registers now the 'panel-part' and not the whole group [fa86d3a](https://github.com/mikemitterer/dart-material-design-lite/commit/fa86d3aff0939ff114b8f07d54605f0d431c63d3)
+
 ##[v1.1.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.1.1...v1.1.2) - 2015-07-20##
 
 ###Feature###
