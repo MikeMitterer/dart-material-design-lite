@@ -35,6 +35,29 @@ class _MaterialClassConstant {
     const _MaterialClassConstant();
 }    
 
+/**
+ * Checks the given condition and adds the given class-name to the components [element]
+ *
+ * Sample:
+ *
+ *    <div class="testtext" mdl-class="checkBorder : 'withborder'">
+ *       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+ *       dolore magna aliquyam erat, sed diam voluptua.
+ *    </div>
+ *
+ *    <div class="switches">
+ *        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-border">
+ *            <input type="checkbox" id="switch-border" class="mdl-switch__input" mdl-model="checkBorder"/>
+ *            <span class="mdl-switch__label">Switch 'border' on/off</span>
+ *        </label>
+ *    </div>
+ *
+ *    @MdlComponentModel @di.Injectable()
+ *    class Application extends MaterialApplication {
+ *          ...
+ *          final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);
+ *    }
+ */
 @MdlComponentModel
 class MaterialClass extends MdlComponent {
     final Logger _logger = new Logger('mdltemplate.MaterialClass');
