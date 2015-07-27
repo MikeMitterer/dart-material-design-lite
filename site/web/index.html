@@ -7,22 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Android</title>
 
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,800italic,800,700italic,700,600italic,600,400italic,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+
     <!-- Page styles -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
-      <link rel="stylesheet" href="styles.css">
-    <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-    </style>
+
+    <link rel="stylesheet" href="site.css">
+    <!--<link rel="stylesheet" href="animate.css">-->
+    <!--<link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">-->
+
+    <link rel="stylesheet" href="styles.css">
+
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -30,30 +28,23 @@
       <div class="android-header mdl-layout__header mdl-layout__header--waterfall mdl-color--primary">
         <div class="mdl-layout__header-row">
           <span class="android-title mdl-layout-title">
-            <img class="android-logo-image" src="images/android-logo.png">
+            <img class="logo" src="images/logo-drawer.png">
           </span>
           <!-- Add spacer, to align navigation to the right in desktop -->
           <div class="android-header-spacer mdl-layout-spacer"></div>
-          <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search-field" />
-            </div>
-          </div>
+
           <!-- Navigation -->
           <div class="android-navigation-container">
             <nav class="android-navigation mdl-navigation">
-              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#screens">Screens</a>
+              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase is-active" href="#screens">Screens</a>
               <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#wear">Wear</a>
-              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#tv">TV</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Auto</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">One</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Play</a>
+              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#accordion">Accordion</a>
+              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#features">Features</a>
+              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="">One</a>
+              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="">Play</a>
             </nav>
           </div>
-          <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+          <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
             <i class="material-icons">more_vert</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
@@ -63,14 +54,14 @@
             <li class="mdl-menu__item">Android History</li>
           </ul>
           <span class="android-mobile-title mdl-layout-title">
-            <img class="android-logo-image" src="images/android-logo.png">
+            <img class="logo" src="images/logo-drawer.png">
           </span>
         </div>
       </div>
 
-      <div class="android-drawer mdl-layout__drawer">
+      <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">
-          <img class="android-logo-image" src="images/android-logo-white.png">
+          <img class="logo" src="images/logo-drawer.png">
         </span>
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="">Phones1</a>
@@ -101,7 +92,8 @@
 
       <div class="android-content mdl-layout__content">
         <a name="top"></a>
-        <div class="android-be-together-section mdl-typography--text-center">
+<!--
+        <div class="android-be-together-section mdl-typography&#45;&#45;text-center">
           <div class="android-font android-slogan">be together. not the same.</div>
           <div class="android-font android-sub-slogan">welcome to android... be yourself. do your thing. see what's going on.</div>
           <div class="android-font android-create-character">
@@ -109,72 +101,251 @@
           </div>
 
           <a href="#screens">
-            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+            <button class="android-fab mdl-button mdl-button&#45;&#45;colored mdl-js-button mdl-button&#45;&#45;fab mdl-js-ripple-effect">
               <i class="material-icons">expand_more</i>
             </button>
           </a>
         </div>
+-->
 
-        <div class="android-screen-section mdl-typography--text-center"><a name="screens"></a>
-          <div class="mdl-typography--display-1-color-contrast">Powering screens of all sizes</div>
-          <div class="android-screens">
-            <div class="android-wear android-screen">
-              <a class="android-image-link" href="">
-                <img class="android-screen-image" src="images/wear-silver-on.png">
-                <img class="android-screen-image" src="images/wear-black-on.png">
-              </a>
-              <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase" href="">Android Wear</a>
-            </div>
-            <div class="android-phone android-screen">
-              <a class="android-image-link" href="">
-                <img class="android-screen-image" src="images/nexus6-on.jpg">
-              </a>
-              <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase" href="">Phones</a>
-            </div>
-            <div class="android-tablet android-screen">
-              <a class="android-image-link" href="">
-                <img class="android-screen-image" src="images/nexus9-on.jpg">
-              </a>
-              <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase" href="">Tablets</a>
-            </div>
-            <div class="android-tv android-screen">
-              <a class="android-image-link" href="">
-                <img class="android-screen-image" src="images/tv-on.jpg">
-              </a>
-              <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase" href="">Android TV</a>
-            </div>
-            <div class="android-auto android-screen">
-              <a class="android-image-link" href="">
-                <img class="android-screen-image" src="images/auto-on.jpg">
-              </a>
-              <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase mdl-typography--text-left" href="">Coming Soon: Android Auto</a>
-            </div>
-          </div>
-        </div>
+        <!-- INTRO
+        ============================================= -->
+        <section class="intro-section mdl-grid animated bounceIn"><a name="screens"></a>
 
-        <div class="android-wear-section"><a name="wear"></a>
-          <div class="android-wear-band">
-            <div class="android-wear-band-text">
-              <div class="mdl-typography--display-2 mdl-typography--font-thin">The best of Google built in</div>
-              <p class="mdl-typography--headline mdl-typography--font-thin">
-                Android works perfectly with your favourite apps like Google Maps,
-                Calendar and YouTube.
-              </p>
-              <p>
-                <a class="mdl-typography--font-regular mdl-typography--text-uppercase android-alt-link" href="">
-                  See what's new in the Play Store&nbsp;<i class="material-icons">chevron_right</i>
-                </a>
-              </p>
+            <div class="intro_text mdl-cell--6-col">
+
+                <h2>Hi, we're ultra modern landing</h2>
+                <h3>We'll change your idea of design</h3>
+                <p>Pellentesque sapien purus, sagittis eu accumsan convallis, vehicula ut lectus. Fusce accumsan purus pretium ligula vehicula, interdum nisl vulputate.
+                    Vivamus ultrices luctus quam eu feugiat
+                </p>
+
+                <!-- INTRO BUTTONS -->
+                <div class="intro_buttons">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect
+                        flash">Discover More</button>
+
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect
+                        flash" >Purchase Now</button>
+                </div>
+
             </div>
-          </div>
-        </div>
+
+            <!-- INTRO IMAGE -->
+            <div class="mdl-cell--6-col text-center intro_image">
+                <img class="img-responsive" src="images/thumbs/tablet.png" alt="intro-image" />
+            </div>
+
+        </section>
+
+
+          <!-- ABOUT
+          ============================================= -->
+          <section class="about-section"><a name="wear"></a>
+              <div class="about-content mdl-grid">
+
+                  <div class="mdl-cell--12-col text-center titlebar">
+                      <h3>About Us</h3>
+                      <h2>Who we are</h2>
+                  </div>
+
+                  <div class="mdl-grid">
+                  <div class="mdl-cell--7-col mdl-cell--12-col-phone">
+                      <div class="mdl-tabs mdl-js-tabs">
+                          <div class="mdl-tabs__tab-bar">
+                              <a href="#starks-panel" class="mdl-tabs__tab is-active">OUR PHILOSOPHY</a>
+                              <a href="#lannisters-panel" class="mdl-tabs__tab">OUR HISTORY</a>
+                          </div>
+
+                          <div class="mdl-tabs__panel is-active" id="starks-panel">
+
+                              <!-- Tab #1 Description -->
+                              <p>Pellentesque sapien purus, sagittis eu accumsan convallis, vehicula ut lectus. Fusce accumsan purus pretium ligula vehicula, ut interdum nisl vulputate.
+                                  Vivamus ultrices luctus quam eu feugiat. Nunc sagittis odio eget odio laoreet mollis. Nullam rutrum blandit convallis. Maecenas id nisi eget nunc convallis consectetur nec sed nibh. Mauris in gravida
+                              </p>
+
+                              <p>Pellentesque sapien purus, sagittis eu accumsan convallis, vehicula ut lectus. Fusce accumsan purus pretium ligula vehicula Sed justo sapien, ultrices non rutrum in, condimentum non sem.
+                                  Aliquam finibus condimentum tellus, vel viverra est gravida ut. Duis vestibulum lorem et eros fermentum tristique penatibus et magnis dis parturient montes
+                              </p>
+                          </div>
+                          <div class="mdl-tabs__panel" id="lannisters-panel">
+
+                              <!-- Tab #2 Description -->
+                              <p>Nullam rutrum blandit convallis. Maecenas id nisi eget nunc convallis consectetur nec sed nibh. Mauris in gravida.
+                                  Aliquam varius fringilla imperdiet. Etiam mollis est sit amet risus congue aliquam penatibus et magnis dis parturient montes feugiat
+                              </p>
+
+                              <p>Pellentesque sapien purus, sagittis eu accumsan convallis, vehicula ut lectus. Fusce accumsan purus pretium ligula vehicula, ut interdum nisl vulputate
+                                  ultrices luctus quam eu feugiat. Nunc sagittis odio eget odio laoreet mollis
+                                  Pellentesque sapien purus, sagittis eu accumsan convallis, vehicula ut lectus. Fusce accumsan purus pretium ligula vehicula Duis vestibulum lorem et eros
+                                  fermentum tristique
+                              </p>
+                          </div>
+                      </div>
+
+                  </div>
+                  <!-- TABS HOLDER IMAGE -->
+                  <div class="text-center animated mdl-cell--5-col mdl-cell--12-col-phone" data-animation="fadeInRight" data-animation-delay="600">
+                      <img class="img-responsive" src="images/thumbs/about-image.jpg" alt="about-image" />
+                  </div>
+                  </div>
+
+                  <div class="buttons">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">DISCOVER MORE</button>
+                  </div>
+
+              </div>
+
+        </section>
+
+
+        <!-- ACCORDION
+        ============================================= -->
+          <section class="accordion-section"><a name="accordion"></a>
+              <div class="accordion-content mdl-grid">
+
+                  <!-- ACCORDION HOLDER IMAGE -->
+                  <div class="text-center animated mdl-cell--7-col" data-animation="fadeInLeft" data-animation-delay="600">
+                      <img class="img-responsive" src="images/thumbs/tablet.png" alt="about-image" />
+                  </div>
+
+                  <div class="mdl-cell--5-col">
+                      <div class="mdl-accordion-group">
+                          <!-- Panel 1 -->
+                          <div class="mdl-accordion mdl-js-accordion mdl-js-ripple-effect">
+                              <label class="mdl-accordion__label"><i class="material-icons">check</i>Panel 1</label>
+                              <div class="mdl-accordion--content">
+                                  <p class="mdl-accordion--body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.</p>
+                              </div>
+                          </div>
+                          <!-- Panel 2 -->
+                          <div class="mdl-accordion mdl-js-accordion mdl-js-ripple-effect">
+                              <label class="mdl-accordion__label"><i class="material-icons">check</i>Panel 2</label>
+                              <div class="mdl-accordion--content">
+                                  <p class="mdl-accordion--body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente eligendi nulla illo culpa ab in at adipisci eveniet id itaque maxime soluta recusandae doloribus laboriosam dignissimos est aut cupiditate delectus.</p>
+                              </div>
+                          </div>
+                          <!-- Panel 3 -->
+                          <div class="mdl-accordion mdl-js-accordion mdl-js-ripple-effect">
+                              <label class="mdl-accordion__label"><i class="material-icons">check</i>Panel 3</label>
+                              <div class="mdl-accordion--content">
+                                  <p class="mdl-accordion--body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                              </div>
+                          </div>
+
+                      </div><!-- .mdl-accordion -->
+                  </div>
+              </div>
+
+          </section>
+
+
+          <!-- FEATURES
+          ============================================= -->
+          <section class="features-section"><a name="features"></a>
+              <div class="features-content mdl-grid">
+
+                  <div class="mdl-cell--12-col text-center titlebar">
+                      <h3>OUR FEATURES</h3>
+                      <h2>HOW WE DO IT</h2>
+                  </div>
+
+                  <div class="mdl-grid">
+
+                      <!-- FEATURE BOX -->
+                      <div class="mdl-cell--6-col">
+                          <div class="features-box">
+                              <!-- Feature Icon -->
+                              <div class="icon-box">
+                                  <i class="material-icons">grade</i>
+                              </div>
+
+                              <!-- Feature Box Text -->
+                              <div class="features-text">
+                                  <h4>Responsive Design</h4>
+                                  <p>Proin a velit aliquam vitae malesuada rutrum. Aenean ullamcorper placerat porttitor velit aliquam vitae.
+                                      Aliquam a augue suscipit, bibendum luctus neque laoreet rhoncus ipsum, ullamcorper ullamcorper placerat
+                                  </p>
+                              </div>
+                          </div>
+
+
+                      </div>
+
+                      <!-- FEATURE BOX -->
+                      <div class="mdl-cell--6-col">
+                          <div class="features-box">
+                              <!-- Feature Icon -->
+                              <div class="icon-box">
+                                  <i class="material-icons">grade</i>
+                              </div>
+
+                              <!-- Feature Box Text -->
+                              <div class="features-text">
+                                  <h4>Responsive Design</h4>
+                                  <p>Proin a velit aliquam vitae malesuada rutrum. Aenean ullamcorper placerat porttitor velit aliquam vitae.
+                                      Aliquam a augue suscipit, bibendum luctus neque laoreet rhoncus ipsum, ullamcorper ullamcorper placerat
+                                  </p>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+
+                  <div class="mdl-grid">
+
+                      <!-- FEATURE BOX -->
+                      <div class="mdl-cell--6-col">
+                          <div class="features-box">
+                              <!-- Feature Icon -->
+                              <div class="icon-box">
+                                  <i class="material-icons">grade</i>
+                              </div>
+
+                              <!-- Feature Box Text -->
+                              <div class="features-text">
+                                  <h4>Responsive Design</h4>
+                                  <p>Proin a velit aliquam vitae malesuada rutrum. Aenean ullamcorper placerat porttitor velit aliquam vitae.
+                                      Aliquam a augue suscipit, bibendum luctus neque laoreet rhoncus ipsum, ullamcorper ullamcorper placerat
+                                  </p>
+                              </div>
+                          </div>
+
+
+                      </div>
+
+                      <!-- FEATURE BOX -->
+                      <div class="mdl-cell--6-col">
+                          <div class="features-box">
+                              <!-- Feature Icon -->
+                              <div class="icon-box">
+                                  <i class="material-icons">grade</i>
+                              </div>
+
+                              <!-- Feature Box Text -->
+                              <div class="features-text">
+                                  <h4>Responsive Design</h4>
+                                  <p>Proin a velit aliquam vitae malesuada rutrum. Aenean ullamcorper placerat porttitor velit aliquam vitae.
+                                      Aliquam a augue suscipit, bibendum luctus neque laoreet rhoncus ipsum, ullamcorper ullamcorper placerat
+                                  </p>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+
+              </div>
+
+          </section>
+
+
         <div class="android-customized-section">
           <div class="android-customized-section-text">
             <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Customised by you, for you</div>
             <p class="mdl-typography--font-light">
               Put the stuff that you care about right on your home screen: the latest news, the weather or a stream of your recent photos.
               <br>
-              <a href="" class="android-link mdl-typography--font-light">Customise your phone</a>
+              <a href="" class=" mdl-typography--font-light">Customise your phone</a>
             </p>
           </div>
           <div class="android-customized-section-image"></div>
@@ -193,7 +364,7 @@
                 <span class="mdl-typography--font-light mdl-typography--subhead">Four tips to make your switch to Android quick and easy</span>
               </div>
               <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                 <a class=" mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
                    Make the switch
                    <i class="material-icons">chevron_right</i>
                  </a>
@@ -211,7 +382,7 @@
                 <span class="mdl-typography--font-light mdl-typography--subhead">Turn the little green Android mascot into you, your friends, anyone!</span>
               </div>
               <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                 <a class=" mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
                    androidify.com
                    <i class="material-icons">chevron_right</i>
                  </a>
@@ -229,7 +400,7 @@
                 <span class="mdl-typography--font-light mdl-typography--subhead">A clean, simple, customisable home screen that comes with the power of Google Now: Traffic alerts, weather and much more, just a swipe away.</span>
               </div>
               <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                 <a class=" mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
                    Download now
                    <i class="material-icons">chevron_right</i>
                  </a>
@@ -247,7 +418,7 @@
                 <span class="mdl-typography--font-light mdl-typography--subhead">Hail a taxi, find a recipe, run through a temple – Google Play has all the apps and games that let you make your Android device uniquely yours.</span>
               </div>
               <div class="mdl-card__actions">
-                 <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                 <a class=" mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
                    Find apps
                    <i class="material-icons">chevron_right</i>
                  </a>
@@ -256,7 +427,10 @@
           </div>
         </div>
 
-        <footer class="android-footer mdl-mega-footer">
+          <!-- FOOTER
+          ============================================= -->
+
+        <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--top-section">
             <div class="mdl-mega-footer--left-section">
               <button class="mdl-mega-footer--social-btn"></button>
@@ -279,7 +453,7 @@
           </div>
 
           <div class="mdl-mega-footer--bottom-section">
-            <a class="android-link android-link-menu mdl-typography--font-light" id="version-dropdown">
+            <a class="android-link-menu mdl-typography--font-light" id="version-dropdown">
               Versions
               <i class="material-icons">arrow_drop_up</i>
             </a>
@@ -289,7 +463,7 @@
               <li class="mdl-menu__item">4.3 Jelly Bean</li>
               <li class="mdl-menu__item">Android History</li>
             </ul>
-            <a class="android-link android-link-menu mdl-typography--font-light" id="developers-dropdown">
+            <a class="android-link-menu mdl-typography--font-light" id="developers-dropdown">
               For Developers
               <i class="material-icons">arrow_drop_up</i>
             </a>
@@ -299,8 +473,8 @@
               <li class="mdl-menu__item">Android SDK</li>
               <li class="mdl-menu__item">Android for Work</li>
             </ul>
-            <a class="android-link mdl-typography--font-light" href="">Blog</a>
-            <a class="android-link mdl-typography--font-light" href="">Privacy Policy</a>
+            <a class="mdl-typography--font-light" href="">Blog</a>
+            <a class="mdl-typography--font-light" href="">Privacy Policy</a>
           </div>
 
         </footer>

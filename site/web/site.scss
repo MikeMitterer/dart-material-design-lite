@@ -1,0 +1,399 @@
+//---
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+@import "config";
+@import "packages/mdl/assets/styles/_config/show_config";
+// Only needed to switch themes correctly!!!!!
+@import "packages/mdl/assets/styles/fonts/fonts";
+@import "packages/mdl/assets/themes/amber-grey/material-design-lite";
+//@import "packages/mdl/assets/styles/material-design-lite";
+// for layout
+// @import "packages/mdl/assets/styles/icons/icons";
+@import "packages/mdl/assets/styles/mixins/mixins";
+@import "packages/mdl/assets/styles/animation/animation";
+
+//@import "packages/mdl/assets/styles/layout/layout";
+
+.android-header.is-casting-shadow {
+    background-color: black !important;
+    transition: 1s background ease-in-out;
+}
+
+.mdl-layout__header {
+    transition: 1s background ease-in-out;
+}
+
+.mdl-layout__header, .mdl-layout__content {
+    width               : 100%;
+    background-image    : url(images/thumbs/pattern.png);
+    background-repeat   : repeat;
+    background-position : 0 0;
+    background-color    : #FFC400;
+    color               : #FFF;
+}
+
+.logo {
+    height: 28px;
+    width: 140px;
+}
+
+.mdl-layout__header {
+    overflow: visible;
+
+    ::-moz-selection, ::selection {
+        background-color : #6ab344;
+        color            : #fff;
+    }
+
+    .material-icons {
+        color : white !important;
+    }
+
+    .mdl-navigation {
+        .mdl-navigation__link {
+            color       : #ffffff;
+            font-weight : 700;
+            font-size   : 14px;
+
+            &:hover, &.is-active {
+                border-bottom : 4px solid $palette-amber-500;
+            }
+        }
+    }
+
+    #more-button {
+        order: 3;
+    }
+}
+
+.mdl-layout__drawer {
+
+    .mdl-layout-title {
+        position: relative;
+        background: $palette-amber-500;
+        height: 160px;
+
+        .logo {
+            position: absolute;
+            bottom: 16px;
+        }
+    }
+}
+
+
+
+.mdl-layout__content {
+    background-position : 0 -64px;
+
+    h1, h2, h3, h4 {
+        font-family : 'Oswald', sans-serif;
+    }
+
+    .img-responsive {
+        display : inline-block;
+        width: 100%;
+    }
+
+    .text-center {
+        text-align : center;
+    }
+
+    .titlebar {
+        text-transform : uppercase;
+        margin-bottom: 60px;
+
+        h2 {
+            margin-top : 12px;
+
+            &:after {
+                display    : block;
+                content    : "";
+                height     : 2px;
+                width      : 240px;
+                background : $palette-amber-500;
+                margin     : 15px auto;
+                position   : relative;
+            }
+        }
+
+        h3 {
+            margin-bottom : 12px;
+            font-weight   : 100;
+        }
+
+    }
+
+    .intro-section {
+        padding      : 80px 0 80px 0;
+        max-width    : 1044px;
+        margin-left  : auto;
+        margin-right : auto;
+        min-height   : 550px;
+
+        .is-small-screen & {
+            padding-top: 24px;
+        }
+
+        h2 {
+            font-size      : 75px;
+            font-weight    : 800;
+            line-height    : 85px;
+            text-transform : uppercase;
+            margin-top     : 15px;
+            margin-bottom  : 15px;
+            letter-spacing : 1px;
+        }
+
+        h3 {
+            font-size      : 34px;
+            font-weight    : 800;
+            line-height    : 34px;
+            text-transform : uppercase;
+            margin-bottom  : 20px;
+        }
+
+        p {
+            font-size      : 18px;
+            font-weight    : 400;
+            line-height    : 28px;
+            margin-bottom  : 25px;
+            letter-spacing : 0.11em;
+        }
+
+        > div {
+            padding : 0 8px;
+        }
+
+        .intro_image {
+            img {
+                width : 100%;
+            }
+        }
+
+        .intro_buttons {
+            margin-bottom: 12px;
+
+            .mdl-button {
+                background-color: $palette-grey-800;
+                margin-right: 12px;
+            }
+
+        }
+    }
+
+    .about-section {
+        background-color : white;
+        color            : $palette-grey-800;
+
+        .about-content {
+            padding-top    : 80px;
+            padding-bottom : 80px;
+            max-width      : 1044px;
+            margin-left    : auto;
+            margin-right   : auto;
+
+            h3 {
+                margin-top : 0;
+            }
+
+            .mdl-tabs {
+                //width : calc(58.33333% - 16px);
+
+                .mdl-tabs__tab-bar {
+                    border: none;
+                    justify-content: flex-start;
+                    height: initial;
+
+                    .mdl-tabs__tab {
+                        padding: 0 24px 0 0;
+                        &:nth-child(2) {
+                            padding-left: 24px;
+                            border-left: 1px solid black;
+                        }
+
+                        .is-small-screen & {
+                            padding-left: 12px;
+                            padding-right: 12px;
+                            font-size: 15px;
+                            line-height: 18px;
+                            height: 18px;
+
+                            margin-bottom: 12px;
+                        }
+
+                        font-size: 22px;
+                        font-family: 'Oswald', sans-serif;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        height: 38px;
+                        line-height: 38px;
+
+                        transition: all 300ms ease-in-out;
+
+                        &.is-active {
+                            color: $palette-amber-500;
+                            transition: all 300ms ease-in-out;
+
+
+                            &:after {
+                                height             : 0px;
+                                width              : 100%;
+                                display            : block;
+                                content            : " ";
+                                bottom             : 0px;
+                                left               : 0px;
+                                position           : absolute;
+                                background         : #3f51b5;
+                                -webkit-animation  : border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+                                animation          : border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+                                -webkit-transition : all 1s cubic-bezier(0.4, 0, 1, 1);
+                                transition         : all 1s cubic-bezier(0.4, 0, 1, 1);
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            > div {
+                padding : 0 8px;
+            }
+
+            .mdl-button {
+                margin-top: 12px;
+                background-color: $palette-grey-800;
+            }
+        }
+    }
+
+    .accordion-section {
+        background-color : $palette-grey-200;
+        color            : $palette-grey-800;
+
+        .accordion-content {
+            padding-top    : 80px;
+            padding-bottom : 80px;
+            max-width      : 1044px;
+            margin-left    : auto;
+            margin-right   : auto;
+
+            h3 {
+                margin-top : 0;
+            }
+
+            .mdl-tabs {
+                width : calc(58.33333% - 16px);
+            }
+
+            > div {
+                padding : 0 8px;
+            }
+
+            .mdl-accordion-group {
+                .is-small-screen & {
+                    margin-top: 12px;
+                }
+            }
+
+            .mdl-accordion {
+                .mdl-accordion__label {
+
+                    font-size: 20px;
+                    font-family: 'Oswald', sans-serif;
+                    font-weight: 400;
+                    text-transform: uppercase;
+
+                    .material-icons {
+                        font-weight: bold;
+                        font-size: 30px;
+                        color: $palette-amber-500;
+                        margin-right: 12px;
+                    }
+                }
+
+                p { margin-top: 16px; }
+
+            }
+        }
+    }
+
+    .features-section {
+        background-image: url(images/parallax_bg/features.jpg);
+        background-attachment: fixed !important;
+        background-repeat: repeat;
+        background-position: 0 0;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        color: #FFF;
+
+        .features-content {
+            padding-top    : 80px;
+            padding-bottom : 80px;
+            max-width      : 1044px;
+            margin-left    : auto;
+            margin-right   : auto;
+
+            .mdl-grid {
+                > div {
+                    padding : 0 8px;
+                }
+            }
+
+            .features-box {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: flex-start; // ⇾
+                align-content: space-between; // ||
+                align-items: flex-start; // ↓
+
+                .icon-box {
+                    text-align: center;
+                    min-width: 70px;
+                    margin-right: 12px;
+
+                    .material-icons {
+                        font-size: 70px;
+                        color: $palette-amber-500;
+                    }
+                }
+
+                .features-text {
+                    h4 {
+                        margin-top: 0;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .mdl-mega-footer {
+        position: relative;
+
+        .mdl-mega-footer--bottom-section {
+            a {
+                color: $palette-amber-500;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+

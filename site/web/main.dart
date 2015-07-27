@@ -85,15 +85,22 @@ void prepareScrolling() {
         anchor.onClick.listen((final dom.MouseEvent event) {
             final String targetName = anchor.href.trim().replaceFirst(new RegExp(r".*#"),"");
             final dom.AnchorElement target = dom.querySelector('[name="$targetName"]');
-            _logger.info('[name="$targetName"]');
+            //_logger.info('[name="$targetName"]');
 
             if(target != null) {
                 int offset = target.offsetTo(body).y - 60;
+                if(offset < 100) {
+                    offset = 0;
+                }
+
                 //content.scrollTop = offset - 64 - 60;
                 //html.scrollTop = offset;
                 event.stopPropagation();
                 event.preventDefault();
                 //_logger.info("Scroll! (${body.scrollTop}) - Offset: ${offset}");
+
+                anchors.forEach((final dom.HtmlElement anchor) => anchor.classes.remove("is-active"));
+                anchor.classes.add("is-active");
 
                 if(offset != content.scrollTop) {
                     _startAnimation(offset);
