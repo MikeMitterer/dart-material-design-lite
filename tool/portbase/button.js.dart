@@ -119,5 +119,6 @@ void _mdlDowngrade() {
 // componentHandler.register({
 //   constructor: MaterialButton,
 //   classAsString: 'MaterialButton',
-//   cssClass: 'mdl-js-button'
+//   cssClass: 'mdl-js-button',
+//   widget: true
 // });

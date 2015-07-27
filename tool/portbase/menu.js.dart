@@ -463,5 +463,6 @@ void toggle(final evt) {
 // componentHandler.register({
 //   constructor: MaterialMenu,
 //   classAsString: 'MaterialMenu',
-//   cssClass: 'mdl-js-menu'
+//   cssClass: 'mdl-js-menu',
+//   widget: true
 // });

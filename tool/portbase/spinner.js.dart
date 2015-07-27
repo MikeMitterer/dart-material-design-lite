@@ -127,5 +127,6 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialSpinner,
 //   classAsString: 'MaterialSpinner',
-//   cssClass: 'mdl-js-spinner'
+//   cssClass: 'mdl-js-spinner',
+//   widget: true
 // });

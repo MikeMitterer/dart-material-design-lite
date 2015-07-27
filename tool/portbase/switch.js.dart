@@ -88,24 +88,10 @@ void _onMouseUp(final html.Event event) {
 }
 
 /// Handle class updates.
-/// param {HTMLElement} button The button whose classes we should update.
-/// param {HTMLElement} label The label whose classes we should update.
 /// MaterialSwitch.prototype.updateClasses_ = /*function*/ () {
 void _updateClasses() {
-
-  if (_inputElement.disabled) {
-    element.classes.add(_cssClasses.IS_DISABLED);
-
-  } else {
-    element.classes.remove(_cssClasses.IS_DISABLED);
-  }
-
-  if (_inputElement.checked) {
-    element.classes.add(_cssClasses.IS_CHECKED);
-
-  } else {
-    element.classes.remove(_cssClasses.IS_CHECKED);
-  }
+  checkDisabled();
+  checkToggleState();
 }
 
 /// Add blur.
@@ -120,6 +106,32 @@ void _blur(final html.Event event) {
 }
 
 // Public methods.
+
+/// Check the components disabled state.
+/// public
+/// 
+/// MaterialSwitch.prototype.checkDisabled = /*function*/ () {
+void checkDisabled() {
+  if (_inputElement.disabled) {
+    element.classes.add(_cssClasses.IS_DISABLED);
+
+  } else {
+    element.classes.remove(_cssClasses.IS_DISABLED);
+  }
+}
+
+/// Check the components toggled state.
+/// public
+/// 
+/// MaterialSwitch.prototype.checkToggleState = /*function*/ () {
+void checkToggleState() {
+  if (_inputElement.checked) {
+    element.classes.add(_cssClasses.IS_CHECKED);
+
+  } else {
+    element.classes.remove(_cssClasses.IS_CHECKED);
+  }
+}
 
 /// Disable switch.
 /// public
@@ -242,5 +254,6 @@ void _mdlDowngrade() {
 // componentHandler.register({
 //   constructor: MaterialSwitch,
 //   classAsString: 'MaterialSwitch',
-//   cssClass: 'mdl-js-switch'
+//   cssClass: 'mdl-js-switch',
+//   widget: true
 // });

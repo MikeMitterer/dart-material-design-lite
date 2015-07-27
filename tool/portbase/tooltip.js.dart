@@ -98,6 +98,11 @@ void init() {
     }
 
     if (_forElement) {
+      // Tabindex needs to be set for `blur` events to be emitted
+      if (!_forElement.getAttribute('tabindex')) {
+        _forElement.setAttribute('tabindex', '0');
+      }
+
       _boundMouseEnterHandler = handleMouseEnter;
       _boundMouseLeaveHandler = handleMouseLeave;
 
@@ -107,6 +112,11 @@ void init() {
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       _forElement.onClick.listen( boundMouseEnterHandler,
+          false);
+
+	// .addEventListener('blur', -- .onBlur.listen(<Event>);
+      _forElement.onBlur.listen( boundMouseLeaveHandler);
+      _forElement.addEventListener('touchstart', boundMouseEnterHandler,
           false);
 
 	// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
@@ -122,6 +132,7 @@ void _mdlDowngrade() {
   if (_forElement) {
     _forElement.removeEventListener('mouseenter', boundMouseEnterHandler, false);
     _forElement.removeEventListener('click', boundMouseEnterHandler, false);
+    _forElement.removeEventListener('touchstart', boundMouseEnterHandler, false);
     _forElement.removeEventListener('mouseleave', boundMouseLeaveHandler);
   }
 }

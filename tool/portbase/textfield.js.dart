@@ -86,21 +86,42 @@ void _onBlur(final html.Event event) {
 /// param {HTMLElement} label The label whose classes we should update.
 /// MaterialTextfield.prototype.updateClasses_ = /*function*/ () {
 void _updateClasses() {
+  checkDisabled();
+  checkValidity();
+  checkDirty();
+}
 
+// Public methods.
+
+/// Check the disabled state and update field accordingly.
+/// public
+/// MaterialTextfield.prototype.checkDisabled = /*function*/ () {
+void checkDisabled() {
   if (_input.disabled) {
     element.classes.add(_cssClasses.IS_DISABLED);
 
   } else {
     element.classes.remove(_cssClasses.IS_DISABLED);
   }
+}
 
+/// Check the validity state and update field accordingly.
+/// public
+/// MaterialTextfield.prototype.checkValidity = /*function*/ () {
+void checkValidity() {
   if (_input.validity.valid) {
     element.classes.remove(_cssClasses.IS_INVALID);
 
   } else {
     element.classes.add(_cssClasses.IS_INVALID);
   }
+}
 
+/// Check the dirty state and update field accordingly.
+/// public
+/// 
+/// MaterialTextfield.prototype.checkDirty = /*function*/ () {
+void checkDirty() {
   if (_input.value && _input.value.length > 0) {
     element.classes.add(_cssClasses.IS_DIRTY);
 
@@ -108,8 +129,6 @@ void _updateClasses() {
     element.classes.remove(_cssClasses.IS_DIRTY);
   }
 }
-
-// Public methods.
 
 /// Disable text field.
 /// public
@@ -200,5 +219,6 @@ void _mdlDowngrade() {
 // componentHandler.register({
 //   constructor: MaterialTextfield,
 //   classAsString: 'MaterialTextfield',
-//   cssClass: 'mdl-js-textfield'
+//   cssClass: 'mdl-js-textfield',
+//   widget: true
 // });

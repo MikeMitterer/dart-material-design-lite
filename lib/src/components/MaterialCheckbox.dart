@@ -224,20 +224,30 @@ class MaterialCheckbox extends MdlComponent {
      * The [label] whose classes we should update.
      */
     void _updateClasses() {
-        if (inputElement.disabled) {
-            element.classes.add(_cssClasses.IS_DISABLED);
-        }
-        else {
-            element.classes.remove(_cssClasses.IS_DISABLED);
-        }
+        _checkDisabled();
+        _checkToggleState();
+    }
 
-        if (inputElement.checked) {
+    /// Check the inputs toggle state and update display.
+    void _checkToggleState() {
+        if (_inputElement.checked) {
             element.classes.add(_cssClasses.IS_CHECKED);
-        }
-        else {
+
+        } else {
             element.classes.remove(_cssClasses.IS_CHECKED);
         }
     }
+
+    /// Check the inputs disabled state and update display.
+    void _checkDisabled() {
+        if (_inputElement.disabled) {
+            element.classes.add(_cssClasses.IS_DISABLED);
+
+        } else {
+            element.classes.remove(_cssClasses.IS_DISABLED);
+        }
+    }
+
 
     void _blur() {
         // TODO: figure out why there's a focus event being fired after our blur,

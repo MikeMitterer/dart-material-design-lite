@@ -4074,7 +4074,7 @@ input.mdl-button[type="submit"] {
   margin: 0; }
 
 .mdl-card__supporting-text {
-  color: rgba(0,0,0, 0.87);
+  color: rgba(0,0,0, 0.54);
   font-size: 13px;
   line-height: 18px;
   overflow: hidden;
@@ -5670,7 +5670,6 @@ input.mdl-button[type="submit"] {
   text-decoration: none;
   cursor: pointer;
   height: 48px;
-  width: 100%;
   line-height: 48px;
   white-space: nowrap;
   opacity: 0;
@@ -6262,7 +6261,7 @@ input.mdl-button[type="submit"] {
   .mdl-layout__drawer > .mdl-layout-title {
     line-height: 64px;
     padding-left: 40px; }
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 1024px) {
       .mdl-layout__drawer > .mdl-layout-title {
         line-height: 56px;
         padding-left: 16px; } }
@@ -6285,7 +6284,7 @@ input.mdl-button[type="submit"] {
       padding: 16px 40px;
       margin: 0;
       color: #757575; }
-      @media screen and (max-width: 850px) {
+      @media screen and (max-width: 1024px) {
         .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
           padding: 16px 16px; } }
       .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
@@ -6293,7 +6292,7 @@ input.mdl-button[type="submit"] {
       .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
         background-color: rgb(0,0,0);
         color: rgb(63,81,181); }
-  @media screen and (min-width: 851px) {
+  @media screen and (min-width: 1025px) {
     .mdl-layout--fixed-drawer > .mdl-layout__drawer {
       -webkit-transform: translateX(0);
           -ms-transform: translateX(0);
@@ -6323,14 +6322,14 @@ input.mdl-button[type="submit"] {
     position: absolute;
     color: rgb(255,255,255);
     background-color: inherit; }
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 1024px) {
       .mdl-layout__header .mdl-layout__drawer-button {
         margin: 4px; } }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1024px) {
     .mdl-layout__drawer-button {
       margin: 4px;
       color: rgba(0, 0, 0, 0.5); } }
-  @media screen and (min-width: 851px) {
+  @media screen and (min-width: 1025px) {
     .mdl-layout--fixed-drawer > .mdl-layout__drawer-button {
       display: none; } }
 
@@ -6371,12 +6370,14 @@ input.mdl-button[type="submit"] {
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition-property: max-height, box-shadow;
           transition-property: max-height, box-shadow; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1024px) {
     .mdl-layout__header {
       min-height: 56px; } }
   .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__header {
     margin-left: 240px;
     width: calc(100% - 240px); }
+  .mdl-layout--fixed-drawer > .mdl-layout__header .mdl-layout__header-row {
+    padding-left: 40px; }
   .mdl-layout__header > .mdl-layout-icon {
     position: absolute;
     left: 40px;
@@ -6386,7 +6387,7 @@ input.mdl-button[type="submit"] {
     overflow: hidden;
     z-index: 3;
     display: block; }
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 1024px) {
       .mdl-layout__header > .mdl-layout-icon {
         left: 16px;
         top: 12px; } }
@@ -6394,15 +6395,15 @@ input.mdl-button[type="submit"] {
     display: none; }
   .mdl-layout__header.is-compact {
     max-height: 64px; }
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 1024px) {
       .mdl-layout__header.is-compact {
         max-height: 56px; } }
   .mdl-layout__header.is-compact.has-tabs {
     height: 112px; }
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 1024px) {
       .mdl-layout__header.is-compact.has-tabs {
         min-height: 104px; } }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1024px) {
     .mdl-layout__header {
       display: none; }
     .mdl-layout--fixed-header > .mdl-layout__header {
@@ -6454,7 +6455,7 @@ input.mdl-button[type="submit"] {
   height: 64px;
   margin: 0;
   padding: 0 40px 0 80px; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1024px) {
     .mdl-layout__header-row {
       height: 56px;
       padding: 0 16px 0 72px; } }
@@ -6477,7 +6478,7 @@ input.mdl-button[type="submit"] {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 1024px) {
       .mdl-layout__header-row .mdl-navigation {
         height: 56px; } }
   .mdl-layout__header-row .mdl-navigation__link {
@@ -6485,7 +6486,7 @@ input.mdl-button[type="submit"] {
     color: rgb(255,255,255);
     line-height: 64px;
     padding: 0 24px; }
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 1024px) {
       .mdl-layout__header-row .mdl-navigation__link {
         line-height: 56px;
         padding: 0 16px; } }
@@ -6524,7 +6525,7 @@ input.mdl-button[type="submit"] {
     margin-left: 240px; }
   .mdl-layout__container.has-scrolling-header .mdl-layout__content {
     overflow: visible; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1024px) {
     .mdl-layout--fixed-drawer > .mdl-layout__content {
       margin-left: 0; }
     .mdl-layout__container.has-scrolling-header .mdl-layout__content {
@@ -6546,7 +6547,7 @@ input.mdl-button[type="submit"] {
   overflow-x: scroll; }
   .mdl-layout__tab-bar::-webkit-scrollbar {
     display: none; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1024px) {
     .mdl-layout__tab-bar {
       width: calc(100% -
           60px);
@@ -6591,7 +6592,7 @@ input.mdl-button[type="submit"] {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1024px) {
     .mdl-layout__tab-bar-button {
       display: none;
       width: 60px; } }
@@ -6631,7 +6632,7 @@ input.mdl-button[type="submit"] {
   text-transform: uppercase;
   color: rgba(255,255,255, 0.6);
   overflow: hidden; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1024px) {
     .mdl-layout__tab {
       padding: 0 12px 0 12px; } }
   .mdl-layout--fixed-tabs .mdl-layout__tab {

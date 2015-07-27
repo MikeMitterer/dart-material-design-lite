@@ -254,14 +254,31 @@ class MaterialRadio extends MdlComponent {
     /// Update classes.
     void _updateClasses(final dom.RadioButtonInputElement  button, final dom.HtmlElement label) {
 
+        _checkDisabled(button,label);
+        _checkToggleState(button,label);
+    }
+
+    /// Check the components disabled state.
+    /// public
+    ///
+    /// MaterialRadio.prototype.checkDisabled = /*function*/ () {
+    void _checkDisabled(final dom.RadioButtonInputElement  button, final dom.HtmlElement label) {
         if (button.disabled) {
+
             label.classes.add(_cssClasses.IS_DISABLED);
 
         } else {
             label.classes.remove(_cssClasses.IS_DISABLED);
         }
+    }
 
+    /// Check the components toggled state.
+    /// public
+    ///
+    /// MaterialRadio.prototype.checkToggleState = /*function*/ () {
+    void _checkToggleState(final dom.RadioButtonInputElement  button, final dom.HtmlElement label) {
         if (button.checked) {
+
             label.classes.add(_cssClasses.IS_CHECKED);
 
         } else {

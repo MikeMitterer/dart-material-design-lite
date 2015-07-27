@@ -89,11 +89,21 @@ void init() {
   }
 }
 
+/// Downgrade the component
+/// 
+/// MaterialProgress.prototype.mdlDowngrade_ = /*function*/ () {
+void _mdlDowngrade() {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
+
 // The component registers itself. It can assume componentHandler is available
 // // in the global scope.
 
 // componentHandler.register({
 //   constructor: MaterialProgress,
 //   classAsString: 'MaterialProgress',
-//   cssClass: 'mdl-js-progress'
+//   cssClass: 'mdl-js-progress',
+//   widget: true
 // });

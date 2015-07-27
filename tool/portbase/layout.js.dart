@@ -33,7 +33,7 @@ class MaterialLayout {
 /// Store constants in one place so they can be updated easily.
 /// enum {string | number}
 class _MaterialLayoutConstant {
-    final String MAX_WIDTH = '(max-width: 850px)';
+    final String MAX_WIDTH = '(max-width: 1024px)';
     final int TAB_SCROLL_PIXELS = 100;
 
     final String MENU_ICON = 'menu';
@@ -93,6 +93,10 @@ class _MaterialLayoutCssClasses {
     final String IS_ACTIVE = 'is-active';
     final String IS_UPGRADED = 'is-upgraded';
     final String IS_ANIMATING = 'is-animating';
+
+  ON_LARGE_SCREEN : 'mdl-layout--large-screen-only',
+  ON_SMALL_SCREEN  : 'mdl-layout--small-screen-only'
+
 }
 
 /// Handles scrolling on the content.
@@ -265,6 +269,14 @@ void init() {
 
       final drawerButton = new html.DivElement();
       drawerButton.classes.add(_cssClasses.DRAWER_BTN);
+
+      if (_drawer.classes.contains(_cssClasses.ON_LARGE_SCREEN)) {
+        //If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
+        drawerButton.classes.add(_cssClasses.ON_LARGE_SCREEN);
+      } else if (_drawer.classes.contains(_cssClasses.ON_SMALL_SCREEN)) {
+        //If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
+        drawerButton.classes.add(_cssClasses.ON_SMALL_SCREEN);
+      }
 
       final drawerButtonIcon = document.createElement('i');
       drawerButtonIcon.classes.add(_cssClasses.ICON);

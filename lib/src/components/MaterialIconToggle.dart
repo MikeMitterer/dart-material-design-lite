@@ -187,19 +187,27 @@ class MaterialIconToggle extends MdlComponent {
     /// The [button] whose classes we should update.
     /// The [label] whose classes we should update.
     void _updateClasses() {
+        _checkDisabled();
+        _checkToggleState();
+    }
 
-        if (inputElement.disabled) {
-            element.classes.add(_cssClasses.IS_DISABLED);
-
-        } else {
-            element.classes.remove(_cssClasses.IS_DISABLED);
-        }
-
-        if (inputElement.checked) {
+    /// Check the inputs toggle state and update display.
+    void _checkToggleState() {
+        if (_inputElement.checked) {
             element.classes.add(_cssClasses.IS_CHECKED);
 
         } else {
             element.classes.remove(_cssClasses.IS_CHECKED);
+        }
+    }
+
+    /// Check the inputs disabled state and update display.
+    void _checkDisabled() {
+        if (_inputElement.disabled) {
+            element.classes.add(_cssClasses.IS_DISABLED);
+
+        } else {
+            element.classes.remove(_cssClasses.IS_DISABLED);
         }
     }
 

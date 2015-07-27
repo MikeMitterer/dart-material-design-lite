@@ -67,13 +67,16 @@ class _MaterialLayoutCssClasses {
     final String IS_UPGRADED = 'is-upgraded';
     final String IS_ANIMATING = 'is-animating';
 
+    final String ON_LARGE_SCREEN = 'mdl-layout--large-screen-only';
+    final String ON_SMALL_SCREEN  = 'mdl-layout--small-screen-only';
+
     const _MaterialLayoutCssClasses();
 }
 
 /// Store constants in one place so they can be updated easily.
 class _MaterialLayoutConstant {
 
-    final String MAX_WIDTH = '(max-width: 850px)';
+    final String MAX_WIDTH = '(max-width: 1024px)';
     final int TAB_SCROLL_PIXELS = 100;
 
     final String MENU_ICON = 'menu';
@@ -241,6 +244,14 @@ class MaterialLayout extends MdlComponent {
 
                 final dom.DivElement drawerButton = new dom.DivElement();
                 drawerButton.classes.add(_cssClasses.DRAWER_BTN);
+
+                if (_drawer.classes.contains(_cssClasses.ON_LARGE_SCREEN)) {
+                    //If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
+                    drawerButton.classes.add(_cssClasses.ON_LARGE_SCREEN);
+                } else if (_drawer.classes.contains(_cssClasses.ON_SMALL_SCREEN)) {
+                    //If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
+                    drawerButton.classes.add(_cssClasses.ON_SMALL_SCREEN);
+                }
 
                 final dom.Element drawerButtonIcon = dom.document.createElement('i');
                 drawerButtonIcon.classes.add(_cssClasses.ICON);

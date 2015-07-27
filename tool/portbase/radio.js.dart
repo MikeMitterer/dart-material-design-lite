@@ -61,7 +61,7 @@ class _MaterialRadioCssClasses {
 /// MaterialRadio.prototype.onChange_ = function(event) {
 void _onChange(final html.Event event) {
 
-  _updateClasses(_btnElement, element);
+  _updateClasses();
 
   // Since other radio buttons don't get change events, we need to look for
   // them to update their classes.
@@ -103,24 +103,10 @@ void _onMouseup(final html.Event event) {
 }
 
 /// Update classes.
-/// param {HTMLElement} button The button whose classes we should update.
-/// param {HTMLElement} label The label whose classes we should update.
-/// MaterialRadio.prototype.updateClasses_ = function(button, label) {
-void _updateClasses(final button, label) {
-
-  if (button.disabled) {
-    label.classes.add(_cssClasses.IS_DISABLED);
-
-  } else {
-    label.classes.remove(_cssClasses.IS_DISABLED);
-  }
-
-  if (button.checked) {
-    label.classes.add(_cssClasses.IS_CHECKED);
-
-  } else {
-    label.classes.remove(_cssClasses.IS_CHECKED);
-  }
+/// MaterialRadio.prototype.updateClasses_ = /*function*/ () {
+void _updateClasses() {
+  checkDisabled();
+  checkToggleState();
 }
 
 /// Add blur.
@@ -136,13 +122,39 @@ void _blur(final html.Event event) {
 
 // Public methods.
 
+/// Check the components disabled state.
+/// public
+/// 
+/// MaterialRadio.prototype.checkDisabled = /*function*/ () {
+void checkDisabled() {
+  if (_btnElement.disabled) {
+    element.classes.add(_cssClasses.IS_DISABLED);
+
+  } else {
+    element.classes.remove(_cssClasses.IS_DISABLED);
+  }
+}
+
+/// Check the components toggled state.
+/// public
+/// 
+/// MaterialRadio.prototype.checkToggleState = /*function*/ () {
+void checkToggleState() {
+  if (_btnElement.checked) {
+    element.classes.add(_cssClasses.IS_CHECKED);
+
+  } else {
+    element.classes.remove(_cssClasses.IS_CHECKED);
+  }
+}
+
 /// Disable radio.
 /// public
 /// MaterialRadio.prototype.disable = /*function*/ () {
 void disable() {
 
   _btnElement.disabled = true;
-  _updateClasses(_btnElement, element);
+  _updateClasses();
 }
 
 /// Enable radio.
@@ -151,7 +163,7 @@ void disable() {
 void enable() {
 
   _btnElement.disabled = false;
-  _updateClasses(_btnElement, element);
+  _updateClasses();
 }
 
 /// Check radio.
@@ -160,7 +172,7 @@ void enable() {
 void check() {
 
   _btnElement.checked = true;
-  _updateClasses(_btnElement, element);
+  _updateClasses();
 }
 
 /// Uncheck radio.
@@ -169,7 +181,7 @@ void check() {
 void uncheck() {
 
   _btnElement.checked = false;
-  _updateClasses(_btnElement, element);
+  _updateClasses();
 }
 
 /// Initialize element.
@@ -223,7 +235,7 @@ void init() {
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
     element.onMouseUp.listen( _onMouseup);
 
-    _updateClasses(_btnElement, element);
+    _updateClasses();
     element.classes.add(_cssClasses.IS_UPGRADED);
   }
 }
@@ -234,5 +246,6 @@ void init() {
 // componentHandler.register({
 //   constructor: MaterialRadio,
 //   classAsString: 'MaterialRadio',
-//   cssClass: 'mdl-js-radio'
+//   cssClass: 'mdl-js-radio',
+//   widget: true
 // });

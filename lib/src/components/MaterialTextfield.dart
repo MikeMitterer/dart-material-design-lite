@@ -198,21 +198,34 @@ class MaterialTextfield extends MdlComponent {
     /// Handle class updates.
     void _updateClasses() {
 
+        _checkDisabled();
+        _checkValidity();
+        _checkDirty();
+    }
+
+    /// Check the disabled state and update field accordingly.
+    void _checkDisabled() {
         if (_relaxedInput.disabled) {
             element.classes.add(_cssClasses.IS_DISABLED);
 
         } else {
             element.classes.remove(_cssClasses.IS_DISABLED);
         }
+    }
 
+    /// Check the validity state and update field accordingly.
+    void _checkValidity() {
         if (_relaxedInput.validity.valid) {
             element.classes.remove(_cssClasses.IS_INVALID);
 
         } else {
             element.classes.add(_cssClasses.IS_INVALID);
         }
+    }
 
-        if (_relaxedInput.value != null && _relaxedInput.value.isNotEmpty) {
+    /// Check the dirty state and update field accordingly.
+    void _checkDirty() {
+        if (_relaxedInput.value && _relaxedInput.value.length > 0) {
             element.classes.add(_cssClasses.IS_DIRTY);
 
         } else {

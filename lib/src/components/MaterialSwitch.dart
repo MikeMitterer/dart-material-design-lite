@@ -210,14 +210,24 @@ class MaterialSwitch extends MdlComponent {
     /// Handle class updates.
     void _updateClasses() {
 
-        if (inputElement.disabled) {
+        _checkDisabled();
+        _checkToggleState();
+
+    }
+
+    /// Check the components disabled state.
+    void _checkDisabled() {
+        if (_inputElement.disabled) {
             element.classes.add(_cssClasses.IS_DISABLED);
 
         } else {
             element.classes.remove(_cssClasses.IS_DISABLED);
         }
+    }
 
-        if (inputElement.checked) {
+    /// Check the components toggled state.
+    void _checkToggleState() {
+        if (_inputElement.checked) {
             element.classes.add(_cssClasses.IS_CHECKED);
 
         } else {

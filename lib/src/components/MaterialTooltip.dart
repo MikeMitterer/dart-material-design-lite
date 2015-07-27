@@ -75,9 +75,19 @@ class MaterialTooltip extends MdlComponent {
 
                 if(_forElement != null) {
                     _logger.info("Found: ${forElId}");
+
+                    // Tabindex needs to be set for `blur` events to be emitted
+                    if (!_forElement.attributes.containsKey('tabindex')) {
+                        _forElement.attributes['tabindex'] = '0';
+                    }
+
                     eventStreams.add(_forElement.onMouseEnter.listen( _handleMouseEnter ));
 
                     eventStreams.add(_forElement.onClick.listen( _handleMouseEnter ));
+
+                    eventStreams.add(_forElement.onBlur.listen( _handleMouseLeave));
+
+                    eventStreams.add(_forElement.onTouchStart.listen( _handleMouseEnter));
 
                     eventStreams.add(_forElement.onMouseLeave.listen( _handleMouseLeave));
                 }
@@ -86,7 +96,7 @@ class MaterialTooltip extends MdlComponent {
     }
 
     /// Handle mouseenter for tooltip.
-    void _handleMouseEnter(final dom.MouseEvent event) {
+    void _handleMouseEnter(final dom.Event event) {
         event.stopPropagation();
 
         if(element.classes.contains(_cssClasses.IS_ACTIVE)) {
