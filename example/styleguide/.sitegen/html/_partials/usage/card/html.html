@@ -95,7 +95,19 @@
           .demo-card-event &gt; .mdl-card__actions {
               border-color: rgba(255, 255, 255, 0.2);
           }
+          .demo-card-event &gt; .mdl-card__title {
+              align-items: flex-start;
+          }
+          .demo-card-event &gt; .mdl-card__title &gt; h4 {
+              margin-top: 0;
+          }
+          .demo-card-event &gt; .mdl-card__actions {
+              display: flex;
+              box-sizing:border-box;
+              align-items: center;
+          }
           .demo-card-event &gt; .mdl-card__title,
+          .demo-card-event &gt; .mdl-card__actions,
           .demo-card-event &gt; .mdl-card__actions &gt; .mdl-button {
               color: #fff;
           }
@@ -112,6 +124,8 @@
               &lt;a class=&quot;mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect&quot;&gt;
                   Add to Calendar
               &lt;&#47;a&gt;
+              &lt;div class=&quot;mdl-layout-spacer&quot;&gt;&lt;&#47;div&gt;
+              &lt;i class=&quot;material-icons&quot;&gt;event&lt;&#47;i&gt;
           &lt;&#47;div&gt;
       &lt;&#47;div&gt;
     &lt;div class=&quot;mdl-card mdl-shadow--2dp&quot;&gt;

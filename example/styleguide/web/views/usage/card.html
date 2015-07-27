@@ -132,7 +132,19 @@ main() &#123;
           .demo-card-event &gt; .mdl-card__actions {
               border-color: rgba(255, 255, 255, 0.2);
           }
+          .demo-card-event &gt; .mdl-card__title {
+              align-items: flex-start;
+          }
+          .demo-card-event &gt; .mdl-card__title &gt; h4 {
+              margin-top: 0;
+          }
+          .demo-card-event &gt; .mdl-card__actions {
+              display: flex;
+              box-sizing:border-box;
+              align-items: center;
+          }
           .demo-card-event &gt; .mdl-card__title,
+          .demo-card-event &gt; .mdl-card__actions,
           .demo-card-event &gt; .mdl-card__actions &gt; .mdl-button {
               color: #fff;
           }
@@ -149,6 +161,8 @@ main() &#123;
               &lt;a class=&quot;mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect&quot;&gt;
                   Add to Calendar
               &lt;&#47;a&gt;
+              &lt;div class=&quot;mdl-layout-spacer&quot;&gt;&lt;&#47;div&gt;
+              &lt;i class=&quot;material-icons&quot;&gt;event&lt;&#47;i&gt;
           &lt;&#47;div&gt;
       &lt;&#47;div&gt;
     &lt;div class=&quot;mdl-card mdl-shadow--2dp&quot;&gt;
@@ -304,8 +318,8 @@ main() &#123;
 <td align="left">Used on the &quot;inner&quot; divs</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>mdl-shadow--2dp through mdl-shadow--8dp</code></td>
-<td align="left">Assigns variable shadow depths (1-5) to card</td>
+<td align="left"><code>mdl-shadow--2dp through mdl-shadow--16dp</code></td>
+<td align="left">Assigns variable shadow depths (2, 3, 4, 6, 8, or 16) to card</td>
 <td align="left">Optional, goes on &quot;outer&quot; div; if omitted, no shadow is present</td>
 </tr>
 <tr class="even">
