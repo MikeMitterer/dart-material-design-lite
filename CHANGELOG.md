@@ -1,11 +1,14 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
-##[Unreleased](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.2.1...HEAD)##
+##[v1.2.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.2.1...v1.2.3) - 2015-07-28##
 
 ###Feature###
 * Merged latest master into Styleguide [b28ea03](https://github.com/mikemitterer/dart-material-design-lite/commit/b28ea03fc5f7363e257ee6a6da0c5a96c512847c)
 * Merged latest master from MDL/JS [b26c7da](https://github.com/mikemitterer/dart-material-design-lite/commit/b26c7da9d97248cfce1f68751b7c753c8dcb4e8f)
+
+###Bugs###
+* checkDirty for MaterialTextfiled produced wrong result [7935fab](https://github.com/mikemitterer/dart-material-design-lite/commit/7935fab13e638c6e2b4b1fd4aa3360e3e4965249)
 
 ##[v1.2.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.2.0...v1.2.1) - 2015-07-23##
 
