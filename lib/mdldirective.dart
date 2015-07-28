@@ -23,6 +23,7 @@ library mdldirective;
 import 'dart:mirrors';
 
 import 'dart:html' as dom;
+import 'package:intl/intl.dart';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';

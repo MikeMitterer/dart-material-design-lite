@@ -35,7 +35,50 @@ class _MaterialObserveConstant {
     const _MaterialObserveConstant();
 }    
 
-class MaterialObserve extends MdlComponent implements ScopeAware {
+
+class NumberFormatter {
+    final Logger _logger = new Logger('formatter.NumberFormatter');
+
+    final Map<String,Map<num, NumberFormat>> _nfs = new Map<String, Map<num, NumberFormat>>();
+
+    String number(final value, [ int fractionSize = 2]) {
+        double dVal;
+
+        if(fractionSize is String) {
+            fractionSize = int.parse(fractionSize as String);
+        }
+
+        if (value is String) {
+            dVal = double.parse(value);
+        }
+        else if (value is num) {
+            dVal = value;
+        }
+        else {
+            dVal = double.parse(value.toString());
+        }
+
+        final String verifiedLocale = Intl.verifiedLocale(Intl.getCurrentLocale(), NumberFormat.localeExists);
+
+        _nfs.putIfAbsent(verifiedLocale, () => new Map<num, NumberFormat>());
+
+        NumberFormat nf = _nfs[verifiedLocale][fractionSize];
+        if (nf == null) {
+            nf = new NumberFormat()..maximumIntegerDigits = 2;
+            if (fractionSize != null) {
+                nf.minimumFractionDigits = fractionSize;
+                nf.maximumFractionDigits = fractionSize;
+            }
+            _nfs[verifiedLocale][fractionSize] = nf;
+        }
+
+        //nf = new NumberFormat()..maximumIntegerDigits = 2;
+        //_logger.info("Called number $value $dVal");
+        return nf.format(dVal);
+    }
+}
+
+class MaterialObserve extends MdlComponent with NumberFormatter implements ScopeAware {
     final Logger _logger = new Logger('mdldirective.MaterialObserve');
 
     static const _MaterialObserveCssClasses _cssClasses = const _MaterialObserveCssClasses();
@@ -74,6 +117,8 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
 
     //- private -----------------------------------------------------------------------------------
 
+
+
     void _init() {
         _logger.fine("MaterialObserve - init");
 
@@ -81,12 +126,25 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
         element.classes.add(_MaterialObserveConstant.WIDGET_SELECTOR);
 
         if(element.attributes[_MaterialObserveConstant.WIDGET_SELECTOR].isNotEmpty) {
-            final String fieldname = element.attributes[_MaterialObserveConstant.WIDGET_SELECTOR].trim();
+            final List<String> parts = element.attributes[_MaterialObserveConstant.WIDGET_SELECTOR].trim().split("|");
+            final String fieldname = parts.first.trim();
 
+            Invoke formatterFunction;
+            StringToFunction stf;
+
+            if(parts.length > 1) {
+                final String formatter = parts[1].trim();
+                stf = new StringToFunction(formatter);
+                formatterFunction = new Invoke(new Scope(this,mdlParentScope(this)));
+
+            }
             scope.context = scope.parentContext;
             final val = (new Invoke(scope)).field(fieldname);
 
-            void _setValue(final val) {
+            void _setValue(dynamic val) {
+                if(formatterFunction != null) {
+                    val = formatterFunction.function(stf,varsToReplace: { "value" : val });
+                }
                 element.text = (val != null ? val.toString() : "");
             }
 

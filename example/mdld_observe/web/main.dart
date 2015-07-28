@@ -27,6 +27,7 @@ class Application extends MaterialApplication {
     final ObservableList<_Language>  languages = new ObservableList<_Language>();
     final ObservableProperty<String> time = new ObservableProperty<String>("",interval: new Duration(seconds: 1));
     final ObservableProperty<String> records = new ObservableProperty<String>("");
+    final ObservableProperty<double> pi = new ObservableProperty<double>(3.14159265359);
 
     Application() {
         records.observes(() => (languages.isNotEmpty ? languages.length.toString() : "<empty>"));

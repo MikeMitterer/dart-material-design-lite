@@ -28,7 +28,7 @@ class Invoke {
         Validate.notNull(_scope);
     }
 
-    void function(final StringToFunction stringToFunction, { final Map<String,dynamic> varsToReplace: const {} }) {
+    dynamic function(final StringToFunction stringToFunction, { final Map<String,dynamic> varsToReplace: const {} }) {
         Validate.notNull(stringToFunction);
 
         final InstanceMirror myClassInstanceMirror = reflect(_scope.context);
@@ -36,8 +36,11 @@ class Invoke {
 
         final List params = new List();
         stringToFunction.params.forEach((final String paramName) {
+            //_logger.info("Param: $paramName");
+
             if(varsToReplace.containsKey(paramName)) {
 
+                //_logger.info("$paramName -> ${varsToReplace[paramName]}");
                 params.add(varsToReplace[paramName]);
 
             } else if(varsToReplace.containsKey("\$$paramName")) {
@@ -51,8 +54,10 @@ class Invoke {
             }
         });
 
-        _logger.fine("Function: ${stringToFunction.functionAsString}(${stringToFunction.params})");
-        myClassInstanceMirror.invoke(myFunction,params);
+        _logger.info("Function: ${stringToFunction.functionAsString}(${params})");
+
+        final InstanceMirror im = myClassInstanceMirror.invoke(myFunction,params);
+        return im.reflectee;
     }
 
     /// Returns the object for the given [fieldname]. If [fieldname] is separated with dots
