@@ -2159,88 +2159,88 @@ main {
   background-color: white !important; }
 
 .mdl-color--50 {
-  background-color: #fff8e1 !important; }
-
-.mdl-color--100 {
-  background-color: #ffecb3 !important; }
-
-.mdl-color--200 {
-  background-color: #ffe082 !important; }
-
-.mdl-color--300 {
-  background-color: #ffd54f !important; }
-
-.mdl-color--400 {
-  background-color: #ffca28 !important; }
-
-.mdl-color--500 {
-  background-color: #ffc107 !important; }
-
-.mdl-color--600 {
-  background-color: #ffb300 !important; }
-
-.mdl-color--700 {
-  background-color: #ffa000 !important; }
-
-.mdl-color--800 {
-  background-color: #ff8f00 !important; }
-
-.mdl-color--900 {
-  background-color: #ff6f00 !important; }
-
-.mdl-color--A100 {
-  background-color: #ffe57f !important; }
-
-.mdl-color--A200 {
-  background-color: #ffd740 !important; }
-
-.mdl-color--A400 {
-  background-color: #ffc400 !important; }
-
-.mdl-color--A700 {
-  background-color: #ffab00 !important; }
-
-.mdl-color--accent-50 {
   background-color: #fafafa !important; }
 
-.mdl-color--accent-100 {
+.mdl-color--100 {
   background-color: whitesmoke !important; }
 
-.mdl-color--accent-200 {
+.mdl-color--200 {
   background-color: #eeeeee !important; }
 
-.mdl-color--accent-300 {
+.mdl-color--300 {
   background-color: #e0e0e0 !important; }
 
-.mdl-color--accent-400 {
+.mdl-color--400 {
   background-color: #bdbdbd !important; }
 
-.mdl-color--accent-500 {
+.mdl-color--500 {
   background-color: #9e9e9e !important; }
 
-.mdl-color--accent-600 {
+.mdl-color--600 {
   background-color: #757575 !important; }
 
-.mdl-color--accent-700 {
+.mdl-color--700 {
   background-color: #616161 !important; }
 
-.mdl-color--accent-800 {
+.mdl-color--800 {
   background-color: #424242 !important; }
 
-.mdl-color--accent-900 {
+.mdl-color--900 {
   background-color: #212121 !important; }
+
+.mdl-color--A100 {
+  background-color: #212121 !important; }
+
+.mdl-color--A200 {
+  background-color: #212121 !important; }
+
+.mdl-color--A400 {
+  background-color: #212121 !important; }
+
+.mdl-color--A700 {
+  background-color: #212121 !important; }
+
+.mdl-color--accent-50 {
+  background-color: #fff8e1 !important; }
+
+.mdl-color--accent-100 {
+  background-color: #ffecb3 !important; }
+
+.mdl-color--accent-200 {
+  background-color: #ffe082 !important; }
+
+.mdl-color--accent-300 {
+  background-color: #ffd54f !important; }
+
+.mdl-color--accent-400 {
+  background-color: #ffca28 !important; }
+
+.mdl-color--accent-500 {
+  background-color: #ffc107 !important; }
+
+.mdl-color--accent-600 {
+  background-color: #ffb300 !important; }
+
+.mdl-color--accent-700 {
+  background-color: #ffa000 !important; }
+
+.mdl-color--accent-800 {
+  background-color: #ff8f00 !important; }
+
+.mdl-color--accent-900 {
+  background-color: #ff6f00 !important; }
 
 .mdl-color--accent-A100 {
-  background-color: #212121 !important; }
+  background-color: #ffe57f !important; }
 
 .mdl-color--accent-A200 {
-  background-color: #212121 !important; }
+  background-color: #ffd740 !important; }
 
 .mdl-color--accent-A400 {
-  background-color: #212121 !important; }
+  background-color: #ffc400 !important; }
 
 .mdl-color--accent-A700 {
-  background-color: #212121 !important; }
+  background-color: #ffab00 !important; }
 
 .mdl-color-text--primary, a.mdl-color-text--primary {
   color: #3f51b5 !important; }
@@ -2258,88 +2258,88 @@ main {
   color: white !important; }
 
 .mdl-color-text--50 {
-  color: #fff8e1 !important; }
-
-.mdl-color-text--100 {
-  color: #ffecb3 !important; }
-
-.mdl-color-text--200 {
-  color: #ffe082 !important; }
-
-.mdl-color-text--300 {
-  color: #ffd54f !important; }
-
-.mdl-color-text--400 {
-  color: #ffca28 !important; }
-
-.mdl-color-text--500 {
-  color: #ffc107 !important; }
-
-.mdl-color-text--600 {
-  color: #ffb300 !important; }
-
-.mdl-color-text--700 {
-  color: #ffa000 !important; }
-
-.mdl-color-text--800 {
-  color: #ff8f00 !important; }
-
-.mdl-color-text--900 {
-  color: #ff6f00 !important; }
-
-.mdl-color-text--A100 {
-  color: #ffe57f !important; }
-
-.mdl-color-text--A200 {
-  color: #ffd740 !important; }
-
-.mdl-color-text--A400 {
-  color: #ffc400 !important; }
-
-.mdl-color-text--A700 {
-  color: #ffab00 !important; }
-
-.mdl-color-text--accent-50 {
   color: #fafafa !important; }
 
-.mdl-color-text--accent-100 {
+.mdl-color-text--100 {
   color: whitesmoke !important; }
 
-.mdl-color-text--accent-200 {
+.mdl-color-text--200 {
   color: #eeeeee !important; }
 
-.mdl-color-text--accent-300 {
+.mdl-color-text--300 {
   color: #e0e0e0 !important; }
 
-.mdl-color-text--accent-400 {
+.mdl-color-text--400 {
   color: #bdbdbd !important; }
 
-.mdl-color-text--accent-500 {
+.mdl-color-text--500 {
   color: #9e9e9e !important; }
 
-.mdl-color-text--accent-600 {
+.mdl-color-text--600 {
   color: #757575 !important; }
 
-.mdl-color-text--accent-700 {
+.mdl-color-text--700 {
   color: #616161 !important; }
 
-.mdl-color-text--accent-800 {
+.mdl-color-text--800 {
   color: #424242 !important; }
 
-.mdl-color-text--accent-900 {
+.mdl-color-text--900 {
   color: #212121 !important; }
+
+.mdl-color-text--A100 {
+  color: #212121 !important; }
+
+.mdl-color-text--A200 {
+  color: #212121 !important; }
+
+.mdl-color-text--A400 {
+  color: #212121 !important; }
+
+.mdl-color-text--A700 {
+  color: #212121 !important; }
+
+.mdl-color-text--accent-50 {
+  color: #fff8e1 !important; }
+
+.mdl-color-text--accent-100 {
+  color: #ffecb3 !important; }
+
+.mdl-color-text--accent-200 {
+  color: #ffe082 !important; }
+
+.mdl-color-text--accent-300 {
+  color: #ffd54f !important; }
+
+.mdl-color-text--accent-400 {
+  color: #ffca28 !important; }
+
+.mdl-color-text--accent-500 {
+  color: #ffc107 !important; }
+
+.mdl-color-text--accent-600 {
+  color: #ffb300 !important; }
+
+.mdl-color-text--accent-700 {
+  color: #ffa000 !important; }
+
+.mdl-color-text--accent-800 {
+  color: #ff8f00 !important; }
+
+.mdl-color-text--accent-900 {
+  color: #ff6f00 !important; }
 
 .mdl-color-text--accent-A100 {
-  color: #212121 !important; }
+  color: #ffe57f !important; }
 
 .mdl-color-text--accent-A200 {
-  color: #212121 !important; }
+  color: #ffd740 !important; }
 
 .mdl-color-text--accent-A400 {
-  color: #212121 !important; }
+  color: #ffc400 !important; }
 
 .mdl-color-text--accent-A700 {
-  color: #212121 !important; }
+  color: #ffab00 !important; }
 
 @font-face {
   font-family: 'Material Icons';
@@ -7812,15 +7812,15 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
     color: rgba(0, 0, 0, 0.87);
     font-weight: normal; }
   .mdl-nav-pill.mdl-nav-pill--dark, .mdl-nav-pills > .mdl-nav-pill--dark {
-    background-color: #ffc107; }
-  .mdl-nav-pill.mdl-nav-pill--darker, .mdl-nav-pills > .mdl-nav-pill--darker {
-    background-color: #ffa000; }
-  .mdl-nav-pill.mdl-nav-pill--light, .mdl-nav-pills > .mdl-nav-pill--light {
-    background-color: #ffd54f; }
-  .mdl-nav-pill.mdl-nav-pill--lighter, .mdl-nav-pills > .mdl-nav-pill--lighter {
-    background-color: #ffecb3; }
-  .mdl-nav-pill.mdl-nav-pill--accent, .mdl-nav-pills > .mdl-nav-pill--accent {
     background-color: #9e9e9e; }
+  .mdl-nav-pill.mdl-nav-pill--darker, .mdl-nav-pills > .mdl-nav-pill--darker {
+    background-color: #616161; }
+  .mdl-nav-pill.mdl-nav-pill--light, .mdl-nav-pills > .mdl-nav-pill--light {
+    background-color: #e0e0e0; }
+  .mdl-nav-pill.mdl-nav-pill--lighter, .mdl-nav-pills > .mdl-nav-pill--lighter {
+    background-color: whitesmoke; }
+  .mdl-nav-pill.mdl-nav-pill--accent, .mdl-nav-pills > .mdl-nav-pill--accent {
+    background-color: #ffc107; }
   .mdl-nav-pill.mdl-nav-pill--light-text, .mdl-nav-pills > .mdl-nav-pill--light-text {
     color: whitesmoke; }
     .mdl-nav-pill.mdl-nav-pill--light-text a, .mdl-nav-pills > .mdl-nav-pill--light-text a {
@@ -7894,25 +7894,25 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
     list-style: none;
     display: block; }
   .mdl-nav-pills.mdl-nav-pill--dark > * {
-    background-color: #ffc107; }
-  .mdl-nav-pills > .mdl-nav-pill--dark {
-    background-color: #ffc107 !important; }
-  .mdl-nav-pills.mdl-nav-pill--darker > * {
-    background-color: #ffa000; }
-  .mdl-nav-pills > .mdl-nav-pill--darker {
-    background-color: #ffa000 !important; }
-  .mdl-nav-pills.mdl-nav-pill--light > * {
-    background-color: #ffd54f; }
-  .mdl-nav-pills > .mdl-nav-pill--light {
-    background-color: #ffd54f !important; }
-  .mdl-nav-pills.mdl-nav-pill--lighter > * {
-    background-color: #ffecb3; }
-  .mdl-nav-pills > .mdl-nav-pill--lighter {
-    background-color: #ffecb3 !important; }
-  .mdl-nav-pills.mdl-nav-pill--accent > * {
     background-color: #9e9e9e; }
-  .mdl-nav-pills > .mdl-nav-pill--accent {
+  .mdl-nav-pills > .mdl-nav-pill--dark {
     background-color: #9e9e9e !important; }
+  .mdl-nav-pills.mdl-nav-pill--darker > * {
+    background-color: #616161; }
+  .mdl-nav-pills > .mdl-nav-pill--darker {
+    background-color: #616161 !important; }
+  .mdl-nav-pills.mdl-nav-pill--light > * {
+    background-color: #e0e0e0; }
+  .mdl-nav-pills > .mdl-nav-pill--light {
+    background-color: #e0e0e0 !important; }
+  .mdl-nav-pills.mdl-nav-pill--lighter > * {
+    background-color: whitesmoke; }
+  .mdl-nav-pills > .mdl-nav-pill--lighter {
+    background-color: whitesmoke !important; }
+  .mdl-nav-pills.mdl-nav-pill--accent > * {
+    background-color: #ffc107; }
+  .mdl-nav-pills > .mdl-nav-pill--accent {
+    background-color: #ffc107 !important; }
   .mdl-nav-pills.mdl-nav-pill--light-text > * {
     color: whitesmoke; }
     .mdl-nav-pills.mdl-nav-pill--light-text > * a {
@@ -8207,15 +8207,15 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
   .mdl-panel.mdl-panel--light-text {
     color: whitesmoke; }
   .mdl-panel.mdl-panel--dark {
-    background-color: #ffc107; }
-  .mdl-panel.mdl-panel--darker {
-    background-color: #ffa000; }
-  .mdl-panel.mdl-panel--light {
-    background-color: #ffd54f; }
-  .mdl-panel.mdl-panel--lighter {
-    background-color: #ffecb3; }
-  .mdl-panel.mdl-panel--accent {
     background-color: #9e9e9e; }
+  .mdl-panel.mdl-panel--darker {
+    background-color: #616161; }
+  .mdl-panel.mdl-panel--light {
+    background-color: #e0e0e0; }
+  .mdl-panel.mdl-panel--lighter {
+    background-color: whitesmoke; }
+  .mdl-panel.mdl-panel--accent {
+    background-color: #ffc107; }
   .mdl-panel.mdl-panel--with-heading {
     padding: 0; }
     .mdl-panel.mdl-panel--with-heading > .mdl-panel__heading {
@@ -8317,7 +8317,7 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
       -webkit-transform: translate3d(100%, 0%, 0);
               transform: translate3d(100%, 0%, 0); }
   .mdl-snackbar-container .mdl-snackbar .mdl-button {
-    color: #bdbdbd; }
+    color: #ffca28; }
   .mdl-snackbar-container .mdl-snackbar.mdl-snackbar--left {
     left: 0; }
   .mdl-snackbar-container .mdl-snackbar.mdl-snackbar--top {
@@ -8424,7 +8424,7 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
           transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 .android-header.is-casting-shadow {
-  background-color: black !important;
+  background-color: #424242 !important;
   -webkit-transition: 1s background ease-in-out;
           transition: 1s background ease-in-out; }
 
@@ -8437,12 +8437,8 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
   background-image: url(images/thumbs/pattern.png);
   background-repeat: repeat;
   background-position: 0 0;
-  background-color: #FFC400;
+  background-color: #ffc107;
   color: #FFF; }
-
-.logo {
-  height: 28px;
-  width: 140px; }
 
 .mdl-layout__header {
   overflow: visible; }
@@ -8465,11 +8461,22 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
     -webkit-order: 3;
         -ms-flex-order: 3;
             order: 3; }
+  .mdl-layout__header .mobile-title {
+    display: none !important; }
+    @media (max-width: 900px) {
+      .mdl-layout__header .mobile-title {
+        display: block !important;
+        position: absolute;
+        left: calc(50% - 70px);
+        top: 6px;
+        -webkit-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); } }
 
 .mdl-layout__drawer .mdl-layout-title {
   position: relative;
-  background: #ffc107;
-  height: 160px; }
+  background: #424242;
+  height: 100px;
+  padding-left: 15px; }
   .mdl-layout__drawer .mdl-layout-title .logo {
     position: absolute;
     bottom: 16px; }
@@ -8514,13 +8521,19 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
       text-transform: uppercase;
       margin-top: 15px;
       margin-bottom: 15px;
-      letter-spacing: 1px; }
+      letter-spacing: 1px;
+      color: #fff8e1; }
+      .mdl-layout__content .intro-section h2 .dart {
+        color: black;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 80px; }
     .mdl-layout__content .intro-section h3 {
-      font-size: 34px;
+      font-size: 30px;
       font-weight: 800;
       line-height: 34px;
       text-transform: uppercase;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      letter-spacing: 0.05em; }
     .mdl-layout__content .intro-section p {
       font-size: 18px;
       font-weight: 400;

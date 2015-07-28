@@ -20,7 +20,7 @@
 @import "packages/mdl/assets/styles/_config/show_config";
 // Only needed to switch themes correctly!!!!!
 @import "packages/mdl/assets/styles/fonts/fonts";
-@import "packages/mdl/assets/themes/amber-grey/material-design-lite";
+@import "packages/mdl/assets/themes/grey-amber/material-design-lite";
 //@import "packages/mdl/assets/styles/material-design-lite";
 // for layout
 // @import "packages/mdl/assets/styles/icons/icons";
@@ -30,12 +30,12 @@
 //@import "packages/mdl/assets/styles/layout/layout";
 
 .android-header.is-casting-shadow {
-    background-color: black !important;
-    transition: 1s background ease-in-out;
+    background-color : $palette-primary-800 !important;
+    transition       : 1s background ease-in-out;
 }
 
 .mdl-layout__header {
-    transition: 1s background ease-in-out;
+    transition : 1s background ease-in-out;
 }
 
 .mdl-layout__header, .mdl-layout__content {
@@ -43,17 +43,17 @@
     background-image    : url(images/thumbs/pattern.png);
     background-repeat   : repeat;
     background-position : 0 0;
-    background-color    : #FFC400;
+    background-color    : $palette-accent-500;
     color               : #FFF;
 }
 
 .logo {
-    height: 28px;
-    width: 140px;
+    //height : 28px;
+    //width  : 200px;
 }
 
 .mdl-layout__header {
-    overflow: visible;
+    overflow : visible;
 
     ::-moz-selection, ::selection {
         background-color : #6ab344;
@@ -71,31 +71,43 @@
             font-size   : 14px;
 
             &:hover, &.is-active {
-                border-bottom : 4px solid $palette-amber-500;
+                border-bottom : 4px solid $palette-accent-500;
             }
         }
     }
 
     #more-button {
-        order: 3;
+        order : 3;
     }
+
+    .mobile-title {
+        display: none !important;
+        @media (max-width: 900px) {
+
+            display: block !important;
+            position: absolute;
+            left: calc(50% - 70px);
+            top: 6px;
+            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+
 }
 
 .mdl-layout__drawer {
 
     .mdl-layout-title {
-        position: relative;
-        background: $palette-amber-500;
-        height: 160px;
+        position   : relative;
+        background : $palette-primary-800;
+        height     : 100px;
+        padding-left: 15px;
 
         .logo {
-            position: absolute;
-            bottom: 16px;
+            position : absolute;
+            bottom   : 16px;
         }
     }
 }
-
-
 
 .mdl-layout__content {
     background-position : 0 -64px;
@@ -106,7 +118,7 @@
 
     .img-responsive {
         display : inline-block;
-        width: 100%;
+        width   : 100%;
     }
 
     .text-center {
@@ -115,7 +127,7 @@
 
     .titlebar {
         text-transform : uppercase;
-        margin-bottom: 60px;
+        margin-bottom  : 60px;
 
         h2 {
             margin-top : 12px;
@@ -125,7 +137,7 @@
                 content    : "";
                 height     : 2px;
                 width      : 240px;
-                background : $palette-amber-500;
+                background : $palette-accent-500;
                 margin     : 15px auto;
                 position   : relative;
             }
@@ -146,7 +158,7 @@
         min-height   : 550px;
 
         .is-small-screen & {
-            padding-top: 24px;
+            padding-top : 24px;
         }
 
         h2 {
@@ -157,14 +169,22 @@
             margin-top     : 15px;
             margin-bottom  : 15px;
             letter-spacing : 1px;
+            color          : $palette-accent-50;
+
+            .dart {
+                color : black;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 80px;
+            }
         }
 
         h3 {
-            font-size      : 34px;
+            font-size      : 30px;
             font-weight    : 800;
             line-height    : 34px;
             text-transform : uppercase;
             margin-bottom  : 20px;
+            letter-spacing : 0.05em;
         }
 
         p {
@@ -186,11 +206,11 @@
         }
 
         .intro_buttons {
-            margin-bottom: 12px;
+            margin-bottom : 12px;
 
             .mdl-button {
-                background-color: $palette-grey-800;
-                margin-right: 12px;
+                background-color : $palette-primary-800;
+                margin-right     : 12px;
             }
 
         }
@@ -198,7 +218,7 @@
 
     .about-section {
         background-color : white;
-        color            : $palette-grey-800;
+        color            : $palette-primary-800;
 
         .about-content {
             padding-top    : 80px;
@@ -215,40 +235,37 @@
                 //width : calc(58.33333% - 16px);
 
                 .mdl-tabs__tab-bar {
-                    border: none;
-                    justify-content: flex-start;
-                    height: initial;
+                    border          : none;
+                    justify-content : flex-start;
+                    height          : initial;
 
                     .mdl-tabs__tab {
-                        padding: 0 24px 0 0;
+                        padding        : 0 24px 0 0;
                         &:nth-child(2) {
-                            padding-left: 24px;
-                            border-left: 1px solid black;
+                            padding-left : 24px;
+                            border-left  : 1px solid black;
                         }
 
                         .is-small-screen & {
-                            padding-left: 12px;
-                            padding-right: 12px;
-                            font-size: 15px;
-                            line-height: 18px;
-                            height: 18px;
-
-                            margin-bottom: 12px;
+                            padding-left  : 12px;
+                            padding-right : 12px;
+                            font-size     : 15px;
+                            line-height   : 18px;
+                            height        : 18px;
+                            margin-bottom : 12px;
                         }
 
-                        font-size: 22px;
-                        font-family: 'Oswald', sans-serif;
-                        font-weight: 400;
-                        text-transform: uppercase;
-                        height: 38px;
-                        line-height: 38px;
-
-                        transition: all 300ms ease-in-out;
+                        font-size      : 22px;
+                        font-family    : 'Oswald', sans-serif;
+                        font-weight    : 400;
+                        text-transform : uppercase;
+                        height         : 38px;
+                        line-height    : 38px;
+                        transition     : all 300ms ease-in-out;
 
                         &.is-active {
-                            color: $palette-amber-500;
-                            transition: all 300ms ease-in-out;
-
+                            color      : $palette-accent-500;
+                            transition : all 300ms ease-in-out;
 
                             &:after {
                                 height             : 0px;
@@ -275,8 +292,8 @@
             }
 
             .mdl-button {
-                margin-top: 12px;
-                background-color: $palette-grey-800;
+                margin-top       : 12px;
+                background-color : $palette-primary-800;
             }
         }
     }
@@ -306,40 +323,39 @@
 
             .mdl-accordion-group {
                 .is-small-screen & {
-                    margin-top: 12px;
+                    margin-top : 12px;
                 }
             }
 
             .mdl-accordion {
                 .mdl-accordion__label {
-
-                    font-size: 20px;
-                    font-family: 'Oswald', sans-serif;
-                    font-weight: 400;
-                    text-transform: uppercase;
+                    font-size      : 20px;
+                    font-family    : 'Oswald', sans-serif;
+                    font-weight    : 400;
+                    text-transform : uppercase;
 
                     .material-icons {
-                        font-weight: bold;
-                        font-size: 30px;
-                        color: $palette-amber-500;
-                        margin-right: 12px;
+                        font-weight  : bold;
+                        font-size    : 30px;
+                        color        : $palette-accent-500;
+                        margin-right : 12px;
                     }
                 }
 
-                p { margin-top: 16px; }
+                p { margin-top : 16px; }
 
             }
         }
     }
 
     .features-section {
-        background-image: url(images/parallax_bg/features.jpg);
-        background-attachment: fixed !important;
-        background-repeat: repeat;
-        background-position: 0 0;
-        padding-top: 80px;
-        padding-bottom: 40px;
-        color: #FFF;
+        background-image      : url(images/parallax_bg/features.jpg);
+        background-attachment : fixed !important;
+        background-repeat     : repeat;
+        background-position   : 0 0;
+        padding-top           : 80px;
+        padding-bottom        : 40px;
+        color                 : #FFF;
 
         .features-content {
             padding-top    : 80px;
@@ -355,28 +371,28 @@
             }
 
             .features-box {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: flex-start; // ⇾
-                align-content: space-between; // ||
-                align-items: flex-start; // ↓
+                display         : flex;
+                flex-direction  : row;
+                flex-wrap       : nowrap;
+                justify-content : flex-start; // ⇾
+                align-content   : space-between; // ||
+                align-items     : flex-start; // ↓
 
                 .icon-box {
-                    text-align: center;
-                    min-width: 70px;
-                    margin-right: 12px;
+                    text-align   : center;
+                    min-width    : 70px;
+                    margin-right : 12px;
 
                     .material-icons {
-                        font-size: 70px;
-                        color: $palette-amber-500;
+                        font-size : 70px;
+                        color     : $palette-accent-500;
                     }
                 }
 
                 .features-text {
                     h4 {
-                        margin-top: 0;
-                        font-size: 20px;
+                        margin-top : 0;
+                        font-size  : 20px;
                     }
                 }
             }
@@ -384,16 +400,14 @@
     }
 
     .mdl-mega-footer {
-        position: relative;
+        position : relative;
 
         .mdl-mega-footer--bottom-section {
             a {
-                color: $palette-amber-500;
-                text-decoration: none;
+                color           : $palette-accent-500;
+                text-decoration : none;
             }
         }
     }
 }
-
-
 
