@@ -225,7 +225,7 @@ class MaterialTextfield extends MdlComponent {
 
     /// Check the dirty state and update field accordingly.
     void _checkDirty() {
-        if (_relaxedInput.value && _relaxedInput.value.length > 0) {
+        if (_relaxedInput.value != null && _relaxedInput.value.isNotEmpty) {
             element.classes.add(_cssClasses.IS_DIRTY);
 
         } else {
