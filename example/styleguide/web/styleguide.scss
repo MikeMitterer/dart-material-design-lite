@@ -1,11 +1,13 @@
 @import "config";
+
+//@import "packages/mdl/assets/themes/blue_grey-deep_orange/material-design-lite";
+//@import "packages/mdl/assets/styles/material-design-lite";
+
 @import "packages/mdl/assets/styles/_config/show_config";
+
 
 // Only needed to switch themes correctly!!!!!
 @import "packages/mdl/assets/styles/fonts/fonts";
-
-//@import "packages/mdl/assets/themes/amber-indigo/material-design-lite";
-//@import "packages/mdl/assets/styles/material-design-lite";
 
 // for layout
 // @import "packages/mdl/assets/styles/icons/icons";
@@ -54,6 +56,11 @@ body {
     }
 
     > .mdl-layout__header {
+
+        background-image    : url(assets/images/pattern.png);
+        background-repeat   : repeat;
+        background-position : 0 0;
+
         .mdl-layout__header-row {
 
             padding-left: 24px;
@@ -61,6 +68,10 @@ body {
             .mdl-layout-title {
                 text-transform : capitalize;
             }
+        }
+
+        .mdl-layout__drawer-button {
+            background-color: transparent;
         }
     }
 
@@ -80,6 +91,10 @@ body {
         border-right: none;
 
         height: calc(100% - 48px);
+
+        .mdl-layout-title {
+            padding-left: 16px;
+        }
 
         .mdl-navigation {
             //padding-top : 24px;
@@ -144,6 +159,8 @@ body {
 
 
     > .mdl-sticky-mini-footer {
+        background : url(assets/images/pattern.png) repeat 0 0;
+
         .gh-link, .mm-link { margin-bottom: 0; }
 
         .additional-info {

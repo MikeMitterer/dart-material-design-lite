@@ -8543,7 +8543,8 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
     .mdl-layout__content .intro-section > div {
       padding: 0 8px; }
     .mdl-layout__content .intro-section .intro_image img {
-      width: 100%; }
+      width: 100%;
+      max-width: 550px; }
     .mdl-layout__content .intro-section .intro_buttons {
       margin-bottom: 12px; }
       .mdl-layout__content .intro-section .intro_buttons .mdl-button {

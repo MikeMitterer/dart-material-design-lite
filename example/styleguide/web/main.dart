@@ -349,13 +349,13 @@ class MenuController extends DemoController {
         final dom.HtmlElement element = dom.querySelector(".mdl-menu"); // first menu
         final MaterialMenu menu1 = MaterialMenu.widget(element);
 
-        void _addMessageDiv() {
-            final dom.HtmlElement element = dom.querySelectorAll(".mdl-menu__container").last.parent;
-            final dom.DivElement message = new dom.DivElement();
-
-            message.id = "message";
-            element.insertAdjacentElement("beforeEnd", message);
-        }
+//        void _addMessageDiv() {
+//            final dom.HtmlElement element = dom.querySelectorAll(".mdl-menu__container").last.parent;
+//            final dom.DivElement message = new dom.DivElement();
+//
+//            message.id = "message";
+//            element.insertAdjacentElement("beforeEnd", message);
+//        }
 
         void _showMessage(final int secsToClose) {
             final dom.DivElement message = dom.querySelector("#message");
@@ -366,7 +366,7 @@ class MenuController extends DemoController {
         }
 
         menu1.show();
-        _addMessageDiv();
+//        _addMessageDiv();
         _showMessage(TIMEOUT_IN_SECS);
         int tick = 0;
         new Timer.periodic(new Duration(milliseconds: 1000), (final Timer timer) {

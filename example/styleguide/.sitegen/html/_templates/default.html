@@ -43,6 +43,7 @@
     <!-- Page styles -->
     <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
     <link rel="stylesheet" href="styleguide.css">
+
     <style>
         div.loading { display: none; }
         body.mdl-upgrading > * { display: none; }
@@ -51,14 +52,14 @@
 </head>
 <body class="mdl-upgrading"> <div class="loading">Loading...</div>
 <div class="styleguide mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
+    <header class="mdl-layout__header mdl-color--400">
         <div class="mdl-layout__header-row">
             <span mdl-observe="title" class="mdl-layout-title">Fixed drawer and header</span>
         </div>
     </header>
     <div class="mdl-layout__drawer mdl-color--50">
-        <span class="mdl-layout-title mdl-color--primary mdl-color-text--white">
-            <a href="/" class="mdl-color-text--white">Material Design Lite</a>
+        <span class="mdl-layout-title mdl-color--400 mdl-color-text--white">
+            <a href="/" class="mdl-color-text--white"><img src="assets/images/logo-drawer.png"></a>
         </span>
         <nav class="mdl-navigation">
             <div class="mdl-accordion-group mdl-accordion--navigation mdl-accordion--radio-type mdl-js-ripple-effect mdl-color--50">
@@ -147,7 +148,7 @@
     <main class="mdl-layout__content">
         <div id="main" class="mdl-content mdl-js-content">Loading...</div>
     </main>
-    <footer class="mdl-sticky-mini-footer mdl-color--primary mdl-color-text--white">
+    <footer class="mdl-sticky-mini-footer mdl-color--800 mdl-color-text--white">
         <div class="mdl-mini-footer--left-section">
             <p class="gh-link">Contributions welcome: <a href="https://github.com/MikeMitterer/dart-material-design-lite" target="_blank">GitHub.</a>
                 <span class="additional-info">Built with <a href="https://pub.dartlang.org/packages/sitegen" target="_blank">SiteGen.</a></span>
