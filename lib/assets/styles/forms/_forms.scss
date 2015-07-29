@@ -36,7 +36,7 @@ $_form_default_label_padding : 12px !default;
 $_form_default_label_width : 130px !default;
 $_form_default_button_width : $_form_default_label_width !default;
 
-form.mdl-basic-form {
+.mdl-basic-form {
     box-sizing       : border-box;
     display          : flex;
     flex-direction   : column;
@@ -264,7 +264,7 @@ form.mdl-basic-form {
 //   More: http://www.google.com/design/spec/material-design/introduction.html
 //
 
-form.mdl-form {
+.mdl-form {
     box-sizing       : border-box;
     border-radius    : 3px;
 
@@ -334,7 +334,7 @@ form.mdl-form {
     @include shadow-2dp();
 }
 
-form.mdl-form-registration {
+.mdl-form-registration {
     @extend .mdl-form;
 
     .mdl-form__actions {
