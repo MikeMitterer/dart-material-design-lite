@@ -54,7 +54,7 @@ class Invoke {
             }
         });
 
-        _logger.info("Function: ${stringToFunction.functionAsString}(${params})");
+        _logger.fine("Function: ${stringToFunction.functionAsString}(${params})");
 
         final InstanceMirror im = myClassInstanceMirror.invoke(myFunction,params);
         return im.reflectee;

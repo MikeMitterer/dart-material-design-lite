@@ -171,6 +171,7 @@ void createSampleList() {
     // Directives
     samples.add(new Sample("attribute", Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("class",     Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("formatter", Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("model",     Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("observe",   Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("repeat",    Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));

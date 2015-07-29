@@ -33,6 +33,7 @@ import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
 import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdlobservable.dart';
+import "package:mdl/mdlformatter.dart";
 
 part "src/directive/components/MaterialObserve.dart";
 part "src/directive/components/MaterialModel.dart";

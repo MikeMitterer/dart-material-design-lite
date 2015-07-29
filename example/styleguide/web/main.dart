@@ -19,6 +19,7 @@
 
 import "dart:html" as dom;
 import "dart:async";
+import "dart:math" as Math;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
@@ -84,6 +85,10 @@ class Application extends MaterialApplication {
 
     // Class-Sample
     final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);
+
+    // Formatter-Sample
+    final ObservableProperty<double> pi = new ObservableProperty<double>(3.14159265359);
+    final ObservableProperty<String> name = new ObservableProperty<String>("Mike");
 
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
@@ -320,6 +325,44 @@ class DNDController extends DemoController {
         app.languages.add(new _Programming("Dart"));
         app.languages.add(new _Programming("Java"));
     }
+}
+
+class FormatterController extends DemoController {
+    final Logger _logger = new Logger('main.FormatterController');
+
+    final List<String> xmen = ['Angel/Archangel', 'Apocalypse', 'Bishop', 'Beast','Caliban','Colossus',
+    'Cyclops','Firestar','Emma Frost','Gambit','High Evolutionary','Dark Phoenix',
+    'Marvel Girl','Iceman','Juggernaut','Magneto','Minos','Mr. Sinister','Mystique',
+    'Nightcrawler','Professor X','Pyro','Psylocke','Rogue','Sabretooth','Shadowcat','Storm',
+    'Talker','Wolverine','X-23' ];
+
+    final Math.Random rnd = new Math.Random();
+
+    bool cancelTimer = false;
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final Application app = componentFactory().application;
+
+        cancelTimer = false;
+        new Timer.periodic(new Duration(milliseconds: 500),(final Timer timer) {
+            if(cancelTimer) {
+                timer.cancel();
+                return;
+            }
+            final int index = rnd.nextInt(xmen.length);
+            app.name.value = xmen[index];
+        });
+    }
+
+    @override
+    void unload() {
+        cancelTimer = true;
+    }
+
+    // - private ------------------------------------------------------------------------------------------------------
 }
 
 class IconToggleController extends DemoController {
@@ -826,6 +869,9 @@ void configRouter() {
 
         ..addRoute(name: 'footer', path: '/footer',
             enter: view("views/footer.html", new DemoController()))
+
+        ..addRoute(name: 'formatter', path: '/formatter',
+            enter: view("views/formatter.html", new FormatterController()))
 
         ..addRoute(name: 'getting started', path: '/gettingstarted',
             enter: view("views/gettingstarted.html", new DemoController()))

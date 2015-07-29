@@ -1,0 +1,43 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+
+@MdlComponentModel @di.Injectable()
+class Application extends MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+
+    final ObservableProperty&lt;double&gt; pi = new ObservableProperty&lt;double&gt;(3.14159265359);
+    final ObservableProperty&lt;String&gt; name = new ObservableProperty&lt;String&gt;(&quot;Mike&quot;);
+
+    final List&lt;String&gt; xmen;
+    
+    Application() : xmen = [&#39;Angel&#47;Archangel&#39;, &#39;Apocalypse&#39;, &#39;Bishop&#39;, &#39;Beast&#39;,&#39;Caliban&#39;,&#39;Colossus&#39;,
+                            &#39;Cyclops&#39;,&#39;Firestar&#39;,&#39;Emma Frost&#39;,&#39;Gambit&#39;,&#39;High Evolutionary&#39;,&#39;Dark Phoenix&#39;,
+                            &#39;Marvel Girl&#39;,&#39;Iceman&#39;,&#39;Juggernaut&#39;,&#39;Magneto&#39;,&#39;Minos&#39;,&#39;Mr. Sinister&#39;,&#39;Mystique&#39;,
+                            &#39;Nightcrawler&#39;,&#39;Professor X&#39;,&#39;Pyro&#39;,&#39;Psylocke&#39;,&#39;Rogue&#39;,&#39;Sabretooth&#39;,&#39;Shadowcat&#39;,&#39;Storm&#39;,
+                            &#39;Talker&#39;,&#39;Wolverine&#39;,&#39;X-23&#39; ];
+
+    @override
+    void run() &#123;
+        final Math.Random rnd = new Math.Random();
+        new Timer.periodic(new Duration(milliseconds: 500),(final Timer timer) &#123;
+            final int index = rnd.nextInt(xmen.length);
+            name.value = xmen[index];
+        &#125;);
+    &#125;
+
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+
+&#125;
+
+main() async &#123;
+    final Logger _logger = new Logger(&#39;main.Formatter&#39;);
+
+    registerMdl();
+
+    final MaterialApplication application = await componentFactory().
+        rootContext(Application).run(enableVisualDebugging: true);
+
+    application.run();
+&#125;
+
+
