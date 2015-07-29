@@ -19,6 +19,7 @@
 
 part of mdlformatter;
 
+@MdlComponentModel
 class UpperCaseFormatter {
     String uppercase(dynamic value) {
         if(value is String == false) {

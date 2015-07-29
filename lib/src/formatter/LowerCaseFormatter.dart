@@ -19,6 +19,7 @@
 
 part of mdlformatter;
 
+@MdlComponentModel
 class LowerCaseFormatter {
     String lowercase(dynamic value) {
         if(value is String == false) {
