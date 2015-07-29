@@ -1,6 +1,11 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.3.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.2.3...v1.3.0) - 2015-07-29##
+
+###Feature###
+* Formatter (number, uppercase + lowercase) added [78ba4fe](https://github.com/mikemitterer/dart-material-design-lite/commit/78ba4fe4668f92e6f61b725732b6f4417b5de543)
+
 ##[v1.2.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.2.1...v1.2.3) - 2015-07-28##
 
 ###Feature###
