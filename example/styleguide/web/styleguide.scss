@@ -136,6 +136,12 @@ body {
             // Align lastmod at bottom of page
             //min-height: calc(100vh - 160px);
             margin    : 0 24px 24px 24px;
+
+            .mdl-accordion-group.usage {
+                .indicator.right {
+                    margin-right: 12px;
+                }
+            }
         }
 
         .lastmod {
