@@ -142,13 +142,28 @@ class MaterialRipple extends MdlComponent {
         //event.preventDefault();
         //event.stopPropagation();
 
+        bool _hasRipple(final dom.Element element) {
+            if(element is dom.HtmlElement == false) { return false; }
+
+            final dom.Element child = element.firstChild;
+            return element.classes.contains(_cssClasses.MDL_RIPPLE) ||
+            (child != null && child is dom.HtmlElement && child.classes.contains(_cssClasses.MDL_RIPPLE));
+        }
+
+        final bool hasRipple = _hasRipple(event.target);
+        if(!hasRipple) {
+            return;
+        }
+
         if (rippleElement.style.width == null && rippleElement.style.height == null) {
-            final dom.Rectangle rect = element.getBoundingClientRect();
+
+            final dom.Rectangle rect = bound;
             _boundHeight = rect.height;
             _boundWidth = rect.width;
             _rippleSize = (Math.sqrt(rect.width * rect.width + rect.height * rect.height) * 2 + 2).toInt();
             rippleElement.style.width = "${_rippleSize}px";
             rippleElement.style.height = "${_rippleSize}px";
+
         }
         
         rippleElement.classes.add(_cssClasses.IS_VISIBLE);
@@ -200,12 +215,16 @@ class MaterialRipple extends MdlComponent {
                 y = ((clientY - bound.top) as double).round();
             }
 
-            //
-            _updateDimension();
-            _setRippleXY(x, y);
-            _setRippleStyles(true);
 
-            dom.window.requestAnimationFrame(_animFrameHandler);
+            _logger.info("X $x Y $y ${bound} ${event.target} T ${hasRipple}");
+
+            if(hasRipple) {
+                _updateDimension();
+                _setRippleXY(x, y);
+                _setRippleStyles(true);
+
+                dom.window.requestAnimationFrame(_animFrameHandler);
+            }
         }
     }
 
