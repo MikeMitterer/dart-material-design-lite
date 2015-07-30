@@ -1,6 +1,11 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.3.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.1...v1.3.2) - 2015-07-30##
+
+###Fixes###
+* Accordion showed ripple when user clicks on content, solves #12 [307c2c5](https://github.com/mikemitterer/dart-material-design-lite/commit/307c2c59e9a18cf2a053e7e1d8a274b37a4cb4b9)
+
 ##[v1.3.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.2.3...v1.3.0) - 2015-07-29##
 
 ###Feature###
