@@ -20,5 +20,31 @@
 .demo-page--accordion, .demo-section--accordion {
     .demo-preview-block {
         margin-bottom: 24px;
+
+        .mdl-accordion__label--stretch {
+            text-align: right;
+            margin-right: 12px;
+
+            .material-icons {
+                font-size: 18px;
+                margin-right: 8px;
+            }
+        }
+
+        .mdl-accordion__label {
+
+            &.with-toolbar {
+                .indicator {
+                    margin-right: 12px;
+                }
+            }
+
+            .sample {
+                padding: 0 1em;
+                font-weight: bold;
+            }
+        }
     }
 }
+
+

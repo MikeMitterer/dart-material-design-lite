@@ -6921,17 +6921,28 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       border: 1px solid red; }
     .mdl-accordion-group .mdl-accordion .mdl-accordion__label:hover {
       color: black; }
-    .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator {
-      position: absolute;
-      top: 12px;
-      right: 16px;
+    .mdl-accordion-group .mdl-accordion .mdl-accordion__label .mdl-accordion__label--stretch, .mdl-accordion-group .mdl-accordion .mdl-accordion__label .stretch {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1; }
+      .debug .mdl-accordion-group .mdl-accordion .mdl-accordion__label .mdl-accordion__label--stretch, .debug .mdl-accordion-group .mdl-accordion .mdl-accordion__label .stretch {
+        border: 1px solid blue; }
+    .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator, .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator--right {
+      text-align: right;
       -webkit-transition: 0.3s ease-in-out;
               transition: 0.3s ease-in-out;
       font-weight: 100;
       font-size: 18px;
       color: rgba(0, 0, 0, 0.6); }
-      .debug .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator {
+      .debug .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator, .debug .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator--right {
         border: 1px solid green; }
+    .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator:first-child {
+      margin-right: 12px; }
+    .mdl-accordion-group .mdl-accordion .mdl-accordion__label .indicator--right, .mdl-accordion-group .mdl-accordion .mdl-accordion__label .right {
+      position: absolute;
+      top: 12px;
+      right: 0; }
     .mdl-accordion-group .mdl-accordion .mdl-accordion__label .mdl-accordion__ripple-container {
       display: block;
       position: absolute;

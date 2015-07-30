@@ -50,7 +50,7 @@ class DataAttribute {
         Validate.notBlank(name,"Attribute-Name for $element must not be blank");
 
         if(!element.attributes.containsKey(name)) {
-            throw new ArgumentError("$element has not attribute '$name'");
+            throw new ArgumentError("$element has no attribute '$name' set!");
         }
         final String value = element.attributes[name];
         return new _DataValue(value);

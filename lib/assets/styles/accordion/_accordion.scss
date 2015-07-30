@@ -86,10 +86,16 @@ mdl-accordion-group {
                 color: $accordion-active-text-color;
             }
 
-            .indicator {
-                position: absolute;
-                top: 12px;
-                right: $accordion-padding;
+            .mdl-accordion__label--stretch, .stretch {
+                flex-grow: 1;
+                .debug & { border: 1px solid blue; }
+            }
+
+            .indicator, .indicator--right {
+                text-align: right;
+
+                //top: 12px;
+                //right: $accordion-padding;
                 transition : $accordion-timing ease-in-out;
 
                 font-weight: 100;
@@ -98,6 +104,30 @@ mdl-accordion-group {
 
                 .debug & { border: 1px solid green; }
             }
+
+            .indicator:first-child {
+                margin-right: 12px;
+            }
+
+            .indicator--right, .right {
+                position: absolute;
+                top: 12px;
+                right: 0;  // right 0 but margin is already set for :first-child!
+
+            }
+
+            //.indicator {
+            //    position: absolute;
+            //    top: 12px;
+            //    right: $accordion-padding;
+            //    transition : $accordion-timing ease-in-out;
+            //
+            //    font-weight: 100;
+            //    font-size: 18px;
+            //    color: $accordion-text-color;
+            //
+            //    .debug & { border: 1px solid green; }
+            //}
 
             .mdl-accordion__ripple-container {
                 display: block;
