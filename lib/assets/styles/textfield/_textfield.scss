@@ -2,4 +2,13 @@
 
 .mdl-textfield {
     width: auto;
+
+}
+
+// Styling for the input element.
+.mdl-textfield__input {
+
+    .mdl-textfield.is-disabled & {
+        color: $input-text-label-color;
+    }
 }

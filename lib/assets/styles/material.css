@@ -6759,6 +6759,9 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 .mdl-textfield {
   width: auto; }
 
+.mdl-textfield.is-disabled .mdl-textfield__input {
+  color: rgba(0, 0, 0, 0.26); }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7284,7 +7287,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-form.mdl-basic-form {
+.mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -7301,31 +7304,31 @@ form.mdl-basic-form {
   background-color: white;
   padding: 24px 24px 8px 24px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-  form.mdl-basic-form h1, form.mdl-basic-form h2, form.mdl-basic-form h3, form.mdl-basic-form h4, form.mdl-basic-form h5, form.mdl-basic-form h6, form.mdl-basic-form h6 {
+  .mdl-basic-form h1, .mdl-basic-form h2, .mdl-basic-form h3, .mdl-basic-form h4, .mdl-basic-form h5, .mdl-basic-form h6, .mdl-basic-form h6 {
     padding-top: 0;
     font-size: 20px;
     line-height: 20px; }
-  form.mdl-basic-form.right {
+  .mdl-basic-form.right {
     float: right; }
-  form.mdl-basic-form label {
+  .mdl-basic-form label {
     -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
             flex-shrink: 0;
     padding-top: 12px;
     font-size: 15px; }
-    form.mdl-basic-form label:first-child {
+    .mdl-basic-form label:first-child {
       padding-top: 0; }
-  form.mdl-basic-form input, form.mdl-basic-form button {
+  .mdl-basic-form input, .mdl-basic-form button {
     box-sizing: border-box;
     border-radius: 2px;
     border: 1px solid #000000; }
-    form.mdl-basic-form input.large, form.mdl-basic-form button.large {
+    .mdl-basic-form input.large, .mdl-basic-form button.large {
       width: 10em; }
-    form.mdl-basic-form input.normal, form.mdl-basic-form button.normal {
+    .mdl-basic-form input.normal, .mdl-basic-form button.normal {
       width: 8em; }
-    form.mdl-basic-form input.small, form.mdl-basic-form button.small {
+    .mdl-basic-form input.small, .mdl-basic-form button.small {
       width: 6em; }
-  form.mdl-basic-form input {
+  .mdl-basic-form input {
     width: 100%;
     font-size: 15px;
     padding: 7.5px;
@@ -7333,13 +7336,13 @@ form.mdl-basic-form {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     outline: none; }
-    form.mdl-basic-form input:last-child {
+    .mdl-basic-form input:last-child {
       margin-right: 0; }
-    form.mdl-basic-form input:focus {
+    .mdl-basic-form input:focus {
       border-bottom: 1px solid #3f51b5; }
-    form.mdl-basic-form input[type=submit] {
+    .mdl-basic-form input[type=submit] {
       border: none; }
-  form.mdl-basic-form .mdl-basic-form__group {
+  .mdl-basic-form .mdl-basic-form__group {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -7351,81 +7354,81 @@ form.mdl-basic-form {
             flex-direction: row;
     padding-top: 7.5px;
     padding-bottom: 7.5px; }
-    form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--last-row {
+    .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--last-row {
       padding: 0;
       margin-top: 16px; }
-    form.mdl-basic-form .mdl-basic-form__group > .mdl-basic-form__group {
+    .mdl-basic-form .mdl-basic-form__group > .mdl-basic-form__group {
       padding-top: 0; }
-    form.mdl-basic-form .mdl-basic-form__group label {
+    .mdl-basic-form .mdl-basic-form__group label {
       width: 130px;
       padding-top: 7.5px; }
-    form.mdl-basic-form .mdl-basic-form__group input {
+    .mdl-basic-form .mdl-basic-form__group input {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1;
       width: auto; }
-    form.mdl-basic-form .mdl-basic-form__group input[type=submit] {
+    .mdl-basic-form .mdl-basic-form__group input[type=submit] {
       -webkit-box-flex: 0;
       -webkit-flex-grow: 0;
           -ms-flex-positive: 0;
               flex-grow: 0;
       width: 130px; }
-    form.mdl-basic-form .mdl-basic-form__group ul.vertical li {
+    .mdl-basic-form .mdl-basic-form__group ul.vertical li {
       padding-top: 0; }
-      form.mdl-basic-form .mdl-basic-form__group ul.vertical li:first-child {
+      .mdl-basic-form .mdl-basic-form__group ul.vertical li:first-child {
         padding-top: 3.75px; }
-      form.mdl-basic-form .mdl-basic-form__group ul.vertical li:last-child {
+      .mdl-basic-form .mdl-basic-form__group ul.vertical li:last-child {
         padding-top: 0; }
-    form.mdl-basic-form .mdl-basic-form__group ul.horizontal li {
+    .mdl-basic-form .mdl-basic-form__group ul.horizontal li {
       padding-right: 12px;
       padding-top: 7.5px; }
-      form.mdl-basic-form .mdl-basic-form__group ul.horizontal li:first-child {
+      .mdl-basic-form .mdl-basic-form__group ul.horizontal li:first-child {
         padding-top: 7.5px; }
-      form.mdl-basic-form .mdl-basic-form__group ul.horizontal li:last-child {
+      .mdl-basic-form .mdl-basic-form__group ul.horizontal li:last-child {
         padding-top: 7.5px; }
-    form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right {
+    .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right {
       -webkit-box-pack: end;
       -webkit-justify-content: flex-end;
           -ms-flex-pack: end;
               justify-content: flex-end; }
-      form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right input, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right button {
+      .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right input, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right button {
         margin-left: 10px; }
-        form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right input:first-child, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right button:first-child {
+        .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right input:first-child, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right button:first-child {
           margin-left: 0; }
-    form.mdl-basic-form .mdl-basic-form__group.equal {
+    .mdl-basic-form .mdl-basic-form__group.equal {
       -webkit-box-pack: justify;
       -webkit-justify-content: space-between;
           -ms-flex-pack: justify;
               justify-content: space-between; }
-      form.mdl-basic-form .mdl-basic-form__group.equal.with-offset {
+      .mdl-basic-form .mdl-basic-form__group.equal.with-offset {
         margin-left: 130px; }
-      form.mdl-basic-form .mdl-basic-form__group.equal > *, form.mdl-basic-form .mdl-basic-form__group.equal > input[type=submit] {
+      .mdl-basic-form .mdl-basic-form__group.equal > *, .mdl-basic-form .mdl-basic-form__group.equal > input[type=submit] {
         -webkit-box-flex: 1;
         -webkit-flex-grow: 1;
             -ms-flex-positive: 1;
                 flex-grow: 1;
         margin-left: 10px; }
-        form.mdl-basic-form .mdl-basic-form__group.equal > *:first-child, form.mdl-basic-form .mdl-basic-form__group.equal > input[type=submit]:first-child {
+        .mdl-basic-form .mdl-basic-form__group.equal > *:first-child, .mdl-basic-form .mdl-basic-form__group.equal > input[type=submit]:first-child {
           margin-left: 0; }
-    form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio {
+    .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio {
       -webkit-box-pack: start;
       -webkit-justify-content: flex-start;
           -ms-flex-pack: start;
               justify-content: flex-start;
       font-size: 15px; }
-      form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox input, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio input {
+      .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox input, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio input {
         -webkit-box-flex: 0;
         -webkit-flex-grow: 0;
             -ms-flex-positive: 0;
                 flex-grow: 0;
         margin-top: 3px;
         margin-left: 1em; }
-        form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox input:first-child, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio input:first-child {
+        .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox input:first-child, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio input:first-child {
           margin-left: 0; }
-      form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox > *, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio > * {
+      .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox > *, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio > * {
         margin-right: 6px; }
-    form.mdl-basic-form .mdl-basic-form__group.help {
+    .mdl-basic-form .mdl-basic-form__group.help {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
@@ -7439,12 +7442,12 @@ form.mdl-basic-form {
       -webkit-flex-direction: column;
           -ms-flex-direction: column;
               flex-direction: column; }
-      form.mdl-basic-form .mdl-basic-form__group.help .help-block {
+      .mdl-basic-form .mdl-basic-form__group.help .help-block {
         padding: 0; }
-    form.mdl-basic-form .mdl-basic-form__group .help-block {
+    .mdl-basic-form .mdl-basic-form__group .help-block {
       color: #de3226;
       font-weight: 600; }
-  form.mdl-basic-form input[type=submit], form.mdl-basic-form button {
+  .mdl-basic-form input[type=submit], .mdl-basic-form button {
     width: 130px;
     height: 36px;
     margin: 4px;
@@ -7453,46 +7456,46 @@ form.mdl-basic-form {
     font-size: 16.5px;
     color: rgba(0, 0, 0, 0.87);
     background-color: rgba(158, 158, 158, 0.2); }
-    form.mdl-basic-form input[type=submit].maxsize, form.mdl-basic-form button.maxsize {
+    .mdl-basic-form input[type=submit].maxsize, .mdl-basic-form button.maxsize {
       width: 100%; }
-    form.mdl-basic-form input[type=submit]:last-of-type, form.mdl-basic-form button:last-of-type {
+    .mdl-basic-form input[type=submit]:last-of-type, .mdl-basic-form button:last-of-type {
       margin-right: 0; }
-    form.mdl-basic-form input[type=submit].mdl-basic-form__control--maxsize, form.mdl-basic-form button.mdl-basic-form__control--maxsize {
+    .mdl-basic-form input[type=submit].mdl-basic-form__control--maxsize, .mdl-basic-form button.mdl-basic-form__control--maxsize {
       width: 100%; }
-    form.mdl-basic-form input[type=submit].mdl-basic-form__control--last-row, form.mdl-basic-form button.mdl-basic-form__control--last-row {
+    .mdl-basic-form input[type=submit].mdl-basic-form__control--last-row, .mdl-basic-form button.mdl-basic-form__control--last-row {
       margin-top: 20px; }
-    form.mdl-basic-form input[type=submit].mdl-basic-form__control--right, form.mdl-basic-form button.mdl-basic-form__control--right {
+    .mdl-basic-form input[type=submit].mdl-basic-form__control--right, .mdl-basic-form button.mdl-basic-form__control--right {
       -webkit-align-self: flex-end;
           -ms-flex-item-align: end;
               align-self: flex-end; }
-  form.mdl-basic-form input[type=submit], form.mdl-basic-form button[type=submit], form.mdl-basic-form button.submit, form.mdl-basic-form button.primary {
+  .mdl-basic-form input[type=submit], .mdl-basic-form button[type=submit], .mdl-basic-form button.submit, .mdl-basic-form button.primary {
     background-color: #3f51b5;
     color: white; }
-  form.mdl-basic-form .mdl-basic-form__control--last-row {
+  .mdl-basic-form .mdl-basic-form__control--last-row {
     margin-top: 20px; }
-  form.mdl-basic-form .mdl-basic-form__control--right {
+  .mdl-basic-form .mdl-basic-form__control--right {
     -webkit-align-self: flex-end;
         -ms-flex-item-align: end;
             align-self: flex-end; }
 
-form.mdl-form, form.mdl-form-registration {
+.mdl-form, .mdl-form-registration {
   box-sizing: border-box;
   border-radius: 3px;
   padding: 0 0 8px 0;
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-  form.mdl-form .mdl-form__title, form.mdl-form-registration .mdl-form__title {
+  .mdl-form .mdl-form__title, .mdl-form-registration .mdl-form__title {
     padding-top: 24px;
     font-size: 24px;
     line-height: 24px;
     margin: 0 24px 4px 24px; }
-  form.mdl-form .mdl-form__content, form.mdl-form-registration .mdl-form__content {
+  .mdl-form .mdl-form__content, .mdl-form-registration .mdl-form__content {
     margin-left: 24px;
     margin-right: 24px; }
-    form.mdl-form .mdl-form__content .mdl-textfield, form.mdl-form-registration .mdl-form__content .mdl-textfield, form.mdl-form .mdl-form__content .mdl-slider, form.mdl-form-registration .mdl-form__content .mdl-slider {
+    .mdl-form .mdl-form__content .mdl-textfield, .mdl-form-registration .mdl-form__content .mdl-textfield, .mdl-form .mdl-form__content .mdl-slider, .mdl-form-registration .mdl-form__content .mdl-slider {
       width: 100%; }
-    form.mdl-form .mdl-form__content .mdl-form__group, form.mdl-form-registration .mdl-form__content .mdl-form__group {
+    .mdl-form .mdl-form__content .mdl-form__group, .mdl-form-registration .mdl-form__content .mdl-form__group {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -7517,14 +7520,14 @@ form.mdl-form, form.mdl-form-registration {
           -ms-flex-align: center;
               align-items: center;
       box-sizing: border-box; }
-      form.mdl-form .mdl-form__content .mdl-form__group > *, form.mdl-form-registration .mdl-form__content .mdl-form__group > * {
+      .mdl-form .mdl-form__content .mdl-form__group > *, .mdl-form-registration .mdl-form__content .mdl-form__group > * {
         width: inherit;
         min-width: 96px;
         margin-right: 8px; }
-      form.mdl-form .mdl-form__content .mdl-form__group .mdl-icon, form.mdl-form-registration .mdl-form__content .mdl-form__group .mdl-icon {
+      .mdl-form .mdl-form__content .mdl-form__group .mdl-icon, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-icon {
         font-size: 24px;
         min-width: 48px; }
-  form.mdl-form .mdl-form__actions, form.mdl-form-registration .mdl-form__actions {
+  .mdl-form .mdl-form__actions, .mdl-form-registration .mdl-form__actions {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -7550,10 +7553,10 @@ form.mdl-form, form.mdl-form-registration {
             align-items: flex-start;
     margin: 8px 8px 0 8px;
     width: calc(100% - 16px); }
-    form.mdl-form .mdl-form__actions > *, form.mdl-form-registration .mdl-form__actions > * {
+    .mdl-form .mdl-form__actions > *, .mdl-form-registration .mdl-form__actions > * {
       margin-left: 4px; }
 
-form.mdl-form-registration .mdl-form__actions .mdl-button {
+.mdl-form-registration .mdl-form__actions .mdl-button {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
