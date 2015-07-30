@@ -216,7 +216,7 @@ class MaterialRipple extends MdlComponent {
             }
 
 
-            _logger.info("X $x Y $y ${bound} ${event.target} T ${hasRipple}");
+            //_logger.info("X $x Y $y ${bound} ${event.target} T ${hasRipple}");
 
             if(hasRipple) {
                 _updateDimension();
