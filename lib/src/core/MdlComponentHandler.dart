@@ -345,7 +345,7 @@ class MdlComponentHandler {
                     upgrade = baseElement.classes.contains(config.baseSelector);
             }
             if(upgrade) {
-                _logger.warning("Upgrade base-elment: ${queryBaseElement} Class: ${config.classAsString}");
+                //_logger.warning("Upgrade base-element: ${queryBaseElement} Class: ${config.classAsString}");
                 _upgradeElement(baseElement, config);
             }
         }
