@@ -194,6 +194,11 @@ class MaterialCheckbox extends MdlComponent {
 
         eventStreams.add(element.onMouseUp.listen(_onMouseUp));
 
+        // Solves slow Touch on iOS...
+        // element.onTouchEnd.listen((_) {
+        //     checked = !checked;
+        // });
+
         _updateClasses();
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
