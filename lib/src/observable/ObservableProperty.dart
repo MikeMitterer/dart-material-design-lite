@@ -138,7 +138,7 @@ class ObservableProperty<T> {
      }
 
     void _fire(final PropertyChangeEvent<T> event) {
-        if(_name != ObservableProperty._DEFAULT_NAME) {  _logger.info("Fireing $event from ${_name}...");  }
+        if(_name != ObservableProperty._DEFAULT_NAME) {  _logger.fine("Fireing $event from ${_name}...");  }
 
         if(_onChange != null && _onChange.hasListener) {
             _onChange.add(event);
