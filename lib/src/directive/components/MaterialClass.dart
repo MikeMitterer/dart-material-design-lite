@@ -93,7 +93,7 @@ class MaterialClass extends MdlComponent {
 
 
     void _init() {
-        _logger.fine("MaterialClass - init");
+        _logger.fine("MaterialClass - init $element");
         
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialClassConstant.WIDGET_SELECTOR);
@@ -125,7 +125,7 @@ class MaterialClass extends MdlComponent {
                 final ObservableProperty prop = val;
 
                 void _setValue(final bool value) {
-
+                    _logger.warning("_setValue $value in $element");
                     if(value) {
                         element.classes.add(classname);
                     } else {

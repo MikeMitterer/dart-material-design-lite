@@ -333,18 +333,19 @@ class MdlComponentHandler {
             bool upgrade = false;
             switch(config.selectorType) {
                 case SelectorType.TAG:
-                    upgrade = baseElement.tagName.toLowerCase() == config.selector;
+                    upgrade = baseElement.tagName.toLowerCase() == config.baseSelector;
                     break;
 
                 case SelectorType.ATTRIBUTE:
-                    upgrade = baseElement.attributes.containsKey(config.selector.replaceAll(new RegExp(r"\[|\]"),""));
+                    upgrade = baseElement.attributes.containsKey(config.baseSelector);
                     break;
 
                 case SelectorType.CLASS:
                 default:
-                    upgrade = baseElement.classes.contains(config.selector.replaceFirst(".",""));
+                    upgrade = baseElement.classes.contains(config.baseSelector);
             }
             if(upgrade) {
+                _logger.warning("Upgrade base-elment: ${queryBaseElement} Class: ${config.classAsString}");
                 _upgradeElement(baseElement, config);
             }
         }
@@ -459,7 +460,11 @@ class MdlComponentHandler {
 
                 _registerComponent();
 
-                if(_isInDom(element)) {
+                /// body-check calls attached if the element we register is registered for "body"
+                /// Sample:
+                ///     <body class="demo-page--{{samplename}}" mdl-class="checkDebug : 'debug'">
+                ///
+                if(element.tagName.toLowerCase() == "body" || _isInDom(element)) {
                     component.attached();
                 }
 

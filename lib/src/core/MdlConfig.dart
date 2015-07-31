@@ -61,6 +61,9 @@ class MdlConfig<T extends MdlComponent> {
         }
     }
 
+    /// The selector how it is defined in the Component
+    String get baseSelector => _selector;
+
     /// The higher the priority the later the component will be upgraded.
     /// This is important for the ripple-effect. Must be called as last upgrade process
     /// Default {priority} is 5, materialRippleConfig sets {priority} to 10
