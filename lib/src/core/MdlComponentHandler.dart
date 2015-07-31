@@ -514,6 +514,7 @@ class MdlComponentHandler {
             if(component != null) {
                 component.attributes.remove(_DATA_KEY);
                 component.classes.add(_cssClasses.DOWNGRADED);
+                component = null;
             }
 
         } on String catch (e) {

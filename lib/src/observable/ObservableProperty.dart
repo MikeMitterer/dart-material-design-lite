@@ -28,6 +28,8 @@ class PropertyChangeEvent<T> {
 
 @MdlComponentModel
 class ObservableProperty<T> {
+    static const String _DEFAULT_NAME = "<undefinded>";
+
     final Logger _logger = new Logger('mdlobservable.ObservableProperty');
 
     T _value;
@@ -35,9 +37,13 @@ class ObservableProperty<T> {
     Duration _interval = new Duration(milliseconds: 100);
     bool _pause = false;
 
+    /// Observername - helps with debugging!
+    final String _name;
+
     StreamController<PropertyChangeEvent<T>> _onChange;
 
-    ObservableProperty(this._value,{ T observe(), final Duration interval } ) {
+    ObservableProperty(this._value,{ T observe(), final Duration interval,
+        final String name: ObservableProperty._DEFAULT_NAME } ) : _name = name {
 
         if(interval != null) {
             _interval = interval;
@@ -132,6 +138,8 @@ class ObservableProperty<T> {
      }
 
     void _fire(final PropertyChangeEvent<T> event) {
+        if(_name != ObservableProperty._DEFAULT_NAME) {  _logger.info("Fireing $event from ${_name}...");  }
+
         if(_onChange != null && _onChange.hasListener) {
             _onChange.add(event);
         }
