@@ -61,8 +61,6 @@ class _MaterialRadioCssClasses {
 /// MaterialRadio.prototype.onChange_ = function(event) {
 void _onChange(final html.Event event) {
 
-  _updateClasses();
-
   // Since other radio buttons don't get change events, we need to look for
   // them to update their classes.
 
@@ -73,7 +71,7 @@ void _onChange(final html.Event event) {
     final button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
     // Different name == different group, so no point updating those.
     if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
-      _updateClasses(button, radios[i]);
+      radios[i].MaterialRadio._updateClasses();
     }
   }
 }

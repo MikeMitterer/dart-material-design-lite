@@ -566,6 +566,13 @@ class RadioController extends DemoController {
         super.loaded(route);
 
         MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
+
+        MaterialButton.widget(dom.querySelector("#show-wifi-value")).onClick.listen((_) {
+            final MaterialRadioGroup group = MaterialRadioGroup.widget(dom.querySelector("#wifi"));
+            final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
+
+            alertDialog("Value is: ${group.value}").show();
+        });
     }
 }
 

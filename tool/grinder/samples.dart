@@ -117,7 +117,7 @@ final List<Sample> samples = new List<Sample>();
 void createSampleList() {
     // MDL Core
     samples.add(new Sample("animation", Type.Core,  hasReadme: false, hasOwnDartMain: true)..jsFile = "demo.js" );
-    samples.add(new Sample("badge",     Type.Core,  hasDemoCss: false, hasScript: false, hasReadme: false, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("badge",     Type.Core,  hasDemoCss: false, hasScript: false, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("button",    Type.Core,  hasDemoCss: false, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false ));
     samples.add(new Sample("card",      Type.Core,  hasDemoCss: false, hasScript: false, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("checkbox",  Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));

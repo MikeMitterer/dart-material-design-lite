@@ -152,7 +152,7 @@ void enable() {
 /// MaterialSlider.prototype.change = function(value) {
 void change(final value) {
 
-  if (value) {
+  if (typeof value != 'undefined') {
     element.value = value;
   }
   _updateValueStyles();

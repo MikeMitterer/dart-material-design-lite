@@ -253,13 +253,13 @@ class MaterialMenu extends MdlComponent {
                 // Add a listener to each menu item.
 
                 // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-                item.onClick.listen(_handleItemClick);
+                eventStreams.add(item.onClick.listen(_handleItemClick));
 
                 // Add a tab index to each menu item.
                 item.tabIndex = -1;
 
                 // Add a keyboard listener to each menu item.
-                item.onKeyDown.listen( _handleItemKeyboardEvent );
+                eventStreams.add(item.onKeyDown.listen( _handleItemKeyboardEvent ));
             });
 
             // Add ripple classes to each item, if the user has enabled ripples.

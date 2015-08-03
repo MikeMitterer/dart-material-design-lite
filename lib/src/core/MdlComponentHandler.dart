@@ -308,6 +308,8 @@ class MdlComponentHandler {
 
     /// Returns true if the given element has already been upgraded for the given
     /// class / Config.
+    /// The [element] we want to check.
+    /// [config] the config we check against [element]
     bool _isElementUpgraded(final dom.Element element,final MdlConfig config) {
 
         final bool upgraded = element.dataset.containsKey('upgraded');
@@ -320,8 +322,8 @@ class MdlComponentHandler {
     /**
      * Searches existing DOM for elements of our component type and upgrades them
      * if they have not already been upgraded!
-     * {queryBaseElement} defines where the querySelector starts to search - can be any element.
-     * upgradeAllRegistered uses "body" as {queryBaseElement}
+     * [queryBaseElement] defines where the querySelector starts to search - can be any element.
+     * upgradeAllRegistered uses "body" as [queryBaseElement]
      */
     void _upgradeDom(final dom.Element queryBaseElement, final MdlConfig config) {
         Validate.notNull(queryBaseElement);

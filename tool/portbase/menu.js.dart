@@ -115,17 +115,18 @@ void init() {
     }
 
     final items = element.querySelectorAll('.' + _cssClasses.ITEM);
+    _boundItemKeydown = handleItemKeyboardEvent;
+    _boundItemClick = handleItemClick;
 
     for (final i = 0; i < items.length; i++) {
       // Add a listener to each menu item.
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-      items[i].onClick.listen( _handleItemClick);
+      items[i].onClick.listen( boundItemClick);
       // Add a tab index to each menu item.
       items[i].tabIndex = '-1';
       // Add a keyboard listener to each menu item.
-      items[i].addEventListener('keydown',
-          _handleItemKeyboardEvent);
+      items[i].addEventListener('keydown', boundItemKeydown);
     }
 
     // Add ripple classes to each item, if the user has enabled ripples.
@@ -454,6 +455,19 @@ void toggle(final evt) {
 
   } else {
     show(evt);
+  }
+}
+
+/// Downgrade the component.
+/// 
+/// MaterialMenu.prototype.mdlDowngrade_ = /*function*/ () {
+void _mdlDowngrade() {
+
+  final items = element.querySelectorAll('.' + _cssClasses.ITEM);
+
+  for (final i = 0; i < items.length; i++) {
+    items[i].removeEventListener('click', boundItemClick);
+    items[i].removeEventListener('keydown', boundItemKeydown);
   }
 }
 

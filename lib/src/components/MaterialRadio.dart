@@ -129,7 +129,7 @@ class MaterialRadio extends MdlComponent {
     void disable() {
 
         btnElement.disabled = true;
-        _updateClasses(btnElement, element);
+        _updateClasses();
     }
 
     /// Enable radio.
@@ -138,7 +138,7 @@ class MaterialRadio extends MdlComponent {
     void enable() {
 
         btnElement.disabled = false;
-        _updateClasses(btnElement, element);
+        _updateClasses();
     }
 
     /// Check radio.
@@ -149,7 +149,7 @@ class MaterialRadio extends MdlComponent {
         _uncheckSiblings();
 
         btnElement.checked = true;
-        _updateClasses(btnElement, element);
+        _updateClasses();
     }
 
     /// Uncheck radio.
@@ -157,7 +157,7 @@ class MaterialRadio extends MdlComponent {
     /// MaterialRadio.prototype.uncheck = /*function*/ () {
     void uncheck() {
         btnElement.checked = false;
-        _updateClasses(btnElement, element);
+        _updateClasses();
     }
 
     bool get checked => btnElement.checked;
@@ -167,6 +167,7 @@ class MaterialRadio extends MdlComponent {
     String get value => btnElement.value;
 
     //- private -----------------------------------------------------------------------------------
+
 
     void _init() {
         _logger.fine("MaterialRadio - init");
@@ -209,7 +210,7 @@ class MaterialRadio extends MdlComponent {
 
             element.onMouseUp.listen( _onMouseUp );
 
-            _updateClasses(btnElement, element);
+            _updateClasses();
             element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
@@ -217,8 +218,6 @@ class MaterialRadio extends MdlComponent {
     /// Handle change of state.
     /// @param {Event} event The event that fired.
     void _onChange(final dom.Event event) {
-
-        _updateClasses(_btnElement, element);
 
         // Since other radio buttons don't get change events, we need to look for
         // them to update their classes.
@@ -229,7 +228,8 @@ class MaterialRadio extends MdlComponent {
             final dom.RadioButtonInputElement button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
             // Different name == different group, so no point updating those.
             if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
-                _updateClasses(button, radios[i]);
+                final MaterialRadio radio = MaterialRadio.widget(button as dom.HtmlElement);
+                radio._updateClasses();
             }
         }
 
@@ -252,23 +252,23 @@ class MaterialRadio extends MdlComponent {
     }
 
     /// Update classes.
-    void _updateClasses(final dom.RadioButtonInputElement  button, final dom.HtmlElement label) {
+    void _updateClasses() {
 
-        _checkDisabled(button,label);
-        _checkToggleState(button,label);
+        _checkDisabled();
+        _checkToggleState();
     }
 
     /// Check the components disabled state.
     /// public
     ///
     /// MaterialRadio.prototype.checkDisabled = /*function*/ () {
-    void _checkDisabled(final dom.RadioButtonInputElement  button, final dom.HtmlElement label) {
-        if (button.disabled) {
+    void _checkDisabled() {
+        if (btnElement.disabled) {
 
-            label.classes.add(_cssClasses.IS_DISABLED);
+            element.classes.add(_cssClasses.IS_DISABLED);
 
         } else {
-            label.classes.remove(_cssClasses.IS_DISABLED);
+            element.classes.remove(_cssClasses.IS_DISABLED);
         }
     }
 
@@ -276,13 +276,13 @@ class MaterialRadio extends MdlComponent {
     /// public
     ///
     /// MaterialRadio.prototype.checkToggleState = /*function*/ () {
-    void _checkToggleState(final dom.RadioButtonInputElement  button, final dom.HtmlElement label) {
-        if (button.checked) {
+    void _checkToggleState() {
+        if (btnElement.checked) {
 
-            label.classes.add(_cssClasses.IS_CHECKED);
+            element.classes.add(_cssClasses.IS_CHECKED);
 
         } else {
-            label.classes.remove(_cssClasses.IS_CHECKED);
+            element.classes.remove(_cssClasses.IS_CHECKED);
         }
     }
 

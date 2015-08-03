@@ -2938,7 +2938,6 @@ ul, ol {
   border: none;
   border-radius: 2px;
   color: black;
-  display: block;
   position: relative;
   height: 36px;
   min-width: 64px;
@@ -3117,9 +3116,7 @@ input.mdl-button[type="submit"] {
   color: rgba(0, 0, 0, 0.26);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 .mdl-button--colored[disabled][disabled] {
-  background-color: rgba(0, 0, 0, 0.12);
-  color: rgba(0, 0, 0, 0.26);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  color: rgba(0, 0, 0, 0.26); }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -5126,8 +5123,9 @@ input.mdl-button[type="submit"] {
   .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__header {
     margin-left: 240px;
     width: calc(100% - 240px); }
-  .mdl-layout--fixed-drawer > .mdl-layout__header .mdl-layout__header-row {
-    padding-left: 40px; }
+  @media screen and (min-width: 850px) {
+    .mdl-layout--fixed-drawer > .mdl-layout__header .mdl-layout__header-row {
+      padding-left: 40px; } }
   .mdl-layout__header > .mdl-layout-icon {
     position: absolute;
     left: 24px;
@@ -6665,7 +6663,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 .mdl-textfield__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  display: inline-block;
+  display: block;
   font-size: 16px;
   margin: 0;
   padding: 4px 0;
@@ -6682,6 +6680,9 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     background-color: transparent;
     border-bottom: 1px dotted rgba(0, 0, 0, 0.12); }
 
+.mdl-textfield textarea.mdl-textfield__input {
+  display: block; }
+
 .mdl-textfield__label {
   bottom: 0;
   color: rgba(0, 0, 0, 0.26);
@@ -6690,6 +6691,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   right: 0;
   pointer-events: none;
   position: absolute;
+  display: block;
   top: 24px;
   width: 100%;
   overflow: hidden;
@@ -6737,7 +6739,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   position: absolute;
   font-size: 12px;
   margin-top: 3px;
-  visibility: hidden; }
+  visibility: hidden;
+  display: block; }
   .mdl-textfield.is-invalid .mdl-textfield__error {
     visibility: visible; }
 
