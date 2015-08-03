@@ -4771,7 +4771,6 @@ input.mdl-button[type="submit"] {
   text-decoration: none;
   cursor: pointer;
   height: 48px;
-  width: 100%;
   line-height: 48px;
   white-space: nowrap;
   opacity: 0;
@@ -5231,6 +5230,8 @@ input.mdl-button[type="submit"] {
   .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__header {
     margin-left: 240px;
     width: calc(100% - 240px); }
+  .mdl-layout--fixed-drawer > .mdl-layout__header .mdl-layout__header-row {
+    padding-left: 40px; }
   .mdl-layout__header > .mdl-layout-icon {
     position: absolute;
     left: 24px;
@@ -7387,7 +7388,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-form.mdl-basic-form {
+.mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -7404,31 +7405,31 @@ form.mdl-basic-form {
   background-color: white;
   padding: 24px 24px 8px 24px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-  form.mdl-basic-form h1, form.mdl-basic-form h2, form.mdl-basic-form h3, form.mdl-basic-form h4, form.mdl-basic-form h5, form.mdl-basic-form h6, form.mdl-basic-form h6 {
+  .mdl-basic-form h1, .mdl-basic-form h2, .mdl-basic-form h3, .mdl-basic-form h4, .mdl-basic-form h5, .mdl-basic-form h6, .mdl-basic-form h6 {
     padding-top: 0;
     font-size: 20px;
     line-height: 20px; }
-  form.mdl-basic-form.right {
+  .mdl-basic-form.right {
     float: right; }
-  form.mdl-basic-form label {
+  .mdl-basic-form label {
     -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
             flex-shrink: 0;
     padding-top: 12px;
     font-size: 15px; }
-    form.mdl-basic-form label:first-child {
+    .mdl-basic-form label:first-child {
       padding-top: 0; }
-  form.mdl-basic-form input, form.mdl-basic-form button {
+  .mdl-basic-form input, .mdl-basic-form button {
     box-sizing: border-box;
     border-radius: 2px;
     border: 1px solid #000000; }
-    form.mdl-basic-form input.large, form.mdl-basic-form button.large {
+    .mdl-basic-form input.large, .mdl-basic-form button.large {
       width: 10em; }
-    form.mdl-basic-form input.normal, form.mdl-basic-form button.normal {
+    .mdl-basic-form input.normal, .mdl-basic-form button.normal {
       width: 8em; }
-    form.mdl-basic-form input.small, form.mdl-basic-form button.small {
+    .mdl-basic-form input.small, .mdl-basic-form button.small {
       width: 6em; }
-  form.mdl-basic-form input {
+  .mdl-basic-form input {
     width: 100%;
     font-size: 15px;
     padding: 7.5px;
@@ -7436,13 +7437,13 @@ form.mdl-basic-form {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     outline: none; }
-    form.mdl-basic-form input:last-child {
+    .mdl-basic-form input:last-child {
       margin-right: 0; }
-    form.mdl-basic-form input:focus {
+    .mdl-basic-form input:focus {
       border-bottom: 1px solid #3f51b5; }
-    form.mdl-basic-form input[type=submit] {
+    .mdl-basic-form input[type=submit] {
       border: none; }
-  form.mdl-basic-form .mdl-basic-form__group {
+  .mdl-basic-form .mdl-basic-form__group {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -7454,81 +7455,81 @@ form.mdl-basic-form {
             flex-direction: row;
     padding-top: 7.5px;
     padding-bottom: 7.5px; }
-    form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--last-row {
+    .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--last-row {
       padding: 0;
       margin-top: 16px; }
-    form.mdl-basic-form .mdl-basic-form__group > .mdl-basic-form__group {
+    .mdl-basic-form .mdl-basic-form__group > .mdl-basic-form__group {
       padding-top: 0; }
-    form.mdl-basic-form .mdl-basic-form__group label {
+    .mdl-basic-form .mdl-basic-form__group label {
       width: 130px;
       padding-top: 7.5px; }
-    form.mdl-basic-form .mdl-basic-form__group input {
+    .mdl-basic-form .mdl-basic-form__group input {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1;
       width: auto; }
-    form.mdl-basic-form .mdl-basic-form__group input[type=submit] {
+    .mdl-basic-form .mdl-basic-form__group input[type=submit] {
       -webkit-box-flex: 0;
       -webkit-flex-grow: 0;
           -ms-flex-positive: 0;
               flex-grow: 0;
       width: 130px; }
-    form.mdl-basic-form .mdl-basic-form__group ul.vertical li {
+    .mdl-basic-form .mdl-basic-form__group ul.vertical li {
       padding-top: 0; }
-      form.mdl-basic-form .mdl-basic-form__group ul.vertical li:first-child {
+      .mdl-basic-form .mdl-basic-form__group ul.vertical li:first-child {
         padding-top: 3.75px; }
-      form.mdl-basic-form .mdl-basic-form__group ul.vertical li:last-child {
+      .mdl-basic-form .mdl-basic-form__group ul.vertical li:last-child {
         padding-top: 0; }
-    form.mdl-basic-form .mdl-basic-form__group ul.horizontal li {
+    .mdl-basic-form .mdl-basic-form__group ul.horizontal li {
       padding-right: 12px;
       padding-top: 7.5px; }
-      form.mdl-basic-form .mdl-basic-form__group ul.horizontal li:first-child {
+      .mdl-basic-form .mdl-basic-form__group ul.horizontal li:first-child {
         padding-top: 7.5px; }
-      form.mdl-basic-form .mdl-basic-form__group ul.horizontal li:last-child {
+      .mdl-basic-form .mdl-basic-form__group ul.horizontal li:last-child {
         padding-top: 7.5px; }
-    form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right {
+    .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right {
       -webkit-box-pack: end;
       -webkit-justify-content: flex-end;
           -ms-flex-pack: end;
               justify-content: flex-end; }
-      form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right input, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right button {
+      .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right input, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right button {
         margin-left: 10px; }
-        form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right input:first-child, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right button:first-child {
+        .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right input:first-child, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--right button:first-child {
           margin-left: 0; }
-    form.mdl-basic-form .mdl-basic-form__group.equal {
+    .mdl-basic-form .mdl-basic-form__group.equal {
       -webkit-box-pack: justify;
       -webkit-justify-content: space-between;
           -ms-flex-pack: justify;
               justify-content: space-between; }
-      form.mdl-basic-form .mdl-basic-form__group.equal.with-offset {
+      .mdl-basic-form .mdl-basic-form__group.equal.with-offset {
         margin-left: 130px; }
-      form.mdl-basic-form .mdl-basic-form__group.equal > *, form.mdl-basic-form .mdl-basic-form__group.equal > input[type=submit] {
+      .mdl-basic-form .mdl-basic-form__group.equal > *, .mdl-basic-form .mdl-basic-form__group.equal > input[type=submit] {
         -webkit-box-flex: 1;
         -webkit-flex-grow: 1;
             -ms-flex-positive: 1;
                 flex-grow: 1;
         margin-left: 10px; }
-        form.mdl-basic-form .mdl-basic-form__group.equal > *:first-child, form.mdl-basic-form .mdl-basic-form__group.equal > input[type=submit]:first-child {
+        .mdl-basic-form .mdl-basic-form__group.equal > *:first-child, .mdl-basic-form .mdl-basic-form__group.equal > input[type=submit]:first-child {
           margin-left: 0; }
-    form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio {
+    .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio {
       -webkit-box-pack: start;
       -webkit-justify-content: flex-start;
           -ms-flex-pack: start;
               justify-content: flex-start;
       font-size: 15px; }
-      form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox input, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio input {
+      .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox input, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio input {
         -webkit-box-flex: 0;
         -webkit-flex-grow: 0;
             -ms-flex-positive: 0;
                 flex-grow: 0;
         margin-top: 3px;
         margin-left: 1em; }
-        form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox input:first-child, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio input:first-child {
+        .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox input:first-child, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio input:first-child {
           margin-left: 0; }
-      form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox > *, form.mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio > * {
+      .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--checkbox > *, .mdl-basic-form .mdl-basic-form__group.mdl-basic-form__group--radio > * {
         margin-right: 6px; }
-    form.mdl-basic-form .mdl-basic-form__group.help {
+    .mdl-basic-form .mdl-basic-form__group.help {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
@@ -7542,12 +7543,12 @@ form.mdl-basic-form {
       -webkit-flex-direction: column;
           -ms-flex-direction: column;
               flex-direction: column; }
-      form.mdl-basic-form .mdl-basic-form__group.help .help-block {
+      .mdl-basic-form .mdl-basic-form__group.help .help-block {
         padding: 0; }
-    form.mdl-basic-form .mdl-basic-form__group .help-block {
+    .mdl-basic-form .mdl-basic-form__group .help-block {
       color: #de3226;
       font-weight: 600; }
-  form.mdl-basic-form input[type=submit], form.mdl-basic-form button {
+  .mdl-basic-form input[type=submit], .mdl-basic-form button {
     width: 130px;
     height: 36px;
     margin: 4px;
@@ -7556,46 +7557,46 @@ form.mdl-basic-form {
     font-size: 16.5px;
     color: rgba(0, 0, 0, 0.87);
     background-color: rgba(158, 158, 158, 0.2); }
-    form.mdl-basic-form input[type=submit].maxsize, form.mdl-basic-form button.maxsize {
+    .mdl-basic-form input[type=submit].maxsize, .mdl-basic-form button.maxsize {
       width: 100%; }
-    form.mdl-basic-form input[type=submit]:last-of-type, form.mdl-basic-form button:last-of-type {
+    .mdl-basic-form input[type=submit]:last-of-type, .mdl-basic-form button:last-of-type {
       margin-right: 0; }
-    form.mdl-basic-form input[type=submit].mdl-basic-form__control--maxsize, form.mdl-basic-form button.mdl-basic-form__control--maxsize {
+    .mdl-basic-form input[type=submit].mdl-basic-form__control--maxsize, .mdl-basic-form button.mdl-basic-form__control--maxsize {
       width: 100%; }
-    form.mdl-basic-form input[type=submit].mdl-basic-form__control--last-row, form.mdl-basic-form button.mdl-basic-form__control--last-row {
+    .mdl-basic-form input[type=submit].mdl-basic-form__control--last-row, .mdl-basic-form button.mdl-basic-form__control--last-row {
       margin-top: 20px; }
-    form.mdl-basic-form input[type=submit].mdl-basic-form__control--right, form.mdl-basic-form button.mdl-basic-form__control--right {
+    .mdl-basic-form input[type=submit].mdl-basic-form__control--right, .mdl-basic-form button.mdl-basic-form__control--right {
       -webkit-align-self: flex-end;
           -ms-flex-item-align: end;
               align-self: flex-end; }
-  form.mdl-basic-form input[type=submit], form.mdl-basic-form button[type=submit], form.mdl-basic-form button.submit, form.mdl-basic-form button.primary {
+  .mdl-basic-form input[type=submit], .mdl-basic-form button[type=submit], .mdl-basic-form button.submit, .mdl-basic-form button.primary {
     background-color: #3f51b5;
     color: white; }
-  form.mdl-basic-form .mdl-basic-form__control--last-row {
+  .mdl-basic-form .mdl-basic-form__control--last-row {
     margin-top: 20px; }
-  form.mdl-basic-form .mdl-basic-form__control--right {
+  .mdl-basic-form .mdl-basic-form__control--right {
     -webkit-align-self: flex-end;
         -ms-flex-item-align: end;
             align-self: flex-end; }
 
-form.mdl-form, form.mdl-form-registration {
+.mdl-form, .mdl-form-registration {
   box-sizing: border-box;
   border-radius: 3px;
   padding: 0 0 8px 0;
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-  form.mdl-form .mdl-form__title, form.mdl-form-registration .mdl-form__title {
+  .mdl-form .mdl-form__title, .mdl-form-registration .mdl-form__title {
     padding-top: 24px;
     font-size: 24px;
     line-height: 24px;
     margin: 0 24px 4px 24px; }
-  form.mdl-form .mdl-form__content, form.mdl-form-registration .mdl-form__content {
+  .mdl-form .mdl-form__content, .mdl-form-registration .mdl-form__content {
     margin-left: 24px;
     margin-right: 24px; }
-    form.mdl-form .mdl-form__content .mdl-textfield, form.mdl-form-registration .mdl-form__content .mdl-textfield, form.mdl-form .mdl-form__content .mdl-slider, form.mdl-form-registration .mdl-form__content .mdl-slider {
+    .mdl-form .mdl-form__content .mdl-textfield, .mdl-form-registration .mdl-form__content .mdl-textfield, .mdl-form .mdl-form__content .mdl-slider, .mdl-form-registration .mdl-form__content .mdl-slider {
       width: 100%; }
-    form.mdl-form .mdl-form__content .mdl-form__group, form.mdl-form-registration .mdl-form__content .mdl-form__group {
+    .mdl-form .mdl-form__content .mdl-form__group, .mdl-form-registration .mdl-form__content .mdl-form__group {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -7620,14 +7621,14 @@ form.mdl-form, form.mdl-form-registration {
           -ms-flex-align: center;
               align-items: center;
       box-sizing: border-box; }
-      form.mdl-form .mdl-form__content .mdl-form__group > *, form.mdl-form-registration .mdl-form__content .mdl-form__group > * {
+      .mdl-form .mdl-form__content .mdl-form__group > *, .mdl-form-registration .mdl-form__content .mdl-form__group > * {
         width: inherit;
         min-width: 96px;
         margin-right: 8px; }
-      form.mdl-form .mdl-form__content .mdl-form__group .mdl-icon, form.mdl-form-registration .mdl-form__content .mdl-form__group .mdl-icon {
+      .mdl-form .mdl-form__content .mdl-form__group .mdl-icon, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-icon {
         font-size: 24px;
         min-width: 48px; }
-  form.mdl-form .mdl-form__actions, form.mdl-form-registration .mdl-form__actions {
+  .mdl-form .mdl-form__actions, .mdl-form-registration .mdl-form__actions {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -7653,10 +7654,10 @@ form.mdl-form, form.mdl-form-registration {
             align-items: flex-start;
     margin: 8px 8px 0 8px;
     width: calc(100% - 16px); }
-    form.mdl-form .mdl-form__actions > *, form.mdl-form-registration .mdl-form__actions > * {
+    .mdl-form .mdl-form__actions > *, .mdl-form-registration .mdl-form__actions > * {
       margin-left: 4px; }
 
-form.mdl-form-registration .mdl-form__actions .mdl-button {
+.mdl-form-registration .mdl-form__actions .mdl-button {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
@@ -8467,7 +8468,7 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
       .mdl-layout__header .mobile-title {
         display: block !important;
         position: absolute;
-        left: calc(50% - 70px);
+        left: calc(50% - 102px);
         top: 6px;
         -webkit-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
                 transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); } }
@@ -8487,12 +8488,14 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
     font-family: 'Oswald', sans-serif; }
   .mdl-layout__content .img-responsive {
     display: inline-block;
-    width: 100%; }
+    width: calc(100%);
+    padding: 0 8px; }
   .mdl-layout__content .text-center {
     text-align: center; }
   .mdl-layout__content .titlebar {
     text-transform: uppercase;
-    margin-bottom: 60px; }
+    margin-bottom: 60px;
+    width: 100%; }
     .mdl-layout__content .titlebar h2 {
       margin-top: 12px; }
       .mdl-layout__content .titlebar h2:after {
@@ -8507,13 +8510,15 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
       margin-bottom: 12px;
       font-weight: 100; }
   .mdl-layout__content .intro-section {
-    padding: 80px 0 80px 0;
+    padding: 80px 30px 80px 30px;
     max-width: 1044px;
     margin-left: auto;
     margin-right: auto;
-    min-height: 550px; }
+    min-height: 550px;
+    background-color: rgba(255, 255, 255, 0.2); }
     .is-small-screen .mdl-layout__content .intro-section {
-      padding-top: 24px; }
+      padding-top: 24px;
+      background-color: inherit; }
     .mdl-layout__content .intro-section h2 {
       font-size: 75px;
       font-weight: 800;
@@ -8543,8 +8548,12 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
     .mdl-layout__content .intro-section > div {
       padding: 0 8px; }
     .mdl-layout__content .intro-section .intro_image img {
-      width: 100%;
+      width: calc(100% - 16px);
       max-width: 550px; }
+    .mdl-layout__content .intro-section .prettyprint {
+      text-align: left; }
+      .mdl-layout__content .intro-section .prettyprint.lang-html {
+        margin-left: 12px; }
     .mdl-layout__content .intro-section .intro_buttons {
       margin-bottom: 12px; }
       .mdl-layout__content .intro-section .intro_buttons .mdl-button {
@@ -8561,50 +8570,55 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
       margin-right: auto; }
       .mdl-layout__content .about-section .about-content h3 {
         margin-top: 0; }
-      .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar {
-        border: none;
-        -webkit-box-pack: start;
-        -webkit-justify-content: flex-start;
-            -ms-flex-pack: start;
-                justify-content: flex-start;
-        height: initial; }
-        .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab {
-          padding: 0 24px 0 0;
-          font-size: 22px;
-          font-family: 'Oswald', sans-serif;
-          font-weight: 400;
-          text-transform: uppercase;
-          height: 38px;
-          line-height: 38px;
-          -webkit-transition: all 300ms ease-in-out;
-                  transition: all 300ms ease-in-out; }
-          .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab:nth-child(2) {
-            padding-left: 24px;
-            border-left: 1px solid black; }
-          .is-small-screen .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab {
-            padding-left: 12px;
-            padding-right: 12px;
-            font-size: 15px;
-            line-height: 18px;
-            height: 18px;
-            margin-bottom: 12px; }
-          .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab.is-active {
-            color: #ffc107;
+      .mdl-layout__content .about-section .about-content .mdl-tabs {
+        padding: 0 8px;
+        margin-right: 8px; }
+        .is-small-screen .mdl-layout__content .about-section .about-content .mdl-tabs {
+          margin-right: 0; }
+        .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar {
+          border: none;
+          -webkit-box-pack: start;
+          -webkit-justify-content: flex-start;
+              -ms-flex-pack: start;
+                  justify-content: flex-start;
+          height: initial; }
+          .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab {
+            padding: 0 24px 0 0;
+            font-size: 22px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            height: 38px;
+            line-height: 38px;
             -webkit-transition: all 300ms ease-in-out;
                     transition: all 300ms ease-in-out; }
-            .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab.is-active:after {
-              height: 0px;
-              width: 100%;
-              display: block;
-              content: " ";
-              bottom: 0px;
-              left: 0px;
-              position: absolute;
-              background: #3f51b5;
-              -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
-              animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
-              -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
-              transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
+            .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab:nth-child(2) {
+              padding-left: 24px;
+              border-left: 1px solid black; }
+            .is-small-screen .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab {
+              padding-left: 12px;
+              padding-right: 12px;
+              font-size: 15px;
+              line-height: 18px;
+              height: 18px;
+              margin-bottom: 12px; }
+            .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab.is-active {
+              color: #ffc107;
+              -webkit-transition: all 300ms ease-in-out;
+                      transition: all 300ms ease-in-out; }
+              .mdl-layout__content .about-section .about-content .mdl-tabs .mdl-tabs__tab-bar .mdl-tabs__tab.is-active:after {
+                height: 0px;
+                width: 100%;
+                display: block;
+                content: " ";
+                bottom: 0px;
+                left: 0px;
+                position: absolute;
+                background: #3f51b5;
+                -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+                animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+                -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
+                transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
       .mdl-layout__content .about-section .about-content > div {
         padding: 0 8px; }
       .mdl-layout__content .about-section .about-content .mdl-button {
@@ -8623,10 +8637,12 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
         margin-top: 0; }
       .mdl-layout__content .accordion-section .accordion-content .mdl-tabs {
         width: calc(58.33333% - 16px); }
-      .mdl-layout__content .accordion-section .accordion-content > div {
+      .mdl-layout__content .accordion-section .accordion-content .mdl-accordion-group {
+        width: calc(100% - 16px);
+        margin: 0 8px;
         padding: 0 8px; }
-      .is-small-screen .mdl-layout__content .accordion-section .accordion-content .mdl-accordion-group {
-        margin-top: 12px; }
+        .is-small-screen .mdl-layout__content .accordion-section .accordion-content .mdl-accordion-group {
+          margin-top: 12px; }
       .mdl-layout__content .accordion-section .accordion-content .mdl-accordion .mdl-accordion__label {
         font-size: 20px;
         font-family: 'Oswald', sans-serif;
@@ -8689,6 +8705,164 @@ form.mdl-form-registration .mdl-form__actions .mdl-button {
         .mdl-layout__content .features-section .features-content .features-box .features-text h4 {
           margin-top: 0;
           font-size: 20px; }
+  .mdl-layout__content .table-section {
+    background-color: #333333; }
+    .mdl-layout__content .table-section .table-content {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      max-width: 1044px;
+      margin-left: auto;
+      margin-right: auto; }
+      .mdl-layout__content .table-section .table-content .feature-table {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border: 1px solid #ffc107;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-align-content: stretch;
+            -ms-flex-line-pack: stretch;
+                align-content: stretch;
+        -webkit-box-align: start;
+        -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+        margin: 0 16px;
+        width: calc(100% - 32px); }
+        .mdl-layout__content .table-section .table-content .feature-table > .row {
+          box-sizing: border-box;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: row;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+          -webkit-box-pack: start;
+          -webkit-justify-content: flex-start;
+              -ms-flex-pack: start;
+                  justify-content: flex-start;
+          -webkit-align-content: stretch;
+              -ms-flex-line-pack: stretch;
+                  align-content: stretch;
+          -webkit-box-align: stretch;
+          -webkit-align-items: stretch;
+              -ms-flex-align: stretch;
+                  align-items: stretch;
+          width: 100%; }
+        .mdl-layout__content .table-section .table-content .feature-table .col-description {
+          -webkit-box-flex: 1;
+          -webkit-flex-grow: 1;
+              -ms-flex-positive: 1;
+                  flex-grow: 1;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: row;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+          -webkit-box-pack: end;
+          -webkit-justify-content: flex-end;
+              -ms-flex-pack: end;
+                  justify-content: flex-end;
+          -webkit-align-content: stretch;
+              -ms-flex-line-pack: stretch;
+                  align-content: stretch;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          padding: 8px;
+          border-right: 1px solid #ffc107; }
+          @media (max-width: 839px) {
+            .mdl-layout__content .table-section .table-content .feature-table .col-description {
+              -webkit-box-pack: start;
+              -webkit-justify-content: flex-start;
+                  -ms-flex-pack: start;
+                      justify-content: flex-start;
+              border: none; } }
+        .mdl-layout__content .table-section .table-content .feature-table .col-dart {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: row;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -webkit-align-content: space-between;
+              -ms-flex-line-pack: justify;
+                  align-content: space-between;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          width: calc(25% - 16px);
+          padding: 8px;
+          border-right: 1px solid #ffc107; }
+        .mdl-layout__content .table-section .table-content .feature-table .col-js {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: row;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -webkit-align-content: space-between;
+              -ms-flex-line-pack: justify;
+                  align-content: space-between;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          width: calc(25% - 16px);
+          padding: 8px; }
+        .mdl-layout__content .table-section .table-content .feature-table > :nth-child(even) {
+          background-color: #2b2b2b; }
+        .mdl-layout__content .table-section .table-content .feature-table > :nth-child(odd) {
+          background-color: #3f3f3f; }
   .mdl-layout__content .mdl-mega-footer {
     position: relative; }
     .mdl-layout__content .mdl-mega-footer .mdl-mega-footer--bottom-section a {

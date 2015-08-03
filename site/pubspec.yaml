@@ -18,5 +18,7 @@ dependencies:
 
   di: any
 
+  prettify: any
+
 transformers:
   - di

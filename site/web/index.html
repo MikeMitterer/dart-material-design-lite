@@ -16,6 +16,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Pretty print -->
+    <link id="theme" rel="stylesheet" href="prettyprint/light.css">
+    <script type="text/javascript" src="packages/prettify/js/prettify.js"></script>
+
     <link rel="stylesheet" href="site.css">
     <!--<link rel="stylesheet" href="animate.css">-->
     <!--<link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">-->
@@ -41,8 +45,7 @@
               <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#wear">Wear</a>
               <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#accordion">Accordion</a>
               <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#features">Features</a>
-              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="">One</a>
-              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="">Play</a>
+              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#table">Table</a>
             </nav>
           </div>
           <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
@@ -117,17 +120,23 @@
 
                 <h2>Material Design Lite / <span class="dart">Dart</span></h2>
                 <h3>Lite weight + 'batteries included'</h3>
-                <p>Pellentesque sapien purus, sagittis eu accumsan convallis, vehicula ut lectus. Fusce accumsan purus pretium ligula vehicula, interdum nisl vulputate.
-                    Vivamus ultrices luctus quam eu feugiat
+                <p class="mdl-color-text--grey-800">Material Design Lite for Dart (MDL/Dart) is a library of components for web developers based on
+                    Google's Material Design philosophy. In Dart - for Dart
                 </p>
+
+<pre class="prettyprint linenums lang-dart">
+import &#39;package:mdl&#47;mdl.dart&#39;;
+
+main() &#123;
+    registerMdl();
+    componentFactory().run().then((_) &#123;
+    &#125;);
+&#125;</pre>
 
                 <!-- INTRO BUTTONS -->
                 <div class="intro_buttons">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect
-                        flash">Discover More</button>
-
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect
-                        flash" >Purchase Now</button>
+                    <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect
+                        flash" href="http://www.mikemitterer.at/" target="_blank">Discover More</a>
                 </div>
 
             </div>
@@ -135,6 +144,18 @@
             <!-- INTRO IMAGE -->
             <div class="mdl-cell--6-col mdl-cell--12-col-tablet text-center intro_image">
                 <img class="img-responsive" src="images/thumbs/tablet.png" alt="intro-image" />
+
+<pre class="prettyprint lang-html">
+&lt;button class=&quot;mdl-button&quot;&gt;Flat&lt;&#47;button&gt;
+&lt;button class=&quot;mdl-button mdl-button--raised&quot;&gt;
+    Raised
+&lt;&#47;button&gt;
+&lt;button class=&quot;mdl-button mdl-button--fab &quot;&gt;
+    &lt;i class=&quot;material-icons&quot;&gt;add&lt;&#47;i&gt;
+&lt;&#47;button&gt;
+&lt;button class=&quot;mdl-button mdl-button--icon &quot;&gt;
+    &lt;i class=&quot;material-icons&quot;&gt;create&lt;&#47;i&gt;
+&lt;&#47;button&gt;</pre>
             </div>
 
         </section>
@@ -143,9 +164,9 @@
           <!-- ABOUT
           ============================================= -->
           <section class="about-section"><a name="wear"></a>
-              <div class="about-content mdl-grid">
+              <div class="about-content">
 
-                  <div class="mdl-cell--12-col text-center titlebar">
+                  <div class="text-center titlebar">
                       <h3>About Us</h3>
                       <h2>Who we are</h2>
                   </div>
@@ -244,9 +265,9 @@
           <!-- FEATURES
           ============================================= -->
           <section class="features-section"><a name="features"></a>
-              <div class="features-content mdl-grid">
+              <div class="features-content">
 
-                  <div class="mdl-cell--12-col text-center titlebar">
+                  <div class="text-center titlebar">
                       <h3>OUR FEATURES</h3>
                       <h2>HOW WE DO IT</h2>
                   </div>
@@ -339,6 +360,53 @@
 
           </section>
 
+
+          <!-- TABLE
+          ============================================= -->
+          <section class="table-section"><a name="table"></a>
+              <div class="table-content">
+
+                  <div class="text-center titlebar">
+                      <h3>OUR table</h3>
+
+                      <h2>HOW WE DO IT</h2>
+                  </div>
+
+                  <div class="feature-table">
+                      <div class="row head">
+
+                          <div class="col-description ">
+                              Description
+                          </div>
+
+                          <div class="col-dart">
+                              MDL/Dart
+                          </div>
+                          <div class="col-js">
+                              MDL/JS
+                          </div>
+
+                      </div>
+
+                      <div class="row">
+
+                          <div class="col-description">
+                              Feature 1
+                          </div>
+
+                          <div class="col-dart">
+                              <i class="material-icons mdl-color-text--green-700">check</i>
+                          </div>
+
+                          <div class="col-js">
+                              FAIL
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+
+          </section>
 
         <div class="android-customized-section">
           <div class="android-customized-section-text">
@@ -454,8 +522,7 @@
           </div>
 
           <div class="mdl-mega-footer--bottom-section">
-            <a class="android-link-menu mdl-typography--font-light" id="version-dropdown">
-              Versions
+            <a class="android-link-menu mdl-typography--font-light" id="version-dropdown">Versions
               <i class="material-icons">arrow_drop_up</i>
             </a>
             <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="version-dropdown">
@@ -464,8 +531,7 @@
               <li class="mdl-menu__item">4.3 Jelly Bean</li>
               <li class="mdl-menu__item">Android History</li>
             </ul>
-            <a class="android-link-menu mdl-typography--font-light" id="developers-dropdown">
-              For Developers
+            <a class="android-link-menu mdl-typography--font-light" id="developers-dropdown">For Developers
               <i class="material-icons">arrow_drop_up</i>
             </a>
             <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="developers-dropdown">
@@ -474,8 +540,6 @@
               <li class="mdl-menu__item">Android SDK</li>
               <li class="mdl-menu__item">Android for Work</li>
             </ul>
-            <a class="mdl-typography--font-light" href="">Blog</a>
-            <a class="mdl-typography--font-light" href="">Privacy Policy</a>
           </div>
 
         </footer>

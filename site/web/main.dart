@@ -5,6 +5,7 @@ import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
+import 'package:prettify/prettify.dart';
 
 final Logger _logger = new Logger('layout-header-drawer-footer');
 
@@ -13,6 +14,7 @@ main() async {
 
     registerMdl();
     await componentFactory().run();
+    prettyPrint();
     prepareScrolling();
 }
 
