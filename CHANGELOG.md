@@ -1,6 +1,16 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.3.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.2...v1.3.3) - 2015-08-03##
+
+###Feature###
+* ObservableProperty got a name field - helps to debug [cb4aa53](https://github.com/mikemitterer/dart-material-design-lite/commit/cb4aa533f00880a1464990337373692d2c5787c4)
+* Accordion supports more complex headers [f00db4c](https://github.com/mikemitterer/dart-material-design-lite/commit/f00db4c6edd327f4e3d0653b39f9b710d39932bb)
+
+###Bugs###
+* Registration for components in 'body' failed (_isInDom check problem) [5edd524](https://github.com/mikemitterer/dart-material-design-lite/commit/5edd524640f374576540de7b893c1c423ddee714)
+* Textfield show disabled value in eabled color [61a13bc](https://github.com/mikemitterer/dart-material-design-lite/commit/61a13bc626572757daad9156df0fcbaa57305417)
+
 ##[v1.3.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.1...v1.3.2) - 2015-07-30##
 
 ###Fixes###
