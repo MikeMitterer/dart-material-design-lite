@@ -206,7 +206,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialRepeat - init");
+        _logger.info("MaterialRepeat - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialRepeatConstant.WIDGET_SELECTOR);
@@ -316,6 +316,8 @@ class MaterialRepeat extends MdlTemplateComponent {
                         break;
                 }
             });
+        } else {
+            throw new ArgumentError("You are using mdl-repeat with ${list.runtimeType}. Please change your List to ObservableList<T>...!");
         }
     }
 
