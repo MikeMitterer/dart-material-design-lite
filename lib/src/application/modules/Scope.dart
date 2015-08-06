@@ -20,11 +20,15 @@
 part of mdlapplication;
 
 Object mdlRootContext() {
+    final Logger _logger = new Logger('mdlapplication.mdlRootContext');
+
     Object rootContext;
     try {
         rootContext = componentFactory().injector.get(MaterialApplication);
     }
-    on Error {
+    on Error catch(e,stack) {
+        _logger.shout(e,stack);
+
         throw new ArgumentError("Could not find rootContext.\n"
         "Please define something like this: \n"
         "class Applicaiton extends MaterialApplication { ... } \n"

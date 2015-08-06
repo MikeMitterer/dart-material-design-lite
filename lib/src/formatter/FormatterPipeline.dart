@@ -51,7 +51,7 @@ class FormatterPipeline {
      *      HTML: <span mdl-observe="pi | number(value,2) | decorate(value)"></span>
      *      DART: final List<String> parts = element.attributes[_MaterialObserveConstant.WIDGET_SELECTOR].trim().split("|");
     */
-    FormatterPipeline.fromList(this._formatter,final List<String> parts) {
+    FormatterPipeline.fromList(this._formatter,final Iterable<String> parts) {
         Validate.notNull(_formatter);
         Validate.notNull(parts);
 
@@ -75,7 +75,7 @@ class FormatterPipeline {
     //- private -----------------------------------------------------------------------------------
 
     /// Generates PipeCommands from [parts]
-    void _addCommands(final List<String> parts) {
+    void _addCommands(final Iterable<String> parts) {
         //_logger.info("P ${parts.length}");
 
         parts.forEach((final String part) {

@@ -60,12 +60,28 @@ class ObservableProperty<T> {
         return _onChange.stream;
     }
 
-    void set value(final T val) {
+    void set value(final val) {
         final T old = _value;
-        _value = val;
 
-        //_logger.info("Value: $val");
-        _fire(new PropertyChangeEvent(val,old));
+        if(_value.runtimeType == bool) {
+
+            _value = _toBool(val) as T;
+
+        } else if(_value.runtimeType == int) {
+
+            _value = _toInt(val) as T;
+
+        } else if(_value.runtimeType == double) {
+
+            _value = _toDouble(val) as T;
+
+        } else {
+            _value = val;
+        }
+
+        _logger.fine("Input-Value: '$val' (${val.runtimeType}) -> '${_value}' (${_value.runtimeType})");
+
+        _fire(new PropertyChangeEvent(_value,old));
     }
 
     T get value => _value;
@@ -115,15 +131,7 @@ class ObservableProperty<T> {
 
     /// Converts [value] to bool. If [value] is a String, "true", "on", "1" are valid boolean values
     bool toBool() {
-        if(value is bool) {
-            return value as bool;
-        }
-
-        if(value is num) {
-            return (value as num).toInt() == 1;
-        }
-        final String stringvalue = "$value".toLowerCase();
-        return stringvalue == "true" || stringvalue == "on" || stringvalue == "1" || stringvalue == "yes";
+        return _toBool(value);
     }
 
     // - private ----------------------------------------------------------------------------------
@@ -144,4 +152,39 @@ class ObservableProperty<T> {
             _onChange.add(event);
         }
     }
+
+    bool _toBool(final value) {
+        if(value is bool) {
+            return value as bool;
+        }
+
+        if(value is num) {
+            return (value as num).toInt() == 1;
+        }
+        final String stringvalue = "$value".toLowerCase();
+        return stringvalue == "true" || stringvalue == "on" || stringvalue == "1" || stringvalue == "yes";
+    }
+
+    int _toInt(final value) {
+        if(value is int) {
+            return value;
+        }
+        if(value is num) {
+            return (value as num).toInt();
+        }
+        final String stringvalue = "$value".toLowerCase();
+        return int.parse(stringvalue);
+    }
+
+    double _toDouble(final value) {
+        if(value is double) {
+            return value;
+        }
+        if(value is num) {
+            return (value as num).toDouble();
+        }
+        final String stringvalue = "$value".toLowerCase();
+        return double.parse(stringvalue);
+    }
+
 }
