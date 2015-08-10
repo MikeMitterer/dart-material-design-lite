@@ -1,6 +1,14 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.3.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.3...v1.3.4) - 2015-08-10##
+
+###Feature###
+* Made ObservableProperty more data-type tolerant [20d2b06](https://github.com/mikemitterer/dart-material-design-lite/commit/20d2b067c154621a350e697c17dd5be72c5b5d66)
+
+###Docs###
+* Better Exception-Message for mdl-repeat if using wrong list-type [44a98a1](https://github.com/mikemitterer/dart-material-design-lite/commit/44a98a1669c931f3f026d4cc480b3a1ee6faa9ff)
+
 ##[v1.3.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.2...v1.3.3) - 2015-08-03##
 
 ###Feature###
