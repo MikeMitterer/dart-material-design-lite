@@ -24,24 +24,26 @@
     <!--<link rel="stylesheet" href="animate.css">-->
     <!--<link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">-->
 
-    <link rel="stylesheet" href="styles.css">
+    <!--<link rel="stylesheet" href="styles.css">-->
 
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-      <div class="android-header mdl-layout__header mdl-layout__header--waterfall mdl-color--primary">
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall mdl-color--deep-purple-700">
         <div class="mdl-layout__header-row">
-          <span class="android-title mdl-layout-title">
+          <span class="mdl-layout-title">
             <img class="logo" src="images/logo-drawer.svg">
           </span>
           <!-- Add spacer, to align navigation to the right in desktop -->
           <div class="android-header-spacer mdl-layout-spacer"></div>
 
           <!-- Navigation -->
-          <div class="android-navigation-container">
-            <nav class="android-navigation mdl-navigation">
+          <div class="navigation-container">
+            <nav class="mdl-navigation">
               <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase is-active" href="#home">Home</a>
+              <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#why">Why MDL/Dart</a>
+
               <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#wear">Wear</a>
               <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#accordion">Accordion</a>
               <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase" href="#features">Features</a>
@@ -96,21 +98,6 @@
 
       <div class="android-content mdl-layout__content">
         <a name="top"></a>
-<!--
-        <div class="android-be-together-section mdl-typography&#45;&#45;text-center">
-          <div class="android-font android-slogan">be together. not the same.</div>
-          <div class="android-font android-sub-slogan">welcome to android... be yourself. do your thing. see what's going on.</div>
-          <div class="android-font android-create-character">
-            <a href=""><img src="images/andy.png"> create your android character</a>
-          </div>
-
-          <a href="#screens">
-            <button class="android-fab mdl-button mdl-button&#45;&#45;colored mdl-js-button mdl-button&#45;&#45;fab mdl-js-ripple-effect">
-              <i class="material-icons">expand_more</i>
-            </button>
-          </a>
-        </div>
--->
 
         <!-- INTRO
         ============================================= -->
@@ -159,6 +146,132 @@ main() &#123;
             </div>
 
         </section>
+
+          <!-- WHY
+          ============================================= -->
+          <section class="why-section mdl-color-text--white mdl-color--grey-800"><a name="why"></a>
+              <div class="why-content">
+
+                  <div class="text-center titlebar">
+                      <h3>The problem</h3>
+                      <h2>Why you should use MDL/Dart</h2>
+                  </div>
+
+                  <div class="mdl-grid">
+                      <div class="mdl-cell--7-col mdl-cell--12-col-phone">
+
+
+                          <div class="mdl-tabs mdl-js-tabs">
+                              <div class="mdl-tabs__tab-bar">
+                                  <a href="#problem-panel" class="mdl-tabs__tab is-active">Current state</a>
+                                  <a href="#solution-panel" class="mdl-tabs__tab">The solution</a>
+                              </div>
+
+                              <div class="mdl-tabs__panel is-active" id="problem-panel">
+
+                                  <!-- Tab #1 Description -->
+                                  <p>
+                                  <ul>
+                                      <li><i class="material-icons mdl-color-text--accent-600">warning</i>
+                                          There is no "pure" Dart UI Library</li>
+
+                                      <li><i class="material-icons mdl-color-text--accent-600">warning</i>
+                                          Polymer is written in JS, Polymer.Dart is "just" a wrapper</li>
+
+                                      <li><i class="material-icons mdl-color-text--accent-600">warning</i>
+                                          Angular is written in Typescript - slows down development</li>
+
+                                      <li><i class="material-icons mdl-color-text--accent-600">warning</i>
+                                          Both, Polymer.Dart and Angular.Dart are huge, slow and hard to debug</li>
+                                  </ul>
+
+                                  It's always the same - the more calls a lib has to make until it gets a result the slower it becomes.
+                                  </p>
+                              </div>
+                              <div class="mdl-tabs__panel" id="solution-panel">
+
+                                  <!-- Tab #2 Description -->
+                                  <p>
+                                  <ul>
+                                      <li><i class="material-icons mdl-color-text--green">check</i>
+                                          MDL/Dart is written in pure Dart.<br>
+                                          The styling-part is written in SCCS, is prefixed and easy to use.
+                                      </li>
+
+                                      <li><i class="material-icons mdl-color-text--green">check</i>
+                                          <span>
+                                              MDL/Dart-Code is easy to read.<br>
+                                              The component-registration has about 55 lines of code.<br>
+                                              More on <a href="https://goo.gl/eIujlK" target="_blank">GitHub</a>
+                                          </span>
+                                      </li>
+
+                                      <li><i class="material-icons mdl-color-text--green">check</i>
+                                          DI (Dependency Injection)<br>
+                                          You can use it but you don't have to.<br>
+                                          If you like DI it's easy to implement e.g. a MessageBus for your components.
+                                      </li>
+
+                                      <li><i class="material-icons mdl-color-text--green">check</i>
+                                          No HTML-Imports<br>
+                                          Google says HTML-Imports are a feature - I don't think so.<br>
+                                          All you get is a bloated HTML-Header.<br>
+                                          In MDL/Dart you have your HTML with your components and you have your main.dart<br>
+                                          where you include all the necessary libs. That's it.<br>
+                                      </li>
+
+
+                                      <li><i class="material-icons mdl-color-text--green">check</i>
+                                          <span>
+                                            You can use classes, attributes or tags as your component<br>
+                                            (Not supported in MDL/JS)<br>
+                                            E.g. MaterialCheckbox uses mdl-js-checkbox for the <a href="https://goo.gl/vJas3W" target="_blank">Component-Registration</a><br>
+                                            The D&D samples uses the mdl-draggable tag<br>
+                                            as basis for the <<a href="https://goo.gl/SCUwrL" target="_blank">Component: </a> - it's up to you!<br>
+                                            MaterialObserver uses an an attribute as <a href="https://goo.gl/7JzQzq" target="_blank">basis</a><br>
+                                          </span>
+                                      </li>
+
+                                      <li><i class="material-icons mdl-color-text--green">check</i>
+                                          <a href="https://goo.gl/mwBcRW" target="_blank">Easy to use public component functions</a><br>
+                                      </li>
+
+                                      <li><i class="material-icons mdl-color-text--green">check</i>
+                                          Routing is included!<br>
+                                          Styleguide (www.material-design-lite.pub) uses all these SPA features like routing and view-includes.
+                                      </li>
+
+                                      <li><i class="material-icons mdl-color-text--green">check</i>
+                                          <span>
+                                          Theming<br>
+                                          Sure Polymer has theming but with it's encapsulation approach it's more a pain then it helps.<br>
+                                          Here are the SCSS-Themes: <a href="https://goo.gl/iBc6kE" target="_blank">GitHub</a>
+                                          </span>
+                                      </li>
+
+                                  </ul>
+                                  </p>
+                              </div>
+                          </div>
+
+                      </div>
+                      <!-- TABS HOLDER IMAGE -->
+                      <div class="text-center animated mdl-cell--5-col mdl-cell--12-col-phone" data-animation="fadeInRight" data-animation-delay="600">
+                          <img class="img-responsive" src="images/thumbs/about-image.jpg" alt="about-image" />
+                      </div>
+                  </div>
+
+                  <div class="buttons">
+                      <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect
+                        flash mdl-color--accent-500 mdl-color-text--primary-dark" href="http://www.mikemitterer.at/" target="_blank">
+                          Discover More
+                      </a>
+
+                  </div>
+
+              </div>
+
+          </section>
 
 
           <!-- ABOUT
@@ -408,20 +521,9 @@ main() &#123;
 
           </section>
 
-        <div class="android-customized-section">
-          <div class="android-customized-section-text">
-            <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Customised by you, for you</div>
-            <p class="mdl-typography--font-light">
-              Put the stuff that you care about right on your home screen: the latest news, the weather or a stream of your recent photos.
-              <br>
-              <a href="" class=" mdl-typography--font-light">Customise your phone</a>
-            </p>
-          </div>
-          <div class="android-customized-section-image"></div>
-        </div>
-        <div class="android-more-section">
-          <div class="android-section-title mdl-typography--display-1-color-contrast">More from Android</div>
-          <div class="android-card-container mdl-grid">
+        <div class="more-section">
+          <div class="section-title mdl-typography--display-1-color-contrast">More from Android</div>
+          <div class="card-container mdl-grid">
             <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
               <div class="mdl-card__media">
                 <img src="images/more-from-1.png">
