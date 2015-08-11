@@ -355,7 +355,7 @@ a img{
                             margin-bottom: 12px;
 
                             i {
-                                margin-right:1em;
+                                margin-right: 0.8em;
                             }
                         }
                     }
@@ -661,57 +661,6 @@ a img{
 
     }
     
-    .more-section {
-        padding: 80px 0;
-        max-width: 1044px;
-        margin-left: auto;
-        margin-right: auto;
-
-        .section-title {
-            margin-left: 12px;
-            padding-bottom: 24px;
-        }
-
-        .card-container {
-            .mdl-card__media {
-                overflow: hidden;
-                background: transparent;
-            }
-
-            .mdl-card__media img {
-                width: 100%;
-            }
-
-            .mdl-card__title {
-                background: transparent;
-                height: auto;
-            }
-
-            .mdl-card__title-text {
-                color: black;
-                height: auto;
-            }
-
-            .mdl-card__supporting-text {
-                height: auto;
-                color: black;
-                padding-bottom: 48px;
-            }
-
-            .mdl-card__actions {
-                position: absolute;
-                bottom: 0;
-            }
-
-            .mdl-card__actions a {
-                border-top: none;
-                line-height: 32px;
-                font-size: 16px;
-            }
-
-        }
-    }
-
     .mdl-mega-footer {
         position : relative;
 

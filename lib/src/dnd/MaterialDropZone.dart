@@ -165,7 +165,7 @@ class _MdlAcceptor extends Acceptor {
 
 /// registration-Helper
 void registerMaterialDropZone() {
-    final MdlConfig config = new MdlWidgetConfig<MaterialDropZone>(
+    final MdlConfig config = new MdlConfig<MaterialDropZone>(
         _MaterialDropZoneConstant.WIDGET_SELECTOR,
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialDropZone.fromElement(element,injector)
     );

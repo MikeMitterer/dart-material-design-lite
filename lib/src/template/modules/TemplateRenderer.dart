@@ -39,7 +39,7 @@ class TemplateRenderer {
         Validate.notNull(parent);
         Validate.notNull(scope);
 
-        /// Trims the template and replaces multiple spaces with a single one
+        /// Trims the template and replaces multiple spaces with a single space
         String _template() {
             final String data = template();
             Validate.notNull(data,"Template for TemplateRenderer must not be null!!!!");

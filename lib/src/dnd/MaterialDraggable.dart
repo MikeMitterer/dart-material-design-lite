@@ -93,7 +93,7 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialDraggable - init");
+        _logger.info("MaterialDraggable - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialDraggableConstant.WIDGET_SELECTOR);
@@ -136,7 +136,7 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
 
 /// registration-Helper
 void registerMaterialDraggable() {
-    final MdlConfig config = new MdlWidgetConfig<MaterialDraggable>(
+    final MdlConfig config = new MdlConfig<MaterialDraggable>(
         _MaterialDraggableConstant.WIDGET_SELECTOR,
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialDraggable.fromElement(element,injector)
     );

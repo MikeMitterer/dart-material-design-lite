@@ -8591,7 +8591,7 @@ a img {
                     align-items: center;
             margin-bottom: 12px; }
             .mdl-layout__content .why-section .why-content .mdl-tabs .mdl-tabs__panel ul li i {
-              margin-right: 1em; }
+              margin-right: 0.8em; }
     .mdl-layout__content .why-section .why-content > div {
       padding: 0 8px; }
     .mdl-layout__content .why-section .why-content .mdl-button {
@@ -8900,36 +8900,6 @@ a img {
           background-color: #2b2b2b; }
         .mdl-layout__content .table-section .table-content .feature-table > :nth-child(odd) {
           background-color: #3f3f3f; }
-  .mdl-layout__content .more-section {
-    padding: 80px 0;
-    max-width: 1044px;
-    margin-left: auto;
-    margin-right: auto; }
-    .mdl-layout__content .more-section .section-title {
-      margin-left: 12px;
-      padding-bottom: 24px; }
-    .mdl-layout__content .more-section .card-container .mdl-card__media {
-      overflow: hidden;
-      background: transparent; }
-    .mdl-layout__content .more-section .card-container .mdl-card__media img {
-      width: 100%; }
-    .mdl-layout__content .more-section .card-container .mdl-card__title {
-      background: transparent;
-      height: auto; }
-    .mdl-layout__content .more-section .card-container .mdl-card__title-text {
-      color: black;
-      height: auto; }
-    .mdl-layout__content .more-section .card-container .mdl-card__supporting-text {
-      height: auto;
-      color: black;
-      padding-bottom: 48px; }
-    .mdl-layout__content .more-section .card-container .mdl-card__actions {
-      position: absolute;
-      bottom: 0; }
-    .mdl-layout__content .more-section .card-container .mdl-card__actions a {
-      border-top: none;
-      line-height: 32px;
-      font-size: 16px; }
   .mdl-layout__content .mdl-mega-footer {
     position: relative; }
     .mdl-layout__content .mdl-mega-footer .mdl-mega-footer--bottom-section a {
