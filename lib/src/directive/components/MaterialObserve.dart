@@ -32,6 +32,8 @@ class _MaterialObserveConstant {
 
     static const String WIDGET_SELECTOR = "mdl-observe";
 
+    final String TEMPLATE = "template";
+
     const _MaterialObserveConstant();
 }    
 
@@ -42,18 +44,24 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
     static const _MaterialObserveCssClasses _cssClasses = const _MaterialObserveCssClasses();
     static const _MaterialObserveConstant _constant = const _MaterialObserveConstant();
 
+    /// Like Unix Pipe for formatters
+    FormatterPipeline _lazyPipe;
+
+    /// Uses for rendering this component
+    /// A template is optional! for MaterialObserver
+    Template _mustacheTemplate;
+
+    /// Adds data to Dom
+    final DomRenderer _renderer;
+
+    /// changes something like data-mdl-click="check({{id}})" into a callable Component function
+    final EventCompiler _eventCompiler;
+
     Scope scope;
 
     MaterialObserve.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector) {
-
-//        _logger.info("Vor SCOPE1----------");
-//
-//        scope = new Scope(this, mdlParentScope(this));
-//
-//        _logger.info("Nach SCOPE1______ ${scope.parentContext} ___________");
-//
-//        _init();
+        : super(element,injector),
+            _renderer = injector.get(DomRenderer), _eventCompiler = injector.get(EventCompiler) {
     }
     
     static MaterialObserve widget(final dom.HtmlElement element) => mdlComponent(element,MaterialObserve) as MaterialObserve;
@@ -82,19 +90,19 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
         element.classes.add(_MaterialObserveConstant.WIDGET_SELECTOR);
 
         if(element.attributes[_MaterialObserveConstant.WIDGET_SELECTOR].isNotEmpty) {
-            final List<String> parts = element.attributes[_MaterialObserveConstant.WIDGET_SELECTOR].trim().split("|");
+            final UnmodifiableListView<String> parts = _parts;
             final String fieldname = parts.first.trim();
 
-            //_logger.info("$fieldname - ${parts.length}");
-            FormatterPipeline pipe = new FormatterPipeline.fromList(injector.get(Formatter),parts.getRange(1,parts.length));
+            final dom.Element templateTag = _templateTag;
+            if(templateTag != null) {
+                final String template = templateTag.innerHtml.trim().replaceAll(new RegExp(r"\s+")," "); // .replaceAll(new RegExp(r""),"");
+                templateTag.remove();
+
+                _mustacheTemplate = new Template(template,htmlEscapeValues: false);
+             }
 
             scope.context = scope.parentContext;
             final val = (new Invoke(scope)).field(fieldname);
-
-            void _setValue(dynamic val) {
-                val = pipe.format(val);
-                element.text = (val != null ? val.toString() : "");
-            }
 
             if(val != null && val is ObservableProperty) {
                 final ObservableProperty prop = val;
@@ -112,6 +120,66 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
         
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
+
+    /// Searches for attribute template or template-tag, result can be null
+    dom.Element get _templateTag {
+        dom.Element temp = element.querySelector("[${_constant.TEMPLATE}]");
+        return temp != null ? temp : element.querySelector(_constant.TEMPLATE);
+    }
+
+
+    /// mdl-observe attribute supports formatters (parts)
+    /// These formatters are separated by | (pipe)
+    /// Sample:
+    ///     <span mdl-observe="name | lowercase(value)"></span> (LowerCaseFormatter)<br>
+    UnmodifiableListView<String> get _parts {
+        return new UnmodifiableListView<String>(
+            element.attributes[_MaterialObserveConstant.WIDGET_SELECTOR].trim().split("|"));
+    }
+
+    FormatterPipeline get _pipe {
+        if(_lazyPipe == null) {
+            final UnmodifiableListView<String> parts = _parts;
+            _lazyPipe = new FormatterPipeline.fromList(injector.get(Formatter),parts.getRange(1,parts.length));
+        }
+        return _lazyPipe;
+    }
+
+    ///
+    void _setValue(dynamic val) {
+        val = _pipe.format(val);
+
+        if(_hasNoTemplate) {
+            element.text = (val != null ? val.toString() : "");
+        } else {
+            _renderValue(val);
+        }
+    }
+
+    void _renderValue(dynamic val) {
+        if(val != null) {
+            _renderer.render(element,_mustacheTemplate.renderString(val)).then((final dom.HtmlElement child) {
+                _eventCompiler.compileElement(scope,child);
+            });
+        } else {
+            void _cleanup() {
+                UnmodifiableListView<dom.Node> nodes = new UnmodifiableListView(element.childNodes);
+                nodes.forEach((final dom.Element child) {
+                    if(child is dom.Element) {
+                        componentHandler().downgradeElement(child).then((_) {
+                            child.remove();
+                        });
+                    }
+                });
+                element.text = "";
+            }
+            _cleanup();
+        }
+    }
+
+    bool get _hasTemplate => _mustacheTemplate != null;
+    bool get _hasNoTemplate => !_hasTemplate;
+
 }
 
 /// registration-Helper

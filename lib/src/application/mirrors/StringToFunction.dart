@@ -29,8 +29,18 @@ part of mdlapplication;
  *
  *      functionAsString: check
  *      params: 42
+ *
+ * Sample II:
+ *      <span mdl-observe="isNameNull | choose(value, '(Name-Object is null!)','')"></span>
+ *
+ *      Group 0:                      choose(value, '(Name-Object is null!)','')
+ *      functionAsString (Group 1):   StringToFunction: (13:19:27.342) Group 1: choose
+ *      params (Group 2):             value, '(Name-Object is null!)',''
+ *
  */
 class StringToFunction {
+    //final Logger _logger = new Logger('mdlapplication.StringToFunction');
+
     final String _functionAsString;
 
     // finds function name and params
@@ -40,8 +50,10 @@ class StringToFunction {
         Validate.notBlank(_functionAsString);
 
         // first group is the function name, second group are params (everything within braces))
-        _match = new RegExp(r"([^(]*)\(([^)]*)\)").firstMatch(_functionAsString);
+        //_match = new RegExp(r"([^(]*)\(([^)]*)\)").firstMatch(_functionAsString);
+        _match = new RegExp(r"([^(]*)\((.*)\)").firstMatch(_functionAsString);
 
+        //for(int i = 0;i <= _match.groupCount;i++) { _logger.info("Group $i: ${_match.group(i)}"); }
         Validate.isTrue(_match.groupCount > 0 && _match.groupCount <= 2,"${_functionAsString} is not a valid function");
     }
 

@@ -51,11 +51,11 @@ class _MdlComponentHandlerCssClasses {
     const _MdlComponentHandlerCssClasses();
 }
 
-class _MdlComponentHandlerCssAttributes {
+class _MdlComponentHandlerConstant {
 
-    final String REPEAT_TEMPLATE = "template";
+    final String TEMPLATE = "template";
 
-    const _MdlComponentHandlerCssAttributes();
+    const _MdlComponentHandlerConstant();
 }
 
 /**
@@ -72,7 +72,7 @@ class MdlComponentHandler {
     final String _DATA_KEY = "data-upgraded";
 
     static const _MdlComponentHandlerCssClasses _cssClasses = const _MdlComponentHandlerCssClasses();
-    static const _MdlComponentHandlerCssAttributes _cssAttributes = const _MdlComponentHandlerCssAttributes();
+    static const _MdlComponentHandlerConstant _constant = const _MdlComponentHandlerConstant();
 
     final Map<String, MdlConfig> _registeredComponents = new HashMap<String, MdlConfig>();
 
@@ -374,14 +374,15 @@ class MdlComponentHandler {
         Validate.notNull(config);
 
         /// If there is a tag with template attribute - ignore this element!
-        bool _hasRepeatTemplate(final dom.HtmlElement element) {
+        bool _hasTemplate(final dom.HtmlElement element) {
             if(element == null) {
                 return false;
             }
-            if(element.attributes.containsKey(_cssAttributes.REPEAT_TEMPLATE)) {
+            if(element.attributes.containsKey(_constant.TEMPLATE) ||
+                element.tagName.toLowerCase() == _constant.TEMPLATE) {
                 return true;
             }
-            return _hasRepeatTemplate(element.parent);
+            return _hasTemplate(element.parent);
         }
 
         /// Check if element is already in DOM (assume that if it finds a 'body' it is in DOM)
@@ -398,7 +399,7 @@ class MdlComponentHandler {
         }
 
         if (( !element.attributes.containsKey(_DATA_KEY) ||
-            element.attributes[_DATA_KEY].contains(config.classAsString) == false) && !_hasRepeatTemplate(element)) {
+            element.attributes[_DATA_KEY].contains(config.classAsString) == false) && !_hasTemplate(element)) {
 
             void _markAsUpgraded() {
                 final List<String> registeredClasses = element.attributes.containsKey(_DATA_KEY)

@@ -55,9 +55,11 @@
             <h6>Choose language</h6>
                 <div mdl-repeat="language in languages" class="source langbox mdl-dnd__drag-container" >
                      
-                    <mdl-draggable template class="language" consumes="language" drop-zone="{{language.type}}">
-                        {{language.name}}
-                    </mdl-draggable>
+                    <template>
+                        <mdl-draggable class="language" consumes="language" drop-zone="{{language.type}}">
+                            {{language.name}}
+                        </mdl-draggable>
+                    </template>
                      
                 </div>
         </div>
@@ -70,9 +72,11 @@
                     <!-- mdl-repeat takes its for-each param from the next SCOPE-AWARE-Parent (mld-dropzone is not SCOPE-AWARE) -->
                     <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
                          
-                        <mdl-draggable template class="language" consumes="language" drop-zone="trash">
-                            {{language.name}}
-                        </mdl-draggable>
+                        <template>
+                            <mdl-draggable class="language" consumes="language" drop-zone="trash">
+                                {{language.name}}
+                            </mdl-draggable>
+                        </template>
                          
                     </div>
                 </mdl-dropzone>
@@ -85,9 +89,11 @@
                     <!-- mdl-repeat takes its for-each param from the next SCOPE-AWARE-Parent (mld-dropzone is not SCOPE-AWARE) -->
                     <div mdl-repeat="language in natural" class="mdl-dnd__drag-container">
                          
-                        <mdl-draggable template class="language" consumes="language" drop-zone="trash">
-                            {{language.name}}
-                        </mdl-draggable>
+                        <template>
+                            <mdl-draggable class="language" consumes="language" drop-zone="trash">
+                                {{language.name}}
+                            </mdl-draggable>
+                        </template>
                          
                     </div>
                 </mdl-dropzone>

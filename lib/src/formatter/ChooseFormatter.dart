@@ -1,13 +1,13 @@
 /**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
- *
+ * 
  * All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -17,32 +17,21 @@
  * limitations under the License.
  */
 
-/**
- * The core - handles the initialisation process and
- * defines the base-class for all components
- */
-library mdlcore;
+part of mdlformatter;
 
-import 'dart:html' as dom;
-import 'dart:collection';
-import 'dart:async';
-import 'dart:js';
+/// Choose between two Text options
+@MdlComponentModel
+class ChooseFormatter {
+    final Logger _logger = new Logger('mdlformatter.ChooseFormatter');
 
-import 'package:logging/logging.dart';
-import 'package:validate/validate.dart';
-import 'package:di/di.dart' as di;
+    String choose(final value,[ final String option1 = "Yes",final String option2 = "No" ]) {
+        return (ConvertValue.toBool(value) ? ConvertValue.toSanitizeString(option1) :
+            ConvertValue.toSanitizeString(option2));
+    }
 
-part "src/core/annotations.dart";
-part "src/core/interfaces.dart";
-part "src/core/utils.dart";
-part "src/core/ConvertValue.dart";
+    String call(final value,[ final String option1 = "Yes",final String option2 =  "No" ])
+        => choose(value,option1,option2);
 
-part "src/core/MdlComponentHandler.dart";
-part "src/core/MdlConfig.dart";
-part "src/core/MdlComponent.dart";
+    //- private -----------------------------------------------------------------------------------
 
-abstract class MdlDataConsumer {
-    void consume(final data);
 }
-
-

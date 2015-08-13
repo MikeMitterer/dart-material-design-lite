@@ -65,6 +65,7 @@ class DomRenderer {
 
             try {
                 final dom.Element child = new dom.Element.html(content, validator: _validator());
+                //final dom.Element child = new dom.DocumentFragment.html(content, validator: _validator());
 
                 componentFactory().upgradeElement(child).then( (_) {
 

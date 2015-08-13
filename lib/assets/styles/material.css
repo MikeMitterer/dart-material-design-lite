@@ -6603,6 +6603,10 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     opacity: 1;
     width: 100%; } }
 
+template, div[template] {
+  display: none;
+  visibility: hidden; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *

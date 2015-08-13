@@ -33,6 +33,7 @@ part "src/formatter/FormatterPipeline.dart";
 part "src/formatter/NumberFormatter.dart";
 part "src/formatter/UpperCaseFormatter.dart";
 part "src/formatter/LowerCaseFormatter.dart";
+part "src/formatter/ChooseFormatter.dart";
 
 part "src/formatter/DecoratorFormatter.dart";
 
@@ -74,6 +75,7 @@ class Formatter {
     final DecoratorFormatter decorate = new DecoratorFormatter();
     final UpperCaseFormatter uppercase = new UpperCaseFormatter();
     final LowerCaseFormatter lowercase = new LowerCaseFormatter();
+    final ChooseFormatter    choose = new ChooseFormatter();
 }
 
 /// Makes Formatter available in DI

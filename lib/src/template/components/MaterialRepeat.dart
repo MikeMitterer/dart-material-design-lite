@@ -49,6 +49,8 @@ class _MaterialRepeatConstant {
      */
     final String CONSUMES   = "consumes";
 
+    final String TEMPLATE   = "template";
+
     const _MaterialRepeatConstant();
 }    
 
@@ -206,20 +208,16 @@ class MaterialRepeat extends MdlTemplateComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialRepeat - init");
+        _logger.fine("MaterialRepeat - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialRepeatConstant.WIDGET_SELECTOR);
 
-        final dom.Element templateBlock = element.querySelector("[template]");
-        templateBlock.attributes.remove("template");
-
-        _template = templateBlock.outerHtml.trim()
-            .replaceAll(new RegExp(r"\s+")," ")
-            .replaceAll(new RegExp(r""),"");
+        final dom.Element templateTag = _templateTag;
+        _template = templateTag.innerHtml.trim().replaceAll(new RegExp(r"\s+")," ").replaceAll(new RegExp(r""),"");
 
         // _logger.info("Template: ${_template}");
-        templateBlock.remove();
+        templateTag.remove();
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
 
@@ -230,6 +228,12 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         element.classes.add(_cssClasses.IS_UPGRADED);
         _logger.fine("MaterialRepeat - initialized!");
+    }
+
+    /// Searches for attribute template or template-tag, result can be null
+    dom.Element get _templateTag {
+        dom.Element temp = element.querySelector("[${_constant.TEMPLATE}]");
+        return temp != null ? temp : element.querySelector(_constant.TEMPLATE);
     }
 
     /// Wait until component is initialized - otherwise we have not a valid DOM structure.

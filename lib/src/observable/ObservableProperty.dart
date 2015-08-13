@@ -65,15 +65,15 @@ class ObservableProperty<T> {
 
         if(_value.runtimeType == bool) {
 
-            _value = _toBool(val) as T;
+            _value = ConvertValue.toBool(val) as T;
 
         } else if(_value.runtimeType == int) {
 
-            _value = _toInt(val) as T;
+            _value = ConvertValue.toInt(val) as T;
 
         } else if(_value.runtimeType == double) {
 
-            _value = _toDouble(val) as T;
+            _value = ConvertValue.toDouble(val) as T;
 
         } else {
             _value = val;
@@ -131,7 +131,7 @@ class ObservableProperty<T> {
 
     /// Converts [value] to bool. If [value] is a String, "true", "on", "1" are valid boolean values
     bool toBool() {
-        return _toBool(value);
+        return ConvertValue.toBool(value);
     }
 
     // - private ----------------------------------------------------------------------------------
@@ -153,38 +153,6 @@ class ObservableProperty<T> {
         }
     }
 
-    bool _toBool(final value) {
-        if(value is bool) {
-            return value as bool;
-        }
 
-        if(value is num) {
-            return (value as num).toInt() == 1;
-        }
-        final String stringvalue = "$value".toLowerCase();
-        return stringvalue == "true" || stringvalue == "on" || stringvalue == "1" || stringvalue == "yes";
-    }
-
-    int _toInt(final value) {
-        if(value is int) {
-            return value;
-        }
-        if(value is num) {
-            return (value as num).toInt();
-        }
-        final String stringvalue = "$value".toLowerCase();
-        return int.parse(stringvalue);
-    }
-
-    double _toDouble(final value) {
-        if(value is double) {
-            return value;
-        }
-        if(value is num) {
-            return (value as num).toDouble();
-        }
-        final String stringvalue = "$value".toLowerCase();
-        return double.parse(stringvalue);
-    }
 
 }
