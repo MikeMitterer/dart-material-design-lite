@@ -19,18 +19,22 @@
 
 part of mdlformatter;
 
-/// Choose between two Text options
+/// Choose between two Text options.
+/// ChooseFormatter must be registered in mdlformatter.Formatter
+/// Sample:
+///     <span mdl-observe="isNameNull | choose(value, '(Name-Object is null!)','')"></span>
 @MdlComponentModel
 class ChooseFormatter {
     final Logger _logger = new Logger('mdlformatter.ChooseFormatter');
 
-    String choose(final value,[ final String option1 = "Yes",final String option2 = "No" ]) {
-        return (ConvertValue.toBool(value) ? ConvertValue.toSanitizeString(option1) :
-            ConvertValue.toSanitizeString(option2));
+    String choose(final bool value,[ final String option1 = "Yes",final String option2 = "No" ]) {
+        return (value ? option1 : option2);
     }
 
+    /// Called by the framework - sanitizes input. (In reality params are not strong typed!)
     String call(final value,[ final String option1 = "Yes",final String option2 =  "No" ])
-        => choose(value,option1,option2);
+        => choose(ConvertValue.toBool(value),
+            ConvertValue.toSanitizeString(option1),ConvertValue.toSanitizeString(option2));
 
     //- private -----------------------------------------------------------------------------------
 

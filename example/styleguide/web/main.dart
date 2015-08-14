@@ -64,12 +64,16 @@ class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
     // Observe-Sample + DND
-    final ObservableList<_Language> languages = new ObservableList<_Language>();
+    final ObservableList<_Language>  languages = new ObservableList<_Language>();
     final ObservableProperty<String> time = new ObservableProperty<String>("", interval: new Duration(seconds: 1));
     final ObservableProperty<String> records = new ObservableProperty<String>("");
+    final ObservableProperty<_Name>  nameObject = new ObservableProperty<_Name>(null);
+    final ObservableProperty<bool>   isNameNull = new ObservableProperty<bool>(true);
+
+    final List<_Name>                names = new List<_Name>();
 
     // To-Do-Sample
-    final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
+    final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("<no records>");
     final ObservableProperty<String> nrOfItemsDone = new ObservableProperty<String>("",
         interval: new Duration(milliseconds: 500));
     
@@ -89,6 +93,7 @@ class Application extends MaterialApplication {
     // Formatter-Sample
     final ObservableProperty<double> pi = new ObservableProperty<double>(3.14159265359);
     final ObservableProperty<String> name = new ObservableProperty<String>("Mike");
+    final ObservableProperty<bool> checkStatus = new ObservableProperty<bool>(false);
 
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
@@ -354,6 +359,8 @@ class FormatterController extends DemoController {
             }
             final int index = rnd.nextInt(xmen.length);
             app.name.value = xmen[index];
+
+            app.checkStatus.value = index % 2;
         });
     }
 
@@ -497,14 +504,29 @@ class _Programming extends _Language {
     _Programming(final String name) : super(name,"programming");
 }
 
+@MdlComponentModel
+class _Name {
+    final String first;
+    final String last;
+    _Name(this.first, this.last);
+
+    @override
+    String toString() {
+        return "$first $last";
+    }
+}
+
 class ObserverController extends DemoController {
     final Logger _logger = new Logger('main.ObserverController');
+    bool stopTimer = false;
 
     @override
     void loaded(final Route route) {
         super.loaded(route);
+        stopTimer = false;
 
         _addLanguages();
+        _addNames();
     }
 
 
@@ -512,7 +534,11 @@ class ObserverController extends DemoController {
 
     void unload() {
         final Application app = componentFactory().application;
+        stopTimer = true;
+
         app.languages.clear();
+        app.names.clear();
+
     }
 
     void _addLanguages() {
@@ -530,6 +556,29 @@ class ObserverController extends DemoController {
             }
         });
     }
+
+    void _addNames() {
+        final Application app = componentFactory().application;
+
+        app.names.add(new _Name("Bill","Gates"));
+        app.names.add(new _Name("Steven","Jobs"));
+        app.names.add(new _Name("Larry","Page"));
+        app.names.add(null);
+
+        int counter = 0;
+        new Timer.periodic(new Duration(milliseconds: 1000),(final Timer timer) {
+            if(stopTimer) {
+                timer.cancel();
+                return;
+            }
+
+            app.nameObject.value = app.names[counter % 4]; // 0,1,2,...
+            app.isNameNull.value = app.nameObject.value == null;
+
+            counter++;
+        });
+    }
+
 }
 
 class ProgressController extends DemoController {

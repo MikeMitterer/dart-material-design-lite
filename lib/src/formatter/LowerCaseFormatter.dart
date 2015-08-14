@@ -19,14 +19,16 @@
 
 part of mdlformatter;
 
+/// Converts input to lowercase.
+///
+///     <span mdl-observe="name | lowercase(value)"></span>
+///
 @MdlComponentModel
 class LowerCaseFormatter {
-    String lowercase(dynamic value) {
-        if(value is String == false) {
-            value = value.toString();
-        }
-        return (value as String).toLowerCase();
+    String lowercase(final String value) {
+        return value.toLowerCase();
     }
 
-    String call(dynamic value) => lowercase(value);
+    /// Called by the framework - sanitizes input. Converts params to strong typed version of params
+    String call(dynamic value) => lowercase( ConvertValue.toSanitizeString(value));
 }

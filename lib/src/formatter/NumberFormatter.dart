@@ -21,6 +21,8 @@ part of mdlformatter;
 
 /**
  * Formats a number with a certain number of digits
+ *
+ *      <span mdl-observe="pi | number(value,2)"></span>
  */
 @MdlComponentModel
 class NumberFormatter {
@@ -30,23 +32,7 @@ class NumberFormatter {
 
     /// 'number' is the formatter name. [fractionSize] defines the number of digits
     /// after the decimal point
-    String number(final value, [ int fractionSize = 2]) {
-        double dVal;
-
-        if(fractionSize is String) {
-            fractionSize = int.parse(fractionSize as String);
-        }
-
-        if (value is String) {
-            dVal = double.parse(value);
-        }
-        else if (value is num) {
-            dVal = value;
-        }
-        else {
-            dVal = double.parse(value.toString());
-        }
-
+    String number(final double value, [ int fractionSize = 2]) {
         final String verifiedLocale = Intl.verifiedLocale(Intl.getCurrentLocale(), NumberFormat.localeExists);
 
         _nfs.putIfAbsent(verifiedLocale, () => new Map<num, NumberFormat>());
@@ -62,11 +48,12 @@ class NumberFormatter {
         }
 
         //nf = new NumberFormat()..maximumIntegerDigits = 2;
-        //_logger.info("Called number $value $dVal");
-        return nf.format(dVal);
+        //_logger.info("Called number $value value");
+        return nf.format(value);
     }
 
     /// Important! this function is called by the framework
     ///     <span mdl-observe="pi | number(value,2)"></span>
-    String call(final value, [ int fractionSize = 2]) => number(value,fractionSize);
+    String call(final value, [ int fractionSize = 2]) => number(ConvertValue.toDouble(value),
+        ConvertValue.toInt(fractionSize));
 }

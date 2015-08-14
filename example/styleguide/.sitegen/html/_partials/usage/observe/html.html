@@ -1,19 +1,38 @@
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;p&gt;
-        Wait 2 secs - A timer will add 10 more List-Items!&lt;br&gt;
-        If you &quot;REMOVE&quot; &quot;German&quot; - it will be replace with &quot;Austrian&quot;
-    &lt;&#47;p&gt;
-    &lt;p&gt;
+        &lt;h5&gt;Customized &#39;ObservableProperty&#39;&lt;&#47;h5&gt;
         Now it&#39;s: &lt;span mdl-observe=&quot;time&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
-        Nr. of records: &lt;span mdl-observe=&quot;records&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
     &lt;&#47;p&gt;
-    &lt;div mdl-repeat=&quot;language in languages&quot;&gt;
-        {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
-        &lt;div template class=&quot;language&quot; &gt;
-            Language: {{language.name}} ({{language.type}})
-            &lt;button class=&quot;mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect&quot;
-                    data-mdl-click=&quot;remove({{language.name}})&quot;&gt;Remove&lt;&#47;button&gt;
+    &lt;div class=&quot;object-test&quot;&gt;
+        &lt;h5&gt;Observes Object (_Name) with &#39;null&#39; check&lt;&#47;h5&gt;
+        &lt;div mdl-observe=&quot;isNameNull | choose(value, &#39;(Name-Object is null!)&#39;,&#39;&#39;)&quot;&gt;&lt;&#47;div&gt;
+        &lt;div mdl-observe=&quot;nameObject&quot; class=&quot;name mdl-color--100&quot;&gt;
+            {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+            &lt;template&gt;
+                &lt;div&gt;
+                    Firstname: {{first}},&lt;br&gt;
+                    Last name: {{last}}&lt;br&gt;
+                    &lt;div&gt;Text in &lt;strong&gt;DIV&lt;&#47;strong&gt;&lt;&#47;div&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;template&gt;
+            |= {{ }} =| {{! ----- Turn on mustache ---- }}
         &lt;&#47;div&gt;
-        |= {{ }} =| {{! ----- Turn on mustache ---- }}
     &lt;&#47;div&gt;
+    &lt;p&gt;
+        &lt;h5&gt;Observable-List&lt;&#47;h5&gt;
+        Wait 2 secs - A timer will add 10 more List-Items!&lt;br&gt;
+        If you &quot;REMOVE&quot; &quot;German&quot; - it will be replace with &quot;Austrian&quot;&lt;br&gt;&lt;br&gt;
+        Nr. of records: &lt;strong&gt;&lt;span mdl-observe=&quot;records&quot;&gt;&lt;&#47;span&gt;&lt;&#47;strong&gt;&lt;br&gt;
+        &lt;div mdl-repeat=&quot;language in languages&quot;&gt;
+            {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+            &lt;template&gt;
+                &lt;div class=&quot;language&quot; &gt;
+                    Language: {{language.name}} ({{language.type}})
+                    &lt;button class=&quot;mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect&quot;
+                            data-mdl-click=&quot;remove({{language.name}})&quot;&gt;Remove&lt;&#47;button&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;template&gt;
+            |= {{ }} =| {{! ----- Turn on mustache ---- }}
+        &lt;&#47;div&gt;
+    &lt;&#47;p&gt;
 &lt;&#47;div&gt;

@@ -1,4 +1,18 @@
 .demo-page--observe, .demo-section--observe {
+
+    .object-test {
+        min-height: 120px;
+
+        [mdl-observe].name {
+            padding       : 8px;
+            border-radius : 8px;
+
+            &:empty {
+                display : none;
+            }
+        }
+    }
+
     .mdl-repeat div {
         display: flex;
         flex-direction: row;

@@ -99,9 +99,11 @@ main() &#123;
             &lt;h6&gt;Choose language&lt;&#47;h6&gt;
                 &lt;div mdl-repeat=&quot;language in languages&quot; class=&quot;source langbox mdl-dnd__drag-container&quot; &gt;
                      
-                    &lt;mdl-draggable template class=&quot;language&quot; consumes=&quot;language&quot; drop-zone=&quot;{{language.type}}&quot;&gt;
-                        {{language.name}}
-                    &lt;&#47;mdl-draggable&gt;
+                    &lt;template&gt;
+                        &lt;mdl-draggable class=&quot;language&quot; consumes=&quot;language&quot; drop-zone=&quot;{{language.type}}&quot;&gt;
+                            {{language.name}}
+                        &lt;&#47;mdl-draggable&gt;
+                    &lt;&#47;template&gt;
                      
                 &lt;&#47;div&gt;
         &lt;&#47;div&gt;
@@ -112,9 +114,11 @@ main() &#123;
                               on-drop-success=&quot;addToProgrammingLanguages(data)&quot;&gt;
                     &lt;div mdl-repeat=&quot;language in programming&quot; class=&quot;mdl-dnd__drag-container&quot;&gt;
                          
-                        &lt;mdl-draggable template class=&quot;language&quot; consumes=&quot;language&quot; drop-zone=&quot;trash&quot;&gt;
-                            {{language.name}}
-                        &lt;&#47;mdl-draggable&gt;
+                        &lt;template&gt;
+                            &lt;mdl-draggable class=&quot;language&quot; consumes=&quot;language&quot; drop-zone=&quot;trash&quot;&gt;
+                                {{language.name}}
+                            &lt;&#47;mdl-draggable&gt;
+                        &lt;&#47;template&gt;
                          
                     &lt;&#47;div&gt;
                 &lt;&#47;mdl-dropzone&gt;
@@ -125,9 +129,11 @@ main() &#123;
                               on-drop-success=&quot;addToNaturalLanguages(data)&quot;&gt;
                     &lt;div mdl-repeat=&quot;language in natural&quot; class=&quot;mdl-dnd__drag-container&quot;&gt;
                          
-                        &lt;mdl-draggable template class=&quot;language&quot; consumes=&quot;language&quot; drop-zone=&quot;trash&quot;&gt;
-                            {{language.name}}
-                        &lt;&#47;mdl-draggable&gt;
+                        &lt;template&gt;
+                            &lt;mdl-draggable class=&quot;language&quot; consumes=&quot;language&quot; drop-zone=&quot;trash&quot;&gt;
+                                {{language.name}}
+                            &lt;&#47;mdl-draggable&gt;
+                        &lt;&#47;template&gt;
                          
                     &lt;&#47;div&gt;
                 &lt;&#47;mdl-dropzone&gt;

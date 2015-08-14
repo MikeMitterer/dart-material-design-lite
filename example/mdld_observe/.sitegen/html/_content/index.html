@@ -4,16 +4,13 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/master
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div class="demo-preview-block">
     <p>
-        Wait 2 secs - A timer will add 10 more List-Items!<br>
-        If you "REMOVE" "German" - it will be replace with "Austrian"
-    </p>
-    <p>
+        <h5>Customized 'ObservableProperty'</h5>
         Now it's: <span mdl-observe="time"></span><br>
-        Nr. of records: <span mdl-observe="records"></span><br>
     </p>
-    <div>
-        Observe Object (_Name): <span mdl-observe="isNameNull | choose(value, '(Name-Object is null!)','')"></span>
-        <div mdl-observe="name" class="name mdl-color--100">
+    <div class="object-test">
+        <h5>Observes Object (_Name) with 'null' check</h5>
+        <div mdl-observe="isNameNull | choose(value, '(Name-Object is null!)','')"></div>
+        <div mdl-observe="nameObject" class="name mdl-color--100">
             {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
             <template>
                 <div>
@@ -26,6 +23,11 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/master
         </div>
     </div>
     <p>
+        <h5>Observable-List</h5>
+        Wait 2 secs - A timer will add 10 more List-Items!<br>
+        If you "REMOVE" "German" - it will be replace with "Austrian"<br><br>
+        Nr. of records: <strong><span mdl-observe="records"></span></strong><br>
+
         <div mdl-repeat="language in languages">
             {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
             <template>

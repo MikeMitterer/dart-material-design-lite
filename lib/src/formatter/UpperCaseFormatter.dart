@@ -19,14 +19,16 @@
 
 part of mdlformatter;
 
+/// Converts input to uppercase
+///
+///     <span mdl-observe="name | uppercase(value)"></span>
+///
 @MdlComponentModel
 class UpperCaseFormatter {
-    String uppercase(dynamic value) {
-        if(value is String == false) {
-            value = value.toString();
-        }
-        return (value as String).toUpperCase();
+    String uppercase(final String value) {
+        return value.toUpperCase();
     }
 
-    String call(dynamic value) => uppercase(value);
+    /// Called by the framework - sanitizes input. (In reality params are not strong typed!)
+    String call(dynamic value) => uppercase(ConvertValue.toSanitizeString(value));
 }

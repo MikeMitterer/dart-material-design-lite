@@ -7,6 +7,7 @@ class Application extends MaterialApplication &#123;
 
     final ObservableProperty&lt;double&gt; pi = new ObservableProperty&lt;double&gt;(3.14159265359);
     final ObservableProperty&lt;String&gt; name = new ObservableProperty&lt;String&gt;(&quot;Mike&quot;);
+    final ObservableProperty&lt;bool&gt; checkStatus = new ObservableProperty&lt;bool&gt;(false);
 
     final List&lt;String&gt; xmen;
     
@@ -22,6 +23,8 @@ class Application extends MaterialApplication &#123;
         new Timer.periodic(new Duration(milliseconds: 500),(final Timer timer) &#123;
             final int index = rnd.nextInt(xmen.length);
             name.value = xmen[index];
+
+            checkStatus.value = index % 2;
         &#125;);
     &#125;
 

@@ -138,21 +138,23 @@ class ToDoItemComponent extends MdlTemplateComponent implements ScopeAware {
     String template = """
         <div mdl-repeat="item in items">
             {{! ----- Turn off default mustache interpretation ---- }} {{= | | =}}
-            <div template class="row">
-                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{item.id}}">
-                    {{#item.checked}}
-                        <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" checked data-mdl-click="check({{item.id}})"/>
-                    {{/item.checked}}
-                    {{^item.checked}}
-                        <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" data-mdl-click="check({{item.id}})"/>
-                    {{/item.checked}}
-                    <span class="mdl-checkbox__label">{{item.name}}</span>
-                </label>
-                <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
-                    data-mdl-click="remove({{item.id}})">
-                    Remove
-                </button>
-            </div>
+            <template>
+                <div class="row">
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{item.id}}">
+                        {{#item.checked}}
+                            <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" checked data-mdl-click="check({{item.id}})"/>
+                        {{/item.checked}}
+                        {{^item.checked}}
+                            <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" data-mdl-click="check({{item.id}})"/>
+                        {{/item.checked}}
+                        <span class="mdl-checkbox__label">{{item.name}}</span>
+                    </label>
+                    <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
+                        data-mdl-click="remove({{item.id}})">
+                        Remove
+                    </button>
+                </div>
+            </template>
             |= {{ }} =| {{! ----- Turn on mustache ---- }}
         </div>
         """.trim().replaceAll(new RegExp(r"\s+")," ");

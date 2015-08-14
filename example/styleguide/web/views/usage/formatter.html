@@ -24,6 +24,7 @@ class Application extends MaterialApplication &#123;
     final Logger _logger = new Logger(&#39;main.Application&#39;);
     final ObservableProperty&lt;double&gt; pi = new ObservableProperty&lt;double&gt;(3.14159265359);
     final ObservableProperty&lt;String&gt; name = new ObservableProperty&lt;String&gt;(&quot;Mike&quot;);
+    final ObservableProperty&lt;bool&gt; checkStatus = new ObservableProperty&lt;bool&gt;(false);
     final List&lt;String&gt; xmen;
     
     Application() : xmen = [&#39;Angel&#47;Archangel&#39;, &#39;Apocalypse&#39;, &#39;Bishop&#39;, &#39;Beast&#39;,&#39;Caliban&#39;,&#39;Colossus&#39;,
@@ -37,6 +38,7 @@ class Application extends MaterialApplication &#123;
         new Timer.periodic(new Duration(milliseconds: 500),(final Timer timer) &#123;
             final int index = rnd.nextInt(xmen.length);
             name.value = xmen[index];
+            checkStatus.value = index % 2;
         &#125;);
     &#125;
     &#47;&#47;- private -----------------------------------------------------------------------------------
@@ -62,12 +64,18 @@ main() async &#123;
                 </div>
                 <pre class="prettyprint linenums lang-html">
 &lt;div class=&quot;demo-preview-block&quot;&gt;
+    &lt;h5&gt;Number-Formatter&lt;&#47;h5&gt;
     PI: &lt;span mdl-observe=&quot;pi&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
     PI with formatter: &lt;span mdl-observe=&quot;pi | number(value,2)&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
     &lt;br&gt;
+    &lt;h5&gt;Uppercase &#47; Lowercase&lt;&#47;h5&gt;
     Name: &lt;span mdl-observe=&quot;name&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
     Name with formatter: &lt;span mdl-observe=&quot;name | uppercase(value)&quot;&gt;&lt;&#47;span&gt; (UpperCaseFormatter)&lt;br&gt;
     Name with formatter: &lt;span mdl-observe=&quot;name | lowercase(value)&quot;&gt;&lt;&#47;span&gt; (LowerCaseFormatter)&lt;br&gt;
+    &lt;br&gt;
+    &lt;h5&gt;Choose-Formatter&lt;&#47;h5&gt;
+    Status is: &lt;span mdl-observe=&quot;checkStatus | choose(value, &#39;Valid!&#39;,&#39;OFF&#39;)&quot;
+                     mdl-class=&quot;!checkStatus : &#39;status-off&#39;&quot;&gt;&lt;&#47;span&gt;
 &lt;&#47;div&gt;
 </pre>
                 </div>

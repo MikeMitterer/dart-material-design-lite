@@ -12,8 +12,8 @@ import "package:mdl_todo_sample/todo.dart";
 class Application implements MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
-    final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
-    final ObservableProperty<String> nrOfItemsDone = new ObservableProperty<String>("",
+    final ObservableProperty<int> nrOfItems = new ObservableProperty<int>(0);
+    final ObservableProperty<int> nrOfItemsDone = new ObservableProperty<int>(0,
         interval: new Duration(milliseconds: 500));
 
     Application() {
@@ -25,7 +25,7 @@ class Application implements MaterialApplication {
         final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
         final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
 
-        nrOfItems.observes( () => todo.items.length > 0 ? todo.items.length.toString() : "<no records>");
+        nrOfItems.observes( () => todo.items.length );
         nrOfItemsDone.observes(() {
             int done = 0;
             todo.items.forEach((final ToDoItem item) { done += item.checked ? 1 : 0; });

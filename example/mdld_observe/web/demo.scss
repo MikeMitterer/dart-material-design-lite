@@ -2,12 +2,16 @@
 
 .demo-page--observe, .demo-section--observe {
 
-    [mdl-observe].name {
-        padding: 8px;
-        border-radius: 8px;
+    .object-test {
+        min-height: 120px;
 
-        &:empty {
-            display: none;
+        [mdl-observe].name {
+            padding       : 8px;
+            border-radius : 8px;
+
+            &:empty {
+                display : none;
+            }
         }
     }
 

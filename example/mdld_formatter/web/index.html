@@ -49,12 +49,18 @@
             <div class="content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
                 <section class="demo-section demo-section--formatter">
                     <div class="demo-preview-block">
+    <h5>Number-Formatter</h5>
     PI: <span mdl-observe="pi"></span><br>
     PI with formatter: <span mdl-observe="pi | number(value,2)"></span><br>
     <br>
+    <h5>Uppercase / Lowercase</h5>
     Name: <span mdl-observe="name"></span><br>
     Name with formatter: <span mdl-observe="name | uppercase(value)"></span> (UpperCaseFormatter)<br>
     Name with formatter: <span mdl-observe="name | lowercase(value)"></span> (LowerCaseFormatter)<br>
+    <br>
+    <h5>Choose-Formatter</h5>
+    Status is: <span mdl-observe="checkStatus | choose(value, 'Valid!','OFF')"
+                     mdl-class="!checkStatus : 'status-off'"></span>
 </div>
                 </section>
             </div>

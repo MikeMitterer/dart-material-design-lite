@@ -5,8 +5,8 @@ import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 class Application implements MaterialApplication &#123;
     final Logger _logger = new Logger(&#39;main.Application&#39;);
 
-    final ObservableProperty&lt;String&gt; nrOfItems = new ObservableProperty&lt;String&gt;(&quot;&quot;);
-    final ObservableProperty&lt;String&gt; nrOfItemsDone = new ObservableProperty&lt;String&gt;(&quot;&quot;,
+    final ObservableProperty&lt;int&gt; nrOfItems = new ObservableProperty&lt;int&gt;(0);
+    final ObservableProperty&lt;int&gt; nrOfItemsDone = new ObservableProperty&lt;int&gt;(0,
         interval: new Duration(milliseconds: 500));
 
     Application() &#123;
@@ -18,7 +18,7 @@ class Application implements MaterialApplication &#123;
         final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector(&quot;#item&quot;));
         final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector(&quot;#todo&quot;));
 
-        nrOfItems.observes( () =&gt; todo.items.length &gt; 0 ? todo.items.length.toString() : &quot;&lt;no records&gt;&quot;);
+        nrOfItems.observes( () =&gt; todo.items.length );
         nrOfItemsDone.observes(() &#123;
             int done = 0;
             todo.items.forEach((final ToDoItem item) &#123; done += item.checked ? 1 : 0; &#125;);

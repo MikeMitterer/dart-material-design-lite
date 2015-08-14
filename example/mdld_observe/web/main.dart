@@ -39,7 +39,7 @@ class Application extends MaterialApplication {
     final ObservableList<_Language>  languages = new ObservableList<_Language>();
     final ObservableProperty<String> time = new ObservableProperty<String>("",interval: new Duration(seconds: 1));
     final ObservableProperty<String> records = new ObservableProperty<String>("");
-    final ObservableProperty<_Name>  name = new ObservableProperty<_Name>(new _Name("Mike","Mitterer"));
+    final ObservableProperty<_Name>  nameObject = new ObservableProperty<_Name>(null);
     final ObservableProperty<bool>   isNameNull = new ObservableProperty<bool>(true);
 
     final List<_Name> _names = new List<_Name>();
@@ -72,8 +72,8 @@ class Application extends MaterialApplication {
 
         int counter = 0;
         new Timer.periodic(new Duration(milliseconds: 1000),(final Timer timer) {
-            name.value = _names[counter % 4]; // 0,1,2,...
-            isNameNull.value = name.value == null;
+            nameObject.value = _names[counter % 4]; // 0,1,2,...
+            isNameNull.value = nameObject.value == null;
             counter++;
         });
     }
