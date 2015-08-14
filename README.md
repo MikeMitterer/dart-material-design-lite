@@ -1,5 +1,6 @@
 # Material Design Lite for Dart
-> A library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) components in CSS, Dart, and HTML
+> A GUI library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) 
+components in CSS, Dart, and HTML  
 ([MDL Dart website][mdldemo]).
 
 Material Design Lite lets you add a Material Design look and feel to your static content websites. It doesn’t rely on any JavaScript
@@ -7,10 +8,9 @@ frameworks or libraries. Optimised for cross-device use, gracefully degrades in 
 from the get-go.
 
 ## New
-- mdl-model Component, Check out the [sample](http://samples.material-design-lite.pub/spa_model/index.html)
-- More samples with **StageDive** support
-- [Quick-Start-Section](http://www.material-design-lite.pub/#/quickstart)
-- More infos on ["home"](http://www.material-design-lite.pub/)
+- MaterialObserve with Object support
+- ChooseFormatter added
+- more samples
 
 ## Quick Start with StageDive
 MDL/Dart has StageDive support!  
