@@ -1,6 +1,19 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.3.6](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.5...v1.3.6) - 2015-08-14##
+
+###Docs###
+* New in README [0332aec](https://github.com/mikemitterer/dart-material-design-lite/commit/0332aec096e9ac9b5a41464da801a61c4b8f6bc8)
+
+##[v1.3.5](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.4...v1.3.5) - 2015-08-14##
+
+###Feature###
+* MaterialObserver supports templates + objects [5bd4c35](https://github.com/mikemitterer/dart-material-design-lite/commit/5bd4c35e0c226e2c9885d7fe5ef99cd11f5a4c71)
+
+###Docs###
+* New samples for MaterialObserve and Formatter in styleguide [8ccffca](https://github.com/mikemitterer/dart-material-design-lite/commit/8ccffca22bff8eab7fe2041f30e59073c6e3333f)
+
 ##[v1.3.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.3...v1.3.4) - 2015-08-10##
 
 ###Feature###
