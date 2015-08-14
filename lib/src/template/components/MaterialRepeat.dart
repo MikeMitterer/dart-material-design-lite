@@ -91,13 +91,14 @@ class MaterialRepeat extends MdlTemplateComponent {
         Validate.notNull(item);
 
         _items.add(item);
+
         final dom.HtmlElement renderedChild = await _repeatRenderer.render(element,_mustacheTemplate.renderString(item),replaceNode: false);
         _addDataToDataConsumer(renderedChild,item);
 
         scope = scope != null ? scope : item;
         _eventCompiler.compileElement(scope,renderedChild);
 
-        _logger.fine("Renderer $item");
+        _logger.fine("Renderer $item Nr.of items: ${_items.length} ID: ${element.id}");
     }
 
     /// Removes item from DOM
@@ -107,7 +108,6 @@ class MaterialRepeat extends MdlTemplateComponent {
         final Completer completer = new Completer();
 
         final int index = _items.indexOf(item);
-        _logger.fine("Index to remove: $index");
 
         if(index != -1) {
             final dom.HtmlElement child = element.children[index]; //querySelector("> *:nth-child(${index + 1})");
@@ -190,9 +190,11 @@ class MaterialRepeat extends MdlTemplateComponent {
     Future removeAll() {
         final Completer completer = new Completer();
 
-        new Future(() {
+        if(_items.isNotEmpty) {
             _items.clear();
             element.children.clear();
+        }
+        new Future(() {
             completer.complete();
         });
 
@@ -265,20 +267,24 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         scope.context = scope.parentContext;
 
-        //_logger.info("Itemname: $itemName, Listname: $listName in ${scope.context}, Parent: ${element.parent}");
-
         final List list = new Invoke(scope).field(listName);
         list.forEach( (final item) => add({ itemName : item },scope: scope.context));
 
         Map _getItemFromInternalList(final item) {
-            return _items.firstWhere((final Map<String,dynamic> map) {
+            //_logger.info("I--- ${item.runtimeType} N: ${itemName} #element: ${_items.length} ID: ${element.id}");
+
+            final Map map = _items.firstWhere((final Map<String,dynamic> map) {
                 return map.containsKey(itemName) && map[itemName] == item;
             });
+
+            return map;
         }
 
         if(list is ObservableList) {
             //_logger.info("List ist Observable!");
             (list as ObservableList).onChange.listen((final ListChangedEvent event) {
+                _logger.fine("Changetype: ${event.changetype} ID: ${element.id}");
+
                 switch(event.changetype) {
                     case ListChangeType.ADD:
                         add( { itemName : event.item },scope: scope.context);

@@ -45,7 +45,7 @@ class _MaterialDropZoneConstant {
     const _MaterialDropZoneConstant();
 }    
 
-class MaterialDropZone extends MdlComponent implements ScopeAware {
+class MaterialDropZone extends MdlComponent {
     final Logger _logger = new Logger('mdldnd.MaterialDropZone');
 
     static const _MaterialDropZoneConstant _constant = const _MaterialDropZoneConstant();

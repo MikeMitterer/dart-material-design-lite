@@ -86,6 +86,11 @@ class ObservableList<T> extends ListBase<T> {
         });
     }
 
+    void addIfAbsent(final T value) {
+        if(!_innerList.contains(value)) {
+            add(value);
+        }
+    }
 
     @override
     void insert(int index, T element) {
