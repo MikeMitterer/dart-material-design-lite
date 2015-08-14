@@ -1,3 +1,7 @@
+
+$dnd-z-index-draggable: 100 !default;
+$dnd-z-index-dragging:  101 !default;
+
 // IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container"
 .mdl-dnd__drag-container {
     position: relative;
@@ -36,8 +40,12 @@ mdl-draggable { display: block; }
 
 // DND-Classes defined in DND lib
 .dnd-draggable {
+    z-index: $dnd-z-index-draggable;
+
     cursor: url(package-docroot() + "/packages/dnd/cursor/openhand.cur"), move; /* Cursor for IE. */
     cursor: url(package-docroot() + "/packages/dnd/cursor/openhand.cur") 7 5, move; /* Cursor for FF and Chrome (setting midpoint). */
+
+    .debug & { border: 1px solid lightcoral; }
 }
 
 .dnd-invalid {
@@ -61,6 +69,9 @@ mdl-draggable { display: block; }
 
 .dnd-dragging {
     opacity: 0.5;
+    z-index: $dnd-z-index-dragging;
+
+    .debug & { border: 1px solid cyan; }
 }
 
 .dnd-dragging, .dnd-drag-occurring {
@@ -68,3 +79,6 @@ mdl-draggable { display: block; }
     cursor: url(package-docroot() + "/packages/dnd/cursor/closedhand.cur") 7 5, move; /* Cursor for FF and Chrome (setting midpoint). */
 }
 
+.debug.dnd-drag-occurring {
+    border: 1px solid orange;
+}

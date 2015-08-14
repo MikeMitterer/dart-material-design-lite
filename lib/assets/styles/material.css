@@ -7257,10 +7257,13 @@ mdl-draggable {
             transform: translateX(0); } }
 
 .dnd-draggable {
+  z-index: 100;
   cursor: url("../../../../packages/dnd/cursor/openhand.cur"), move;
   /* Cursor for IE. */
   cursor: url("../../../../packages/dnd/cursor/openhand.cur") 7 5, move;
   /* Cursor for FF and Chrome (setting midpoint). */ }
+  .debug .dnd-draggable {
+    border: 1px solid lightcoral; }
 
 .dnd-invalid {
   -webkit-animation: swing 1s ease;
@@ -7279,13 +7282,19 @@ mdl-draggable {
   background-color: rgba(149, 255, 149, 0.6) !important; }
 
 .dnd-dragging {
-  opacity: 0.5; }
+  opacity: 0.5;
+  z-index: 101; }
+  .debug .dnd-dragging {
+    border: 1px solid cyan; }
 
 .dnd-dragging, .dnd-drag-occurring {
   cursor: url("../../../../packages/dnd/cursor/closedhand.cur"), move;
   /* Cursor for IE. */
   cursor: url("../../../../packages/dnd/cursor/closedhand.cur") 7 5, move;
   /* Cursor for FF and Chrome (setting midpoint). */ }
+
+.debug.dnd-drag-occurring {
+  border: 1px solid orange; }
 
 /**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
