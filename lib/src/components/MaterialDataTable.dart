@@ -91,7 +91,8 @@ class MaterialDataTable extends MdlComponent {
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
-    /// MaterialDataTable.prototype.createCheckbox_ = function(row, rows) {
+    /// Creates a checkbox for a single or or multiple rows and hooks up the
+    /// event handling.
     dom.LabelElement _createCheckbox(final dom.TableRowElement row, final List<dom.HtmlElement> rows) {
 
         final dom.LabelElement label = new dom.LabelElement();
@@ -119,7 +120,12 @@ class MaterialDataTable extends MdlComponent {
         return label;
     }
 
-    /// MaterialDataTable.prototype.selectRow_ = function(checkbox, row, rows) {
+    /// Generates and returns a function that toggles the selection state of a
+    /// single row (or multiple rows).
+    ///
+    /// [checkbox] Checkbox that toggles the selection state.
+    /// [row] to toggle when checkbox changes.
+    /// [rows] to toggle when checkbox changes.
     Function _selectRow(final dom.CheckboxInputElement checkbox, final dom.TableRowElement row, final List<dom.HtmlElement> rows) {
 
         if (row != null) {

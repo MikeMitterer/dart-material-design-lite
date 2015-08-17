@@ -171,7 +171,6 @@ class MaterialSlider extends MdlComponent {
     /// exactly on the 2px slider element, as FireFox seems to be very
     /// strict about
     /// param {Event} event The event that fired.
-    /// MaterialSlider.prototype.onContainerMouseDown_ = function(event) {
     void _onContainerMouseDown(final dom.MouseEvent event) {
 
         // If this click is not on the parent element (but rather some child)
@@ -189,11 +188,6 @@ class MaterialSlider extends MdlComponent {
             button: 0,
             clientX: event.client.x.toInt(),
             clientY: (element.getBoundingClientRect().topLeft.y as double).toInt());
-
-        //    target: event.target,
-        //    buttons: event.buttons,
-        //    clientX: event.clientX,
-        //    clientY: element.getBoundingClientRect().y
 
         element.dispatchEvent(newEvent);
     }

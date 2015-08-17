@@ -239,6 +239,10 @@ class MaterialLayout extends MdlComponent {
                     }
             }
 
+            void _eatEvent(final dom.Event event) {
+                event.preventDefault();
+            }
+
             // Add drawer toggling button to our layout, if we have an openable drawer.
             if (drawer != null) {
 
@@ -265,6 +269,8 @@ class MaterialLayout extends MdlComponent {
                 // not be present.
                 element.classes.add(_cssClasses.HAS_DRAWER);
 
+                //drawer.onMouseWheel.listen(_eatEvent);
+
                 // If we have a fixed header, add the button to the header rather than
                 // the layout.
                 if (element.classes.contains(_cssClasses.FIXED_HEADER)) {
@@ -285,6 +291,7 @@ class MaterialLayout extends MdlComponent {
                 element.append(obfuscator);
 
                 obfuscator.onClick.listen( _drawerToggleHandler );
+                obfuscator.onMouseWheel.listen(_eatEvent);
             }
 
             // Initialize tabs, if any.
@@ -400,20 +407,17 @@ class MaterialLayout extends MdlComponent {
     }
 
     /// Handles toggling of the drawer.
-    /// The [drawer] container element.
     void _drawerToggleHandler(final dom.MouseEvent _) {
         drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
     }
 
     /// Handles (un)setting the `is-animating` class
-    /// MaterialLayout.prototype.headerTransitionEndHandler = /*function*/ () {
     void _headerTransitionEndHandler(final dom.Event event) {
 
         header.classes.remove(_cssClasses.IS_ANIMATING);
     }
 
     /// Handles expanding the header on click
-    /// MaterialLayout.prototype.headerClickHandler = /*function*/ () {
     void _headerClickHandler(final dom.MouseEvent _) {
 
         if (header.classes.contains(_cssClasses.IS_COMPACT)) {

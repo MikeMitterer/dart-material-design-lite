@@ -1,5 +1,4 @@
-<style>
-.demo-grid .mdl-cell {
+.mdl-cell {
   box-sizing: border-box;
   background-color: #BDBDBD;
   height: 200px;
@@ -7,9 +6,6 @@
   padding-top: 4px;
   color: white;
 }
-.demo-grid .mdl-grid:first-of-type .mdl-cell {
+.mdl-grid:first-of-type .mdl-cell {
   height: 50px;
 }
-</style>
-
-{% include "grid.html" %}

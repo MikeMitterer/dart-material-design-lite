@@ -116,8 +116,6 @@ class MaterialMenu extends MdlComponent {
     static MaterialMenu widget(final dom.HtmlElement element) => mdlComponent(element,MaterialMenu) as MaterialMenu;
 
     /// Displays the menu.
-    /// @public
-    /// MaterialMenu.prototype.show = function(evt) {
     void show() {
 
         _recalcPosition();
@@ -165,25 +163,10 @@ class MaterialMenu extends MdlComponent {
 
             // Clean up after the animation is complete.
             _addAnimationEndListener();
-
-            // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-//            StreamSubscription subscription;
-//            subscription = html.document.onClick.listen( (final html.MouseEvent e) {
-//                // Check to see if the document is processing the same event that
-//                // displayed the menu in the first place. If so, do nothing.
-//                // Also check to see if the menu is in the process of closing itself, and
-//                // do nothing in that case.
-//                if (e != event && !_closing) {
-//                    subscription.cancel();
-//                    hide();
-//                }
-//            });
         }
     }
 
     /// Hides the menu.
-    /// @public
-    /// MaterialMenu.prototype.hide = function(evt) {
     void hide() {
 
         if (element != null && _container != null && _outline != null ) {
@@ -213,8 +196,6 @@ class MaterialMenu extends MdlComponent {
     }
 
     /// Displays or hides the menu, depending on current state.
-    /// @public
-    /// MaterialMenu.prototype.toggle = function(evt) {
     void toggle() {
 
         if (_container.classes.contains(_cssClasses.IS_VISIBLE)) {
@@ -352,7 +333,6 @@ class MaterialMenu extends MdlComponent {
 
     /// Handles a click on the "for" element, by positioning the menu and then
     /// toggling it.
-    /// MaterialMenu.prototype.handleForClick_ = function(evt) {
     void _handleForClick(final dom.MouseEvent evt) {
         _recalcPosition();
         toggle();
@@ -398,7 +378,6 @@ class MaterialMenu extends MdlComponent {
     }
 
     /// Handles a keyboard event on the "for" element.
-    /// MaterialMenu.prototype.handleForKeyboardEvent_ = function(evt) {
     void _handleForKeyboardEvent(final dom.KeyboardEvent event) {
         _logger.fine("_handleForKeyboardEvent: $event");
 
@@ -420,7 +399,6 @@ class MaterialMenu extends MdlComponent {
     }
 
     /// Handles a keyboard event on an item.
-    /// MaterialMenu.prototype.handleItemKeyboardEvent_ = function(evt) {
     void _handleItemKeyboardEvent(final dom.KeyboardEvent event) {
         _logger.fine("_handleItemKeyboardEvent: $event");
 
@@ -470,7 +448,6 @@ class MaterialMenu extends MdlComponent {
     }
 
     /// Handles a click event on an item.
-    /// MaterialMenu.prototype.handleItemClick_ = function(evt) {
     void _handleItemClick(final dom.MouseEvent event) {
         event.stopPropagation();
 
@@ -490,7 +467,6 @@ class MaterialMenu extends MdlComponent {
     /// Calculates the initial clip (for opening the menu) or final clip (for closing
     /// it), and applies it. This allows us to animate from or to the correct point,
     /// that is, the point it's aligned to in the "for" element.
-    /// MaterialMenu.prototype.applyClip_ = function(height, width) {
     void _applyClip(final double height,final double width) {
 
         if (element.classes.contains(_cssClasses.UNALIGNED)) {
@@ -516,7 +492,6 @@ class MaterialMenu extends MdlComponent {
     }
 
     /// Adds an event listener to clean up after the animation ends.
-    /// MaterialMenu.prototype.addAnimationEndListener_ = /*function*/ () {
     void _addAnimationEndListener() {
 
         final cleanup = (_) {

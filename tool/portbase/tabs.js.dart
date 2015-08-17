@@ -16,134 +16,133 @@ import 'dart:math' as Math;
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 
+( /*function*/ () {
+
 /// Class constructor for Tabs MDL component.
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
+/// 
 /// param {HTMLElement} element The element that will be upgraded.
-class MaterialTabs {
 
-    final element;
+  final MaterialTabs = function MaterialTabs(element) {
+    // Stores the HTML element.
 
-    MaterialTabs(this.element);
-
-  // Stores the HTML element.
-
-  // Initialize instance.
-  init();
-}
+    // Initialize instance.
+    init();
+  }
+  window.MaterialTabs = MaterialTabs;
 
 /// Store constants in one place so they can be updated easily.
-/// enum {string}
-class _MaterialTabsConstant {
-  // None at the moment.
-}
+/// 
+/// enum {String}
+class _  MaterialTabsConstant {
+    // None at the moment.
+  }
 
 /// Store strings for class names defined by this component that are used in
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
-/// enum {string}
-class _MaterialTabsCssClasses {
-    final String TAB_CLASS = 'mdl-tabs__tab';
-    final String PANEL_CLASS = 'mdl-tabs__panel';
-    final String ACTIVE_CLASS = 'is-active';
-    final String UPGRADED_CLASS = 'is-upgraded';
+/// 
+/// enum {String}
+class _  MaterialTabsCssClasses {
+      final String TAB_CLASS = 'mdl-tabs__tab';
+      final String PANEL_CLASS = 'mdl-tabs__panel';
+      final String ACTIVE_CLASS = 'is-active';
+      final String UPGRADED_CLASS = 'is-upgraded';
 
-    final String MDL_JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-    final String MDL_RIPPLE_CONTAINER = 'mdl-tabs__ripple-container';
-    final String MDL_RIPPLE = 'mdl-ripple';
-    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-}
+      final String MDL_JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+      final String MDL_RIPPLE_CONTAINER = 'mdl-tabs__ripple-container';
+      final String MDL_RIPPLE = 'mdl-ripple';
+      final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+  }
 
 /// Handle clicks to a tabs component
-/// MaterialTabs.prototype.initTabs_ = function(e) {
-void _initTabs(final e) {
-
-  if (element.classes.contains(_cssClasses.MDL_JS_RIPPLE_EFFECT)) {
-    element.classes.add(
-      _cssClasses.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
-  }
-
-  // Select element tabs, document panels
-  _tabs = element.querySelectorAll('.' + _cssClasses.TAB_CLASS);
-  _panels =
-      element.querySelectorAll('.' + _cssClasses.PANEL_CLASS);
-
-  // Create new tabs for each tab element
-
-  for (final i = 0; i < _tabs.length; i++) {
-    new MaterialTab(_tabs[i], this);
-  }
-
-  element.classes.add(_cssClasses.UPGRADED_CLASS);
-}
-
-/// Reset tab state, dropping active classes
-/// MaterialTabs.prototype.resetTabState_ = /*function*/ () {
-void _resetTabState() {
-
-  for (final k = 0; k < _tabs.length; k++) {
-    _tabs[k].classes.remove(_cssClasses.ACTIVE_CLASS);
-  }
-}
-
-/// Reset panel state, droping active classes
-/// MaterialTabs.prototype.resetPanelState_ = /*function*/ () {
-void _resetPanelState() {
-
-  for (final j = 0; j < _panels.length; j++) {
-    _panels[j].classes.remove(_cssClasses.ACTIVE_CLASS);
-  }
-}
-
-/// MaterialTabs.prototype.init = /*function*/ () {
-void init() {
-
-  if (element != null) {
-    _initTabs();
-  }
-}
-
-class MaterialTab {
-
-    final tab;
-    final ctx;
-
-    MaterialTab(this.tab,this.ctx);
-
-  if (tab) {
-    if (ctx._element.classes.contains(ctx._cssClasses.MDL_JS_RIPPLE_EFFECT)) {
-
-      final rippleContainer = new html.SpanElement();
-      rippleContainer.classes.add(ctx._cssClasses.MDL_RIPPLE_CONTAINER);
-      rippleContainer.classes.add(ctx._cssClasses.MDL_JS_RIPPLE_EFFECT);
-
-      final ripple = new html.SpanElement();
-      ripple.classes.add(ctx._cssClasses.MDL_RIPPLE);
-      rippleContainer.append(ripple);
-      tab.append(rippleContainer);
+/// 
+///   MaterialTabs.prototype.initTabs_ = /*function*/ () {
+void _initTabs() {
+    if (element.classes.contains(_cssClasses.MDL_JS_RIPPLE_EFFECT)) {
+      element.classes.add(
+        _cssClasses.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
     }
 
-	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-    tab.onClick.listen( /*function*/ (e) {
-      e.preventDefault();
+    // Select element tabs, document panels
+    _tabs = element.querySelectorAll('.' + _cssClasses.TAB_CLASS);
+    _panels =
+        element.querySelectorAll('.' + _cssClasses.PANEL_CLASS);
 
-      final href = tab.href.split('#')[1];
+    // Create new tabs for each tab element
 
-      final panel = ctx._element.querySelector('#' + href);
-      ctx._resetTabState();
-      ctx._resetPanelState();
-      tab.classes.add(ctx._cssClasses.ACTIVE_CLASS);
-      panel.classes.add(ctx._cssClasses.ACTIVE_CLASS);
-    });
+    for (final i = 0; i < _tabs.length; i++) {
+      new MaterialTab(_tabs[i], this);
+    }
 
+    element.classes.add(_cssClasses.UPGRADED_CLASS);
   }
-}
 
-// The component registers itself. It can assume componentHandler is available
-// // in the global scope.
+/// Reset tab state, dropping active classes
+/// 
+///   MaterialTabs.prototype.resetTabState_ = /*function*/ () {
+void _resetTabState() {
 
-// componentHandler.register({
-//   constructor: MaterialTabs,
-//   classAsString: 'MaterialTabs',
-//   cssClass: 'mdl-js-tabs'
-// });
+    for (final k = 0; k < _tabs.length; k++) {
+      _tabs[k].classes.remove(_cssClasses.ACTIVE_CLASS);
+    }
+  }
+
+/// Reset panel state, droping active classes
+/// 
+///   MaterialTabs.prototype.resetPanelState_ = /*function*/ () {
+void _resetPanelState() {
+
+    for (final j = 0; j < _panels.length; j++) {
+      _panels[j].classes.remove(_cssClasses.ACTIVE_CLASS);
+    }
+  }
+
+/// Initialize element.
+///   MaterialTabs.prototype.init = /*function*/ () {
+void init() {
+    if (element != null) {
+      _initTabs();
+    }
+  }
+
+  function MaterialTab(tab, ctx) {
+    if (tab) {
+      if (ctx._element.classes.contains(ctx._cssClasses.MDL_JS_RIPPLE_EFFECT)) {
+
+        final rippleContainer = new html.SpanElement();
+        rippleContainer.classes.add(ctx._cssClasses.MDL_RIPPLE_CONTAINER);
+        rippleContainer.classes.add(ctx._cssClasses.MDL_JS_RIPPLE_EFFECT);
+
+        final ripple = new html.SpanElement();
+        ripple.classes.add(ctx._cssClasses.MDL_RIPPLE);
+        rippleContainer.append(ripple);
+        tab.append(rippleContainer);
+      }
+
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+      tab.onClick.listen( /*function*/ (e) {
+        e.preventDefault();
+
+        final href = tab.href.split('#')[1];
+
+        final panel = ctx._element.querySelector('#' + href);
+        ctx._resetTabState();
+        ctx._resetPanelState();
+        tab.classes.add(ctx._cssClasses.ACTIVE_CLASS);
+        panel.classes.add(ctx._cssClasses.ACTIVE_CLASS);
+      });
+
+    }
+  }
+
+  // The component registers itself. It can assume componentHandler is available
+//   // in the global scope.
+
+//   componentHandler.register({
+//     constructor: MaterialTabs,
+//     classAsString: 'MaterialTabs',
+//     cssClass: 'mdl-js-tabs'
+//   });
+// })();

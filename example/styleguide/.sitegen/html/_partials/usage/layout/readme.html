@@ -4,21 +4,21 @@
 <p>Use of MDL layout principles simplifies the creation of scalable pages by providing reusable components and encourages consistency across environments by establishing recognizable visual elements, adhering to logical structural grids, and maintaining appropriate spacing across multiple platforms and screen sizes. MDL layout is extremely powerful and dynamic, allowing for great consistency in outward appearance and behavior while maintaining development flexibility and ease of use.</p>
 <h3 id="to-include-a-basic-mdl-layout-component">To include a basic MDL <strong>layout</strong> component:</h3>
 <p> 1. Code a <code>&lt;div&gt;</code> element. This is the &quot;outer&quot; div that holds the entire layout. Add MDL classes as indicated, separated by spaces, to the div using the <code>class</code> attribute.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 2. Inside the div, code a <code>&lt;header&gt;</code> element. This holds the header row with navigation links that is displayed on large screens, and the menu icon that opens the navigation drawer for smaller screens. Add the MDL class to the header using the <code>class</code> attribute.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;/header&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 3. Inside the header, add a <code>&lt;div&gt;</code> to produce the menu icon, and include the MDL class as indicated. The div has no content of its own.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
   <span class="kw">&lt;/header&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 4. Still inside the header, add another <code>&lt;div&gt;</code> to hold the header row's content, and include the MDL class as indicated.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -26,7 +26,7 @@
   <span class="kw">&lt;/header&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 5. Inside the header row div, add a span containing the layout title, and include the MDL class as indicated.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -35,7 +35,7 @@
   <span class="kw">&lt;/header&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 6. Following the span, add a <code>&lt;div&gt;</code> to align the header's navigation links to the right, and include the MDL class as indicated.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -45,7 +45,7 @@
   <span class="kw">&lt;/header&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 7. Following the spacer div, add a <code>&lt;nav&gt;</code> element to contain the header's navigation links, and include the MDL class as indicated. Inside the nav, add one anchor <code>&lt;a&gt;</code> element for each header link, and include the MDL class as indicated. This completes the layout's header.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -60,7 +60,7 @@
   <span class="kw">&lt;/header&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 8. Following the header, add a <code>&lt;div&gt;</code> element to hold the slide-out drawer's content, and add the MDL class as indicated. The drawer appears automatically on smaller screens, and may be opened with the menu icon on any screen size.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -77,7 +77,7 @@
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 9. Inside the drawer div, add a span containing the layout title (this should match the title in step 5), and include the MDL class as indicated.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -95,7 +95,7 @@
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 10. Following the span, add a <code>&lt;nav&gt;</code> element to contain the drawer's navigation links, and one anchor <code>&lt;a&gt;</code> element for each drawer link (these should match the links in step 7), and include the MDL classes as indicated. This completes the layout's drawer.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -118,7 +118,7 @@
   <span class="kw">&lt;/div&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p> 11. Finally, following the drawer div, add a <code>&lt;main&gt;</code> element to hold the layout's primary content, and include the MDL class as indicated. Inside that element, add your desired content.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -148,7 +148,7 @@
 <p>The layout component is ready for use.</p>
 <h4 id="examples">Examples</h4>
 <p>A layout with a fixed header for larger screens and a collapsible drawer for smaller screens.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
@@ -178,9 +178,9 @@
   <span class="kw">&lt;/main&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p>The same layout with a non-fixed header that scrolls with the content.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header mdl-layout__header--scroll&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
+    <span class="kw">&lt;img</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/img&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
       <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span>
       <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
@@ -207,8 +207,8 @@
     <span class="kw">&lt;div&gt;</span>Content<span class="kw">&lt;/div&gt;</span>
   <span class="kw">&lt;/main&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
-<p>A layout with a fixed drawer that serves as sidebar navigation on larger screens. The drawer collapses and the menu icon is displayed on larger screens.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<p>A layout with a fixed drawer that serves as sidebar navigation on larger screens. The drawer collapses and the menu icon is displayed on smaller screens.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--fixed-drawer&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
       <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-title&quot;</span><span class="kw">&gt;</span>Fixed drawer layout demo<span class="kw">&lt;/span&gt;</span>
@@ -229,7 +229,7 @@
   <span class="kw">&lt;/main&gt;</span>
 <span class="kw">&lt;/div&gt;</span></code></pre>
 <p>A layout with a fixed drawer but no header.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button&quot;</span><span class="kw">&gt;</span>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout mdl-layout--fixed-drawer&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span>
     <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
@@ -266,74 +266,74 @@
 <td align="left">Required on outer div element</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>mdl-layout--overlay-drawer-button</code></td>
-<td align="left">Defines layout as having a button-activated drawer</td>
-<td align="left">Required on outer div element</td>
-</tr>
-<tr class="even">
 <td align="left"><code>mdl-layout__header</code></td>
 <td align="left">Defines container as an MDL component</td>
 <td align="left">Required on header element</td>
 </tr>
-<tr class="odd">
-<td align="left"><code>mdl-layout-icon</code></td>
-<td align="left">Produces MDL menu icon</td>
-<td align="left">Required on icon div</td>
-</tr>
 <tr class="even">
+<td align="left"><code>mdl-layout-icon</code></td>
+<td align="left">Used for adding an application icon. Gets concealed by menu icon if both are visible.</td>
+<td align="left">Goes on optional icon element</td>
+</tr>
+<tr class="odd">
 <td align="left"><code>mdl-layout__header-row</code></td>
 <td align="left">Defines container as MDL header row</td>
 <td align="left">Required on header content div</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>mdl-layout-title</code></td>
 <td align="left">Defines layout title text</td>
 <td align="left">Required on layout title span</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>mdl-layout-spacer</code></td>
-<td align="left">Right-aligns layout header links</td>
+<td align="left">Used to align elements inside a header or drawer, by growing to fill remaining space. Commonly used for aligning elements to the right.</td>
 <td align="left">Goes on optional div following layout title</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>mdl-navigation</code></td>
 <td align="left">Defines container as MDL navigation group</td>
 <td align="left">Required on nav element</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>mdl-navigation__link</code></td>
 <td align="left">Defines anchor as MDL navigation link</td>
 <td align="left">Required on header and/or drawer anchor elements</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>mdl-layout__drawer</code></td>
 <td align="left">Defines container as MDL layout drawer</td>
 <td align="left">Required on drawer div element</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>mdl-layout__content</code></td>
 <td align="left">Defines container as MDL layout content</td>
 <td align="left">Required on main element</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>mdl-layout__header--scroll</code></td>
-<td align="left">Defines header row as scrollable</td>
+<td align="left">Makes the header scroll with the content</td>
 <td align="left">Optional; goes on header element</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>mdl-layout--fixed-drawer</code></td>
-<td align="left">Defines layout drawer as fixed</td>
+<td align="left">Makes the drawer always visible and open in larger screens</td>
 <td align="left">Optional; goes on outer div element (not drawer div element)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>mdl-layout--fixed-header</code></td>
-<td align="left">Defines header as fixed even on smaller screens</td>
+<td align="left">Makes the header always visible, even in small screens</td>
 <td align="left">Optional; goes on outer div element</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>mdl-layout--large-screen-only</code></td>
-<td align="left">Hides header navigation on smaller screens</td>
-<td align="left">Optional; goes on header nav element</td>
+<td align="left">Hides an element on smaller screens</td>
+<td align="left">Optional; goes on any descendant of <code>mdl-layout</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-layout--small-screen-only</code></td>
+<td align="left">Hides an element on larger screens</td>
+<td align="left">Optional; goes on any descendant of <code>mdl-layout</code></td>
 </tr>
 <tr class="odd">
 <td align="left"><code>mdl-layout__header--waterfall</code></td>
@@ -346,28 +346,33 @@
 <td align="left">Optional; goes on header element</td>
 </tr>
 <tr class="odd">
+<td align="left"><code>mdl-layout__header--transparent</code></td>
+<td align="left">Uses a header without a shadow</td>
+<td align="left">Optional; goes on header element</td>
+</tr>
+<tr class="even">
 <td align="left"><code>mdl-layout__tab-bar</code></td>
 <td align="left">Defines container as an MDL tab bar</td>
 <td align="left">Required on div element inside header (tabbed layout)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>mdl-layout__tab</code></td>
 <td align="left">Defines anchor as MDL tab link</td>
 <td align="left">Required on tab bar anchor elements</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>is-active</code></td>
 <td align="left">Defines tab as default active tab</td>
 <td align="left">Optional; goes on tab bar anchor element and associated tab section element</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>mdl-layout__tab-panel</code></td>
 <td align="left">Defines container as tab content panel</td>
 <td align="left">Required on tab section elements</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>mdl-layout--fixed-tabs</code></td>
-<td align="left">Defines MDL tab bar as fixed</td>
+<td align="left">Uses fixed tabs instead of the default scrollable tabs</td>
 <td align="left">Optional; goes on outer div element (not div inside header)</td>
 </tr>
 </tbody>

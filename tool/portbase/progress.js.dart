@@ -16,94 +16,103 @@ import 'dart:math' as Math;
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 
+( /*function*/ () {
+
 /// Class constructor for Progress MDL component.
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
+/// 
 /// param {HTMLElement} element The element that will be upgraded.
-class MaterialProgress {
 
-    final element;
+  final MaterialProgress = function MaterialProgress(element) {
 
-    MaterialProgress(this.element);
-
-  // Initialize instance.
-  init();
-}
+    // Initialize instance.
+    init();
+  }
+  window.MaterialProgress = MaterialProgress;
 
 /// Store constants in one place so they can be updated easily.
-/// enum {string | number}
-class _MaterialProgressConstant {
-}
+/// 
+/// enum {String | Number}
+class _  MaterialProgressConstant {
+  }
 
 /// Store strings for class names defined by this component that are used in
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
-/// enum {string}
-class _MaterialProgressCssClasses {
-    final String INDETERMINATE_CLASS = 'mdl-progress__indeterminate';
-}
-
-/// MaterialProgress.prototype.setProgress = function(p) {
-void setProgress(final p) {
-
-  if (element.classes.contains(_cssClasses.INDETERMINATE_CLASS)) {
-    return;
+/// 
+/// enum {String}
+class _  MaterialProgressCssClasses {
+      final String INDETERMINATE_CLASS = 'mdl-progress__indeterminate';
   }
 
-  _progressbar.style.width = p + '%';
-}
+/// Set the current progress of the progressbar.
+/// 
+/// param {Number} p Percentage of the progress (0-100)
+/// public
+///   MaterialProgress.prototype.setProgress = function(p) {
+void setProgress(final p) {
+    if (element.classes.contains(_cssClasses.INDETERMINATE_CLASS)) {
+      return;
+    }
 
-/// MaterialProgress.prototype.setBuffer = function(p) {
+    _progressbar.style.width = p + '%';
+  }
+
+/// Set the current progress of the buffer.
+/// 
+/// param {Number} p Percentage of the buffer (0-100)
+/// public
+///   MaterialProgress.prototype.setBuffer = function(p) {
 void setBuffer(final p) {
-
-  _bufferbar.style.width = p + '%';
-  _auxbar.style.width = (100 - p) + '%';
-}
+    _bufferbar.style.width = p + '%';
+    _auxbar.style.width = (100 - p) + '%';
+  }
 
 /// Initialize element.
-/// MaterialProgress.prototype.init = /*function*/ () {
+///   MaterialProgress.prototype.init = /*function*/ () {
 void init() {
+    if (element != null) {
 
-  if (element != null) {
+      final el = new html.DivElement();
+      el.className = 'progressbar bar bar1';
+      element.append(el);
+      _progressbar = el;
 
-    final el = new html.DivElement();
-    el.className = 'progressbar bar bar1';
-    element.append(el);
-    _progressbar = el;
+      el = new html.DivElement();
+      el.className = 'bufferbar bar bar2';
+      element.append(el);
+      _bufferbar = el;
 
-    el = new html.DivElement();
-    el.className = 'bufferbar bar bar2';
-    element.append(el);
-    _bufferbar = el;
+      el = new html.DivElement();
+      el.className = 'auxbar bar bar3';
+      element.append(el);
+      _auxbar = el;
 
-    el = new html.DivElement();
-    el.className = 'auxbar bar bar3';
-    element.append(el);
-    _auxbar = el;
+      _progressbar.style.width = '0%';
+      _bufferbar.style.width = '100%';
+      _auxbar.style.width = '0%';
 
-    _progressbar.style.width = '0%';
-    _bufferbar.style.width = '100%';
-    _auxbar.style.width = '0%';
-
-    element.classes.add('is-upgraded');
+      element.classes.add('is-upgraded');
+    }
   }
-}
 
 /// Downgrade the component
 /// 
-/// MaterialProgress.prototype.mdlDowngrade_ = /*function*/ () {
+///   MaterialProgress.prototype.mdlDowngrade_ = /*function*/ () {
 void _mdlDowngrade() {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
   }
-}
 
-// The component registers itself. It can assume componentHandler is available
-// // in the global scope.
+  // The component registers itself. It can assume componentHandler is available
+//   // in the global scope.
 
-// componentHandler.register({
-//   constructor: MaterialProgress,
-//   classAsString: 'MaterialProgress',
-//   cssClass: 'mdl-js-progress',
-//   widget: true
-// });
+//   componentHandler.register({
+//     constructor: MaterialProgress,
+//     classAsString: 'MaterialProgress',
+//     cssClass: 'mdl-js-progress',
+//     widget: true
+//   });
+// })();

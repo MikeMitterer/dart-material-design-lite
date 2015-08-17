@@ -184,8 +184,6 @@ class MaterialIconToggle extends MdlComponent {
     }
 
     /// Handle class updates.
-    /// The [button] whose classes we should update.
-    /// The [label] whose classes we should update.
     void _updateClasses() {
         _checkDisabled();
         _checkToggleState();

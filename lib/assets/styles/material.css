@@ -18,16 +18,13 @@
  * limitations under the License.
  */
 /**
- * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
- * IT-Consulting and Development Limited.
- *
- * All Rights Reserved.
+ * Copyright 2015 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -53,6 +50,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+ * IT-Consulting and Development Limited.
+ *
+ * All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* TOOLTIP */
 /* Config - MaterialDesignLite
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -125,6 +157,36 @@
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -142,6 +204,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -156,14 +219,15 @@ html {
   line-height: 1.4; }
 
 /*
- * Remove text-shadow in selection highlight: h5bp.com/i
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
  */
-::-moz-selection {
+::-moz-selection{
   background: #b3d4fc;
   text-shadow: none; }
-
 ::selection {
   background: #b3d4fc;
   text-shadow: none; }
@@ -180,10 +244,11 @@ hr {
   padding: 0; }
 
 /*
- * Remove the gap between images, videos, audio and canvas and the bottom of
- * their containers: h5bp.com/i/440
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
  */
-audio, canvas, img, svg, video {
+audio, canvas, iframe, img, svg, video {
   vertical-align: middle; }
 
 /*
@@ -201,9 +266,9 @@ textarea {
   resize: vertical; }
 
 /* ==========================================================================
-   Browse Happy prompt
+   Browser Upgrade Prompt
    ========================================================================== */
-.browsehappy {
+.browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
@@ -216,14 +281,14 @@ textarea {
    Helper classes
    ========================================================================== */
 /*
- * Hide visually and from screen readers: h5bp.com/u
+ * Hide visually and from screen readers:
  */
 .hidden {
-  display: none !important;
-  visibility: hidden; }
+  display: none !important; }
 
 /*
- * Hide only visually, but have it available for screen readers: h5bp.com/v
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
 .visuallyhidden {
   border: 0;
@@ -236,8 +301,9 @@ textarea {
   width: 1px; }
 
 /*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
  */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   clip: auto;
@@ -280,13 +346,14 @@ textarea {
    ========================================================================== */
 /* ==========================================================================
    Print styles.
-   Inlined to avoid the additional HTTP request: h5bp.com/r
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 @media print {
-  *, *:before, *:after {
+  *, *:before, *:after, *:first-letter, *:first-line {
     background: transparent !important;
     color: #000 !important;
-    /* Black prints faster: h5bp.com/s */
+    /* Black prints faster: http://www.sanbeiji.com/archives/953 */
     box-shadow: none !important;
     text-shadow: none !important; }
   a, a:visited {
@@ -304,9 +371,12 @@ textarea {
   pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
+  /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
   thead {
-    display: table-header-group;
-    /* h5bp.com/t */ }
+    display: table-header-group; }
   tr, img {
     page-break-inside: avoid; }
   img {
@@ -372,6 +442,21 @@ main {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -389,6 +474,7 @@ main {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-color-text--red {
   color: #f44336 !important; }
 
@@ -2339,6 +2425,21 @@ main {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -2356,6 +2457,7 @@ main {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 html, body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 14px;
@@ -2762,6 +2864,21 @@ ul, ol {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -2779,6 +2896,7 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
@@ -2813,6 +2931,21 @@ ul, ol {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -2830,6 +2963,7 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-ripple {
   background: black;
   border-radius: 50%;
@@ -2867,6 +3001,21 @@ ul, ol {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -2884,6 +3033,7 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -2900,6 +3050,21 @@ ul, ol {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -2933,6 +3098,7 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-button {
   background: transparent;
   border: none;
@@ -3084,7 +3250,7 @@ input.mdl-button[type="submit"] {
   width: 100%;
   z-index: 0;
   overflow: hidden; }
-  .mdl-button[disabled] .mdl-button__ripple-container .mdl-ripple {
+  .mdl-button[disabled] .mdl-button__ripple-container .mdl-ripple, .mdl-button.mdl-button--disabled .mdl-button__ripple-container .mdl-ripple {
     background-color: transparent; }
 
 .mdl-button--primary.mdl-button--primary {
@@ -3103,21 +3269,39 @@ input.mdl-button[type="submit"] {
     color: white;
     background-color: #ff4081; }
 
-.mdl-button[disabled][disabled] {
+.mdl-button[disabled][disabled], .mdl-button.mdl-button--disabled.mdl-button--disabled {
   color: rgba(0, 0, 0, 0.26);
   cursor: auto;
   background-color: transparent; }
-.mdl-button--fab[disabled][disabled] {
+.mdl-button--fab[disabled][disabled], .mdl-button--fab.mdl-button--disabled.mdl-button--disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.26);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-.mdl-button--raised[disabled][disabled] {
+.mdl-button--raised[disabled][disabled], .mdl-button--raised.mdl-button--disabled.mdl-button--disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.26);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-.mdl-button--colored[disabled][disabled] {
+.mdl-button--colored[disabled][disabled], .mdl-button--colored.mdl-button--disabled.mdl-button--disabled {
   color: rgba(0, 0, 0, 0.26); }
 
+.mdl-button .material-icons {
+  vertical-align: middle; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3151,6 +3335,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-card {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3280,6 +3465,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -3297,6 +3497,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -3450,6 +3651,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -3467,6 +3683,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-data-table {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -3551,6 +3768,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -3568,6 +3800,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-icon--spin {
   -webkit-animation: mdl-icon--spin 2s infinite linear;
   animation: mdl-icon--spin 2s infinite linear;
@@ -3741,6 +3974,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -3758,6 +4006,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -3849,6 +4098,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -3866,6 +4130,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-mega-footer {
   padding: 16px 40px;
   color: #9e9e9e;
@@ -3938,7 +4203,7 @@ input.mdl-button[type="submit"] {
 .mdl-mega-footer--heading-checkbox, .mdl-mega-footer__heading-checkbox {
   position: absolute;
   width: 100%;
-  height: 55.8px;
+  height: 68px;
   padding: 32px;
   margin: 0;
   margin-top: -16px;
@@ -3958,11 +4223,11 @@ input.mdl-button[type="submit"] {
 .mdl-mega-footer--heading, .mdl-mega-footer__heading {
   position: relative;
   width: 100%;
-  padding-right: 39.8px;
+  padding-right: 52px;
   margin-bottom: 16px;
   box-sizing: border-box;
-  font-size: 14px;
-  line-height: 23.8px;
+  font-size: 24px;
+  line-height: 36px;
   font-weight: 500;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -3975,8 +4240,8 @@ input.mdl-button[type="submit"] {
   top: 0;
   right: 0;
   display: block;
-  width: 23.8px;
-  height: 23.8px;
+  width: 36px;
+  height: 36px;
   background-size: cover; }
 
 .mdl-mega-footer--link-list, .mdl-mega-footer__link-list {
@@ -4046,6 +4311,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -4063,6 +4343,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4144,6 +4425,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -4161,6 +4457,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-grid {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4213,101 +4510,53 @@ input.mdl-button[type="submit"] {
       width: 100%; }
   .mdl-cell--hide-phone {
     display: none !important; }
-  .mdl-cell--1-col {
+  .mdl-cell--1-col, .mdl-cell--1-col-phone.mdl-cell--1-col-phone {
     width: calc(25% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--1-col {
+    .mdl-grid--no-spacing > .mdl-cell--1-col, .mdl-grid--no-spacing > .mdl-cell--1-col-phone.mdl-cell--1-col-phone {
       width: 25%; }
-  .mdl-cell--1-col-phone.mdl-cell--1-col-phone {
-    width: calc(25% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--1-col-phone.mdl-cell--1-col-phone {
-      width: 25%; }
-  .mdl-cell--2-col {
+  .mdl-cell--2-col, .mdl-cell--2-col-phone.mdl-cell--2-col-phone {
     width: calc(50% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--2-col {
+    .mdl-grid--no-spacing > .mdl-cell--2-col, .mdl-grid--no-spacing > .mdl-cell--2-col-phone.mdl-cell--2-col-phone {
       width: 50%; }
-  .mdl-cell--2-col-phone.mdl-cell--2-col-phone {
-    width: calc(50% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--2-col-phone.mdl-cell--2-col-phone {
-      width: 50%; }
-  .mdl-cell--3-col {
+  .mdl-cell--3-col, .mdl-cell--3-col-phone.mdl-cell--3-col-phone {
     width: calc(75% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--3-col {
+    .mdl-grid--no-spacing > .mdl-cell--3-col, .mdl-grid--no-spacing > .mdl-cell--3-col-phone.mdl-cell--3-col-phone {
       width: 75%; }
-  .mdl-cell--3-col-phone.mdl-cell--3-col-phone {
-    width: calc(75% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--3-col-phone.mdl-cell--3-col-phone {
-      width: 75%; }
-  .mdl-cell--4-col {
+  .mdl-cell--4-col, .mdl-cell--4-col-phone.mdl-cell--4-col-phone {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--4-col {
+    .mdl-grid--no-spacing > .mdl-cell--4-col, .mdl-grid--no-spacing > .mdl-cell--4-col-phone.mdl-cell--4-col-phone {
       width: 100%; }
-  .mdl-cell--4-col-phone.mdl-cell--4-col-phone {
+  .mdl-cell--5-col, .mdl-cell--5-col-phone.mdl-cell--5-col-phone {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--4-col-phone.mdl-cell--4-col-phone {
+    .mdl-grid--no-spacing > .mdl-cell--5-col, .mdl-grid--no-spacing > .mdl-cell--5-col-phone.mdl-cell--5-col-phone {
       width: 100%; }
-  .mdl-cell--5-col {
+  .mdl-cell--6-col, .mdl-cell--6-col-phone.mdl-cell--6-col-phone {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--5-col {
+    .mdl-grid--no-spacing > .mdl-cell--6-col, .mdl-grid--no-spacing > .mdl-cell--6-col-phone.mdl-cell--6-col-phone {
       width: 100%; }
-  .mdl-cell--5-col-phone.mdl-cell--5-col-phone {
+  .mdl-cell--7-col, .mdl-cell--7-col-phone.mdl-cell--7-col-phone {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--5-col-phone.mdl-cell--5-col-phone {
+    .mdl-grid--no-spacing > .mdl-cell--7-col, .mdl-grid--no-spacing > .mdl-cell--7-col-phone.mdl-cell--7-col-phone {
       width: 100%; }
-  .mdl-cell--6-col {
+  .mdl-cell--8-col, .mdl-cell--8-col-phone.mdl-cell--8-col-phone {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--6-col {
+    .mdl-grid--no-spacing > .mdl-cell--8-col, .mdl-grid--no-spacing > .mdl-cell--8-col-phone.mdl-cell--8-col-phone {
       width: 100%; }
-  .mdl-cell--6-col-phone.mdl-cell--6-col-phone {
+  .mdl-cell--9-col, .mdl-cell--9-col-phone.mdl-cell--9-col-phone {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--6-col-phone.mdl-cell--6-col-phone {
+    .mdl-grid--no-spacing > .mdl-cell--9-col, .mdl-grid--no-spacing > .mdl-cell--9-col-phone.mdl-cell--9-col-phone {
       width: 100%; }
-  .mdl-cell--7-col {
+  .mdl-cell--10-col, .mdl-cell--10-col-phone.mdl-cell--10-col-phone {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--7-col {
+    .mdl-grid--no-spacing > .mdl-cell--10-col, .mdl-grid--no-spacing > .mdl-cell--10-col-phone.mdl-cell--10-col-phone {
       width: 100%; }
-  .mdl-cell--7-col-phone.mdl-cell--7-col-phone {
+  .mdl-cell--11-col, .mdl-cell--11-col-phone.mdl-cell--11-col-phone {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--7-col-phone.mdl-cell--7-col-phone {
+    .mdl-grid--no-spacing > .mdl-cell--11-col, .mdl-grid--no-spacing > .mdl-cell--11-col-phone.mdl-cell--11-col-phone {
       width: 100%; }
-  .mdl-cell--8-col {
+  .mdl-cell--12-col, .mdl-cell--12-col-phone.mdl-cell--12-col-phone {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--8-col {
-      width: 100%; }
-  .mdl-cell--8-col-phone.mdl-cell--8-col-phone {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--8-col-phone.mdl-cell--8-col-phone {
-      width: 100%; }
-  .mdl-cell--9-col {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--9-col {
-      width: 100%; }
-  .mdl-cell--9-col-phone.mdl-cell--9-col-phone {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--9-col-phone.mdl-cell--9-col-phone {
-      width: 100%; }
-  .mdl-cell--10-col {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--10-col {
-      width: 100%; }
-  .mdl-cell--10-col-phone.mdl-cell--10-col-phone {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--10-col-phone.mdl-cell--10-col-phone {
-      width: 100%; }
-  .mdl-cell--11-col {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--11-col {
-      width: 100%; }
-  .mdl-cell--11-col-phone.mdl-cell--11-col-phone {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--11-col-phone.mdl-cell--11-col-phone {
-      width: 100%; }
-  .mdl-cell--12-col {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--12-col {
-      width: 100%; }
-  .mdl-cell--12-col-phone.mdl-cell--12-col-phone {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--12-col-phone.mdl-cell--12-col-phone {
+    .mdl-grid--no-spacing > .mdl-cell--12-col, .mdl-grid--no-spacing > .mdl-cell--12-col-phone.mdl-cell--12-col-phone {
       width: 100%; } }
 
 @media (min-width: 480px) and (max-width: 839px) {
@@ -4320,101 +4569,53 @@ input.mdl-button[type="submit"] {
       width: 50%; }
   .mdl-cell--hide-tablet {
     display: none !important; }
-  .mdl-cell--1-col {
+  .mdl-cell--1-col, .mdl-cell--1-col-tablet.mdl-cell--1-col-tablet {
     width: calc(12.5% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--1-col {
+    .mdl-grid--no-spacing > .mdl-cell--1-col, .mdl-grid--no-spacing > .mdl-cell--1-col-tablet.mdl-cell--1-col-tablet {
       width: 12.5%; }
-  .mdl-cell--1-col-tablet.mdl-cell--1-col-tablet {
-    width: calc(12.5% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--1-col-tablet.mdl-cell--1-col-tablet {
-      width: 12.5%; }
-  .mdl-cell--2-col {
+  .mdl-cell--2-col, .mdl-cell--2-col-tablet.mdl-cell--2-col-tablet {
     width: calc(25% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--2-col {
+    .mdl-grid--no-spacing > .mdl-cell--2-col, .mdl-grid--no-spacing > .mdl-cell--2-col-tablet.mdl-cell--2-col-tablet {
       width: 25%; }
-  .mdl-cell--2-col-tablet.mdl-cell--2-col-tablet {
-    width: calc(25% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--2-col-tablet.mdl-cell--2-col-tablet {
-      width: 25%; }
-  .mdl-cell--3-col {
+  .mdl-cell--3-col, .mdl-cell--3-col-tablet.mdl-cell--3-col-tablet {
     width: calc(37.5% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--3-col {
+    .mdl-grid--no-spacing > .mdl-cell--3-col, .mdl-grid--no-spacing > .mdl-cell--3-col-tablet.mdl-cell--3-col-tablet {
       width: 37.5%; }
-  .mdl-cell--3-col-tablet.mdl-cell--3-col-tablet {
-    width: calc(37.5% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--3-col-tablet.mdl-cell--3-col-tablet {
-      width: 37.5%; }
-  .mdl-cell--4-col {
+  .mdl-cell--4-col, .mdl-cell--4-col-tablet.mdl-cell--4-col-tablet {
     width: calc(50% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--4-col {
+    .mdl-grid--no-spacing > .mdl-cell--4-col, .mdl-grid--no-spacing > .mdl-cell--4-col-tablet.mdl-cell--4-col-tablet {
       width: 50%; }
-  .mdl-cell--4-col-tablet.mdl-cell--4-col-tablet {
-    width: calc(50% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--4-col-tablet.mdl-cell--4-col-tablet {
-      width: 50%; }
-  .mdl-cell--5-col {
+  .mdl-cell--5-col, .mdl-cell--5-col-tablet.mdl-cell--5-col-tablet {
     width: calc(62.5% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--5-col {
+    .mdl-grid--no-spacing > .mdl-cell--5-col, .mdl-grid--no-spacing > .mdl-cell--5-col-tablet.mdl-cell--5-col-tablet {
       width: 62.5%; }
-  .mdl-cell--5-col-tablet.mdl-cell--5-col-tablet {
-    width: calc(62.5% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--5-col-tablet.mdl-cell--5-col-tablet {
-      width: 62.5%; }
-  .mdl-cell--6-col {
+  .mdl-cell--6-col, .mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
     width: calc(75% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--6-col {
+    .mdl-grid--no-spacing > .mdl-cell--6-col, .mdl-grid--no-spacing > .mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
       width: 75%; }
-  .mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
-    width: calc(75% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--6-col-tablet.mdl-cell--6-col-tablet {
-      width: 75%; }
-  .mdl-cell--7-col {
+  .mdl-cell--7-col, .mdl-cell--7-col-tablet.mdl-cell--7-col-tablet {
     width: calc(87.5% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--7-col {
+    .mdl-grid--no-spacing > .mdl-cell--7-col, .mdl-grid--no-spacing > .mdl-cell--7-col-tablet.mdl-cell--7-col-tablet {
       width: 87.5%; }
-  .mdl-cell--7-col-tablet.mdl-cell--7-col-tablet {
-    width: calc(87.5% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--7-col-tablet.mdl-cell--7-col-tablet {
-      width: 87.5%; }
-  .mdl-cell--8-col {
+  .mdl-cell--8-col, .mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--8-col {
+    .mdl-grid--no-spacing > .mdl-cell--8-col, .mdl-grid--no-spacing > .mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
       width: 100%; }
-  .mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
+  .mdl-cell--9-col, .mdl-cell--9-col-tablet.mdl-cell--9-col-tablet {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--8-col-tablet.mdl-cell--8-col-tablet {
+    .mdl-grid--no-spacing > .mdl-cell--9-col, .mdl-grid--no-spacing > .mdl-cell--9-col-tablet.mdl-cell--9-col-tablet {
       width: 100%; }
-  .mdl-cell--9-col {
+  .mdl-cell--10-col, .mdl-cell--10-col-tablet.mdl-cell--10-col-tablet {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--9-col {
+    .mdl-grid--no-spacing > .mdl-cell--10-col, .mdl-grid--no-spacing > .mdl-cell--10-col-tablet.mdl-cell--10-col-tablet {
       width: 100%; }
-  .mdl-cell--9-col-tablet.mdl-cell--9-col-tablet {
+  .mdl-cell--11-col, .mdl-cell--11-col-tablet.mdl-cell--11-col-tablet {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--9-col-tablet.mdl-cell--9-col-tablet {
+    .mdl-grid--no-spacing > .mdl-cell--11-col, .mdl-grid--no-spacing > .mdl-cell--11-col-tablet.mdl-cell--11-col-tablet {
       width: 100%; }
-  .mdl-cell--10-col {
+  .mdl-cell--12-col, .mdl-cell--12-col-tablet.mdl-cell--12-col-tablet {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--10-col {
-      width: 100%; }
-  .mdl-cell--10-col-tablet.mdl-cell--10-col-tablet {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--10-col-tablet.mdl-cell--10-col-tablet {
-      width: 100%; }
-  .mdl-cell--11-col {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--11-col {
-      width: 100%; }
-  .mdl-cell--11-col-tablet.mdl-cell--11-col-tablet {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--11-col-tablet.mdl-cell--11-col-tablet {
-      width: 100%; }
-  .mdl-cell--12-col {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--12-col {
-      width: 100%; }
-  .mdl-cell--12-col-tablet.mdl-cell--12-col-tablet {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--12-col-tablet.mdl-cell--12-col-tablet {
+    .mdl-grid--no-spacing > .mdl-cell--12-col, .mdl-grid--no-spacing > .mdl-cell--12-col-tablet.mdl-cell--12-col-tablet {
       width: 100%; } }
 
 @media (min-width: 840px) {
@@ -4427,103 +4628,70 @@ input.mdl-button[type="submit"] {
       width: 33.33333%; }
   .mdl-cell--hide-desktop {
     display: none !important; }
-  .mdl-cell--1-col {
+  .mdl-cell--1-col, .mdl-cell--1-col-desktop.mdl-cell--1-col-desktop {
     width: calc(8.33333% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--1-col {
+    .mdl-grid--no-spacing > .mdl-cell--1-col, .mdl-grid--no-spacing > .mdl-cell--1-col-desktop.mdl-cell--1-col-desktop {
       width: 8.33333%; }
-  .mdl-cell--1-col-desktop.mdl-cell--1-col-desktop {
-    width: calc(8.33333% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--1-col-desktop.mdl-cell--1-col-desktop {
-      width: 8.33333%; }
-  .mdl-cell--2-col {
+  .mdl-cell--2-col, .mdl-cell--2-col-desktop.mdl-cell--2-col-desktop {
     width: calc(16.66667% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--2-col {
+    .mdl-grid--no-spacing > .mdl-cell--2-col, .mdl-grid--no-spacing > .mdl-cell--2-col-desktop.mdl-cell--2-col-desktop {
       width: 16.66667%; }
-  .mdl-cell--2-col-desktop.mdl-cell--2-col-desktop {
-    width: calc(16.66667% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--2-col-desktop.mdl-cell--2-col-desktop {
-      width: 16.66667%; }
-  .mdl-cell--3-col {
+  .mdl-cell--3-col, .mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
     width: calc(25% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--3-col {
+    .mdl-grid--no-spacing > .mdl-cell--3-col, .mdl-grid--no-spacing > .mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
       width: 25%; }
-  .mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
-    width: calc(25% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
-      width: 25%; }
-  .mdl-cell--4-col {
+  .mdl-cell--4-col, .mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
     width: calc(33.33333% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--4-col {
+    .mdl-grid--no-spacing > .mdl-cell--4-col, .mdl-grid--no-spacing > .mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
       width: 33.33333%; }
-  .mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
-    width: calc(33.33333% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--4-col-desktop.mdl-cell--4-col-desktop {
-      width: 33.33333%; }
-  .mdl-cell--5-col {
+  .mdl-cell--5-col, .mdl-cell--5-col-desktop.mdl-cell--5-col-desktop {
     width: calc(41.66667% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--5-col {
+    .mdl-grid--no-spacing > .mdl-cell--5-col, .mdl-grid--no-spacing > .mdl-cell--5-col-desktop.mdl-cell--5-col-desktop {
       width: 41.66667%; }
-  .mdl-cell--5-col-desktop.mdl-cell--5-col-desktop {
-    width: calc(41.66667% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--5-col-desktop.mdl-cell--5-col-desktop {
-      width: 41.66667%; }
-  .mdl-cell--6-col {
+  .mdl-cell--6-col, .mdl-cell--6-col-desktop.mdl-cell--6-col-desktop {
     width: calc(50% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--6-col {
+    .mdl-grid--no-spacing > .mdl-cell--6-col, .mdl-grid--no-spacing > .mdl-cell--6-col-desktop.mdl-cell--6-col-desktop {
       width: 50%; }
-  .mdl-cell--6-col-desktop.mdl-cell--6-col-desktop {
-    width: calc(50% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--6-col-desktop.mdl-cell--6-col-desktop {
-      width: 50%; }
-  .mdl-cell--7-col {
+  .mdl-cell--7-col, .mdl-cell--7-col-desktop.mdl-cell--7-col-desktop {
     width: calc(58.33333% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--7-col {
+    .mdl-grid--no-spacing > .mdl-cell--7-col, .mdl-grid--no-spacing > .mdl-cell--7-col-desktop.mdl-cell--7-col-desktop {
       width: 58.33333%; }
-  .mdl-cell--7-col-desktop.mdl-cell--7-col-desktop {
-    width: calc(58.33333% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--7-col-desktop.mdl-cell--7-col-desktop {
-      width: 58.33333%; }
-  .mdl-cell--8-col {
+  .mdl-cell--8-col, .mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
     width: calc(66.66667% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--8-col {
+    .mdl-grid--no-spacing > .mdl-cell--8-col, .mdl-grid--no-spacing > .mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
       width: 66.66667%; }
-  .mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
-    width: calc(66.66667% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--8-col-desktop.mdl-cell--8-col-desktop {
-      width: 66.66667%; }
-  .mdl-cell--9-col {
+  .mdl-cell--9-col, .mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
     width: calc(75% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--9-col {
+    .mdl-grid--no-spacing > .mdl-cell--9-col, .mdl-grid--no-spacing > .mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
       width: 75%; }
-  .mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
-    width: calc(75% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--9-col-desktop.mdl-cell--9-col-desktop {
-      width: 75%; }
-  .mdl-cell--10-col {
+  .mdl-cell--10-col, .mdl-cell--10-col-desktop.mdl-cell--10-col-desktop {
     width: calc(83.33333% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--10-col {
+    .mdl-grid--no-spacing > .mdl-cell--10-col, .mdl-grid--no-spacing > .mdl-cell--10-col-desktop.mdl-cell--10-col-desktop {
       width: 83.33333%; }
-  .mdl-cell--10-col-desktop.mdl-cell--10-col-desktop {
-    width: calc(83.33333% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--10-col-desktop.mdl-cell--10-col-desktop {
-      width: 83.33333%; }
-  .mdl-cell--11-col {
+  .mdl-cell--11-col, .mdl-cell--11-col-desktop.mdl-cell--11-col-desktop {
     width: calc(91.66667% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--11-col {
+    .mdl-grid--no-spacing > .mdl-cell--11-col, .mdl-grid--no-spacing > .mdl-cell--11-col-desktop.mdl-cell--11-col-desktop {
       width: 91.66667%; }
-  .mdl-cell--11-col-desktop.mdl-cell--11-col-desktop {
-    width: calc(91.66667% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--11-col-desktop.mdl-cell--11-col-desktop {
-      width: 91.66667%; }
-  .mdl-cell--12-col {
+  .mdl-cell--12-col, .mdl-cell--12-col-desktop.mdl-cell--12-col-desktop {
     width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--12-col {
-      width: 100%; }
-  .mdl-cell--12-col-desktop.mdl-cell--12-col-desktop {
-    width: calc(100% - 16px); }
-    .mdl-grid--no-spacing > .mdl-cell--12-col-desktop.mdl-cell--12-col-desktop {
+    .mdl-grid--no-spacing > .mdl-cell--12-col, .mdl-grid--no-spacing > .mdl-cell--12-col-desktop.mdl-cell--12-col-desktop {
       width: 100%; } }
 
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4557,6 +4725,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -4721,6 +4890,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -4738,6 +4922,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-progress {
   display: block;
   position: relative;
@@ -4879,6 +5064,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -4896,6 +5096,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5440,6 +5641,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -5457,6 +5673,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-list {
   display: block;
   height: 500px;
@@ -5523,6 +5740,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -5540,6 +5772,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -5568,7 +5801,7 @@ input.mdl-button[type="submit"] {
 
 .mdl-radio__outer-circle {
   position: absolute;
-  top: 2px;
+  top: 4px;
   left: 0;
   display: inline-block;
   box-sizing: border-box;
@@ -5589,7 +5822,7 @@ input.mdl-button[type="submit"] {
   position: absolute;
   z-index: 1;
   margin: 0;
-  top: 6px;
+  top: 8px;
   left: 4px;
   box-sizing: border-box;
   width: 8px;
@@ -5655,6 +5888,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -5672,6 +5920,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -5697,6 +5946,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
         -ms-flex-item-align: center;
             align-self: center;
     z-index: 1;
+    cursor: pointer;
     /**************************** Tracks ****************************/
     /**************************** Thumbs ****************************/
     /**************************** 0-value ****************************/
@@ -5935,6 +6185,21 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -5952,6 +6217,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -6323,6 +6589,21 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -6340,6 +6621,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -6488,6 +6770,21 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -6505,6 +6802,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -6623,6 +6921,21 @@ template, div[template] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -6640,6 +6953,7 @@ template, div[template] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -6672,7 +6986,6 @@ template, div[template] {
   margin: 0;
   padding: 4px 0;
   width: 100%;
-  background: 16px;
   text-align: left;
   color: inherit; }
   .mdl-textfield.is-focused .mdl-textfield__input {
@@ -6682,7 +6995,8 @@ template, div[template] {
     box-shadow: none; }
   .mdl-textfield.is-disabled .mdl-textfield__input {
     background-color: transparent;
-    border-bottom: 1px dotted rgba(0, 0, 0, 0.12); }
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.26); }
 
 .mdl-textfield textarea.mdl-textfield__input {
   display: block; }
@@ -6708,6 +7022,8 @@ template, div[template] {
             transition-duration: 0.2s;
     -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  .mdl-textfield.is-disabled.is-disabled .mdl-textfield__label {
+    color: rgba(0, 0, 0, 0.26); }
   .mdl-textfield--floating-label.is-focused .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
     color: #3f51b5;
     font-size: 12px;
@@ -6785,6 +7101,21 @@ template, div[template] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -6802,6 +7133,7 @@ template, div[template] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
@@ -6865,6 +7197,21 @@ template, div[template] {
     visibility: visible; } }
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -6882,6 +7229,7 @@ template, div[template] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 /* Animation Variables */
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -7009,6 +7357,21 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -7026,6 +7389,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -7077,6 +7441,21 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     box-shadow: 0 0 1px gray; }
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -7094,6 +7473,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-dialog-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7257,7 +7637,7 @@ mdl-draggable {
             transform: translateX(0); } }
 
 .dnd-draggable {
-  z-index: 100;
+  z-index: 0;
   cursor: url("../../../../packages/dnd/cursor/openhand.cur"), move;
   /* Cursor for IE. */
   cursor: url("../../../../packages/dnd/cursor/openhand.cur") 7 5, move;
@@ -7297,6 +7677,21 @@ mdl-draggable {
   border: 1px solid orange; }
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -7314,6 +7709,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -7590,6 +7986,21 @@ mdl-draggable {
           flex-grow: 1; }
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -7607,6 +8018,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-sticky-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7694,6 +8106,21 @@ mdl-draggable {
             align-items: center; }
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -7711,6 +8138,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-nav-pill, .mdl-nav-pills > * {
   padding: 4px 8px;
   margin: 0 0 8px 0;
@@ -7851,6 +8279,21 @@ mdl-draggable {
       color: whitesmoke !important; }
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -7868,6 +8311,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-notification-container {
   z-index: 3;
   position: absolute;
@@ -8107,6 +8551,21 @@ mdl-draggable {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -8124,6 +8583,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
@@ -8156,6 +8616,21 @@ mdl-draggable {
   display: inline; }
 
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -8173,6 +8648,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* TOOLTIP */
 .mdl-snackbar-container.is-visible .mdl-snackbar {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);
