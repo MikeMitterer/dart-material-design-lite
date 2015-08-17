@@ -34,9 +34,17 @@ void configLogging() {
 void prepareScrolling() {
     final dom.HtmlElement body = dom.querySelector("body");
     final dom.HtmlElement content = dom.querySelector(".mdl-layout__content");
+    final dom.HtmlElement header = dom.querySelector(".mdl-layout__header");
+    final dom.HtmlElement drawer = dom.querySelector(".mdl-layout__drawer");
 
-    final List<dom.AnchorElement> anchors =
-        dom.querySelectorAll('a.mdl-navigation__link-animated[href^="#"]:not([href="#"])') as List<dom.AnchorElement>;
+    final List<dom.AnchorElement> anchorsMain =
+        header.querySelectorAll('a.mdl-navigation__link-animated[href^="#"]:not([href="#"])') as List<dom.AnchorElement>;
+
+    final List<dom.AnchorElement> anchorsDrawer =
+        drawer.querySelectorAll('a.mdl-navigation__link-animated[href^="#"]:not([href="#"])') as List<dom.AnchorElement>;
+
+    final List<dom.AnchorElement> anchors = new List<dom.AnchorElement>.from(anchorsMain);
+    anchors.addAll(anchorsDrawer);
 
     double _easingPattern(final String type,double time ) {
         double pattern = 0.0;
@@ -101,8 +109,16 @@ void prepareScrolling() {
                 event.preventDefault();
                 //_logger.info("Scroll! (${body.scrollTop}) - Offset: ${offset}");
 
-                anchors.forEach((final dom.HtmlElement anchor) => anchor.classes.remove("is-active"));
-                anchor.classes.add("is-active");
+                anchorsMain.forEach((final dom.HtmlElement anchor) => anchor.classes.remove("is-active"));
+                anchorsDrawer.forEach((final dom.HtmlElement anchor) => anchor.classes.remove("is-active"));
+
+                //anchor.classes.add("is-active");
+                anchorsMain.forEach((final dom.AnchorElement anchor) {
+                    final String mainTargetName = anchor.href.trim().replaceFirst(new RegExp(r".*#"),"");
+                    if(mainTargetName == targetName) {
+                        anchor.classes.add("is-active");
+                    }
+                });
 
                 if(offset != content.scrollTop) {
                     _startAnimation(offset);
