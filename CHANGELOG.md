@@ -1,6 +1,14 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.5.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.6...v1.5.0) - 2015-08-17##
+
+###Feature###
+* New WebSite launched for MDL/Dart [79e9ff0](https://github.com/mikemitterer/dart-material-design-lite/commit/79e9ff0af67986d13ab86b014edbca6616ccafec)
+
+###Bugs###
+* z-index for DND causes hidden header [b594146](https://github.com/mikemitterer/dart-material-design-lite/commit/b5941468a78e8dbfe3a00e31d1b607cec367f91b)
+
 ##[v1.3.6](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.3.5...v1.3.6) - 2015-08-14##
 
 ###Docs###
