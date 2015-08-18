@@ -23,10 +23,10 @@ Visit the [website](http://www.material-design-lite.pub) for a "Quick start" or 
 
 ## Examples
 ...
-Check out the [samples][]
+Check out the [samples](http://styleguide.material-design-lite.pub/#/samples)
 ## Features and bugs
 
-Please file feature requests and bugs at the [issue tracker][tracker].
+Please file feature requests and bugs at the [issue tracker](https://github.com/MikeMitterer/dart-material-design-lite/issues).
 
 ## More links
 - [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
