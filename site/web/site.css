@@ -8705,6 +8705,25 @@ a img {
         .mdl-layout__content .features-section .features-content .features-box .features-text h4 {
           margin-top: 0;
           font-size: 20px; }
+        .mdl-layout__content .features-section .features-content .features-box .prettyprint {
+          max-width: 300px;
+          white-space: initial;
+          background-color: #303030;
+          border-radius: 8px;
+          padding: 8px; }
+          .mdl-layout__content .features-section .features-content .features-box .prettyprint .pln {
+            color: #aaaaaa; }
+  .mdl-layout__content .resources-section {
+    background-color: #222222;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    color: #FFF; }
+    .mdl-layout__content .resources-section .resources-content {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      max-width: 1044px;
+      margin-left: auto;
+      margin-right: auto; }
   .mdl-layout__content .table-section {
     background-color: #333333; }
     .mdl-layout__content .table-section .table-content {

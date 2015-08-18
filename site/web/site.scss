@@ -518,10 +518,35 @@ a img{
                         font-size  : 20px;
                     }
                 }
+
+                .prettyprint {
+                    max-width: 300px;
+                    white-space: initial;
+                    background-color: rgb(48, 48, 48);
+                    border-radius: 8px;
+                    padding: 8px;
+                    .pln {
+                        color: #aaaaaa;
+                    }
+                }
             }
         }
     }
 
+    .resources-section {
+        background-color: #222222;
+        padding-top           : 80px;
+        padding-bottom        : 40px;
+        color                 : #FFF;
+
+        .resources-content {
+            padding-top    : 80px;
+            padding-bottom : 80px;
+            max-width      : 1044px;
+            margin-left    : auto;
+            margin-right   : auto;
+        }
+    }
 
     .table-section {
         background-color: #333333;

@@ -34,7 +34,10 @@ class ObservableProperty<T> {
 
     T _value;
     Function _observe;
+
+    /// Default interval if no specified in CTOR
     Duration _interval = new Duration(milliseconds: 100);
+
     bool _pause = false;
 
     /// Observername - helps with debugging!
@@ -42,14 +45,31 @@ class ObservableProperty<T> {
 
     StreamController<PropertyChangeEvent<T>> _onChange;
 
+    /**
+     * [_value] The observed value
+     * [observe] Function in parent to observe special values
+     * [interval] Check-Interval
+     * [name] is useful for debugging. If you set this name and if you set your loglevel to "info" it
+     * you should see a log output if this object fires a PropertyChangeEvent
+     * If you set [observeViaTimer] to false the PropertyChangeEvent is only triggered on "set value"
+     *
+     * Sample:
+     *      time.observes(() => _getTime());
+     */
     ObservableProperty(this._value,{ T observe(), final Duration interval,
-        final String name: ObservableProperty._DEFAULT_NAME } ) : _name = name {
+        final String name: ObservableProperty._DEFAULT_NAME, final bool observeViaTimer: true } ) : _name = name {
 
-        if(interval != null) {
+        if(interval != null && observeViaTimer) {
             _interval = interval;
         }
         if(observe != null) {
             observes(observe);
+
+        } else {
+            void _triggerFirstChangeEvent() {
+                value = _value;
+            }
+            _triggerFirstChangeEvent();
         }
     }
 
@@ -152,7 +172,4 @@ class ObservableProperty<T> {
             _onChange.add(event);
         }
     }
-
-
-
 }
