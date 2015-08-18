@@ -1,154 +1,25 @@
 # Material Design Lite for Dart
-> A GUI library of [Material Design](http://www.google.com/design/spec/material-design/introduction.html) 
-components in CSS, Dart, and HTML  
-([MDL Dart website][mdldemo]).
+> A GUI library and framework to develop web apps in Dart. ([www.material-design-lite.pub](http://www.material-design-lite.pub)).
 
-Material Design Lite lets you add a Material Design look and feel to your static content websites. It doesn’t rely on any JavaScript
+Material Design Lite lets you add a Material Design look and feel to your dynamic websites and web app. It doesn't rely on any JavaScript
 frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
 from the get-go.
 
-## New
-- MaterialObserve with Object support
-- ChooseFormatter added
-- more samples
+## Main features
+- 16 base components ready to use
+- 4 different Dialogs, AlertDialog, ConfirmDialog, Notification-Messages and Snackbar
+- Directives
+- Drag and Drop
+- Formatters
+- Mustache-Based Components (Template based)
+- Nice, ready to use, templates
+- Single Page Application
+- Routing
+- Dependency injection
+- Samples, samples, samples
+- Theming
 
-## Quick Start with StageDive
-MDL/Dart has StageDive support!  
-Try it out and follow these steps:
-
-```bash
-# if you don't have mdl installed
-pub cache add mdl
-
-# if you don't have stagedive installed or if you want to update stagedive
-pub global activate stagedive
-
-# if you don't have sitegen installed or if you want to update sitegen
-# sitegen - will later act as a local server
-pub global activate sitegen
-
-stagedive -l
-
-# You should see something like this
-
-#   'MDL Android Template'         Package: mdl          Template name: android        Version: 1.x
-#   'MDL Android Template'         Package: mdl          Template name: android        Version: 1.x
-#   'MDL Article Template'         Package: mdl          Template name: article        Version: 1.x
-#   'MDL Android Template'         Package: mdl          Template name: blog           Version: 1.x
-#   'MDL Blog Template'            Package: mdl          Template name: dashboard      Version: 1.x
-#   'MDL Fixed-Header Template'    Package: mdl          Template name: fixed-header   Version: 1.x
-#   'MDL Sample Template'          Package: mdl          Template name: sample         Version: 1.x
-#   'MDL Sticky-Footer Template'   Package: mdl          Template name: sticky-footer  Version: 1.x
-#   'MDL Text-Only Template'       Package: mdl          Template name: text-only      Version: 1.x
-
-# Now lets generate a new (-n) folder: android
-stagedive -n android -p mdl -t android
-
-# This is what stagedive asks you
-#   Your email address: office@mikemitterer
-#   Your name: Mike
-#   Enter the package-name: android_mdl
-#
-#   'MDL Android Template' created! (android)
-
-# move the the newly created dir
-cd android
-
-# Update everything
-pub update
-
-# Serve the site (you are in 'android'!)
-sitegen -x
-
-# In Chromium/Dartium
-localhost:8000
-```
-
-### Hint
-Short form for the last 4 commands: `cd android/ && pub update && sitegen -x || cd -`
-
-This is how it stagedive gets its [template](https://goo.gl/O2gis7) 
-
-## Quick Start
-
-In `pubspec.yaml` specify the `mdl`, `browser` and `di` packages as dependencies, as well as the `di` transformer.
-
-```yaml
-dependencies:
-  mdl: "^1.0.0"
-  browser: '^0.10.0'
-  di: "^3.3.4"
-transformers:
-  - di
-```
-
-Add the mdl style sheet to your `index.html`
-
-```html
-<link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
-```
-
-Initialize the mdl library from your `main.dart`
-
-```dart
-import 'package:mdl/mdl.dart' as mdl;
-
-
-main() async {
-  mdl.registerMdl();
-  await mdl.componentFactory().run();
-}
-
-```
-
-If you use **DI** initialize the mdl library as follows:  
-**DON'T USE ASYNC** otherwise you'll get an 'Uninitialized Module.DEFAULT_REFLECTOR' error
-
-```dart
-import 'package:mdl/mdl.dart' as mdl;
-
-@MdlComponentModel @di.Injectable()
-class Application extends mdl.MaterialApplication {
-
-    Application() {
-    }
-
-    @override
-    void run() {
-        // add your logic...
-    }
-}
-
-// Don't use async here - this would kill the di transformer 
-main() {
-    mdl.registerMdl();
-
-    componentFactory().rootContext(Application).addModule(new SampleModule()).run()
-        .then( (final MaterialApplication application) {
-
-        application.run();
-    });
-}
-
-class SampleModule extends di.Module {
-    SampleModule() {
-        // -- services (Example)
-        // bind(SignalService, toImplementation: SignalServiceImpl);
-    }
-}
-```
-
-## Icons
-
-Material Design Lite uses the official [Material Icons font](https://www.google.com/design/icons/). We recommend you include it using:
-
-```html
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-```
-
-You can check for other options on the [Developer's Guide](http://google.github.io/material-design-icons/#icon-font-for-the-web).
-
+Visit the [website](http://www.material-design-lite.pub) for a "Quick start" or check out the [Kitchen Sink](http://styleguide.material-design-lite.pub/)
 
 ## Examples
 ...
@@ -156,6 +27,9 @@ Check out the [samples][]
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
+
+## More links
+- [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 
 ###License###
 
