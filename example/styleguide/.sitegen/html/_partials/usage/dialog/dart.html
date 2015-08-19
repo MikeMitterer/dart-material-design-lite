@@ -7,13 +7,16 @@ main() &#123;
     registerMdl();
 
     componentFactory().run().then((_) &#123;
+
         final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector(&quot;#alertdialog&quot;));
         final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector(&quot;#confirmdialog&quot;));
-        final MaterialButton btnCustomDialog = MaterialButton.widget(dom.querySelector(&quot;#customdialog&quot;));
+        final MaterialButton btnCustomDialog1 = MaterialButton.widget(dom.querySelector(&quot;#customdialog1&quot;));
+        final MaterialButton btnCustomDialog2 = MaterialButton.widget(dom.querySelector(&quot;#customdialog2&quot;));
 
         final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
         final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
-        final CustomDialog customDialog = new CustomDialog();
+        final CustomDialog1 customDialog1 = new CustomDialog1();
+        final CustomDialog2 customDialog2 = new CustomDialog2();
 
         int mangoCounter = 0;
 
@@ -31,13 +34,21 @@ main() &#123;
             &#125;);
         &#125;);
 
-        btnCustomDialog.onClick.listen((_) &#123;
+        btnCustomDialog1.onClick.listen((_) &#123;
             _logger.info(&quot;Click on ConfirmButton&quot;);
-            customDialog(title: &quot;Mango #$&#123;mangoCounter&#125; (Fruit)&quot;,
+            customDialog1(title: &quot;Mango #$&#123;mangoCounter&#125; (Fruit)&quot;,
                 yesButton: &quot;I buy it!&quot;, noButton: &quot;Not now&quot;).show().then((final MdlDialogStatus status) &#123;
 
                 _logger.info(status);
                 mangoCounter++;
+            &#125;);
+        &#125;);
+
+        btnCustomDialog2.onClick.listen((_) &#123;
+            _logger.info(&quot;Click on ConfirmButton&quot;);
+            customDialog2(title: &quot;Form-Sample&quot;).show().then((final MdlDialogStatus status) &#123;
+
+                _logger.info(status);
             &#125;);
         &#125;);
     &#125;);

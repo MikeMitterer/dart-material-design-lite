@@ -18,6 +18,7 @@
 //
 
 .demo-page--dialog, .demo-section--dialog {
+
     .demo-button {
         display: flex;
         flex-direction: row;
@@ -37,28 +38,34 @@
             }
         }
     }
+}
 
-    .custom-dialog {
-        h5 {
-            background-color: #B3D38D;
+.custom-dialog1 {
+    h5 {
+        background-color: #B3D38D;
 
-            position: absolute;
-            left: 0;
-            top: 0 !important;
-            right: 0;
-            padding: 24px;
+        position: absolute;
+        left: 0;
+        top: 0 !important;
+        right: 0;
+        padding: 24px;
+    }
+
+    .mdl-dialog__content {
+        margin-top: 68px; // padding * 2 + font-size (20)
+        p {
+            font-size: 14px;
         }
+    }
 
-        .mdl-dialog__content {
-            margin-top: 68px; // padding * 2 + font-size (20)
-            p {
-                font-size: 14px;
-            }
-        }
+    .mdl-dialog__actions {
+        border-top: 1px solid rgb(231, 231, 231);
+    }
+}
 
-        .mdl-dialog__actions {
-            border-top: 1px solid rgb(231, 231, 231);
-        }
+.custom-dialog2 {
+    .mdl-textfield {
+        width: 100%;
     }
 }
 

@@ -36,7 +36,9 @@ import 'package:di/di.dart' as di;
 
 import "package:mdl/mdldialog.dart";
 
-import "package:mdl_styleguide/customdialog.dart";
+import "package:mdl_styleguide/customdialog1.dart";
+import "package:mdl_styleguide/customdialog2.dart";
+
 import "package:mdl_styleguide/todo.dart";
 
 /**
@@ -265,11 +267,13 @@ class DialogController extends DemoController {
 
         final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector("#alertdialog"));
         final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector("#confirmdialog"));
-        final MaterialButton btnCustomDialog = MaterialButton.widget(dom.querySelector("#customdialog"));
+        final MaterialButton btnCustomDialog1 = MaterialButton.widget(dom.querySelector("#customdialog1"));
+        final MaterialButton btnCustomDialog2 = MaterialButton.widget(dom.querySelector("#customdialog2"));
 
         final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
         final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
-        final CustomDialog customDialog = new CustomDialog();
+        final CustomDialog1 customDialog1 = new CustomDialog1();
+        final CustomDialog2 customDialog2 = new CustomDialog2();
 
         int mangoCounter = 0;
 
@@ -280,19 +284,21 @@ class DialogController extends DemoController {
             });
         });
 
-        btnConfirmDialog.onClick.listen((_) {
+        btnCustomDialog1.onClick.listen((_) {
             _logger.info("Click on ConfirmButton");
-            confirmDialog("Testmessage").show().then((final MdlDialogStatus status) {
+            customDialog1(title: "Mango #${mangoCounter} (Fruit)",
+                yesButton: "I buy it!", noButton: "Not now").show().then((final MdlDialogStatus status) {
+
                 _logger.info(status);
+                mangoCounter++;
             });
         });
 
-        btnCustomDialog.onClick.listen((_) {
+        btnCustomDialog2.onClick.listen((_) {
             _logger.info("Click on ConfirmButton");
-            customDialog(title: "Mango #${mangoCounter} (Fruit)",
-                yesButton: "I buy it!", noButton: "Not now").show().then((final MdlDialogStatus status) {
+            customDialog2(title: "Form-Sample").show().then((final MdlDialogStatus status) {
+
                 _logger.info(status);
-                mangoCounter++;
             });
         });
     }

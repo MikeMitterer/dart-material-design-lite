@@ -5,6 +5,7 @@ enum MdlDialogStatus {
     CLOSED_ON_TIMEOUT, CLOSED_VIA_NEXT_SHOW,
     OK,
     YES, NO,
+    CANCEL,
 
     // Toast sends a "confirmed"
     CONFIRMED
@@ -159,6 +160,11 @@ abstract class MaterialDialog extends Object with TemplateComponent {
                 _startTimeoutTimer(timeout);
             }
 
+            final dom.HtmlElement elementWithAutoFocus = dialog.querySelector("[autofocus]");
+            if(elementWithAutoFocus != null) {
+                elementWithAutoFocus.focus();
+            }
+
             idCounter++;
             _logger.info("show end (Dialog is rendered (ID: ${_elementID}))");
         });
@@ -291,10 +297,12 @@ abstract class MaterialDialog extends Object with TemplateComponent {
 
     void _addEscListener() {
         _keyboardEventSubscription = dom.document.onKeyDown.listen( (final dom.KeyboardEvent event) {
-            event.preventDefault();
-            event.stopPropagation();
 
             if(event.keyCode == 27) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
                 close(MdlDialogStatus.CLOSED_BY_ESC);
             }
         });
