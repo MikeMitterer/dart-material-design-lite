@@ -284,6 +284,13 @@ class DialogController extends DemoController {
             });
         });
 
+        btnConfirmDialog.onClick.listen((_) {
+            _logger.info("Click on ConfirmButton");
+            confirmDialog("Testmessage").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
+        });
+
         btnCustomDialog1.onClick.listen((_) {
             _logger.info("Click on ConfirmButton");
             customDialog1(title: "Mango #${mangoCounter} (Fruit)",
