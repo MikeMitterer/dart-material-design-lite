@@ -1,6 +1,12 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.5.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.5.1...v1.5.2) - 2015-08-19##
+
+###Feature###
+* Autofocus for Dialogs, fixes #20 [b1887f7](https://github.com/mikemitterer/dart-material-design-lite/commit/b1887f7378e6202becdd7ec814dea153fe58bf0f)
+* ObservableProperty can switch between Timer- and 'set value' check [4fd2f45](https://github.com/mikemitterer/dart-material-design-lite/commit/4fd2f45d4eb4b434e065934a2aada74ab7b8a58c)
+
 ##[v1.5.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.5.0...v1.5.1) - 2015-08-18##
 
 ###Docs###
