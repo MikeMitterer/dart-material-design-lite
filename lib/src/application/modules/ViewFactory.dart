@@ -63,7 +63,7 @@ class ViewFactory {
         final dom.Element contentElement = dom.querySelector(selector);
 
         if(contentElement == null) {
-            _logger.severe('Please add <div id="main" class="mdl-content mdl-js-content">Loading...</div> to your index.html');
+            _logger.severe('Please add <div id="$selector" class="mdl-content mdl-js-content">Loading...</div> to your index.html');
             return;
         }
 
