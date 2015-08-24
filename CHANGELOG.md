@@ -1,6 +1,17 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.5.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.5.2...v1.5.3) - 2015-08-24##
+
+###Feature###
+* Merged latest Dart/JS master [7cf8ea4](https://github.com/mikemitterer/dart-material-design-lite/commit/7cf8ea4b9a0d8757cea336e8afe096ffb3bab42b)
+
+###Bugs###
+* Accidentally deleted Listener in Confirm-Dialog-Sample [f5cce5d](https://github.com/mikemitterer/dart-material-design-lite/commit/f5cce5df17b0a2e950a63b2baa5797283208c76b)
+
+###Docs###
+* Readme for 'site' [ad2aedb](https://github.com/mikemitterer/dart-material-design-lite/commit/ad2aedb0738f777ad1eb6145d72238d5e974d6ca)
+
 ##[v1.5.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.5.1...v1.5.2) - 2015-08-19##
 
 ###Feature###
