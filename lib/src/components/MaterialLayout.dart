@@ -145,6 +145,9 @@ class MaterialLayout extends MdlComponent {
         return _content;
     }
 
+    void show() {
+
+    }
     //- private -----------------------------------------------------------------------------------
 
 
@@ -268,8 +271,6 @@ class MaterialLayout extends MdlComponent {
                 // Adds the HAS_DRAWER_CLASS to the elements since _header may or may
                 // not be present.
                 element.classes.add(_cssClasses.HAS_DRAWER);
-
-                //drawer.onMouseWheel.listen(_eatEvent);
 
                 // If we have a fixed header, add the button to the header rather than
                 // the layout.
@@ -455,6 +456,19 @@ class MaterialLayoutTab {
 
     MaterialLayoutTab(this.tab, this.tabs, this.panels, this.layout) {
 
+        void _selectTab() {
+
+            final String attribHref = tab.attributes["href"];
+            final href = attribHref.split('#')[1];
+
+            final panel = layout.content.querySelector('#' + href);
+            layout._resetTabState(tabs);
+            layout._resetPanelState(panels);
+
+            tab.classes.add(_cssClasses.IS_ACTIVE);
+            panel.classes.add(_cssClasses.IS_ACTIVE);
+        }
+
         if (tab != null) {
             if (layout.tabBar.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
 
@@ -472,17 +486,10 @@ class MaterialLayoutTab {
                 event.preventDefault();
                 event.stopPropagation();
 
-                final String attribHref = tab.attributes["href"];
-                final href = attribHref.split('#')[1];
-
-                final panel = layout.content.querySelector('#' + href);
-                layout._resetTabState(tabs);
-                layout._resetPanelState(panels);
-
-                tab.classes.add(_cssClasses.IS_ACTIVE);
-                panel.classes.add(_cssClasses.IS_ACTIVE);
+                _selectTab();
             });
 
+            //_selectTab();
         }
     }
 }

@@ -4673,7 +4673,9 @@ input.mdl-button[type="submit"] {
     padding-bottom: 8px;
     box-sizing: border-box; }
     .mdl-data-table th .mdl-data-table__select {
-      position: relative; }
+      position: absolute;
+      bottom: 8px;
+      left: 24px; }
 
 .mdl-data-table__select {
   width: 16px; }
@@ -5654,9 +5656,11 @@ input.mdl-button[type="submit"] {
   overflow: visible;
   height: 0;
   width: 0;
+  visibility: hidden;
   z-index: -1; }
-  .mdl-menu__container.is-visible {
-    z-index: 999; }
+  .mdl-menu__container.is-visible, .mdl-menu__container.is-animating {
+    z-index: 999;
+    visibility: visible; }
 
 .mdl-menu__outline {
   display: block;
@@ -8448,7 +8452,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   float: left;
   position: relative;
   display: block;
-  color: red;
   text-decoration: none;
   height: 48px;
   line-height: 48px;
@@ -8715,6 +8718,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   margin: 0;
   padding: 4px 0;
   width: 100%;
+  background: none;
   text-align: left;
   color: inherit; }
   .mdl-textfield.is-focused .mdl-textfield__input {
@@ -9233,6 +9237,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/*
+* NOTE: Some rules here are applied using duplicate selectors.
+* This is on purpose to increase their specificity when applied.
+* For example: `.mdl-cell--1-col-phone.mdl-cell--1-col-phone`
+*/
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *

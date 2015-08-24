@@ -300,8 +300,6 @@ void init() {
         // not be present.
         element.classes.add(_cssClasses.HAS_DRAWER);
 
-        _drawer.addEventListener('mousewheel', eatEvent);
-
         // If we have a fixed header, add the button to the header rather than
         // the layout.
         if (element.classes.contains(_cssClasses.FIXED_HEADER)) {
@@ -407,6 +405,18 @@ void init() {
   }
 
   function MaterialLayoutTab(tab, tabs, panels, layout) {
+
+    function selectTab() {
+
+      final href = tab.href.split('#')[1];
+
+      final panel = layout._content.querySelector('#' + href);
+      layout._resetTabState(tabs);
+      layout._resetPanelState(panels);
+      tab.classes.add(layout._cssClasses.IS_ACTIVE);
+      panel.classes.add(layout._cssClasses.IS_ACTIVE);
+    }
+
     if (tab) {
       if (layout._tabBar.classes.contains(
           layout._cssClasses.JS_RIPPLE_EFFECT)) {
@@ -424,16 +434,10 @@ void init() {
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       tab.onClick.listen( /*function*/ (e) {
         e.preventDefault();
-
-        final href = tab.href.split('#')[1];
-
-        final panel = layout._content.querySelector('#' + href);
-        layout._resetTabState(tabs);
-        layout._resetPanelState(panels);
-        tab.classes.add(layout._cssClasses.IS_ACTIVE);
-        panel.classes.add(layout._cssClasses.IS_ACTIVE);
+        selectTab();
       });
 
+      tab.show = selectTab;
     }
   }
 

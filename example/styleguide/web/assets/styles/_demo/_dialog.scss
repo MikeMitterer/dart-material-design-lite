@@ -40,6 +40,8 @@
     }
 }
 
+// Defined outside of .demo-page--dialog, .demo-section--dialog because
+// dialogs (dialog-container) will be added at the bottom of your HTML-page (just before </body>
 .custom-dialog1 {
     h5 {
         background-color: #B3D38D;
