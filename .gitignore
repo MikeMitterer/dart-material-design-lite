@@ -12,3 +12,5 @@ lib/sass/*/*.css
 example/*/*.css
 example/**/*.css
 *.applescript
+syncsite
+

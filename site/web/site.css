@@ -8414,7 +8414,7 @@ a img {
       .mdl-layout__header .mobile-title {
         display: block !important;
         position: absolute;
-        left: calc(50% - 102px);
+        left: calc(50% - 110px);
         top: 6px;
         -webkit-transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
                 transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1); } }
