@@ -16,10 +16,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-//@import "packages/mdl/assets/styles/material-design-lite";
+//@import "../../../lib/assets/styles/material-design-lite";
 @import "config";
-@import "packages/mdl/assets/styles/mixins/mixins";
-//@import "packages/mdl/assets/styles/dnd/dnd";
+@import "../../../lib/assets/styles/mixins/mixins";
+//@import "../../../lib/assets/styles/dnd/dnd";
 
 .demo-page--dnd, .demo-section--dnd {
     .danddcontainer {

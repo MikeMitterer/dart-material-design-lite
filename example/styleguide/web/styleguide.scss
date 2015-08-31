@@ -1,19 +1,19 @@
 @import "config";
 
-//@import "packages/mdl/assets/themes/grey-orange/material-design-lite";
-//@import "packages/mdl/assets/styles/material-design-lite";
+//@import "../../../lib/assets/themes/grey-orange/material-design-lite";
+//@import "../../../lib/assets/styles/material-design-lite";
 
-@import "packages/mdl/assets/styles/_config/show_config";
+@import "../../../lib/assets/styles/_config/show_config";
 
 
 // Only needed to switch themes correctly!!!!!
-@import "packages/mdl/assets/styles/fonts/fonts";
+@import "../../../lib/assets/styles/fonts/fonts";
 
 // for layout
-// @import "packages/mdl/assets/styles/icons/icons";
-@import "packages/mdl/assets/styles/mixins/mixins";
-@import "packages/mdl/assets/styles/animation/animation";
-//@import "packages/mdl/assets/styles/layout/layout";
+// @import "../../../lib/assets/styles/icons/icons";
+@import "../../../lib/assets/styles/mixins/mixins";
+@import "../../../lib/assets/styles/animation/animation";
+//@import "../../../lib/assets/styles/layout/layout";
 @import "assets/styles/_demo";
 
 

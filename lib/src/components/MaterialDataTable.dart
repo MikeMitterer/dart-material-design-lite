@@ -63,7 +63,11 @@ class MaterialDataTable extends MdlComponent {
 
         final dom.HtmlElement firstHeader = element.querySelector('th');
 
-        final List<dom.TableRowElement> rows = element.querySelector('tbody').querySelectorAll('tr') as List<dom.TableRowElement>;
+        final List<dom.TableRowElement> bodyRows = element.querySelectorAll('tbody tr') as List<dom.TableRowElement>;
+        final List<dom.TableRowElement> footRows = element.querySelectorAll('tfoot tr') as List<dom.TableRowElement>;
+
+        final List<dom.TableRowElement> rows = new List<dom.TableRowElement>.from(bodyRows);
+        rows.addAll(footRows);
 
         if (element.classes.contains(_cssClasses.SELECTABLE)) {
 
@@ -80,8 +84,11 @@ class MaterialDataTable extends MdlComponent {
 
                     final dom.HtmlElement td = dom.document.createElement('td');
 
-                    final dom.LabelElement rowCheckbox = _createCheckbox(rows[i],null);
-                    td.append(rowCheckbox);
+                    if(rows[i].parent.tagName.toLowerCase() == "tbody") {
+                        final dom.LabelElement rowCheckbox = _createCheckbox(rows[i],null);
+                        td.append(rowCheckbox);
+                    }
+
                     rows[i].insertBefore(td, firstCell);
                 }
             }
@@ -106,6 +113,7 @@ class MaterialDataTable extends MdlComponent {
         checkbox.classes.add('mdl-checkbox__input');
 
         if (row != null) {
+            checkbox.checked = row.classes.contains(_cssClasses.IS_SELECTED);
 
             // .addEventListener('change', -- .onChange.listen(<Event>);
             checkbox.onChange.listen( _selectRow(checkbox, row, null));

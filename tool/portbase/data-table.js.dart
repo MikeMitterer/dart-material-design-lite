@@ -110,7 +110,9 @@ void _createCheckbox(final row, rows) {
     final checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classes.add('mdl-checkbox__input');
+
     if (row) {
+      checkbox.checked = row.classes.contains(_cssClasses.IS_SELECTED);
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
       checkbox.onChange.listen( _selectRow(checkbox, row));
@@ -131,7 +133,11 @@ void init() {
 
       final firstHeader = element.querySelector('th');
 
-      final rows = element.querySelector('tbody').querySelectorAll('tr');
+      final bodyRows = Array.prototype.slice.call(element.querySelectorAll('tbody tr'));
+
+      final footRows = Array.prototype.slice.call(element.querySelectorAll('tfoot tr'));
+
+      final rows = bodyRows.concat(footRows);
 
       if (element.classes.contains(_cssClasses.SELECTABLE)) {
 
@@ -147,15 +153,16 @@ void init() {
           if (firstCell) {
 
             final td = document.createElement('td');
+            if (rows[i].parentNode.nodeName.toUpperCase() == 'TBODY') {
 
-            final rowCheckbox = _createCheckbox(rows[i]);
-            td.append(rowCheckbox);
+              final rowCheckbox = _createCheckbox(rows[i]);
+              td.append(rowCheckbox);
+            }
             rows[i].insertBefore(td, firstCell);
           }
         }
+        element.classes.add(_cssClasses.IS_UPGRADED);
       }
-
-      element.classes.add(_cssClasses.IS_UPGRADED);
     }
   }
 

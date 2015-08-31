@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 
-// Colors + Theming
-
-@import "packages/mdl/assets/styles/variables";
-@import "packages/mdl/assets/styles/animation/mixins";
+@import "../../../lib/assets/styles/variables";
+@import "../../../lib/assets/styles/animation/mixins";
 
 .demo-page--animation, .demo-section--animation {
 
@@ -90,7 +88,7 @@
     }
 
     .demo-animation__movable {
-        background-color: red;
+        background-color: blue;
         border-radius: 2px;
         display: block;
         height: 100px;

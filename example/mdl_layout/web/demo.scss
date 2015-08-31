@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 // Colors + Theming
-@import "packages/mdl/assets/styles/palette/color-definitions";
-@import "packages/mdl/assets/styles/palette/palette";
+@import "../../../lib/assets/styles/palette/color-definitions";
+@import "../../../lib/assets/styles/palette/palette";
 
 .demo-page--layout, .demo-section--layout {
     .demo-layout {

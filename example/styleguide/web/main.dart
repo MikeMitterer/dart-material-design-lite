@@ -75,8 +75,8 @@ class Application extends MaterialApplication {
     final List<_Name>                names = new List<_Name>();
 
     // To-Do-Sample
-    final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("<no records>");
-    final ObservableProperty<String> nrOfItemsDone = new ObservableProperty<String>("",
+    final ObservableProperty<int> nrOfItems = new ObservableProperty<int>(0);
+    final ObservableProperty<int> nrOfItemsDone = new ObservableProperty<int>(0,
         interval: new Duration(milliseconds: 500));
     
     // DND-Sample
@@ -857,7 +857,7 @@ class ToDoController extends DemoController {
         final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
         final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
 
-        app.nrOfItems.observes( () => todo.items.length > 0 ? todo.items.length.toString() : "<no records>");
+        app.nrOfItems.observes( () => todo.items.length );
         app.nrOfItemsDone.observes(() {
             int done = 0;
             todo.items.forEach((final ToDoItem item) { done += item.checked ? 1 : 0; });
