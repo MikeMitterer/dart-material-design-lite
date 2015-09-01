@@ -1,0 +1,13 @@
+.demo-page--accordion .demo-preview-block, .demo-section--accordion .demo-preview-block {
+  margin-bottom: 24px; }
+  .demo-page--accordion .demo-preview-block .mdl-accordion__label--stretch, .demo-section--accordion .demo-preview-block .mdl-accordion__label--stretch {
+    text-align: right;
+    margin-right: 12px; }
+    .demo-page--accordion .demo-preview-block .mdl-accordion__label--stretch .material-icons, .demo-section--accordion .demo-preview-block .mdl-accordion__label--stretch .material-icons {
+      font-size: 18px;
+      margin-right: 8px; }
+  .demo-page--accordion .demo-preview-block .mdl-accordion__label.with-toolbar .indicator, .demo-section--accordion .demo-preview-block .mdl-accordion__label.with-toolbar .indicator {
+    margin-right: 12px; }
+  .demo-page--accordion .demo-preview-block .mdl-accordion__label .sample, .demo-section--accordion .demo-preview-block .mdl-accordion__label .sample {
+    padding: 0 1em;
+    font-weight: bold; }

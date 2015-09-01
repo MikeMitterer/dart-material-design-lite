@@ -260,7 +260,7 @@ class SampleGenerator {
             String content = targetREADME.readAsStringSync();
             content = content.replaceAll(new RegExp(r"##Basic use(?:.|\n|\r)*?##",multiLine: true),"##");
             content = content.replaceAll("www.github.com/google/material-design-lite/src/$sampleName/demo.html",
-            "https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/$sampleName");
+            "https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/${config.samplesdir}/$sampleName");
 
             content = content.replaceAll("sourceCode html","prettyprint linenums lang-html");
 

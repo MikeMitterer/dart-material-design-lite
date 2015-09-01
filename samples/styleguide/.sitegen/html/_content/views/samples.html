@@ -1,0 +1,24 @@
+template: none
+~~~
+<section class="demo-section demo-section--samples">
+    <h4>Standalone samples</h4>
+    <div class="mdl-list--styled-view"><ul>
+        {{#_data.samples}}
+        <li>
+            <a href="http://samples.material-design-lite.pub/{{prefix}}{{name}}/index.html" target="_blank" class="mdl-color-text--700">
+                <span class="mdl-list-view--avatar mdl-color--200">
+                    <i class="mdl-icon material-icons">extension</i>
+                </span>
+                <span class="mdl-list-view--name">
+                    {{name}}
+                </span>
+            </a> |
+            <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/master/samples/{{prefix}}{{name}}/web"
+               class="mdl-color-text--400 github" target="_blank">
+              Source on GitHub
+            </a>
+        </li>
+        {{/_data.samples}}
+    </ul></div>
+
+</section>

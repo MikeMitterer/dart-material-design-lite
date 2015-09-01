@@ -218,7 +218,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         final dom.Element templateTag = _templateTag;
         _template = templateTag.innerHtml.trim().replaceAll(new RegExp(r"\s+")," ").replaceAll(new RegExp(r""),"");
 
-        // _logger.info("Template: ${_template}");
+        //_logger.info("Template: |${_template}|");
         templateTag.remove();
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);

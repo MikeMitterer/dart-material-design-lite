@@ -1,0 +1,10 @@
+.demo-page--class .testtext, .demo-section--class .testtext {
+  padding: 8px;
+  background-color: lightgray;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid white; }
+.demo-page--class .testtext.withborder, .demo-section--class .testtext.withborder {
+  border: 1px solid red; }
+.demo-page--class .switches, .demo-section--class .switches {
+  margin-top: 12px; }

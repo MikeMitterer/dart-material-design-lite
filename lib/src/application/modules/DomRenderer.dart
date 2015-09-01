@@ -95,10 +95,9 @@ class DomRenderer {
 
                 });
 
-            } on Error {
-                _logger.shout("Invalid content:\n\t$content\n"
+            } on Error catch (e) {
+                _logger.shout("Invalid content:\n\t$content\n(Orig. Error: $e)\n"
                     "Usually this error occures if content has not just ONE single root element.");
-                //throw e;
             }
         });
 
@@ -165,11 +164,13 @@ class DomRenderer {
 
     dom.NodeValidator _validator() {
         final dom.NodeValidator validator = new dom.NodeValidatorBuilder.common()  // html5 + Templating
+
             ..allowNavigation()
             ..allowImages()
             ..allowTextElements()
             ..allowInlineStyles()
             ..allowSvg()
+
             ..add(new _AllowAllAttributesNodeValidator());
 
         return validator;

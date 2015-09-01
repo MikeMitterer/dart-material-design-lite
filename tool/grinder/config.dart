@@ -32,7 +32,7 @@ class Config {
 
     static const String _KEY_SASS_DIR                 = "sassdir";
     static const String _KEY_MDL_DIR                  = "mdldir";
-    static const String _KEY_SAMPLES_DIR              = "example";
+    static const String _KEY_SAMPLES_DIR              = "samples";
     static const String _KEY_THEMES_DIR               = "themesdir";
     static const String _KEY_GIT_THEMES_DIR           = "gitthemesdir";
     static const String _KEY_LOGLEVEL                 = "loglevel";
@@ -55,7 +55,7 @@ class Config {
     Config() {
 
         _settings[_KEY_SASS_DIR]                  = 'lib/assets/styles';
-        _settings[_KEY_SAMPLES_DIR]               = 'example';
+        _settings[_KEY_SAMPLES_DIR]               = 'samples';
         _settings[_KEY_THEMES_DIR]                = 'lib/assets/themes';
         _settings[_KEY_LOGLEVEL]                  = 'info';
         _settings[_KEY_MK_BACKUP]                 = false;
