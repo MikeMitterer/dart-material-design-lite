@@ -217,33 +217,33 @@ main() &#123;
 <p>Because of the many possible variations in font display characteristics in HTML and CSS, MDL typography aims to provide simple and intuitive styles that use the Roboto font and produce visually attractive and internally consistent text results. See the typography component's <a href="http://www.google.com/design/spec/style/typography.html">Material Design specifications page</a> for details.</p>
 <h2 id="basic-use">Basic use</h2>
 <p>MDL typography does not require the inclusion of the minified CSS and JavaScript files that drive the other MDL components. Instead, just include a link to the Google stylesheet that accesses the font and its desired variations.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;head&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;head&gt;</span>
 <span class="kw">&lt;link</span>
 <span class="ot"> href=</span><span class="st">&#39;http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic&#39;</span>
 <span class="ot"> rel=</span><span class="st">&#39;stylesheet&#39;</span><span class="ot"> type=</span><span class="st">&#39;text/css&#39;</span><span class="kw">&gt;</span>
 ...
-<span class="kw">&lt;/head&gt;</span></code></pre>
+<span class="kw">&lt;/head&gt;</span></code></pre></div>
 <h3 id="to-include-an-mdl-typography-component">To include an MDL <strong>typography</strong> component:</h3>
 <p> 1. Code any element (<code>&lt;div&gt;</code>,<code>&lt;p&gt;</code>,<code>&lt;span&gt;</code>, etc.) that can contain text, including whatever content is appropriate.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>This is a standard paragraph.<span class="kw">&lt;/p&gt;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>This is a standard paragraph.<span class="kw">&lt;/p&gt;</span></code></pre></div>
 <p> 2. Add one or more MDL classes, separated by spaces, to the element using the <code>class</code> attribute.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--body-1&quot;</span><span class="kw">&gt;</span>This is a standard paragraph.<span class="kw">&lt;/p&gt;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--body-1&quot;</span><span class="kw">&gt;</span>This is a standard paragraph.<span class="kw">&lt;/p&gt;</span></code></pre></div>
 <p>The typography component is ready for use.</p>
 <h4 id="examples">Examples</h4>
 <p>A &quot;headline&quot; paragraph.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--headline&quot;</span><span class="kw">&gt;</span>Regular 24px<span class="kw">&lt;/p&gt;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--headline&quot;</span><span class="kw">&gt;</span>Regular 24px<span class="kw">&lt;/p&gt;</span></code></pre></div>
 <p>A &quot;title&quot; paragraph.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--title&quot;</span><span class="kw">&gt;</span>Medium 20px<span class="kw">&lt;/p&gt;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--title&quot;</span><span class="kw">&gt;</span>Medium 20px<span class="kw">&lt;/p&gt;</span></code></pre></div>
 <p>A &quot;caption&quot; span.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--caption&quot;</span><span class="kw">&gt;</span>Regular 12px<span class="kw">&lt;/span&gt;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--caption&quot;</span><span class="kw">&gt;</span>Regular 12px<span class="kw">&lt;/span&gt;</span></code></pre></div>
 <p>A &quot;button&quot; span.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--button&quot;</span><span class="kw">&gt;</span>Medium (All Caps) 14px<span class="kw">&lt;/span&gt;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--button&quot;</span><span class="kw">&gt;</span>Medium (All Caps) 14px<span class="kw">&lt;/span&gt;</span></code></pre></div>
 <p>A &quot;display 1&quot; table cell.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--display-1&quot;</span><span class="kw">&gt;</span>Regular 34px<span class="kw">&lt;/td&gt;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--display-1&quot;</span><span class="kw">&gt;</span>Regular 34px<span class="kw">&lt;/td&gt;</span></code></pre></div>
 <p>A &quot;body-1&quot; paragraph, also uppercased.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--body-1 mdl-typography--text-uppercase&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;mdl-typography--body-1 mdl-typography--text-uppercase&quot;</span><span class="kw">&gt;</span>
  This is a standard paragraph, but uppercased.
-<span class="kw">&lt;/p&gt;</span></code></pre>
+<span class="kw">&lt;/p&gt;</span></code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> Because the Roboto font is intended to apply to the entire page, standard &quot;unclassed&quot; HTML elements (e.g., heading levels, divs, paragraphs, spans, tables, etc. with no <code>class</code> attribute) and text modifiers (e.g., strong, em, small, etc.) will use Roboto, while also retaining their inherent and/or inherited characteristics.</p>
 <p>Also note that MDL typography provides some automatic adjustments based on its display environment. For example, the <code>body-1</code> style renders at 14px on a mobile device, but 13px on a desktop. You need not do anything to activate these self-modifiers; they are built into the MDL styles.</p>

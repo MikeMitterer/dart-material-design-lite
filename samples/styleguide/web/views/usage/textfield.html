@@ -35,75 +35,77 @@ main() &#123;
                     More about <a href="/#/theming">theming...</a>
                 </div>
                 <pre class="prettyprint linenums lang-html">
-  &lt;div class=&quot;demo-preview-block&quot;&gt;
+&lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;form action=&quot;#&quot;&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
-        &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample1&quot; &#47;&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample1&quot;&gt;Type Something...&lt;&#47;label&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
-        &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; pattern=&quot;[0-9]*&quot; id=&quot;sample2&quot; &#47;&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample2&quot;&gt;Number...&lt;&#47;label&gt;
-        &lt;span class=&quot;mdl-textfield__error&quot;&gt;Input is not a number!&lt;&#47;span&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
-        &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; disabled id=&quot;sample3&quot; value=&quot;Hello (value in disabled field)&quot;&#47;&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample3&quot;&gt;I&#39;m Disabled&lt;&#47;label&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;&gt;
-        &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; pattern=&quot;[0-9]*&quot; id=&quot;sample5&quot; &#47;&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample5&quot;&gt;Number...&lt;&#47;label&gt;
-        &lt;span class=&quot;mdl-textfield__error&quot;&gt;Input is not a number!&lt;&#47;span&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;&gt;
-        &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample4&quot; &#47;&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample4&quot;&gt;Text Input&lt;&#47;label&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
-        &lt;textarea class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; rows= &quot;1&quot; id=&quot;sample6&quot; &gt;&lt;&#47;textarea&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample6&quot;&gt;Type multiple lines here...&lt;&#47;label&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
-        &lt;textarea class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; rows=&quot;3&quot; id=&quot;sample7&quot; &gt;&lt;&#47;textarea&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample7&quot;&gt;This input is 3 rows high&lt;&#47;label&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
-        &lt;textarea class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; maxrows=&quot;3&quot; rows=&quot;1&quot; id=&quot;sample8&quot; &gt;&lt;&#47;textarea&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample8&quot;&gt;This input is at most 3 rows high&lt;&#47;label&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;&gt;
-        &lt;textarea class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; rows=&quot;1&quot; id=&quot;sample9&quot; &gt;&lt;&#47;textarea&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample9&quot;&gt;Multiple lines and a floating label&lt;&#47;label&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable&quot;&gt;
-        &lt;label class=&quot;mdl-button mdl-js-button mdl-button--icon&quot; for=&quot;sample-expandable&quot;&gt;
-          &lt;i class=&quot;material-icons&quot;&gt;search&lt;&#47;i&gt;
-        &lt;&#47;label&gt;
-        &lt;div class=&quot;mdl-textfield__expandable-holder&quot;&gt;
-          &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample-expandable&quot; &#47;&gt;
-          &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample-expandable&quot;&gt;Expandable Input&lt;&#47;label&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+            &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample1&quot;&#47;&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample1&quot;&gt;Type Something...&lt;&#47;label&gt;
         &lt;&#47;div&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label&quot;&gt;
-        &lt;label class=&quot;mdl-button mdl-js-button mdl-button--icon&quot; for=&quot;sample-expandable-floating&quot;&gt;
-          &lt;i class=&quot;material-icons&quot;&gt;search&lt;&#47;i&gt;
-        &lt;&#47;label&gt;
-        &lt;div class=&quot;mdl-textfield__expandable-holder&quot;&gt;
-          &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample-expandable-floating&quot; &#47;&gt;
-          &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample-expandable-floating&quot;&gt;Expandable &amp;amp; Floating Input&lt;&#47;label&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+            &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; pattern=&quot;[0-9]*&quot; id=&quot;sample2&quot;&#47;&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample2&quot;&gt;Number...&lt;&#47;label&gt;
+            &lt;span class=&quot;mdl-textfield__error&quot;&gt;Input is not a number!&lt;&#47;span&gt;
         &lt;&#47;div&gt;
-      &lt;&#47;div&gt;
-      &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width&quot;&gt;
-        Right&#47;No Label:
-        &lt;label class=&quot;mdl-button mdl-js-button mdl-button--icon&quot; for=&quot;sample-expclean&quot;&gt;
-          &lt;i class=&quot;material-icons&quot;&gt;search&lt;&#47;i&gt;
-        &lt;&#47;label&gt;
-        &lt;div class=&quot;mdl-textfield__expandable-holder&quot;&gt;
-          &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; name=&quot;sample&quot; id=&quot;sample-expclean&quot; &#47;&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+            &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; disabled id=&quot;sample3&quot;
+                   value=&quot;Hello (value in disabled field)&quot;&#47;&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample3&quot;&gt;I&#39;m Disabled&lt;&#47;label&gt;
         &lt;&#47;div&gt;
-      &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;&gt;
+            &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; pattern=&quot;[0-9]*&quot; id=&quot;sample5&quot;&#47;&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample5&quot;&gt;Number...&lt;&#47;label&gt;
+            &lt;span class=&quot;mdl-textfield__error&quot;&gt;Input is not a number!&lt;&#47;span&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;&gt;
+            &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample4&quot;&#47;&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample4&quot;&gt;Text Input&lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+            &lt;textarea class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; rows=&quot;1&quot; id=&quot;sample6&quot;&gt;&lt;&#47;textarea&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample6&quot;&gt;Type multiple lines here...&lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+            &lt;textarea class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; rows=&quot;3&quot; id=&quot;sample7&quot;&gt;&lt;&#47;textarea&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample7&quot;&gt;This input is 3 rows high&lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+            &lt;textarea class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; maxrows=&quot;3&quot; rows=&quot;1&quot; id=&quot;sample8&quot;&gt;&lt;&#47;textarea&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample8&quot;&gt;This input is at most 3 rows high&lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;&gt;
+            &lt;textarea class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; rows=&quot;1&quot; id=&quot;sample9&quot;&gt;&lt;&#47;textarea&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample9&quot;&gt;Multiple lines and a floating label&lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable&quot;&gt;
+            &lt;label class=&quot;mdl-button mdl-js-button mdl-button--icon&quot; for=&quot;sample-expandable&quot;&gt;
+                &lt;i class=&quot;material-icons&quot;&gt;search&lt;&#47;i&gt;
+            &lt;&#47;label&gt;
+            &lt;div class=&quot;mdl-textfield__expandable-holder&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample-expandable&quot;&#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample-expandable&quot;&gt;Expandable Input&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label&quot;&gt;
+            &lt;label class=&quot;mdl-button mdl-js-button mdl-button--icon&quot; for=&quot;sample-expandable-floating&quot;&gt;
+                &lt;i class=&quot;material-icons&quot;&gt;search&lt;&#47;i&gt;
+            &lt;&#47;label&gt;
+            &lt;div class=&quot;mdl-textfield__expandable-holder&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample-expandable-floating&quot;&#47;&gt;
+                &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample-expandable-floating&quot;&gt;Expandable &amp;amp; Floating
+                    Input&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width&quot;&gt;
+            Right&#47;No Label:
+            &lt;label class=&quot;mdl-button mdl-js-button mdl-button--icon&quot; for=&quot;sample-expclean&quot;&gt;
+                &lt;i class=&quot;material-icons&quot;&gt;search&lt;&#47;i&gt;
+            &lt;&#47;label&gt;
+            &lt;div class=&quot;mdl-textfield__expandable-holder&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; name=&quot;sample&quot; id=&quot;sample-expclean&quot;&#47;&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
     &lt;&#47;form&gt;
-  &lt;&#47;div&gt;
+&lt;&#47;div&gt;
 </pre>
                 </div>
                 <!-- CSS-Tab -->
@@ -117,122 +119,122 @@ main() &#123;
 <p>There are three main types of text fields in the text field component, each with its own basic coding requirements. The types are <em>single-line</em>, <em>multi-line</em>, and <em>expandable</em>.</p>
 <h3 id="to-include-a-single-line-mdl-text-field-component">To include a <em>single-line</em> MDL <strong>text field</strong> component:</h3>
 <p> 1. Code a <code>&lt;div&gt;</code> element to hold the text field.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
 ...
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 2. Inside the div, code an <code>&lt;input&gt;</code> element with a <code>type</code> attribute of <code>&quot;text&quot;</code> (the text field), and an <code>id</code> attribute of your choice.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;user&quot;</span> <span class="kw">/&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 3. Also inside the div, after the text field, code a <code>&lt;label&gt;</code> element with a <code>for</code> attribute whose value matches the <code>input</code> element's <code>id</code> value, and a short string to be used as the field's placeholder text.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;user&quot;</span> <span class="kw">/&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;user&quot;</span><span class="kw">&gt;</span>User name<span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 4. Optionally, add a <code>pattern</code> attribute and value to the <code>&lt;input&gt;</code> element (see the <a href="http://www.w3.org/TR/html5/forms.html#the-pattern-attribute">W3C HTML5 forms specification</a> for details) and an associated error message in a <code>&lt;span&gt;</code> element following the <code>&lt;label&gt;</code>.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;user&quot;</span><span class="ot"> pattern=</span><span class="st">&quot;[A-Z,a-z, ]*&quot;</span> <span class="kw">/&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;user&quot;</span><span class="kw">&gt;</span>User name<span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;span&gt;</span>Letters and spaces only<span class="kw">&lt;/span&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 5. Add one or more MDL classes, separated by spaces, to the div container, text field, field label, and error message using the <code>class</code> attribute.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;user&quot;</span><span class="ot"> pattern=</span><span class="st">&quot;[A-Z,a-z, ]*&quot;</span> <span class="kw">/&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;user&quot;</span><span class="kw">&gt;</span>User name<span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__error&quot;</span><span class="kw">&gt;</span>Letters and spaces only<span class="kw">&lt;/span&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>The single-line text field component is ready for use.</p>
 <h4 id="examples">Examples</h4>
 <p>Single-line text field with a standard label.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;fname&quot;</span> <span class="kw">/&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;fname&quot;</span><span class="kw">&gt;</span>First name<span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>Single-line text field with a floating label.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;addr1&quot;</span> <span class="kw">/&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;addr1&quot;</span><span class="kw">&gt;</span>Address line 1<span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>Single-line text field with a standard label, pattern matching, and error message.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> pattern=</span><span class="st">&quot;[0-9]*&quot;</span><span class="ot"> id=</span><span class="st">&quot;phone&quot;</span> <span class="kw">/&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;phone&quot;</span><span class="kw">&gt;</span>Phone<span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__error&quot;</span><span class="kw">&gt;</span>Digits only<span class="kw">&lt;/span&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <h3 id="to-include-a-multi-line-mdl-text-field-component">To include a <em>multi-line</em> MDL <strong>text field</strong> component:</h3>
 <p> 1. Code a <code>&lt;div&gt;</code> element to hold the text field.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
 ...
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 2. Inside the div, code a <code>&lt;textarea&gt;</code> element with a <code>type</code> attribute of <code>&quot;text&quot;</code> (the multi-line text field), and an <code>id</code> attribute of your choice. Include a <code>rows</code> attribute with a value of <code>&quot;1&quot;</code> (this attribute sets the number of <em>concurrently visible</em> input rows).</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;textarea</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> rows=</span><span class="st">&quot;1&quot;</span><span class="ot"> id=</span><span class="st">&quot;address&quot;</span><span class="kw">&gt;&lt;/textarea&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 3. Also inside the div, after the text field, code a <code>&lt;label&gt;</code> element with a <code>for</code> attribute whose value matches the <code>&lt;textarea&gt;</code> element's <code>id</code> value, and a short string to be used as the field's placeholder text.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;textarea</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> rows=</span><span class="st">&quot;1&quot;</span><span class="ot"> id=</span><span class="st">&quot;address&quot;</span><span class="kw">&gt;&lt;/textarea&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;address&quot;</span><span class="kw">&gt;</span>Full address<span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 4. Add one or more MDL classes, separated by spaces, to the div container, text field, and field label using the <code>class</code> attribute.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;textarea</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> rows=</span><span class="st">&quot;1&quot;</span><span class="ot"> id=</span><span class="st">&quot;address&quot;</span><span class="kw">&gt;&lt;/textarea&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;address&quot;</span><span class="kw">&gt;</span>Full address<span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>The multi-line text field component is ready for use.</p>
 <h4 id="examples-1">Examples</h4>
 <p>Multi-line text field with one visible input line.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;textarea</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> rows=</span><span class="st">&quot;1&quot;</span><span class="ot"> id=</span><span class="st">&quot;schools&quot;</span><span class="kw">&gt;&lt;/textarea&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;schools&quot;</span><span class="kw">&gt;</span>Schools attended<span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>Multi-line text field with one visible input line and floating label.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;textarea</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> rows=</span> <span class="st">&quot;1&quot;</span><span class="ot"> id=</span><span class="st">&quot;schools&quot;</span><span class="kw">&gt;&lt;/textarea&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;schools&quot;</span><span class="kw">&gt;</span>Schools attended<span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>Multi-line text field with multiple visible input lines and a maximum number of lines.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;textarea</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> rows=</span><span class="st">&quot;3&quot;</span><span class="ot"> maxrows=</span><span class="st">&quot;6&quot;</span>
 <span class="ot">   id=</span><span class="st">&quot;schools&quot;</span><span class="kw">&gt;&lt;/textarea&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;schools&quot;</span><span class="kw">&gt;</span>Schools attended (max. 6)<span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <h3 id="to-include-an-expandable-mdl-text-field-component">To include an <em>expandable</em> MDL <strong>text field</strong> component:</h3>
 <p> 1. Code an &quot;outer&quot; <code>&lt;div&gt;</code> element to hold the expandable text field.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
 ...
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 2. Inside the div, code a <code>&lt;label&gt;</code> element with a <code>for</code> attribute whose value will match the <code>&lt;input&gt;</code> element's <code>id</code> value (to be coded in step 5).</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;expando1&quot;</span><span class="kw">&gt;</span>
   ...
   <span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 3. Inside the label, code a <code>&lt;span&gt;</code> element; the span should be empty, and should be the label's only content. This element will contain the expandable text field's icon.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;expando1&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;span&gt;&lt;/span&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 4. Still inside the &quot;outer&quot; div, after the label containing the span, code an &quot;inner&quot; (nested) <code>&lt;div&gt;</code> element.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;expando1&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;span&gt;&lt;/span&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;div&gt;</span>
   ...
   <span class="kw">&lt;/div&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 5. Inside the &quot;inner&quot; div, code an <code>&lt;input&gt;</code> element with a <code>type</code> attribute of <code>&quot;text&quot;</code> (the text field), and an <code>id</code> attribute whose value matches that of the <code>for</code> attribute in step 2.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;expando1&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;span&gt;&lt;/span&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;div&gt;</span>
     <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;expando1&quot;</span> <span class="kw">/&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 6. Still inside the &quot;inner&quot; div, after the text field, code a <code>&lt;label&gt;</code> element with a <code>for</code> attribute whose value also matches the <code>&lt;input&gt;</code> element's <code>id</code> value (coded in step 5), and a short string to be used as the field's placeholder text.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;expando1&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;span&gt;&lt;/span&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
@@ -240,9 +242,9 @@ main() &#123;
     <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;expando1&quot;</span> <span class="kw">/&gt;</span>
     <span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;expando1&quot;</span><span class="kw">&gt;</span>Expandable text field<span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p> 7. Add one or more MDL classes, separated by spaces, to the &quot;outer&quot; div container, label, and span, and to the &quot;inner&quot; div container, text field, and field label using the <code>class</code> attribute.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="ot"> for=</span><span class="st">&quot;expando1&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>search<span class="kw">&lt;/i&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
@@ -250,11 +252,11 @@ main() &#123;
     <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;expando1&quot;</span> <span class="kw">/&gt;</span>
     <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;expando1&quot;</span><span class="kw">&gt;</span>Expandable text field<span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>The expandable text field component is ready for use. It will expand when the icon (the empty <code>&lt;span&gt;</code>) is clicked or gains focus.</p>
 <h4 id="examples-2">Examples</h4>
 <p>Expandable text field with a standard label.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="ot"> for=</span><span class="st">&quot;search-expandable&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>search<span class="kw">&lt;/i&gt;</span>
   <span class="kw">&lt;/label&gt;</span>
@@ -262,9 +264,9 @@ main() &#123;
     <span class="kw">&lt;input</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__input&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;search-expandable&quot;</span> <span class="kw">/&gt;</span>
     <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield__label&quot;</span><span class="ot"> for=</span><span class="st">&quot;search-expandable&quot;</span><span class="kw">&gt;</span>Search text<span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <p>Expandable text field with a floating label.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-textfield mdl-js-textfield mdl-textfield--expandable</span>
 <span class="st"> mdl-textfield--floating-label&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-button mdl-js-button mdl-button--icon&quot;</span><span class="ot"> for=</span><span class="st">&quot;search-expandable2&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;material-icons&quot;</span><span class="kw">&gt;</span>search<span class="kw">&lt;/i&gt;</span>
@@ -275,7 +277,7 @@ main() &#123;
       Enter search text below
     <span class="kw">&lt;/label&gt;</span>
   <span class="kw">&lt;/div&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 <h2 id="configuration-options">Configuration options</h2>
 <p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the text field. The table below lists the available classes and their effects.</p>
 <table>
@@ -346,7 +348,8 @@ main() &#123;
 </table>
 <p>(1) The &quot;search&quot; icon is used here as an example. Other icons can be used by modifying the text. For a list of available icons, see <a href="https://www.google.com/design/icons">this page</a>.</p>
 <blockquote>
-<p><strong>Note:</strong> Disabled versions of each text field type are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;input class=&quot;mdl-textfield mdl-js-textfield&quot; type=&quot;text&quot; disabled /&gt;</code><br />This attribute may be added or removed programmatically via scripting.</p>
+<p><strong>Note:</strong> Disabled versions of each text field type are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;input class=&quot;mdl-textfield mdl-js-textfield&quot; type=&quot;text&quot; disabled /&gt;</code><br />
+This attribute may be added or removed programmatically via scripting.</p>
 </blockquote>
 
                 </div>

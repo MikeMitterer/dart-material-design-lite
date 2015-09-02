@@ -2,17 +2,19 @@
 <p>With the Material Design Lite (MDL) <strong>model</strong> component you can automatically observer your data-model.</p>
 <h3 id="to-include-an-mdl-model-component">To include an MDL <strong>model</strong> component:</h3>
 <p> 1. Code one of the supported elements for example a checkbox:</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot;</span><span class="ot"> for=</span><span class="st">&quot;checkbox-1&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot;</span><span class="ot"> for=</span><span class="st">&quot;checkbox-1&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> id=</span><span class="st">&quot;checkbox-1&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox__input&quot;</span><span class="ot"> value=</span><span class="st">&quot;android&quot;</span><span class="kw">/&gt;</span>
     <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox__label&quot;</span><span class="kw">&gt;</span>Android<span class="kw">&lt;/span&gt;</span>
-<span class="kw">&lt;/label&gt;</span></code></pre>
-<p> 2. Add the mdl-model attribute to your component and specify the variable you want to observe. In this<br />case &quot;myModel&quot;</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot;</span><span class="ot"> for=</span><span class="st">&quot;checkbox-1&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;/label&gt;</span></code></pre></div>
+<p> 2. Add the mdl-model attribute to your component and specify the variable you want to observe. In this<br />
+case &quot;myModel&quot;</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;label</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot;</span><span class="ot"> for=</span><span class="st">&quot;checkbox-1&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;checkbox&quot;</span><span class="ot"> id=</span><span class="st">&quot;checkbox-1&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox__input&quot;</span><span class="ot"> value=</span><span class="st">&quot;android&quot;</span>
 <span class="ot">           mdl-model=</span><span class="st">&quot;myModel&quot;</span><span class="kw">/&gt;</span>
     <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-checkbox__label&quot;</span><span class="kw">&gt;</span>Android<span class="kw">&lt;/span&gt;</span>
-<span class="kw">&lt;/label&gt;</span></code></pre>
-<p> 3. In your Application-class - add the model you want to observe, in this case &quot;myModel&quot;. The variable-type should be<br />ObservableProperty to provide the full functionality.</p>
+<span class="kw">&lt;/label&gt;</span></code></pre></div>
+<p> 3. In your Application-class - add the model you want to observe, in this case &quot;myModel&quot;. The variable-type should be<br />
+ObservableProperty to provide the full functionality.</p>
 <pre class="dartlang"><code>@MdlComponentModel @di.Injectable()
 class Application extends MaterialApplication {
     final Logger _logger = new Logger(&#39;main.Application&#39;);

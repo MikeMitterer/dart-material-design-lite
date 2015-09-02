@@ -6,21 +6,21 @@
 <p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
 <h3 id="to-include-an-mdl-data-table-component">To include an MDL <strong>data-table</strong> component:</h3>
 <p> 1. Code a <code>&lt;table&gt;</code> element. Include <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> elements to hold the title and data rows, respectively.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table&gt;</span>
   <span class="kw">&lt;thead&gt;</span>
   <span class="kw">&lt;/thead&gt;</span>
   <span class="kw">&lt;tbody&gt;</span>
   <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre>
+<span class="kw">&lt;/table&gt;</span></code></pre></div>
 <p> 2. Add one or more MDL classes, separated by spaces, to the table using the <code>class</code> attribute.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;thead&gt;</span>
   <span class="kw">&lt;/thead&gt;</span>
   <span class="kw">&lt;tbody&gt;</span>
   <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre>
+<span class="kw">&lt;/table&gt;</span></code></pre></div>
 <p> 2. Inside the <code>&lt;thead&gt;</code>, code exactly one table row <code>&lt;tr&gt;</code> containing one table header cell <code>&lt;th&gt;</code> for each column, and include the desired text in the header cells. To ensure proper header alignment, add the &quot;non-numeric&quot; MDL class to the header cell of text-only columns. (Data cells are formatted as numeric by default.)</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;thead&gt;</span>
     <span class="kw">&lt;tr&gt;</span>
       <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Name<span class="kw">&lt;/th&gt;</span>
@@ -30,9 +30,9 @@
   <span class="kw">&lt;/thead&gt;</span>
   <span class="kw">&lt;tbody&gt;</span>
   <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre>
+<span class="kw">&lt;/table&gt;</span></code></pre></div>
 <p> 3. Inside the <code>&lt;tbody&gt;</code>, code one table row <code>&lt;tr&gt;</code> for each data row and one table data cell <code>&lt;td&gt;</code> for each column in the row. As with the header cells, add the &quot;non-numeric&quot; MDL class to text-only data cells to ensure proper alignment.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;thead&gt;</span>
     <span class="kw">&lt;tr&gt;</span>
       <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Name<span class="kw">&lt;/th&gt;</span>
@@ -57,11 +57,11 @@
       <span class="kw">&lt;td&gt;</span>12359<span class="kw">&lt;/td&gt;</span>
     <span class="kw">&lt;/tr&gt;</span>
   <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre>
+<span class="kw">&lt;/table&gt;</span></code></pre></div>
 <p>The data-table component is ready for use.</p>
 <h4 id="examples">Examples</h4>
 <p>A data-table with a &quot;master&quot; select checkbox and individual row select checkboxes.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;thead&gt;</span>
     <span class="kw">&lt;tr&gt;</span>
       <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Material<span class="kw">&lt;/th&gt;</span>
@@ -86,9 +86,9 @@
       <span class="kw">&lt;td&gt;</span>$12.35<span class="kw">&lt;/td&gt;</span>
     <span class="kw">&lt;/tr&gt;</span>
   <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre>
+<span class="kw">&lt;/table&gt;</span></code></pre></div>
 <p>A data-table without select checkboxes containing mostly text data.</p>
-<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;thead&gt;</span>
     <span class="kw">&lt;tr&gt;</span>
       <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Name<span class="kw">&lt;/th&gt;</span>
@@ -123,7 +123,7 @@
       <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Yes<span class="kw">&lt;/td&gt;</span>
     <span class="kw">&lt;/tr&gt;</span>
   <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre>
+<span class="kw">&lt;/table&gt;</span></code></pre></div>
 <h2 id="configuration-options">Configuration options</h2>
 <p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the data-table. The table below lists the available classes and their effects.</p>
 <table>

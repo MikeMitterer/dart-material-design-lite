@@ -152,7 +152,7 @@ main() &#123;
                 <div class="mdl-tabs__panel" id="css">
 <h3 id="remark">Remark</h3>
 <p>In the DND sample you can see the following HTML-Structure:</p>
-<pre class="sourceCode html"><code class="sourceCode html">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;danddcontainer&quot;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;danddcontainer&quot;</span><span class="kw">&gt;</span>
         <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;choose &quot;</span><span class="kw">&gt;</span>
                 <span class="kw">&lt;mdl-repeat</span><span class="ot"> class=</span><span class="st">&quot;source langbox mdl-dnd__drag-container&quot;</span> 
 <span class="ot">                    for-each=</span><span class="st">&quot;language in languages&quot;</span><span class="kw">&gt;</span>
@@ -169,9 +169,12 @@ main() &#123;
                 <span class="kw">&lt;/mdl-dropzone&gt;</span>
             <span class="kw">&lt;/div&gt;</span>
         <span class="kw">&lt;/div&gt;</span>
-    <span class="kw">&lt;/div&gt;</span></code></pre>
-<p>The first mdl-repeat takes 'languages' from your Application - there is no surrounding component.<br />The second mdl-repeat is encapsulated in mdl-dropzone. You could assume that it takes natural from mdl-dropzone<br />(its surrounding component) - you are right with most components. No so with mdl-dropzone.</p>
-<p>mdl-dropzone (its class MaterialDropZone) is not ScopeAware. Because of this mdl-repeat looks for the<br />next ScopeAware parent, can't find one and takes your Application as RootContext.</p>
+    <span class="kw">&lt;/div&gt;</span></code></pre></div>
+<p>The first mdl-repeat takes 'languages' from your Application - there is no surrounding component.<br />
+The second mdl-repeat is encapsulated in mdl-dropzone. You could assume that it takes natural from mdl-dropzone<br />
+(its surrounding component) - you are right with most components. No so with mdl-dropzone.</p>
+<p>mdl-dropzone (its class MaterialDropZone) is not ScopeAware. Because of this mdl-repeat looks for the<br />
+next ScopeAware parent, can't find one and takes your Application as RootContext.</p>
 
                 </div>
             </div>
