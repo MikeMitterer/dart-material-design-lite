@@ -7,6 +7,8 @@
 </ul>
 <p>You can set a maximum grid width, after which the grid stays centered with padding on either side, by setting its <code>max-width</code> CSS property.</p>
 <p>Grids are a fairly new and non-standardized feature in most user interfaces, and provide users with a way to view content in an organized manner that might otherwise be difficult to understand or retain. Their design and use is an important factor in the overall user experience.</p>
+<h2 id="basic-use">Basic use</h2>
+<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
 <h3 id="to-include-an-mdl-grid-component">To include an MDL <strong>grid</strong> component:</h3>
 <p> 1. Code a <code>&lt;div&gt;</code> element; this is the &quot;outer&quot; container, intended to hold all of the grid's cells. Style the div as desired (colors, font size, etc.).</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
@@ -106,6 +108,26 @@
 <td align="left"><code>mdl-cell--N-col-phone</code></td>
 <td align="left">Sets the column size for the cell to N in phone mode only</td>
 <td align="left">N is 1-4 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-cell--N-offset</code></td>
+<td align="left">Adds N columns of whitespace before the cell</td>
+<td align="left">N is 1-11 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-cell--N-offset-desktop</code></td>
+<td align="left">Adds N columns of whitespace before the cell in desktop mode</td>
+<td align="left">N is 1-11 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-cell--N-offset-tablet</code></td>
+<td align="left">Adds N columns of whitespace before the cell in tablet mode</td>
+<td align="left">N is 1-7 inclusive; optional on &quot;inner&quot; div elements</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-cell--N-offset-phone</code></td>
+<td align="left">Adds N columns of whitespace before the cell in phone mode</td>
+<td align="left">N is 1-3 inclusive; optional on &quot;inner&quot; div elements</td>
 </tr>
 <tr class="even">
 <td align="left"><code>mdl-cell--hide-desktop</code></td>

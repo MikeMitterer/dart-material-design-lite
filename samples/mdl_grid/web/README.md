@@ -1,4 +1,4 @@
-##Introduction
+## Introduction
 The Material Design Lite (MDL) **grid** component is a simplified method for laying out content for multiple screen sizes. It reduces the usual coding burden required to correctly display blocks of content in a variety of display conditions.
 
 The MDL grid is defined and enclosed by a container element. A grid has 12 columns in the desktop screen size, 8 in the tablet size, and 4 in the phone size, each size having predefined margins and gutters. Cells are laid out sequentially in a row, in the order they are defined, with some exceptions:
@@ -10,7 +10,10 @@ You can set a maximum grid width, after which the grid stays centered with paddi
 
 Grids are a fairly new and non-standardized feature in most user interfaces, and provide users with a way to view content in an organized manner that might otherwise be difficult to understand or retain. Their design and use is an important factor in the overall user experience.
 
-###To include an MDL **grid** component:
+## Basic use
+To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
+
+### To include an MDL **grid** component:
 
 &nbsp;1. Code a `<div>` element; this is the "outer" container, intended to hold all of the grid's cells. Style the div as desired (colors, font size, etc.).
 ```html
@@ -49,7 +52,7 @@ Grids are a fairly new and non-standardized feature in most user interfaces, and
 
 The grid component is ready for use.
 
-####Examples
+#### Examples
 
 A grid with five cells of column size 1.
 ```html
@@ -91,7 +94,7 @@ A grid with four cells of column size 2 that will display as column size 4 on a 
 </div>
 ```
 
-##Configuration options
+## Configuration options
 The MDL CSS classes apply various predefined visual enhancements and behavioral effects to the grid. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
@@ -103,6 +106,10 @@ The MDL CSS classes apply various predefined visual enhancements and behavioral 
 | `mdl-cell--N-col-desktop` | Sets the column size for the cell to N in desktop mode only | N is 1-12 inclusive; optional on "inner" div elements|
 | `mdl-cell--N-col-tablet` | Sets the column size for the cell to N in tablet mode only | N is 1-8 inclusive; optional on "inner" div elements|
 | `mdl-cell--N-col-phone` | Sets the column size for the cell to N in phone mode only | N is 1-4 inclusive; optional on "inner" div elements|
+| `mdl-cell--N-offset` | Adds N columns of whitespace before the cell | N is 1-11 inclusive; optional on "inner" div elements|
+| `mdl-cell--N-offset-desktop` | Adds N columns of whitespace before the cell in desktop mode | N is 1-11 inclusive; optional on "inner" div elements|
+| `mdl-cell--N-offset-tablet` | Adds N columns of whitespace before the cell in tablet mode | N is 1-7 inclusive; optional on "inner" div elements|
+| `mdl-cell--N-offset-phone` | Adds N columns of whitespace before the cell in phone mode | N is 1-3 inclusive; optional on "inner" div elements|
 | `mdl-cell--hide-desktop` | Hides the cell when in desktop mode | Optional on "inner" div elements |
 | `mdl-cell--hide-tablet` | Hides the cell when in tablet mode | Optional on "inner" div elements |
 | `mdl-cell--hide-phone` | Hides the cell when in phone mode | Optional on "inner" div elements |

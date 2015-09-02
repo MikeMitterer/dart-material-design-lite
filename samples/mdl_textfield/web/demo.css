@@ -16,5 +16,6 @@
 .demo-page--textfield textarea, .demo-section--textfield textarea {
   overflow: auto;
   resize: none; }
+
 .demo-page--textfield .mdl-textfield, .demo-section--textfield .mdl-textfield {
   display: block; }

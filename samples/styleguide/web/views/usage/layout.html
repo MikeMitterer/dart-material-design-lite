@@ -396,6 +396,8 @@ main() &#123;
 <p>The Material Design Lite (MDL) <strong>layout</strong> component is a comprehensive approach to page layout that uses MDL development tenets, allows for efficient use of MDL components, and automatically adapts to different browsers, screen sizes, and devices.</p>
 <p>Appropriate and accessible layout is a critical feature of all user interfaces, regardless of a site's content or function. Page design and presentation is therefore an important factor in the overall user experience. See the layout component's <a href="http://www.google.com/design/spec/layout/principles.html">Material Design specifications page</a> for details.</p>
 <p>Use of MDL layout principles simplifies the creation of scalable pages by providing reusable components and encourages consistency across environments by establishing recognizable visual elements, adhering to logical structural grids, and maintaining appropriate spacing across multiple platforms and screen sizes. MDL layout is extremely powerful and dynamic, allowing for great consistency in outward appearance and behavior while maintaining development flexibility and ease of use.</p>
+<h2 id="basic-use">Basic use</h2>
+<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
 <h3 id="to-include-a-basic-mdl-layout-component">To include a basic MDL <strong>layout</strong> component:</h3>
 <p> 1. Code a <code>&lt;div&gt;</code> element. This is the &quot;outer&quot; div that holds the entire layout. Add MDL classes as indicated, separated by spaces, to the div using the <code>class</code> attribute.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-js-layout&quot;</span><span class="kw">&gt;</span>
@@ -718,6 +720,16 @@ main() &#123;
 <td align="left"><code>mdl-layout--fixed-header</code></td>
 <td align="left">Makes the header always visible, even in small screens</td>
 <td align="left">Optional; goes on outer div element</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mdl-layout--no-drawer-button</code></td>
+<td align="left">Does not display a drawer button</td>
+<td align="left">Optional; goes on <code>mdl-layout</code> element</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mdl-layout--no-desktop-drawer-button</code></td>
+<td align="left">Does not display a drawer button in desktop mode</td>
+<td align="left">Optional; goes on <code>mdl-layout</code> element</td>
 </tr>
 <tr class="odd">
 <td align="left"><code>mdl-layout--large-screen-only</code></td>

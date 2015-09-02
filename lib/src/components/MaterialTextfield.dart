@@ -110,13 +110,14 @@ class MaterialTextfield extends MdlComponent {
     /// Update text field value.
     void change(final String value) {
         if (value != null && value != _relaxedInput.value) {
+            int selStart = (_relaxedInput).selectionStart;
 
-            int selStart = (_relaxedInput as dom.InputElement).selectionStart;
-            int selEnd = (_relaxedInput as dom.InputElement).selectionStart;
+            void _placeTheCursorWhereItWasBefore(final int position) {
+                (_relaxedInput).setSelectionRange(position,position);
+            }
 
             _relaxedInput.value = value;
-
-            (_relaxedInput as dom.InputElement).setSelectionRange(selStart,selEnd);
+            _placeTheCursorWhereItWasBefore(selStart);
         }
 
         _updateClasses();

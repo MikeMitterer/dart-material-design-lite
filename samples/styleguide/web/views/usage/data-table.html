@@ -36,6 +36,7 @@ main() &#123;
                 </div>
                 <pre class="prettyprint linenums lang-html">
 &lt;div class=&quot;demo-preview-block&quot;&gt;
+    &lt;h5&gt;With &#39;table&#39;-element&lt;&#47;h5&gt;
   &lt;table class=&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp&quot;&gt;
     &lt;thead&gt;
       &lt;tr&gt;
@@ -62,6 +63,33 @@ main() &#123;
       &lt;&#47;tr&gt;
     &lt;&#47;tbody&gt;
   &lt;&#47;table&gt;
+    &lt;h5&gt;With &#39;table&#39;-element&lt;&#47;h5&gt;
+    &lt;table class=&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp&quot;&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Material&lt;&#47;th&gt;
+            &lt;th&gt;Quantity&lt;&#47;th&gt;
+            &lt;th&gt;Unit price&lt;&#47;th&gt;
+        &lt;&#47;tr&gt;
+        &lt;&#47;thead&gt;
+        &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Acrylic (Transparent)&lt;&#47;td&gt;
+            &lt;td&gt;25&lt;&#47;td&gt;
+            &lt;td&gt;$2.90&lt;&#47;td&gt;
+        &lt;&#47;tr&gt;
+        &lt;tr&gt;
+            &lt;td class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Plywood (Birch)&lt;&#47;td&gt;
+            &lt;td&gt;50&lt;&#47;td&gt;
+            &lt;td&gt;$1.25&lt;&#47;td&gt;
+        &lt;&#47;tr&gt;
+        &lt;tr&gt;
+            &lt;td class=&quot;mdl-data-table__cell--non-numeric&quot;&gt;Laminate (Gold on Blue)&lt;&#47;td&gt;
+            &lt;td&gt;10&lt;&#47;td&gt;
+            &lt;td&gt;$2.35&lt;&#47;td&gt;
+        &lt;&#47;tr&gt;
+        &lt;&#47;tbody&gt;
+    &lt;&#47;table&gt;
 &lt;&#47;div&gt;
 </pre>
                 </div>
@@ -71,6 +99,8 @@ main() &#123;
 <p>The Material Design Lite (MDL) <strong>data-table</strong> component is an enhanced version of the standard HTML <code>&lt;table&gt;</code>. A data-table consists of rows and columns of well-formatted data, presented with appropriate user interaction capabilities.</p>
 <p>Tables are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the data-table component's <a href="http://www.google.com/design/spec/components/data-tables.html">Material Design specifications page</a> for details.</p>
 <p>The available row/column/cell types in a data-table are mostly self-formatting; that is, once the data-table is defined, the individual cells require very little specific attention. For example, the rows exhibit shading behavior on mouseover and selection, numeric values are automatically formatted by default, and the addition of a single class makes the table rows individually or collectively selectable. This makes the data-table component convenient and easy to code for the developer, as well as attractive and intuitive for the user.</p>
+<h2 id="basic-use">Basic use</h2>
+<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
 <h3 id="to-include-an-mdl-data-table-component">To include an MDL <strong>data-table</strong> component:</h3>
 <p> 1. Code a <code>&lt;table&gt;</code> element. Include <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> elements to hold the title and data rows, respectively.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table&gt;</span>

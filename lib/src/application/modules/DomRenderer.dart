@@ -35,6 +35,7 @@ typedef void _DomRenderFunction();
 
 /**
  *  DomRenderer converts a String into HtmlNodes
+ *
  */
 @di.Injectable()
 class DomRenderer {
@@ -66,6 +67,7 @@ class DomRenderer {
             try {
                 final dom.Element child = new dom.Element.html(content, validator: _validator());
                 //final dom.Element child = new dom.DocumentFragment.html(content, validator: _validator());
+                //_logger.info("Parent $parent");
 
                 componentFactory().upgradeElement(child).then( (_) {
 

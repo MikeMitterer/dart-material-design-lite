@@ -20,8 +20,8 @@
 library mdlapplication;
 
 @MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ],
-    targets: const [ 'List' ],
-    symbols: const [ '[]' ])
+targets: const [ 'List' ],
+symbols: const [ '[]' ])
 import 'dart:mirrors';
 
 import 'dart:html' as dom;

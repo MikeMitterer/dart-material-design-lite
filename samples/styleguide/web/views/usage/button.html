@@ -79,6 +79,8 @@ main() &#123;
 <p>The Material Design Lite (MDL) <strong>button</strong> component is an enhanced version of the standard HTML <code>&lt;button&gt;</code> element. A button consists of text and/or an image that clearly communicates what action will occur when the user clicks or touches it. The MDL button component provides various types of buttons, and allows you to add both display and click effects.</p>
 <p>Buttons are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the button component's <a href="http://www.google.com/design/spec/components/buttons.html">Material Design specifications page</a> for details.</p>
 <p>The available button display types are <em>flat</em> (default), <em>raised</em>, <em>fab</em>, <em>mini-fab</em>, and <em>icon</em>; any of these types may be plain (light gray) or <em>colored</em>, and may be initially or programmatically <em>disabled</em>. The <em>fab</em>, <em>mini-fab</em>, and <em>icon</em> button types typically use a small image as their caption rather than text.</p>
+<h2 id="basic-use">Basic use</h2>
+<p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
 <h3 id="to-include-an-mdl-button-component">To include an MDL <strong>button</strong> component:</h3>
 <p> 1. Code a <code>&lt;button&gt;</code> element. Include any desired attributes and values, such as an id or event handler, and add a text caption or image as appropriate.</p>
 <pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button&gt;</span>Save<span class="kw">&lt;/button&gt;</span></code></pre>
@@ -140,7 +142,7 @@ main() &#123;
 </tr>
 <tr class="even">
 <td align="left"><code>mdl-button--colored</code></td>
-<td align="left">Applies <em>colored</em> display effect</td>
+<td align="left">Applies <em>colored</em> display effect (primary or accent color, depending on the type of button)</td>
 <td align="left">Colors are defined in <code>material.min.css</code></td>
 </tr>
 <tr class="odd">
