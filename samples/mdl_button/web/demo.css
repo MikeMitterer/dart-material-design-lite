@@ -16,16 +16,21 @@
 .demo-page--button .demo-button, .demo-section--button .demo-button {
   display: inline-block;
   margin: 20px 20px 0 0; }
+
 .demo-page--button .demo-button .highlight-button, .demo-section--button .demo-button .highlight-button {
   position: relative;
   top: -50px;
   left: 50%; }
+
 .demo-page--button .demo-button .adjust, .demo-section--button .demo-button .adjust {
   margin-left: -30px; }
+
 .demo-page--button .demo-button .highlight-text, .demo-section--button .demo-button .highlight-text {
   text-align: center; }
+
 .demo-page--button .demo-button .overflow-vis, .demo-section--button .demo-button .overflow-vis {
   overflow: visible; }
+
 .demo-page--button .demo-button .codepen-mover-button, .demo-section--button .demo-button .codepen-mover-button {
   position: absolute;
   bottom: 5px;

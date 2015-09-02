@@ -43,5 +43,6 @@
     margin-bottom: 24px; }
     .demo-page--menu .demo-preview-block > div:nth-child(even), .demo-section--menu .demo-preview-block > div:nth-child(even) {
       margin-left: 24px; }
+
 .demo-page--menu #message, .demo-section--menu #message {
   width: 100%; }

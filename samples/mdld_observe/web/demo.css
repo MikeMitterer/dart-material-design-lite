@@ -5,6 +5,7 @@
     border-radius: 8px; }
     .demo-page--observe .object-test [mdl-observe].name:empty, .demo-section--observe .object-test [mdl-observe].name:empty {
       display: none; }
+
 .demo-page--observe .mdl-repeat div, .demo-section--observe .mdl-repeat div {
   display: -webkit-box;
   display: -webkit-flex;
@@ -34,5 +35,6 @@
     margin-top: 0;
     margin-bottom: 0;
     width: initial; }
+
 .demo-page--observe .mdl-property, .demo-section--observe .mdl-property {
   font-weight: bold; }

@@ -41,15 +41,18 @@
   margin: 0;
   padding: 0;
   border: 1px dotted #faf4f9; }
+
 .demo-page--icons .name, .demo-section--icons .name {
   display: block;
   font-size: 80%; }
+
 .demo-page--icons .mdl-icon, .demo-section--icons .mdl-icon {
   display: inline-block;
   font-size: 34px;
   min-width: 34px;
   height: 34px;
   line-height: 34px; }
+
 .demo-page--icons .demo-category, .demo-section--icons .demo-category {
   display: -webkit-box;
   display: -webkit-flex;
@@ -62,5 +65,6 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
+
 .demo-page--icons .demo-icon-name, .demo-section--icons .demo-icon-name {
   height: 24px; }

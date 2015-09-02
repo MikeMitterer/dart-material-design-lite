@@ -15,6 +15,7 @@
  */
 .demo-page--shadow .demo-preview-block, .demo-section--shadow .demo-preview-block {
   height: 100px; }
+
 .demo-page--shadow .demo-shadow-card, .demo-section--shadow .demo-shadow-card {
   background-color: #fff;
   border-radius: 2px;
@@ -41,6 +42,7 @@
   -webkit-transition-property: opacity, -webkit-transform;
           transition-property: opacity, transform;
   width: 72px; }
+
 @media screen and (max-width: 360px) {
   .demo-page--shadow .demo-shadow-card, .demo-section--shadow .demo-shadow-card {
     width: 27px; } }

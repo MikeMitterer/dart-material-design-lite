@@ -13,11 +13,11 @@ main() {
     registerComponentsForDataTableII();
 
     componentFactory().run().then((_) {
-        final DeviceStatusElement devicestatus = DeviceStatusElement.widget(dom.querySelector("device-status"));
-        devicestatus.addItem(new DeviceStatus("Status I",25.720735,-94.570312,false));
-        devicestatus.addItem(new DeviceStatus("Status II",23.241346,-93.867187,false));
-        devicestatus.addItem(new DeviceStatus("Status III",24.246965,91.054687,true));
-        devicestatus.addItem(new DeviceStatus("Status IV",25.720735,-88.154297,false));
+//        final DeviceStatusElement devicestatus = DeviceStatusElement.widget(dom.querySelector("device-status"));
+//        devicestatus.addItem(new DeviceStatus("Status I",25.720735,-94.570312,false));
+//        devicestatus.addItem(new DeviceStatus("Status II",23.241346,-93.867187,false));
+//        devicestatus.addItem(new DeviceStatus("Status III",24.246965,91.054687,true));
+//        devicestatus.addItem(new DeviceStatus("Status IV",25.720735,-88.154297,false));
     });
 }
 

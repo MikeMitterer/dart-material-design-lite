@@ -15,23 +15,32 @@
  */
 .demo-page--palette .demo-preview-block, .demo-section--palette .demo-preview-block {
   display: inline-block; }
+
 .demo-page--palette .demo-palette, .demo-section--palette .demo-palette {
   margin-top: 15px;
   width: 360px;
   float: left; }
+
 @media screen and (max-width: 360px) {
   .demo-page--palette .demo-palette, .demo-section--palette .demo-palette {
     width: 272px; } }
+
 .demo-page--palette .demo-palette-color, .demo-page--palette .demo-palette-heading, .demo-section--palette .demo-palette-color, .demo-section--palette .demo-palette-heading {
   max-width: 300px;
   padding: 15px;
   color: white; }
-.demo-page--palette .demo-palette .demo-palette--dark-text, .demo-page--palette .demo-palette-heading.demo-palette--dark-text .demo-palette-name, .demo-section--palette .demo-palette .demo-palette--dark-text, .demo-section--palette .demo-palette-heading.demo-palette--dark-text .demo-palette-name {
+
+.demo-page--palette .demo-palette .demo-palette--dark-text,
+.demo-page--palette .demo-palette-heading.demo-palette--dark-text .demo-palette-name, .demo-section--palette .demo-palette .demo-palette--dark-text,
+.demo-section--palette .demo-palette-heading.demo-palette--dark-text .demo-palette-name {
   color: #000; }
+
 .demo-page--palette .demo-palette-name, .demo-section--palette .demo-palette-name {
   padding: 0 0 60px 0; }
+
 .demo-page--palette .demo-palette-single, .demo-section--palette .demo-palette-single {
   padding: 15px 15px 25px; }
+
 .demo-page--palette .demo-palette-single .demo-palette-name, .demo-section--palette .demo-palette-single .demo-palette-name {
   padding: 0;
   float: left; }

@@ -25,7 +25,13 @@
   .demo-page--typography .demo-typography--black, .demo-section--typography .demo-typography--black {
     background-color: black;
     color: white; }
-  .demo-page--typography .demo-typography--white, .demo-page--typography .demo-typography--black, .demo-page--typography .demo-typography--img-1, .demo-page--typography .demo-typography--img-2, .demo-section--typography .demo-typography--white, .demo-section--typography .demo-typography--black, .demo-section--typography .demo-typography--img-1, .demo-section--typography .demo-typography--img-2 {
+  .demo-page--typography .demo-typography--white,
+  .demo-page--typography .demo-typography--black,
+  .demo-page--typography .demo-typography--img-1,
+  .demo-page--typography .demo-typography--img-2, .demo-section--typography .demo-typography--white,
+  .demo-section--typography .demo-typography--black,
+  .demo-section--typography .demo-typography--img-1,
+  .demo-section--typography .demo-typography--img-2 {
     width: 360px;
     height: 272px;
     padding: 16px;

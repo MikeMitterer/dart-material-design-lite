@@ -1,13 +1,18 @@
 .demo-page--badge .mdl-badge, .demo-section--badge .mdl-badge {
   color: rgba(0, 0, 0, 0.24); }
+
 .demo-page--badge .mdl-badge.material-icons, .demo-section--badge .mdl-badge.material-icons {
   font-size: 24px; }
+
 .demo-page--badge .mdl-badge.material-icons:after, .demo-section--badge .mdl-badge.material-icons:after {
   right: -20px; }
+
 .demo-page--badge section, .demo-section--badge section {
   margin-bottom: 30px; }
+
 .demo-page--badge section h5, .demo-section--badge section h5 {
   margin-bottom: 15px; }
+
 .demo-page--badge div.toolbar, .demo-section--badge div.toolbar {
   display: -webkit-box;
   display: -webkit-flex;
@@ -64,12 +69,14 @@
     -webkit-align-items: flex-start;
         -ms-flex-align: start;
             align-items: flex-start; }
+
 .demo-page--badge .links, .demo-section--badge .links {
   margin-top: 25px; }
   .demo-page--badge .links a, .demo-section--badge .links a {
     text-decoration: none;
     font-weight: normal;
     margin-top: 10px; }
+
 .demo-page--badge .dark, .demo-section--badge .dark {
   display: block;
   border-radius: 5px;

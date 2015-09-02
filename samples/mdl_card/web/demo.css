@@ -16,6 +16,7 @@
 .demo-page--card .mdl-card, .demo-section--card .mdl-card {
   margin-bottom: 24px;
   width: auto; }
+
 .demo-page--card .demo-card--wide, .demo-section--card .demo-card--wide {
   width: 600px; }
   .is-small-screen .demo-page--card .demo-card--wide, .is-small-screen .demo-section--card .demo-card--wide {

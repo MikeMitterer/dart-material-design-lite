@@ -1951,16 +1951,19 @@
         white-space: pre-line; }
   .demo-page--layout .demo-layout .mdl-layout--fixed-drawer > .mdl-layout__content, .demo-section--layout .demo-layout .mdl-layout--fixed-drawer > .mdl-layout__content {
     margin-left: 240px; }
+
 .demo-page--layout .demo-layout__content-red, .demo-section--layout .demo-layout__content-red {
   height: 1000px;
   background: -webkit-linear-gradient(#ffebee, #ffcdd2);
   background: linear-gradient(#ffebee, #ffcdd2);
   padding: 8px; }
+
 .demo-page--layout .demo-layout__content-green, .demo-section--layout .demo-layout__content-green {
   height: 1000px;
   background: -webkit-linear-gradient(#e8f5e9, #c8e6c9);
   background: linear-gradient(#e8f5e9, #c8e6c9);
   padding: 8px; }
+
 .demo-page--layout .demo-layout__content-blue, .demo-section--layout .demo-layout__content-blue {
   height: 1000px;
   background: -webkit-linear-gradient(#e3f2fd, #bbdefb);

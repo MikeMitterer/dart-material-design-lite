@@ -1,2 +1,4 @@
 template_dir: ../_templates
 assets_dir: ../_assets
+watchfolder1: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite/lib/assets/styles/data-table
+autoprefixer: false

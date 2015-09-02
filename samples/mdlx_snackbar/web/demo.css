@@ -1,16 +1,19 @@
 .demo-page--snackbar .demo-button, .demo-section--snackbar .demo-button {
   display: inline-block;
   margin: 20px 20px 20px 0; }
+
 .demo-page--snackbar .container, .demo-section--snackbar .container {
   position: relative;
   border: 1px dotted black;
   min-height: 200px;
   border-radius: 5px;
   padding: 5px; }
+
 .demo-page--snackbar .status, .demo-section--snackbar .status {
   margin: 12px; }
   .demo-page--snackbar .status span, .demo-section--snackbar .status span {
     font-weight: bold; }
+
 .demo-page--snackbar .position, .demo-section--snackbar .position {
   display: -webkit-box;
   display: -webkit-flex;

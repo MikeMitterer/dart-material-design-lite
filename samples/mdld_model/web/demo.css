@@ -1,5 +1,6 @@
 .demo-page--model .mdl-textfield, .demo-section--model .mdl-textfield {
   width: 100%; }
+
 .demo-page--model .groups, .demo-section--model .groups {
   display: -webkit-box;
   display: -webkit-flex;
@@ -37,9 +38,11 @@
   .demo-page--model .groups .mdl-switch, .demo-section--model .groups .mdl-switch {
     width: 100%;
     margin-bottom: 12px; }
+
 .demo-page--model .choose, .demo-section--model .choose {
   font-weight: bold;
   margin-bottom: 8px; }
+
 .demo-page--model .output, .demo-section--model .output {
   margin: 6px;
   padding: 6px;

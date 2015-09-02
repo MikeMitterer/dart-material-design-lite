@@ -67,7 +67,6 @@ class DomRenderer {
             try {
                 final dom.Element child = new dom.Element.html(content, validator: _validator());
                 //final dom.Element child = new dom.DocumentFragment.html(content, validator: _validator());
-                //_logger.info("Parent $parent");
 
                 componentFactory().upgradeElement(child).then( (_) {
 
@@ -98,8 +97,13 @@ class DomRenderer {
                 });
 
             } on Error catch (e) {
-                _logger.shout("Invalid content:\n\t$content\n(Orig. Error: $e)\n"
-                    "Usually this error occures if content has not just ONE single root element.");
+                _logger.shout("Invalid content:\n\t$content\n(Orig. Error: $e)\n");
+
+                if(parent is dom.TableCaptionElement) {
+                    _logger.shout("At the moment adding table-rows dynamically to the DOM is not supported!");
+                } else {
+                    _logger.shout("Usually this error occures if content has not just ONE single root element.");
+                }
             }
         });
 

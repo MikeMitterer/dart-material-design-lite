@@ -1,11 +1,14 @@
 .demo-page--content .demo-section {
   min-height: initial !important; }
+
 .demo-page--content .demo-preview-block {
   background-color: transparent; }
+
 .demo-page--content li {
   margin-bottom: 10px; }
   .demo-page--content li .mdl-button {
     margin-left: 12px; }
+
 .demo-page--content .cols {
   display: -webkit-box;
   display: -webkit-flex;

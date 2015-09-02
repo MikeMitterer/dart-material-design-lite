@@ -36,10 +36,12 @@
   top: 0 !important;
   right: 0;
   padding: 24px; }
+
 .custom-dialog1 .mdl-dialog__content {
   margin-top: 68px; }
   .custom-dialog1 .mdl-dialog__content p {
     font-size: 14px; }
+
 .custom-dialog1 .mdl-dialog__actions {
   border-top: 1px solid #e7e7e7; }
 
