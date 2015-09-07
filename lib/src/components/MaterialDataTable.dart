@@ -36,13 +36,16 @@ class _MaterialDataTableConstant {
 
     static const String WIDGET_SELECTOR = "mdl-data-table";
 
+    final String SELECTABLE_NAME = "mdl-data-table-selectable-name";
+    final String SELECTABLE_VALUE = "mdl-data-table-selectable-value";
+
     const _MaterialDataTableConstant();
 }
 
 class MaterialDataTable extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialDataTable');
 
-    //static const _MaterialDataTableConstant _constant = const _MaterialDataTableConstant();
+    static const _MaterialDataTableConstant _constant = const _MaterialDataTableConstant();
     static const _MaterialDataTableCssClasses _cssClasses = const _MaterialDataTableCssClasses();
 
     MaterialDataTable.fromElement(final dom.HtmlElement element, final di.Injector injector)
@@ -117,6 +120,13 @@ class MaterialDataTable extends MdlComponent {
 
             // .addEventListener('change', -- .onChange.listen(<Event>);
             checkbox.onChange.listen( _selectRow(checkbox, row, null));
+
+            if (row.dataset.containsKey(_constant.SELECTABLE_NAME)) {
+                checkbox.name = row.dataset[_constant.SELECTABLE_NAME];
+            }
+            if (row.dataset.containsKey(_constant.SELECTABLE_VALUE)) {
+                checkbox.value = row.dataset[_constant.SELECTABLE_VALUE];
+            }
 
         } else if (rows != null && rows.isNotEmpty) {
 

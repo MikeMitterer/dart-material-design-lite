@@ -193,6 +193,33 @@ main() &#123;
     <span class="kw">&lt;/tr&gt;</span>
   <span class="kw">&lt;/tbody&gt;</span>
 <span class="kw">&lt;/table&gt;</span></code></pre></div>
+<p>A table that has name and values for the checkboxes.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;thead&gt;</span>
+    <span class="kw">&lt;tr&gt;</span>
+      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Material<span class="kw">&lt;/th&gt;</span>
+      <span class="kw">&lt;th&gt;</span>Quantity<span class="kw">&lt;/th&gt;</span>
+      <span class="kw">&lt;th&gt;</span>Unit price<span class="kw">&lt;/th&gt;</span>
+    <span class="kw">&lt;/tr&gt;</span>
+  <span class="kw">&lt;/thead&gt;</span>
+  <span class="kw">&lt;tbody&gt;</span>
+    <span class="kw">&lt;tr</span><span class="ot"> data-mdl-data-table-selectable-name=</span><span class="st">&quot;materials[]&quot;</span><span class="ot"> data-mdl-data-table-selectable-value=</span><span class="st">&quot;acrylic&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Acrylic (Transparent)<span class="kw">&lt;/td&gt;</span>
+      <span class="kw">&lt;td&gt;</span>250<span class="kw">&lt;/td&gt;</span>
+      <span class="kw">&lt;td&gt;</span>$2.90<span class="kw">&lt;/td&gt;</span>
+    <span class="kw">&lt;/tr&gt;</span>
+    <span class="kw">&lt;tr</span><span class="ot"> data-mdl-data-table-selectable-name=</span><span class="st">&quot;materials[]&quot;</span><span class="ot"> data-mdl-data-table-selectable-value=</span><span class="st">&quot;plywood&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Plywood (Birch)<span class="kw">&lt;/td&gt;</span>
+      <span class="kw">&lt;td&gt;</span>50<span class="kw">&lt;/td&gt;</span>
+      <span class="kw">&lt;td&gt;</span>$1.25<span class="kw">&lt;/td&gt;</span>
+    <span class="kw">&lt;/tr&gt;</span>
+    <span class="kw">&lt;tr</span><span class="ot"> data-mdl-data-table-selectable-name=</span><span class="st">&quot;materials[]&quot;</span><span class="ot"> data-mdl-data-table-selectable-value=</span><span class="st">&quot;laminate&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Laminate (Gold on Blue)<span class="kw">&lt;/td&gt;</span>
+      <span class="kw">&lt;td&gt;</span>10<span class="kw">&lt;/td&gt;</span>
+      <span class="kw">&lt;td&gt;</span>$12.35<span class="kw">&lt;/td&gt;</span>
+    <span class="kw">&lt;/tr&gt;</span>
+  <span class="kw">&lt;/tbody&gt;</span>
+<span class="kw">&lt;/table&gt;</span></code></pre></div>
 <h2 id="configuration-options">Configuration options</h2>
 <p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the data-table. The table below lists the available classes and their effects.</p>
 <table>
@@ -231,6 +258,7 @@ main() &#123;
 </tr>
 </tbody>
 </table>
+<p>You may add <code>data-mdl-data-table-selectable-name</code> and <code>data-mdl-data-table-selectable-value</code> attributes to the <em>rows</em> of the table. If the table is selectable, these values will be added to the name and value of the created checkboxes.</p>
 
                 </div>
             </div>

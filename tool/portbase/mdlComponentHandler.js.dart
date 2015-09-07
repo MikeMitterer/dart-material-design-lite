@@ -186,10 +186,10 @@ window.componentHandler = ( /*function*/ () {
     for (final i = 0, n = elements.length, element; i < n; i++) {
       element = elements[i];
       if (element instanceof HTMLElement) {
+        upgradeElementInternal(element);
         if (element.children.length > 0) {
           upgradeElementsInternal(element.children);
         }
-        upgradeElementInternal(element);
       }
     }
   }

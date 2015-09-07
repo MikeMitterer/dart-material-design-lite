@@ -116,6 +116,12 @@ void _createCheckbox(final row, rows) {
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
       checkbox.onChange.listen( _selectRow(checkbox, row));
+      if (row.dataset.mdlDataTableSelectableName) {
+        checkbox.name = row.dataset.mdlDataTableSelectableName;
+      }
+      if (row.dataset.mdlDataTableSelectableValue) {
+        checkbox.value = row.dataset.mdlDataTableSelectableValue;
+      }
     } else if (rows) {
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);

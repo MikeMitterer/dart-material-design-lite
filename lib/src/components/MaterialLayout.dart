@@ -249,8 +249,18 @@ class MaterialLayout extends MdlComponent {
             // Add drawer toggling button to our layout, if we have an openable drawer.
             if (drawer != null) {
 
-                final dom.DivElement drawerButton = new dom.DivElement();
-                drawerButton.classes.add(_cssClasses.DRAWER_BTN);
+                dom.HtmlElement drawerButton = element.querySelector(".${_cssClasses.DRAWER_BTN}");
+
+                if (drawerButton == null) {
+
+                    drawerButton = new dom.DivElement();
+                    drawerButton.classes.add(_cssClasses.DRAWER_BTN);
+
+                    final dom.HtmlElement drawerButtonIcon = dom.document.createElement('i');
+                    drawerButtonIcon.classes.add(_cssClasses.ICON);
+                    drawerButtonIcon.text = _constant.MENU_ICON;
+                    drawerButton.append(drawerButtonIcon);
+                }
 
                 if (_drawer.classes.contains(_cssClasses.ON_LARGE_SCREEN)) {
                     //If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
@@ -259,11 +269,6 @@ class MaterialLayout extends MdlComponent {
                     //If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
                     drawerButton.classes.add(_cssClasses.ON_SMALL_SCREEN);
                 }
-
-                final dom.Element drawerButtonIcon = dom.document.createElement('i');
-                drawerButtonIcon.classes.add(_cssClasses.ICON);
-                drawerButtonIcon.text = _constant.MENU_ICON;
-                drawerButton.append(drawerButtonIcon);
 
                 drawerButton.onClick.listen( _drawerToggleHandler );
 
