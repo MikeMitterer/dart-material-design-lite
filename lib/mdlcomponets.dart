@@ -45,6 +45,7 @@ part "src/components/MaterialTabs.dart";
 part "src/components/MaterialTextfield.dart";
 part "src/components/MaterialTooltip.dart";
 part "src/components/MaterialDataTable.dart";
+part "src/components/MaterialDivDataTable.dart";
 
 final MdlComponentHandler _componenthandler = new MdlComponentHandler();
 
@@ -71,6 +72,7 @@ void registerMdlComponents() {
     registerMaterialTextfield();
     registerMaterialTooltip();
     registerMaterialDataTable();
+    registerMaterialDivDataTable();
 
     // should be the last registration
     registerMaterialRipple();

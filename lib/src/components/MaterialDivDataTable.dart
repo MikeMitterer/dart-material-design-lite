@@ -21,46 +21,53 @@ part of mdlcomponents;
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
-class _MaterialDataTableCssClasses {
+class _MaterialDivDataTableCssClasses {
 
-    final String DATA_TABLE = 'mdl-data-table';
-    final String SELECTABLE = 'mdl-data-table--selectable';
-    final String SELECT =     'mdl-data-table__select';
+    final String DATA_TABLE =   'mdl-data-tableex';
+    final String SELECTABLE =   'mdl-data-tableex--selectable';
+    final String SELECT =       'mdl-data-table__select';
 
-    final String IS_SELECTED = 'is-selected';
-    final String IS_UPGRADED = 'is-upgraded';
+    final String IS_SELECTED =  'is-selected';
+    final String IS_UPGRADED =  'is-upgraded';
+
+    final String HEAD = "mdl-div-data-tableex__head";
+    final String ROW =  "mdl-div-data-tableex__row";
+
+    final String CELL_CHECKBOX = "mdl-data-tableex__cell--checkbox";
 
     final String CHECKBOX = "mdl-checkbox";
+    final String CHECKBOX_INPUT = "mdl-checkbox__input";
+
     final String JS_CHECKBOX = "mdl-js-checkbox";
     final String JS_RIPPLE_EFFECT = "mdl-js-ripple-effect";
 
-    const _MaterialDataTableCssClasses();
+    const _MaterialDivDataTableCssClasses();
 }
 
 /// Store constants in one place so they can be updated easily.
-class _MaterialDataTableConstant {
+class _MaterialDivDataTableConstant {
 
-    static const String WIDGET_SELECTOR = "mdl-data-table";
+    static const String WIDGET_SELECTOR = "mdl-data-tableex";
 
-    final String SELECTABLE_NAME = "mdl-data-table-selectable-name";
-    final String SELECTABLE_VALUE = "mdl-data-table-selectable-value";
+    final String SELECTABLE_NAME =  "mdl-data-tableex-selectable-name";
+    final String SELECTABLE_VALUE = "mdl-data-tableex-selectable-value";
 
-    const _MaterialDataTableConstant();
+    const _MaterialDivDataTableConstant();
 }
 
-class MaterialDataTable extends MdlComponent {
-    final Logger _logger = new Logger('mdlcomponents.MaterialDataTable');
+class MaterialDivDataTable extends MdlComponent {
+    final Logger _logger = new Logger('mdlcomponents.MaterialDivDataTable');
 
-    static const _MaterialDataTableConstant _constant = const _MaterialDataTableConstant();
-    static const _MaterialDataTableCssClasses _cssClasses = const _MaterialDataTableCssClasses();
+    static const _MaterialDivDataTableConstant _constant = const _MaterialDivDataTableConstant();
+    static const _MaterialDivDataTableCssClasses _cssClasses = const _MaterialDivDataTableCssClasses();
 
-    MaterialDataTable.fromElement(final dom.HtmlElement element, final di.Injector injector)
+    MaterialDivDataTable.fromElement(final dom.HtmlElement element, final di.Injector injector)
         : super(element, injector) {
 
         _init();
     }
 
-    static MaterialDataTable widget(final dom.HtmlElement element) => mdlComponent(element,MaterialDataTable) as MaterialDataTable;
+    static MaterialDivDataTable widget(final dom.HtmlElement element) => mdlComponent(element,MaterialDivDataTable) as MaterialDivDataTable;
 
     // Central Element - by default this is where mdl-data-table can be found (element)
     // html.Element get hub => inputElement;
@@ -68,39 +75,36 @@ class MaterialDataTable extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialDataTable - init");
+        _logger.info("MaterialDivDataTable - init");
 
-        final dom.HtmlElement firstHeader = element.querySelector('th');
+        final dom.HtmlElement firstHeader = element.querySelector(".${_cssClasses.HEAD}");
 
-        final List<dom.TableRowElement> bodyRows = element.querySelectorAll('tbody tr') as List<dom.TableRowElement>;
-        final List<dom.TableRowElement> footRows = element.querySelectorAll('tfoot tr') as List<dom.TableRowElement>;
-
-        final List<dom.TableRowElement> rows = new List<dom.TableRowElement>.from(bodyRows);
-        rows.addAll(footRows);
+        final List<dom.HtmlElement> rows = new List.from(element.querySelectorAll(".${_cssClasses.ROW}") as List<dom.HtmlElement>);
+        rows.removeWhere((final dom.HtmlElement element) => element.classes.contains(_cssClasses.HEAD));
 
         if (element.classes.contains(_cssClasses.SELECTABLE)) {
 
-            final dom.HtmlElement th = dom.document.createElement('th');
+            final dom.HtmlElement th = new dom.DivElement();
+            th.classes.add(_cssClasses.CELL_CHECKBOX);
 
             final dom.LabelElement headerCheckbox = _createCheckbox(null, rows);
             th.append(headerCheckbox);
-            firstHeader.parent.insertBefore(th, firstHeader);
+            firstHeader.insertAdjacentElement("afterBegin", th);
 
-            for (int i = 0; i < rows.length; i++) {
+            rows.forEach((final dom.HtmlElement row) {
 
-                final dom.HtmlElement firstCell = rows[i].querySelector('td');
+                final dom.HtmlElement firstCell = row.querySelector(':first-child');
                 if (firstCell != null) {
 
-                    final dom.HtmlElement td = dom.document.createElement('td');
+                    final dom.HtmlElement td = new dom.DivElement();
+                    td.classes.add(_cssClasses.CELL_CHECKBOX);
 
-                    if(rows[i].parent.tagName.toLowerCase() == "tbody") {
-                        final dom.LabelElement rowCheckbox = _createCheckbox(rows[i],null);
-                        td.append(rowCheckbox);
-                    }
+                    final dom.LabelElement rowCheckbox = _createCheckbox(row,null);
+                    td.append(rowCheckbox);
 
-                    rows[i].insertBefore(td, firstCell);
+                    row.insertBefore(td, firstCell);
                 }
-            }
+            });
         }
 
         componentHandler().upgradeElement(element);
@@ -119,7 +123,7 @@ class MaterialDataTable extends MdlComponent {
         label.classes.add(_cssClasses.SELECT);
 
         final dom.CheckboxInputElement checkbox = new dom.CheckboxInputElement();
-        checkbox.classes.add('mdl-checkbox__input');
+        checkbox.classes.add(_cssClasses.CHECKBOX_INPUT);
 
         if (row != null) {
             checkbox.checked = row.classes.contains(_cssClasses.IS_SELECTED);
@@ -171,14 +175,14 @@ class MaterialDataTable extends MdlComponent {
                 dom.HtmlElement el;
                 if (checkbox.checked) {
                     for (int i = 0; i < rows.length; i++) {
-                        el = rows[i].querySelector('td').querySelector('.mdl-checkbox__input');
+                        el = rows[i].querySelector(".${_cssClasses.CHECKBOX_INPUT}");
                         MaterialCheckbox.widget(el).check();
                         rows[i].classes.add(_cssClasses.IS_SELECTED);
                     }
 
                 } else {
                     for (int i = 0; i < rows.length; i++) {
-                        el = rows[i].querySelector('td').querySelector('.mdl-checkbox__input');
+                        el = rows[i].querySelector(".${_cssClasses.CHECKBOX_INPUT}");
                         MaterialCheckbox.widget(el).uncheck();
                         rows[i].classes.remove(_cssClasses.IS_SELECTED);
                     }
@@ -190,10 +194,10 @@ class MaterialDataTable extends MdlComponent {
 }
 
 /// registration-Helper
-void registerMaterialDataTable() {
-    final MdlConfig config = new MdlWidgetConfig<MaterialDataTable>(
-        _MaterialDataTableConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element, final di.Injector injector) => new MaterialDataTable.fromElement(element, injector)
+void registerMaterialDivDataTable() {
+    final MdlConfig config = new MdlWidgetConfig<MaterialDivDataTable>(
+        _MaterialDivDataTableConstant.WIDGET_SELECTOR,
+            (final dom.HtmlElement element, final di.Injector injector) => new MaterialDivDataTable.fromElement(element, injector)
     );
     componentHandler().register(config);
 }

@@ -116,7 +116,13 @@
                 }
 
                 &--grow {
+                    width: initial;
                     flex-grow: 1;
+                }
+
+                &--checkbox {
+                    width: 17px !important;
+                    padding-right: 0;
                 }
             }
         }
