@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialDataTable = function MaterialDataTable(element) {
@@ -29,11 +30,12 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialDataTable = MaterialDataTable;
+
+  window['MaterialDataTable'] = MaterialDataTable;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialDataTableConstant {
     // None at the moment.
   }
@@ -42,7 +44,7 @@ class _  MaterialDataTableConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialDataTableCssClasses {
       final String DATA_TABLE = 'mdl-data-table';
       final String SELECTABLE = 'mdl-data-table--selectable';
@@ -53,11 +55,11 @@ class _  MaterialDataTableCssClasses {
 /// Generates and returns a function that toggles the selection state of a
 /// single row (or multiple rows).
 /// 
-/// param {HTMLElement} checkbox Checkbox that toggles the selection state.
+/// param {Element} checkbox Checkbox that toggles the selection state.
 /// param {HTMLElement} row Row to toggle when checkbox changes.
-/// param {HTMLElement[]} rows Rows to toggle when checkbox changes.
-///   MaterialDataTable.prototype.selectRow_ = function(checkbox, row, rows) {
-void _selectRow(final checkbox, row, rows) {
+/// param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
+///   MaterialDataTable.prototype.selectRow_ = function(checkbox, row, opt_rows) {
+void _selectRow(final checkbox, row, opt_rows) {
     if (row) {
       return function() {
         if (checkbox.checked) {
@@ -69,24 +71,24 @@ void _selectRow(final checkbox, row, rows) {
       };
     }
 
-    if (rows) {
+    if (opt_rows) {
       return function() {
 
         final i;
 
         final el;
         if (checkbox.checked) {
-          for (i = 0; i < rows.length; i++) {
-            el = rows[i].querySelector('td').querySelector('.mdl-checkbox');
-            el.MaterialCheckbox.check();
-            rows[i].classes.add(_cssClasses.IS_SELECTED);
+          for (i = 0; i < opt_rows.length; i++) {
+            el = opt_rows[i].querySelector('td').querySelector('.mdl-checkbox');
+            el['MaterialCheckbox'].check();
+            opt_rows[i].classes.add(_cssClasses.IS_SELECTED);
           }
 
         } else {
-          for (i = 0; i < rows.length; i++) {
-            el = rows[i].querySelector('td').querySelector('.mdl-checkbox');
-            el.MaterialCheckbox.uncheck();
-            rows[i].classes.remove(_cssClasses.IS_SELECTED);
+          for (i = 0; i < opt_rows.length; i++) {
+            el = opt_rows[i].querySelector('td').querySelector('.mdl-checkbox');
+            el['MaterialCheckbox'].uncheck();
+            opt_rows[i].classes.remove(_cssClasses.IS_SELECTED);
           }
         }
       };
@@ -97,9 +99,9 @@ void _selectRow(final checkbox, row, rows) {
 /// event handling.
 /// 
 /// param {HTMLElement} row Row to toggle when checkbox changes.
-/// param {HTMLElement[]} rows Rows to toggle when checkbox changes.
-///   MaterialDataTable.prototype.createCheckbox_ = function(row, rows) {
-void _createCheckbox(final row, rows) {
+/// param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
+///   MaterialDataTable.prototype.createCheckbox_ = function(row, opt_rows) {
+void _createCheckbox(final row, opt_rows) {
 
     final label = document.createElement('label');
     label.classes.add('mdl-checkbox');
@@ -116,17 +118,18 @@ void _createCheckbox(final row, rows) {
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
       checkbox.onChange.listen( _selectRow(checkbox, row));
-      if (row.dataset.mdlDataTableSelectableName) {
-        checkbox.name = row.dataset.mdlDataTableSelectableName;
+      if (row.dataset['mdlDataTableSelectableName']) {
+        checkbox.name = row.dataset['mdlDataTableSelectableName'];
       }
-      if (row.dataset.mdlDataTableSelectableValue) {
-        checkbox.value = row.dataset.mdlDataTableSelectableValue;
+      if (row.dataset['mdlDataTableSelectableValue']) {
+        checkbox.value = row.dataset['mdlDataTableSelectableValue'];
       }
-    } else if (rows) {
+    } else if (opt_rows) {
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
-      checkbox.onChange.listen( _selectRow(checkbox, null, rows));
+      checkbox.onChange.listen( _selectRow(checkbox, null, opt_rows));
     }
+
     label.append(checkbox);
     componentHandler.upgradeElement(label, 'MaterialCheckbox');
     return label;

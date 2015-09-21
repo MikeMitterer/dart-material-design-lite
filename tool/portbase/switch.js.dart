@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialSwitch = function MaterialSwitch(element) {
@@ -29,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialSwitch = MaterialSwitch;
+  window['MaterialSwitch'] = MaterialSwitch;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialSwitchConstant {
       final int TINY_TIMEOUT = 0;
   }
@@ -42,7 +43,7 @@ class _  MaterialSwitchConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialSwitchCssClasses {
       final String INPUT = 'mdl-switch__input';
       final String TRACK = 'mdl-switch__track';
@@ -100,13 +101,12 @@ void _updateClasses() {
 
 /// Add blur.
 /// 
-///   MaterialSwitch.prototype.blur_ = function(event) {
-void _blur(final html.Event event) {
+///   MaterialSwitch.prototype.blur_ = /*function*/ () {
+void _blur() {
     // TODO: figure out why there's a focus event being fired after our blur,
     // so that we can avoid this hack.
     window.setTimeout( /*function*/ () {
       _inputElement.blur();
-    }, _constant.TINY_TIMEOUT);
   }
 
   // Public methods.
@@ -123,6 +123,8 @@ void checkDisabled() {
       element.classes.remove(_cssClasses.IS_DISABLED);
     }
   }
+  MaterialSwitch.prototype['checkDisabled'] =
+      MaterialSwitch.prototype.checkDisabled;
 
 /// Check the components toggled state.
 /// 
@@ -136,6 +138,8 @@ void checkToggleState() {
       element.classes.remove(_cssClasses.IS_CHECKED);
     }
   }
+  MaterialSwitch.prototype['checkToggleState'] =
+      MaterialSwitch.prototype.checkToggleState;
 
 /// Disable switch.
 /// 
@@ -145,6 +149,7 @@ void disable() {
     _inputElement.disabled = true;
     _updateClasses();
   }
+  MaterialSwitch.prototype['disable'] = MaterialSwitch.prototype.disable;
 
 /// Enable switch.
 /// 
@@ -154,6 +159,7 @@ void enable() {
     _inputElement.disabled = false;
     _updateClasses();
   }
+  MaterialSwitch.prototype['enable'] = MaterialSwitch.prototype.enable;
 
 /// Activate switch.
 /// 
@@ -163,6 +169,7 @@ void on() {
     _inputElement.checked = true;
     _updateClasses();
   }
+  MaterialSwitch.prototype['on'] = MaterialSwitch.prototype.on;
 
 /// Deactivate switch.
 /// 
@@ -172,6 +179,7 @@ void off() {
     _inputElement.checked = false;
     _updateClasses();
   }
+  MaterialSwitch.prototype['off'] = MaterialSwitch.prototype.off;
 
 /// Initialize element.
 ///   MaterialSwitch.prototype.init = /*function*/ () {

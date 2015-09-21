@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialCheckbox = function MaterialCheckbox(element) {
@@ -29,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialCheckbox = MaterialCheckbox;
+  window['MaterialCheckbox'] = MaterialCheckbox;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialCheckboxConstant {
       final int TINY_TIMEOUT = 0;
   }
@@ -42,7 +43,7 @@ class _  MaterialCheckboxConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialCheckboxCssClasses {
       final String INPUT = 'mdl-checkbox__input';
       final String BOX_OUTLINE = 'mdl-checkbox__box-outline';
@@ -101,14 +102,12 @@ void _updateClasses() {
 
 /// Add blur.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialCheckbox.prototype.blur_ = function(event) {
-void _blur(final html.Event event) {
+///   MaterialCheckbox.prototype.blur_ = /*function*/ () {
+void _blur() {
     // TODO: figure out why there's a focus event being fired after our blur,
     // so that we can avoid this hack.
     window.setTimeout( /*function*/ () {
       _inputElement.blur();
-    }, _constant.TINY_TIMEOUT);
   }
 
   // Public methods.
@@ -125,6 +124,8 @@ void checkToggleState() {
       element.classes.remove(_cssClasses.IS_CHECKED);
     }
   }
+  MaterialCheckbox.prototype['checkToggleState'] =
+      MaterialCheckbox.prototype.checkToggleState;
 
 /// Check the inputs disabled state and update display.
 /// 
@@ -138,6 +139,8 @@ void checkDisabled() {
       element.classes.remove(_cssClasses.IS_DISABLED);
     }
   }
+  MaterialCheckbox.prototype['checkDisabled'] =
+      MaterialCheckbox.prototype.checkDisabled;
 
 /// Disable checkbox.
 /// 
@@ -147,6 +150,7 @@ void disable() {
     _inputElement.disabled = true;
     _updateClasses();
   }
+  MaterialCheckbox.prototype['disable'] = MaterialCheckbox.prototype.disable;
 
 /// Enable checkbox.
 /// 
@@ -156,6 +160,7 @@ void enable() {
     _inputElement.disabled = false;
     _updateClasses();
   }
+  MaterialCheckbox.prototype['enable'] = MaterialCheckbox.prototype.enable;
 
 /// Check checkbox.
 /// 
@@ -165,6 +170,7 @@ void check() {
     _inputElement.checked = true;
     _updateClasses();
   }
+  MaterialCheckbox.prototype['check'] = MaterialCheckbox.prototype.check;
 
 /// Uncheck checkbox.
 /// 
@@ -174,6 +180,7 @@ void uncheck() {
     _inputElement.checked = false;
     _updateClasses();
   }
+  MaterialCheckbox.prototype['uncheck'] = MaterialCheckbox.prototype.uncheck;
 
 /// Initialize element.
 ///   MaterialCheckbox.prototype.init = /*function*/ () {

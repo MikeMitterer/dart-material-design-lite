@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialMenu = function MaterialMenu(element) {
@@ -29,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialMenu = MaterialMenu;
+  window['MaterialMenu'] = MaterialMenu;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialMenuConstant {
     // Total duration of the menu animation.
       final int TRANSITION_DURATION_SECONDS = 0;
@@ -46,7 +47,7 @@ class _  MaterialMenuConstant {
 
 /// Keycodes, for code readability.
 /// 
-/// enum {Number}
+/// enum {number}
   MaterialMenu.prototype.Keycodes_ = {
       final int ENTER = 13;
       final int ESCAPE = 27;
@@ -59,7 +60,7 @@ class _  MaterialMenuConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialMenuCssClasses {
       final String CONTAINER = 'mdl-menu__container';
       final String OUTLINE = 'mdl-menu__outline';
@@ -301,7 +302,6 @@ void _handleItemClick(final evt) {
       window.setTimeout(function(evt) {
         hide();
         _closing = false;
-      }, _constant.CLOSE_TIMEOUT);
     }
   }
 
@@ -309,13 +309,13 @@ void _handleItemClick(final evt) {
 /// it), and applies it. This allows us to animate from or to the correct point,
 /// that is, the point it's aligned to in the "for" element.
 /// 
-/// param {Number} height Height of the clip rectangle
-/// param {Number} width Width of the clip rectangle
+/// param {number} height Height of the clip rectangle
+/// param {number} width Width of the clip rectangle
 ///   MaterialMenu.prototype.applyClip_ = function(height, width) {
 void _applyClip(final height, width) {
     if (element.classes.contains(_cssClasses.UNALIGNED)) {
       // Do not clip.
-      element.style.clip = null;
+      element.style.clip = '';
     } else if (element.classes.contains(_cssClasses.BOTTOM_RIGHT)) {
       // Clip to the top right corner of the menu.
       element.style.clip =
@@ -331,7 +331,7 @@ void _applyClip(final height, width) {
 
     } else {
       // Default: do not clip (same as clipping to the top left corner).
-      element.style.clip = null;
+      element.style.clip = '';
     }
   }
 
@@ -422,6 +422,7 @@ void show(final evt) {
       document.onClick.listen( callback);
     }
   }
+  MaterialMenu.prototype['show'] = MaterialMenu.prototype.show;
 
 /// Hides the menu.
 /// 
@@ -454,6 +455,7 @@ void hide() {
       _addAnimationEndListener();
     }
   }
+  MaterialMenu.prototype['hide'] = MaterialMenu.prototype.hide;
 
 /// Displays or hides the menu, depending on current state.
 /// 
@@ -467,6 +469,7 @@ void toggle(final evt) {
       show(evt);
     }
   }
+  MaterialMenu.prototype['toggle'] = MaterialMenu.prototype.toggle;
 
 /// Downgrade the component.
 /// 

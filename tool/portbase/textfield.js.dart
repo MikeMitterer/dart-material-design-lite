@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialTextfield = function MaterialTextfield(element) {
@@ -29,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialTextfield = MaterialTextfield;
+  window['MaterialTextfield'] = MaterialTextfield;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialTextfieldConstant {
       final int NO_MAX_ROWS = -1;
       final String MAX_ROWS_ATTRIBUTE = 'maxrows';
@@ -43,7 +44,7 @@ class _  MaterialTextfieldConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialTextfieldCssClasses {
       final String LABEL = 'mdl-textfield__label';
       final String INPUT = 'mdl-textfield__input';
@@ -84,6 +85,14 @@ void _onBlur(final html.Event event) {
     element.classes.remove(_cssClasses.IS_FOCUSED);
   }
 
+/// Handle reset event from out side.
+/// 
+/// param {Event} event The event that fired.
+///   MaterialTextfield.prototype.onReset_ = function(event) {
+void _onReset(final html.Event event) {
+    _updateClasses();
+  }
+
 /// Handle class updates.
 /// 
 ///   MaterialTextfield.prototype.updateClasses_ = /*function*/ () {
@@ -107,6 +116,8 @@ void checkDisabled() {
       element.classes.remove(_cssClasses.IS_DISABLED);
     }
   }
+  MaterialTextfield.prototype['checkDisabled'] =
+      MaterialTextfield.prototype.checkDisabled;
 
 /// Check the validity state and update field accordingly.
 /// 
@@ -120,6 +131,8 @@ void checkValidity() {
       element.classes.add(_cssClasses.IS_INVALID);
     }
   }
+  MaterialTextfield.prototype['checkValidity'] =
+      MaterialTextfield.prototype.checkValidity;
 
 /// Check the dirty state and update field accordingly.
 /// 
@@ -133,6 +146,8 @@ void checkDirty() {
       element.classes.remove(_cssClasses.IS_DIRTY);
     }
   }
+  MaterialTextfield.prototype['checkDirty'] =
+      MaterialTextfield.prototype.checkDirty;
 
 /// Disable text field.
 /// 
@@ -142,6 +157,7 @@ void disable() {
     _input.disabled = true;
     _updateClasses();
   }
+  MaterialTextfield.prototype['disable'] = MaterialTextfield.prototype.disable;
 
 /// Enable text field.
 /// 
@@ -151,10 +167,11 @@ void enable() {
     _input.disabled = false;
     _updateClasses();
   }
+  MaterialTextfield.prototype['enable'] = MaterialTextfield.prototype.enable;
 
 /// Update text field value.
 /// 
-/// param {String} value The value to which to set the control (optional).
+/// param {string} value The value to which to set the control (optional).
 /// public
 ///   MaterialTextfield.prototype.change = function(value) {
 void change(final value) {
@@ -164,6 +181,7 @@ void change(final value) {
     }
     _updateClasses();
   }
+  MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
 
 /// Initialize element.
 ///   MaterialTextfield.prototype.init = /*function*/ () {
@@ -174,9 +192,8 @@ void init() {
       _input = element.querySelector('.' + _cssClasses.INPUT);
 
       if (_input) {
-        if (_input.hasAttribute(_constant.MAX_ROWS_ATTRIBUTE)) {
+        if (_input.hasAttribute(
           _maxRows = parseInt(input.getAttribute(
-              _constant.MAX_ROWS_ATTRIBUTE), 10);
           if (isNaN(maxRows)) {
             _maxRows = constant.NO_MAX_ROWS;
           }
@@ -185,6 +202,7 @@ void init() {
         _boundUpdateClassesHandler = updateClasses;
         _boundFocusHandler = onFocus;
         _boundBlurHandler = onBlur;
+        _boundResetHandler = onReset;
         _input.addEventListener('input', boundUpdateClassesHandler);
 
 	// .addEventListener('focus', -- .onFocus.listen(<Event>);
@@ -192,6 +210,7 @@ void init() {
 
 	// .addEventListener('blur', -- .onBlur.listen(<Event>);
         _input.onBlur.listen( boundBlurHandler);
+        _input.addEventListener('reset', boundResetHandler);
 
         if (_maxRows != constant.NO_MAX_ROWS) {
           // TODO: This should handle pasting multi line text.
@@ -213,6 +232,7 @@ void _mdlDowngrade() {
     _input.removeEventListener('input', boundUpdateClassesHandler);
     _input.removeEventListener('focus', boundFocusHandler);
     _input.removeEventListener('blur', boundBlurHandler);
+    _input.removeEventListener('reset', boundResetHandler);
     if (boundKeyDownHandler) {
       _input.removeEventListener('keydown', boundKeyDownHandler);
     }

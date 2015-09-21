@@ -471,7 +471,7 @@ class MaterialMenu extends MdlComponent {
 
         if (element.classes.contains(_cssClasses.UNALIGNED)) {
             // Do not clip.
-            element.style.clip = null;
+            element.style.clip = '';
 
         } else if (element.classes.contains(_cssClasses.BOTTOM_RIGHT)) {
             // Clip to the top right corner of the menu.
@@ -487,7 +487,7 @@ class MaterialMenu extends MdlComponent {
 
         } else {
             // Default: do not clip (same as clipping to the top left corner).
-            element.style.clip = null;
+            element.style.clip = '';
         }
     }
 

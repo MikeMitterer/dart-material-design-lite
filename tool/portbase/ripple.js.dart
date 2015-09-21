@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialRipple = function MaterialRipple(element) {
@@ -29,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialRipple = MaterialRipple;
+  window['MaterialRipple'] = MaterialRipple;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialRippleConstant {
       final String INITIAL_SCALE = 'scale(0.0001, 0.0001)';
       final String INITIAL_SIZE = '1px';
@@ -46,7 +47,7 @@ class _  MaterialRippleConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialRippleCssClasses {
       final String RIPPLE_CENTER = 'mdl-ripple--center';
       final String RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
@@ -167,23 +168,34 @@ void init() {
 	// .addEventListener('blur', -- .onBlur.listen(<Event>);
         element.onBlur.listen( boundUpHandler);
 
+/// Getter for frameCount_.
+/// return {number} the frame count.
         getFrameCount = /*function*/ () {
           return _frameCount;
         }
 
+/// Setter for frameCount_.
+/// param {number} fC the frame count.
         setFrameCount = function(fC) {
           _frameCount = fC;
         }
 
+/// Getter for rippleElement_.
+/// return {Element} the ripple element.
         getRippleElement = /*function*/ () {
           return _rippleElement;
         }
 
+/// Sets the ripple X and Y coordinates.
+/// param  {number} newX the new X coordinate
+/// param  {number} newY the new Y coordinate
         setRippleXY = function(newX, newY) {
           _x = newX;
           _y = newY;
         }
 
+/// Sets the ripple styles.
+/// param  {boolean} start whether or not this is the start frame.
         setRippleStyles = function(start) {
           if (_rippleElement != null) {
 
@@ -223,6 +235,7 @@ void init() {
           }
         }
 
+/// Handles an animation frame.
         animFrameHandler = /*function*/ () {
           if (_frameCount-- > 0) {
             window.requestAnimationFrame(animFrameHandler);

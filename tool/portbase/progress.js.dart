@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialProgress = function MaterialProgress(element) {
@@ -29,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialProgress = MaterialProgress;
+  window['MaterialProgress'] = MaterialProgress;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialProgressConstant {
   }
 
@@ -41,14 +42,14 @@ class _  MaterialProgressConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialProgressCssClasses {
       final String INDETERMINATE_CLASS = 'mdl-progress__indeterminate';
   }
 
 /// Set the current progress of the progressbar.
 /// 
-/// param {Number} p Percentage of the progress (0-100)
+/// param {number} p Percentage of the progress (0-100)
 /// public
 ///   MaterialProgress.prototype.setProgress = function(p) {
 void setProgress(final p) {
@@ -58,16 +59,20 @@ void setProgress(final p) {
 
     _progressbar.style.width = p + '%';
   }
+  MaterialProgress.prototype['setProgress'] =
+      MaterialProgress.prototype.setProgress;
 
 /// Set the current progress of the buffer.
 /// 
-/// param {Number} p Percentage of the buffer (0-100)
+/// param {number} p Percentage of the buffer (0-100)
 /// public
 ///   MaterialProgress.prototype.setBuffer = function(p) {
 void setBuffer(final p) {
     _bufferbar.style.width = p + '%';
     _auxbar.style.width = (100 - p) + '%';
   }
+  MaterialProgress.prototype['setBuffer'] =
+      MaterialProgress.prototype.setBuffer;
 
 /// Initialize element.
 ///   MaterialProgress.prototype.init = /*function*/ () {

@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialIconToggle = function MaterialIconToggle(element) {
@@ -29,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialIconToggle = MaterialIconToggle;
+  window['MaterialIconToggle'] = MaterialIconToggle;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialIconToggleConstant {
       final int TINY_TIMEOUT = 0;
   }
@@ -42,7 +43,7 @@ class _  MaterialIconToggleConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialIconToggleCssClasses {
       final String INPUT = 'mdl-icon-toggle__input';
       final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
@@ -97,14 +98,12 @@ void _updateClasses() {
 
 /// Add blur.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialIconToggle.prototype.blur_ = function(event) {
-void _blur(final html.Event event) {
+///   MaterialIconToggle.prototype.blur_ = /*function*/ () {
+void _blur() {
     // TODO: figure out why there's a focus event being fired after our blur,
     // so that we can avoid this hack.
     window.setTimeout( /*function*/ () {
       _inputElement.blur();
-    }, _constant.TINY_TIMEOUT);
   }
 
   // Public methods.
@@ -121,6 +120,8 @@ void checkToggleState() {
       element.classes.remove(_cssClasses.IS_CHECKED);
     }
   }
+  MaterialIconToggle.prototype['checkToggleState'] =
+      MaterialIconToggle.prototype.checkToggleState;
 
 /// Check the inputs disabled state and update display.
 /// 
@@ -134,6 +135,8 @@ void checkDisabled() {
       element.classes.remove(_cssClasses.IS_DISABLED);
     }
   }
+  MaterialIconToggle.prototype['checkDisabled'] =
+      MaterialIconToggle.prototype.checkDisabled;
 
 /// Disable icon toggle.
 /// 
@@ -143,6 +146,8 @@ void disable() {
     _inputElement.disabled = true;
     _updateClasses();
   }
+  MaterialIconToggle.prototype['disable'] =
+      MaterialIconToggle.prototype.disable;
 
 /// Enable icon toggle.
 /// 
@@ -152,6 +157,7 @@ void enable() {
     _inputElement.disabled = false;
     _updateClasses();
   }
+  MaterialIconToggle.prototype['enable'] = MaterialIconToggle.prototype.enable;
 
 /// Check icon toggle.
 /// 
@@ -161,6 +167,7 @@ void check() {
     _inputElement.checked = true;
     _updateClasses();
   }
+  MaterialIconToggle.prototype['check'] = MaterialIconToggle.prototype.check;
 
 /// Uncheck icon toggle.
 /// 
@@ -170,6 +177,8 @@ void uncheck() {
     _inputElement.checked = false;
     _updateClasses();
   }
+  MaterialIconToggle.prototype['uncheck'] =
+      MaterialIconToggle.prototype.uncheck;
 
 /// Initialize element.
 ///   MaterialIconToggle.prototype.init = /*function*/ () {

@@ -162,6 +162,8 @@ class MaterialTextfield extends MdlComponent {
                 // .addEventListener('blur', -- .onBlur.listen(<Event>);
                 eventStreams.add(input.onBlur.listen( _onBlur));
 
+                eventStreams.add(input.onReset.listen( _onReset));
+
                 if (_maxRows != _constant.NO_MAX_ROWS) {
                     // TODO: This should handle pasting multi line text.
                     // Currently doesn't.
@@ -196,12 +198,18 @@ class MaterialTextfield extends MdlComponent {
         element.classes.remove(_cssClasses.IS_FOCUSED);
     }
 
+
     /// Handle class updates.
     void _updateClasses() {
 
         _checkDisabled();
         _checkValidity();
         _checkDirty();
+    }
+
+    /// Handle reset event from out side.
+    void _onReset(final html.Event event) {
+        _updateClasses();
     }
 
     /// Check the disabled state and update field accordingly.

@@ -113,7 +113,7 @@ class MaterialDivDataTable extends MdlComponent {
 
     /// Creates a checkbox for a single or or multiple rows and hooks up the
     /// event handling.
-    dom.LabelElement _createCheckbox(final dom.TableRowElement row, final List<dom.HtmlElement> rows) {
+    dom.LabelElement _createCheckbox(final dom.TableRowElement row, final List<dom.HtmlElement> optRows) {
 
         final dom.LabelElement label = new dom.LabelElement();
 
@@ -138,10 +138,10 @@ class MaterialDivDataTable extends MdlComponent {
                 checkbox.value = row.dataset[_constant.SELECTABLE_VALUE];
             }
 
-        } else if (rows != null && rows.isNotEmpty) {
+        } else if (optRows != null && optRows.isNotEmpty) {
 
             // .addEventListener('change', -- .onChange.listen(<Event>);
-            checkbox.onChange.listen( _selectRow(checkbox, null, rows));
+            checkbox.onChange.listen( _selectRow(checkbox, null, optRows));
         }
 
         label.append(checkbox);
@@ -154,7 +154,7 @@ class MaterialDivDataTable extends MdlComponent {
     /// [checkbox] Checkbox that toggles the selection state.
     /// [row] to toggle when checkbox changes.
     /// [rows] to toggle when checkbox changes.
-    Function _selectRow(final dom.CheckboxInputElement checkbox, final dom.TableRowElement row, final List<dom.HtmlElement> rows) {
+    Function _selectRow(final dom.CheckboxInputElement checkbox, final dom.TableRowElement row, final List<dom.HtmlElement> optRows) {
 
         if (row != null) {
 
@@ -168,23 +168,23 @@ class MaterialDivDataTable extends MdlComponent {
             };
         }
 
-        if (rows != null && rows.isNotEmpty) {
+        if (optRows != null && optRows.isNotEmpty) {
 
             return (final dom.Event event) {
 
                 dom.HtmlElement el;
                 if (checkbox.checked) {
-                    for (int i = 0; i < rows.length; i++) {
-                        el = rows[i].querySelector(".${_cssClasses.CHECKBOX_INPUT}");
+                    for (int i = 0; i < optRows.length; i++) {
+                        el = optRows[i].querySelector(".${_cssClasses.CHECKBOX_INPUT}");
                         MaterialCheckbox.widget(el).check();
-                        rows[i].classes.add(_cssClasses.IS_SELECTED);
+                        optRows[i].classes.add(_cssClasses.IS_SELECTED);
                     }
 
                 } else {
-                    for (int i = 0; i < rows.length; i++) {
-                        el = rows[i].querySelector(".${_cssClasses.CHECKBOX_INPUT}");
+                    for (int i = 0; i < optRows.length; i++) {
+                        el = optRows[i].querySelector(".${_cssClasses.CHECKBOX_INPUT}");
                         MaterialCheckbox.widget(el).uncheck();
-                        rows[i].classes.remove(_cssClasses.IS_SELECTED);
+                        optRows[i].classes.remove(_cssClasses.IS_SELECTED);
                     }
                 }
             };

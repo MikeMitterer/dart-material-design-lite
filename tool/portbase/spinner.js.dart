@@ -30,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialSpinner = MaterialSpinner;
+  window['MaterialSpinner'] = MaterialSpinner;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialSpinnerConstant {
       final int MDL_SPINNER_LAYER_COUNT = 4;
   }
@@ -43,7 +43,7 @@ class _  MaterialSpinnerConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialSpinnerCssClasses {
       final String MDL_SPINNER_LAYER = 'mdl-spinner__layer';
       final String MDL_SPINNER_CIRCLE_CLIPPER = 'mdl-spinner__circle-clipper';
@@ -55,7 +55,7 @@ class _  MaterialSpinnerCssClasses {
 
 /// Auxiliary method to create a spinner layer.
 /// 
-/// param {Number} index Index of the layer to be created.
+/// param {number} index Index of the layer to be created.
 /// public
 ///   MaterialSpinner.prototype.createLayer = function(index) {
 void createLayer(final index) {
@@ -90,6 +90,8 @@ void createLayer(final index) {
 
     element.append(layer);
   }
+  MaterialSpinner.prototype['createLayer'] =
+      MaterialSpinner.prototype.createLayer;
 
 /// Stops the spinner animation.
 /// Public method for users who need to stop the spinner for any reason.
@@ -99,6 +101,7 @@ void createLayer(final index) {
 void stop() {
     element.classes.remove('is-active');
   }
+  MaterialSpinner.prototype['stop'] = MaterialSpinner.prototype.stop;
 
 /// Starts the spinner animation.
 /// Public method for users who need to manually start the spinner for any reason
@@ -109,6 +112,7 @@ void stop() {
 void start() {
     element.classes.add('is-active');
   }
+  MaterialSpinner.prototype['start'] = MaterialSpinner.prototype.start;
 
 /// Initialize element.
 ///   MaterialSpinner.prototype.init = /*function*/ () {

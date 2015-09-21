@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialLayout = function MaterialLayout(element) {
@@ -29,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialLayout = MaterialLayout;
+  window['MaterialLayout'] = MaterialLayout;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialLayoutConstant {
       final String MAX_WIDTH = '(max-width: 1024px)';
       final int TAB_SCROLL_PIXELS = 100;
@@ -45,7 +46,7 @@ class _  MaterialLayoutConstant {
 
 /// Modes.
 /// 
-/// enum {Number}
+/// enum {number}
 class _  MaterialLayoutMode {
       final int STANDARD = 0;
       final int SEAMED = 1;
@@ -57,7 +58,7 @@ class _  MaterialLayoutMode {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialLayoutCssClasses {
       final String CONTAINER = 'mdl-layout__container';
       final String HEADER = 'mdl-layout__header';
@@ -224,7 +225,7 @@ void init() {
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling
       // of small screens.
-      _screenSizeMediaQuery = window.matchMedia(_constant.MAX_WIDTH);
+      _screenSizeMediaQuery = window.matchMedia(
       _screenSizeMediaQuery.addListener(_screenSizeHandler);
       _screenSizeHandler();
 
@@ -267,6 +268,9 @@ void init() {
           _contentScrollHandler();
         }
       }
+
+/// Prevents an event from triggering the default behaviour.
+/// param  {Event} ev the event to eat.
 
       final eatEvent = function(ev) {
         ev.preventDefault();
@@ -409,8 +413,16 @@ void init() {
     }
   }
 
+/// Constructor for an individual tab.
+/// 
+/// constructor
+/// param {HTMLElement} tab The HTML element for the tab.
+/// param {!Array<HTMLElement>} tabs Array with HTML elements for all tabs.
+/// param {!Array<HTMLElement>} panels Array with HTML elements for all panels.
+/// param {MaterialLayout} layout The MaterialLayout object that owns the tab.
   function MaterialLayoutTab(tab, tabs, panels, layout) {
 
+/// Auxiliary method to programmatically select a tab in the UI.
     function selectTab() {
 
       final href = tab.href.split('#')[1];
@@ -438,8 +450,10 @@ void init() {
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       tab.onClick.listen( /*function*/ (e) {
-        e.preventDefault();
-        selectTab();
+        if (tab.getAttribute('href').charAt(0) == '#') {
+          e.preventDefault();
+          selectTab();
+        }
       });
 
       tab.show = selectTab;

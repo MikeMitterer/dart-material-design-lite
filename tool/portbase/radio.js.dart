@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialRadio = function MaterialRadio(element) {
@@ -29,11 +30,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialRadio = MaterialRadio;
+  window['MaterialRadio'] = MaterialRadio;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialRadioConstant {
       final int TINY_TIMEOUT = 0;
   }
@@ -42,7 +43,7 @@ class _  MaterialRadioConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialRadioCssClasses {
       final String IS_FOCUSED = 'is-focused';
       final String IS_DISABLED = 'is-disabled';
@@ -74,7 +75,7 @@ void _onChange(final html.Event event) {
       final button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
       // Different name == different group, so no point updating those.
       if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
-        radios[i].MaterialRadio._updateClasses();
+        radios[i]['MaterialRadio']._updateClasses();
       }
     }
   }
@@ -113,15 +114,13 @@ void _updateClasses() {
 
 /// Add blur.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialRadio.prototype.blur_ = function(event) {
-void _blur(final html.Event event) {
+///   MaterialRadio.prototype.blur_ = /*function*/ () {
+void _blur() {
 
     // TODO: figure out why there's a focus event being fired after our blur,
     // so that we can avoid this hack.
     window.setTimeout( /*function*/ () {
       _btnElement.blur();
-    }, _constant.TINY_TIMEOUT);
   }
 
   // Public methods.
@@ -138,6 +137,8 @@ void checkDisabled() {
       element.classes.remove(_cssClasses.IS_DISABLED);
     }
   }
+  MaterialRadio.prototype['checkDisabled'] =
+      MaterialRadio.prototype.checkDisabled;
 
 /// Check the components toggled state.
 /// 
@@ -151,6 +152,8 @@ void checkToggleState() {
       element.classes.remove(_cssClasses.IS_CHECKED);
     }
   }
+  MaterialRadio.prototype['checkToggleState'] =
+      MaterialRadio.prototype.checkToggleState;
 
 /// Disable radio.
 /// 
@@ -160,6 +163,7 @@ void disable() {
     _btnElement.disabled = true;
     _updateClasses();
   }
+  MaterialRadio.prototype['disable'] = MaterialRadio.prototype.disable;
 
 /// Enable radio.
 /// 
@@ -169,6 +173,7 @@ void enable() {
     _btnElement.disabled = false;
     _updateClasses();
   }
+  MaterialRadio.prototype['enable'] = MaterialRadio.prototype.enable;
 
 /// Check radio.
 /// 
@@ -178,6 +183,7 @@ void check() {
     _btnElement.checked = true;
     _updateClasses();
   }
+  MaterialRadio.prototype['check'] = MaterialRadio.prototype.check;
 
 /// Uncheck radio.
 /// 
@@ -187,6 +193,7 @@ void uncheck() {
     _btnElement.checked = false;
     _updateClasses();
   }
+  MaterialRadio.prototype['uncheck'] = MaterialRadio.prototype.uncheck;
 
 /// Initialize element.
 ///   MaterialRadio.prototype.init = /*function*/ () {

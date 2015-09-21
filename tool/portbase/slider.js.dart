@@ -22,6 +22,7 @@ import 'dart:math' as Math;
 /// Implements MDL component design pattern defined at:
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
+/// constructor
 /// param {HTMLElement} element The element that will be upgraded.
 
   final MaterialSlider = function MaterialSlider(element) {
@@ -30,11 +31,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialSlider = MaterialSlider;
+  window['MaterialSlider'] = MaterialSlider;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialSliderConstant {
     // None for now.
   }
@@ -43,7 +44,7 @@ class _  MaterialSliderConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialSliderCssClasses {
       final String IE_CONTAINER = 'mdl-slider__ie-container';
       final String SLIDER_CONTAINER = 'mdl-slider__container';
@@ -84,6 +85,7 @@ void _onMouseUp(final html.Event event) {
 /// strict about 
 /// 
 /// param {Event} event The event that fired.
+/// suppress {missingProperties}
 ///   MaterialSlider.prototype.onContainerMouseDown_ = function(event) {
 void _onContainerMouseDown(final html.Event event) {
     // If this click is not on the parent element (but rather some child)
@@ -107,9 +109,8 @@ void _onContainerMouseDown(final html.Event event) {
 
 /// Handle updating of values.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialSlider.prototype.updateValueStyles_ = function(event) {
-void _updateValueStyles(final html.Event event) {
+///   MaterialSlider.prototype.updateValueStyles_ = /*function*/ () {
+void _updateValueStyles() {
     // Calculate and apply percentages to div structure behind slider.
 
     final fraction = (element.value - element.min) /
@@ -139,6 +140,7 @@ void _updateValueStyles(final html.Event event) {
 void disable() {
     element.disabled = true;
   }
+  MaterialSlider.prototype['disable'] = MaterialSlider.prototype.disable;
 
 /// Enable slider.
 /// 
@@ -148,10 +150,11 @@ void enable() {
 
     element.disabled = false;
   }
+  MaterialSlider.prototype['enable'] = MaterialSlider.prototype.enable;
 
 /// Update slider value.
 /// 
-/// param {Number} value The value to which to set the control (optional).
+/// param {number} value The value to which to set the control (optional).
 /// public
 ///   MaterialSlider.prototype.change = function(value) {
 void change(final value) {
@@ -161,6 +164,7 @@ void change(final value) {
     }
     _updateValueStyles();
   }
+  MaterialSlider.prototype['change'] = MaterialSlider.prototype.change;
 
 /// Initialize element.
 ///   MaterialSlider.prototype.init = /*function*/ () {

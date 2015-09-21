@@ -29,11 +29,11 @@ import 'dart:math' as Math;
     // Initialize instance.
     init();
   }
-  window.MaterialButton = MaterialButton;
+  window['MaterialButton'] = MaterialButton;
 
 /// Store constants in one place so they can be updated easily.
 /// 
-/// enum {String | Number}
+/// enum {string | number}
 class _  MaterialButtonConstant {
     // None for now.
   }
@@ -42,7 +42,7 @@ class _  MaterialButtonConstant {
 /// JavaScript. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 /// 
-/// enum {String}
+/// enum {string}
 class _  MaterialButtonCssClasses {
       final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
       final String RIPPLE_CONTAINER = 'mdl-button__ripple-container';
@@ -68,6 +68,7 @@ void _blurHandler(final html.Event event) {
 void disable() {
     element.disabled = true;
   }
+  MaterialButton.prototype['disable'] = MaterialButton.prototype.disable;
 
 /// Enable button.
 /// 
@@ -76,6 +77,7 @@ void disable() {
 void enable() {
     element.disabled = false;
   }
+  MaterialButton.prototype['enable'] = MaterialButton.prototype.enable;
 
 /// Initialize element.
 ///   MaterialButton.prototype.init = /*function*/ () {
