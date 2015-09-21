@@ -1,6 +1,11 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.5.6](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.5.5...v1.5.6) - 2015-09-21##
+
+###Feature###
+* Merged latest MDL/JS master [288dc40](https://github.com/mikemitterer/dart-material-design-lite/commit/288dc40f292b996f480b46aebcb22605f9126d3e)
+
 ##[v1.5.5](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.5.4...v1.5.5) - 2015-09-02##
 
 ###Fixes###
