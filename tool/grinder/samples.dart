@@ -147,6 +147,9 @@ void createSampleList() {
     samples.add(new Sample("tooltip",   Type.Core,  hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
     samples.add(new Sample("typography",Type.Core,  hasScript: false));
 
+    // For now - ignore mdl/js snackbar...
+    //samples.add(new Sample("snackbar",  Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
+
     samples.add(new Sample("ripple",    Type.Ignore,  hasDemoCss: false, hasDemoHtml: false, hasReadme: false, excludeFromStyleguide: true ));
 
     // MDL Extras
