@@ -459,6 +459,7 @@ void init() {
       tab.show = selectTab;
     }
   }
+  window['MaterialLayoutTab'] = MaterialLayoutTab;
 
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.

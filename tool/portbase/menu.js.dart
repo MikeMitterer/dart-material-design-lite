@@ -103,7 +103,8 @@ void init() {
 
       // Find the "for" element and bind events to it.
 
-      final forElId = element.getAttribute('for');
+      final forElId = element.getAttribute('for') ||
+                      element.getAttribute('data-for');
 
       final forEl = null;
       if (forElId) {

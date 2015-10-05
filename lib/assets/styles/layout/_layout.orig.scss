@@ -256,7 +256,7 @@
       width: calc(100% - #{$layout-drawer-width});
     }
 
-    @media screen and (min-width: $layout-screen-size-threshold) {
+    @media screen and (min-width: $layout-screen-size-threshold + 1px) {
       .mdl-layout--fixed-drawer > & {
         .mdl-layout__header-row {
           padding-left: 40px;
@@ -422,6 +422,7 @@
     // Fix IE10 bug.
     -ms-flex: 0 1 auto;
 
+    position: relative;
     display: inline-block;
     overflow-y: auto;
     overflow-x: hidden;

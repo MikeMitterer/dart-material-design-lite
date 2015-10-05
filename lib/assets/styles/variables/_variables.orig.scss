@@ -40,6 +40,7 @@
  * -----Shadows
  * -----Grid
  * -----Data table
+ * -----Snackbar
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -74,6 +75,9 @@ $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 
 @import "color-definitions";
 @import "functions";
+
+/* ==========  IMAGES  ========== */
+$image_path: '/images';
 
 /* ==========  Color & Themes  ========== */
 
@@ -209,6 +213,7 @@ $checkbox-color: unquote("rgb(#{$color-primary})") !default;
 $checkbox-off-color: unquote("rgba(#{$color-black}, 0.54)") !default;
 $checkbox-disabled-color: unquote("rgba(#{$color-black}, 0.26)") !default;
 $checkbox-focus-color: unquote("rgba(#{$color-primary}, 0.26)") !default;
+$checkbox-image-path: $image_path;
 
 /* ==========  Switches  ========== */
 
@@ -260,6 +265,7 @@ $range-bg-focus-color: unquote("rgba(#{$color-black}, 0.12)") !default;
 $progress-main-color: unquote("rgb(#{$color-primary})") !default;
 $progress-secondary-color: unquote("rgba(#{$color-primary-contrast}, 0.7)") !default;
 $progress-fallback-buffer-color: unquote("rgba(#{$color-primary-contrast}, 0.9)") !default;
+$progress-image-path: $image_path;
 
 /* ==========  List ========== */
 
@@ -546,6 +552,13 @@ $data-table-card-title-top: 20px !default;
 $data-table-card-padding: 24px !default;
 $data-table-button-padding-right: 16px !default;
 $data-table-cell-top: $data-table-card-padding / 2;
+
+/* SNACKBAR */
+
+// Hard coded since the color is not present in any pallet.
+$snackbar-background-color: #323232 !default;
+$snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
+$snackbar-action-color: unquote("rgb(#{$color-accent})") !default;
 
 /* TOOLTIP */
 $tooltip-font-size: 10px !default;
