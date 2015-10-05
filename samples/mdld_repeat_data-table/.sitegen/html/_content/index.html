@@ -1,0 +1,42 @@
+title: REPEAT Data-Table
+samplename: repeat_data-table
+sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/master/samples/mdld_repeat_data-table/web
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<div class="demo-preview-block">
+    <h5>Build your "CustomMac Pro"</h5>
+    <div mdl-repeat="component in components"
+         class="mdl-data-tableex mdl-js-data-tableex mdl-data-tableex--selectable mdl-shadow--2dp">
+        <div class="mdl-div-data-tableex__row mdl-div-data-tableex__head mdl-repeat__keep_this_element">
+            <div class="mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow">Component</div>
+            <div class="mdl-data-tableex__cell--numeric">Quantity</div>
+            <div class="mdl-data-tableex__cell--numeric">Unit price</div>
+        </div>
+        {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+        <template>
+            <div class="mdl-div-data-tableex__row">
+                <div class="mdl-data-tableex__cell--checkbox">
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-tableex__select">
+                        <input type="checkbox" class="mdl-checkbox__input" data-mdl-click="check({{component.name}})" />
+                    </label>
+                </div>
+                <div class="mdl-data-tableex__cell--grow">{{component.name}}</div>
+                <div class="mdl-data-tableex__cell--numeric">{{component.quantity}}</div>
+                <div class="mdl-data-tableex__cell--numeric">{{component.price}}</div>
+            </div>
+        </template>
+        |= {{ }} =| {{! ----- Turn on mustache ---- }}
+    </div>
+
+    <div class="buttons">
+        <button id="addComponents"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+            Add components
+        </button>
+        <button id="removeComponents"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+            Remove components
+        </button>
+    </div>
+</div>
+
+

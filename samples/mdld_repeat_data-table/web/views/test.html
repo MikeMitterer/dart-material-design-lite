@@ -1,0 +1,23 @@
+<section class="demo-section">
+    <p>Charles Francis Xavier - I live in test.html</p>
+    <p>Source for this little sample: (comes from test.html)</p>
+    <pre class="prettyprint linenums dart">
+main() {
+    final Logger _logger = new Logger('main.MaterialInclude');
+
+    configLogging();
+
+    registerAllMdlComponents();
+    registerAllMdlRemoteComponents();
+
+    upgradeAllRegistered().then((_) {
+        final MaterialInclude include = MaterialInclude.widget(dom.querySelector(&quot;#main&quot;));
+
+        include.onLoadEnd.listen((_) {
+
+            prettyPrint();
+            _logger.info(&quot;Loaded&quot;);
+        });
+    });
+}</pre>
+</section>

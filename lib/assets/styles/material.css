@@ -3949,10 +3949,6 @@ input.mdl-button[type="submit"] {
       background-color: inherit; }
       .mdl-data-tableex > *.mdl-div-data-tableex__head.is-selected, .mdl-data-tableex > *.mdl-div-data-tableex__head:hover {
         background-color: inherit; }
-      .mdl-data-tableex > *.mdl-div-data-tableex__head .mdl-data-tableex__select {
-        position: absolute;
-        bottom: 8px;
-        left: 24px; }
     .mdl-data-tableex > * > * {
       display: -webkit-box;
       display: -webkit-flex;

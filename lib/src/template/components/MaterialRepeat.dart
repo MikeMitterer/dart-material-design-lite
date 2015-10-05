@@ -24,7 +24,8 @@ part of mdltemplate;
 class _MaterialRepeatCssClasses {
 
     final String IS_UPGRADED = 'is-upgraded';
-    
+    final String KEEP_THIS_ELEMENT = "mdl-repeat__keep_this_element";
+
     const _MaterialRepeatCssClasses(); }
     
 /// Store constants in one place so they can be updated easily.
@@ -186,13 +187,15 @@ class MaterialRepeat extends MdlTemplateComponent {
         temp.remove();
     }
 
-    /// Removes all Children
+    /// Removes all Children except those marked with mdl-repeat_keep_this_element
     Future removeAll() {
         final Completer completer = new Completer();
 
         if(_items.isNotEmpty) {
             _items.clear();
-            element.children.clear();
+            //element.children.clear();
+            element.children.removeWhere( (final dom.Element element) =>
+                !element.classes.contains(_cssClasses.KEEP_THIS_ELEMENT));
         }
         new Future(() {
             completer.complete();
@@ -210,7 +213,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialRepeat - init");
+        _logger.info("MaterialRepeat - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialRepeatConstant.WIDGET_SELECTOR);

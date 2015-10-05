@@ -1,0 +1,16 @@
+//@import "../../../lib/assets/styles/material-design-lite";
+
+.demo-page--repeat_data-table {
+
+    .mdl-div-data-tableex__row {
+
+        // Set a default  width for all cells
+        > * {
+            width            : 80px;
+        }
+    }
+
+    .buttons {
+        padding-top: 12px;
+    }
+}
