@@ -55,6 +55,10 @@ Scope mdlParentScope(final MdlComponent component) {
   return mdlParentScope(component.parent);
 }
 
+/**
+ * Usage:
+ *  final Scope scope = new Scope(this, mdlParentScope(this));
+ */
 class Scope {
     final Logger _logger = new Logger('mdlapplication.Scope');
 
@@ -63,6 +67,7 @@ class Scope {
     Object _context;
     Object _rootContext;
 
+    /// [_parentScope] can be null if there is no parent
     Scope(this._context,this._parentScope);
 
     Object get context => _context;
@@ -70,7 +75,7 @@ class Scope {
       _context = cntxt;
     }
 
-    /// Returns the next SCOPE-AWARE-Parent ( implements ScopeAware )
+    /// Returns the next SCOPE-AWARE-Parent ( Component that implements ScopeAware )
     Object get parentContext {
         if(_parentScope != null) {
             return _parentScope.context;

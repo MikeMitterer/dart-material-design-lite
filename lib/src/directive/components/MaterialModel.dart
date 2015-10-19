@@ -57,7 +57,7 @@ class MaterialModel extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.fine("MaterialModel - init");
+        _logger.info("MaterialModel - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialModelConstant.WIDGET_SELECTOR);
@@ -67,7 +67,7 @@ class MaterialModel extends MdlComponent {
         _scope.context = _scope.parentContext;
 
         final ModelObserver observer = _observerFactory.createFor(element);
-        observer.observe(_scope,fieldname);
+        eventStreams.addAll(observer.observe(_scope,fieldname));
 
         element.classes.add(_cssClasses.IS_UPGRADED);
     }

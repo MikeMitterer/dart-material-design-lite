@@ -174,15 +174,27 @@ class MdlComponentHandler {
 
         final Completer completer = new Completer();
 
+        void _downgradeChildren(final dom.HtmlElement element) {
+            if(element != null) {
+                element.children.forEach((final dom.Element element) {
+                    if(element is dom.HtmlElement) {
+                        _downgradeChildren(element);
+                    }
+                });
+            _deconstructComponent(element);
+            }
+        }
+
         new Future(() {
             if(element is dom.HtmlElement) {
 
-            final List<dom.Element> children = element.querySelectorAll('[class*="mdl-"]');
-
-            // Children first
-            children.forEach((final dom.Element element) => _deconstructComponent(element));
-
-            _deconstructComponent(element);
+//            final List<dom.Element> children = element.querySelectorAll('[class*="mdl-"]');
+//
+//            // Children first
+//            children.forEach((final dom.Element element) => _deconstructComponent(element));
+//
+//            _deconstructComponent(element);
+                _downgradeChildren(element);
             }
 
             completer.complete();
@@ -500,7 +512,10 @@ class MdlComponentHandler {
                 componentsForElement.forEach((final String componentName) {
 
                     component = jsElement[componentName] as MdlComponent;
+
                     component.downgrade();
+                    _logger.fine("$componentName downgraded to HTML-Element: $element!");
+
                     jsElement.deleteProperty(componentName);
 
                 });

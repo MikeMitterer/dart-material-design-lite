@@ -82,7 +82,7 @@ class DialogConfig {
 }
 
 /// HTML-Part of MdlDialog.
-abstract class MaterialDialog extends Object with TemplateComponent {
+abstract class MaterialDialog extends Object with TemplateComponent implements ScopeAware {
     final Logger _logger = new Logger('mdldialog.DialogElement');
 
     static const _MaterialDialogCssClasses _cssClasses = const _MaterialDialogCssClasses();
@@ -109,8 +109,11 @@ abstract class MaterialDialog extends Object with TemplateComponent {
     /// Configuration for this DialogElement
     final DialogConfig _config;
 
+    Scope _scope;
+
     MaterialDialog(this._config) {
         Validate.notNull(_config);
+        _scope = new Scope(this,null);
     }
 
     /// The returned Future informs about how the dialog was closed
@@ -148,6 +151,14 @@ abstract class MaterialDialog extends Object with TemplateComponent {
 
             final dom.HtmlElement dialog = _dialogContainer.children.last;
             dialog.id = _elementID;
+
+            final MaterialDialogComponent dialogComponent = MaterialDialogComponent.widget(dialog);
+            if(dialogComponent != null) {
+                dialogComponent.scope = this;
+                _logger.shout("DC found!!!!");
+            } else {
+                _logger.shout("DC found!!!!");
+            }
 
             _dialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
             _dialogContainer.classes.add(_cssClasses.IS_VISIBLE);
@@ -193,6 +204,9 @@ abstract class MaterialDialog extends Object with TemplateComponent {
     bool get hasNoTimer => !hasTimer;
     bool get isAutoCloseEnabled => hasTimer;
 
+    /// scope is read only
+    Scope get scope => _scope;
+
     // - private ----------------------------------------------------------------------------------
 
     /// This timer is used to close automatically this dialog (Toast, Growl)
@@ -235,31 +249,46 @@ abstract class MaterialDialog extends Object with TemplateComponent {
     void _destroy(final MdlDialogStatus status) {
         _logger.info("_destroy - selector .${_containerClass} brought: $_container");
 
+        /// Check if there is a pending container - it there is one, destroy it!
+        void _destroyContainer() {
+            dom.document.querySelectorAll(".${_containerClass}").forEach( (final dom.Element container) {
+
+                if (!container.classes.contains(_cssClasses.APPENDING)
+                    && container.classes.contains(_cssClasses.IS_DELETABLE) && container.children.length == 0) {
+                    container.remove();
+                    _logger.info("Container removed!");
+                }
+
+            });
+        }
+
+        void _callCallbacksAndQuit() {
+            _config.onCloseCallbacks.forEach((final OnCloseCallback callback) {
+                callback(this,status);
+            });
+
+            _complete(status);
+        }
+
         if (_element != null) {
 
             //_element.style.border = "1px solid red";
             _logger.info("Element removed! (ID: ${_element.id})");
-            _element.remove();
+
+            componentFactory().downgradeElement(_element).then((_) {
+                _element.remove();
+                _destroyContainer();
+                _callCallbacksAndQuit();
+
+            });
+            //_element.remove();
 
         } else {
+
             _logger.info("Could not find element with ID: ${_elementSelector}");
+            _destroyContainer();
+            _callCallbacksAndQuit();
         }
-
-        dom.document.querySelectorAll(".${_containerClass}").forEach( (final dom.Element container) {
-
-            if (!container.classes.contains(_cssClasses.APPENDING)
-                && container.classes.contains(_cssClasses.IS_DELETABLE) && container.children.length == 0) {
-                container.remove();
-                _logger.info("Container removed!");
-            }
-
-        });
-
-        _config.onCloseCallbacks.forEach((final OnCloseCallback callback) {
-            callback(this,status);
-        });
-
-        _complete(status);
     }
 
     /// If there is a container class {dialog} will be added otherwise a container is created
@@ -309,8 +338,7 @@ abstract class MaterialDialog extends Object with TemplateComponent {
     }
 
     void _complete(final MdlDialogStatus status) {
-        //Validate.notNull(_completer);
-        //Validate.isTrue(_completer.isCompleted == false);
+
         if(_completer == null) {
             _logger.fine("Completer is null - Status to inform the caller is: $status");
             return;
@@ -336,4 +364,5 @@ abstract class MaterialDialog extends Object with TemplateComponent {
         final Renderer renderer = templateRenderer.call(_dialogContainer,this,() => template);
         return renderer;
     }
+
 }

@@ -22,8 +22,9 @@ part of mdldirective;
 abstract class ModelObserver<T extends MdlComponent> {
     final Logger _logger = new Logger('mdldirective.ModelObserver');
 
-
-    void observe(final Scope scope,final String fieldname);
+    /// Returns the registered Stream so that they can be cleaned up in
+    /// [MdlComponent#downgrade]
+    List<StreamSubscription> observe(final Scope scope,final String fieldname);
 
     static int toInt(final dynamic value) {
         if(value is num) {
@@ -41,7 +42,10 @@ class _TextFieldObserver implements ModelObserver<MaterialTextfield> {
 
     final MaterialTextfield _textfield;
 
-    void observe(final Scope scope,final String fieldname) {
+    /// StreamSubscriptions registered by this Observer
+    final List<StreamSubscription> _subscriptions = new List<StreamSubscription>();
+
+    List<StreamSubscription> observe(final Scope scope,final String fieldname) {
         Validate.notNull(scope);
         Validate.notBlank(fieldname);
 
@@ -50,8 +54,11 @@ class _TextFieldObserver implements ModelObserver<MaterialTextfield> {
 
             final ObservableProperty prop = val;
 
-            _textfield.onInput.listen((_) => prop.value = _textfield.value);
-            prop.onChange.listen( (final PropertyChangeEvent event) => _textfield.value = prop.value.toString());
+            _subscriptions.add(
+                _textfield.onInput.listen((_) => prop.value = _textfield.value));
+
+            _subscriptions.add(
+                prop.onChange.listen( (final PropertyChangeEvent event) => _textfield.value = prop.value.toString()));
 
             _textfield.value = prop.value.toString();
 
@@ -64,6 +71,7 @@ class _TextFieldObserver implements ModelObserver<MaterialTextfield> {
 
             throw new ArgumentError("${fieldname} is null!");
         }
+        return _subscriptions;
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -78,7 +86,10 @@ class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
 
     final MaterialCheckbox _checkbox;
 
-    void observe(final Scope scope,final String fieldname) {
+    /// StreamSubscriptions registered by this Observer
+    final List<StreamSubscription> _subscriptions = new List<StreamSubscription>();
+
+    List<StreamSubscription> observe(final Scope scope,final String fieldname) {
         Validate.notNull(scope);
         Validate.notBlank(fieldname);
 
@@ -87,10 +98,12 @@ class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
 
             final ObservableProperty prop = val;
 
-            _checkbox.onClick.listen((_) => prop.value = _checkbox.checked ? _checkbox.value : "");
+            _subscriptions.add(
+                _checkbox.onClick.listen((_) => prop.value = _checkbox.checked ? _checkbox.value : ""));
 
-            prop.onChange.listen( (final PropertyChangeEvent event) =>
-                _checkbox.value == prop.value.toString() || prop.toBool() ? _checkbox.checked = true : _checkbox.checked = false);
+            _subscriptions.add(
+                prop.onChange.listen( (final PropertyChangeEvent event) =>
+                _checkbox.value == prop.value.toString() || prop.toBool() ? _checkbox.checked = true : _checkbox.checked = false));
 
             _checkbox.checked = _checkbox.value == prop.value.toString() || prop.toBool();
 
@@ -103,6 +116,7 @@ class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
 
             throw new ArgumentError("${fieldname} is null!");
         }
+        return _subscriptions;
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -118,7 +132,10 @@ class _RadioObserver implements ModelObserver<MaterialRadioGroup> {
 
     final MaterialRadioGroup _radioGroup;
 
-    void observe(final Scope scope,final String fieldname) {
+    /// StreamSubscriptions registered by this Observer
+    final List<StreamSubscription> _subscriptions = new List<StreamSubscription>();
+
+    List<StreamSubscription> observe(final Scope scope,final String fieldname) {
         Validate.notNull(scope);
         Validate.notBlank(fieldname);
 
@@ -127,9 +144,12 @@ class _RadioObserver implements ModelObserver<MaterialRadioGroup> {
 
             final ObservableProperty prop = val;
 
-            _radioGroup.onGroupChange.listen((_) => _radioGroup.hasValue ? prop.value = _radioGroup.value : prop.value = "");
+            _subscriptions.add(
+                _radioGroup.onGroupChange.listen((_) => _radioGroup.hasValue ? prop.value = _radioGroup.value : prop.value = ""));
 
-            prop.onChange.listen( (final PropertyChangeEvent event) => _radioGroup.value = prop.value.toString() );
+            _subscriptions.add(
+                prop.onChange.listen( (final PropertyChangeEvent event) => _radioGroup.value = prop.value.toString()));
+
             _radioGroup.value = prop.value.toString();
 
         } else if(val != null) {
@@ -141,6 +161,7 @@ class _RadioObserver implements ModelObserver<MaterialRadioGroup> {
 
             throw new ArgumentError("${fieldname} is null!");
         }
+        return _subscriptions;
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -156,7 +177,10 @@ class _SwitchObserver implements ModelObserver<MaterialSwitch> {
 
     final MaterialSwitch _switch;
 
-    void observe(final Scope scope,final String fieldname) {
+    /// StreamSubscriptions registered by this Observer
+    final List<StreamSubscription> _subscriptions = new List<StreamSubscription>();
+
+    List<StreamSubscription> observe(final Scope scope,final String fieldname) {
         Validate.notNull(scope);
         Validate.notBlank(fieldname);
 
@@ -165,10 +189,12 @@ class _SwitchObserver implements ModelObserver<MaterialSwitch> {
 
             final ObservableProperty prop = val;
 
-            _switch.onClick.listen((_) => prop.value = _switch.checked ? _switch.value : "");
+            _subscriptions.add(
+                _switch.onClick.listen((_) => prop.value = _switch.checked ? _switch.value : ""));
 
-            prop.onChange.listen( (final PropertyChangeEvent event) =>
-                _switch.value == prop.value.toString() || prop.toBool() ? _switch.checked = true : _switch.checked = false);
+            _subscriptions.add(
+                prop.onChange.listen( (final PropertyChangeEvent event) =>
+                _switch.value == prop.value.toString() || prop.toBool() ? _switch.checked = true : _switch.checked = false));
 
             _switch.checked = _switch.value.toString() == prop.value || prop.toBool();
 
@@ -181,6 +207,7 @@ class _SwitchObserver implements ModelObserver<MaterialSwitch> {
 
             throw new ArgumentError("${fieldname} is null!");
         }
+        return _subscriptions;
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -195,7 +222,10 @@ class _SliderObserver implements ModelObserver<MaterialSlider> {
 
     final MaterialSlider _slider;
 
-    void observe(final Scope scope,final String fieldname) {
+    /// StreamSubscriptions registered by this Observer
+    final List<StreamSubscription> _subscriptions = new List<StreamSubscription>();
+
+    List<StreamSubscription> observe(final Scope scope,final String fieldname) {
         Validate.notNull(scope);
         Validate.notBlank(fieldname);
 
@@ -204,9 +234,11 @@ class _SliderObserver implements ModelObserver<MaterialSlider> {
 
             final ObservableProperty prop = val;
 
-            _slider.onInput.listen( (_) => prop.value = _slider.value);
+            _subscriptions.add(
+                _slider.onInput.listen( (_) => prop.value = _slider.value));
 
-            prop.onChange.listen( (final PropertyChangeEvent event) => _slider.value = ModelObserver.toInt(prop.value));
+            _subscriptions.add(
+                prop.onChange.listen( (final PropertyChangeEvent event) => _slider.value = ModelObserver.toInt(prop.value)));
 
             _slider.value = ModelObserver.toInt(prop.value);
 
@@ -219,6 +251,7 @@ class _SliderObserver implements ModelObserver<MaterialSlider> {
 
             throw new ArgumentError("${fieldname} is null!");
         }
+        return _subscriptions;
     }
 
     //- private -----------------------------------------------------------------------------------

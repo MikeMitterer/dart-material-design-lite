@@ -5,6 +5,7 @@ import "package:mdl/mdldirective.dart";
 import "package:mdl/mdlapplication.dart";
 import "package:mdl/mdltemplate.dart";
 import "package:mdl/mdlformatter.dart";
+import "package:mdl/mdldialog.dart";
 
 export "package:mdl/mdlcore.dart";
 export "package:mdl/mdlcomponets.dart";
@@ -22,6 +23,7 @@ void registerMdl() {
     registerApplicationComponents();
     registerMdlDirectiveComponents();
     registerMdlFormatterComponents();
+    registerMdlDialogComponents();
 
     registerMdlComponents();
 }

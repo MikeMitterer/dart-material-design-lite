@@ -23,6 +23,8 @@ abstract class MdlComponent {
     final Logger _logger = new Logger('mdlcore.MdlComponent');
 
     /// All the registered Events - helpful for automatically downgrading the element
+    /// Sample:
+    ///     eventStreams.add(input.onFocus.listen( _onFocus));
     final List<StreamSubscription> eventStreams = new List<StreamSubscription>();
 
     /**
@@ -95,6 +97,9 @@ abstract class MdlComponent {
     ///
     /// If you need a components parent then 'init' your component in [attached] instead of
     /// CTOR.fromElement(..)
+    ///
+    /// In short - if attached is called the DOM is ready for you - this is not the case
+    /// for CTOR.fromElement(..)
     void attached() {  /* _logger.info("${this} attached!"); */ }
 
     /// Called by the framework after styles or attributes are updated from an external
