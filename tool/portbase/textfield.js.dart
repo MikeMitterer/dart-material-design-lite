@@ -124,11 +124,13 @@ void checkDisabled() {
 /// public
 ///   MaterialTextfield.prototype.checkValidity = /*function*/ () {
 void checkValidity() {
-    if (_input.validity.valid) {
-      element.classes.remove(_cssClasses.IS_INVALID);
+    if (_input.validity) {
+      if (_input.validity.valid) {
+        element.classes.remove(_cssClasses.IS_INVALID);
 
-    } else {
-      element.classes.add(_cssClasses.IS_INVALID);
+      } else {
+        element.classes.add(_cssClasses.IS_INVALID);
+      }
     }
   }
   MaterialTextfield.prototype['checkValidity'] =
@@ -178,6 +180,9 @@ void change(final value) {
 
     if (value) {
       _input.value = value;
+
+    } else {
+      _input.value = '';
     }
     _updateClasses();
   }

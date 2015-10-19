@@ -299,7 +299,7 @@ class MaterialMenu extends MdlComponent {
     /// searching the for-Element is a bit complex so it got it's own function.
     void _initForElement() {
         final forElId = element.getAttribute('for') != null ?
-            element.getAttribute('for') : element.getAttribute('data-for');
+            element.getAttribute('for') : element.getAttribute('data-mdl-for');
 
         _logger.fine("forElId $forElId");
 

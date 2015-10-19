@@ -76,20 +76,20 @@ class MaterialTooltip extends MdlComponent {
                 if(_forElement != null) {
                     _logger.info("Found: ${forElId}");
 
-                    // Tabindex needs to be set for `blur` events to be emitted
+                    // It's left here because it prevents accidental text selection on Android
                     if (!_forElement.attributes.containsKey('tabindex')) {
                         _forElement.attributes['tabindex'] = '0';
                     }
 
                     eventStreams.add(_forElement.onMouseEnter.listen( _handleMouseEnter ));
-
-                    eventStreams.add(_forElement.onClick.listen( _handleMouseEnter ));
-
-                    eventStreams.add(_forElement.onBlur.listen( _handleMouseLeave));
-
-                    eventStreams.add(_forElement.onTouchStart.listen( _handleMouseEnter));
+                    eventStreams.add(_forElement.onTouchEnd.listen( _handleMouseEnter));
 
                     eventStreams.add(_forElement.onMouseLeave.listen( _handleMouseLeave));
+                    eventStreams.add(dom.window.onTouchStart.listen( (final dom.Event event) {
+                        event.stopPropagation();
+                        _handleMouseLeave(event);
+                    }));
+
                 }
             }
         }
@@ -97,8 +97,6 @@ class MaterialTooltip extends MdlComponent {
 
     /// Handle mouseenter for tooltip.
     void _handleMouseEnter(final dom.Event event) {
-        event.stopPropagation();
-
         if(element.classes.contains(_cssClasses.IS_ACTIVE)) {
             element.classes.remove(_cssClasses.IS_ACTIVE);
             return;
@@ -126,9 +124,7 @@ class MaterialTooltip extends MdlComponent {
     /// Handle mouseleave for tooltip.
     /// @param {Event} event The event that fired.
     /// MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
-    void _handleMouseLeave(final dom.MouseEvent event) {
-
-        event.stopPropagation();
+    void _handleMouseLeave(final dom.Event event) {
         element.classes.remove(_cssClasses.IS_ACTIVE);
     }
 }

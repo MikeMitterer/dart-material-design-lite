@@ -116,6 +116,8 @@ class MaterialLayout extends MdlComponent {
     dom.HtmlElement _drawer = null;
     dom.HtmlElement _tabBar = null;
     dom.HtmlElement _content = null;
+    dom.HtmlElement _obfuscator = null;
+
     dom.MediaQueryList _screenSizeMediaQuery = null;
 
     MaterialLayout.fromElement(final dom.HtmlElement element,final di.Injector injector)
@@ -143,6 +145,10 @@ class MaterialLayout extends MdlComponent {
     dom.HtmlElement get content {
         //if(_content == null) { _content = element.querySelector('.' + _cssClasses.CONTENT); }
         return _content;
+    }
+
+    dom.HtmlElement get obfuscator {
+        return _obfuscator;
     }
 
     void show() {
@@ -192,12 +198,6 @@ class MaterialLayout extends MdlComponent {
 
             int mode = _mode.STANDARD;
 
-            // Keep an eye on screen size, and add/remove auxiliary class for styling
-            // of small screens.
-            _screenSizeMediaQuery = dom.window.matchMedia(_constant.MAX_WIDTH);
-            _screenSizeMediaQuery.addListener( (_) => _screenSizeHandler());
-            _screenSizeHandler();
-
             if (header != null) {
                 if (header.classes.contains(_cssClasses.HEADER_SEAMED)) {
                     mode = _mode.SEAMED;
@@ -240,11 +240,6 @@ class MaterialLayout extends MdlComponent {
                         content.onScroll.listen( _contentScrollHandler );
                         _contentScrollHandler('');
                     }
-            }
-
-             /// Prevents an event from triggering the default behaviour.
-            void _eatEvent(final dom.Event event) {
-                event.preventDefault();
             }
 
             // Add drawer toggling button to our layout, if we have an openable drawer.
@@ -298,8 +293,14 @@ class MaterialLayout extends MdlComponent {
                 element.append(obfuscator);
 
                 obfuscator.onClick.listen( _drawerToggleHandler );
-                obfuscator.onMouseWheel.listen(_eatEvent);
+                _obfuscator = obfuscator;
             }
+
+            // Keep an eye on screen size, and add/remove auxiliary class for styling
+            // of small screens.
+            _screenSizeMediaQuery = dom.window.matchMedia(_constant.MAX_WIDTH);
+            _screenSizeMediaQuery.addListener( (_) => _screenSizeHandler());
+            _screenSizeHandler();
 
             // Initialize tabs, if any.
             if (header != null && tabBar != null) {
@@ -409,6 +410,7 @@ class MaterialLayout extends MdlComponent {
             // Collapse drawer (if any) when moving to a large screen size.
             if (_drawer != null) {
                 _drawer.classes.remove(_cssClasses.IS_DRAWER_OPEN);
+                obfuscator.classes.remove(_cssClasses.IS_DRAWER_OPEN);
             }
         }
     }
@@ -416,6 +418,7 @@ class MaterialLayout extends MdlComponent {
     /// Handles toggling of the drawer.
     void _drawerToggleHandler(final dom.MouseEvent _) {
         drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
+        obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
     }
 
     /// Handles (un)setting the `is-animating` class

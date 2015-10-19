@@ -104,7 +104,7 @@ void init() {
       // Find the "for" element and bind events to it.
 
       final forElId = element.getAttribute('for') ||
-                      element.getAttribute('data-for');
+                      element.getAttribute('data-mdl-for');
 
       final forEl = null;
       if (forElId) {

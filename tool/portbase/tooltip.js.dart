@@ -53,7 +53,6 @@ class _  MaterialTooltipCssClasses {
 /// param {Event} event The event that fired.
 ///   MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
 void _handleMouseEnter(final html.Event event) {
-    event.stopPropagation();
 
     final props = event.target.getBoundingClientRect();
 
@@ -72,21 +71,13 @@ void _handleMouseEnter(final html.Event event) {
 
     element.style.top = props.top + props.height + 10 + 'px';
     element.classes.add(_cssClasses.IS_ACTIVE);
-
-	// .addEventListener('scroll', -- .onScroll.listen(<Event>);
-    window.onScroll.listen( boundMouseLeaveHandler, false);
-    window.addEventListener('touchmove', boundMouseLeaveHandler, false);
   }
 
 /// Handle mouseleave for tooltip.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
-void _handleMouseLeave(final html.Event event) {
-    event.stopPropagation();
+///   MaterialTooltip.prototype.handleMouseLeave_ = /*function*/ () {
+void _handleMouseLeave() {
     element.classes.remove(_cssClasses.IS_ACTIVE);
-    window.removeEventListener('scroll', boundMouseLeaveHandler);
-    window.removeEventListener('touchmove', boundMouseLeaveHandler, false);
   }
 
 /// Initialize element.
@@ -102,7 +93,7 @@ void init() {
       }
 
       if (_forElement) {
-        // Tabindex needs to be set for `blur` events to be emitted
+        // It's left here because it prevents accidental text selection on Android
         if (!_forElement.getAttribute('tabindex')) {
           _forElement.setAttribute('tabindex', '0');
         }
@@ -111,20 +102,12 @@ void init() {
         _boundMouseLeaveHandler = handleMouseLeave;
 
 	// .addEventListener('mouseenter', -- .onMouseEnter.listen(<MouseEvent>);
-        _forElement.onMouseEnter.listen( boundMouseEnterHandler,
-            false);
-
-	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-        _forElement.onClick.listen( boundMouseEnterHandler,
-            false);
-
-	// .addEventListener('blur', -- .onBlur.listen(<Event>);
-        _forElement.onBlur.listen( boundMouseLeaveHandler);
-        _forElement.addEventListener('touchstart', boundMouseEnterHandler,
-            false);
+        _forElement.onMouseEnter.listen( boundMouseEnterHandler, false);
+        _forElement.addEventListener('touchend', boundMouseEnterHandler, false);
 
 	// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
-        _forElement.onMouseLeave.listen( boundMouseLeaveHandler);
+        _forElement.onMouseLeave.listen( boundMouseLeaveHandler, false);
+        window.addEventListener('touchstart', boundMouseLeaveHandler);
       }
     }
   }
@@ -135,9 +118,9 @@ void init() {
 void _mdlDowngrade() {
     if (_forElement) {
       _forElement.removeEventListener('mouseenter', boundMouseEnterHandler, false);
-      _forElement.removeEventListener('click', boundMouseEnterHandler, false);
-      _forElement.removeEventListener('touchstart', boundMouseEnterHandler, false);
-      _forElement.removeEventListener('mouseleave', boundMouseLeaveHandler);
+      _forElement.removeEventListener('touchend', boundMouseEnterHandler, false);
+      _forElement.removeEventListener('mouseleave', boundMouseLeaveHandler, false);
+      window.removeEventListener('touchstart', boundMouseLeaveHandler);
     }
   }
 

@@ -208,7 +208,7 @@ class MaterialTextfield extends MdlComponent {
     }
 
     /// Handle reset event from out side.
-    void _onReset(final html.Event event) {
+    void _onReset(final dom.Event event) {
         _updateClasses();
     }
 
@@ -224,11 +224,14 @@ class MaterialTextfield extends MdlComponent {
 
     /// Check the validity state and update field accordingly.
     void _checkValidity() {
-        if (_relaxedInput.validity.valid) {
-            element.classes.remove(_cssClasses.IS_INVALID);
+        if (_relaxedInput.validity != null) {
 
-        } else {
-            element.classes.add(_cssClasses.IS_INVALID);
+            if (_relaxedInput.validity.valid) {
+                element.classes.remove(_cssClasses.IS_INVALID);
+            }
+            else {
+                element.classes.add(_cssClasses.IS_INVALID);
+            }
         }
     }
 

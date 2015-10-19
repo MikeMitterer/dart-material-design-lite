@@ -137,6 +137,7 @@ void _screenSizeHandler() {
       // Collapse drawer (if any) when moving to a large screen size.
       if (_drawer) {
         _drawer.classes.remove(_cssClasses.IS_DRAWER_OPEN);
+        _obfuscator.classes.remove(_cssClasses.IS_DRAWER_OPEN);
       }
     }
   }
@@ -146,6 +147,7 @@ void _screenSizeHandler() {
 ///   MaterialLayout.prototype.drawerToggleHandler_ = /*function*/ () {
 void _drawerToggleHandler() {
     _drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
+    _obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
   }
 
 /// Handles (un)setting the `is-animating` class
@@ -223,12 +225,6 @@ void init() {
 
       final mode = _Mode.STANDARD;
 
-      // Keep an eye on screen size, and add/remove auxiliary class for styling
-      // of small screens.
-      _screenSizeMediaQuery = window.matchMedia(
-      _screenSizeMediaQuery.addListener(_screenSizeHandler);
-      _screenSizeHandler();
-
       if (_header) {
         if (_header.classes.contains(_cssClasses.HEADER_SEAMED)) {
           mode = _Mode.SEAMED;
@@ -267,13 +263,6 @@ void init() {
               _contentScrollHandler);
           _contentScrollHandler();
         }
-      }
-
-/// Prevents an event from triggering the default behaviour.
-/// param  {Event} ev the event to eat.
-
-      final eatEvent = function(ev) {
-        ev.preventDefault();
       }
 
       // Add drawer toggling button to our layout, if we have an openable drawer.
@@ -325,8 +314,14 @@ void init() {
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
         obfuscator.onClick.listen(
             _drawerToggleHandler);
-        obfuscator.addEventListener('mousewheel', eatEvent);
+        _obfuscator = obfuscator;
       }
+
+      // Keep an eye on screen size, and add/remove auxiliary class for styling
+      // of small screens.
+      _screenSizeMediaQuery = window.matchMedia(
+      _screenSizeMediaQuery.addListener(_screenSizeHandler);
+      _screenSizeHandler();
 
       // Initialize tabs, if any.
       if (_header && _tabBar) {

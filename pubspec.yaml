@@ -5,28 +5,25 @@ author: Mike Mitterer <office@mikemitterer.at>
 homepage: http://www.material-design-lite.pub
 
 dependencies:
-  browser: ">=0.10.0+2 <0.11.0"
+  browser: ^0.10.0
 
   intl: ^0.12.0
-  validate: ">=1.4.2 <2.0.0"
-  browser_detect: ">=1.0.3 <2.0.0"
+  validate: ^1.0.0
+  browser_detect: ^1.0.0
 
-  logging: ">=0.9.3 <0.10.0"
-  logging_handlers: ">=0.8.0 <0.9.0"
-  console_log_handler: any
-  #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
+  logging: ^0.11.0
+  logging_handlers: ^0.8.0
+  console_log_handler: ^0.1.0
+    # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
-  route_hierarchical: '>=0.6.1 <0.7.0'
+  route_hierarchical: ^0.6.0
 
   #mustache: any
     #git: git://github.com/xxgreg/mustache
 
-  dnd: any
+  dnd: ^0.3.0
 
-  validate: any
-
-  di: ">=3.3.3 <4.0.0"
-    #">=3.3.4 <4.0.0"
+  di: 3.3.4
 
 dev_dependencies:
   test: any
