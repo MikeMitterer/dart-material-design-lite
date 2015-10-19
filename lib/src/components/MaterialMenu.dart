@@ -209,7 +209,7 @@ class MaterialMenu extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialMenu - init");
+        _logger.fine("MaterialMenu - init");
 
         if (element != null) {
             // Create container for the menu.

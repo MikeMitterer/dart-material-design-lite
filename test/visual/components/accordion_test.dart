@@ -8,16 +8,22 @@ testAccordion() {
 
         test('> check if upgraded', () {
             final dom.HtmlElement element = dom.document.querySelector("#accordion1");
-
             expect(element,isNotNull);
-            expect(element.dataset.containsKey("upgraded"),isTrue);
-            expect(element.dataset["upgraded"],"MaterialAccordion");
+
+            final dom.HtmlElement firstPanel = element.querySelector(".mdl-accordion") as dom.HtmlElement;
+            expect(firstPanel,isNotNull);
+
+            expect(firstPanel.dataset.containsKey("upgraded"),isTrue);
+            expect(firstPanel.dataset["upgraded"],"MaterialAccordion");
         });
 
         test('> widget', () {
             final dom.HtmlElement element = dom.document.querySelector("#accordion1");
 
-            final MaterialAccordion widget = MaterialAccordion.widget(element);
+            final dom.HtmlElement firstPanel = element.querySelector(".mdl-accordion") as dom.HtmlElement;
+            expect(firstPanel,isNotNull);
+
+            final MaterialAccordion widget = MaterialAccordion.widget(firstPanel);
             expect(widget,isNotNull);
 
         }); // end of 'widget' test

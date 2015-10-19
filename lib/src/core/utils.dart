@@ -60,7 +60,7 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
         if(element.id != null && element.id.isNotEmpty) {
             id = element.id;
         }
-        throw "$element is not a MdlComponent!!! (ID: $id, ${element.classes}, ${element.dataset['upgraded']})";
+        throw "$element is not a MdlComponent!!! (ID: $id, Classes: ${element.classes}, Dataset: ${element.dataset['upgraded']})";
     }
 
     String typeAsString;

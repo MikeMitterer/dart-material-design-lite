@@ -32,7 +32,9 @@ testComponentHandler() {
                 mdlComponent(element,null);
             } on String catch(e) {
 
-                expect(e,"button is not a MdlComponent!!! (ID: button-to-downgrade)");
+                expect(e,"button is not a MdlComponent!!! (ID: button-to-downgrade, "
+                    "Classes: mdl-button mdl-js-button mdl-downgraded, Dataset: null)");
+
                 foundException = true;
             }
             expect(foundException,isTrue);
@@ -62,7 +64,9 @@ testComponentHandler() {
                 mdlComponent(element,null);
             } on String catch(e) {
 
-                expect(e,"input is not a MdlComponent!!! (ID: checkbox-to-downgrade)");
+                expect(e,"input is not a MdlComponent!!! (ID: checkbox-to-downgrade, "
+                    "Classes: mdl-checkbox__input, Dataset: null)");
+
                 foundException = true;
             }
             expect(foundException,isTrue);
@@ -90,7 +94,9 @@ testComponentHandler() {
                 mdlComponent(element,null);
             } on String catch(e) {
 
-                expect(e,"input is not a MdlComponent!!! (ID: checkbox-to-downgrade-with-ripples)");
+                expect(e,"input is not a MdlComponent!!! (ID: checkbox-to-downgrade-with-ripples, "
+                    "Classes: mdl-checkbox__input, Dataset: null)");
+
                 foundException = true;
             }
             expect(foundException,isTrue);
@@ -112,7 +118,10 @@ testComponentHandler() {
                 mdlComponent(element,null);
             } on String catch(e) {
 
-                expect(e,"div is not a MdlComponent!!! (ID: tab-to-downgrade)");
+                expect(e,"div is not a MdlComponent!!! (ID: tab-to-downgrade, "
+                    "Classes: mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events "
+                    "is-upgraded mdl-downgraded, Dataset: null)");
+
                 foundException = true;
             }
             expect(foundException,isTrue);

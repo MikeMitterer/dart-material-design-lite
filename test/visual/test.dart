@@ -17,7 +17,26 @@
  * limitations under the License.
  */
 
+/**
+ * Two ways to run this test
+ *
+ * 1.) Make sure that the following line is include (not commented out) in test.html:
+ *      <script async type="application/dart" src="test.dart"></script>
+ *
+ *      "cd" to test/visual
+ *      Start your favorite test-WebServer (pub serve does not work for this case)
+ *          e.g. sitegen --serve --port 9000 --docroot .
+ *      In Dartium / Chromium:
+ *          http://localhost:9000/test.html
+ *
+ * 2.) Make sure that the following line is NOT!!!! include (commented out) in test.html:
+ *      <script async type="application/dart" src="test.dart"></script>
+ *
+ *      pub run test -p content-shell test/visual/test.dart
+ */
+
 //@TestOn("dartium")
+@TestOn("content-shell")
 
 library mdl.ui.unit.test;
 
@@ -34,7 +53,7 @@ import 'package:console_log_handler/console_log_handler.dart';
 import "package:mdl/mdl.dart";
 
 part "core/componenthandler_test.dart";
-part "core/component_test.dart";
+part "core/parent_test.dart";
 
 part "components/accordion_test.dart";
 part "components/button_test.dart";
@@ -48,16 +67,12 @@ part "components/radio_test.dart";
 
 part "template/components/repeat_test.dart";
 
-/**
- * run the test with your favorit webserver.
- * In my case I run it with with:
- *      visual $ sitegen --serve --docroot .
- */
 main() async {
     final Logger _logger = new Logger('wsk_material.unit.test');
 
     configLogging();
 
+    _logger.info("Ignore the followowing GET-Error message!");
     registerMdl();
 
     Future initComponents() async {
@@ -70,7 +85,7 @@ main() async {
     await initComponents();
 
     testComponentHandler();
-    testComponent();
+    testParent();
 
     testAccordion();
     testButton();

@@ -10,9 +10,9 @@ testObservables() {
             final ObservableList<String> list = new ObservableList<String>();
 
             final onChange = expectAsync((final ListChangedEvent event) {
-                expect(event.changetype,ChangeType.ADD);
+                expect(event.changetype,ListChangeType.ADD);
 
-                _logger.info(list.toString());
+                _logger.fine(list.toString());
             });
 
             list.onChange.listen(onChange);

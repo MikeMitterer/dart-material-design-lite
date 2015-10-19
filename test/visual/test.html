@@ -1,10 +1,10 @@
 <!doctype html>
-<!-- custom_html_test.html -->
 <html>
 <head>
     <title>Custom HTML Test</title>
-    <!--<link rel="x-dart-test" href="test.dart">-->
-    <script async type="application/dart" src="test.dart"></script>
+    <link rel="x-dart-test" href="test.dart">
+
+    <!--<script async type="application/dart" src="test.dart"></script>-->
     <script src="packages/test/dart.js"></script>
 
     <link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
@@ -24,13 +24,20 @@
             margin-bottom: 12px;
         }
 
+        .ui-test .message, .ui-test .hint {
+            color: #00a300;
+            font-style: italic;
+        }
+
+        .ui-test .hint {
+            margin-top: 1em;
+        }
         .message {
             visibility: hidden;
         }
 
         .ui-test--downgrade .mdl-downgraded + .message {
             visibility: visible;
-            color : green;
         }
 
         .ui-test--layout {
@@ -84,15 +91,16 @@
         .ui-test--radio .mdl-radio {
             width: 100%;
         }
+
     </style>
 </head>
 <body>
 
 <div class="ui-test ui-test---accordion">
-    <div id="accordion1" class="mdl-accordion-group mdl-js-accordion">
+    <div id="accordion1" class="mdl-accordion-group ">
 
         <!-- Panel 1 -->
-        <div class="mdl-accordion">
+        <div class="mdl-accordion mdl-js-accordion">
             <label class="mdl-accordion__label">Panel 1<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
             <div class="mdl-accordion--content">
                 <h5 class="mdl-accordion--header">Header</h5>
@@ -101,7 +109,7 @@
         </div>
 
         <!-- Panel 2 -->
-        <div class="mdl-accordion">
+        <div class="mdl-accordion mdl-js-accordion">
             <label class="mdl-accordion__label">Panel 2<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
             <div class="mdl-accordion--content">
                 <h5 class="mdl-accordion--header">Header</h5>
@@ -110,7 +118,7 @@
         </div>
 
         <!-- Panel 3 -->
-        <div class="mdl-accordion">
+        <div class="mdl-accordion mdl-js-accordion">
             <label class="mdl-accordion__label">Panel 3<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
             <div class="mdl-accordion--content">
                 <h5 class="mdl-accordion--header">Header</h5>
@@ -302,44 +310,51 @@
 </div>
 
 <div class="ui-test ui-test--repeat">
-    <div id="repeat" class="mdl-repeat">
-        <div template class="template">
-            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check-{{hashCode}}">
-                <input type="checkbox" id="check-{{hashCode}}" class="mdl-checkbox__input" />
-                <span class="mdl-checkbox__label">Repeat me: <strong>{{name}}</strong></span>
-            </label>
+    <div id="repeat" mdl-repeat>
+        <!-- {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}} -->
+        <template>
+            <div class="row">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check-{{hashCode}}">
+                    <input type="checkbox" id="check-{{hashCode}}" class="mdl-checkbox__input" />
+                    <span class="mdl-checkbox__label">Repeat me: <strong>{{name}}</strong></span>
+                </label>
 
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi1-{{hashCode}}">
-                <input type="radio" id="wifi1-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="1" />
-                <span class="mdl-radio__label">Always</span>
-            </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi2-{{hashCode}}">
-                <input type="radio" id="wifi2-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="2" />
-                <span class="mdl-radio__label">Only when plugged in</span>
-            </label>
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi3-{{hashCode}}">
-                <input type="radio" id="wifi3-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="3" />
-                <span class="mdl-radio__label">Never</span>
-            </label>
-        </div>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi1-{{hashCode}}">
+                    <input type="radio" id="wifi1-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="1" />
+                    <span class="mdl-radio__label">Always</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi2-{{hashCode}}">
+                    <input type="radio" id="wifi2-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="2" />
+                    <span class="mdl-radio__label">Only when plugged in</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi3-{{hashCode}}">
+                    <input type="radio" id="wifi3-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="3" />
+                    <span class="mdl-radio__label">Never</span>
+                </label>
+            </div>
+        </template>
+        <!-- |= {{ }} =| {{! ----- Turn on mustache ---- }} -->
+    </div>
+    <div class="hint">
+        Last row checkbox should be checked and "Only when plugged in" should be selected.
     </div>
 </div>
 
 <div class="ui-test ui-test--progress">
     Should be 50%
-    <div id="p1" class="mdl-js-progress"></div>
+    <div id="p1" class="mdl-progress mdl-js-progress"></div>
 
     Indeterminate
-    <div id="p2" class="mdl-js-progress mdl-progress__indeterminate"></div>
+    <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
 
     Progress set to 33%, buffer 66%
-    <div id="p3" class="mdl-js-progress"></div>
+    <div id="p3" class="mdl-progress mdl-js-progress"></div>
 
     Should be 100%, was set to 1xx (> 100%)
-    <div id="p4" class="mdl-js-progress"></div>
+    <div id="p4" class="mdl-progress mdl-js-progress"></div>
 
     Should be 0, was set to -xxx (< 0)
-    <div id="p5" class="mdl-js-progress"></div>
+    <div id="p5" class="mdl-progress mdl-js-progress"></div>
 </div>
 
 <div class="ui-test ui-test--radio ">
@@ -362,15 +377,17 @@
             <span class="mdl-radio__label">Unavailable option</span>
         </label>
     </div>
-    Only the second widget should be checked + disabled!
+    <div class="hint">
+        Only the second widget should be checked + disabled!
+    </div>
 </div>
 
 <div class="ui-test ui-test--mdlparent">
     <h1>Parent - TEST</h1>
-    <div id="accordion2" class="mdl-accordion-group mdl-js-accordion">
+    <div id="accordion2" class="mdl-accordion-group">
 
         <!-- Panel 1 -->
-        <div class="mdl-accordion">
+        <div class="mdl-accordion mdl-js-accordion">
             <label class="mdl-accordion__label">Panel 1<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
             <div class="mdl-accordion--content">
                 <h5 class="mdl-accordion--header">Header</h5>
@@ -379,7 +396,7 @@
         </div>
 
         <!-- Panel 2 -->
-        <div class="mdl-accordion">
+        <div class="mdl-accordion mdl-js-accordion">
             <label class="mdl-accordion__label">Panel 2<span class="mdl-icon mdl-icon--chevron-right indicator"></span></label>
             <div class="mdl-accordion--content">
                 <h5 class="mdl-accordion--header">Header</h5>

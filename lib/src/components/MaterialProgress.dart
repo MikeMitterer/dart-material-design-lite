@@ -93,7 +93,7 @@ class MaterialProgress extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialProgress - init");
+        _logger.fine("MaterialProgress - init");
 
         if (element != null) {
 

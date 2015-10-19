@@ -1,6 +1,7 @@
 part of mdl.ui.unit.test;
 
-testComponent() {
+/// Search next MDL-Parent in MDL-Component-Tree
+testParent() {
     final Logger _logger = new Logger("test.Component");
 
     group('Component', () {
@@ -16,10 +17,13 @@ testComponent() {
         }); // end of 'Parent' test
 
         test('> Parent II', () {
-            final MaterialAccordion accordion = MaterialAccordion.widget(dom.querySelector("#accordion2"));
-            expect(accordion,isNotNull);
+            final dom.HtmlElement div = dom.querySelector("#accordion2");
+            expect(div,isNotNull);
 
-            final MdlComponent parent = accordion.parent;
+            final MaterialAccordion accordionPanel1 = MaterialAccordion.widget(div.querySelector(".mdl-accordion"));
+            expect(accordionPanel1,isNotNull);
+
+            final MdlComponent parent = accordionPanel1.parent;
             expect(parent,isNull);
         }); // end of 'Parent' test
 

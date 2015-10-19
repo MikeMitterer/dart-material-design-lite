@@ -17,6 +17,20 @@
  * limitations under the License.
  */
 
+/**
+ * Run this test with:
+ *      pub run test -p content-shell test/integration/test.dart
+ *
+ * Configuration for IntelliJ to run this test:
+ *      Type: Bash
+ *
+ *      Script:                 test/unit/test.dart
+ *      Interpreter path:       /usr/bin/env
+ *      Interpreter options:    pub run test -p content-shell
+ *      Working directory:      <your working dir>
+ *
+ */
+
 @TestOn("content-shell")
 
 library mdl.unit.test;
@@ -31,6 +45,7 @@ import 'package:logging/logging.dart';
 import 'package:logging_handlers/logging_handlers_shared.dart';
 
 import "package:mdl/mdlutils.dart";
+import "package:mdl/mdlobservable.dart";
 
 part "utils/utils_test.dart";
 part "utils/observables_test.dart";
