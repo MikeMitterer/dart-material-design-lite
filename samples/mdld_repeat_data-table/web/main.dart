@@ -80,7 +80,7 @@ main() {
         final MaterialButton remove = MaterialButton.widget(dom.querySelector("#removeComponents"));
         remove.onClick.listen((_) => application._removeItems());
 
-        application.isListEmpty.onChange.listen((final ObservableProperty property) {
+        application.isListEmpty.onChange.listen((final PropertyChangeEvent<bool> property) {
             add.enabled = property.value;
             remove.enabled = !property.value;
         });

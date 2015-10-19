@@ -7,7 +7,7 @@ homepage: http://www.material-design-lite.pub
 dependencies:
   browser: ">=0.10.0+2 <0.11.0"
 
-  intl: '>=0.8.7 <0.12.0'
+  intl: ^0.12.0
   validate: ">=1.4.2 <2.0.0"
   browser_detect: ">=1.0.3 <2.0.0"
 
