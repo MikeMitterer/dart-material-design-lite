@@ -125,3 +125,8 @@ genThemes() {
 @Depends(initSamples)
 genCss() => log("${Utils.genMaterialCSS()} created!");
 
+@Task()
+/// Testing only!!!!
+genSite() {
+    run("ls",arguments: [ "-5" ]);
+}

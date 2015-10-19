@@ -5,20 +5,23 @@ author: <Mike Mitterer> <office@mikemitterer.at>
 #homepage: https://www.example.com
 
 environment:
-  sdk: '>=1.0.0 <2.0.0'
+  sdk: ^1.0.0
 
 dependencies:
-  browser: any
+  browser: ^0.10.0
 
-  mdl: '>=1.0.0 <2.0.0'
+  mdl:
+    path: ../
 
-  logging: any
-  logging_handlers: any
-  console_log_handler: any
+  logging: ^0.11.0
+  logging_handlers: ^0.8.0
+  console_log_handler: ^0.1.0
 
-  di: any
+  # Keep 3.3.4 for now. Filed this issue report for
+  # 3.3.5: https://github.com/angular/di.dart/issues/226
+  di: 3.3.4
 
-  prettify: any
+  prettify: ^0.1.0
 
 transformers:
   - di

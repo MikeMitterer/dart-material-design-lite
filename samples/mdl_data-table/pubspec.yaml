@@ -7,20 +7,20 @@ homepage: https://github.com/MikeMitterer/dart-material-design-lite
 dependencies:
   browser: any
 
-  intl: any
+  intl: ^0.12.0
   args: any
-  validate: any
-  browser_detect: any
+  validate: ^1.0.0
+  browser_detect: ^1.0.0
 
-  logging: any
-  logging_handlers: any
-  console_log_handler: any
-  #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
+  logging: ^0.11.0
+  logging_handlers: ^0.8.0
+  console_log_handler: ^0.1.0
+    # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
   mdl:
     path: ../../
 
-  di: any
+  di: 3.3.4
 
 transformers:
   - di

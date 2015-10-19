@@ -23,6 +23,8 @@ dependencies:
 
   dnd: ^0.3.0
 
+  # Keep 3.3.4 for now. Filed this issue report for
+  # 3.3.5: https://github.com/angular/di.dart/issues/226
   di: 3.3.4
 
 dev_dependencies:
