@@ -35,9 +35,11 @@ class CustomDialog2 extends MaterialDialog {
     String yesButton = _DEFAULT_SUBMIT_BUTTON;
     String noButton = _DEFAULT_CANCEL_BUTTON;
 
+    final ObservableProperty<String> name = new ObservableProperty<String>('');
+
     CustomDialog2() : super(new DialogConfig());
 
-    CustomDialog call({ final String title: "",
+    CustomDialog2 call({ final String title: "",
                       final String yesButton: _DEFAULT_SUBMIT_BUTTON, final String noButton: _DEFAULT_CANCEL_BUTTON }) {
 
         this.title = title;
@@ -69,7 +71,7 @@ class CustomDialog2 extends MaterialDialog {
           <div class="mdl-dialog__content">
             {{#hasTitle}}<h5>{{title}}</h5>{{/hasTitle}}
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="text" id="name" autofocus/>
+                  <input class="mdl-textfield__input" type="text" id="name" mdl-model="name" autofocus/>
                   <label class="mdl-textfield__label" for="name">Name</label>
             </div>
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

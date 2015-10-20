@@ -26,6 +26,7 @@ testCoreUtils() {
             await componentHandler().upgradeElement(div);
 
             expect(isMdlComponent(div),isTrue);
+            expect(isMdlComponent(div,MaterialButton),isTrue);
 
         }); // end of 'register component' test
 

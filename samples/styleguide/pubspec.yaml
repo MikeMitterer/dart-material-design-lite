@@ -4,27 +4,31 @@ version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-mdl
 
+environment:
+  sdk: ">=1.8.0 <2.0.0"
+
 dependencies:
-  browser: any
+  browser: ^0.10.0
 
-  intl: any
-  args: any
-  validate: any
-  browser_detect: any
+  intl: ^0.12.0
+  validate: ^1.0.0
+  browser_detect: ^1.0.0
 
-  logging: any
-  logging_handlers: any
-  console_log_handler: any
-  #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
+  logging: ^0.11.0
+  logging_handlers: ^0.8.0
+  console_log_handler: ^0.1.0
+    # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
   mdl:
     path: ../../
 
-  prettify: any
+  prettify: ^0.1.0
 
-  di: ">=3.3.4 <4.0.0"
+  # Keep 3.3.4 for now. Filed this issue report for
+  # 3.3.5: https://github.com/angular/di.dart/issues/226
+  di: 3.3.4
 
-  dart_to_js_script_rewriter: "^0.1.0+1"
+  dart_to_js_script_rewriter: ^0.1.0
 
 transformers:
   - di

@@ -19,7 +19,7 @@ main() {
 
         final MaterialSnackbar snackbar = new MaterialSnackbar();
 
-        int mangoCounter = 0;
+        int counter = 0;
 
         void _makeSettings() {
             snackbar.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
@@ -35,19 +35,20 @@ main() {
             _logger.info("Click on Toast");
 
             _makeSettings();
-            snackbar("Toast message").show().then((final MdlDialogStatus status) {
+            snackbar("Snackbar message #${counter}").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
+            counter++;
         });
 
         btnWithAction.onClick.listen( (_) {
             _logger.info("Click on withAction");
 
             _makeSettings();
-            snackbar("Toast message",confirmButton: "OK").show().then((final MdlDialogStatus status) {
+            snackbar("Snackbar message #${counter}",confirmButton: "OK").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
-
+            counter++;
         });
 
 
@@ -59,6 +60,6 @@ void configLogging() {
 
     // now control the logging.
     // Turn off all logging first
-    Logger.root.level = Level.INFO;
+    Logger.root.level = Level.FINE;
     Logger.root.onRecord.listen(new LogConsoleHandler());
 }

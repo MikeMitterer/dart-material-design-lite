@@ -18,20 +18,34 @@
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
-
-main() &#123;
-    final Logger _logger = new Logger(&#39;dialog.Main&#39;);
-    registerMdl();
-    componentFactory().run().then((_) &#123;
-        final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector(&quot;#alertdialog&quot;));
-        final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector(&quot;#confirmdialog&quot;));
-        final MaterialButton btnCustomDialog1 = MaterialButton.widget(dom.querySelector(&quot;#customdialog1&quot;));
-        final MaterialButton btnCustomDialog2 = MaterialButton.widget(dom.querySelector(&quot;#customdialog2&quot;));
-        final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
-        final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
-        final CustomDialog1 customDialog1 = new CustomDialog1();
-        final CustomDialog2 customDialog2 = new CustomDialog2();
-        int mangoCounter = 0;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+@MdlComponentModel @di.Injectable()
+class Application extends MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;dialog.Application&#39;);
+    int _mangoCounter = 0;
+    final MaterialButton btnAlertDialog;
+    final MaterialButton btnConfirmDialog;
+    final MaterialButton btnCustomDialog1;
+    final MaterialButton btnCustomDialog2;
+    final MaterialAlertDialog alertDialog;
+    final MdlConfirmDialog confirmDialog;
+    final CustomDialog1 customDialog1;
+    final CustomDialog2 customDialog2;
+    Application() :
+        btnAlertDialog = MaterialButton.widget(dom.querySelector(&quot;#alertdialog&quot;)),
+        btnConfirmDialog = MaterialButton.widget(dom.querySelector(&quot;#confirmdialog&quot;)),
+        btnCustomDialog1 = MaterialButton.widget(dom.querySelector(&quot;#customdialog1&quot;)),
+        btnCustomDialog2 = MaterialButton.widget(dom.querySelector(&quot;#customdialog2&quot;)),
+        alertDialog = new MaterialAlertDialog(),
+        confirmDialog = new MdlConfirmDialog(),
+        customDialog1 = new CustomDialog1(),
+        customDialog2 = new CustomDialog2() &#123;
+        _bindEvents();
+    &#125;
+    @override run() &#123;
+    &#125;
+    &#47;&#47;- private --------------------------------------------------------------------------------------------------------
+    void _bindEvents() &#123;
         btnAlertDialog.onClick.listen((_) &#123;
             _logger.info(&quot;Click on AlertButton&quot;);
             alertDialog(&quot;Testmessage&quot;).show().then((final MdlDialogStatus status) &#123;
@@ -46,20 +60,29 @@ main() &#123;
         &#125;);
         btnCustomDialog1.onClick.listen((_) &#123;
             _logger.info(&quot;Click on ConfirmButton&quot;);
-            customDialog1(title: &quot;Mango #$&#123;mangoCounter&#125; (Fruit)&quot;,
+            customDialog1(title: &quot;Mango #$&#123;_mangoCounter&#125; (Fruit)&quot;,
                 yesButton: &quot;I buy it!&quot;, noButton: &quot;Not now&quot;).show().then((final MdlDialogStatus status) &#123;
                 _logger.info(status);
-                mangoCounter++;
+                _mangoCounter++;
             &#125;);
         &#125;);
         btnCustomDialog2.onClick.listen((_) &#123;
             _logger.info(&quot;Click on ConfirmButton&quot;);
             customDialog2(title: &quot;Form-Sample&quot;).show().then((final MdlDialogStatus status) &#123;
                 _logger.info(status);
+                if(status == MdlDialogStatus.OK) &#123;
+                    _logger.info(&quot;You entered: $&#123;customDialog2.name.value&#125;&quot;);
+                &#125;
             &#125;);
         &#125;);
-    &#125;);
-&#125;</pre>
+    &#125;
+&#125;
+main() async &#123;
+    final Logger _logger = new Logger(&#39;dialog.Main&#39;);
+    registerMdl();
+    final Application app = await componentFactory().rootContext(Application).run();
+&#125;
+</pre>
                 </div>
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">

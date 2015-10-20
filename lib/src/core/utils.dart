@@ -105,10 +105,17 @@ bool isMdlWidget(final dom.HtmlElement element) {
 }
 
 /// Checks if [element] is a "MDLComponent"
-bool isMdlComponent(final dom.HtmlElement element) {
+/// [type] is optional - if given a stricter check is made
+bool isMdlComponent(final dom.HtmlElement element,[ final Type type ]) {
     Validate.notNull(element);
     var jsElement = new JsObject.fromBrowserObject(element);
-    return jsElement.hasProperty(MDL_COMPONENT_PROPERTY);
+    final bool isComponent = jsElement.hasProperty(MDL_COMPONENT_PROPERTY);
+
+    if(isComponent && type != null) {
+        return mdlComponentNames(element).contains(type.toString());
+    }
+
+    return isComponent;
 }
 
 /// Gives you all the component names registered for this [element]

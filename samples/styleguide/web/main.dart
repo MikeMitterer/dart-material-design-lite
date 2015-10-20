@@ -206,6 +206,7 @@ main() {
 
 /// Default Controller!!! PrettyPrints the source that comes within the "Usage" block
 class DemoController extends MaterialController {
+    final Logger _logger = new Logger('main.DemoController');
 
     @override
     void loaded(final Route route) {
@@ -214,6 +215,7 @@ class DemoController extends MaterialController {
         app.title.value = route.name;
 
         final dom.HtmlElement element = dom.querySelector("#usage");
+
         if (element != null) {
             final MaterialInclude usage = MaterialInclude.widget(element);
             if (usage != null) {
@@ -223,6 +225,7 @@ class DemoController extends MaterialController {
         else {
             prettyPrint();
         }
+        _logger.info("DemoController loaded!");
     }
 // - private ------------------------------------------------------------------------------------------------------
 }
@@ -306,6 +309,9 @@ class DialogController extends DemoController {
             customDialog2(title: "Form-Sample").show().then((final MdlDialogStatus status) {
 
                 _logger.info(status);
+                if(status == MdlDialogStatus.OK) {
+                    _logger.info("You entered: ${customDialog2.name.value}");
+                }
             });
         });
     }
@@ -373,6 +379,7 @@ class FormatterController extends DemoController {
             final int index = rnd.nextInt(xmen.length);
             app.name.value = xmen[index];
 
+            app.checkStatus.value = index % 2;
             app.checkStatus.value = index % 2;
         });
     }
@@ -449,6 +456,8 @@ class NotificationController extends DemoController {
 
     @override
     void loaded(final Route route) {
+        super.loaded(route);
+
         final MaterialButton btnNotification = MaterialButton.widget(dom.querySelector("#notification"));
         final MaterialTextfield title = MaterialTextfield.widget(dom.querySelector("#notification-title"));
         final MaterialTextfield subtitle = MaterialTextfield.widget(dom.querySelector("#notification-subtitle"));
@@ -813,7 +822,7 @@ class SnackbarController extends DemoController {
 
         final MaterialSnackbar snackbar = new MaterialSnackbar();
 
-        int mangoCounter = 0;
+        int counter = 0;
 
         void _makeSettings() {
             snackbar.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
@@ -829,18 +838,20 @@ class SnackbarController extends DemoController {
             _logger.info("Click on Toast");
 
             _makeSettings();
-            snackbar("Snackbar message").show().then((final MdlDialogStatus status) {
+            snackbar("Snackbar message #${counter}").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
+            counter++;
         });
 
         btnWithAction.onClick.listen((_) {
             _logger.info("Click on withAction");
 
             _makeSettings();
-            snackbar("Snackbar message", confirmButton: "OK").show().then((final MdlDialogStatus status) {
+            snackbar("Snackbar message #${counter}", confirmButton: "OK").show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
+            counter++;
         });
     }
 }

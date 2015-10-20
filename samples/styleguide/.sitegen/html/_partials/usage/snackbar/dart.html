@@ -12,7 +12,7 @@ main() &#123;
 
         final MaterialSnackbar snackbar = new MaterialSnackbar();
 
-        int mangoCounter = 0;
+        int counter = 0;
 
         void _makeSettings() &#123;
             snackbar.position.left = MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-left&quot;)).checked;
@@ -28,19 +28,20 @@ main() &#123;
             _logger.info(&quot;Click on Toast&quot;);
 
             _makeSettings();
-            snackbar(&quot;Toast message&quot;).show().then((final MdlDialogStatus status) &#123;
+            snackbar(&quot;Toast message #$&#123;counter&#125;&quot;).show().then((final MdlDialogStatus status) &#123;
                 _logger.info(status);
             &#125;);
+            counter++;
         &#125;);
 
         btnWithAction.onClick.listen( (_) &#123;
             _logger.info(&quot;Click on withAction&quot;);
 
             _makeSettings();
-            snackbar(&quot;Toast message&quot;,confirmButton: &quot;OK&quot;).show().then((final MdlDialogStatus status) &#123;
+            snackbar(&quot;Toast message #$&#123;counter&#125;&quot;,confirmButton: &quot;OK&quot;).show().then((final MdlDialogStatus status) &#123;
                 _logger.info(status);
             &#125;);
-
+            counter++;
         &#125;);
 
 

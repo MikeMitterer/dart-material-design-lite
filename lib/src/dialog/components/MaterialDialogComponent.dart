@@ -43,7 +43,7 @@ class _MaterialDialogComponentConstant {
  * The name is checked in [MaterialModel] (
  */
 class _MaterialDialogComponent extends MdlComponent implements ScopeAware, HasDynamicParentScope {
-    final Logger _logger = new Logger('mdldialog.MaterialDialogComponent');
+    final Logger _logger = new Logger('mdldialog._MaterialNotificationComponent');
 
     //static const _MaterialDialogComponentConstant _constant = const _MaterialDialogComponentConstant();
     static const _MaterialDialogComponentCssClasses _cssClasses = const _MaterialDialogComponentCssClasses();

@@ -11,16 +11,16 @@
 <span class="kw">&lt;/label&gt;</span></code></pre></div>
 <p> 2. Inside the label, code an <code>&lt;input&gt;</code> element and give it a <code>type</code> attribute whose value is <code>&quot;radio&quot;</code>. Also give it an <code>id</code> attribute whose value matches the label's <code>for</code> attribute value, and a <code>name</code> attribute whose value identifies the radio button group. Optionally, give it a <code>value</code> attribute whose value provides some information about the radio button for scripting purposes.</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;radio1&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;radio&quot;</span><span class="ot"> id=</span><span class="st">&quot;radio1&quot;</span><span class="ot"> name=</span><span class="st">&quot;flash&quot;</span><span class="ot"> value=</span><span class="st">&quot;on&quot;</span> <span class="kw">/&gt;</span>
+  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;radio&quot;</span><span class="ot"> id=</span><span class="st">&quot;radio1&quot;</span><span class="ot"> name=</span><span class="st">&quot;flash&quot;</span><span class="ot"> value=</span><span class="st">&quot;on&quot;</span><span class="kw">&gt;</span>
 <span class="kw">&lt;/label&gt;</span></code></pre></div>
 <p> 3. Also inside the label, after the radio button, code a <code>&lt;span&gt;</code> element containing the radio button's text caption.</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;radio1&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;radio&quot;</span><span class="ot"> id=</span><span class="st">&quot;radio1&quot;</span><span class="ot"> name=</span><span class="st">&quot;flash&quot;</span><span class="ot"> value=</span><span class="st">&quot;on&quot;</span> <span class="kw">/&gt;</span>
+  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;radio&quot;</span><span class="ot"> id=</span><span class="st">&quot;radio1&quot;</span><span class="ot"> name=</span><span class="st">&quot;flash&quot;</span><span class="ot"> value=</span><span class="st">&quot;on&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;span&gt;</span>Always on<span class="kw">&lt;/span&gt;</span>
 <span class="kw">&lt;/label&gt;</span></code></pre></div>
 <p> 4. Add one or more MDL classes, separated by spaces, to the label, checkbox, and caption using the <code>class</code> attribute.</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;label</span><span class="ot"> for=</span><span class="st">&quot;radio1&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-radio mdl-js-radio&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;radio&quot;</span><span class="ot"> id=</span><span class="st">&quot;radio1&quot;</span><span class="ot"> name=</span><span class="st">&quot;flash&quot;</span><span class="ot"> value=</span><span class="st">&quot;on&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-radio__button&quot;</span> <span class="kw">/&gt;</span>
+  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;radio&quot;</span><span class="ot"> id=</span><span class="st">&quot;radio1&quot;</span><span class="ot"> name=</span><span class="st">&quot;flash&quot;</span><span class="ot"> value=</span><span class="st">&quot;on&quot;</span><span class="ot"> class=</span><span class="st">&quot;mdl-radio__button&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-radio__label&quot;</span><span class="kw">&gt;</span>Always on<span class="kw">&lt;/span&gt;</span>
 <span class="kw">&lt;/label&gt;</span></code></pre></div>
 <p> 5. Repeat steps 1 through 4 for the other radio components in the group. For each one:</p>
@@ -85,6 +85,6 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>Note:</strong> Disabled versions of all the available radio button types are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;input type=&quot;radio&quot; id=&quot;radio5&quot; name=&quot;flash&quot; class=&quot;mdl-radio__button&quot; disabled /&gt;</code><br />
+<p><strong>Note:</strong> Disabled versions of all the available radio button types are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;input type=&quot;radio&quot; id=&quot;radio5&quot; name=&quot;flash&quot; class=&quot;mdl-radio__button&quot; disabled&gt;</code><br />
 This attribute may be added or removed programmatically via scripting.</p>
 </blockquote>

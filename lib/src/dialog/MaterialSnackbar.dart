@@ -82,7 +82,6 @@ class MaterialSnackbar extends MaterialDialog {
         this.text = text;
         this.confirmButton = confirmButton;
 
-        _logger.info("Confirm: ${this.confirmButton}");
         return this;
     }
 
@@ -98,7 +97,6 @@ class MaterialSnackbar extends MaterialDialog {
         Validate.isTrue(!waitingForConfirmation,"There is alread a Snackbar waiting for confirmation!!!!");
 
         return close(MdlDialogStatus.CLOSED_VIA_NEXT_SHOW).then( (_) {
-
             if(!hasConfirmButton) {
                 if(timeout == null) {
                     timeout = new Duration(milliseconds: SHORT_DELAY);
@@ -115,14 +113,13 @@ class MaterialSnackbar extends MaterialDialog {
     void onClose() {
         Validate.notBlank(_confirmationID, "onClose must have a _confirmationID set - but was blank");
 
-        _logger.info("onClose");
         close(MdlDialogStatus.CONFIRMED);
     }
 
     // - private ----------------------------------------------------------------------------------
 
     void _onCloseCallback(final MaterialDialog dialogElement, final MdlDialogStatus status) {
-        _logger.info("onCloseCallback, ID: ${dialogElement.id}, $status, ConfirmationID: $_confirmationID");
+        _logger.fine("onCloseCallback, ID: ${dialogElement.id}, $status, ConfirmationID: $_confirmationID");
         if(_confirmationID.isNotEmpty && dialogElement.id == _confirmationID) {
             _clearConfirmationCheck();
         }

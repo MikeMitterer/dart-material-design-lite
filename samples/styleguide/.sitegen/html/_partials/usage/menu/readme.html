@@ -4,7 +4,7 @@
 <h2 id="basic-use">Basic use</h2>
 <p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
 <h3 id="to-include-an-mdl-menu-component">To include an MDL <strong>menu</strong> component:</h3>
-<p> 1. Code a <code>&lt;button&gt;</code> element; this is the clickable toggle that will show and hide the menu options. Include an <code>id</code> attribute whose value will match the <code>for</code> attribute of the unordered list coded in the next step. Inside the button, code a <code>&lt;i&gt;</code> or <code>&lt;span&gt;</code> element to contain an icon of your choice.</p>
+<p> 1. Code a <code>&lt;button&gt;</code> element; this is the clickable toggle that will show and hide the menu options. Include an <code>id</code> attribute whose value will match the <code>for</code> (or <code>data-mdl-for</code>) attribute of the unordered list coded in the next step. Inside the button, code a <code>&lt;i&gt;</code> or <code>&lt;span&gt;</code> element to contain an icon of your choice.</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> id=</span><span class="st">&quot;menu1&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;i&gt;&lt;/i&gt;</span>
 <span class="kw">&lt;/button&gt;</span></code></pre></div>
@@ -103,26 +103,31 @@
 <td align="left">Required on list item elements</td>
 </tr>
 <tr class="even">
+<td align="left"><code>mdl-menu__item--full-bleed-divider</code></td>
+<td align="left">Modifies an item to have a full bleed divider between it and the next list item.</td>
+<td align="left">Optional on list item elements</td>
+</tr>
+<tr class="odd">
 <td align="left"><code>mdl-js-ripple-effect</code></td>
 <td align="left">Applies <em>ripple</em> click effect to option links</td>
 <td align="left">Optional; goes on unordered list element</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>mdl-menu--top-left</code></td>
 <td align="left">Positions menu above button, aligns left edge of menu with button</td>
 <td align="left">Optional; goes on unordered list element</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">(none)</td>
 <td align="left">Positions menu below button, aligns left edge of menu with button</td>
 <td align="left">Default</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>mdl-menu--top-right</code></td>
 <td align="left">Positions menu above button, aligns right edge of menu with button</td>
 <td align="left">Optional; goes on unordered list element</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>mdl-menu--bottom-right</code></td>
 <td align="left">Positions menu below button, aligns right edge of menu with button</td>
 <td align="left">Optional; goes on unordered list element</td>
@@ -132,6 +137,6 @@
 <p>(1) The &quot;more-vert&quot; icon class is used here as an example. Other icons can be used by modifying the class name. For a list of available icons, see <a href="http://google.github.io/web-starter-kit/latest/styleguide/icons/demo.html">this page</a>; hover over an icon to see its class name.</p>
 <p>(2) The <code>i</code> or <code>span</code> element in &quot;button&quot;&quot; element can be used interchangeably.</p>
 <blockquote>
-<p><strong>Note:</strong> Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code>. <code>&lt;li class=&quot;mdl-menu__item&quot; disabled&gt;Medium&lt;/li&gt;</code><br />
+<p><strong>Note:</strong> Disabled versions of the menu options are provided, and are invoked with the standard HTML boolean attribute <code>disabled</code> or <code>data-mdl-disabled</code>. <code>&lt;li class=&quot;mdl-menu__item&quot; disabled&gt;Medium&lt;/li&gt;</code><br />
 This attribute may be added or removed programmatically via scripting.</p>
 </blockquote>

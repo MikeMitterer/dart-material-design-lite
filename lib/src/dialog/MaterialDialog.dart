@@ -120,9 +120,9 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
     /// If {timeout} is set - the corresponding dialog closes automatically after this period
     /// The callback {dialogIDCallback} can be given to find out the dialogID - useful for Toast that needs confirmation
     Future<MdlDialogStatus> show({ final Duration timeout,void dialogIDCallback(final String dialogId) }) {
-        Validate.isTrue(_completer == null);
+        Validate.isTrue(_completer == null || _completer.isCompleted);
 
-        _logger.fine("start start...");
+        _logger.fine("start MaterialDialog#show...");
 
         _completer = new Completer<MdlDialogStatus>();
 
@@ -148,10 +148,14 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
             final dom.HtmlElement dialog = _dialogContainer.children.last;
             dialog.id = _elementID;
 
-            final _MaterialDialogComponent dialogComponent = _MaterialDialogComponent.widget(dialog);
-            Validate.notNull(dialogComponent,"${dialog} must be a '_MaterialDialogComponent' (mdl-dialog class)");
+            // notification + snackbar is not _MaterialDialogComponent
+            if(isMdlComponent(dialog,_MaterialDialogComponent)) {
+                final _MaterialDialogComponent dialogComponent = _MaterialDialogComponent.widget(dialog);
 
-            dialogComponent.parentScope = this;
+                Validate.notNull(dialogComponent,"${dialog} must be a '_MaterialDialogComponent' (mdl-dialog class)");
+
+                dialogComponent.parentScope = this;
+            }
 
             if(dialogIDCallback != null) {
                 dialogIDCallback(hashCode.toString());
@@ -238,13 +242,13 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
         }
 
         return new Future.delayed(new Duration(milliseconds: 200), () {
-            _destroy(status);
+            return _destroy(status);
         });
     }
 
     /// The dialog gets removed from the DOM
-    void _destroy(final MdlDialogStatus status) {
-        _logger.info("_destroy - selector .${_containerClass} brought: $_container");
+    Future _destroy(final MdlDialogStatus status) async {
+        _logger.fine("_destroy - selector .${_containerClass} brought: $_container");
 
         /// Check if there is a pending container - it there is one, destroy it!
         void _destroyContainer() {
@@ -253,7 +257,7 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
                 if (!container.classes.contains(_cssClasses.APPENDING)
                     && container.classes.contains(_cssClasses.IS_DELETABLE) && container.children.length == 0) {
                     container.remove();
-                    _logger.info("Container removed!");
+                    _logger.fine("Container removed!");
                 }
 
             });
@@ -269,16 +273,15 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
 
         if (_element != null) {
 
-            //_element.style.border = "1px solid red";
-            _logger.info("Element removed! (ID: ${_element.id})");
+            await componentFactory().downgradeElement(_element);
 
-            componentFactory().downgradeElement(_element).then((_) {
-                _element.remove();
-                _destroyContainer();
-                _callCallbacksAndQuit();
+            final String id = _element.id;
+            _element.remove();
+            _logger.fine("Element removed! (ID: ${id})");
 
-            });
-            //_element.remove();
+            _destroyContainer();
+            _callCallbacksAndQuit();
+            _logger.fine("${this} is destroyd!");
 
         } else {
 

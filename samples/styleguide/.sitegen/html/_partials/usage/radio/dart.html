@@ -10,6 +10,7 @@ main() async &#123;
     MaterialRadio.widget(dom.querySelector(&quot;#wifi2&quot;)).disable();
 
     MaterialButton.widget(dom.querySelector(&quot;#show-wifi-value&quot;)).onClick.listen((_) &#123;
+
         final MaterialRadioGroup group = MaterialRadioGroup.widget(dom.querySelector(&quot;#wifi&quot;));
         final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
 
