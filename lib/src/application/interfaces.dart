@@ -42,3 +42,4 @@ part of mdlapplication;
 abstract class ScopeAware {
     Scope get scope;
 }
+

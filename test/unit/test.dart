@@ -35,8 +35,13 @@
 
 library mdl.unit.test;
 
+import 'dart:html' as dom;
+import 'dart:async';
+import 'package:di/di.dart' as di;
+
 import 'package:test/test.dart';
 
+import "package:mdl/mdl.dart";
 //-----------------------------------------------------------------------------
 // Logging
 
@@ -46,9 +51,18 @@ import 'package:logging_handlers/logging_handlers_shared.dart';
 
 import "package:mdl/mdlutils.dart";
 import "package:mdl/mdlobservable.dart";
+import "package:mdl/mdlmock.dart" as mdlmock;
 
 part "utils/utils_test.dart";
 part "utils/observables_test.dart";
+
+part "core/utils_test.dart";
+
+Future prepareMdlTest(Future additionalRegistration()) async {
+    registerApplicationComponents();
+    await additionalRegistration();
+    await componentHandler().run();
+}
 
 /**
  * run the test with: pub run test -p content-shell test/unit/test.dart
@@ -58,8 +72,9 @@ main() async {
 
     configLogging();
 
-    //testDataAttribute();
+    testDataAttribute();
     testObservables();
+    testCoreUtils();
 }
 
 void configLogging() {

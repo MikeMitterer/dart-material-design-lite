@@ -33,22 +33,16 @@ class _MaterialDialogComponentConstant {
     static const String WIDGET_SELECTOR = "mdl-dialog";
 
     const _MaterialDialogComponentConstant();
-}   
- 
-/// Basic DI configuration for this Component or Service
-/// Usage:
-///     class MainModule extends di.Module {
-///         MainModule() {
-///             install(new MaterialDialogComponentModule());
-///         }     
-///     }
-class MaterialDialogComponentModule  extends di.Module {
-    MaterialDialogComponentModule() {
-        // bind(DeviceProxy);
-    }
-} 
+}
 
-class MaterialDialogComponent extends MdlComponent implements ScopeAware {
+/**
+ * Private Component!
+ * Necessary to change the parent-scope in [MaterialDialog#show]
+ * Marked as MdlComponentModel to keep the name in Dart2JS
+ *
+ * The name is checked in [MaterialModel] (
+ */
+class _MaterialDialogComponent extends MdlComponent implements ScopeAware, HasDynamicParentScope {
     final Logger _logger = new Logger('mdldialog.MaterialDialogComponent');
 
     //static const _MaterialDialogComponentConstant _constant = const _MaterialDialogComponentConstant();
@@ -56,7 +50,7 @@ class MaterialDialogComponent extends MdlComponent implements ScopeAware {
 
     Scope _scope;
 
-    MaterialDialogComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    _MaterialDialogComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
 
         _scope = new Scope(this, mdlParentScope(this));
@@ -64,43 +58,53 @@ class MaterialDialogComponent extends MdlComponent implements ScopeAware {
         
     }
     
-    static MaterialDialogComponent widget(final dom.HtmlElement element) => mdlComponent(MaterialDialogComponent,element) as MaterialDialogComponent;
-    
-    // Central Element - by default this is where mdl-dialog can be found (element)
-    // html.Element get hub => inputElement;
-    
+    static _MaterialDialogComponent widget(final dom.HtmlElement element) => mdlComponent(element,_MaterialDialogComponent) as _MaterialDialogComponent;
+
     // - EventHandler -----------------------------------------------------------------------------
 
-    void handleButtonClick() {
-        _logger.info("Event: handleButtonClick");
-    }
 
     Scope get scope => _scope;
 
-    void set scope(final MaterialDialog dialog) {
+    /// The only reason for this class - makes it possible to update the parent-scope
+    /// when the Dialog pops up
+    /// Usage:
+    ///    MaterialDialog#show() {
+    ///         ...
+    ///         _renderer.render().then( (_) {
+    ///             ...
+    ///            final dom.HtmlElement dialog = _dialogContainer.children.last;
+    ///            dialog.id = _elementID;
+    ///
+    ///            final MaterialDialogComponent dialogComponent = MaterialDialogComponent.widget(dialog);
+    ///            Validate.notNull(dialogComponent,"${dialog} must be a 'MaterialDialogComponent' (mdl-dialog class)");
+    ///
+    ///            dialogComponent.parentScope = this;
+    ///            ...
+    ///            }
+    ///    }
+    @override
+    void set parentScope(final Object dialog) {
         Validate.notNull(dialog);
         Validate.isTrue(dialog is MaterialDialog);
         _scope = new Scope(dialog,null);
+
+        refreshComponentsInSubtree(element);
     }
 
     //- private -----------------------------------------------------------------------------------
 
+    /// Nothing to do here - all the logic is in MaterialDialog and its children
     void _init() {
-        _logger.info("MaterialDialogComponent - init");
-        
-//        final dom.DivElement sample = new dom.DivElement();
-//        sample.text = "Your MaterialDialogComponent-Component works!";
-//        element.append(sample);
-//
-//        element.classes.add(_cssClasses.IS_UPGRADED);
+        _logger.fine("_MaterialDialogComponent - init");
     }
 }
 
 /// registration-Helper
-void registerMaterialDialogComponent() {
-    final MdlConfig config = new MdlWidgetConfig<MaterialDialogComponent>(
+/// Also private - _MaterialDialogComponent is only used internally by [MaterialDialog]
+void _registerMaterialDialogComponent() {
+    final MdlConfig config = new MdlWidgetConfig<_MaterialDialogComponent>(
         _MaterialDialogComponentConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialDialogComponent.fromElement(element,injector)
+            (final dom.HtmlElement element,final di.Injector injector) => new _MaterialDialogComponent.fromElement(element,injector)
     );
     
     // If you want <mdl-dialog></mdl-dialog> set selectorType to SelectorType.TAG.

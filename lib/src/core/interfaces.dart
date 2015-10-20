@@ -45,3 +45,23 @@ part of mdlcore;
 class MaterialApplication {
     void run() {}
 }
+
+/**
+ * MdlComponent that has a "refresh" Functions.
+ * Best way to invoke this function is via [refreshComponentsInSubtree]
+ *
+ * Sample-Component:
+ *      [MaterialModel]
+ */
+abstract class RefreshableComponent {
+    void refresh();
+}
+
+/**
+ * For Components like [_MaterialDialogComponent] where it's necessary to
+ * change the ParentScope on runtime. For example if [MaterialDialog] pops up
+ * the Parent-Scope is set to the new Dialog
+ */
+abstract class HasDynamicParentScope {
+    void set parentScope(final Object parent);
+}

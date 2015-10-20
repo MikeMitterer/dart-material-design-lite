@@ -112,3 +112,4 @@ void inject(Function fn) {
 void tearDownInjector() {
     _mdlInjector = null;
 }
+

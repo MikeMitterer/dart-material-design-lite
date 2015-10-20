@@ -35,7 +35,7 @@ class _MaterialModelConstant {
     const _MaterialModelConstant();
 }    
 
-class MaterialModel extends MdlComponent {
+class MaterialModel extends MdlComponent implements RefreshableComponent {
     final Logger _logger = new Logger('mdldirective.MaterialModel');
 
     //static const _MaterialModelConstant _constant = const _MaterialModelConstant();
@@ -51,26 +51,58 @@ class MaterialModel extends MdlComponent {
     @override
     void attached() {
         _scope = new Scope(this, mdlParentScope(this));
-        _init();
+        try {
+            _init();
+
+        } on NoSuchMethodError catch(e,stacktrace) {
+            // It's possible that at this moment the requested fieldname is not yet available
+            // MaterialDialog is a candidate for this.
+            // If MaterialDialog pops up attached() is called but only then the parent-scope is set
+            // via dialogComponent.parentScope = this;
+
+            if(!_scope.parentContext is HasDynamicParentScope) {
+                _logger.shout(e.toString(),e,stacktrace);
+            }
+        }
     }
-    
+
+    @override
+    /// Called in [_MaterialDialogComponent] if parent changes ([MaterialDialog] sets itself as parent!!!)
+    void refresh() {
+        _logger.fine("MaterialModel - refresh");
+
+        // Most important part - check if there is a new parent
+        _scope = new Scope(this, mdlParentScope(this));
+
+        // Remove previously registered Streams!
+        downgrade();
+
+        // Re-Init
+        _setupObserver();
+    }
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialModel - init");
+        _logger.fine("MaterialModel - init");
 
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialModelConstant.WIDGET_SELECTOR);
 
-        final String fieldname = element.attributes[_MaterialModelConstant.WIDGET_SELECTOR].trim();
-
-        _scope.context = _scope.parentContext;
-
-        final ModelObserver observer = _observerFactory.createFor(element);
-        eventStreams.addAll(observer.observe(_scope,fieldname));
+        _setupObserver();
 
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
+
+    /// Scope-Context is always the next (up the tree) ScopeAware parent
+    void _setupObserver() {
+        _scope.context = _scope.parentContext;
+
+        final ModelObserver observer = _observerFactory.createFor(element);
+        eventStreams.addAll( observer.observe( _scope ,_fieldname));
+    }
+
+    String get _fieldname => element.attributes[_MaterialModelConstant.WIDGET_SELECTOR].trim();
 }
 
 /// registration-Helper

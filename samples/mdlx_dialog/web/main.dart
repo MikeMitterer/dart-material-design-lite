@@ -104,6 +104,6 @@ void configLogging() {
 
     // now control the logging.
     // Turn off all logging first
-    Logger.root.level = Level.FINE;
+    Logger.root.level = Level.INFO;
     Logger.root.onRecord.listen(new LogConsoleHandler());
 }

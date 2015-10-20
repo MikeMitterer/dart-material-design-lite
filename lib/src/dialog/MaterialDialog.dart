@@ -122,7 +122,7 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
     Future<MdlDialogStatus> show({ final Duration timeout,void dialogIDCallback(final String dialogId) }) {
         Validate.isTrue(_completer == null);
 
-        _logger.info("show start");
+        _logger.fine("start start...");
 
         _completer = new Completer<MdlDialogStatus>();
 
@@ -141,23 +141,20 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
         }
 
         // Now - add the template into the _dialogContainer
-        _renderer.render().then((_) {
-
+        _renderer.render().then( (_) {
+            // _autoIncrementID must be on top of this block! - will be used by _elementID
             _autoIncrementID = idCounter;
-
-            if(dialogIDCallback != null) {
-                dialogIDCallback(hashCode.toString());
-            }
 
             final dom.HtmlElement dialog = _dialogContainer.children.last;
             dialog.id = _elementID;
 
-            final MaterialDialogComponent dialogComponent = MaterialDialogComponent.widget(dialog);
-            if(dialogComponent != null) {
-                dialogComponent.scope = this;
-                _logger.shout("DC found!!!!");
-            } else {
-                _logger.shout("DC found!!!!");
+            final _MaterialDialogComponent dialogComponent = _MaterialDialogComponent.widget(dialog);
+            Validate.notNull(dialogComponent,"${dialog} must be a '_MaterialDialogComponent' (mdl-dialog class)");
+
+            dialogComponent.parentScope = this;
+
+            if(dialogIDCallback != null) {
+                dialogIDCallback(hashCode.toString());
             }
 
             _dialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
@@ -177,7 +174,7 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
             }
 
             idCounter++;
-            _logger.info("show end (Dialog is rendered (ID: ${_elementID}))");
+            _logger.fine("show end (Dialog is rendered, got ID: ${_elementID})!");
         });
 
         return _completer.future;
@@ -297,7 +294,7 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
 
         dom.HtmlElement container = _container;;
         if(container == null) {
-            _logger.info("Container ${_containerClass} not found, create a new one...");
+            _logger.fine("Container ${_containerClass} not found, creating a new one...");
             container = new dom.DivElement();
             container.classes.add(_containerClass);
             container.classes.add(_cssClasses.IS_DELETABLE);

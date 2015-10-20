@@ -103,3 +103,58 @@ bool isMdlWidget(final dom.HtmlElement element) {
     var jsElement = new JsObject.fromBrowserObject(element);
     return jsElement.hasProperty(_MDL_WIDGET_PROPERTY);
 }
+
+/// Checks if [element] is a "MDLComponent"
+bool isMdlComponent(final dom.HtmlElement element) {
+    Validate.notNull(element);
+    var jsElement = new JsObject.fromBrowserObject(element);
+    return jsElement.hasProperty(MDL_COMPONENT_PROPERTY);
+}
+
+/// Gives you all the component names registered for this [element]
+List<String> mdlComponentNames(final dom.HtmlElement element) {
+    Validate.notNull(element);
+
+    final List<String> names = new List<String>();
+
+    var jsElement = new JsObject.fromBrowserObject(element);
+    if(!jsElement.hasProperty(MDL_COMPONENT_PROPERTY)) {
+        return names;
+    }
+
+    names.addAll((jsElement[MDL_COMPONENT_PROPERTY] as String).split(","));
+    return names;
+}
+
+/// Returns all the MDL-Components registered for this [element]
+List<MdlComponent> mdlComponents(final dom.HtmlElement element) {
+    Validate.notNull(element);
+
+    final List<MdlComponent> components = new List<MdlComponent>();
+    if(!isMdlComponent(element)) {
+        return components;
+    }
+
+    var jsElement = new JsObject.fromBrowserObject(element);
+    final List<String> names = mdlComponentNames(element);
+    names.forEach((final String name) {
+        if(jsElement.hasProperty(name)) {
+            components.add(jsElement[name] as MdlComponent);
+        }
+    });
+
+    return components;
+}
+
+void refreshComponentsInSubtree(final dom.HtmlElement element) {
+    if(element != null && element is dom.HtmlElement) {
+        element.children.forEach((final dom.Element element) => refreshComponentsInSubtree(element));
+        if(isMdlComponent(element)) {
+            mdlComponents(element).forEach((final MdlComponent component) {
+                if(component is RefreshableComponent) {
+                    (component as RefreshableComponent).refresh();
+                }
+            });
+        }
+    }
+}

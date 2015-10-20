@@ -42,5 +42,5 @@ part "src/dialog/MaterialNotification.dart";
 part "src/dialog/components/MaterialDialogComponent.dart";
 
 void registerMdlDialogComponents() {
-    registerMaterialDialogComponent();
+    _registerMaterialDialogComponent();
 }
