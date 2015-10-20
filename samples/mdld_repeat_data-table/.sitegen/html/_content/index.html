@@ -14,11 +14,6 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/master
         {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
         <template>
             <div class="mdl-div-data-tableex__row">
-                <div class="mdl-data-tableex__cell--checkbox">
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-tableex__select">
-                        <input type="checkbox" class="mdl-checkbox__input" data-mdl-click="check({{component.name}})" />
-                    </label>
-                </div>
                 <div class="mdl-data-tableex__cell--grow">{{component.name}}</div>
                 <div class="mdl-data-tableex__cell--numeric">{{component.quantity}}</div>
                 <div class="mdl-data-tableex__cell--numeric">{{component.price}}</div>

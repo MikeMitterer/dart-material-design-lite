@@ -51,7 +51,6 @@ class Application implements MaterialApplication {
         }
         components.add(new HackintoshComponent("Gigabyte GA-Z97X-UD3H-BK",1,192.90));
         components.add(new HackintoshComponent("Core i7-4790K",1,352.89));
-        components.add(new HackintoshComponent("Core i7-4790K",1,352.89));
         components.add(new HackintoshComponent("EVGA GT 740 SC",1,110.12));
         components.add(new HackintoshComponent("Crucial Ballistix Tactical ",2,102.46));
         components.add(new HackintoshComponent("Samsung 850 EVO 250GB",1,94.21));
