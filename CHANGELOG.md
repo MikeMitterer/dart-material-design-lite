@@ -1,6 +1,11 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.6.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.5.8...v1.6.0) - 2015-10-20##
+
+###Fixes###
+* #24 - Dialog loses focus [839869d](https://github.com/mikemitterer/dart-material-design-lite/commit/839869d5b59e8407c69544d5fcb11324d99c81b0)
+
 ##[v1.5.6](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.5.5...v1.5.6) - 2015-09-21##
 
 ###Feature###
