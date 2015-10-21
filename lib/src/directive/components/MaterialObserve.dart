@@ -102,6 +102,7 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
              }
 
             scope.context = scope.parentContext;
+            _logger.info(scope.context);
             final val = (new Invoke(scope)).field(fieldname);
 
             if(val != null && val is ObservableProperty) {

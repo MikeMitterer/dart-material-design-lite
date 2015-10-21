@@ -73,7 +73,7 @@ abstract class MdlComponent {
     dom.CssClassSet     get classes => element.classes;
     Map<String, String> get attributes => element.attributes;
 
-    dom.ElementStream<dom.Event>        get onChange => hub.onChange;
+    //dom.ElementStream<dom.Event>        get onChange => hub.onChange;
     dom.ElementStream<dom.Event>        get onInput =>  hub.onInput;
     dom.ElementStream<dom.MouseEvent>   get onClick =>  hub.onClick;
 

@@ -93,7 +93,11 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         _items.add(item);
 
-        final dom.HtmlElement renderedChild = await _repeatRenderer.render(element,_mustacheTemplate.renderString(item),replaceNode: false);
+        final dom.HtmlElement renderedChild = await _repeatRenderer.render(element,
+            _mustacheTemplate.renderString(
+                item
+            ),replaceNode: false);
+
         _addDataToDataConsumer(renderedChild,item);
 
         scope = scope != null ? scope : item;

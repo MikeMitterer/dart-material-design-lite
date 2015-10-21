@@ -59,13 +59,16 @@
         </div>
          
         <template>
-            <div class="mdl-div-data-tableex__row">
+            <div class="mdl-div-data-tableex__row" data-id="{{component.id}}">
                 <div class="mdl-data-tableex__cell--grow">{{component.name}}</div>
                 <div class="mdl-data-tableex__cell--numeric">{{component.quantity}}</div>
                 <div class="mdl-data-tableex__cell--numeric">{{component.price}}</div>
             </div>
         </template>
          
+    </div>
+    <div class="total">
+        <h6>Total: <span mdl-observe="total | number(value,2)" class="mdl-color-text--accent"></span></h6>
     </div>
     <div class="buttons">
         <button id="addComponents"

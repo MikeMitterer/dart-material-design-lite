@@ -55,11 +55,17 @@ class _MaterialDivDataTableConstant {
     const _MaterialDivDataTableConstant();
 }
 
+class DataTableChangedEvent {}
+
 class MaterialDivDataTable extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialDivDataTable');
 
     static const _MaterialDivDataTableConstant _constant = const _MaterialDivDataTableConstant();
     static const _MaterialDivDataTableCssClasses _cssClasses = const _MaterialDivDataTableCssClasses();
+
+    MaterialDivDataTableRow __headerRow;
+
+    StreamController<DataTableChangedEvent> _onChange;
 
     MaterialDivDataTable.fromElement(final dom.HtmlElement element, final di.Injector injector)
         : super(element, injector) {
@@ -69,98 +75,83 @@ class MaterialDivDataTable extends MdlComponent {
 
     static MaterialDivDataTable widget(final dom.HtmlElement element) => mdlComponent(element,MaterialDivDataTable) as MaterialDivDataTable;
 
-    // Central Element - by default this is where mdl-data-table can be found (element)
-    // html.Element get hub => inputElement;
+    bool get isSelectable => element.classes.contains(_cssClasses.SELECTABLE);
 
+    void set select(final bool _select) {
+        _rows.forEach((final MaterialDivDataTableRow row) => row.select = _select);
+    }
+
+    bool get isSelected {
+        final List<MaterialDivDataTableRow> rows = _rows;
+        for(int counter = 0;counter < rows.length; counter++) {
+            if(rows[counter].isSelected == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    Stream<DataTableChangedEvent> get onChange {
+        if(_onChange == null) {
+            _onChange = new StreamController<DataTableChangedEvent>.broadcast( onCancel: () => _onChange = null);
+        }
+        return _onChange.stream;
+    }
+
+    List<MaterialDivDataTableRow> get selectedRows {
+        final List<MaterialDivDataTableRow> rows = _rows;
+        return new UnmodifiableListView(_rows.where((final MaterialDivDataTableRow row) => row.isSelected));
+    }
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
         _logger.info("MaterialDivDataTable - init");
 
-        final dom.HtmlElement firstHeader = element.querySelector(".${_cssClasses.HEAD}");
-
-        final List<dom.HtmlElement> rows = new List.from(element.querySelectorAll(".${_cssClasses.ROW}") as List<dom.HtmlElement>);
-        rows.removeWhere((final dom.HtmlElement element) => element.classes.contains(_cssClasses.HEAD));
-
-        _logger.info("Number of rows: ${rows.length}");
-        if (element.classes.contains(_cssClasses.SELECTABLE)) {
-
-//            final dom.HtmlElement th = new dom.DivElement();
-//            th.classes.add(_cssClasses.CELL_CHECKBOX);
-//
-//            final dom.LabelElement headerCheckbox = _createHeaderCheckbox();
-//            th.append(headerCheckbox);
-//            firstHeader.insertAdjacentElement("afterBegin", th);
-
-//            rows.forEach((final dom.HtmlElement row) {
-//
-//                final dom.HtmlElement firstCell = row.querySelector(':first-child');
-//                if (firstCell != null) {
-//
-//                    final dom.HtmlElement td = new dom.DivElement();
-//                    td.classes.add(_cssClasses.CELL_CHECKBOX);
-//
-//                    final dom.LabelElement rowCheckbox = _createRowCheckbox(row);
-//                    td.append(rowCheckbox);
-//
-//                    row.insertBefore(td, firstCell);
-//                }
-//            });
-        }
-
-        componentHandler().upgradeElement(element);
         element.classes.add(_cssClasses.IS_UPGRADED);
+
     }
 
-    /// Create the Header-Checkbox
-    dom.LabelElement _createHeaderCheckbox() {
+    List<MaterialDivDataTableRow> get _rows {
+        final List<dom.HtmlElement> tempRows = new List.from(
+            element.querySelectorAll(".${_cssClasses.ROW}") as List<dom.HtmlElement>);
+        tempRows.removeWhere((final dom.HtmlElement element) => element.classes.contains(_cssClasses.HEAD));
 
-        final dom.LabelElement label = new dom.LabelElement();
+        final List<MaterialDivDataTableRow> rows = new List<MaterialDivDataTableRow>();
 
-        label.classes.add(_cssClasses.CHECKBOX);
-        label.classes.add(_cssClasses.JS_CHECKBOX);
-        label.classes.add(_cssClasses.JS_RIPPLE_EFFECT);
-        label.classes.add(_cssClasses.SELECT);
+        tempRows.forEach( (final dom.HtmlElement row) {
 
-        final dom.CheckboxInputElement checkbox = new dom.CheckboxInputElement();
-        checkbox.classes.add(_cssClasses.CHECKBOX_INPUT);
-
-        checkbox.onChange.listen( (final dom.Event event) {
-            final bool checked = checkbox.checked;
-            final List<dom.HtmlElement> rows = new List.from(element.querySelectorAll(".${_cssClasses.ROW}") as List<dom.HtmlElement>);
-            rows.removeWhere((final dom.HtmlElement element) => element.classes.contains(_cssClasses.HEAD));
-
-            _logger.info("Rows: ${rows.length}, Checked: ${checked}");
-            rows.forEach((final dom.HtmlElement row) {
-                final dom.HtmlElement select = row.querySelector(".${_cssClasses.SELECT}");
-                _logger.info("Select: ${select}");
-                if(select != null) {
-                    final MaterialCheckbox childCheckbox = MaterialCheckbox.widget(select.querySelector(".${_cssClasses.CHECKBOX_INPUT}"));
-                    if(childCheckbox != null) {
-                        childCheckbox.checked = checked;
-                    }
-                }
-
-                _toggleRow(row,checked);
-            });
+            final MaterialDivDataTableRow mdlRow = MaterialDivDataTableRow.widget(row);
+            Validate.notNull(mdlRow);
+            rows.add(mdlRow);
         });
 
-        label.append(checkbox);
-        return label;
+        return rows;
     }
 
-    /// Toggles background of [row] if checkbox changes state
-    void _toggleRow(final dom.TableRowElement row, final bool checked) {
-        if (checked) {
-            row.classes.add(_cssClasses.IS_SELECTED);
+    MaterialDivDataTableRow get _headerRow {
+        if(__headerRow == null) {
+
+            final dom.HtmlElement row = element.querySelector(".${_cssClasses.HEAD}");
+            if(row != null) {
+                __headerRow = MaterialDivDataTableRow.widget(row);
+                Validate.notNull(__headerRow);
+            }
         }
-        else {
-            row.classes.remove(_cssClasses.IS_SELECTED);
+
+        return __headerRow;
+    }
+
+    void _verifyCheckedState() {
+        if(_headerRow != null) {
+            _headerRow.select = isSelected;
         }
     }
 
-
-
+    void _fireChangeEvent() {
+        if(_onChange != null && _onChange.hasListener) {
+            _onChange.add(new DataTableChangedEvent());
+        }
+    }
 }
 
 /// Store strings for class names defined by this component that are used in
@@ -202,41 +193,99 @@ class MaterialDivDataTableRow extends MdlComponent {
     static const _MaterialDivDataTableRowConstant _constant = const _MaterialDivDataTableRowConstant();
     static const _MaterialDivDataTableRowCssClasses _cssClasses = const _MaterialDivDataTableRowCssClasses();
 
+    /// See [parent]
+    MaterialDivDataTable _parent;
+
+    /// See [_selectableCheckbox]
+    MaterialCheckbox _checkbox;
+
     MaterialDivDataTableRow.fromElement(final dom.HtmlElement element, final di.Injector injector)
         : super(element, injector) {
-
-        _init();
     }
 
     static MaterialDivDataTableRow widget(final dom.HtmlElement element) => mdlComponent(element,MaterialDivDataTableRow) as MaterialDivDataTableRow;
 
-    // Central Element - by default this is where mdl-data-table can be found (element)
-    // html.Element get hub => inputElement;
+    /// Row-Parent - the element that has the CSS-class 'mdl-data-tableex'
+    MaterialDivDataTable get parent {
+        if(_parent != null) {
+            return _parent;
+        }
+
+        dom.Element _getParent(final dom.HtmlElement element) {
+            if(element != null) {
+                if(element.classes.contains(_MaterialDivDataTableConstant.WIDGET_SELECTOR)) {
+                    return element;
+                }
+                return _getParent(element.parent);
+            }
+            throw new ArgumentError("Could not find parent-class (mdl-data-tableex) for this row... ($element)");
+        }
+        final dom.HtmlElement parent = _getParent(element);
+        _parent = MaterialDivDataTable.widget(parent);
+
+        return _parent;
+    }
+
+
+    @override
+    /// Make sure parent is already in the DOM
+    void attached() => _init();
+
+    void set select(final bool _select) {
+        if(_selectableCheckbox != null) {
+            _selectableCheckbox.checked = _select;
+            _toggleRow(_select);
+        }
+    }
+
+    bool get isSelected => _selectableCheckbox != null ? _selectableCheckbox.checked : false;
 
     //- private -----------------------------------------------------------------------------------
+
 
     void _init() {
         _logger.info("MaterialDivDataTableRow - init");
 
-        final dom.HtmlElement firstCell = element.querySelector(':first-child');
-        if(firstCell != null) {
-            final dom.HtmlElement td = new dom.DivElement();
-            td.classes.add(_cssClasses.CELL_CHECKBOX);
+        if(parent.isSelectable) {
 
-            final dom.LabelElement rowCheckbox = _createRowCheckbox(element);
-            td.append(rowCheckbox);
-            componentHandler().upgradeElement(td).then( (_) {
-                element.insertBefore(td, firstCell);
-            });
+            final dom.HtmlElement firstCell = element.querySelector(':first-child');
+            if(firstCell != null) {
+                final dom.HtmlElement td = new dom.DivElement();
+                td.classes.add(_cssClasses.CELL_CHECKBOX);
 
+                final dom.LabelElement rowCheckbox = _createRowCheckbox();
+                td.append(rowCheckbox);
+                componentHandler().upgradeElement(td).then( (_) {
+                    element.insertBefore(td, firstCell);
+                });
+
+            }
         }
 
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
+    /// If parent has mdl-data-tableex--selectable this checkbox will be created dynamically
+    /// otherwise it is [null]
+    MaterialCheckbox get _selectableCheckbox {
+        if(!_parent.isSelectable) {
+            return null;
+        }
+        if(_checkbox != null) {
+            return _checkbox;
+        }
+
+        final dom.HtmlElement cellCheckbox = element.querySelector(".${_cssClasses.CELL_CHECKBOX}");
+        Validate.notNull(cellCheckbox);
+
+        _checkbox = MaterialCheckbox.widget(cellCheckbox.querySelector(".${_cssClasses.CHECKBOX_INPUT}"));
+        Validate.notNull(_checkbox);
+        return _checkbox;
+    }
+
     /// Creates a checkbox for a single or or multiple rows and hooks up the
     /// event handling.
-    dom.LabelElement _createRowCheckbox(final dom.HtmlElement row) {
+    dom.LabelElement _createRowCheckbox() {
 
         final dom.LabelElement label = new dom.LabelElement();
 
@@ -248,26 +297,26 @@ class MaterialDivDataTableRow extends MdlComponent {
         final dom.CheckboxInputElement checkbox = new dom.CheckboxInputElement();
         checkbox.classes.add(_cssClasses.CHECKBOX_INPUT);
 
-        if (row != null) {
-            checkbox.checked = row.classes.contains(_cssClasses.IS_SELECTED);
+        if (element != null) {
+            checkbox.checked = element.classes.contains(_cssClasses.IS_SELECTED);
 
-            // .addEventListener('change', -- .onChange.listen(<Event>);
-            //checkbox.onChange.listen( _selectRow(checkbox, row, null));
-
-            checkbox.onChange.listen( (final dom.Event event) {
+            eventStreams.add( checkbox.onChange.listen( (final dom.Event event) {
                 final bool checked = checkbox.checked;
-                if(row.classes.contains(_cssClasses.HEAD)) {
-                    _toggleHeaderRow(row,checked);
-                } else {
-                    _toggleRow(row,checked);
-                }
-            });
+                _toggleRow(checked);
 
-            if (row.dataset.containsKey(_constant.SELECTABLE_NAME)) {
-                checkbox.name = row.dataset[_constant.SELECTABLE_NAME];
+                if(element.classes.contains(_cssClasses.HEAD)) {
+                    _toggleHeaderRow(checked);
+                } else {
+                    parent._verifyCheckedState();
+                }
+                parent._fireChangeEvent();
+            }));
+
+            if (element.dataset.containsKey(_constant.SELECTABLE_NAME)) {
+                checkbox.name = element.dataset[_constant.SELECTABLE_NAME];
             }
-            if (row.dataset.containsKey(_constant.SELECTABLE_VALUE)) {
-                checkbox.value = row.dataset[_constant.SELECTABLE_VALUE];
+            if (element.dataset.containsKey(_constant.SELECTABLE_VALUE)) {
+                checkbox.value = element.dataset[_constant.SELECTABLE_VALUE];
             }
         }
 
@@ -275,19 +324,19 @@ class MaterialDivDataTableRow extends MdlComponent {
         return label;
     }
 
-    /// Toggles background of [row] if checkbox changes state
-    void _toggleRow(final dom.HtmlElement row, final bool checked) {
+    /// Toggles background of [element] if checkbox changes state
+    void _toggleRow(final bool checked) {
 
         if (checked) {
-            row.classes.add(_cssClasses.IS_SELECTED);
+            element.classes.add(_cssClasses.IS_SELECTED);
         }
         else {
-            row.classes.remove(_cssClasses.IS_SELECTED);
+            element.classes.remove(_cssClasses.IS_SELECTED);
         }
     }
 
-    void _toggleHeaderRow(final dom.HtmlElement row, final bool checked) {
-        _logger.warning("Toggle Header!");
+    void _toggleHeaderRow(final bool checked) {
+        parent.select = checked;
     }
 }
 
