@@ -122,6 +122,7 @@ void createSampleList() {
     samples.add(new Sample("card",      Type.Core,  hasDemoCss: false, hasScript: false, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("checkbox",  Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("data-table",Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("data-table2",Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));
 
     samples.add(new Sample("footer",    Type.Core,  hasScript: false, hasSnippet: true, hasDemoHtml: false, hasDemoCss: false)
         ..scssFile = "_mega_footer.scss"
@@ -172,12 +173,13 @@ void createSampleList() {
     samples.add(new Sample("list", Type.DartOld, hasScript: false, hasDemoHtml: false, hasDemoCss: false));
 
     // Directives
-    samples.add(new Sample("attribute", Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("class",     Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("formatter", Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("model",     Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("observe",   Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("repeat",    Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("attribute",         Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("class",             Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("formatter",         Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("model",             Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("observe",           Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("repeat",            Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("repeat_data-table", Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
 
     // SPA Samples
     samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));

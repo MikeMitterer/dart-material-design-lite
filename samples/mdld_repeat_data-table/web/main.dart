@@ -105,6 +105,9 @@ main() {
         application.isListEmpty.onChange.listen((final PropertyChangeEvent<bool> property) {
             add.enabled = property.value;
             remove.enabled = !property.value;
+            application.total.value = 0.0;
+            final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(".mdl-data-tableex"));
+            table.select = false;
         });
 
         application.run();
@@ -120,6 +123,6 @@ void configLogging() {
 
     // now control the logging.
     // Turn off all logging first
-    Logger.root.level = Level.INFO;
+    Logger.root.level = Level.FINE;
     Logger.root.onRecord.listen(new LogConsoleHandler());
 }

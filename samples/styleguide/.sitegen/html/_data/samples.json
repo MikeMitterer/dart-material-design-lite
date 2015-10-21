@@ -31,6 +31,7 @@
   { "name": "progress", "original": true, "prefix": "mdl_" },
   { "name": "radio", "original": true, "prefix": "mdl_" },
   { "name": "repeat", "original": false, "prefix": "mdld_" },
+  { "name": "repeat_data-table", "original": false, "prefix": "mdld_" },
   { "name": "shadow", "original": true, "prefix": "mdl_" },
   { "name": "slider", "original": true, "prefix": "mdl_" },
   { "name": "snackbar", "original": false, "prefix": "mdlx_" },

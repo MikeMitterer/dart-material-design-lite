@@ -1,0 +1,38 @@
+<section class="demo-section demo-section--repeat_data-table demo-page--repeat_data-table">
+    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/repeat_data-table.html">
+        Loading...
+    </div>
+    <div class="demo-preview-block">
+        <h5>Build your "CustomMac Pro"</h5>
+        <div mdl-repeat="component in components"
+             class="mdl-data-tableex mdl-js-data-tableex mdl-data-tableex--selectable mdl-shadow--2dp">
+            <div class="mdl-div-data-tableex__row mdl-div-data-tableex__head mdl-repeat__keep_this_element">
+                <div class="mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow">Component</div>
+                <div class="mdl-data-tableex__cell--numeric">Quantity</div>
+                <div class="mdl-data-tableex__cell--numeric">Unit price</div>
+            </div>
+             
+            <template>
+                <div class="mdl-div-data-tableex__row" data-id="{{component.id}}">
+                    <div class="mdl-data-tableex__cell--grow">{{component.name}}</div>
+                    <div class="mdl-data-tableex__cell--numeric">{{component.quantity}}</div>
+                    <div class="mdl-data-tableex__cell--numeric">{{component.price}}</div>
+                </div>
+            </template>
+             
+        </div>
+        <div class="total">
+            <h6>Total: <span mdl-observe="total | number(value,2)" class="mdl-color-text--accent"></span></h6>
+        </div>
+        <div class="buttons">
+            <button id="addComponents"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                Add components
+            </button>
+            <button id="removeComponents"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                Remove components
+            </button>
+        </div>
+    </div>
+</section>

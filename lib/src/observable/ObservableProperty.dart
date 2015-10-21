@@ -32,7 +32,9 @@ class ObservableProperty<T> {
 
     final Logger _logger = new Logger('mdlobservable.ObservableProperty');
 
+    @MdlComponentModel
     T _value;
+
     Function _observe;
 
     /// Default interval if no specified in CTOR

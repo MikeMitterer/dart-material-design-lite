@@ -1,0 +1,9 @@
+.demo-page--data-tableex, .demo-section--data-tableex {
+    .mdl-div-data-tableex__row {
+
+        // Set a default  width for all cells
+        > * {
+            width            : 80px;
+        }
+    }
+}

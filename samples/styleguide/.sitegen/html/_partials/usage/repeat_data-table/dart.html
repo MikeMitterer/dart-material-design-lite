@@ -1,0 +1,110 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+
+@MdlComponentModel
+class HackintoshComponent &#123;
+    final Logger _logger = new Logger(&#39;main.HackintoshComponent&#39;);
+
+    final String id;
+    final String name;
+    final int quantity;
+    final double price;
+
+    HackintoshComponent(this.id,this.name, this.quantity, this.price);
+&#125;
+
+@MdlComponentModel @di.Injectable()
+class Application implements MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+
+    final ObservableList&lt;HackintoshComponent&gt; components = new ObservableList&lt;HackintoshComponent&gt;();
+    final ObservableProperty&lt;bool&gt;   isListEmpty = new ObservableProperty&lt;bool&gt;(true);
+    final ObservableProperty&lt;double&gt; total = new ObservableProperty&lt;double&gt;(0.0);
+
+    Application() &#123;
+        isListEmpty.observes(() =&gt; components.isEmpty);
+        _addItems();
+    &#125;
+
+    @override
+    void run() &#123;
+        _addListeners();
+    &#125;
+
+    check(final String componentName) &#123;
+        _logger.info(&quot;Clicked on $&#123;componentName&#125;&quot;);
+    &#125;
+
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+
+    void _addItems() &#123;
+        if(components.isNotEmpty) &#123;
+            return;
+        &#125;
+        components.add(new HackintoshComponent(&quot;1&quot;,&quot;Gigabyte GA-Z97X-UD3H-BK&quot;,1,192.90));
+        components.add(new HackintoshComponent(&quot;2&quot;,&quot;Core i7-4790K&quot;,1,352.89));
+        components.add(new HackintoshComponent(&quot;3&quot;,&quot;EVGA GT 740 SC&quot;,1,110.12));
+        components.add(new HackintoshComponent(&quot;4&quot;,&quot;Crucial Ballistix Tactical &quot;,2,102.46));
+        components.add(new HackintoshComponent(&quot;5&quot;,&quot;Samsung 850 EVO 250GB&quot;,1,94.21));
+        components.add(new HackintoshComponent(&quot;6&quot;,&quot;Corsair RM 650 Watt&quot;,1,135.99 ));
+        components.add(new HackintoshComponent(&quot;7&quot;,&quot;Corsair Carbide 500R&quot;,1,123.99));
+    &#125;
+
+    void _removeItems() &#123;
+        components.clear();
+    &#125;
+
+    void _addListeners() &#123;
+        final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(&quot;.mdl-data-tableex&quot;));
+        if(table == null) &#123;
+            return;
+        &#125;
+
+        table.onChange.listen((_) &#123;
+            final List&lt;MaterialDivDataTableRow&gt; rows = table.selectedRows;
+            _logger.info(&quot;DataTable changed! $&#123;rows.length&#125; items are selected...&quot;);
+
+            total.value = 0;
+            rows.forEach((final MaterialDivDataTableRow row) &#123;
+                final String id = row.hub.dataset[&quot;id&quot;];
+                _logger.info(&quot;   Row with ID: $&#123;id&#125;&quot;);
+                total.value = total.value + _getComponent(id).price;
+            &#125;);
+        &#125;);
+    &#125;
+
+    HackintoshComponent _getComponent(final String id) &#123;
+        return components.firstWhere((final HackintoshComponent component) =&gt; component.id == id);
+    &#125;
+&#125;
+
+main() &#123;
+    final Logger _logger = new Logger(&#39;main.MaterialRepeat&#39;);
+
+    registerMdl();
+
+    componentFactory().rootContext(Application).run()
+    .then( (final Application application) &#123;
+
+        final MaterialButton add = MaterialButton.widget(dom.querySelector(&quot;#addComponents&quot;));
+        add.onClick.listen((_) =&gt; application._addItems());
+
+        final MaterialButton remove = MaterialButton.widget(dom.querySelector(&quot;#removeComponents&quot;));
+        remove.onClick.listen((_) =&gt; application._removeItems());
+
+        application.isListEmpty.onChange.listen((final PropertyChangeEvent&lt;bool&gt; property) &#123;
+            add.enabled = property.value;
+            remove.enabled = !property.value;
+            application.total.value = 0.0;
+            final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(&quot;.mdl-data-tableex&quot;));
+            table.select = false;
+        &#125;);
+
+        application.run();
+
+    &#125;);
+
+&#125;
+
+
+

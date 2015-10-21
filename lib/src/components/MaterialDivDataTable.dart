@@ -79,6 +79,9 @@ class MaterialDivDataTable extends MdlComponent {
 
     void set select(final bool _select) {
         _rows.forEach((final MaterialDivDataTableRow row) => row.select = _select);
+        if(_headerRow != null) {
+            _headerRow.select = _select;
+        }
     }
 
     bool get isSelected {
@@ -221,7 +224,9 @@ class MaterialDivDataTableRow extends MdlComponent {
             throw new ArgumentError("Could not find parent-class (mdl-data-tableex) for this row... ($element)");
         }
         final dom.HtmlElement parent = _getParent(element);
+        _logger.info("Found parent: $parent");
         _parent = MaterialDivDataTable.widget(parent);
+        _logger.info("Found parent-Widget: $_parent");
 
         return _parent;
     }
@@ -351,7 +356,6 @@ void _registerMaterialDivDataTable() {
         _MaterialDivDataTableConstant.WIDGET_SELECTOR,
         (final dom.HtmlElement element, final di.Injector injector) => new MaterialDivDataTable.fromElement(element, injector)
     );
-    config.priority = 8;
     componentHandler().register(config);
 }
 
@@ -360,6 +364,8 @@ void _registerMaterialDivDataTableRow() {
         _MaterialDivDataTableRowConstant.WIDGET_SELECTOR,
         (final dom.HtmlElement element, final di.Injector injector) => new MaterialDivDataTableRow.fromElement(element, injector)
     );
-    config.priority = 8;
+    /// _registerMaterialDivDataTable hast priority 1 so here we make sure that
+    /// MaterialDivDataTable will allays be registered first - every Row needs needs a parent!
+    config.priority = 2;
     componentHandler().register(config);
 }
