@@ -2347,90 +2347,6 @@ main {
 .mdl-color-text--accent-A700 {
   color: #c51162 !important; }
 
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url("./packages/mdl/assets/fonts/material/MaterialIcons-Regular.eot");
-  /* For IE6-8 */
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url("./packages/mdl/assets/fonts/material/MaterialIcons-Regular.woff2") format("woff2"), url("./packages/mdl/assets/fonts/material/MaterialIcons-Regular.woff") format("woff"), url("./packages/mdl/assets/fonts/material/MaterialIcons-Regular.ttf") format("truetype"); }
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  /* Preferred icon size */
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  font-feature-settings: 'liga'; }
-
-.material-icons.md-18 {
-  font-size: 18px; }
-
-.material-icons.md-24 {
-  font-size: 24px; }
-
-.material-icons.md-36 {
-  font-size: 36px; }
-
-.material-icons.md-48 {
-  font-size: 48px; }
-
-.material-icons.md-dark {
-  color: rgba(0, 0, 0, 0.54); }
-
-.material-icons.md-dark.md-inactive {
-  color: rgba(0, 0, 0, 0.26); }
-
-.material-icons.md-light {
-  color: white; }
-
-.material-icons.md-light.md-inactive {
-  color: rgba(255, 255, 255, 0.3); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto-Regular"), local("Roboto-Regular"), url("./packages/mdl/assets/fonts/roboto/Roboto-Regular.woff2") format("woff2"), url("./packages/mdl/assets/fonts/roboto/Roboto-Regular.woff") format("woff"), url("./packages/mdl/assets/fonts/roboto/Roboto-Regular.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 200;
-  src: local("Roboto-Thin"), local("Roboto-Thin"), url("./packages/mdl/assets/fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("./packages/mdl/assets/fonts/roboto/Roboto-Thin.woff") format("woff"), url("./packages/mdl/assets/fonts/roboto/Roboto-Thin.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto-Light"), local("Roboto-Light"), url("./packages/mdl/assets/fonts/roboto/Roboto-Light.woff2") format("woff2"), url("./packages/mdl/assets/fonts/roboto/Roboto-Light.woff") format("woff"), url("./packages/mdl/assets/fonts/roboto/Roboto-Light.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto-Medium"), local("Roboto-Medium"), url("./packages/mdl/assets/fonts/roboto/Roboto-Medium.woff2") format("woff2"), url("./packages/mdl/assets/fonts/roboto/Roboto-Medium.woff") format("woff"), url("./packages/mdl/assets/fonts/roboto/Roboto-Medium.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto-Bold"), local("Roboto-Bold"), url("./packages/mdl/assets/fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("./packages/mdl/assets/fonts/roboto/Roboto-Bold.woff") format("woff"), url("./packages/mdl/assets/fonts/roboto/Roboto-Bold.ttf") format("truetype"); }
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7552,6 +7468,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
 /* TOOLTIP */
 .mdl-dialog-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -7911,6 +7828,14 @@ mdl-draggable {
     width: calc(100% - 16px); }
     .mdl-form .mdl-form__actions > *, .mdl-form-registration .mdl-form__actions > * {
       margin-left: 4px; }
+  .mdl-form .mdl-textfield.is-invalid .mdl-textfield__error, .mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: hidden; }
+  .mdl-form.is-dirty .mdl-textfield.is-invalid .mdl-textfield__error, .is-dirty.mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: visible; }
+  .debug .mdl-form.is-invalid, .debug .is-invalid.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.3); }
+  .debug .mdl-form.is-dirty, .debug .is-dirty.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.6); }
 
 .mdl-form-registration .mdl-form__actions .mdl-button {
   flex-grow: 1; }
