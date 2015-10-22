@@ -57,6 +57,7 @@ part "utils/utils_test.dart";
 part "utils/observables_test.dart";
 
 part "core/utils_test.dart";
+part "form/form_test.dart";
 
 Future prepareMdlTest(Future additionalRegistration()) async {
     registerApplicationComponents();
@@ -75,6 +76,7 @@ main() async {
     testDataAttribute();
     testObservables();
     testCoreUtils();
+    testForm();
 }
 
 void configLogging() {

@@ -6,36 +6,39 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/master
     <!--<div class="linklist"><a href="index.html">With material components</a> | <a href="index-html-controls.html">Basic HTML elements</a></div>-->
 
     <div class="firstblock">
-        <p>
-            justo. Morbi tincidunt vulputate urna vitae malesuada. Vivamus est erat, venenatis eu mauris ac, finibus
-            cursus lectus. Nunc ultrices libero vitae est egestas consectetur. Aliquam dapibus, mi quis sollicitudin
-            vestibulum, odio nulla ultrices erat, vel sagittis ligula sem et nunc.</p>
-
+        <h5>Form validation</h5>
         <form method="post" class="right mdl-form mdl-form-registration demo-registration">
             <h5 class="mdl-form__title">Register for launch</h5>
             <div class="mdl-form__content">
                 <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" id="sample1" />
+                    <input class="mdl-textfield__input" type="text" id="sample1" required />
                     <label class="mdl-textfield__label" for="sample1">Name</label>
+                    <span class="mdl-textfield__error">This field must not be empty</span>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" id="email" />
+                    <input class="mdl-textfield__input" type="email" id="email" required />
                     <label class="mdl-textfield__label" for="email">Email</label>
                 </div>
                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="remember_me">
-                    <input type="checkbox" id="remember_me" class="mdl-checkbox__input" />
+                    <input type="checkbox" id="remember_me" class="mdl-checkbox__input" required />
                     <span class="mdl-checkbox__label">Remember me</span>
                 </label>
             </div>
             <div class="mdl-form__actions">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect">Login</button>
+                <button class="mdl-button mdl-js-button mdl-button--submit mdl-button--raised
+                    mdl-button--primary mdl-js-ripple-effect" disabled>
+                    Login
+                </button>
             </div>
         </form>
 
-        <p>
-            justo. Morbi tincidunt vulputate urna vitae malesuada. Vivamus est erat, venenatis eu mauris ac, finibus
-            cursus lectus. Nunc ultrices libero vitae est egestas consectetur. Aliquam dapibus, mi quis sollicitudin
-            vestibulum, odio nulla ultrices erat, vel sagittis ligula sem et nunc.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+        sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
     </div>
 
     <form method="post" class="mdl-form">

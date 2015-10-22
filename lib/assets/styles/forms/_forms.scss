@@ -330,6 +330,21 @@ $_form_default_button_width : $_form_default_label_width !default;
         }
     }
 
+    .mdl-textfield.is-invalid .mdl-textfield__error {
+        visibility : hidden;
+    }
+
+    &.is-dirty {
+        .mdl-textfield.is-invalid .mdl-textfield__error {
+            visibility : visible;
+        }
+    }
+
+
+    .debug & {
+        &.is-invalid { background-color: rgba(255, 143, 38, 0.30); }
+        &.is-dirty { background-color: rgba(255, 143, 38, 0.60); }
+    }
 
     @include shadow-2dp();
 }

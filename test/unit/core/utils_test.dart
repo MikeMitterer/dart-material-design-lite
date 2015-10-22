@@ -61,7 +61,7 @@ testCoreUtils() {
 
             expect(names.first,"MaterialButton");
 
-        }); // end of 'mdlComponentNames' test
+        }); // end of 'mdlComponentNames' test¨
 
         test('> mdlComponents', () async {
             expect(div,isNotNull);
@@ -75,7 +75,7 @@ testCoreUtils() {
 
         }); // end of 'mdlComponents' test
     });
-    // end 'DataAttribute' group
+    // end 'CoreUtils' group
 }
 
 // - Helper --------------------------------------------------------------------------------------
