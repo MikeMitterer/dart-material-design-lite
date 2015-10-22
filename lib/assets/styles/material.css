@@ -8310,6 +8310,11 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -8801,6 +8806,14 @@ mdl-draggable {
     width: calc(100% - 16px); }
     .mdl-form .mdl-form__actions > *, .mdl-form-registration .mdl-form__actions > * {
       margin-left: 4px; }
+  .mdl-form .mdl-textfield.is-invalid .mdl-textfield__error, .mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: hidden; }
+  .mdl-form.is-dirty .mdl-textfield.is-invalid .mdl-textfield__error, .is-dirty.mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: visible; }
+  .debug .mdl-form.is-invalid, .debug .is-invalid.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.3); }
+  .debug .mdl-form.is-dirty, .debug .is-dirty.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.6); }
 
 .mdl-form-registration .mdl-form__actions .mdl-button {
   -webkit-box-flex: 1;
