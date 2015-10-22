@@ -42,6 +42,7 @@ import 'package:di/di.dart' as di;
 import 'package:test/test.dart';
 
 import "package:mdl/mdl.dart";
+
 //-----------------------------------------------------------------------------
 // Logging
 
