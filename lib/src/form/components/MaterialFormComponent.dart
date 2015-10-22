@@ -156,6 +156,11 @@ class MaterialFormComponent extends MdlComponent {
 
         });
 
+        final dom.HtmlElement elementWithAutoFocus = element.querySelector("[autofocus]");
+        if(elementWithAutoFocus != null) {
+            elementWithAutoFocus.focus();
+        }
+
         updateStatus();
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
