@@ -6,6 +6,14 @@
     .firstblock {
         clear : both;
         height: 400px;
+
+        p:first-of-type {
+            // background-color: green;
+        }
+
+        .mdl-form {
+            margin-left: 12px;
+        }
     }
 
     form {
@@ -34,4 +42,5 @@
             }
         }
     }
+
 }

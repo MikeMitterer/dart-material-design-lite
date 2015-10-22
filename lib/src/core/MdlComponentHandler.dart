@@ -31,8 +31,6 @@ const String MDL_COMPONENT_PROPERTY     = "mdlcomponent";
 /// Property for the Components JsObject to save/register the component it component is a Widget
 const String _MDL_WIDGET_PROPERTY       = "mdlwidget";
 
-class _RootContext { const _RootContext(); }
-
 /// Store strings for class names defined by this component that are used in Dart.
 class _MdlComponentHandlerCssClasses {
 

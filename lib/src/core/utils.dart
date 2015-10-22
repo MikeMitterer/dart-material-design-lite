@@ -165,3 +165,29 @@ void refreshComponentsInSubtree(final dom.HtmlElement element) {
         }
     }
 }
+
+/// Returns all MdlComponents in subtree
+List<MdlComponent> getAllMdlComponents(final dom.HtmlElement element) {
+    Validate.notNull(element);
+
+    final List<MdlComponent> components = new List<MdlComponent>();
+
+    int counter = 0;
+    _iterateOverAllHTMLElements(final dom.HtmlElement element) {
+        if(element is dom.HtmlElement) {
+            element.children.forEach((final dom.Element element) => _iterateOverAllHTMLElements(element));
+            //_logger.info("E: $element ID: ${element.id} - classes: ${element.classes}");
+            if(isMdlComponent(element)) {
+                //_logger.shout("E: $element ID: ${element.id} - classes: ${element.classes}");
+                components.addAll(mdlComponents(element));
+                counter++;
+            }
+        }
+    }
+
+    _iterateOverAllHTMLElements(element);
+    //_logger.info("#${counter} Elements found");
+    //_logger.info("#${components.length} Components found");
+
+    return new UnmodifiableListView(components);
+}
