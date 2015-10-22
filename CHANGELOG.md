@@ -1,6 +1,12 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.7.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.6.1...v1.7.0) - 2015-10-22##
+
+###Feature###
+* MaterialFormComponent with validation check [185edc9](https://github.com/mikemitterer/dart-material-design-lite/commit/185edc9c0bd1dae573fa6a1035c5f00a56a79228)
+* Dynamic DivDataTable works [2e5dff7](https://github.com/mikemitterer/dart-material-design-lite/commit/2e5dff7ed1a4fe4bdcb5380168dff8c99958b573)
+
 ##[v1.6.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.5.8...v1.6.0) - 2015-10-20##
 
 ###Fixes###
@@ -432,13 +438,16 @@ Material Design Lite for Dart
 ###Refactor###
 * All samples have their own pubspec and their own web-folder [70703ce](https://github.com/mikemitterer/dart-material-design-lite/commit/70703ce8438cf3251a2831e112f2fed82cbac1c4)
 
-##[v0.0.1](http://github.com/mikemitterer/dart-material-design-lite/compare/1.5.5...v0.0.1) - 2015-01-31##
+##[v0.0.1](http://github.com/mikemitterer/dart-material-design-lite/compare/1.7.0...v0.0.1) - 2015-01-31##
 
 ###Chore###
 * update introduction to match mdl [86d2207](https://github.com/mikemitterer/dart-material-design-lite/commit/86d2207126c6ebb4a19fca6ef86c137ad500c7c5)
 * add a quick start section [aac4ef4](https://github.com/mikemitterer/dart-material-design-lite/commit/aac4ef4e14446050aadb7cb57d4b90f86c9a004c)
 
 ###Feature###
+* MaterialFormComponent with validation check [185edc9](https://github.com/mikemitterer/dart-material-design-lite/commit/185edc9c0bd1dae573fa6a1035c5f00a56a79228)
+* Dynamic DivDataTable works [2e5dff7](https://github.com/mikemitterer/dart-material-design-lite/commit/2e5dff7ed1a4fe4bdcb5380168dff8c99958b573)
+* Merged latest MDL/JS master [288dc40](https://github.com/mikemitterer/dart-material-design-lite/commit/288dc40f292b996f480b46aebcb22605f9126d3e)
 * Merged latest Dart/JS master [7cf8ea4](https://github.com/mikemitterer/dart-material-design-lite/commit/7cf8ea4b9a0d8757cea336e8afe096ffb3bab42b)
 * Autofocus for Dialogs, fixes #20 [b1887f7](https://github.com/mikemitterer/dart-material-design-lite/commit/b1887f7378e6202becdd7ec814dea153fe58bf0f)
 * ObservableProperty can switch between Timer- and 'set value' check [4fd2f45](https://github.com/mikemitterer/dart-material-design-lite/commit/4fd2f45d4eb4b434e065934a2aada74ab7b8a58c)
@@ -475,6 +484,7 @@ Material Design Lite for Dart
 * Accordion works [5d8e7dc](https://github.com/mikemitterer/dart-material-design-lite/commit/5d8e7dc965aeec88bc2b2869aa98542297b8a4de)
 
 ###Fixes###
+* #24 - Dialog loses focus [839869d](https://github.com/mikemitterer/dart-material-design-lite/commit/839869d5b59e8407c69544d5fcb11324d99c81b0)
 * #23 [0b2508f](https://github.com/mikemitterer/dart-material-design-lite/commit/0b2508fb6ba37a2291fba4634a72fd3de8b86b0d)
 * Accordion showed ripple when user clicks on content, solves #12 [307c2c5](https://github.com/mikemitterer/dart-material-design-lite/commit/307c2c59e9a18cf2a053e7e1d8a274b37a4cb4b9)
 * Fixed-header-layout shows burger-button correct [0c822d4](https://github.com/mikemitterer/dart-material-design-lite/commit/0c822d492412df5194b07f2ae03da103fd5762c8)
@@ -547,6 +557,16 @@ Material Design Lite for Dart
 * Tag mdl-repeat changed to Attribute, Tag mdl-property changed to Attribute (mdl-observe) [c016336](https://github.com/mikemitterer/dart-material-design-lite/commit/c0163364bce802f414c931a96adf247f9c3a7498)
 * MdlAccordion registers now the 'panel-part' and not the whole group [fa86d3a](https://github.com/mikemitterer/dart-material-design-lite/commit/fa86d3aff0939ff114b8f07d54605f0d431c63d3)
 * All samples have their own pubspec and their own web-folder [70703ce](https://github.com/mikemitterer/dart-material-design-lite/commit/70703ce8438cf3251a2831e112f2fed82cbac1c4)
+
+##[1.7.0](http://github.com/mikemitterer/dart-material-design-lite/compare/1.5.5...1.7.0) - 2015-10-22##
+
+###Feature###
+* MaterialFormComponent with validation check [185edc9](https://github.com/mikemitterer/dart-material-design-lite/commit/185edc9c0bd1dae573fa6a1035c5f00a56a79228)
+* Dynamic DivDataTable works [2e5dff7](https://github.com/mikemitterer/dart-material-design-lite/commit/2e5dff7ed1a4fe4bdcb5380168dff8c99958b573)
+* Merged latest MDL/JS master [288dc40](https://github.com/mikemitterer/dart-material-design-lite/commit/288dc40f292b996f480b46aebcb22605f9126d3e)
+
+###Fixes###
+* #24 - Dialog loses focus [839869d](https://github.com/mikemitterer/dart-material-design-lite/commit/839869d5b59e8407c69544d5fcb11324d99c81b0)
 
 ##[1.5.5](http://github.com/mikemitterer/dart-material-design-lite/compare/1.2.2...1.5.5) - 2015-09-02##
 
