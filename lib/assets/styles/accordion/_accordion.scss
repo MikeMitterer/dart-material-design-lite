@@ -159,6 +159,7 @@ mdl-accordion-group {
 
         /* Panel Content */
         .mdl-accordion--content {
+            line-height: initial;
             overflow: auto;
             max-height: 0;
 

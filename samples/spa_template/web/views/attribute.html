@@ -1,0 +1,23 @@
+<section class="demo-section demo-section--attribute demo-page--attribute">
+    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/attribute.html">
+        Loading...
+    </div>
+    <div class="demo-preview-block">
+        <div class="controls">
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="sample-text-attribute" mdl-attribute="!checkAttribute : 'disabled' "/>
+                <label class="mdl-textfield__label" for="sample-text-attribute" mdl-class="checkAttribute : 'enabled'">
+                    <span class="enabled">Type something</span>
+                    <span class="disabled">I'm Disabled</span>
+                </label>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" mdl-attribute="!checkAttribute : 'disabled' ">Submit</button>
+        </div>
+        <div class="switches">
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-attribute">
+                <input type="checkbox" id="switch-attribute" class="mdl-switch__input" mdl-model="checkAttribute"/>
+                <span class="mdl-switch__label">Turn 'disabled' on/off</span>
+            </label>
+        </div>
+    </div>
+</section>

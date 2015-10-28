@@ -1,0 +1,8 @@
+[
+  { "name": "attribute", "link": "#/attribute" },
+  { "name": "class", "link": "#/class" },
+  { "name": "formatter", "link": "#/formatter" },
+  { "name": "model", "link": "#/model" },
+  { "name": "observe", "link": "#/observe" },
+  { "name": "repeat", "link": "#/repeat" }
+]

@@ -8060,6 +8060,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       .debug .mdl-accordion-group .mdl-accordion input:checked + .mdl-accordion__label .indicator {
         border: 1px solid red; }
   .mdl-accordion-group .mdl-accordion .mdl-accordion--content {
+    line-height: initial;
     overflow: auto;
     max-height: 0;
     position: relative;

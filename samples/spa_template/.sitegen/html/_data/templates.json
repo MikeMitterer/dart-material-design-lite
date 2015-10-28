@@ -1,0 +1,39 @@
+[
+  {
+    "name" : "template_blog",
+    "description" : "Blog",
+    "preview" : "template-blog.jpg"
+  },
+  {
+    "name" : "template_android-dot-com",
+    "description" : "Android WebSite",
+    "preview" : "template-android-dot-com.jpg"
+  },
+  {
+    "name" : "template_dashboard",
+    "description" : "Admin template",
+    "preview" : "template-dashboard.jpg"
+  },
+  {
+    "name" : "template_text-only",
+    "description" : "Text-Heavy Webpage",
+    "preview" : "template-text-heavy.jpg"
+  },
+  {
+    "name" : "template_article",
+    "description" : "Stand-Alone Article",
+    "preview" : "template-article.jpg"
+  },
+
+  {
+    "name" : "template_fixed-header",
+    "description" : "Small apps",
+    "preview" : "template-fixed-header.jpg"
+  },
+  {
+    "name" : "template_sticky-footer",
+    "description" : "Sticky footer",
+    "preview" : "template-sticky-footer.jpg"
+  }
+
+]

@@ -1,0 +1,40 @@
+//@import "../../packages/mdl/assets/themes/grey-orange/material-design-lite";
+//@import "../../packages/mdl/assets/styles/material-design-lite";
+@import "../../packages/mdl/assets/styles/variables/variables";
+@import "../../packages/mdl/assets/styles/mixins/mixins";
+@import "layout";
+.application-section {
+    margin-top: 24px;
+    &--home {
+        h1 { color: lightcoral; }
+    }
+    &--view1 {
+        h1 { color: blue; }
+        .mdl-card {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ↓
+            align-content: space-between; // =
+            align-items: stretch; // ⇾
+            .mdl-card__title {
+                background-color: darkslateblue;
+            }
+            .mdl-card__supporting-text {
+                flex-grow: 1;
+            }
+            &.demo-card-wide {
+                width: 600px;
+                .is-small-screen & {
+                    width: auto;
+                }
+            }
+        }
+    }
+    &--view2 {
+        h1 { color: green; }
+    }
+    &--view3 {
+        h1 { color: purple; }
+    }
+}

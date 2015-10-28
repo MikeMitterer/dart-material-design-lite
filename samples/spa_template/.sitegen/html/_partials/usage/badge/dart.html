@@ -1,0 +1,22 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+
+
+main() &#123;
+    final Logger _logger = new Logger(&#39;main.MaterialBadge&#39;);
+
+    registerMdl();
+
+    componentFactory().run().then((_) &#123;
+        final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector(&quot;#el1&quot;));
+        int counter = 1;
+        new Timer.periodic(new Duration(milliseconds: 100), (_) &#123;
+            if(counter &gt; 999) &#123;
+                counter = 1;
+            &#125;
+            badge1.value = counter.toString();
+            _logger.info(&quot;Current Badge-Value: $&#123;badge1.value&#125;&quot;);
+
+            counter++;
+        &#125;);
+    &#125;);
+&#125;

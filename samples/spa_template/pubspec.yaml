@@ -1,14 +1,16 @@
-name: mdl_{{samplename}}_sample
-description: Material Design Lite '{{samplename}}' Sample
+name: spa_template
+description: MDL Sample 'spa_template' - Material Design
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-material-design-lite
+homepage: https://github.com/MikeMitterer/dart-mdl
+
+environment:
+  sdk: ">=1.8.0 <2.0.0"
 
 dependencies:
-  browser: any
+  browser: ^0.10.0
 
   intl: ^0.12.0
-  args: any
   validate: ^1.0.0
   browser_detect: ^1.0.0
 
@@ -22,10 +24,16 @@ dependencies:
 
   di: ^3.3.0
 
+  dart_to_js_script_rewriter: ^0.1.0
+
 transformers:
   - di
+  - dart_to_js_script_rewriter
 
 #  - $dart2js:
 #      commandLineOptions: [--enable-experimental-mirrors]
 #      minify: false
 #      sourceMaps: true
+
+
+
