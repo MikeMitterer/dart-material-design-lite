@@ -48,12 +48,9 @@ class LoginDialog extends MaterialDialog {
 
     // - EventHandler -----------------------------------------------------------------------------
 
-    void onSubmit() {
+    void onLogin(final dom.Event event) {
+        event.preventDefault();
         close(MdlDialogStatus.OK);
-    }
-
-    void onCancel() {
-        close(MdlDialogStatus.CANCEL);
     }
 
     // - private ----------------------------------------------------------------------------------
@@ -62,26 +59,33 @@ class LoginDialog extends MaterialDialog {
 
     @override
     String template = """
-        <div class="mdl-dialog custom-dialog2">
-          <div class="mdl-dialog__content">
-            {{#hasTitle}}<h5>{{title}}</h5>{{/hasTitle}}
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="text" id="name" mdl-model="name" autofocus>
-                  <label class="mdl-textfield__label" for="name">Name</label>
-            </div>
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="text" id="address" >
-                  <label class="mdl-textfield__label" for="address">Address</label>
-            </div>
-          </div>
-          <div class="mdl-dialog__actions">
-            <button class="mdl-button mdl-js-button" data-mdl-click="onCancel()">
-              {{noButton}}
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--colored" data-mdl-click="onSubmit()">
-              {{yesButton}}
-            </button>
-          </div>
+        <div class="mdl-dialog login-dialog">
+            <form method="post" class="right mdl-form mdl-form-registration demo-registration">
+                <h5 class="mdl-form__title">Sign in</h5>
+                <div class="mdl-form__content">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="email" id="email" required autofocus>
+                        <label class="mdl-textfield__label" for="email">Email</label>
+                        <span class="mdl-textfield__error">This is not a valid eMail-Address</span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type=password id="password"
+                               pattern="((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%?]).{8,15})" required>
+                        <label class="mdl-textfield__label" for="password">Password</label>
+                            <span class="mdl-textfield__error">This is not a valid password (Try: 12345678aA#)</span>
+                    </div>
+                    <div class="mdl-form__hint">
+                        <a href="#" target="_blank">Forget your password?</a>
+                    </div>
+                </div>
+                <div class="mdl-form__actions">
+                    <button id="submit" class="mdl-button mdl-js-button mdl-button--submit
+                        mdl-button--raised mdl-button--primary mdl-js-ripple-effect"
+                        data-mdl-click="onLogin(\$event)">
+                        Sign in
+                    </button>
+                </div>
+            </form>
         </div>
         """;
 }

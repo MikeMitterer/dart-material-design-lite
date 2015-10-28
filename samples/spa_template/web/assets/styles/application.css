@@ -34,6 +34,30 @@
 /* ==========  IMAGES  ========== */
 /* SNACKBAR */
 /* TOOLTIP */
+/**
+    Overwrites some essential MDL-Styles
+    This should go into the main MDL-Branch
+*/
+.mdl-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: stretch; }
+  .mdl-card .mdl-card__supporting-text {
+    flex-grow: 1; }
+
+.mdl-form__hint {
+  font-size: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px; }
+  .mdl-form__hint a {
+    text-decoration: none; }
+
+.login-dialog {
+  margin-top: -50px; }
+
 .application.mdl-layout {
   flex-grow: 1; }
   .application.mdl-layout.is-small-screen > .mdl-layout__header {
@@ -142,20 +166,6 @@
       @media (max-width: 680px) {
         .application.mdl-layout > .mdl-sticky-mini-footer .mm-link {
           display: none; } }
-
-/**
-    Overwrites some essential MDL-Styles
-    This should go into the main MDL-Branch
-*/
-.mdl-card {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: space-between;
-  align-items: stretch; }
-  .mdl-card .mdl-card__supporting-text {
-    flex-grow: 1; }
 
 .application-section {
   margin-top: 24px; }

@@ -31,3 +31,12 @@
         flex-grow: 1;
     }
 }
+// - NEU ----------
+.mdl-form__hint {
+    font-size: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    a {
+        text-decoration: none;
+    }
+}

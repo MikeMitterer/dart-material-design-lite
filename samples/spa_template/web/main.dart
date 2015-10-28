@@ -47,6 +47,8 @@ class Application extends MaterialApplication {
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
 
+    bool isUserLoggedIn = false;
+
     Application() {
         _logger.info("Application created");
         _bindSignals();
@@ -55,11 +57,12 @@ class Application extends MaterialApplication {
     @override
     void run() {
         _login().then((final MdlDialogStatus status) {
-            _logger.info("Status: ${status}");
-            if(status == MdlDialogStatus.CANCEL) {
-                _router.go("view3", {});
-            }
+            _checkStatus(status);
         });
+    }
+
+    void go(final String routePath, final Map params) {
+        _router.go(routePath,params);
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -67,11 +70,10 @@ class Application extends MaterialApplication {
     void _bindSignals() {
         final MaterialButton login = MaterialButton.widget(dom.querySelector("#login"));
         login.onClick.listen( (final dom.Event event) async {
-
             event.preventDefault();
 
             final MdlDialogStatus status = await _login();
-            _logger.info("Status: ${status}");
+            _checkStatus(status);
         });
     }
 
@@ -79,15 +81,26 @@ class Application extends MaterialApplication {
         final LoginDialog _loginDialog = new LoginDialog();
         return _loginDialog(title: "Login").show();
     }
+
+    void _checkStatus(final MdlDialogStatus status) {
+        _logger.info("Status: ${status}");
+        isUserLoggedIn = (status == MdlDialogStatus.OK);
+
+        if(isUserLoggedIn) {
+            go("view1", {} );
+        } else {
+            go("home", {} );
+        }
+    }
 }
 
-class StyleguideModule extends di.Module {
-    StyleguideModule() {
+class ApplicationModule extends di.Module {
+    ApplicationModule() {
        // Nothing interesting here - just a reminder how to use a Module
     }
 }
 
-main() {
+main() async {
     final Logger _logger = new Logger('main.MaterialContent');
 
     configLogging();
@@ -95,13 +108,18 @@ main() {
     registerMdl();
     registerMdlDND();
 
-    componentFactory().rootContext(Application)
-    .addModule(new StyleguideModule()).run()
-    .then((final Application application) {
+    final Application application = await componentFactory().rootContext(Application)
+        .addModule(new ApplicationModule()).run();
 
-        configRouter(application._router);
-        application.run();
+    configRouter(application._router,(final RoutePreEnterEvent event) {
+        event.allowEnter(new Future<bool>(() => application.isUserLoggedIn));
     });
+
+    application.run();
+
+    //- private -----------------------------------------------------------------------------------
+
+
 }
 
 /// Default Controller!!!
@@ -172,19 +190,24 @@ class ControllerView3 extends DefaultController {
 
 
 
-void configRouter(final Router router) {
+void configRouter(final Router router,final RoutePreEnterEventHandler routeChecker) {
+    final Logger _logger = new Logger('main.configRouter');
+
     final ViewFactory view = new ViewFactory();
 
     router.root
 
         ..addRoute(name: 'view1', path: '/view1',
-            enter: view("views/view1.html", new ControllerView1()))
+            enter: view("views/view1.html", new ControllerView1()),
+            preEnter: routeChecker)
 
         ..addRoute(name: 'view2', path: '/view2',
-            enter: view("views/view2.html", new ControllerView2()))
+            enter: view("views/view2.html", new ControllerView2()),
+            preEnter: routeChecker)
 
         ..addRoute(name: 'view3', path: '/view3',
-            enter: view("views/view3.html", new ControllerView2()))
+            enter: view("views/view3.html", new ControllerView2()),
+            preEnter: routeChecker)
         
         ..addRoute(name: 'home', defaultRoute: true, path: '/',
             enter: view("views/home.html", new DefaultController()))

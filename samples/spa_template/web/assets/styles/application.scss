@@ -2,8 +2,9 @@
 //@import "../../packages/mdl/assets/styles/material-design-lite";
 @import "../../packages/mdl/assets/styles/variables/variables";
 @import "../../packages/mdl/assets/styles/mixins/mixins";
-@import "layout";
 @import "components";
+@import "dialogs";
+@import "layout";
 .application-section {
     margin-top: 24px;
     &--home {
