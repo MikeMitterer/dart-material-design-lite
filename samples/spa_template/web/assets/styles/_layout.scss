@@ -2,7 +2,7 @@ $application-footer-height: 30px;
 // Just a setting - more or less private
 $_application-footer-padding : 4px;
 @mixin bgimage($margin-left: 0) {
-    // background : url(../images/pattern.png) repeat $margin-left 0;
+    background : url(../images/pattern.png) repeat $margin-left 0;
 }
 @mixin shadow-2dp-right() {
     box-shadow: 0 64px 0 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),

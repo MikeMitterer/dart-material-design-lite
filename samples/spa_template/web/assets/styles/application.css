@@ -38,31 +38,33 @@
   flex-grow: 1; }
   .application.mdl-layout.is-small-screen > .mdl-layout__header {
     background-position: 0 0; }
-  .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row {
-    padding-left: 24px;
-    padding-right: 24px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-    .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .mdl-layout-title {
-      text-transform: capitalize; }
-    .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-content: space-between;
-      align-items: center; }
-      .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar a {
-        max-height: 20px;
-        margin-left: 0.70em; }
-        .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar a:last-child {
-          margin-right: 1em; }
-        .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar a .material-icons {
-          font-weight: 100;
-          font-size: 20px; }
-    .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .mdl-menu a {
-      text-decoration: none; }
-  .application.mdl-layout > .mdl-layout__header .mdl-layout__drawer-button {
-    background-color: transparent; }
+  .application.mdl-layout > .mdl-layout__header {
+    background: url(../images/pattern.png) repeat -240px 0; }
+    .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row {
+      padding-left: 24px;
+      padding-right: 24px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+      .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .mdl-layout-title {
+        text-transform: capitalize; }
+      .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: space-between;
+        align-items: center; }
+        .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar a {
+          max-height: 20px;
+          margin-left: 0.70em; }
+          .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar a:last-child {
+            margin-right: 1em; }
+          .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar a .material-icons {
+            font-weight: 100;
+            font-size: 20px; }
+      .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .mdl-menu a {
+        text-decoration: none; }
+    .application.mdl-layout > .mdl-layout__header .mdl-layout__drawer-button {
+      background-color: transparent; }
   .application.mdl-layout.mdl-layout--fixed-drawer.is-small-screen .mdl-layout__header-row {
     padding-left: 60px; }
   .application.mdl-layout > .mdl-layout__drawer {
@@ -72,6 +74,7 @@
     box-shadow: 0 64px 0 0 rgba(0, 0, 0, 0.14), 0 65px 1px -2px rgba(0, 0, 0, 0.2), 0 64px 5px 0 rgba(0, 0, 0, 0.12); }
     .application.mdl-layout > .mdl-layout__drawer .mdl-layout-title {
       padding-left: 16px;
+      background: url(../images/pattern.png) repeat 0 0;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
     .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
       /* Support for all WebKit browsers. */
@@ -125,7 +128,8 @@
   .application.mdl-layout > .mdl-sticky-mini-footer {
     z-index: 5;
     min-height: 30px;
-    max-height: 30px; }
+    max-height: 30px;
+    background: url(../images/pattern.png) repeat 0 0; }
     .application.mdl-layout > .mdl-sticky-mini-footer .gh-link, .application.mdl-layout > .mdl-sticky-mini-footer .mm-link {
       margin-bottom: 0; }
     .application.mdl-layout > .mdl-sticky-mini-footer .additional-info {

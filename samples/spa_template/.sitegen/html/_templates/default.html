@@ -51,7 +51,7 @@
 </head>
 <body class="mdl-upgrading"> <div class="loading">Loading...</div>
 <div class="application mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <header class="mdl-layout__header mdl-color--primary-dark">
+    <header class="mdl-layout__header {{color-main}}">
         <div class="mdl-layout__header-row">
             <span mdl-observe="title" class="mdl-layout-title">Fixed drawer and header</span>
 
@@ -73,8 +73,8 @@
             </ul>
         </div>
     </header>
-    <div class="mdl-layout__drawer mdl-color--blue-grey-800">
-        <span class="mdl-layout-title mdl-color--primary-dark">
+    <div class="mdl-layout__drawer {{color-sidebar}}">
+        <span class="mdl-layout-title {{color-main}}">
             <a href="/" class="mdl-color-text--white"><img src="assets/images/logo-drawer.svg"></a>
         </span>
         <nav class="mdl-navigation">
@@ -85,7 +85,7 @@
                     <label class="mdl-accordion__label mdl-color-text--grey-300">
                         <i class="material-icons indicator mdl-color-text--accent">chevron_right</i>
                         <i class="material-icons symbol mdl-color-text--blue-grey-400">explore</i>
-                        Sample1</label>Sample1</label>
+                        Sample1</label>
                     <div class="mdl-accordion--content">
                         <a class="mdl-navigation__link mdl-color-text--grey-300" href="#/view1">View1</a>
                         <a class="mdl-navigation__link mdl-color-text--grey-300" href="#/view2">View2</a>
@@ -109,7 +109,7 @@
     <main class="mdl-layout__content mdl-color--grey-200">
         <div id="main" class="mdl-content mdl-js-content">Loading...</div>
     </main>
-    <footer class="mdl-sticky-mini-footer mdl-color--primary-dark mdl-color-text--white">
+    <footer class="mdl-sticky-mini-footer {{color-main}} mdl-color-text--white">
         <div class="mdl-mini-footer--left-section">
             <p class="gh-link">Contributions welcome: <a href="https://github.com/MikeMitterer/dart-material-design-lite" target="_blank">GitHub.</a>
                 <span class="additional-info">Built with <a href="https://pub.dartlang.org/packages/sitegen" target="_blank">SiteGen.</a></span>

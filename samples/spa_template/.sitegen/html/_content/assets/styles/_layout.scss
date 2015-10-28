@@ -4,7 +4,7 @@ $application-footer-height: 30px;
 $_application-footer-padding : 4px;
 
 @mixin bgimage($margin-left: 0) {
-    // background : url(../images/pattern.png) repeat $margin-left 0;
+    background : url(../images/pattern.png) repeat $margin-left 0;
 }
 
 @mixin shadow-2dp-right() {
