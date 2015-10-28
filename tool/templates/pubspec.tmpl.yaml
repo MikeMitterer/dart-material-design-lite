@@ -20,7 +20,7 @@ dependencies:
   mdl:
     path: ../../
 
-  di: 3.3.4
+  di: ^3.3.0
 
 transformers:
   - di

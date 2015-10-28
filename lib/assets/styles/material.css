@@ -9283,10 +9283,11 @@ mdl-draggable {
           .mdl-notification-container .mdl-notification .mdl-notification__content .mdl-notification__text .mdl-notification__avatar + span {
             max-width: 262px;
             font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 400;
             line-height: 24px;
-            letter-spacing: 0.04em; }
+            letter-spacing: 0;
+            line-height: 130%; }
 
 /**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),

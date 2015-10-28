@@ -212,8 +212,8 @@ $notification-color-subtitle: $palette-grey-500 !default;
 
                     + span {
                         max-width: $notification-width - 62px;
-                        @include typo-subhead($usePreferred: true);
-
+                        @include typo-body-1($usePreferred: true);
+                        line-height: 130%;
                     }
                 }
             }
