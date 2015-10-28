@@ -34,6 +34,7 @@ import 'package:route_hierarchical/link_matcher.dart';
 import 'package:di/di.dart' as di;
 
 import "package:mdl/mdldialog.dart";
+import "package:spa_template/dialogs.dart";
 
 /**
  * Application - you can get the Application via injector.getByKey(MDLROOTCONTEXT)
@@ -41,19 +42,43 @@ import "package:mdl/mdldialog.dart";
 @MdlComponentModel @di.Injectable()
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
+    final Router _router = new Router(useFragment: true);
 
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
 
     Application() {
         _logger.info("Application created");
+        _bindSignals();
     }
 
     @override
     void run() {
+        _login().then((final MdlDialogStatus status) {
+            _logger.info("Status: ${status}");
+            if(status == MdlDialogStatus.CANCEL) {
+                _router.go("view3", {});
+            }
+        });
     }
 
     //- private -----------------------------------------------------------------------------------
+
+    void _bindSignals() {
+        final MaterialButton login = MaterialButton.widget(dom.querySelector("#login"));
+        login.onClick.listen( (final dom.Event event) async {
+
+            event.preventDefault();
+
+            final MdlDialogStatus status = await _login();
+            _logger.info("Status: ${status}");
+        });
+    }
+
+    Future<MdlDialogStatus> _login() async {
+        final LoginDialog _loginDialog = new LoginDialog();
+        return _loginDialog(title: "Login").show();
+    }
 }
 
 class StyleguideModule extends di.Module {
@@ -72,9 +97,9 @@ main() {
 
     componentFactory().rootContext(Application)
     .addModule(new StyleguideModule()).run()
-    .then((final MaterialApplication application) {
+    .then((final Application application) {
 
-        configRouter();
+        configRouter(application._router);
         application.run();
     });
 }
@@ -147,8 +172,7 @@ class ControllerView3 extends DefaultController {
 
 
 
-void configRouter() {
-    final Router router = new Router(useFragment: true);
+void configRouter(final Router router) {
     final ViewFactory view = new ViewFactory();
 
     router.root

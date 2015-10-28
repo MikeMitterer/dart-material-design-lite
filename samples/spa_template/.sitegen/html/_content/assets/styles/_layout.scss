@@ -55,19 +55,20 @@ $_application-footer-padding : 4px;
                 align-content: space-between; // ||
                 align-items: center; // ↓
 
-                a {
+                > * {
                     max-height: 20px;
                     margin-left: 0.70em;
-
-                    &:last-child {
-                        margin-right: 1em;
-                    }
 
                     .material-icons {
                         font-weight: 100;
                         font-size: 20px;
                     }
                 }
+
+                > :last-child {
+                    margin-right: 1em;
+                }
+
             }
 
             .mdl-menu {

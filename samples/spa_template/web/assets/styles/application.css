@@ -53,14 +53,14 @@
         justify-content: flex-start;
         align-content: space-between;
         align-items: center; }
-        .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar a {
+        .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar > * {
           max-height: 20px;
           margin-left: 0.70em; }
-          .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar a:last-child {
-            margin-right: 1em; }
-          .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar a .material-icons {
+          .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar > * .material-icons {
             font-weight: 100;
             font-size: 20px; }
+        .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar > :last-child {
+          margin-right: 1em; }
       .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .mdl-menu a {
         text-decoration: none; }
     .application.mdl-layout > .mdl-layout__header .mdl-layout__drawer-button {
@@ -143,27 +143,32 @@
         .application.mdl-layout > .mdl-sticky-mini-footer .mm-link {
           display: none; } }
 
+/**
+    Overwrites some essential MDL-Styles
+    This should go into the main MDL-Branch
+*/
+.mdl-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: stretch; }
+  .mdl-card .mdl-card__supporting-text {
+    flex-grow: 1; }
+
 .application-section {
   margin-top: 24px; }
   .application-section--home h1 {
     color: lightcoral; }
   .application-section--view1 h1 {
     color: blue; }
-  .application-section--view1 .mdl-card {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: space-between;
-    align-items: stretch; }
-    .application-section--view1 .mdl-card .mdl-card__title {
-      background-color: darkslateblue; }
-    .application-section--view1 .mdl-card .mdl-card__supporting-text {
-      flex-grow: 1; }
-    .application-section--view1 .mdl-card.demo-card-wide {
-      width: 600px; }
-      .is-small-screen .application-section--view1 .mdl-card.demo-card-wide {
-        width: auto; }
+  .application-section--view1 .mdl-card .mdl-card__title {
+    background-color: darkslateblue; }
+  .application-section--view1 .mdl-card.demo-card-wide {
+    width: 600px; }
+    .is-small-screen .application-section--view1 .mdl-card.demo-card-wide {
+      width: auto; }
   .application-section--view2 h1 {
     color: green; }
   .application-section--view3 h1 {

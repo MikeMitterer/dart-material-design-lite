@@ -5,6 +5,7 @@
 @import "../../packages/mdl/assets/styles/mixins/mixins";
 
 @import "layout";
+@import "components";
 
 .application-section {
     margin-top: 24px;
@@ -17,20 +18,7 @@
         h1 { color: blue; }
 
         .mdl-card {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: flex-start; // ↓
-            align-content: space-between; // =
-            align-items: stretch; // ⇾
-
-            .mdl-card__title {
-                background-color: darkslateblue;
-            }
-
-            .mdl-card__supporting-text {
-                flex-grow: 1;
-            }
+            .mdl-card__title { background-color: darkslateblue; }
 
             &.demo-card-wide {
                 width: 600px;
