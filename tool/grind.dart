@@ -123,7 +123,10 @@ genThemes() {
 
 @Task()
 @Depends(initSamples)
-genCss() => log("${Utils.genMaterialCSS()} created!");
+genCss() {
+    log("${Utils.genMaterialCSS()} created!");
+    log("${Utils.genSplashScreenCSS()} created!");
+}
 
 @Task()
 /// Testing only!!!!

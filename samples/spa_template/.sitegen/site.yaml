@@ -2,4 +2,17 @@
 # assets_dir: ../_assets
 # watchfolder1: ../../lib/assets/styles/connections
 
+# Turne it off while developing
 autoprefixer: false
+
+# Usage: _site.<var name>
+# Sample: _site.site_name
+site_options:
+  name: Mike
+  site_name: MDL/Dart + SiteGen Sample
+  author: Mike Mitterer
+
+  # Color settings - Try e.g. mdl-color--yellow
+  color-main: mdl-color--primary
+  color-sidebar: mdl-color--blue-grey-800
+

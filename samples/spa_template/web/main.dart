@@ -185,14 +185,12 @@ class ControllerView3 extends DefaultController {
         _logger.info("ControllerView3 unloaded!");
 
     }
-// - private ------------------------------------------------------------------------------------------------------
+    // - private ------------------------------------------------------------------------------------------------------
 }
 
 
 
 void configRouter(final Router router,final RoutePreEnterEventHandler routeChecker) {
-    final Logger _logger = new Logger('main.configRouter');
-
     final ViewFactory view = new ViewFactory();
 
     router.root
@@ -208,7 +206,8 @@ void configRouter(final Router router,final RoutePreEnterEventHandler routeCheck
         ..addRoute(name: 'view3', path: '/view3',
             enter: view("views/view3.html", new ControllerView2()),
             preEnter: routeChecker)
-        
+
+        /// Leave default-route as the last one
         ..addRoute(name: 'home', defaultRoute: true, path: '/',
             enter: view("views/home.html", new DefaultController()))
 

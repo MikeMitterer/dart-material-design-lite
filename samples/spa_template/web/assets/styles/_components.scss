@@ -16,6 +16,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+
 /**
     Overwrites some essential MDL-Styles
     This should go into the main MDL-Branch
@@ -27,10 +28,12 @@
     justify-content: flex-start; // ↓
     align-content: space-between; // =
     align-items: stretch; // ⇾
+
     .mdl-card__supporting-text {
         flex-grow: 1;
     }
 }
+
 // - NEU ----------
 .mdl-form__hint {
     font-size: 12px;

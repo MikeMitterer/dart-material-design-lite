@@ -33,6 +33,17 @@ class Utils {
         return targetCss.path;
     }
 
+    static String genSplashScreenCSS() {
+        final String sassDir = config.sassdir;
+
+        final File srcScss = new File("${sassDir}/splashscreen/dots.scss");
+        final File targetCss = new File("${sassDir}/splashscreen/dots.css");
+
+        sasscAndAutoPrefix(srcScss,targetCss,useSass: false, minify: true);
+
+        return targetCss.path;
+    }
+
     static void sasscAndAutoPrefix(final File targetScss,final File targetCss,
                              { final bool useSass: false, final bool minify: false, final bool prefix: true }) {
 

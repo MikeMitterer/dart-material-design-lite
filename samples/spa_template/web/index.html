@@ -32,7 +32,8 @@
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Page styles -->
-    <link id="theme" rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
+    <link rel="stylesheet" href="packages/mdl/assets/styles/splashscreen/dots.min.css">
+    <link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
     <link rel="stylesheet" href="assets/styles/application.css">
     <style>
         div.loading { display: none; }
@@ -40,7 +41,12 @@
         body.mdl-upgrading div.loading { display: block; }
     </style>
 </head>
-<body class="mdl-upgrading"> <div class="loading">Loading...</div>
+<body class="mdl-upgrading">      <div class="mdl-splashscreen mdl-color--primary">
+          <div class="spinner">
+              <div class="dot1 mdl-color--white"></div><div class="dot2 mdl-color--accent"></div>
+          </div>
+      </div>
+
 <div class="application mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-color--primary">
         <div class="mdl-layout__header-row">

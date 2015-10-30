@@ -1,0 +1,118 @@
+// ----------------------------------------------------------------------------
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+/**
+    This is a "standalone" CSS for faster loading!
+*/
+
+// ----------------------------------------------------------------------------
+// ---- SplashScreen (Thanks to: http://tobiasahlin.com/spinkit/)
+//
+// Usage:
+//  <body class="mdl-upgrading">
+//      <div class="mdl-splashscreen mdl-color--primary">
+//          <div class="spinner">
+//              <div class="dot1 mdl-color--white"></div><div class="dot2 mdl-color--accent"></div>
+//          </div>
+//      </div>
+//  ...
+//  </body>
+//
+
+body {
+    &.mdl-upgrading {
+        .mdl-splashscreen { display : flex; }
+    }
+
+    /// Set <body class="mdl-upgrading debug-splashscreen"> to avoid hiding the splashscreen
+    &.debug-splashscreen {
+        .mdl-splashscreen { display : flex; border : 1px solid red; }
+    }
+
+    .mdl-splashscreen {
+        box-sizing      : border-box;
+        font-size       : 24px;
+        z-index         : 99;
+        display         : none;
+        position        : absolute;
+        opacity         : 0.8;
+        top             : 0;
+        left            : 0;
+        width           : 100%;
+        height          : 100%;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : center; // ⇾
+        align-content   : stretch; // ||
+        align-items     : center; // ↓
+
+        .spinner {
+            margin            : 100px auto;
+            width             : 40px;
+            height            : 40px;
+            position          : relative;
+            text-align        : center;
+            -webkit-animation : sk-rotate 2.0s infinite linear;
+            animation         : sk-rotate 2.0s infinite linear;
+
+            .dot1, .dot2 {
+                width             : 60%;
+                height            : 60%;
+                display           : inline-block;
+                position          : absolute;
+                top               : 0;
+                background-color  : #333;
+                border-radius     : 100%;
+                -webkit-animation : sk-bounce 2.0s infinite ease-in-out;
+                animation         : sk-bounce 2.0s infinite ease-in-out;
+            }
+
+            .dot2 {
+                top                     : auto;
+                bottom                  : 0;
+                -webkit-animation-delay : -1.0s;
+                animation-delay         : -1.0s;
+            }
+        }
+
+        @-webkit-keyframes sk-rotate {
+            100% { -webkit-transform : rotate(360deg) }
+        }
+        @keyframes sk-rotate {
+            100% { transform : rotate(360deg); -webkit-transform : rotate(360deg) }
+        }
+
+        @-webkit-keyframes sk-bounce {
+            0%, 100% { -webkit-transform : scale(0.0) }
+            50% { -webkit-transform : scale(1.0) }
+        }
+
+        @keyframes sk-bounce {
+            0%, 100% {
+                transform         : scale(0.0);
+                -webkit-transform : scale(0.0);
+            }
+            50% {
+                transform         : scale(1.0);
+                -webkit-transform : scale(1.0);
+            }
+        }
+    }
+
+}

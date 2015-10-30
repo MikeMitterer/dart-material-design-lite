@@ -491,13 +491,17 @@ $data-table-card-padding: 24px !default;
 $data-table-button-padding-right: 16px !default;
 $data-table-cell-top: $data-table-card-padding / 2;
 
-/* SNACKBAR */
+// SNACKBAR
 
 // Hard coded since the color is not present in any pallet.
 $snackbar-background-color: #323232 !default;
 $snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
 $snackbar-action-color: ($color-accent) !default;
 
-/* TOOLTIP */
+// TOOLTIP
 $tooltip-font-size: 10px !default;
 $tooltip-font-size-large: 14px !default;
+
+// ----------------------------------------------------------------------------
+// ---- Components++
+// -

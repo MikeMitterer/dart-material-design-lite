@@ -1,39 +1,71 @@
+// ----------------------------------------------------------------------------
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
 $application-footer-height: 30px;
+
 // Just a setting - more or less private
 $_application-footer-padding : 4px;
+
 @mixin bgimage($margin-left: 0) {
     background : url(../images/pattern.png) repeat $margin-left 0;
 }
+
 @mixin shadow-2dp-right() {
     box-shadow: 0 64px 0 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
         0 65px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
         0 64px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
 }
+
 @mixin smooth-font() {
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
     /* Support for Safari and Chrome. */
     text-rendering: optimizeLegibility;
+
     /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
+
     /* Support for IE. */
     font-feature-settings: 'liga';
 }
+
 .application.mdl-layout {
     flex-grow: 1;
+
     &.is-small-screen {
         > .mdl-layout__header {
             background-position : 0 0;
         }
     }
+
     > .mdl-layout__header {
+
         @include bgimage(-$layout-drawer-width);
+
         .mdl-layout__header-row {
             padding-left: 24px;
             padding-right: 24px;
+
             .mdl-layout-title {
                 text-transform : capitalize;
             }
+
             .toolbar {
                 display: flex;
                 flex-direction: row;
@@ -41,34 +73,44 @@ $_application-footer-padding : 4px;
                 justify-content: flex-start; // ⇾
                 align-content: space-between; // ||
                 align-items: center; // ↓
+
                 > * {
                     max-height: 20px;
                     margin-left: 0.70em;
+
                     .material-icons {
                         font-weight: 100;
                         font-size: 20px;
                     }
                 }
+
                 > :last-child {
                     margin-right: 1em;
                 }
+
             }
+
             .mdl-menu {
                 a {
                     text-decoration: none;
                 }
             }
+
         @include shadow-2dp();
         }
+
         .mdl-layout__drawer-button {
             background-color: transparent;
         }
     }
+
     &.mdl-layout--fixed-drawer.is-small-screen {
+
         .mdl-layout__header-row {
             padding-left: 60px;
         }
     }
+
     > .mdl-layout__drawer {
         //.mdl-layout-title {
         //    color            : $layout-header-text-color;
@@ -76,43 +118,56 @@ $_application-footer-padding : 4px;
         //}
         overflow: scroll;
         border-right: none;
+
         @if $application-footer-height == 0 or $application-footer-height == 0px {
           height: 100%;
         } @else { height: calc(100% - #{$application-footer-height + ($_application-footer-padding * 2)}); }
+
         @include shadow-2dp-right();
+
         .mdl-layout-title {
             padding-left: 16px;
+
             @include bgimage();
             @include shadow-2dp();
         }
+
         .mdl-navigation {
             //padding-top : 24px;
+
             .mdl-navigation__link {
                 //font-weight: 200 !important;
                 @include smooth-font();
+
                 &:hover {
                     background-color: rgba($layout-nav-color,0.20);
                 }
             }
+
             .mdl-accordion {
                 line-height: 1px;
+
                 input:checked ~ .mdl-accordion--content {
                     padding-top : 12px;
                     padding-bottom : 12px;
                     transition: all 0.3s ease-in-out;
                     opacity: 1;
                 }
+
                 .mdl-accordion__label {
                     font-weight: 200;
                     border-bottom: 1px solid rgba(#ddd,0.10);
+
                     .symbol {
                         margin-right: 8px;
                     }
                 }
+
                 .mdl-accordion--content {
                     box-sizing  : border-box;
                     margin      : 0;
                     padding     : 0;
+
                     .mdl-navigation__link {
                         padding        : 5px 48px 5px 48px;
                         text-transform : capitalize;
@@ -121,41 +176,52 @@ $_application-footer-padding : 4px;
                     }
                     opacity: 0;
                     transition: all 0.3s ease-in-out;
+
                 }
             }
+
             input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
                 border-bottom: 1px solid rgba(#ddd,0.10);
             }
         }
+
         &.is-visible {
             box-shadow: none;
+
             &~ .mdl-sticky-mini-footer {
                 z-index: 3;
             }
         }
     }
 
+
     > .mdl-layout__content {
         box-sizing      : border-box;
+
         .mdl-content {
             // Align lastmod at bottom of page
             //min-height: calc(100vh - 160px);
             margin    : 0 24px 24px 24px;
+
             .mdl-accordion-group.usage {
                 .indicator.right {
                     margin-right: 12px;
                 }
             }
         }
+
         h6 {
             margin-bottom: 0;
             line-height: initial;
         }
     }
 
+
+
     > .mdl-sticky-mini-footer {
         /// Avoids overlapping shadow
         z-index: 5;
+
         @if $application-footer-height == 0 or $application-footer-height == 0px {
             padding-top: 0;
             padding-bottom: 0;
@@ -163,10 +229,14 @@ $_application-footer-padding : 4px;
         }
         min-height: $application-footer-height;
         max-height: $application-footer-height;
+
         @include bgimage();
+
         .gh-link, .mm-link { margin-bottom: 0; }
+
         .additional-info {
             font-size: 12px;
+
             @media (max-width: 870px) {
                 display: none;
             }
@@ -174,9 +244,11 @@ $_application-footer-padding : 4px;
         .mm-link {
             font-size: 12px;
             // margin-right: 12px;
+
             @media (max-width: 680px) {
                 display: none;
             }
         }
+
     }
 }
