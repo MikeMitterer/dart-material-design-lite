@@ -1,33 +1,37 @@
 &lt;div class=&quot;demo-preview-block forms sample&quot;&gt;
     &lt;div class=&quot;firstblock&quot;&gt;
-        &lt;p&gt;
-            justo. Morbi tincidunt vulputate urna vitae malesuada. Vivamus est erat, venenatis eu mauris ac, finibus
-            cursus lectus. Nunc ultrices libero vitae est egestas consectetur. Aliquam dapibus, mi quis sollicitudin
-            vestibulum, odio nulla ultrices erat, vel sagittis ligula sem et nunc.&lt;&#47;p&gt;
+        &lt;h5&gt;Form validation&lt;&#47;h5&gt;
         &lt;form method=&quot;post&quot; class=&quot;right mdl-form mdl-form-registration demo-registration&quot;&gt;
             &lt;h5 class=&quot;mdl-form__title&quot;&gt;Register for launch&lt;&#47;h5&gt;
             &lt;div class=&quot;mdl-form__content&quot;&gt;
                 &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
-                    &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample1&quot; &#47;&gt;
+                    &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;sample1&quot; required autofocus &#47;&gt;
                     &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;sample1&quot;&gt;Name&lt;&#47;label&gt;
+                    &lt;span class=&quot;mdl-textfield__error&quot;&gt;This field must not be empty&lt;&#47;span&gt;
                 &lt;&#47;div&gt;
                 &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
-                    &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;email&quot; &#47;&gt;
+                    &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;email&quot; id=&quot;email&quot; required &#47;&gt;
                     &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;email&quot;&gt;Email&lt;&#47;label&gt;
+                    &lt;span class=&quot;mdl-textfield__error&quot;&gt;This is not a valid email-address&lt;&#47;span&gt;
                 &lt;&#47;div&gt;
                 &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;remember_me&quot;&gt;
-                    &lt;input type=&quot;checkbox&quot; id=&quot;remember_me&quot; class=&quot;mdl-checkbox__input&quot; &#47;&gt;
+                    &lt;input type=&quot;checkbox&quot; id=&quot;remember_me&quot; class=&quot;mdl-checkbox__input&quot; required &#47;&gt;
                     &lt;span class=&quot;mdl-checkbox__label&quot;&gt;Remember me&lt;&#47;span&gt;
                 &lt;&#47;label&gt;
             &lt;&#47;div&gt;
             &lt;div class=&quot;mdl-form__actions&quot;&gt;
-                &lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect&quot;&gt;Login&lt;&#47;button&gt;
+                &lt;button class=&quot;mdl-button mdl-js-button mdl-button--submit mdl-button--raised
+                    mdl-button--primary mdl-js-ripple-effect&quot; disabled&gt;
+                    Login
+                &lt;&#47;button&gt;
             &lt;&#47;div&gt;
         &lt;&#47;form&gt;
-        &lt;p&gt;
-            justo. Morbi tincidunt vulputate urna vitae malesuada. Vivamus est erat, venenatis eu mauris ac, finibus
-            cursus lectus. Nunc ultrices libero vitae est egestas consectetur. Aliquam dapibus, mi quis sollicitudin
-            vestibulum, odio nulla ultrices erat, vel sagittis ligula sem et nunc.&lt;&#47;p&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+        sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;&#47;p&gt;
     &lt;&#47;div&gt;
     &lt;form method=&quot;post&quot; class=&quot;mdl-form&quot;&gt;
         &lt;h5 class=&quot;mdl-form__title&quot;&gt;Define your colors&lt;&#47;h5&gt;

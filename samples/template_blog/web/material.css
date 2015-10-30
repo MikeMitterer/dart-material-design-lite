@@ -66,8 +66,6 @@
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -102,8 +100,6 @@
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 /* Config - MaterialDesignLite
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -224,8 +220,6 @@
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -515,8 +509,6 @@ main {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-color-text--red {
   color: #f44336 !important; }
 
@@ -2365,92 +2357,6 @@ main {
 .mdl-color-text--accent-A700 {
   color: #ff6d00 !important; }
 
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url("../../../../packages/mdl/assets/fonts/material/MaterialIcons-Regular.eot");
-  /* For IE6-8 */
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url("../../../../packages/mdl/assets/fonts/material/MaterialIcons-Regular.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/material/MaterialIcons-Regular.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/material/MaterialIcons-Regular.ttf") format("truetype"); }
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  /* Preferred icon size */
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  -webkit-font-feature-settings: 'liga';
-     -moz-font-feature-settings: 'liga';
-          font-feature-settings: 'liga'; }
-
-.material-icons.md-18 {
-  font-size: 18px; }
-
-.material-icons.md-24 {
-  font-size: 24px; }
-
-.material-icons.md-36 {
-  font-size: 36px; }
-
-.material-icons.md-48 {
-  font-size: 48px; }
-
-.material-icons.md-dark {
-  color: rgba(0, 0, 0, 0.54); }
-
-.material-icons.md-dark.md-inactive {
-  color: rgba(0, 0, 0, 0.26); }
-
-.material-icons.md-light {
-  color: white; }
-
-.material-icons.md-light.md-inactive {
-  color: rgba(255, 255, 255, 0.3); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto-Regular"), local("Roboto-Regular"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Regular.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Regular.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Regular.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 200;
-  src: local("Roboto-Thin"), local("Roboto-Thin"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Thin.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Thin.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto-Light"), local("Roboto-Light"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Light.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Light.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Light.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto-Medium"), local("Roboto-Medium"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Medium.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Medium.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Medium.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto-Bold"), local("Roboto-Bold"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Bold.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Bold.ttf") format("truetype"); }
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -2500,8 +2406,6 @@ main {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 html, body {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 14px;
@@ -2941,8 +2845,6 @@ ul, ol {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
@@ -3013,8 +2915,6 @@ ul, ol {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-ripple {
   background: black;
   border-radius: 50%;
@@ -3085,8 +2985,6 @@ ul, ol {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3152,8 +3050,6 @@ ul, ol {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-button {
   background: transparent;
   border: none;
@@ -3399,8 +3295,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-card {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3563,8 +3457,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -3756,8 +3648,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-data-table {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -3874,8 +3764,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-data-tableex {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -4068,8 +3956,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-icon--spin {
   -webkit-animation: mdl-icon--spin 2s infinite linear;
   animation: mdl-icon--spin 2s infinite linear;
@@ -4258,8 +4144,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -4384,8 +4268,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-mega-footer {
   padding: 16px 40px;
   color: #9e9e9e;
@@ -4663,8 +4545,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4791,8 +4671,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-grid {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5511,8 +5389,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -5715,8 +5591,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-progress {
   display: block;
   position: relative;
@@ -5887,8 +5761,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6497,8 +6369,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-list {
   display: block;
   height: 500px;
@@ -6598,8 +6468,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -6753,8 +6621,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -7069,8 +6935,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -7447,8 +7311,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -7634,8 +7496,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -7785,8 +7645,6 @@ template, div[template] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -7972,8 +7830,6 @@ template, div[template] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
@@ -8068,8 +7924,6 @@ template, div[template] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 /* Animation Variables */
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -8161,6 +8015,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       .debug .mdl-accordion-group .mdl-accordion input:checked + .mdl-accordion__label .indicator {
         border: 1px solid red; }
   .mdl-accordion-group .mdl-accordion .mdl-accordion--content {
+    line-height: initial;
     overflow: auto;
     max-height: 0;
     position: relative;
@@ -8230,8 +8085,6 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -8318,13 +8171,16 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-dialog-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -8546,8 +8402,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -8816,6 +8670,14 @@ mdl-draggable {
     width: calc(100% - 16px); }
     .mdl-form .mdl-form__actions > *, .mdl-form-registration .mdl-form__actions > * {
       margin-left: 4px; }
+  .mdl-form .mdl-textfield.is-invalid .mdl-textfield__error, .mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: hidden; }
+  .mdl-form.is-dirty .mdl-textfield.is-invalid .mdl-textfield__error, .is-dirty.mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: visible; }
+  .debug .mdl-form.is-invalid, .debug .is-invalid.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.3); }
+  .debug .mdl-form.is-dirty, .debug .is-dirty.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.6); }
 
 .mdl-form-registration .mdl-form__actions .mdl-button {
   -webkit-box-flex: 1;
@@ -8857,8 +8719,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-sticky-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8979,8 +8839,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-nav-pill, .mdl-nav-pills > * {
   padding: 4px 8px;
   margin: 0 0 8px 0;
@@ -9154,8 +9012,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-notification-container {
   z-index: 3;
   position: absolute;
@@ -9371,10 +9227,11 @@ mdl-draggable {
           .mdl-notification-container .mdl-notification .mdl-notification__content .mdl-notification__text .mdl-notification__avatar + span {
             max-width: 262px;
             font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 400;
             line-height: 24px;
-            letter-spacing: 0.04em; }
+            letter-spacing: 0;
+            line-height: 130%; }
 
 /**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
@@ -9428,8 +9285,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
@@ -9495,8 +9350,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-snackbar-container.is-visible .mdl-snackbar {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);

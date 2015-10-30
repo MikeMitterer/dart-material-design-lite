@@ -3,7 +3,7 @@
 # watchfolder1: ../../lib/assets/styles/connections
 
 # Turne it off while developing
-autoprefixer: false
+#autoprefixer: false
 
 # Usage: _site.<var name>
 # Sample: _site.site_name

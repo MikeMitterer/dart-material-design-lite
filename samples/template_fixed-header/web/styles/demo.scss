@@ -1,6 +1,5 @@
 $icon-font-path : "../packages/mdl/assets/fonts" !default;
-@import "../../../lib/assets/themes/indigo-orange/material-design-lite";
-
+//@import "../../../lib/assets/themes/indigo-orange/material-design-lite";
 
 $footer-height: 48px;
 
@@ -37,7 +36,7 @@ html, body {
         background-image: url('../assets/svg/logo-first-part_48px.svg');
         background-repeat: no-repeat;
         background-size: 30px 30px;
-        margin-left: 40px;
+        margin-left: 20px;
     }
 
     .mdl-layout__header-row {  padding-left: 100px; }

@@ -66,8 +66,6 @@
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -102,8 +100,6 @@
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 /* Config - MaterialDesignLite
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -224,8 +220,6 @@
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -515,8 +509,6 @@ main {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-color-text--red {
   color: #f44336 !important; }
 
@@ -2365,92 +2357,6 @@ main {
 .mdl-color-text--accent-A700 {
   color: #d50000 !important; }
 
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url("../../../../packages/mdl/assets/fonts/material/MaterialIcons-Regular.eot");
-  /* For IE6-8 */
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url("../../../../packages/mdl/assets/fonts/material/MaterialIcons-Regular.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/material/MaterialIcons-Regular.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/material/MaterialIcons-Regular.ttf") format("truetype"); }
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  /* Preferred icon size */
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  -webkit-font-feature-settings: 'liga';
-     -moz-font-feature-settings: 'liga';
-          font-feature-settings: 'liga'; }
-
-.material-icons.md-18 {
-  font-size: 18px; }
-
-.material-icons.md-24 {
-  font-size: 24px; }
-
-.material-icons.md-36 {
-  font-size: 36px; }
-
-.material-icons.md-48 {
-  font-size: 48px; }
-
-.material-icons.md-dark {
-  color: rgba(0, 0, 0, 0.54); }
-
-.material-icons.md-dark.md-inactive {
-  color: rgba(0, 0, 0, 0.26); }
-
-.material-icons.md-light {
-  color: white; }
-
-.material-icons.md-light.md-inactive {
-  color: rgba(255, 255, 255, 0.3); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto-Regular"), local("Roboto-Regular"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Regular.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Regular.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Regular.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 200;
-  src: local("Roboto-Thin"), local("Roboto-Thin"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Thin.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Thin.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto-Light"), local("Roboto-Light"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Light.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Light.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Light.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto-Medium"), local("Roboto-Medium"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Medium.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Medium.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Medium.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto-Bold"), local("Roboto-Bold"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Bold.woff") format("woff"), url("../../../../packages/mdl/assets/fonts/roboto/Roboto-Bold.ttf") format("truetype"); }
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -2500,8 +2406,6 @@ main {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 html, body {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 14px;
@@ -2941,8 +2845,6 @@ ul, ol {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
@@ -2960,6 +2862,9 @@ ul, ol {
 
 .mdl-shadow--16dp {
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
+
+.mdl-shadow--24dp {
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2); }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -3010,8 +2915,6 @@ ul, ol {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-ripple {
   background: black;
   border-radius: 50%;
@@ -3082,8 +2985,6 @@ ul, ol {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3149,8 +3050,6 @@ ul, ol {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-button {
   background: transparent;
   border: none;
@@ -3325,7 +3224,7 @@ input.mdl-button[type="submit"] {
 .mdl-button[disabled][disabled],
 .mdl-button.mdl-button--disabled.mdl-button--disabled {
   color: rgba(0, 0, 0, 0.26);
-  cursor: auto;
+  cursor: default;
   background-color: transparent; }
 
 .mdl-button--fab[disabled][disabled],
@@ -3396,8 +3295,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-card {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3560,8 +3457,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -3753,8 +3648,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-data-table {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -3871,8 +3764,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-data-tableex {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -3964,10 +3855,6 @@ input.mdl-button[type="submit"] {
       background-color: inherit; }
       .mdl-data-tableex > *.mdl-div-data-tableex__head.is-selected, .mdl-data-tableex > *.mdl-div-data-tableex__head:hover {
         background-color: inherit; }
-      .mdl-data-tableex > *.mdl-div-data-tableex__head .mdl-data-tableex__select {
-        position: absolute;
-        bottom: 8px;
-        left: 24px; }
     .mdl-data-tableex > * > * {
       display: -webkit-box;
       display: -webkit-flex;
@@ -4069,8 +3956,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-icon--spin {
   -webkit-animation: mdl-icon--spin 2s infinite linear;
   animation: mdl-icon--spin 2s infinite linear;
@@ -4259,8 +4144,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -4385,8 +4268,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-mega-footer {
   padding: 16px 40px;
   color: #9e9e9e;
@@ -4494,21 +4375,27 @@ input.mdl-button[type="submit"] {
   cursor: pointer;
   z-index: 1;
   opacity: 0; }
-  .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer--heading:after,
-  .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer__heading:after,
-  .mdl-mega-footer__heading-checkbox ~ .mdl-mega-footer--heading:after,
-  .mdl-mega-footer__heading-checkbox ~ .mdl-mega-footer__heading:after {
+  .mdl-mega-footer--heading-checkbox + .mdl-mega-footer--heading:after,
+  .mdl-mega-footer--heading-checkbox + .mdl-mega-footer__heading:after,
+  .mdl-mega-footer__heading-checkbox + .mdl-mega-footer--heading:after,
+  .mdl-mega-footer__heading-checkbox + .mdl-mega-footer__heading:after {
     font-family: 'Material Icons';
     content: '\E5CE'; }
 
-.mdl-mega-footer--heading-checkbox:checked ~ ul,
-.mdl-mega-footer__heading-checkbox:checked ~ ul {
+.mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer--link-list,
+.mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer__link-list,
+.mdl-mega-footer--heading-checkbox:checked + .mdl-mega-footer--heading + .mdl-mega-footer--link-list,
+.mdl-mega-footer--heading-checkbox:checked + .mdl-mega-footer__heading + .mdl-mega-footer__link-list,
+.mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer--link-list,
+.mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer__link-list,
+.mdl-mega-footer__heading-checkbox:checked + .mdl-mega-footer--heading + .mdl-mega-footer--link-list,
+.mdl-mega-footer__heading-checkbox:checked + .mdl-mega-footer__heading + .mdl-mega-footer__link-list {
   display: none; }
 
-.mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer--heading:after,
-.mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer__heading:after,
-.mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer--heading:after,
-.mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer__heading:after {
+.mdl-mega-footer--heading-checkbox:checked + .mdl-mega-footer--heading:after,
+.mdl-mega-footer--heading-checkbox:checked + .mdl-mega-footer__heading:after,
+.mdl-mega-footer__heading-checkbox:checked + .mdl-mega-footer--heading:after,
+.mdl-mega-footer__heading-checkbox:checked + .mdl-mega-footer__heading:after {
   font-family: 'Material Icons';
   content: '\E5CF'; }
 
@@ -4568,18 +4455,24 @@ input.mdl-button[type="submit"] {
   .mdl-mega-footer--heading-checkbox,
   .mdl-mega-footer__heading-checkbox {
     display: none; }
-    .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer--heading:after,
-    .mdl-mega-footer--heading-checkbox ~ .mdl-mega-footer__heading:after,
-    .mdl-mega-footer__heading-checkbox ~ .mdl-mega-footer--heading:after,
-    .mdl-mega-footer__heading-checkbox ~ .mdl-mega-footer__heading:after {
+    .mdl-mega-footer--heading-checkbox + .mdl-mega-footer--heading:after,
+    .mdl-mega-footer--heading-checkbox + .mdl-mega-footer__heading:after,
+    .mdl-mega-footer__heading-checkbox + .mdl-mega-footer--heading:after,
+    .mdl-mega-footer__heading-checkbox + .mdl-mega-footer__heading:after {
       content: ''; }
-  .mdl-mega-footer--heading-checkbox:checked ~ ul,
-  .mdl-mega-footer__heading-checkbox:checked ~ ul {
+  .mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer--link-list,
+  .mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer__link-list,
+  .mdl-mega-footer--heading-checkbox:checked + .mdl-mega-footer__heading + .mdl-mega-footer__link-list,
+  .mdl-mega-footer--heading-checkbox:checked + .mdl-mega-footer--heading + .mdl-mega-footer--link-list,
+  .mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer--link-list,
+  .mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer__link-list,
+  .mdl-mega-footer__heading-checkbox:checked + .mdl-mega-footer__heading + .mdl-mega-footer__link-list,
+  .mdl-mega-footer__heading-checkbox:checked + .mdl-mega-footer--heading + .mdl-mega-footer--link-list {
     display: block; }
-  .mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer--heading:after,
-  .mdl-mega-footer--heading-checkbox:checked ~ .mdl-mega-footer__heading:after,
-  .mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer--heading:after,
-  .mdl-mega-footer__heading-checkbox:checked ~ .mdl-mega-footer__heading:after {
+  .mdl-mega-footer--heading-checkbox:checked + .mdl-mega-footer--heading:after,
+  .mdl-mega-footer--heading-checkbox:checked + .mdl-mega-footer__heading:after,
+  .mdl-mega-footer__heading-checkbox:checked + .mdl-mega-footer--heading:after,
+  .mdl-mega-footer__heading-checkbox:checked + .mdl-mega-footer__heading:after {
     content: ''; } }
 
 .mdl-mega-footer--bottom-section,
@@ -4652,8 +4545,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4780,8 +4671,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-grid {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5500,8 +5389,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -5625,15 +5512,17 @@ input.mdl-button[type="submit"] {
     opacity: 1; }
   .mdl-menu__item::-moz-focus-inner {
     border: 0; }
-  .mdl-menu__item[disabled] {
+  .mdl-menu__item--full-bleed-divider {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+  .mdl-menu__item[disabled], .mdl-menu__item[data-mdl-disabled] {
     color: #bdbdbd;
     background-color: transparent;
     cursor: auto; }
-    .mdl-menu__item[disabled]:hover {
+    .mdl-menu__item[disabled]:hover, .mdl-menu__item[data-mdl-disabled]:hover {
       background-color: transparent; }
-    .mdl-menu__item[disabled]:focus {
+    .mdl-menu__item[disabled]:focus, .mdl-menu__item[data-mdl-disabled]:focus {
       background-color: transparent; }
-    .mdl-menu__item[disabled] .mdl-ripple {
+    .mdl-menu__item[disabled] .mdl-ripple, .mdl-menu__item[data-mdl-disabled] .mdl-ripple {
       background: transparent; }
   .mdl-menu__item:hover {
     background-color: #eeeeee; }
@@ -5702,13 +5591,12 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-progress {
   display: block;
   position: relative;
   height: 4px;
-  width: 500px; }
+  width: 500px;
+  max-width: 100%; }
 
 .mdl-progress > .bar {
   display: block;
@@ -5873,8 +5761,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5982,6 +5868,8 @@ input.mdl-button[type="submit"] {
     -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
             transform: translateX(0); }
+    .mdl-layout__drawer.is-visible ~ .mdl-layout__content {
+      overflow: hidden; }
   .mdl-layout__drawer > * {
     -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
@@ -6105,7 +5993,7 @@ input.mdl-button[type="submit"] {
   @media screen and (max-width: 1024px) {
     .mdl-layout__header {
       min-height: 56px; } }
-  .mdl-layout--fixed-drawer:not(.is-small-screen) > .mdl-layout__header {
+  .mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen) > .mdl-layout__header {
     margin-left: 240px;
     width: calc(100% - 240px); }
   @media screen and (min-width: 1025px) {
@@ -6246,7 +6134,7 @@ input.mdl-button[type="submit"] {
           transition-duration: 0.2s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-  .mdl-layout__drawer.is-visible ~ .mdl-layout__obfuscator {
+  .mdl-layout__obfuscator.is-visible {
     background-color: rgba(0, 0, 0, 0.5);
     visibility: visible; }
 
@@ -6481,8 +6369,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-list {
   display: block;
   height: 500px;
@@ -6582,8 +6468,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -6737,8 +6621,6 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -6845,7 +6727,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded.is-lowest-value::-moz-range-thumb {
       border: 2px solid rgba(0, 0, 0, 0.26);
       background: transparent; }
-    .mdl-slider.is-upgraded.is-lowest-value ~
+    .mdl-slider.is-upgraded.is-lowest-value +
 .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px; }
     .mdl-slider.is-upgraded.is-lowest-value:focus:not(:active)::-webkit-slider-thumb {
@@ -6858,7 +6740,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       border: 1.6px solid rgba(0, 0, 0, 0.26);
       -webkit-transform: scale(1.5);
               transform: scale(1.5); }
-    .mdl-slider.is-upgraded.is-lowest-value:active ~
+    .mdl-slider.is-upgraded.is-lowest-value:active +
 .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 9px; }
     .mdl-slider.is-upgraded.is-lowest-value:active::-moz-range-thumb {
@@ -6891,11 +6773,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-slider.is-upgraded:disabled::-moz-range-thumb {
       transform: scale(0.667);
       background: rgba(0, 0, 0, 0.26); }
-    .mdl-slider.is-upgraded:disabled ~
+    .mdl-slider.is-upgraded:disabled +
 .mdl-slider__background-flex > .mdl-slider__background-lower {
       background-color: rgba(0, 0, 0, 0.26);
       left: -6px; }
-    .mdl-slider.is-upgraded:disabled ~
+    .mdl-slider.is-upgraded:disabled +
 .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px; }
     .mdl-slider.is-upgraded.is-lowest-value:disabled:focus::-webkit-slider-thumb,
@@ -6911,7 +6793,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       border: 3px solid rgba(0, 0, 0, 0.26);
       background: transparent;
       transform: scale(0.667); }
-    .mdl-slider.is-upgraded.is-lowest-value:disabled:active ~
+    .mdl-slider.is-upgraded.is-lowest-value:disabled:active +
 .mdl-slider__background-flex > .mdl-slider__background-upper {
       left: 6px; }
     .mdl-slider.is-upgraded:disabled:focus::-ms-thumb,
@@ -7053,8 +6935,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -7431,8 +7311,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -7618,8 +7496,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -7769,8 +7645,6 @@ template, div[template] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -7956,8 +7830,6 @@ template, div[template] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
@@ -8052,8 +7924,6 @@ template, div[template] {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 /* Animation Variables */
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -8145,6 +8015,7 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       .debug .mdl-accordion-group .mdl-accordion input:checked + .mdl-accordion__label .indicator {
         border: 1px solid red; }
   .mdl-accordion-group .mdl-accordion .mdl-accordion--content {
+    line-height: initial;
     overflow: auto;
     max-height: 0;
     position: relative;
@@ -8214,8 +8085,6 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -8302,13 +8171,16 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-dialog-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -8530,8 +8402,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -8800,6 +8670,14 @@ mdl-draggable {
     width: calc(100% - 16px); }
     .mdl-form .mdl-form__actions > *, .mdl-form-registration .mdl-form__actions > * {
       margin-left: 4px; }
+  .mdl-form .mdl-textfield.is-invalid .mdl-textfield__error, .mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: hidden; }
+  .mdl-form.is-dirty .mdl-textfield.is-invalid .mdl-textfield__error, .is-dirty.mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: visible; }
+  .debug .mdl-form.is-invalid, .debug .is-invalid.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.3); }
+  .debug .mdl-form.is-dirty, .debug .is-dirty.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.6); }
 
 .mdl-form-registration .mdl-form__actions .mdl-button {
   -webkit-box-flex: 1;
@@ -8841,8 +8719,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-sticky-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8963,8 +8839,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-nav-pill, .mdl-nav-pills > * {
   padding: 4px 8px;
   margin: 0 0 8px 0;
@@ -9138,8 +9012,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-notification-container {
   z-index: 3;
   position: absolute;
@@ -9355,10 +9227,11 @@ mdl-draggable {
           .mdl-notification-container .mdl-notification .mdl-notification__content .mdl-notification__text .mdl-notification__avatar + span {
             max-width: 262px;
             font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 400;
             line-height: 24px;
-            letter-spacing: 0.04em; }
+            letter-spacing: 0;
+            line-height: 130%; }
 
 /**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
@@ -9412,8 +9285,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
@@ -9479,8 +9350,6 @@ mdl-draggable {
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .mdl-snackbar-container.is-visible .mdl-snackbar {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);

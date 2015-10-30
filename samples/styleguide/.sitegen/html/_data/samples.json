@@ -39,7 +39,6 @@
   { "name": "styleguide", "original": false, "prefix": "" },
   { "name": "switch", "original": true, "prefix": "mdl_" },
   { "name": "tabs", "original": true, "prefix": "mdl_" },
-  { "name": "template", "original": false, "prefix": "spa_" },
   { "name": "textfield", "original": true, "prefix": "mdl_" },
   { "name": "tooltip", "original": true, "prefix": "mdl_" },
   { "name": "todo", "original": false, "prefix": "spa_" },

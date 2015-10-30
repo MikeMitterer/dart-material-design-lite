@@ -5,6 +5,11 @@
     "preview" : "template-blog.jpg"
   },
   {
+    "name" : "template_spa",
+    "description" : "Single-Page-Application",
+    "preview" : "template-spa.jpg"
+  },
+  {
     "name" : "template_android-dot-com",
     "description" : "Android WebSite",
     "preview" : "template-android-dot-com.jpg"

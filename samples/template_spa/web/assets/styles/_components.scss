@@ -17,10 +17,11 @@
 // limitations under the License.
 //
 
-/**
-    Overwrites some essential MDL-Styles
-    This should go into the main MDL-Branch
-*/
+// ----------------------------------------------------------------------------
+// ---- Overwrites some essential MDL-Styles
+// ---  This should go into the main MDL-Branch
+// -
+
 .mdl-card {
     display: flex;
     flex-direction: column;
@@ -43,3 +44,13 @@
         text-decoration: none;
     }
 }
+
+// ----------------------------------------------------------------------------
+// ---- Change autofill-color to white in Chrome
+// -
+
+input.mdl-textfield__input:-webkit-autofill,
+input[type="password"].mdl-textfield__input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+

@@ -32,10 +32,6 @@
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/**
-    Overwrites some essential MDL-Styles
-    This should go into the main MDL-Branch
-*/
 .mdl-card {
   display: flex;
   flex-direction: column;
@@ -52,6 +48,10 @@
   padding-bottom: 8px; }
   .mdl-form__hint a {
     text-decoration: none; }
+
+input.mdl-textfield__input:-webkit-autofill,
+input[type="password"].mdl-textfield__input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset; }
 
 .login-dialog {
   margin-top: -50px; }
