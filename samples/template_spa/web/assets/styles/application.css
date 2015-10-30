@@ -33,14 +33,34 @@
  */
 /* ==========  IMAGES  ========== */
 .mdl-card {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: space-between;
-  align-items: stretch; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-content: space-between;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
   .mdl-card .mdl-card__supporting-text {
-    flex-grow: 1; }
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
 
 .mdl-form__hint {
   font-size: 12px;
@@ -57,7 +77,10 @@ input[type="password"].mdl-textfield__input:-webkit-autofill {
   margin-top: -50px; }
 
 .application.mdl-layout {
-  flex-grow: 1; }
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
   .application.mdl-layout.is-small-screen > .mdl-layout__header {
     background-position: 0 0; }
   .application.mdl-layout > .mdl-layout__header {
@@ -69,12 +92,29 @@ input[type="password"].mdl-textfield__input:-webkit-autofill {
       .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .mdl-layout-title {
         text-transform: capitalize; }
       .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-content: space-between;
-        align-items: center; }
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-align-content: space-between;
+            -ms-flex-line-pack: justify;
+                align-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center; }
         .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar > * {
           max-height: 20px;
           margin-left: 0.70em; }
@@ -106,7 +146,9 @@ input[type="password"].mdl-textfield__input:-webkit-autofill {
       /* Support for Firefox. */
       -moz-osx-font-smoothing: grayscale;
       /* Support for IE. */
-      font-feature-settings: 'liga'; }
+      -webkit-font-feature-settings: 'liga';
+         -moz-font-feature-settings: 'liga';
+              font-feature-settings: 'liga'; }
       .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
         background-color: rgba(224, 224, 224, 0.2); }
     .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion {
@@ -114,7 +156,8 @@ input[type="password"].mdl-textfield__input:-webkit-autofill {
       .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion input:checked ~ .mdl-accordion--content {
         padding-top: 12px;
         padding-bottom: 12px;
-        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
         opacity: 1; }
       .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion__label {
         font-weight: 200;
@@ -126,7 +169,8 @@ input[type="password"].mdl-textfield__input:-webkit-autofill {
         margin: 0;
         padding: 0;
         opacity: 0;
-        transition: all 0.3s ease-in-out; }
+        -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out; }
         .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion--content .mdl-navigation__link {
           padding: 5px 48px 5px 48px;
           text-transform: capitalize;

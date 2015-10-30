@@ -1,6 +1,11 @@
 #Change Log for mdl#
 Material Design Lite for Dart
 
+##[v1.7.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.7.0...v1.7.1) - 2015-10-30##
+
+###Feature###
+* SplashScreen + SPA-Template works [1cc20ac](https://github.com/mikemitterer/dart-material-design-lite/commit/1cc20ac1bd9495012b53a0cba8818fc4f3d57694)
+
 ##[v1.7.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.6.1...v1.7.0) - 2015-10-22##
 
 ###Feature###

@@ -49,9 +49,12 @@
             <div class="content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
                 <section class="demo-section demo-section--dnd">
                     <div class="demo-preview-block">
+
     <h2>Drag & Drop (experimental)</h2>
+
     <div class="danddcontainer">
         <div class="choose ">
+
             <h6>Choose language</h6>
                 <div mdl-repeat="language in languages" class="source langbox mdl-dnd__drag-container" >
                      
@@ -63,11 +66,14 @@
                      
                 </div>
         </div>
+
         <div class="accept">
             <div class="langbox">
+
                 <h6>Programming languages</h6>
                 <mdl-dropzone class="programming" name="programming"
                               on-drop-success="addToProgrammingLanguages(data)">
+
                     <!-- programming language item becomes a 'draggable' item and can be dragged to 'trash' -->
                     <!-- mdl-repeat takes its for-each param from the next SCOPE-AWARE-Parent (mld-dropzone is not SCOPE-AWARE) -->
                     <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
@@ -81,10 +87,13 @@
                     </div>
                 </mdl-dropzone>
             </div>
+
             <div class="langbox">
+
                 <h6>Natural languages</h6>
                 <mdl-dropzone class="natural" name="natural"
                               on-drop-success="addToNaturalLanguages(data)">
+
                     <!-- natural language item becomes a 'draggable' item and can be dragged to 'trash' -->
                     <!-- mdl-repeat takes its for-each param from the next SCOPE-AWARE-Parent (mld-dropzone is not SCOPE-AWARE) -->
                     <div mdl-repeat="language in natural" class="mdl-dnd__drag-container">
@@ -105,7 +114,9 @@
                           on-drop-success="moveToTrash(data)"></mdl-dropzone>
         </div>
     </div>
+
 </div>
+
                 </section>
             </div>
         </div>

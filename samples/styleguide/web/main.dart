@@ -787,7 +787,7 @@ class SliderController extends DemoController {
         final MaterialSlider slider2 = MaterialSlider.widget(dom.querySelector("#slider2"));
         final MaterialSlider slider4 = MaterialSlider.widget(dom.querySelector("#slider4"));
 
-        slider2.onChange.listen((_) {
+        slider2.hub.onChange.listen((_) {
             slider4.value = slider2.value;
         });
     }

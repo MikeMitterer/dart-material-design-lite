@@ -4,7 +4,7 @@ import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
-import 'package:mdl_data_table_sample2/devicestatus.dart';
+import 'package:mdl_data_table2_sample/devicestatus.dart';
 
 main() {
     configLogging();

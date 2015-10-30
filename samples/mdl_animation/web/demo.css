@@ -47,8 +47,6 @@
  * limitations under the License.
  */
 /* ==========  IMAGES  ========== */
-/* SNACKBAR */
-/* TOOLTIP */
 .demo-page--animation, .demo-section--animation {
   /* Outside the view, on the left.
        We leave the view when moving to this state, so we use fast-out-linear-in. */

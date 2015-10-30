@@ -53,6 +53,7 @@
         <input class="mdl-textfield__input" type="text" id="sample1" mdl-model="modelTest.minimodel"/>
         <label class="mdl-textfield__label" for="sample1">Type Something...</label>
     </div>
+
     <div class="groups">
         <div class="mdl-checkbox-group">
             <div class="choose">Choose OS:</div>
@@ -74,10 +75,12 @@
                 <input type="radio" id="wifi1" class="mdl-radio__button" name="wifi[]" value="always"/>
                 <span class="mdl-radio__label">Always</span>
             </label>
+
             <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi2">
                 <input type="radio" id="wifi2" class="mdl-radio__button" name="wifi[]" value="plugged in"/>
                 <span class="mdl-radio__label">Only when plugged in</span>
             </label>
+
             <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi3">
                 <input type="radio" id="wifi3" class="mdl-radio__button" name="wifi[]" value="never"/>
                 <span class="mdl-radio__label">Never</span>
@@ -89,6 +92,7 @@
                 <input type="checkbox" id="switch-bedroom" class="mdl-switch__input" mdl-model="modelTest.lights[0]"/>
                 <span class="mdl-switch__label">Bedroom</span>
             </label>
+
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-livingroom">
                 <input type="checkbox" id="switch-livingroom" class="mdl-switch__input" mdl-model="modelTest.lights[1]" />
                 <span class="mdl-switch__label">Living room</span>
@@ -100,6 +104,7 @@
         <input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0"
                mdl-model="modelTest.intensity"/>
     </div>
+
     <div class="output mdl-color--200 mdl-color-text--white">
         Text in TextField: <span class="mdl-color-text--accent-500" mdl-observe="modelTest.minimodel"></span><br>
         OS1: <span class="mdl-color-text--accent-500" mdl-observe="modelTest.os1"></span><br>
@@ -109,7 +114,10 @@
         Light #2: <span class="mdl-color-text--accent-500" mdl-observe="modelTest.lights[1]"></span><br>
         Intensity: <span class="mdl-color-text--accent-500" mdl-observe="modelTest.intensity"></span><br>
     </div>
+
 </div>
+
+
 
                 </section>
             </div>
