@@ -256,6 +256,15 @@ void _mdlDowngrade() {
     element.removeEventListener('mouseup', boundElementMouseUp);
   }
 
+/// Public alias for the downgrade method.
+/// 
+/// public
+  MaterialCheckbox.prototype.mdlDowngrade =
+      MaterialCheckbox.prototype.mdlDowngrade_;
+
+  MaterialCheckbox.prototype['mdlDowngrade'] =
+      MaterialCheckbox.prototype.mdlDowngrade;
+
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.
 

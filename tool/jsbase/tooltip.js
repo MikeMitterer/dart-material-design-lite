@@ -102,7 +102,7 @@
 
       if (this.forElement_) {
         // It's left here because it prevents accidental text selection on Android
-        if (!this.forElement_.getAttribute('tabindex')) {
+        if (!this.forElement_.hasAttribute('tabindex')) {
           this.forElement_.setAttribute('tabindex', '0');
         }
 
@@ -129,6 +129,17 @@
       window.removeEventListener('touchstart', this.boundMouseLeaveHandler);
     }
   };
+
+  /**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+  MaterialTooltip.prototype.mdlDowngrade =
+      MaterialTooltip.prototype.mdlDowngrade_;
+
+  MaterialTooltip.prototype['mdlDowngrade'] =
+      MaterialTooltip.prototype.mdlDowngrade;
 
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.

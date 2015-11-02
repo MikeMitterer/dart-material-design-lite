@@ -234,6 +234,15 @@ void _mdlDowngrade() {
     element.parent.removeEventListener('mousedown', boundContainerMouseDownHandler);
   }
 
+/// Public alias for the downgrade method.
+/// 
+/// public
+  MaterialSlider.prototype.mdlDowngrade =
+      MaterialSlider.prototype.mdlDowngrade_;
+
+  MaterialSlider.prototype['mdlDowngrade'] =
+      MaterialSlider.prototype.mdlDowngrade;
+
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.
 

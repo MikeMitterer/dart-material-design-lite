@@ -457,7 +457,7 @@ class MaterialLayout extends MdlComponent {
 /// Individual Tab
 class MaterialLayoutTab {
 
-    final dom.Element tab;  // using Element instead of AnchorElement makes mdl-layout-tab-Tag with href attrib possible
+    final dom.AnchorElement tab;  // using Element instead of AnchorElement makes mdl-layout-tab-Tag with href attrib possible
     final List<dom.AnchorElement> tabs;
     final List<dom.HtmlElement> panels;
     final MaterialLayout layout;
@@ -502,11 +502,28 @@ class MaterialLayoutTab {
                 if(tab.attributes["href"].startsWith("#")) {
                     event.preventDefault();
                     event.stopPropagation();
+
                     _selectTab();
                 }
             });
 
-            //_selectTab();
+            //tab.show = _selectTab();
+
+            // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+            tab.onClick.listen( (final dom.MouseEvent event) {
+                event.preventDefault();
+
+                final String href = tab.href.split('#')[1];
+
+                final dom.Element panel = layout._content.querySelector('#' + href);
+
+                layout._resetTabState(tabs);
+                layout._resetPanelState(panels);
+
+                tab.classes.add(_cssClasses.IS_ACTIVE);
+                panel.classes.add(_cssClasses.IS_ACTIVE);
+            });
+
         }
     }
 }

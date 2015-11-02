@@ -170,8 +170,12 @@ class MaterialTextfield extends MdlComponent {
                     eventStreams.add(element.onKeyDown.listen( _onKeyDown ));
                 }
 
+                final bool isInvalid = element.classes.contains(_cssClasses.IS_INVALID);
                 _updateClasses();
                 element.classes.add(_cssClasses.IS_UPGRADED);
+                if (isInvalid) {
+                    element.classes.add(_cssClasses.IS_INVALID);
+                }
             }
         }
     }

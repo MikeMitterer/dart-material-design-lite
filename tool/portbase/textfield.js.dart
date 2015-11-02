@@ -178,12 +178,7 @@ void enable() {
 ///   MaterialTextfield.prototype.change = function(value) {
 void change(final value) {
 
-    if (value) {
-      _input.value = value;
-
-    } else {
-      _input.value = '';
-    }
+    _input.value = value || '';
     _updateClasses();
   }
   MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
@@ -224,8 +219,13 @@ void init() {
           _input.addEventListener('keydown', boundKeyDownHandler);
         }
 
+        final invalid = element.classList
+          .contains(_cssClasses.IS_INVALID);
         _updateClasses();
         element.classes.add(_cssClasses.IS_UPGRADED);
+        if (invalid) {
+          element.classes.add(_cssClasses.IS_INVALID);
+        }
       }
     }
   }
@@ -242,6 +242,15 @@ void _mdlDowngrade() {
       _input.removeEventListener('keydown', boundKeyDownHandler);
     }
   }
+
+/// Public alias for the downgrade method.
+/// 
+/// public
+  MaterialTextfield.prototype.mdlDowngrade =
+      MaterialTextfield.prototype.mdlDowngrade_;
+
+  MaterialTextfield.prototype['mdlDowngrade'] =
+      MaterialTextfield.prototype.mdlDowngrade;
 
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.

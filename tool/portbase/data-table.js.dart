@@ -118,12 +118,6 @@ void _createCheckbox(final row, opt_rows) {
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
       checkbox.onChange.listen( _selectRow(checkbox, row));
-      if (row.hasAttribute('data-mdl-data-table-selectable-name')) {
-        checkbox.name = row.getAttribute('data-mdl-data-table-selectable-name');
-      }
-      if (row.hasAttribute('data-mdl-data-table-selectable-value')) {
-        checkbox.value = row.getAttribute('data-mdl-data-table-selectable-value');
-      }
     } else if (opt_rows) {
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);

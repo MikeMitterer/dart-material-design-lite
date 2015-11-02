@@ -127,13 +127,6 @@ class MaterialDataTable extends MdlComponent {
             // .addEventListener('change', -- .onChange.listen(<Event>);
             checkbox.onChange.listen( _selectRow(checkbox, row, null));
 
-            if (row.dataset.containsKey(_constant.SELECTABLE_NAME)) {
-                checkbox.name = row.dataset[_constant.SELECTABLE_NAME];
-            }
-            if (row.dataset.containsKey(_constant.SELECTABLE_VALUE)) {
-                checkbox.value = row.dataset[_constant.SELECTABLE_VALUE];
-            }
-
         } else if (optRows != null && optRows.isNotEmpty) {
 
             // .addEventListener('change', -- .onChange.listen(<Event>);

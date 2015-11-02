@@ -120,18 +120,18 @@ void init() {
       }
 
       final items = element.querySelectorAll('.' + _cssClasses.ITEM);
-      _boundItemKeydown = handleItemKeyboardEvent;
-      _boundItemClick = handleItemClick;
+      _boundItemKeydown = _handleItemKeyboardEvent;
+      _boundItemClick = _handleItemClick;
 
       for (final i = 0; i < items.length; i++) {
         // Add a listener to each menu item.
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-        items[i].onClick.listen( boundItemClick);
+        items[i].onClick.listen( _boundItemClick);
         // Add a tab index to each menu item.
         items[i].tabIndex = '-1';
         // Add a keyboard listener to each menu item.
-        items[i].addEventListener('keydown', boundItemKeydown);
+        items[i].addEventListener('keydown', _boundItemKeydown);
       }
 
       // Add ripple classes to each item, if the user has enabled ripples.
@@ -294,7 +294,7 @@ void _handleItemKeyboardEvent(final evt) {
 /// param {Event} evt The event that fired.
 ///   MaterialMenu.prototype.handleItemClick_ = function(evt) {
 void _handleItemClick(final evt) {
-    if (evt.target.getAttribute('disabled') != null) {
+    if (evt.target.hasAttribute('disabled')) {
       evt.stopPropagation();
 
     } else {
@@ -413,7 +413,9 @@ void show(final evt) {
         // displayed the menu in the first place. If so, do nothing.
         // Also check to see if the menu is in the process of closing itself, and
         // do nothing in that case.
-        if (e != evt && !_closing) {
+        // Also check if the clicked element is a menu item
+        // if so, do nothing.
+        if (e != evt && !_closing && e.target.parentNode != element) {
           document.removeEventListener('click', callback);
           hide();
         }
@@ -442,9 +444,11 @@ void hide() {
 
       // Measure the inner element.
 
-      final height = element.getBoundingClientRect().height;
+      final rect = element.getBoundingClientRect();
 
-      final width = element.getBoundingClientRect().width;
+      final height = rect.height;
+
+      final width = rect.width;
 
       // Turn on animation, and apply the final clip. Also make invisible.
       // This triggers the transitions.
@@ -480,10 +484,19 @@ void _mdlDowngrade() {
     final items = element.querySelectorAll('.' + _cssClasses.ITEM);
 
     for (final i = 0; i < items.length; i++) {
-      items[i].removeEventListener('click', boundItemClick);
-      items[i].removeEventListener('keydown', boundItemKeydown);
+      items[i].removeEventListener('click', _boundItemClick);
+      items[i].removeEventListener('keydown', _boundItemKeydown);
     }
   }
+
+/// Public alias for the downgrade method.
+/// 
+/// public
+  MaterialMenu.prototype.mdlDowngrade =
+      MaterialMenu.prototype.mdlDowngrade_;
+
+  MaterialMenu.prototype['mdlDowngrade'] =
+      MaterialMenu.prototype.mdlDowngrade;
 
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.

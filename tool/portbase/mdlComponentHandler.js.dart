@@ -73,7 +73,7 @@ componentHandler = ( /*function*/ () {
 
   final createdComponents_ = [];
 
-  final downgradeMethod_ = 'mdlDowngrade_';
+  final downgradeMethod_ = 'mdlDowngrade';
 
   final componentConfigProperty_ = 'mdlComponentConfigInternal_';
 

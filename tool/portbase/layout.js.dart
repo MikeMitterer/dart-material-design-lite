@@ -200,7 +200,9 @@ void init() {
 
       final directChildren = element.childNodes;
 
-      for (final c = 0; c < directChildren.length; c++) {
+      final numChildren = directChildren.length;
+
+      for (final c = 0; c < numChildren; c++) {
 
         final child = directChildren[c];
         if (child.classList &&
@@ -270,7 +272,7 @@ void init() {
 
         final drawerButton = element.querySelector('.' +
           _cssClasses.DRAWER_BTN);
-        if (typeof(drawerButton) == 'undefined' || drawerButton == null) {
+        if (!drawerButton) {
 
           drawerButton = new html.DivElement();
           drawerButton.classes.add(_cssClasses.DRAWER_BTN);
@@ -429,30 +431,41 @@ void init() {
       panel.classes.add(layout._cssClasses.IS_ACTIVE);
     }
 
-    if (tab) {
-      if (layout._tabBar.classes.contains(
-          layout._cssClasses.JS_RIPPLE_EFFECT)) {
+    if (layout._tabBar.classes.contains(
+        layout._cssClasses.JS_RIPPLE_EFFECT)) {
 
-        final rippleContainer = new html.SpanElement();
-        rippleContainer.classes.add(layout._cssClasses.RIPPLE_CONTAINER);
-        rippleContainer.classes.add(layout._cssClasses.JS_RIPPLE_EFFECT);
+      final rippleContainer = new html.SpanElement();
+      rippleContainer.classes.add(layout._cssClasses.RIPPLE_CONTAINER);
+      rippleContainer.classes.add(layout._cssClasses.JS_RIPPLE_EFFECT);
 
-        final ripple = new html.SpanElement();
-        ripple.classes.add(layout._cssClasses.RIPPLE);
-        rippleContainer.append(ripple);
-        tab.append(rippleContainer);
-      }
+      final ripple = new html.SpanElement();
+      ripple.classes.add(layout._cssClasses.RIPPLE);
+      rippleContainer.append(ripple);
+      tab.append(rippleContainer);
+    }
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-      tab.onClick.listen( /*function*/ (e) {
-        if (tab.getAttribute('href').charAt(0) == '#') {
-          e.preventDefault();
-          selectTab();
-        }
-      });
+    tab.onClick.listen( /*function*/ (e) {
+      if (tab.getAttribute('href').charAt(0) == '#') {
+        e.preventDefault();
+        selectTab();
+      }
+    });
 
-      tab.show = selectTab;
-    }
+    tab.show = selectTab;
+
+	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
+    tab.onClick.listen( /*function*/ (e) {
+      e.preventDefault();
+
+      final href = tab.href.split('#')[1];
+
+      final panel = layout._content.querySelector('#' + href);
+      layout._resetTabState(tabs);
+      layout._resetPanelState(panels);
+      tab.classes.add(layout._cssClasses.IS_ACTIVE);
+      panel.classes.add(layout._cssClasses.IS_ACTIVE);
+    });
   }
   window['MaterialLayoutTab'] = MaterialLayoutTab;
 

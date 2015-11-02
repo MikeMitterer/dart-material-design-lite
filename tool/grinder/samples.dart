@@ -122,7 +122,6 @@ void createSampleList() {
     samples.add(new Sample("card",      Type.Core,  hasDemoCss: false, hasScript: false, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("checkbox",  Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("data-table",Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));
-    samples.add(new Sample("data-table2",Type.Core,  hasDemoCss: false, hasSnippet: false, hasDemoHtml: false, hasStyle: false));
 
     samples.add(new Sample("footer",    Type.Core,  hasScript: false, hasSnippet: true, hasDemoHtml: false, hasDemoCss: false)
         ..scssFile = "_mega_footer.scss"
@@ -160,6 +159,7 @@ void createSampleList() {
 
     // MDL/Dart
     samples.add(new Sample("accordion",     Type.Dart, hasOwnDemoHtml: true));
+    samples.add(new Sample("data-table2",   Type.Dart, hasOwnDemoHtml: true));
     samples.add(new Sample("dialog",        Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("dnd",           Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("forms",         Type.Dart, hasOwnDemoHtml: true));

@@ -57,9 +57,6 @@ to modify the value programmatically; instead, use the MDL `change()` method. Fo
 that *slider1* is a slider object and *newvalue* is a variable containing the desired value, do not
 use `slider1.value = newvalue`; instead, use `slider1.MaterialSlider.change(newvalue)`.
 
-## More information
-For working examples of the **slider** component, see the MDL [slider demo page](https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/samples/slider).
-
 ## License
 
 Copyright Google, 2015. Licensed under an Apache-2 license.

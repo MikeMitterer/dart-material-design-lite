@@ -24,7 +24,7 @@ main() &#123;
     componentFactory().run().then((_) &#123;
         final MaterialSlider slider2 = MaterialSlider.widget(dom.querySelector(&quot;#slider2&quot;));
         final MaterialSlider slider4 = MaterialSlider.widget(dom.querySelector(&quot;#slider4&quot;));
-        slider2.onChange.listen((_) &#123;
+        slider2.hub.onChange.listen((_) &#123;
             slider4.value = slider2.value;
         &#125;);
     &#125;);
@@ -122,8 +122,6 @@ to modify the value programmatically; instead, use the MDL <code>change()</code>
 that <em>slider1</em> is a slider object and <em>newvalue</em> is a variable containing the desired value, do not<br />
 use <code>slider1.value = newvalue</code>; instead, use <code>slider1.MaterialSlider.change(newvalue)</code>.</p>
 </blockquote>
-<h2 id="more-information">More information</h2>
-<p>For working examples of the <strong>slider</strong> component, see the MDL <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/samples/slider">slider demo page</a>.</p>
 <h2 id="license">License</h2>
 <p>Copyright Google, 2015. Licensed under an Apache-2 license.</p>
 

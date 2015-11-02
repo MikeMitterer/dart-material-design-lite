@@ -118,6 +118,15 @@ void _mdlDowngrade() {
     element.removeEventListener('mouseleave', boundButtonBlurHandler);
   }
 
+/// Public alias for the downgrade method.
+/// 
+/// public
+  MaterialButton.prototype.mdlDowngrade =
+      MaterialButton.prototype.mdlDowngrade_;
+
+  MaterialButton.prototype['mdlDowngrade'] =
+      MaterialButton.prototype.mdlDowngrade;
+
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.
 

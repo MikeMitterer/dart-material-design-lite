@@ -14,13 +14,6 @@
  * limitations under the License.
  */
 
-@font-face {
-  font-family: "And Black";
-  src: url("fonts/and_black.eot?#iefix") format('embedded-opentype'),
-       url("fonts/and_black.woff") format('woff'),
-       url("fonts/and_black.ttf") format('truetype');
-}
-
 body {
   margin: 0;
 }
@@ -110,7 +103,7 @@ a img{
     width: 800px;
   }
 
-  .android-search-box.is-focused ~ .android-navigation-container {
+  .android-search-box.is-focused + .android-navigation-container {
     opacity: 0;
     width: 100px;
   }
@@ -178,11 +171,11 @@ a img{
   background-size: cover;
 }
 
-.android-font {
-  font-family: 'And Black', 'Helvetica', 'Arial', sans-serif;
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   line-height: 1;
   color: #767777;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .android-slogan {
@@ -481,7 +474,11 @@ a img{
     transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .android-search-box.is-focused ~ .android-mobile-title {
+  /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
+     consecutive "+" operators in some cases. Therefore, we need to use both
+     here to cover all the bases. */
+  .android.android-search-box.is-focused ~ .android-mobile-title,
+  .android-search-box.is-focused + .android-navigation-container + .android-mobile-title {
     opacity: 0;
   }
 

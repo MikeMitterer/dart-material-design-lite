@@ -9,7 +9,7 @@
   { "name": "class", "original": false, "prefix": "mdld_" },
   { "name": "content", "original": false, "prefix": "spa_" },
   { "name": "data-table", "original": true, "prefix": "mdl_" },
-  { "name": "data-table2", "original": true, "prefix": "mdl_" },
+  { "name": "data-table2", "original": true, "prefix": "mdlx_" },
   { "name": "dialog", "original": false, "prefix": "mdlx_" },
   { "name": "dnd", "original": false, "prefix": "mdlx_" },
   { "name": "footer", "original": true, "prefix": "mdl_" },
