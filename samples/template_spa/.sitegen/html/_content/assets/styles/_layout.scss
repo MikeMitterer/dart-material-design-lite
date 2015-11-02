@@ -126,7 +126,14 @@ $_application-footer-padding : 4px;
         @include shadow-2dp-right();
 
         .mdl-layout-title {
-            padding-left: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center; // ↓
+            align-content: space-between; // =
+            align-items: center; // ⇾
+
+            min-height: $layout-header-desktop-row-height;
 
             @include bgimage();
             @include shadow-2dp();
