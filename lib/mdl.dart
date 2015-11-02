@@ -19,6 +19,11 @@ export "package:mdl/mdlobservable.dart";
 export "package:mdl/mdlformatter.dart";
 export "package:mdl/mdldnd.dart";
 
+import 'package:barback/barback.dart';
+
+import 'dart:async';
+part "src/transformer/transformer.dart";
+
 void registerMdl() {
 
     registerMdlTemplateComponents();

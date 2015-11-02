@@ -28,6 +28,8 @@ dependencies:
 
   di: ^3.3.0
 
+  barback: ^0.15.0
+
 dev_dependencies:
   test: any
   args: any
@@ -37,6 +39,7 @@ dev_dependencies:
 
 transformers:
   - di
+  - mdl
 
   - $dart2js:
       commandLineOptions: [--enable-experimental-mirrors]
