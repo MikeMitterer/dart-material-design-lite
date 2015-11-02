@@ -1,6 +1,7 @@
 # Material Design Lite for Dart
 > A GUI library and framework to develop web apps in Dart.  
-[www.material-design-lite.pub](http://www.material-design-lite.pub)).
+
+[www.material-design-lite.pub](http://www.material-design-lite.pub).
 
 Material Design Lite lets you add a Material Design look and feel to your dynamic websites and web app. It doesn't rely on any JavaScript
 frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
