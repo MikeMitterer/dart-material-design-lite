@@ -126,6 +126,7 @@ genThemes() {
 genCss() {
     log("${Utils.genMaterialCSS()} created!");
     log("${Utils.genSplashScreenCSS()} created!");
+    log("${Utils.genFontsCSS()} created!");
 }
 
 @Task()

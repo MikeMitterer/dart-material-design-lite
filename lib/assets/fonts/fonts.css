@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("material/MaterialIcons-Regular.eot");
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("material/MaterialIcons-Regular.woff2") format("woff2"), url("material/MaterialIcons-Regular.woff") format("woff"), url("material/MaterialIcons-Regular.ttf") format("truetype"); }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  -webkit-font-feature-settings: 'liga';
+     -moz-font-feature-settings: 'liga';
+          font-feature-settings: 'liga'; }
+
+.material-icons.md-18 {
+  font-size: 18px; }
+
+.material-icons.md-24 {
+  font-size: 24px; }
+
+.material-icons.md-36 {
+  font-size: 36px; }
+
+.material-icons.md-48 {
+  font-size: 48px; }
+
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54); }
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26); }
+
+.material-icons.md-light {
+  color: white; }
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto-Regular"), local("Roboto-Regular"), url("roboto/Roboto-Regular.woff2") format("woff2"), url("roboto/Roboto-Regular.woff") format("woff"), url("roboto/Roboto-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 200;
+  src: local("Roboto-Thin"), local("Roboto-Thin"), url("roboto/Roboto-Thin.woff2") format("woff2"), url("roboto/Roboto-Thin.woff") format("woff"), url("roboto/Roboto-Thin.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto-Light"), local("Roboto-Light"), url("roboto/Roboto-Light.woff2") format("woff2"), url("roboto/Roboto-Light.woff") format("woff"), url("roboto/Roboto-Light.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto-Medium"), local("Roboto-Medium"), url("roboto/Roboto-Medium.woff2") format("woff2"), url("roboto/Roboto-Medium.woff") format("woff"), url("roboto/Roboto-Medium.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto-Bold"), local("Roboto-Bold"), url("roboto/Roboto-Bold.woff2") format("woff2"), url("roboto/Roboto-Bold.woff") format("woff"), url("roboto/Roboto-Bold.ttf") format("truetype"); }

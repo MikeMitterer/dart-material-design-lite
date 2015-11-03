@@ -34,6 +34,7 @@ class Config {
     static const String _KEY_MDL_DIR                  = "mdldir";
     static const String _KEY_SAMPLES_DIR              = "samples";
     static const String _KEY_THEMES_DIR               = "themesdir";
+    static const String _KEY_FONTS_DIR                = "fontsdir";
     static const String _KEY_GIT_THEMES_DIR           = "gitthemesdir";
     static const String _KEY_LOGLEVEL                 = "loglevel";
     static const String _KEY_MK_BACKUP                = "mkbackup";
@@ -57,6 +58,7 @@ class Config {
         _settings[_KEY_SASS_DIR]                  = 'lib/assets/styles';
         _settings[_KEY_SAMPLES_DIR]               = 'samples';
         _settings[_KEY_THEMES_DIR]                = 'lib/assets/themes';
+        _settings[_KEY_FONTS_DIR]                 = 'lib/assets/fonts';
         _settings[_KEY_LOGLEVEL]                  = 'info';
         _settings[_KEY_MK_BACKUP]                 = false;
         _settings[_KEY_MAIN_TEMPLATE]             = "tool/templates/main.tmpl.dart";
@@ -88,6 +90,8 @@ class Config {
     String get samplesdir => _settings[_KEY_SAMPLES_DIR];
 
     String get themesdir => _settings[_KEY_THEMES_DIR];
+
+    String get fontsdir => _settings[_KEY_FONTS_DIR];
 
     String get gitthemesdir => _settings[_KEY_GIT_THEMES_DIR];
 
@@ -123,6 +127,7 @@ class Config {
         settings["SASS-Dir"]                    = sassdir;
         settings["Samples-Dir"]                 = samplesdir;
         settings["Themes-Dir"]                  = themesdir;
+        settings["Fonts-Dir"]                   = fontsdir;
         settings["loglevel"]                    = loglevel;
         settings["make backup"]                 = mkbackup ? "yes" : "no";
         settings["Main-Template"]               = maintemplate;

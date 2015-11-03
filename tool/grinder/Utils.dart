@@ -44,6 +44,17 @@ class Utils {
         return targetCss.path;
     }
 
+    static String genFontsCSS() {
+        final String fontsDir = config.fontsdir;
+
+        final File srcScss = new File("${fontsDir}/fonts.scss");
+        final File targetCss = new File("${fontsDir}/fonts.css");
+
+        sasscAndAutoPrefix(srcScss,targetCss,useSass: false, minify: true);
+
+        return targetCss.path;
+    }
+
     static void sasscAndAutoPrefix(final File targetScss,final File targetCss,
                              { final bool useSass: false, final bool minify: false, final bool prefix: true }) {
 
