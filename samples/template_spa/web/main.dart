@@ -78,8 +78,14 @@ class Application extends MaterialApplication {
     }
 
     Future<MdlDialogStatus> _login() async {
-        final LoginDialog _loginDialog = new LoginDialog();
-        return _loginDialog(title: "Login").show();
+        final LoginDialog dialog = new LoginDialog();
+        final MdlDialogStatus status = await dialog(title: "Login").show();
+
+        if(status == MdlDialogStatus.OK) {
+            _logger.info("You entered - username: ${dialog.username.value}, password: ${dialog.password.value}");
+        }
+
+        return status;
     }
 
     void _checkStatus(final MdlDialogStatus status) {

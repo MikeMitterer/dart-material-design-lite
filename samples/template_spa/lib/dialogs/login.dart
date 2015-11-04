@@ -29,7 +29,8 @@ class LoginDialog extends MaterialDialog {
     String yesButton = _DEFAULT_SUBMIT_BUTTON;
     String noButton = _DEFAULT_CANCEL_BUTTON;
 
-    final ObservableProperty<String> name = new ObservableProperty<String>('',name: "Name");
+    final ObservableProperty<String> username = new ObservableProperty<String>('');
+    final ObservableProperty<String> password = new ObservableProperty<String>('');
 
     LoginDialog() : super(new DialogConfig());
 
@@ -64,12 +65,13 @@ class LoginDialog extends MaterialDialog {
                 <h5 class="mdl-form__title">Sign in</h5>
                 <div class="mdl-form__content">
                     <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="email" id="email" required autofocus>
+                        <input class="mdl-textfield__input" type="email" id="email" mdl-model="username"
+                            required autofocus>
                         <label class="mdl-textfield__label" for="email">Email</label>
                         <span class="mdl-textfield__error">This is not a valid eMail-Address</span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type=password id="password"
+                        <input class="mdl-textfield__input" type=password id="password" mdl-model="password"
                                pattern="((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%?]).{8,15})" required>
                         <label class="mdl-textfield__label" for="password">Password</label>
                             <span class="mdl-textfield__error">This is not a valid password (Try: 12345678aA#)</span>
