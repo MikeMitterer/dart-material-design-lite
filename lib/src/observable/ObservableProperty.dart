@@ -35,6 +35,9 @@ class ObservableProperty<T> {
     @MdlComponentModel
     T _value;
 
+    /// Always convert to double
+    final bool _treatAsDouble;
+
     Function _observe;
 
     /// Default interval if no specified in CTOR
@@ -53,13 +56,23 @@ class ObservableProperty<T> {
      * [interval] Check-Interval
      * [name] is useful for debugging. If you set this name and if you set your loglevel to "info" it
      * you should see a log output if this object fires a PropertyChangeEvent
+     *
      * If you set [observeViaTimer] to false the PropertyChangeEvent is only triggered on "set value"
      *
+     * Use [treatAsDouble] if you want to be sure that all your values are converted to double.
+     * This works around the problem that Dart does not recognize a double if compiled to JS
+     *
      * Sample:
-     *      time.observes(() => _getTime());
+     *      final ObservableProperty<double> long = new ObservableProperty<double>(0.0,treatAsDouble: true);
+     *
+     *      final ObservableProperty<String> time = new ObservableProperty<String>("", interval: new Duration(seconds: 1));
+     *      Application() {
+     *          time.observes(() => _getTime());
+     *      }
      */
     ObservableProperty(this._value,{ T observe(), final Duration interval,
-        final String name: ObservableProperty._DEFAULT_NAME, final bool observeViaTimer: true } ) : _name = name {
+        final String name: ObservableProperty._DEFAULT_NAME, final bool observeViaTimer: true,
+            final bool treatAsDouble: false } ) : _name = name, _treatAsDouble = treatAsDouble {
 
         if(interval != null && observeViaTimer) {
             _interval = interval;
@@ -85,17 +98,17 @@ class ObservableProperty<T> {
     void set value(final val) {
         final T old = _value;
 
-        if(_value.runtimeType == bool) {
+        if(_value.runtimeType == double || _treatAsDouble ) {
+
+            _value = ConvertValue.toDouble(val);
+
+        } else if(_value.runtimeType == bool) {
 
             _value = ConvertValue.toBool(val) as T;
 
         } else if(_value.runtimeType == int) {
 
             _value = ConvertValue.toInt(val) as T;
-
-        } else if(_value.runtimeType == double) {
-
-            _value = ConvertValue.toDouble(val) as T;
 
         } else {
             _value = val;

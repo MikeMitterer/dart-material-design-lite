@@ -53,8 +53,31 @@ class _MaterialRepeatConstant {
     final String TEMPLATE   = "template";
 
     const _MaterialRepeatConstant();
-}    
+}
 
+/**
+ * Iterates through a [ObservableList]
+ * Sample:
+ *      HTML:
+ *          <div mdl-repeat="job in jobs">
+ *              {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+ *              <template>
+ *                  <div class="mdl-accordion mdl-js-accordion">
+ *                    <label class="mdl-accordion__label">{{job.ID}}
+ *                        <jobtoolbar job-id="{{job.ID}}" class="jobtoolbar--right"></jobtoolbar>
+ *
+ *                        <i class="material-icons indicator">chevron_right</i></label>
+ *
+ *                        <div class="mdl-accordion--content">
+ *                           <p class="mdl-accordion--body">
+ *                             <jobedit job-id="{{job.ID}}"></jobedit>
+ *                           </p>
+ *                        </div>
+ *                </div>
+ *             </template>
+ *             |= {{ }} =| {{! ----- Turn on mustache ---- }}
+ *        </div>
+ */
 @MdlComponentModel
 class MaterialRepeat extends MdlTemplateComponent {
     final Logger _logger = new Logger('mdltemplate.MaterialRepeat');
@@ -269,6 +292,7 @@ class MaterialRepeat extends MdlTemplateComponent {
                 "but was: $dataset!");
         }
 
+        /// Splits up mdl-repeat="job in jobs" into listName and itemName
         final String listName = dataset.split(" ").last;
         final String itemName = dataset.split(" ").first;
 
@@ -313,17 +337,22 @@ class MaterialRepeat extends MdlTemplateComponent {
 
                     case ListChangeType.UPDATE:
 
-                        final Map itemToRemove = _getItemFromInternalList(event.prevItem);
-                        int index = _items.indexOf(itemToRemove);
+                        try {
+                            final Map itemToRemove = _getItemFromInternalList(event.prevItem);
+                            int index = _items.indexOf(itemToRemove);
 
-                        remove(itemToRemove).then((_) {
+                            remove(itemToRemove).then((_) {
 
-                            if(index < _items.length) {
-                                insert(index, { itemName : event.item },scope: scope.context);
-                            } else {
-                                add( { itemName : event.item },scope: scope.context);
-                            }
-                        });
+                                if(index < _items.length) {
+                                    insert(index, { itemName : event.item },scope: scope.context);
+                                } else {
+                                    add( { itemName : event.item },scope: scope.context);
+                                }
+                            });
+
+                        } on StateError catch (e,stacktrace) {
+                            _logger.shout("_getItemFromInternalList(${event.prevItem}) produced '$e'",stacktrace);
+                        }
 
                         break;
 

@@ -24,10 +24,9 @@ from the get-go.
 Visit the [website](http://www.material-design-lite.pub) for a "Quick start" or check out the [Kitchen Sink](http://styleguide.material-design-lite.pub/)
 
 ## Examples
-...
 Check out the [samples](http://styleguide.material-design-lite.pub/#/samples)
-## Features and bugs
 
+## Features and bugs
 Please file feature requests and bugs at the [issue tracker](https://github.com/MikeMitterer/dart-material-design-lite/issues).
 
 ## More links

@@ -211,10 +211,9 @@ class MaterialRipple extends MdlComponent {
                     throw "$event must bei either MouseEvent or TouchEvent!";
                 }
 
-                x = ((clientX - bound.left) as double).round();
-                y = ((clientY - bound.top) as double).round();
+                x = ((clientX - bound.left) as num).round();
+                y = ((clientY - bound.top) as num).round();
             }
-
 
             //_logger.info("X $x Y $y ${bound} ${event.target} T ${hasRipple}");
 

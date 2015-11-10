@@ -45,6 +45,7 @@ class ListChangedEvent<T> {
  */
 @MdlComponentModel
 class ObservableList<T> extends ListBase<T> {
+    //final Logger _logger = new Logger('mdlobservable.ObservableList');
 
     final List<T> _innerList = new List();
 
