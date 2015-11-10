@@ -100,7 +100,8 @@ class ObservableProperty<T> {
 
         if(_value.runtimeType == double || _treatAsDouble ) {
 
-            _value = ConvertValue.toDouble(val);
+            // Strange - but this avoids DA-Warning
+            _value = ConvertValue.toDouble(val) as dynamic;
 
         } else if(_value.runtimeType == bool) {
 
