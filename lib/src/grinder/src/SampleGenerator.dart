@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of gensamples;
+part of mdl.grinder;
 
 class SampleGenerator {
 
@@ -45,7 +45,7 @@ class SampleGenerator {
 
             File srcHtmlDemo;
             if(!sample.hasOwnDemoHtml) {
-                srcHtmlDemo = new File("${config.demobase}/${sample.name}/demo.html");
+                srcHtmlDemo = new File("${config.mdldartdir}/${config.demobase}/${sample.name}/demo.html");
             } else {
                 srcHtmlDemo = new File("${webDir.path}/index.html");
             }
@@ -113,7 +113,7 @@ class SampleGenerator {
         Utils.sasscAndAutoPrefix(targetScss,targetCss);
 
         if(sample.hasStyle && sample.type == Type.Core) {
-            _copySubdirs(new File("${config.demobase}/${sample.name}"),new File(webDir.path));
+            _copySubdirs(new File("${config.mdldartdir}/${config.demobase}/${sample.name}"),new File(webDir.path));
         }
     }
 

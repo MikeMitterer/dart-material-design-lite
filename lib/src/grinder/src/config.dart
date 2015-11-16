@@ -17,10 +17,12 @@
  * limitations under the License.
  */
 
-part of gensamples;
+part of mdl.grinder;
 
 const String _MDL_DIR        = '/Volumes/Daten/DevLocal/DevDart/material-design-lite/src';
+const String _MDL_DART_DIR   = '/Volumes/Daten/DevLocal/DevDart/MaterialDesignLite';
 const String _GIT_THEMES_DIR = '/Volumes/Daten/DevLocal/DevDart/MaterialDesignLiteTheme';
+const String _SITE_DIR       = '/Volumes/Daten/DevLocal/DevDart/MaterialDesignLiteSite';
 
 final Config config = new Config();
 
@@ -32,10 +34,12 @@ class Config {
 
     static const String _KEY_SASS_DIR                 = "sassdir";
     static const String _KEY_MDL_DIR                  = "mdldir";
+    static const String _KEY_MDL_DART_DIR             = "mdldartdir";
     static const String _KEY_SAMPLES_DIR              = "samples";
     static const String _KEY_THEMES_DIR               = "themesdir";
     static const String _KEY_FONTS_DIR                = "fontsdir";
     static const String _KEY_GIT_THEMES_DIR           = "gitthemesdir";
+    static const String _KEY_SITE_DIR                 = "sitedir";
     static const String _KEY_LOGLEVEL                 = "loglevel";
     static const String _KEY_MK_BACKUP                = "mkbackup";
     static const String _KEY_MAIN_TEMPLATE            = "maintemplate";
@@ -76,6 +80,10 @@ class Config {
 
         _settings[_KEY_MDL_DIR]                   = _MDL_DIR;
         _settings[_KEY_GIT_THEMES_DIR]            = _GIT_THEMES_DIR;
+        _settings[_KEY_SITE_DIR]                  = _SITE_DIR;
+        _settings[_KEY_MDL_DART_DIR]              = _MDL_DART_DIR;
+
+
 
     }
 
@@ -87,6 +95,8 @@ class Config {
 
     String get mdldir => _settings[_KEY_MDL_DIR];
 
+    String get mdldartdir => _settings[_KEY_MDL_DART_DIR];
+
     String get samplesdir => _settings[_KEY_SAMPLES_DIR];
 
     String get themesdir => _settings[_KEY_THEMES_DIR];
@@ -94,6 +104,8 @@ class Config {
     String get fontsdir => _settings[_KEY_FONTS_DIR];
 
     String get gitthemesdir => _settings[_KEY_GIT_THEMES_DIR];
+
+    String get sitedir => _settings[_KEY_SITE_DIR];
 
     bool get mkbackup => _settings[_KEY_MK_BACKUP];
 
@@ -143,7 +155,9 @@ class Config {
         settings["Base-Dir for ORIG JS files"]  = jsbase;
 
         settings["MDL-Dir"]                     = mdldir;
+        settings["MDL/Dart-Dir"]                = mdldartdir;
         settings["GIT-Themes-Dir"]              = gitthemesdir;
+        settings["Site-Dir"]                    = sitedir;
 
         return settings;
     }

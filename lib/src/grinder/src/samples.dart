@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of gensamples;
+part of mdl.grinder;
 
 enum Type {
     Core, Extra, Dart, Directive, DartOld, SPA, Styleguide, Template, Ignore

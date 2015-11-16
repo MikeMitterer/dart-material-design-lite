@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-part of gensamples;
+part of mdl.grinder;
 
 class MergeMaster {
 
