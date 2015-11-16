@@ -36,7 +36,8 @@ import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdlobservable.dart';
 import "package:mdl/mdlformatter.dart";
 
-import 'package:mdl/mustache.dart';
+import 'package:mustache/mustache.dart';
+//import 'package:mdl/mustache.dart';
 
 
 part "src/directive/components/MaterialObserve.dart";

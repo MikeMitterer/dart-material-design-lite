@@ -123,8 +123,8 @@ class MaterialMenu extends MdlComponent {
         if (element != null && _container != null && _outline != null ) {
             // Measure the inner element.
 
-            final height = element.getBoundingClientRect().height as double;
-            final width = element.getBoundingClientRect().width as double;
+            final height = element.getBoundingClientRect().height as num;
+            final width = element.getBoundingClientRect().width as num;
 
             // Apply the inner element's size to the container and outline.
             _container.style.width = "${width}px";

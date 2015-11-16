@@ -1177,6 +1177,21 @@ ul, ol {
 .mdl-typography--font-black {
   font-weight: 900 !important; }
 
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  word-wrap: normal;
+  -moz-font-feature-settings: 'liga';
+       font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; }
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4219,7 +4234,7 @@ input.mdl-button[type="submit"] {
 
 .mdl-card__supporting-text {
   color: rgba(0,0,0, 0.54);
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 18px;
   overflow: hidden;
   padding: 16px 16px;
@@ -6576,19 +6591,19 @@ input.mdl-button[type="submit"] {
     -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
             transform: translateX(0); }
-    .mdl-layout__drawer.is-visible ~ .mdl-layout__content {
+    .mdl-layout__drawer.is-visible ~ .mdl-layout__content.mdl-layout__content {
       overflow: hidden; }
   .mdl-layout__drawer > * {
     -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
             flex-shrink: 0; }
   .mdl-layout__drawer > .mdl-layout__title,
-  .mdl-layout__drawer > .mdl-layout-tile {
+  .mdl-layout__drawer > .mdl-layout-title {
     line-height: 64px;
     padding-left: 40px; }
     @media screen and (max-width: 1024px) {
       .mdl-layout__drawer > .mdl-layout__title,
-      .mdl-layout__drawer > .mdl-layout-tile {
+      .mdl-layout__drawer > .mdl-layout-title {
         line-height: 56px;
         padding-left: 16px; } }
   .mdl-layout__drawer .mdl-navigation {
@@ -6617,7 +6632,7 @@ input.mdl-button[type="submit"] {
         background-color: rgb(224,224,224); }
       .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
         background-color: rgb(0,0,0);
-        color: rgb(63,81,181); }
+        color: rgb(224,224,224); }
   @media screen and (min-width: 1025px) {
     .mdl-layout--fixed-drawer > .mdl-layout__drawer {
       -webkit-transform: translateX(0);
@@ -6758,6 +6773,11 @@ input.mdl-button[type="submit"] {
   overflow: hidden; }
   .mdl-layout__header--waterfall.is-casting-shadow {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  .mdl-layout__header--waterfall.mdl-layout__header--waterfall-hide-top {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
 
 .mdl-layout__header-row {
   display: -webkit-box;

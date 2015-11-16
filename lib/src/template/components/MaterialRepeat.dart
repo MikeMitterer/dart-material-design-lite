@@ -113,15 +113,17 @@ class MaterialRepeat extends MdlTemplateComponent {
     /// Adds {item} to DOM, inside of {element}
     Future add(final item,{ var scope: null }) async {
         Validate.notNull(item);
+        Validate.notNull(_mustacheTemplate);
 
         _items.add(item);
+        _logger.shout("Item added to internal list... (Type: ${item}) ID: ${item["device"]}");
 
         final dom.HtmlElement renderedChild = await _repeatRenderer.render(element,
-            _mustacheTemplate.renderString(
-                item
-            ),replaceNode: false);
+            _mustacheTemplate.renderString(item),replaceNode: false);
 
+        _logger.fine("Adding data to consumer");
         _addDataToDataConsumer(renderedChild,item);
+        _logger.fine("Data added to consumer");
 
         scope = scope != null ? scope : item;
         _eventCompiler.compileElement(scope,renderedChild);
@@ -248,7 +250,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         final dom.Element templateTag = _templateTag;
         _template = templateTag.innerHtml.trim().replaceAll(new RegExp(r"\s+")," ").replaceAll(new RegExp(r""),"");
 
-        //_logger.info("Template: |${_template}|");
+        _logger.fine("Template: |${_template}|");
         templateTag.remove();
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
@@ -314,7 +316,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         if(list is ObservableList) {
             //_logger.info("List ist Observable!");
             (list as ObservableList).onChange.listen((final ListChangedEvent event) {
-                _logger.fine("Changetype: ${event.changetype} ID: ${element.id}");
+                _logger.fine("Changetype: ${event.changetype} ");
 
                 switch(event.changetype) {
                     case ListChangeType.ADD:

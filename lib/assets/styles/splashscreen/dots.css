@@ -50,8 +50,8 @@ body .mdl-splashscreen {
     height: 40px;
     position: relative;
     text-align: center;
-    -webkit-animation: sk-rotate 2s infinite linear;
-    animation: sk-rotate 2s infinite linear; }
+    -webkit-animation: sk-rotate 2.0s infinite linear;
+    animation: sk-rotate 2.0s infinite linear; }
     body .mdl-splashscreen .spinner .dot1, body .mdl-splashscreen .spinner .dot2 {
       width: 60%;
       height: 60%;
@@ -60,8 +60,8 @@ body .mdl-splashscreen {
       top: 0;
       background-color: #333;
       border-radius: 100%;
-      -webkit-animation: sk-bounce 2s infinite ease-in-out;
-      animation: sk-bounce 2s infinite ease-in-out; }
+      -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+      animation: sk-bounce 2.0s infinite ease-in-out; }
     body .mdl-splashscreen .spinner .dot2 {
       top: auto;
       bottom: 0;

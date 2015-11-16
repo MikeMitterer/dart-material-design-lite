@@ -48,6 +48,7 @@ class _  MaterialDataTableConstant {
 class _  MaterialDataTableCssClasses {
       final String DATA_TABLE = 'mdl-data-table';
       final String SELECTABLE = 'mdl-data-table--selectable';
+      final String SELECT_ELEMENT = 'mdl-data-table__select';
       final String IS_SELECTED = 'is-selected';
       final String IS_UPGRADED = 'is-upgraded';
   }
@@ -104,10 +105,14 @@ void _selectRow(final checkbox, row, opt_rows) {
 void _createCheckbox(final row, opt_rows) {
 
     final label = document.createElement('label');
-    label.classes.add('mdl-checkbox');
-    label.classes.add('mdl-js-checkbox');
-    label.classes.add('mdl-js-ripple-effect');
-    label.classes.add('mdl-data-table__select');
+
+    final labelClasses = [
+      'mdl-checkbox',
+      'mdl-js-checkbox',
+      'mdl-js-ripple-effect',
+      _cssClasses.SELECT_ELEMENT
+    ];
+    label.className = labelClasses.join(' ');
 
     final checkbox = document.createElement('input');
     checkbox.type = 'checkbox';

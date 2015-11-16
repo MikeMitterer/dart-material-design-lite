@@ -209,7 +209,8 @@ class MaterialLayout extends MdlComponent {
                     header.addEventListener('transitionend', _headerTransitionEndHandler);
 
                     // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-                    header.onClick.listen( _headerClickHandler);
+                    eventStreams(
+                        header.onClick.listen( _headerClickHandler));
 
                 }
                 else if (header.classes.contains(
@@ -237,7 +238,8 @@ class MaterialLayout extends MdlComponent {
                         // the header.
 
                         // -- .onScroll.listen(<Event>);
-                        content.onScroll.listen( _contentScrollHandler );
+                        eventStreams(
+                            content.onScroll.listen( _contentScrollHandler ));
                         _contentScrollHandler('');
                     }
             }
@@ -266,7 +268,8 @@ class MaterialLayout extends MdlComponent {
                     drawerButton.classes.add(_cssClasses.ON_SMALL_SCREEN);
                 }
 
-                drawerButton.onClick.listen( _drawerToggleHandler );
+                eventStreams.add(
+                    drawerButton.onClick.listen( _drawerToggleHandler ));
 
                 // Add a class if the layout has a drawer, for altering the left padding.
                 // Adds the HAS_DRAWER_CLASS to the elements since _header may or may
@@ -284,22 +287,24 @@ class MaterialLayout extends MdlComponent {
 
                 //_logger.info("Check: .${_cssClasses.NAVI_LINK}");
                 element.querySelectorAll(".${_cssClasses.NAVI_LINK}").forEach((final dom.Element element) {
-                    //_logger.info("click $element");
-                    element.onClick.listen( (_) => drawer.classes.remove(_cssClasses.IS_DRAWER_OPEN) );
+                    eventStreams.add(
+                        element.onClick.listen( _drawerToggleHandler));
                 });
 
                 final dom.DivElement obfuscator = new dom.DivElement();
                 obfuscator.classes.add(_cssClasses.OBFUSCATOR);
                 element.append(obfuscator);
 
-                obfuscator.onClick.listen( _drawerToggleHandler );
+                eventStreams.add(
+                    obfuscator.onClick.listen( _drawerToggleHandler ));
                 _obfuscator = obfuscator;
             }
 
             // Keep an eye on screen size, and add/remove auxiliary class for styling
             // of small screens.
             _screenSizeMediaQuery = dom.window.matchMedia(_constant.MAX_WIDTH);
-            _screenSizeMediaQuery.addListener( (_) => _screenSizeHandler());
+            eventStreams.add(
+                _screenSizeMediaQuery.addListener( (_) => _screenSizeHandler()));
             _screenSizeHandler();
 
             // Initialize tabs, if any.
@@ -320,9 +325,10 @@ class MaterialLayout extends MdlComponent {
                 leftButtonIcon.text = _constant.CHEVRON_LEFT;
                 leftButton.append(leftButtonIcon);
 
-                leftButton.onClick.listen( (final dom.MouseEvent event) {
+                eventStreams.add(
+                    leftButton.onClick.listen( (final dom.MouseEvent event) {
                     tabBar.scrollLeft -= _constant.TAB_SCROLL_PIXELS;
-                });
+                }));
 
                 final dom.DivElement rightButton = new dom.DivElement();
                 rightButton.classes.add(_cssClasses.TAB_BAR_BUTTON);
@@ -333,9 +339,10 @@ class MaterialLayout extends MdlComponent {
                 leftButtonIcon.text = _constant.CHEVRON_RIGHT;
                 rightButton.append(rightButtonIcon);
 
-                rightButton.onClick.listen( (final dom.MouseEvent event) {
+                eventStreams.add(
+                    rightButton.onClick.listen( (final dom.MouseEvent event) {
                     tabBar.scrollLeft += _constant.TAB_SCROLL_PIXELS;
-                });
+                }));
 
                 tabContainer.append(leftButton);
                 tabContainer.append(tabBar);
@@ -357,7 +364,9 @@ class MaterialLayout extends MdlComponent {
                         rightButton.classes.remove(_cssClasses.IS_ACTIVE);
                     }
                 };
-                tabBar.onScroll.listen( (final dom.Event event) => tabScrollHandler());
+                eventStreams.add(
+                    tabBar.onScroll.listen( (final dom.Event event) => tabScrollHandler()));
+
                 tabScrollHandler();
 
                 if (tabBar.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
@@ -498,19 +507,21 @@ class MaterialLayoutTab {
                 tab.append(rippleContainer);
             }
 
-            tab.onClick.listen( (final dom.MouseEvent event) {
+            eventStreams.add(
+                tab.onClick.listen( (final dom.MouseEvent event) {
                 if(tab.attributes["href"].startsWith("#")) {
                     event.preventDefault();
                     event.stopPropagation();
 
                     _selectTab();
                 }
-            });
+            }));
 
             //tab.show = _selectTab();
 
             // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-            tab.onClick.listen( (final dom.MouseEvent event) {
+            eventStreams.add(
+                tab.onClick.listen( (final dom.MouseEvent event) {
                 event.preventDefault();
 
                 final String href = tab.href.split('#')[1];
@@ -522,7 +533,7 @@ class MaterialLayoutTab {
 
                 tab.classes.add(_cssClasses.IS_ACTIVE);
                 panel.classes.add(_cssClasses.IS_ACTIVE);
-            });
+            }));
 
         }
     }

@@ -193,7 +193,8 @@ class MaterialRadio extends MdlComponent {
                 rippleContainer.classes.add(_cssClasses.RIPPLE_EFFECT);
                 rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
 
-                rippleContainer.onMouseUp.listen( _onMouseUp );
+                eventStreams.add(
+                    rippleContainer.onMouseUp.listen( _onMouseUp ));
 
                 final dom.SpanElement ripple = new dom.SpanElement();
                 ripple.classes.add(_cssClasses.RIPPLE);
@@ -202,13 +203,17 @@ class MaterialRadio extends MdlComponent {
                 element.append(rippleContainer);
             }
 
-            btnElement.onChange.listen( _onChange );
+            eventStreams.add(
+                btnElement.onChange.listen( _onChange ));
 
-            btnElement.onFocus.listen( _onFocus );
+            eventStreams.add(
+                btnElement.onFocus.listen( _onFocus ));
 
-            btnElement.onBlur.listen( _onBlur );
+            eventStreams.add(
+                btnElement.onBlur.listen( _onBlur ));
 
-            element.onMouseUp.listen( _onMouseUp );
+            eventStreams.add(
+                element.onMouseUp.listen( _onMouseUp ));
 
             _updateClasses();
             element.classes.add(_cssClasses.IS_UPGRADED);

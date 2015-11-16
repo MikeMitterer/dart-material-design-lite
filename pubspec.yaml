@@ -21,7 +21,7 @@ dependencies:
 
   route_hierarchical: ^0.6.0
 
-  #mustache: any
+  mustache: ^0.2.0
     #git: git://github.com/xxgreg/mustache
 
   dnd: ^0.3.0

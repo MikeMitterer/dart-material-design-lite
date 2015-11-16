@@ -54,7 +54,7 @@ class DomRenderer {
         Validate.notNull(parent);
         Validate.notBlank(content);
 
-        //_logger.info("Content: $content");
+        _logger.fine("Start with rendering process...");
 
         final Completer completer = new Completer();
 

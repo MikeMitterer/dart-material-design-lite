@@ -202,6 +202,11 @@ void init() {
       _btnElement = element.querySelector('.' +
           _cssClasses.RADIO_BTN);
 
+      _boundChangeHandler = _onChange;
+      _boundFocusHandler = _onChange;
+      _boundBlurHandler = _onBlur;
+      _boundMouseUpHandler = _onMouseup;
+
       final outerCircle = new html.SpanElement();
       outerCircle.classes.add(_cssClasses.RADIO_OUTER_CIRCLE);
 
@@ -224,7 +229,7 @@ void init() {
         rippleContainer.classes.add(_cssClasses.RIPPLE_CENTER);
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-        rippleContainer.onMouseUp.listen( _onMouseup);
+        rippleContainer.onMouseUp.listen( _boundMouseUpHandler);
 
         final ripple = new html.SpanElement();
         ripple.classes.add(_cssClasses.RIPPLE);
@@ -234,21 +239,46 @@ void init() {
       }
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
-      _btnElement.onChange.listen( _onChange);
+      _btnElement.onChange.listen( _boundChangeHandler);
 
 	// .addEventListener('focus', -- .onFocus.listen(<Event>);
-      _btnElement.onFocus.listen( _onFocus);
+      _btnElement.onFocus.listen( _boundFocusHandler);
 
 	// .addEventListener('blur', -- .onBlur.listen(<Event>);
-      _btnElement.onBlur.listen( _onBlur);
+      _btnElement.onBlur.listen( _boundBlurHandler);
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-      element.onMouseUp.listen( _onMouseup);
+      element.onMouseUp.listen( _boundMouseUpHandler);
 
       _updateClasses();
       element.classes.add(_cssClasses.IS_UPGRADED);
     }
   }
+
+/// Downgrade the element.
+/// 
+///   MaterialRadio.prototype.mdlDowngrade_ = /*function*/ () {
+void _mdlDowngrade() {
+
+    final rippleContainer = element.querySelector('.' +
+      _cssClasses.RIPPLE_CONTAINER);
+    _btnElement.removeEventListener('change', _boundChangeHandler);
+    _btnElement.removeEventListener('focus', _boundFocusHandler);
+    _btnElement.removeEventListener('blur', _boundBlurHandler);
+    element.removeEventListener('mouseup', _boundMouseUpHandler);
+    if (rippleContainer) {
+      rippleContainer.removeEventListener('mouseup', _boundMouseUpHandler);
+      element.removeChild(rippleContainer);
+    }
+  }
+
+/// Public alias for the downgrade method.
+/// 
+/// public
+  MaterialRadio.prototype.mdlDowngrade = MaterialRadio.prototype.mdlDowngrade_;
+
+  MaterialRadio.prototype['mdlDowngrade'] =
+      MaterialRadio.prototype.mdlDowngrade;
 
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.

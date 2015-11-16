@@ -1,22 +1,28 @@
 ## Introduction
+
 The Material Design Lite (MDL) **layout** component is a comprehensive approach to page layout that uses MDL development tenets, allows for efficient use of MDL components, and automatically adapts to different browsers, screen sizes, and devices.
 
 Appropriate and accessible layout is a critical feature of all user interfaces, regardless of a site's content or function. Page design and presentation is therefore an important factor in the overall user experience. See the layout component's [Material Design specifications page](http://www.google.com/design/spec/layout/principles.html) for details.
 
 Use of MDL layout principles simplifies the creation of scalable pages by providing reusable components and encourages consistency across environments by establishing recognizable visual elements, adhering to logical structural grids, and maintaining appropriate spacing across multiple platforms and screen sizes. MDL layout is extremely powerful and dynamic, allowing for great consistency in outward appearance and behavior while maintaining development flexibility and ease of use.
 
-## Basic use
-To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the `<head>` section of the page, as described in the MDL Introduction.
-
 ### To include a basic MDL **layout** component:
 
-&nbsp;1. Code a `<div>` element. This is the "outer" div that holds the entire layout. Add MDL classes as indicated, separated by spaces, to the div using the `class` attribute.
+&nbsp;1. Code a `<div>` element. This is the "outer" div that holds the entire layout.
+```html
+<div>
+</div>
+```
+
+>**Note:** The layout cannot be applied directly on the `<body>` element. Always create a nested `<div>` element.
+
+&nbsp;2. Add MDL classes as indicated, separated by spaces, to the div using the `class` attribute.
 ```html
 <div class="mdl-layout mdl-js-layout">
 </div>
 ```
 
-&nbsp;2. Inside the div, code a `<header>` element. This holds the header row with navigation links that is displayed on large screens, and the menu icon that opens the navigation drawer for smaller screens. Add the MDL class to the header using the `class` attribute.
+&nbsp;3. Inside the div, code a `<header>` element. This holds the header row with navigation links that is displayed on large screens, and the menu icon that opens the navigation drawer for smaller screens. Add the MDL class to the header using the `class` attribute.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -24,7 +30,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 </div>
 ```
 
-&nbsp;3. Inside the header, add a `<div>` to produce the menu icon, and include the MDL class as indicated. The div has no content of its own.
+&nbsp;4. Inside the header, add a `<div>` to produce the menu icon, and include the MDL class as indicated. The div has no content of its own.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -33,7 +39,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 </div>
 ```
 
-&nbsp;4. Still inside the header, add another `<div>` to hold the header row's content, and include the MDL class as indicated.
+&nbsp;5. Still inside the header, add another `<div>` to hold the header row's content, and include the MDL class as indicated.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -44,7 +50,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 </div>
 ```
 
-&nbsp;5. Inside the header row div, add a span containing the layout title, and include the MDL class as indicated.
+&nbsp;6. Inside the header row div, add a span containing the layout title, and include the MDL class as indicated.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -56,7 +62,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 </div>
 ```
 
-&nbsp;6. Following the span, add a `<div>` to align the header's navigation links to the right, and include the MDL class as indicated.
+&nbsp;7. Following the span, add a `<div>` to align the header's navigation links to the right, and include the MDL class as indicated.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -69,7 +75,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 </div>
 ```
 
-&nbsp;7. Following the spacer div, add a `<nav>` element to contain the header's navigation links, and include the MDL class as indicated. Inside the nav, add one anchor `<a>` element for each header link, and include the MDL class as indicated. This completes the layout's header.
+&nbsp;8. Following the spacer div, add a `<nav>` element to contain the header's navigation links, and include the MDL class as indicated. Inside the nav, add one anchor `<a>` element for each header link, and include the MDL class as indicated. This completes the layout's header.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -87,7 +93,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 </div>
 ```
 
-&nbsp;8. Following the header, add a `<div>` element to hold the slide-out drawer's content, and add the MDL class as indicated. The drawer appears automatically on smaller screens, and may be opened with the menu icon on any screen size.
+&nbsp;9. Following the header, add a `<div>` element to hold the slide-out drawer's content, and add the MDL class as indicated. The drawer appears automatically on smaller screens, and may be opened with the menu icon on any screen size.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -107,7 +113,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 </div>
 ```
 
-&nbsp;9. Inside the drawer div, add a span containing the layout title (this should match the title in step 5), and include the MDL class as indicated.
+&nbsp;10. Inside the drawer div, add a span containing the layout title (this should match the title in step 5), and include the MDL class as indicated.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -128,7 +134,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 </div>
 ```
 
-&nbsp;10. Following the span, add a `<nav>` element to contain the drawer's navigation links, and one anchor `<a>` element for each drawer link (these should match the links in step 7), and include the MDL classes as indicated. This completes the layout's drawer.
+&nbsp;11. Following the span, add a `<nav>` element to contain the drawer's navigation links, and one anchor `<a>` element for each drawer link (these should match the links in step 7), and include the MDL classes as indicated. This completes the layout's drawer.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -154,7 +160,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 </div>
 ```
 
-&nbsp;11. Finally, following the drawer div, add a `<main>` element to hold the layout's primary content, and include the MDL class as indicated. Inside that element, add your desired content.
+&nbsp;12. Finally, following the drawer div, add a `<main>` element to hold the layout's primary content, and include the MDL class as indicated. Inside that element, add your desired content.
 ```html
 <div class="mdl-layout mdl-js-layout">
   <header class="mdl-layout__header">
@@ -188,6 +194,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 The layout component is ready for use.
 
 #### Examples
+
 A layout with a fixed header for larger screens and a collapsible drawer for smaller screens.
 ```html
 <div class="mdl-layout mdl-js-layout">
@@ -298,6 +305,7 @@ A layout with a fixed drawer but no header.
 ```
 
 ## Configuration options
+
 The MDL CSS classes apply various predefined visual and behavioral enhancements to the layout. The table below lists the available classes and their effects.
 
 | MDL class | Effect | Remarks |
@@ -321,6 +329,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-layout--large-screen-only` | Hides an element on smaller screens | Optional; goes on any descendant of `mdl-layout` |
 | `mdl-layout--small-screen-only` | Hides an element on larger screens | Optional; goes on any descendant of `mdl-layout` |
 | `mdl-layout__header--waterfall` | Allows a "waterfall" effect with multiple header lines | Optional; goes on header element |
+| `mdl-layout__header--waterfall-hide-top` | Hides the top rather than the bottom rows on a waterfall header | Optional; goes on header element. Requires `mdl-layout__header--waterfall` |
 | `mdl-layout__header--transparent` | Makes header transparent (draws on top of layout background) | Optional; goes on header element |
 | `mdl-layout__header--seamed` | Uses a header without a shadow | Optional; goes on header element |
 | `mdl-layout__tab-bar` | Defines container as an MDL tab bar | Required on div element inside header (tabbed layout) |

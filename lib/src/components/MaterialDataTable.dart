@@ -25,7 +25,7 @@ class _MaterialDataTableCssClasses {
 
     final String DATA_TABLE = 'mdl-data-table';
     final String SELECTABLE = 'mdl-data-table--selectable';
-    final String SELECT =     'mdl-data-table__select';
+    final String SELECT_ELEMENT = 'mdl-data-table__select';
 
     final String IS_SELECTED = 'is-selected';
     final String IS_UPGRADED = 'is-upgraded';
@@ -116,7 +116,7 @@ class MaterialDataTable extends MdlComponent {
         label.classes.add(_cssClasses.CHECKBOX);
         label.classes.add(_cssClasses.JS_CHECKBOX);
         label.classes.add(_cssClasses.JS_RIPPLE_EFFECT);
-        label.classes.add(_cssClasses.SELECT);
+        label.classes.add(_cssClasses.SELECT_ELEMENT);
 
         final dom.CheckboxInputElement checkbox = new dom.CheckboxInputElement();
         checkbox.classes.add('mdl-checkbox__input');

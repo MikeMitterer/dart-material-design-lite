@@ -22,11 +22,11 @@ main(args) => grind(args);
 @Task()
 test() => new TestRunner().testAsync();
 
-//@DefaultTask()
+@DefaultTask()
 @Task()
-@Depends(test)
+//@Depends(test)
+@Depends(genCss)
 build() {
-  Pub.build();
 }
 
 @Task()

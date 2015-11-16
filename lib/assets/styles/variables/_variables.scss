@@ -126,7 +126,7 @@ $layout-drawer-border-color: ($palette-grey-300) !default;
 $layout-text-color: ($palette-grey-800) !default;
 $layout-drawer-navigation-color: #757575 !default;
 $layout-drawer-navigation-link-active-background: ($color-light-contrast) !default;
-$layout-drawer-navigation-link-active-color: ($color-primary) !default;
+$layout-drawer-navigation-link-active-color: ($palette-grey-300) !default;
 
 // Header
 $layout-header-bg-color: ($color-primary) !default;
@@ -386,7 +386,7 @@ $card-title-transform-origin-y: 56px !default;
 $card-title-text-transform-origin-x: 149px !default;
 $card-title-text-transform-origin-y: 48px !default;
 
-$card-supporting-text-font-size: 13px !default;
+$card-supporting-text-font-size: 1rem !default;
 $card-supporting-text-line-height: 18px !default;
 
 $card-actions-font-size: 16px !default;
