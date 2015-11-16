@@ -468,7 +468,7 @@ class MaterialMenu extends MdlComponent {
     /// Calculates the initial clip (for opening the menu) or final clip (for closing
     /// it), and applies it. This allows us to animate from or to the correct point,
     /// that is, the point it's aligned to in the "for" element.
-    void _applyClip(final double height,final double width) {
+    void _applyClip(final num height,final num width) {
 
         if (element.classes.contains(_cssClasses.UNALIGNED)) {
             // Do not clip.

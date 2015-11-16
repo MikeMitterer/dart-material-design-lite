@@ -120,6 +120,9 @@ class MaterialLayout extends MdlComponent {
 
     dom.MediaQueryList _screenSizeMediaQuery = null;
 
+    /// All the Tabs - necessary for downgrading
+    final List<MaterialLayoutTab> _tabs = new List<MaterialLayoutTab>();
+
     MaterialLayout.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         _init();
@@ -154,6 +157,13 @@ class MaterialLayout extends MdlComponent {
     void show() {
 
     }
+
+    @override
+    void downgrade() {
+        super.downgrade();
+        _tabs.forEach((final MaterialLayoutTab tab) => tab._downgrade());
+    }
+
     //- private -----------------------------------------------------------------------------------
 
 
@@ -209,7 +219,7 @@ class MaterialLayout extends MdlComponent {
                     header.addEventListener('transitionend', _headerTransitionEndHandler);
 
                     // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-                    eventStreams(
+                    eventStreams.add(
                         header.onClick.listen( _headerClickHandler));
 
                 }
@@ -238,7 +248,7 @@ class MaterialLayout extends MdlComponent {
                         // the header.
 
                         // -- .onScroll.listen(<Event>);
-                        eventStreams(
+                        eventStreams.add(
                             content.onScroll.listen( _contentScrollHandler ));
                         _contentScrollHandler('');
                     }
@@ -379,8 +389,9 @@ class MaterialLayout extends MdlComponent {
 
                 // Create new tabs for each tab element
                 for (int i = 0; i < tabs.length; i++) {
-                    new MaterialLayoutTab(tabs[i],
-                        tabs as List<dom.AnchorElement>, panels as List<dom.HtmlElement>, this);
+                    _tabs.add(
+                        new MaterialLayoutTab(tabs[i],
+                        tabs as List<dom.AnchorElement>, panels as List<dom.HtmlElement>, this));
                 }
             }
 
@@ -473,6 +484,11 @@ class MaterialLayoutTab {
 
     static const _MaterialLayoutCssClasses _cssClasses = const _MaterialLayoutCssClasses();
 
+    /// All the registered Events - helpful for automatically downgrading the element
+    /// Sample:
+    ///     eventStreams.add(input.onFocus.listen( _onFocus));
+    final List<StreamSubscription> eventStreams = new List<StreamSubscription>();
+
     /**
      * [tab] The HTML element for the tab.
      * [tabs] List with HTML elements for all tabs.
@@ -536,6 +552,16 @@ class MaterialLayoutTab {
             }));
 
         }
+    }
+
+    //- private -----------------------------------------------------------------------------------
+
+    /// Cancels all the registered streams
+    void _downgrade() {
+        eventStreams.forEach((final StreamSubscription stream) {
+            stream?.cancel();
+        });
+        eventStreams.clear();
     }
 }
 
