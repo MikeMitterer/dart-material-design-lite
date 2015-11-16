@@ -298,7 +298,7 @@ class MaterialLayout extends MdlComponent {
                 //_logger.info("Check: .${_cssClasses.NAVI_LINK}");
                 element.querySelectorAll(".${_cssClasses.NAVI_LINK}").forEach((final dom.Element element) {
                     eventStreams.add(
-                        element.onClick.listen( _drawerToggleHandler));
+                        element.onClick.listen( _drawerRemove));
                 });
 
                 final dom.DivElement obfuscator = new dom.DivElement();
@@ -439,6 +439,12 @@ class MaterialLayout extends MdlComponent {
     void _drawerToggleHandler(final dom.MouseEvent _) {
         drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
         obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
+    }
+
+    /// Explicit remove drawer
+    void _drawerRemove(final dom.MouseEvent _) {
+        drawer.classes.remove(_cssClasses.IS_DRAWER_OPEN);
+        obfuscator.classes.remove(_cssClasses.IS_DRAWER_OPEN);
     }
 
     /// Handles (un)setting the `is-animating` class
