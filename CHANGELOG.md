@@ -1,6 +1,18 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.9.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.8.1...v1.9.0) - 2015-11-16
+
+### Feature
+* Better font-integration via CSS [1bf8a47](https://github.com/mikemitterer/dart-material-design-lite/commit/1bf8a4769855dbcc450e9f0142ba2ed0768216e4)
+
+### Bugs
+* Solevs the double/int problem in ObservableProperty [b91b6ed](https://github.com/mikemitterer/dart-material-design-lite/commit/b91b6eddb6fee486beb56b825ad4014538db64e4)
+* Solevs the double/int problem in ObservableProperty [5f70ce8](https://github.com/mikemitterer/dart-material-design-lite/commit/5f70ce8ac3214cdd477f2ad92092595f2b1c1de1)
+
+### Docs
+* SPA-Template shows entered username + password [79afaf6](https://github.com/mikemitterer/dart-material-design-lite/commit/79afaf6d2042bf910cddc086dee93be46e60b896)
+
 ## [v1.8.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.7.1...v1.8.0) - 2015-11-02
 
 ### Feature
