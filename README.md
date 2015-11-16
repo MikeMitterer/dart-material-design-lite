@@ -26,6 +26,9 @@ Visit the [website](http://www.material-design-lite.pub) for a "Quick start" or 
 ## Examples
 Check out the [samples](http://styleguide.material-design-lite.pub/#/samples)
 
+### IMPORTANT!!!
+All samples-sources are now on [GH dart-material-design-lite-site](https://github.com/MikeMitterer/dart-material-design-lite-site)
+
 ## Features and bugs
 Please file feature requests and bugs at the [issue tracker](https://github.com/MikeMitterer/dart-material-design-lite/issues).
 
