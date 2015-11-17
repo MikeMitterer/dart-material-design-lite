@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  * 
@@ -20,17 +20,12 @@
 library mdlform;
 
 import 'dart:html' as dom;
-import 'dart:async';
-import 'dart:collection';
 
 import 'package:logging/logging.dart';
-import 'package:validate/validate.dart';
 import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
-import 'package:mdl/mdlapplication.dart';
-import 'package:mdl/mdltemplate.dart';
 
 part "src/form/components/MaterialFormComponent.dart";
 

@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  * 

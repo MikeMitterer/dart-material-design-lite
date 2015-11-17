@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -20,10 +20,7 @@
 library mdldnd;
 
 import 'dart:html' as dom;
-import 'dart:math' as Math;
-import 'dart:async';
 import 'package:logging/logging.dart';
-import 'package:browser_detect/browser_detect.dart';
 import 'package:di/di.dart' as di;
 import 'package:validate/validate.dart';
 

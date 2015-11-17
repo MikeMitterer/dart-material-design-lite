@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -313,8 +313,7 @@ class MaterialLayout extends MdlComponent {
             // Keep an eye on screen size, and add/remove auxiliary class for styling
             // of small screens.
             _screenSizeMediaQuery = dom.window.matchMedia(_constant.MAX_WIDTH);
-            eventStreams.add(
-                _screenSizeMediaQuery.addListener( (_) => _screenSizeHandler()));
+            _screenSizeMediaQuery.addListener( (_) => _screenSizeHandler());
             _screenSizeHandler();
 
             // Initialize tabs, if any.
