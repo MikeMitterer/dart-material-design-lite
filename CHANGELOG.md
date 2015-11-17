@@ -1,6 +1,11 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.9.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.9.1...v1.9.2) - 2015-11-17
+
+### Docs
+* Removed all copyrights from documentation. Fixes #27 [d615469](https://github.com/mikemitterer/dart-material-design-lite/commit/d6154693ad637023cd2734e2f4d9f83d84ef335b)
+
 ## [v1.9.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.8.1...v1.9.0) - 2015-11-16
 
 ### Feature
