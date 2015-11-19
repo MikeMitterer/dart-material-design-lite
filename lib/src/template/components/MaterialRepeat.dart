@@ -116,7 +116,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         Validate.notNull(_mustacheTemplate);
 
         _items.add(item);
-        _logger.shout("Item added to internal list... (Type: ${item}) ID: ${item["device"]}");
+        //_logger.shout("Item added to internal list... (Type: ${item}) ID: ${item["device"]}");
 
         final dom.HtmlElement renderedChild = await _repeatRenderer.render(element,
             _mustacheTemplate.renderString(item),replaceNode: false);
