@@ -1,6 +1,12 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [Unreleased](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.9.2...HEAD)
+
+### Feature
+* Properties-Page added (mdl-properties) + pre-def-layouts [90b524f](https://github.com/mikemitterer/dart-material-design-lite/commit/90b524fd12916a190c21c6375ab02117d24e5587)
+* Started with MDLAnimation [d40a31b](https://github.com/mikemitterer/dart-material-design-lite/commit/d40a31b6ba007980808b21d6f0aed47dcff8030a)
+
 ## [v1.9.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.9.1...v1.9.2) - 2015-11-17
 
 ### Docs
@@ -139,22 +145,122 @@ Material Design Lite for Dart
 ### Refactor
 * Removed all unnecessary files form styles [520f938](https://github.com/mikemitterer/dart-material-design-lite/commit/520f938d9286b8c527a268a3dadc9fb783127207)
 
-## [v1.2.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.1.2...v1.2.0) - 2015-07-23
+## [v1.2.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.10.0...v1.2.0) - 2015-07-23
 
 ### Feature
+* Properties-Page added (mdl-properties) + pre-def-layouts [90b524f](https://github.com/mikemitterer/dart-material-design-lite/commit/90b524fd12916a190c21c6375ab02117d24e5587)
+* Started with MDLAnimation [d40a31b](https://github.com/mikemitterer/dart-material-design-lite/commit/d40a31b6ba007980808b21d6f0aed47dcff8030a)
+* Better font-integration via CSS [1bf8a47](https://github.com/mikemitterer/dart-material-design-lite/commit/1bf8a4769855dbcc450e9f0142ba2ed0768216e4)
+* MDLCleanupTransformer reduces package size by around 50% [eabab78](https://github.com/mikemitterer/dart-material-design-lite/commit/eabab78115e620b0e41f316539bbe71cdec9b206)
+* Merged latest master [f5af03f](https://github.com/mikemitterer/dart-material-design-lite/commit/f5af03fa228b8e651afc06266d9e16da9267d837)
+* SplashScreen + SPA-Template works [1cc20ac](https://github.com/mikemitterer/dart-material-design-lite/commit/1cc20ac1bd9495012b53a0cba8818fc4f3d57694)
+* MaterialFormComponent with validation check [185edc9](https://github.com/mikemitterer/dart-material-design-lite/commit/185edc9c0bd1dae573fa6a1035c5f00a56a79228)
+* Dynamic DivDataTable works [2e5dff7](https://github.com/mikemitterer/dart-material-design-lite/commit/2e5dff7ed1a4fe4bdcb5380168dff8c99958b573)
+* Merged latest MDL/JS master [288dc40](https://github.com/mikemitterer/dart-material-design-lite/commit/288dc40f292b996f480b46aebcb22605f9126d3e)
+* Merged latest Dart/JS master [7cf8ea4](https://github.com/mikemitterer/dart-material-design-lite/commit/7cf8ea4b9a0d8757cea336e8afe096ffb3bab42b)
+* Autofocus for Dialogs, fixes #20 [b1887f7](https://github.com/mikemitterer/dart-material-design-lite/commit/b1887f7378e6202becdd7ec814dea153fe58bf0f)
+* ObservableProperty can switch between Timer- and 'set value' check [4fd2f45](https://github.com/mikemitterer/dart-material-design-lite/commit/4fd2f45d4eb4b434e065934a2aada74ab7b8a58c)
+* New WebSite launched for MDL/Dart [79e9ff0](https://github.com/mikemitterer/dart-material-design-lite/commit/79e9ff0af67986d13ab86b014edbca6616ccafec)
+* MaterialObserver supports templates + objects [5bd4c35](https://github.com/mikemitterer/dart-material-design-lite/commit/5bd4c35e0c226e2c9885d7fe5ef99cd11f5a4c71)
+* Made ObservableProperty more data-type tolerant [20d2b06](https://github.com/mikemitterer/dart-material-design-lite/commit/20d2b067c154621a350e697c17dd5be72c5b5d66)
+* ObservableProperty got a name field - helps to debug [cb4aa53](https://github.com/mikemitterer/dart-material-design-lite/commit/cb4aa533f00880a1464990337373692d2c5787c4)
+* Accordion supports more complex headers [f00db4c](https://github.com/mikemitterer/dart-material-design-lite/commit/f00db4c6edd327f4e3d0653b39f9b710d39932bb)
+* Formatter (number, uppercase + lowercase) added [78ba4fe](https://github.com/mikemitterer/dart-material-design-lite/commit/78ba4fe4668f92e6f61b725732b6f4417b5de543)
+* Merged latest master into Styleguide [b28ea03](https://github.com/mikemitterer/dart-material-design-lite/commit/b28ea03fc5f7363e257ee6a6da0c5a96c512847c)
+* Merged latest master from MDL/JS [b26c7da](https://github.com/mikemitterer/dart-material-design-lite/commit/b26c7da9d97248cfce1f68751b7c753c8dcb4e8f)
+
+### Fixes
+* #24 - Dialog loses focus [839869d](https://github.com/mikemitterer/dart-material-design-lite/commit/839869d5b59e8407c69544d5fcb11324d99c81b0)
+* #23 [0b2508f](https://github.com/mikemitterer/dart-material-design-lite/commit/0b2508fb6ba37a2291fba4634a72fd3de8b86b0d)
+* Accordion showed ripple when user clicks on content, solves #12 [307c2c5](https://github.com/mikemitterer/dart-material-design-lite/commit/307c2c59e9a18cf2a053e7e1d8a274b37a4cb4b9)
+
+### Bugs
+* Navigation-Link in Drawer toggled obfuscator [defc6a9](https://github.com/mikemitterer/dart-material-design-lite/commit/defc6a9c3a3a8239e8eaf2aad0d6f3a369df9760)
+* Solevs the double/int problem in ObservableProperty [b91b6ed](https://github.com/mikemitterer/dart-material-design-lite/commit/b91b6eddb6fee486beb56b825ad4014538db64e4)
+* Solevs the double/int problem in ObservableProperty [5f70ce8](https://github.com/mikemitterer/dart-material-design-lite/commit/5f70ce8ac3214cdd477f2ad92092595f2b1c1de1)
+* Typo in README [2f8dcab](https://github.com/mikemitterer/dart-material-design-lite/commit/2f8dcabfa20500fef5c0ad9b5f5a9c9c4593b0b0)
+* Accidentally deleted Listener in Confirm-Dialog-Sample [f5cce5d](https://github.com/mikemitterer/dart-material-design-lite/commit/f5cce5df17b0a2e950a63b2baa5797283208c76b)
+* z-index for DND causes hidden header [b594146](https://github.com/mikemitterer/dart-material-design-lite/commit/b5941468a78e8dbfe3a00e31d1b607cec367f91b)
+* Registration for components in 'body' failed (_isInDom check problem) [5edd524](https://github.com/mikemitterer/dart-material-design-lite/commit/5edd524640f374576540de7b893c1c423ddee714)
+* Textfield show disabled value in eabled color [61a13bc](https://github.com/mikemitterer/dart-material-design-lite/commit/61a13bc626572757daad9156df0fcbaa57305417)
+* Missing annotation for UppercaseFormatter + LowerCaseFormatter [e084a81](https://github.com/mikemitterer/dart-material-design-lite/commit/e084a8186f883557302a37258729412a6e46a5a7)
+* checkDirty for MaterialTextfiled produced wrong result [7935fab](https://github.com/mikemitterer/dart-material-design-lite/commit/7935fab13e638c6e2b4b1fd4aa3360e3e4965249)
+
+### Docs
+* Removed all copyrights from documentation. Fixes #27 [d615469](https://github.com/mikemitterer/dart-material-design-lite/commit/d6154693ad637023cd2734e2f4d9f83d84ef335b)
+* SPA-Template shows entered username + password [79afaf6](https://github.com/mikemitterer/dart-material-design-lite/commit/79afaf6d2042bf910cddc086dee93be46e60b896)
+* Readme for 'site' [ad2aedb](https://github.com/mikemitterer/dart-material-design-lite/commit/ad2aedb0738f777ad1eb6145d72238d5e974d6ca)
+* Readme [dd05969](https://github.com/mikemitterer/dart-material-design-lite/commit/dd059691ce9d0940b323c72653830a9cdc181ba7)
+* Readme [0d5b3fe](https://github.com/mikemitterer/dart-material-design-lite/commit/0d5b3fe138d81e89bf7c2c96f68be32d6c8521a6)
+* New in README [0332aec](https://github.com/mikemitterer/dart-material-design-lite/commit/0332aec096e9ac9b5a41464da801a61c4b8f6bc8)
+* New samples for MaterialObserve and Formatter in styleguide [8ccffca](https://github.com/mikemitterer/dart-material-design-lite/commit/8ccffca22bff8eab7fe2041f30e59073c6e3333f)
+* Better Exception-Message for mdl-repeat if using wrong list-type [44a98a1](https://github.com/mikemitterer/dart-material-design-lite/commit/44a98a1669c931f3f026d4cc480b3a1ee6faa9ff)
+
+### Refactor
+* Renamed example to samples (Dart 1.12) [34e0563](https://github.com/mikemitterer/dart-material-design-lite/commit/34e0563781515c69fecda6576ea7c2ee8b646c55)
+* Removed all unnecessary files form styles [520f938](https://github.com/mikemitterer/dart-material-design-lite/commit/520f938d9286b8c527a268a3dadc9fb783127207)
+
+## [v1.10.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.1.2...v1.10.0) - 2015-11-20
+
+### Feature
+* Properties-Page added (mdl-properties) + pre-def-layouts [90b524f](https://github.com/mikemitterer/dart-material-design-lite/commit/90b524fd12916a190c21c6375ab02117d24e5587)
+* Started with MDLAnimation [d40a31b](https://github.com/mikemitterer/dart-material-design-lite/commit/d40a31b6ba007980808b21d6f0aed47dcff8030a)
+* Better font-integration via CSS [1bf8a47](https://github.com/mikemitterer/dart-material-design-lite/commit/1bf8a4769855dbcc450e9f0142ba2ed0768216e4)
+* MDLCleanupTransformer reduces package size by around 50% [eabab78](https://github.com/mikemitterer/dart-material-design-lite/commit/eabab78115e620b0e41f316539bbe71cdec9b206)
+* Merged latest master [f5af03f](https://github.com/mikemitterer/dart-material-design-lite/commit/f5af03fa228b8e651afc06266d9e16da9267d837)
+* SplashScreen + SPA-Template works [1cc20ac](https://github.com/mikemitterer/dart-material-design-lite/commit/1cc20ac1bd9495012b53a0cba8818fc4f3d57694)
+* MaterialFormComponent with validation check [185edc9](https://github.com/mikemitterer/dart-material-design-lite/commit/185edc9c0bd1dae573fa6a1035c5f00a56a79228)
+* Dynamic DivDataTable works [2e5dff7](https://github.com/mikemitterer/dart-material-design-lite/commit/2e5dff7ed1a4fe4bdcb5380168dff8c99958b573)
+* Merged latest MDL/JS master [288dc40](https://github.com/mikemitterer/dart-material-design-lite/commit/288dc40f292b996f480b46aebcb22605f9126d3e)
+* Merged latest Dart/JS master [7cf8ea4](https://github.com/mikemitterer/dart-material-design-lite/commit/7cf8ea4b9a0d8757cea336e8afe096ffb3bab42b)
+* Autofocus for Dialogs, fixes #20 [b1887f7](https://github.com/mikemitterer/dart-material-design-lite/commit/b1887f7378e6202becdd7ec814dea153fe58bf0f)
+* ObservableProperty can switch between Timer- and 'set value' check [4fd2f45](https://github.com/mikemitterer/dart-material-design-lite/commit/4fd2f45d4eb4b434e065934a2aada74ab7b8a58c)
+* New WebSite launched for MDL/Dart [79e9ff0](https://github.com/mikemitterer/dart-material-design-lite/commit/79e9ff0af67986d13ab86b014edbca6616ccafec)
+* MaterialObserver supports templates + objects [5bd4c35](https://github.com/mikemitterer/dart-material-design-lite/commit/5bd4c35e0c226e2c9885d7fe5ef99cd11f5a4c71)
+* Made ObservableProperty more data-type tolerant [20d2b06](https://github.com/mikemitterer/dart-material-design-lite/commit/20d2b067c154621a350e697c17dd5be72c5b5d66)
+* ObservableProperty got a name field - helps to debug [cb4aa53](https://github.com/mikemitterer/dart-material-design-lite/commit/cb4aa533f00880a1464990337373692d2c5787c4)
+* Accordion supports more complex headers [f00db4c](https://github.com/mikemitterer/dart-material-design-lite/commit/f00db4c6edd327f4e3d0653b39f9b710d39932bb)
+* Formatter (number, uppercase + lowercase) added [78ba4fe](https://github.com/mikemitterer/dart-material-design-lite/commit/78ba4fe4668f92e6f61b725732b6f4417b5de543)
+* Merged latest master into Styleguide [b28ea03](https://github.com/mikemitterer/dart-material-design-lite/commit/b28ea03fc5f7363e257ee6a6da0c5a96c512847c)
+* Merged latest master from MDL/JS [b26c7da](https://github.com/mikemitterer/dart-material-design-lite/commit/b26c7da9d97248cfce1f68751b7c753c8dcb4e8f)
 * mdl-class added + works [89f9e7f](https://github.com/mikemitterer/dart-material-design-lite/commit/89f9e7fbf32f3c5c2c165bceda10874b1c3bc333)
 * Components attached() function will be called after Component is added to the DOM, better differentiation between Widget + Component [16d7acb](https://github.com/mikemitterer/dart-material-design-lite/commit/16d7acba7102c8cf03e5a14fa4d49908b4207110)
 
+### Fixes
+* #24 - Dialog loses focus [839869d](https://github.com/mikemitterer/dart-material-design-lite/commit/839869d5b59e8407c69544d5fcb11324d99c81b0)
+* #23 [0b2508f](https://github.com/mikemitterer/dart-material-design-lite/commit/0b2508fb6ba37a2291fba4634a72fd3de8b86b0d)
+* Accordion showed ripple when user clicks on content, solves #12 [307c2c5](https://github.com/mikemitterer/dart-material-design-lite/commit/307c2c59e9a18cf2a053e7e1d8a274b37a4cb4b9)
+
 ### Bugs
+* Navigation-Link in Drawer toggled obfuscator [defc6a9](https://github.com/mikemitterer/dart-material-design-lite/commit/defc6a9c3a3a8239e8eaf2aad0d6f3a369df9760)
+* Solevs the double/int problem in ObservableProperty [b91b6ed](https://github.com/mikemitterer/dart-material-design-lite/commit/b91b6eddb6fee486beb56b825ad4014538db64e4)
+* Solevs the double/int problem in ObservableProperty [5f70ce8](https://github.com/mikemitterer/dart-material-design-lite/commit/5f70ce8ac3214cdd477f2ad92092595f2b1c1de1)
+* Typo in README [2f8dcab](https://github.com/mikemitterer/dart-material-design-lite/commit/2f8dcabfa20500fef5c0ad9b5f5a9c9c4593b0b0)
+* Accidentally deleted Listener in Confirm-Dialog-Sample [f5cce5d](https://github.com/mikemitterer/dart-material-design-lite/commit/f5cce5df17b0a2e950a63b2baa5797283208c76b)
+* z-index for DND causes hidden header [b594146](https://github.com/mikemitterer/dart-material-design-lite/commit/b5941468a78e8dbfe3a00e31d1b607cec367f91b)
+* Registration for components in 'body' failed (_isInDom check problem) [5edd524](https://github.com/mikemitterer/dart-material-design-lite/commit/5edd524640f374576540de7b893c1c423ddee714)
+* Textfield show disabled value in eabled color [61a13bc](https://github.com/mikemitterer/dart-material-design-lite/commit/61a13bc626572757daad9156df0fcbaa57305417)
+* Missing annotation for UppercaseFormatter + LowerCaseFormatter [e084a81](https://github.com/mikemitterer/dart-material-design-lite/commit/e084a8186f883557302a37258729412a6e46a5a7)
+* checkDirty for MaterialTextfiled produced wrong result [7935fab](https://github.com/mikemitterer/dart-material-design-lite/commit/7935fab13e638c6e2b4b1fd4aa3360e3e4965249)
 * Wrong link to GH [22169a4](https://github.com/mikemitterer/dart-material-design-lite/commit/22169a412bdafa872e0b3a981379ff33ef2e4570)
 * AccordionLabel changed from 'label' to '.mdl-accordion__label' [7a57dcf](https://github.com/mikemitterer/dart-material-design-lite/commit/7a57dcff8790f85e892c31664b57054e35f57d1a)
 * callAttached called only the first registered MdlComponent [f21c2e8](https://github.com/mikemitterer/dart-material-design-lite/commit/f21c2e85b01c1b3f377ec3f641d6a7fee5e4edf3)
 
 ### Docs
+* Removed all copyrights from documentation. Fixes #27 [d615469](https://github.com/mikemitterer/dart-material-design-lite/commit/d6154693ad637023cd2734e2f4d9f83d84ef335b)
+* SPA-Template shows entered username + password [79afaf6](https://github.com/mikemitterer/dart-material-design-lite/commit/79afaf6d2042bf910cddc086dee93be46e60b896)
+* Readme for 'site' [ad2aedb](https://github.com/mikemitterer/dart-material-design-lite/commit/ad2aedb0738f777ad1eb6145d72238d5e974d6ca)
+* Readme [dd05969](https://github.com/mikemitterer/dart-material-design-lite/commit/dd059691ce9d0940b323c72653830a9cdc181ba7)
+* Readme [0d5b3fe](https://github.com/mikemitterer/dart-material-design-lite/commit/0d5b3fe138d81e89bf7c2c96f68be32d6c8521a6)
+* New in README [0332aec](https://github.com/mikemitterer/dart-material-design-lite/commit/0332aec096e9ac9b5a41464da801a61c4b8f6bc8)
+* New samples for MaterialObserve and Formatter in styleguide [8ccffca](https://github.com/mikemitterer/dart-material-design-lite/commit/8ccffca22bff8eab7fe2041f30e59073c6e3333f)
+* Better Exception-Message for mdl-repeat if using wrong list-type [44a98a1](https://github.com/mikemitterer/dart-material-design-lite/commit/44a98a1669c931f3f026d4cc480b3a1ee6faa9ff)
 * mdl-attribute + mdl-class added to styleguide [f2fa90d](https://github.com/mikemitterer/dart-material-design-lite/commit/f2fa90da01124968a1be3cbc968e6cb99eef7e7c)
 * MaterialClass [dd285ea](https://github.com/mikemitterer/dart-material-design-lite/commit/dd285ea006b11cbd2971de01d0b33273a4a2c41e)
 
 ### Refactor
+* Renamed example to samples (Dart 1.12) [34e0563](https://github.com/mikemitterer/dart-material-design-lite/commit/34e0563781515c69fecda6576ea7c2ee8b646c55)
+* Removed all unnecessary files form styles [520f938](https://github.com/mikemitterer/dart-material-design-lite/commit/520f938d9286b8c527a268a3dadc9fb783127207)
 * Tag mdl-repeat changed to Attribute, Tag mdl-property changed to Attribute (mdl-observe) [c016336](https://github.com/mikemitterer/dart-material-design-lite/commit/c0163364bce802f414c931a96adf247f9c3a7498)
 * MdlAccordion registers now the 'panel-part' and not the whole group [fa86d3a](https://github.com/mikemitterer/dart-material-design-lite/commit/fa86d3aff0939ff114b8f07d54605f0d431c63d3)
 
