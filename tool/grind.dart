@@ -65,4 +65,5 @@ genCss() {
     log("${Utils.genMaterialCSS()} created!");
     log("${Utils.genSplashScreenCSS()} created!");
     log("${Utils.genFontsCSS()} created!");
+    Utils.genPredefLayoutsCSS().forEach((final String file) => log("${file} created!"));
 }

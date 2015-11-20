@@ -1,0 +1,38 @@
+// ----------------------------------------------------------------------------
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+@import "../variables";
+
+$application-footer-padding: $sticky-mini-footer-vert-padding !default;
+$application-footer-height: $sticky-mini-footer-height !default;
+
+@mixin properties-height($header-height) {
+    $footer-padding: $application-footer-padding * 2;
+    $vertical-distance: $properties-vertical-distance * 2;
+
+    @if $application-footer-height == 0 or $application-footer-height == 0px {
+        $footer-padding: $application-footer-padding;
+    }
+
+    $height: #{$application-footer-height + $footer-padding + $header-height} - #{($vertical-distance)};
+
+    /* (footer + footer-padding + header) - (properties-vertical-distance * 2) */
+    min-height : calc(100% - #{$height});
+    //height: calc(100% - #{$height});
+}

@@ -208,9 +208,11 @@ class MdlAnimation {
      *  The [alternate] flag will determine whether the animation starts back
      *  at the beginning for each iteration, or if enabled will cause the animation
      *  to bounce back and forth between the start and end keyframes.
+     *
      *  Setting the [persist] flag will ensure that when the animation has completed
      *  the styles defined at that point will be applied to the element (since
      *  otherwise these would be lost when the animation property is reset).
+     *
      *  The animation [timing] function can be specified from a set of possibilities
      *  defined as constants above. For more information please refer to the relevant
      *  CSS documentation.
@@ -295,7 +297,7 @@ class MdlAnimation {
     }
 
     /**
-     * Make the function-call event shorter!
+     * Make the function-call even shorter! Mainly this is a shortcut to [apply]
      *
      * Usage:
      *      final MdlAnimation bounceInRight = new MdlAnimation.fromStock(StockAnimation.BounceInRight);

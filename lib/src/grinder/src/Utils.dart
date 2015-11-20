@@ -55,6 +55,24 @@ class Utils {
         return targetCss.path;
     }
 
+    static List<String> genPredefLayoutsCSS() {
+        final String layoutsDir = config.layoutsdir;
+        final List<String> layouts = <String>[ "2col-header-footer-props" ];
+        final List<String> result = [];
+
+        layouts.forEach((final String layout) {
+            final File srcScss = new File("${layoutsDir}/$layout/$layout.scss");
+            final File targetCss = new File("${layoutsDir}/$layout.css");
+
+            sasscAndAutoPrefix(srcScss,targetCss,useSass: false, minify: true);
+
+            result.add(targetCss.path);
+        });
+
+
+        return result;
+    }
+
     static void sasscAndAutoPrefix(final File targetScss,final File targetCss,
                              { final bool useSass: false, final bool minify: false, final bool prefix: true }) {
 

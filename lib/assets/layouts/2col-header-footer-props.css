@@ -1,0 +1,298 @@
+/**
+ * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+ * IT-Consulting and Development Limited.
+ *
+ * All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+ * IT-Consulting and Development Limited.
+ *
+ * All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+ * IT-Consulting and Development Limited.
+ *
+ * All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.application.mdl-layout {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+  .application.mdl-layout.is-small-screen > .mdl-layout__header {
+    background-position: 0 0; }
+  .application.mdl-layout > .mdl-layout__header {
+    box-shadow: -2px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    /* background: <your bg-image> repeat -240px 0; */ }
+    .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row {
+      box-shadow: none;
+      padding-left: 24px;
+      padding-right: 24px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+      .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .mdl-layout-title {
+        text-transform: capitalize; }
+      .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-align-content: space-between;
+            -ms-flex-line-pack: justify;
+                align-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar > * {
+          max-height: 20px;
+          margin-left: 12px; }
+          .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar > * .material-icons {
+            font-weight: 100;
+            font-size: 20px; }
+        .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar > .mdl-button--icon {
+          min-width: 20px;
+          width: 20px; }
+        .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar > :last-child {
+          margin-right: 12px; }
+      .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .mdl-menu a {
+        text-decoration: none; }
+    .application.mdl-layout > .mdl-layout__header .mdl-layout__drawer-button {
+      background-color: transparent; }
+  .application.mdl-layout.mdl-layout--fixed-drawer.is-small-screen .mdl-layout__header-row {
+    padding-left: 60px; }
+  .application.mdl-layout > .mdl-layout__drawer {
+    overflow: scroll;
+    border-right: none;
+    height: calc(100% - 38px);
+    box-shadow: 0 64px 0 0 rgba(0, 0, 0, 0.14), 0 65px 1px -2px rgba(0, 0, 0, 0.2), 0 64px 5px 0 rgba(0, 0, 0, 0.12); }
+    .application.mdl-layout > .mdl-layout__drawer .mdl-layout-title {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-align-content: space-between;
+          -ms-flex-line-pack: justify;
+              align-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      min-height: 64px;
+      padding-left: initial;
+      /* background: <your bg-image> repeat 0 0; */
+      box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5); }
+    .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+      /* Support for IE. */
+      -webkit-font-feature-settings: 'liga';
+         -moz-font-feature-settings: 'liga';
+              font-feature-settings: 'liga'; }
+      .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+        background-color: rgba(224, 224, 224, 0.2); }
+    .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion {
+      line-height: 1px; }
+      .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion input:checked ~ .mdl-accordion--content {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+        opacity: 1; }
+      .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion__label {
+        font-weight: 200;
+        border-bottom: 1px solid rgba(221, 221, 221, 0.1); }
+        .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion__label .symbol {
+          margin-right: 8px; }
+      .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion--content {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out; }
+        .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion--content .mdl-navigation__link {
+          padding: 5px 48px 5px 48px;
+          text-transform: capitalize;
+          display: block;
+          font-weight: 600; }
+    .application.mdl-layout > .mdl-layout__drawer .mdl-navigation input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
+      border-bottom: 1px solid rgba(221, 221, 221, 0.1); }
+    .application.mdl-layout > .mdl-layout__drawer.is-visible {
+      box-shadow: none; }
+      .application.mdl-layout > .mdl-layout__drawer.is-visible ~ .mdl-sticky-mini-footer {
+        z-index: 3; }
+  .application.mdl-layout > .mdl-layout__content {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-align-content: stretch;
+        -ms-flex-line-pack: stretch;
+            align-content: stretch;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+    .debug .application.mdl-layout > .mdl-layout__content {
+      border: 2px solid blue; }
+    .application.mdl-layout > .mdl-layout__content .mdl-content {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      height: calc(100% - 24px);
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -webkit-align-content: stretch;
+          -ms-flex-line-pack: stretch;
+              align-content: stretch;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      margin: 0 24px 24px 24px; }
+      .application.mdl-layout > .mdl-layout__content .mdl-content .mdl-accordion-group.usage .indicator.right {
+        margin-right: 12px; }
+      .debug .application.mdl-layout > .mdl-layout__content .mdl-content {
+        border: 1px solid green; }
+    .application.mdl-layout > .mdl-layout__content h6 {
+      margin-bottom: 0;
+      line-height: initial; }
+  .application.mdl-layout > .mdl-sticky-mini-footer {
+    z-index: 5;
+    /* background: <your bg-image> repeat 0 0; */ }
+    .application.mdl-layout > .mdl-sticky-mini-footer .gh-link, .application.mdl-layout > .mdl-sticky-mini-footer .mm-link {
+      margin-bottom: 0; }
+    .application.mdl-layout > .mdl-sticky-mini-footer .additional-info {
+      font-size: 12px; }
+      @media (max-width: 870px) {
+        .application.mdl-layout > .mdl-sticky-mini-footer .additional-info {
+          display: none; } }
+    .application.mdl-layout > .mdl-sticky-mini-footer .mm-link {
+      font-size: 12px; }
+      @media (max-width: 680px) {
+        .application.mdl-layout > .mdl-sticky-mini-footer .mm-link {
+          display: none; } }

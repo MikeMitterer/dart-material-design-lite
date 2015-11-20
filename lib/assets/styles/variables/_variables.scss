@@ -18,7 +18,7 @@
 $preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
 $performance_font: 'Helvetica', 'Arial', sans-serif !default;
 
-/* ==========  IMAGES  ========== */
+// ==========  IMAGES  ==========
 $image_path: '/images' !default;
 
 // =========  Color & Themes  =========
@@ -506,3 +506,12 @@ $tooltip-font-size-large: 14px !default;
 // ----------------------------------------------------------------------------
 // ---- Components++
 // -
+
+// STICKY-MINI-FOOTER
+$sticky-mini-footer-height: 30px !default;
+$sticky-mini-footer-hor-padding: 8px !default;
+$sticky-mini-footer-vert-padding: 4px !default;
+
+// PROPERTIES
+$properties-vertical-distance: 12px !default;
+$properties-width: 264px !default;

@@ -24,27 +24,37 @@ part of mdlanimation;
 
 const _FadeIn = const <int, Map<String, Object>>{
     0 : const <String, Object>{
-        "opacity" : 0 },
+
+        "opacity" : 0},
     100 : const <String, Object>{
-        "opacity" : 1 }
+
+        "opacity" : 1}
 };
 
 const _FadeOut = const <int, Map<String, Object>>{
     0 : const <String, Object>{
-        "opacity" : 1 },
+
+        "opacity" : 1},
     100 : const <String, Object>{
-        "opacity" : 2 }
+
+        "opacity" : 2}
 };
 
 const _BounceInRight = const <int, Map<String, Object>>{
     0 : const <String, Object>{
+
         "opacity" : 0,
-        "transform" : "translateX(2000px)"},
+        "transform" : "translateX(300px)"},
     60 : const <String, Object>{
+
         "opacity" : 1,
         "transform" : "translateX(-30px)"},
     80 : const <String, Object>{
+
         "transform" : "translateX(10px)"},
     100 : const <String, Object>{
+
+        // Final state should be visible
+        "opacity" : 1,
         "transform" : "translateX(0)"}
 };
