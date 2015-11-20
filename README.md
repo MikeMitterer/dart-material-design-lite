@@ -7,18 +7,21 @@ Material Design Lite lets you add a Material Design look and feel to your dynami
 frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
 from the get-go.
 
+## New
+[CHANGELOG](https://github.com/MikeMitterer/dart-material-design-lite/blob/master/CHANGELOG.md)
+
 ## Main features
 - 16 base components ready to use
 - 4 different Dialogs, AlertDialog, ConfirmDialog, Notification-Messages and Snackbar
-- Directives
+- [Directives](http://styleguide.material-design-lite.pub/#/attribute)
 - Drag and Drop
 - Formatters
 - Mustache-Based Components (Template based)
 - Nice, ready to use, templates
-- Single Page Application
+- [Single Page Application](http://samples.material-design-lite.pub/template_spa/index.html)
 - Routing
 - Dependency injection
-- Samples, samples, samples
+- [Samples, samples, samples](http://styleguide.material-design-lite.pub/#/samples)
 - Theming
 
 Visit the [website](http://www.material-design-lite.pub) for a "Quick start" or check out the [Kitchen Sink](http://styleguide.material-design-lite.pub/)
