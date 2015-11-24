@@ -1,6 +1,11 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.10.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.10.2...v1.10.3) - 2015-11-24
+
+### Fixes
+* Wrong List-Type in MaterialLayout [9a3a39a](https://github.com/mikemitterer/dart-material-design-lite/commit/9a3a39a9a4148285e0a2d8d1fcc562084c91d2da)
+
 ## [v1.10.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.10.0...v1.10.1) - 2015-11-20
 
 ### Docs
@@ -444,7 +449,7 @@ Material Design Lite for Dart
 ### Refactor
 * All samples have their own pubspec and their own web-folder [70703ce](https://github.com/mikemitterer/dart-material-design-lite/commit/70703ce8438cf3251a2831e112f2fed82cbac1c4)
 
-## [v0.0.1](http://github.com/mikemitterer/dart-material-design-lite/compare/rm...v0.0.1) - 2015-01-31
+## [v0.0.1](http://github.com/mikemitterer/dart-material-design-lite/compare/tag...v0.0.1) - 2015-01-31
 
 ### Chore
 * update introduction to match mdl [86d2207](https://github.com/mikemitterer/dart-material-design-lite/commit/86d2207126c6ebb4a19fca6ef86c137ad500c7c5)
@@ -541,6 +546,7 @@ Material Design Lite for Dart
 * Drawer closes now like expected (Styleguide) [df1d34c](https://github.com/mikemitterer/dart-material-design-lite/commit/df1d34cf2a5e45a062010f88bf69d0f4fef722b8)
 
 ### Docs
+* Readme + Changelog [eed51ac](https://github.com/mikemitterer/dart-material-design-lite/commit/eed51acff381635d057703bf52af88bedb4b64a1)
 * Readme + Changelog [ea97dc2](https://github.com/mikemitterer/dart-material-design-lite/commit/ea97dc2ff4f278b02af8d7acddff597aac6263e3)
 * Removed all copyrights from documentation. Fixes #27 [d615469](https://github.com/mikemitterer/dart-material-design-lite/commit/d6154693ad637023cd2734e2f4d9f83d84ef335b)
 * SPA-Template shows entered username + password [79afaf6](https://github.com/mikemitterer/dart-material-design-lite/commit/79afaf6d2042bf910cddc086dee93be46e60b896)
@@ -576,6 +582,11 @@ Material Design Lite for Dart
 * Tag mdl-repeat changed to Attribute, Tag mdl-property changed to Attribute (mdl-observe) [c016336](https://github.com/mikemitterer/dart-material-design-lite/commit/c0163364bce802f414c931a96adf247f9c3a7498)
 * MdlAccordion registers now the 'panel-part' and not the whole group [fa86d3a](https://github.com/mikemitterer/dart-material-design-lite/commit/fa86d3aff0939ff114b8f07d54605f0d431c63d3)
 * All samples have their own pubspec and their own web-folder [70703ce](https://github.com/mikemitterer/dart-material-design-lite/commit/70703ce8438cf3251a2831e112f2fed82cbac1c4)
+
+## [tag](http://github.com/mikemitterer/dart-material-design-lite/compare/rm...tag) - 2015-11-20
+
+### Docs
+* Readme + Changelog [eed51ac](https://github.com/mikemitterer/dart-material-design-lite/commit/eed51acff381635d057703bf52af88bedb4b64a1)
 
 ## [rm](http://github.com/mikemitterer/dart-material-design-lite/compare/1.8.0...rm) - 2015-11-20
 
