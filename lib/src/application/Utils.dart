@@ -36,7 +36,8 @@ String _sanitizeResponseText(final String responseText) {
             multiLine: true, caseSensitive: false),
             (final Match m) {
 
-            return '<div class="errormessage">${m[1]}</div>';
+            //return '<div class="errormessage">${m[1]}</div>';
+            return m[1];
         });
 
     //_logger.info("Sanitized: $sanitized");

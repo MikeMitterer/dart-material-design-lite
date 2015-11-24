@@ -243,23 +243,23 @@ $two-col-header-footer-props-title-height: ($layout-header-desktop-row-height * 
         flex-wrap: nowrap;
         justify-content: flex-start; // ⇾
         align-content: stretch; // ||
-        align-items: flex-start; // ↓
+        align-items: stretch; // ↓
 
         .debug & { border: 2px solid blue; }
 
         .mdl-content {
             flex-grow : 1;
-            height: calc(100% - 24px);
+            //height: calc(100% - 24px);
+            //min-height: calc(100% - 24px);
 
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             justify-content: flex-start; // ↓
             align-content: stretch; // =
-            align-items: flex-start; // ⇾
+            align-items: center; // ⇾
 
             margin    : 0 24px 24px 24px;
-
 
             .application-section .main {
                 margin-left: auto;
