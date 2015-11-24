@@ -266,10 +266,10 @@
       -webkit-align-content: stretch;
           -ms-flex-line-pack: stretch;
               align-content: stretch;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
+      -webkit-box-align: stretch;
+      -webkit-align-items: stretch;
+          -ms-flex-align: stretch;
+              align-items: stretch;
       margin: 0 24px 24px 24px; }
       .application.mdl-layout > .mdl-layout__content .mdl-content .application-section .main {
         margin-left: auto;
