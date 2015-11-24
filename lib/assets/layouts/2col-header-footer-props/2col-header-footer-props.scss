@@ -21,6 +21,8 @@
 @import "../../styles/mixins";
 
 $two-col-header-footer-props-shadow-opacity: 0.5 !default;
+$two-col-header-footer-props-center-breakpoint: 1280px !default;
+$two-col-header-footer-props-title-height: ($layout-header-desktop-row-height * 2) + 0 !default;
 
 // If you use this SCSS-file direct - you can define something like this
 // to get a pattern-background for your header + footer
@@ -35,13 +37,16 @@ $two-col-header-footer-props-shadow-opacity: 0.5 !default;
 }
 
 @mixin shadow-drawer-2dp() {
-    box-shadow: 0 64px 0 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
-    0 65px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
-    0 64px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+    $distance-top: ($layout-header-desktop-row-height);
+    box-shadow: 0 $distance-top 0 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+    0 ($distance-top + 1) 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+    0 $distance-top 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+
+    //box-shadow: none;
 }
 
-@mixin shadow-top-drawer() { box-shadow : -1px 0px 5px 1px rgba(0, 0, 0, $two-col-header-footer-props-shadow-opacity); }
-@mixin shadow-top-title()  { box-shadow : -2px 1px 1px 1px rgba(0, 0, 0, $two-col-header-footer-props-shadow-opacity); }
+@mixin shadow-top-drawer() { box-shadow : -1px 0  5px 1px rgba(0, 0, 0, $two-col-header-footer-props-shadow-opacity ); }
+@mixin shadow-top-title()  { box-shadow : 2px 1px 1px 1px rgba(0, 0, 0, $two-col-header-footer-props-shadow-opacity ); }
 
 @mixin smooth-font() {
     /* Support for all WebKit browsers. */
@@ -65,13 +70,19 @@ $two-col-header-footer-props-shadow-opacity: 0.5 !default;
         }
     }
 
+    &.mdl-layout--fixed-drawer {
+        > .mdl-layout__header > .mdl-layout__header-row {
+            padding-left: 24px;
+        }
+    }
+
     > .mdl-layout__header {
-        @include shadow-top-title();
+        //@include shadow-top-title();
         @include bgimage(-$layout-drawer-width);
 
         .mdl-layout__header-row {
-            box-shadow: none;
-            padding-left: 24px;
+            //box-shadow: none;
+            padding-left: 60px;
             padding-right: 24px;
 
             .mdl-layout-title {
@@ -113,7 +124,7 @@ $two-col-header-footer-props-shadow-opacity: 0.5 !default;
                 }
             }
 
-            @include shadow-2dp();
+            // @include shadow-2dp();
         }
 
         .mdl-layout__drawer-button {
@@ -136,6 +147,8 @@ $two-col-header-footer-props-shadow-opacity: 0.5 !default;
             height: 100%;
         } @else { height: calc(100% - #{$sticky-mini-footer-height + ($sticky-mini-footer-vert-padding * 2)}); }
 
+        //box-shadow: none;
+        //border-right: 1px solid rgba(213, 213, 213, 0.5);
         @include shadow-drawer-2dp();
 
         .mdl-layout-title {
@@ -146,11 +159,12 @@ $two-col-header-footer-props-shadow-opacity: 0.5 !default;
             align-content: space-between; // =
             align-items: center; // ⇾
 
-            min-height: $layout-header-desktop-row-height;
+            min-height: $two-col-header-footer-props-title-height;
             padding-left: initial;
 
+            border-bottom: 1px solid rgba(213, 213, 213, 0.5);
             @include bgimage();
-            @include shadow-top-drawer();
+            //@include shadow-top-drawer();
         }
 
         .mdl-navigation {
@@ -169,14 +183,15 @@ $two-col-header-footer-props-shadow-opacity: 0.5 !default;
                 line-height: 1px;
 
                 input:checked ~ .mdl-accordion--content {
-                    padding-top : 12px;
-                    padding-bottom : 12px;
+                    //padding-top : 12px;
+                    //padding-bottom : 12px;
                     transition: all 0.3s ease-in-out;
                     opacity: 1;
                 }
 
                 .mdl-accordion__label {
-                    font-weight: 200;
+                    text-transform : uppercase;
+                    font-weight: 400;
                     border-bottom: 1px solid rgba(#ddd,0.10);
 
                     .symbol {
@@ -190,10 +205,14 @@ $two-col-header-footer-props-shadow-opacity: 0.5 !default;
                     padding     : 0;
 
                     .mdl-navigation__link {
-                        padding        : 5px 48px 5px 48px;
-                        text-transform : capitalize;
+                        padding        : 12px 48px 12px 60px;
+                        text-transform : uppercase;
                         display        : block;
                         font-weight    : 600;
+
+                        &:last-child {
+                            padding-bottom: 12px;
+                        }
                     }
                     opacity: 0;
                     transition: all 0.3s ease-in-out;
@@ -202,12 +221,12 @@ $two-col-header-footer-props-shadow-opacity: 0.5 !default;
             }
 
             input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
-                border-bottom: 1px solid rgba(#ddd,0.10);
+                border-bottom: 1px solid rgba(#ddd,0.50);
             }
         }
 
         &.is-visible {
-            box-shadow: none;
+            //box-shadow: none;
 
             &~ .mdl-sticky-mini-footer {
                 z-index: 3;
@@ -241,10 +260,11 @@ $two-col-header-footer-props-shadow-opacity: 0.5 !default;
 
             margin    : 0 24px 24px 24px;
 
-            .mdl-accordion-group.usage {
-                .indicator.right {
-                    margin-right : 12px;
-                }
+
+            .application-section .main {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: $two-col-header-footer-props-center-breakpoint;
             }
 
             .debug & { border: 1px solid green; }

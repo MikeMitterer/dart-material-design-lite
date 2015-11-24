@@ -89,14 +89,13 @@
           flex-grow: 1; }
   .application.mdl-layout.is-small-screen > .mdl-layout__header {
     background-position: 0 0; }
+  .application.mdl-layout.mdl-layout--fixed-drawer > .mdl-layout__header > .mdl-layout__header-row {
+    padding-left: 24px; }
   .application.mdl-layout > .mdl-layout__header {
-    box-shadow: -2px 1px 1px 1px rgba(0, 0, 0, 0.5);
     /* background: <your bg-image> repeat -240px 0; */ }
     .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row {
-      box-shadow: none;
-      padding-left: 24px;
-      padding-right: 24px;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+      padding-left: 60px;
+      padding-right: 24px; }
       .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .mdl-layout-title {
         text-transform: capitalize; }
       .application.mdl-layout > .mdl-layout__header .mdl-layout__header-row .toolbar {
@@ -169,10 +168,10 @@
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center;
-      min-height: 64px;
+      min-height: 128px;
       padding-left: initial;
-      /* background: <your bg-image> repeat 0 0; */
-      box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5); }
+      border-bottom: 1px solid rgba(213, 213, 213, 0.5);
+      /* background: <your bg-image> repeat 0 0; */ }
     .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
       /* Support for all WebKit browsers. */
       -webkit-font-smoothing: antialiased;
@@ -189,13 +188,12 @@
     .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion {
       line-height: 1px; }
       .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion input:checked ~ .mdl-accordion--content {
-        padding-top: 12px;
-        padding-bottom: 12px;
         -webkit-transition: all 0.3s ease-in-out;
                 transition: all 0.3s ease-in-out;
         opacity: 1; }
       .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion__label {
-        font-weight: 200;
+        text-transform: uppercase;
+        font-weight: 400;
         border-bottom: 1px solid rgba(221, 221, 221, 0.1); }
         .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion__label .symbol {
           margin-right: 8px; }
@@ -207,16 +205,16 @@
         -webkit-transition: all 0.3s ease-in-out;
                 transition: all 0.3s ease-in-out; }
         .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion--content .mdl-navigation__link {
-          padding: 5px 48px 5px 48px;
-          text-transform: capitalize;
+          padding: 12px 48px 12px 60px;
+          text-transform: uppercase;
           display: block;
           font-weight: 600; }
+          .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion--content .mdl-navigation__link:last-child {
+            padding-bottom: 12px; }
     .application.mdl-layout > .mdl-layout__drawer .mdl-navigation input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
-      border-bottom: 1px solid rgba(221, 221, 221, 0.1); }
-    .application.mdl-layout > .mdl-layout__drawer.is-visible {
-      box-shadow: none; }
-      .application.mdl-layout > .mdl-layout__drawer.is-visible ~ .mdl-sticky-mini-footer {
-        z-index: 3; }
+      border-bottom: 1px solid rgba(221, 221, 221, 0.5); }
+    .application.mdl-layout > .mdl-layout__drawer.is-visible ~ .mdl-sticky-mini-footer {
+      z-index: 3; }
   .application.mdl-layout > .mdl-layout__content {
     box-sizing: border-box;
     display: -webkit-box;
@@ -274,8 +272,10 @@
           -ms-flex-align: start;
               align-items: flex-start;
       margin: 0 24px 24px 24px; }
-      .application.mdl-layout > .mdl-layout__content .mdl-content .mdl-accordion-group.usage .indicator.right {
-        margin-right: 12px; }
+      .application.mdl-layout > .mdl-layout__content .mdl-content .application-section .main {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1280px; }
       .debug .application.mdl-layout > .mdl-layout__content .mdl-content {
         border: 1px solid green; }
     .application.mdl-layout > .mdl-layout__content h6 {
