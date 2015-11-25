@@ -172,7 +172,6 @@ List<MdlComponent> getAllMdlComponents(final dom.HtmlElement element) {
 
     final List<MdlComponent> components = new List<MdlComponent>();
 
-    int counter = 0;
     _iterateOverAllHTMLElements(final dom.HtmlElement element) {
         if(element is dom.HtmlElement) {
             element.children.forEach((final dom.Element element) => _iterateOverAllHTMLElements(element));

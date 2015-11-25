@@ -182,7 +182,7 @@ class MaterialLayout extends MdlComponent {
             element.remove(); // element.parent.removeChild (element);
             container.append(element);
 
-            final List<dom.Node> directChildren = element.childNodes;
+            final List<dom.Element> directChildren = element.childNodes;
 
             directChildren.forEach((final child) {
 

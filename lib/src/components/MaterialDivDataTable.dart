@@ -102,7 +102,6 @@ class MaterialDivDataTable extends MdlComponent {
     }
 
     List<MaterialDivDataTableRow> get selectedRows {
-        final List<MaterialDivDataTableRow> rows = _rows;
         return new UnmodifiableListView(_rows.where((final MaterialDivDataTableRow row) => row.isSelected));
     }
     //- private -----------------------------------------------------------------------------------
