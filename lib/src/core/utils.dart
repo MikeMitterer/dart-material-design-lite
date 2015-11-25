@@ -179,7 +179,6 @@ List<MdlComponent> getAllMdlComponents(final dom.HtmlElement element) {
             if(isMdlComponent(element)) {
                 //_logger.shout("E: $element ID: ${element.id} - classes: ${element.classes}");
                 components.addAll(mdlComponents(element));
-                counter++;
             }
         }
     }
