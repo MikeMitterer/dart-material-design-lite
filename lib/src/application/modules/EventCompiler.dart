@@ -102,10 +102,15 @@ class EventCompiler {
 
         datasets.keys.forEach((final String dataset) {
 
-            final List<dom.Element> elements = element.querySelectorAll("[data-${dataset}]");
+            // Create new List because querySelectorAll returns a ImmutableList!
+            final List<dom.Element> elements = new List.from(element.querySelectorAll("[data-${dataset}]"));
+            if(element.attributes.containsKey("data-${dataset}")) {
+                // If the current element has this attribute add it to the list
+                elements.add(element);
+            }
 
             if(elements.isNotEmpty) {
-                //_logger.info("Searching for '[data-${dataset}] in $element, found ${elements.length} subelements.");
+                _logger.info("Searching for '[data-${dataset}] in $element, found ${elements.length} subelements.");
             }
 
             elements.forEach( (final dom.Element element) {

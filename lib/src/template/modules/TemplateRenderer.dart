@@ -53,11 +53,11 @@ class TemplateRenderer {
 
             final Template mustacheTemplate = new Template(_template(),htmlEscapeValues: false);
 
-            /// _renderer.render calls componentFactory().upgradeElement(child)
-            final dom.Element child = await _renderer.render(
-                parent,mustacheTemplate.renderString(scope),replaceNode: !appendNewNodes);
+            // _renderer.render calls componentFactory().upgradeElement(child)
+            final String renderedTemplate = mustacheTemplate.renderString(scope);
+            final dom.Element child = await _renderer.render(parent,renderedTemplate,replaceNode: !appendNewNodes);
 
-            _eventCompiler.compileElement(scope,child);
+            return _eventCompiler.compileElement(scope,child);
         }
 
         return new Renderer(_render);
