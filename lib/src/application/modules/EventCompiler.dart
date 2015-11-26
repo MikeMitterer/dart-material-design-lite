@@ -104,8 +104,9 @@ class EventCompiler {
 
             // Create new List because querySelectorAll returns a ImmutableList!
             final List<dom.Element> elements = new List.from(element.querySelectorAll("[data-${dataset}]"));
+
+            // If the current element has this attribute add it to the list
             if(element.attributes.containsKey("data-${dataset}")) {
-                // If the current element has this attribute add it to the list
                 elements.add(element);
             }
 
