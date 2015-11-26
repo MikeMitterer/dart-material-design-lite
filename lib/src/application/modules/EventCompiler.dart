@@ -111,7 +111,7 @@ class EventCompiler {
             }
 
             if(elements.isNotEmpty) {
-                _logger.info("Searching for '[data-${dataset}] in $element, found ${elements.length} subelements.");
+                _logger.fine("Searching for '[data-${dataset}] in $element, found ${elements.length} subelements.");
             }
 
             elements.forEach( (final dom.Element element) {
