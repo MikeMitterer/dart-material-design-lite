@@ -23,7 +23,7 @@ import 'dart:math' as Math;
 /// https://github.com/jasonmayes/mdl-component-design-pattern
 /// 
 /// constructor
-/// param {HTMLElement} element The element that will be upgraded.
+/// param {Element} element The element that will be upgraded.
 
   final MaterialDataTable = function MaterialDataTable(element) {
 
@@ -57,7 +57,7 @@ class _  MaterialDataTableCssClasses {
 /// single row (or multiple rows).
 /// 
 /// param {Element} checkbox Checkbox that toggles the selection state.
-/// param {HTMLElement} row Row to toggle when checkbox changes.
+/// param {Element} row Row to toggle when checkbox changes.
 /// param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
 ///   MaterialDataTable.prototype.selectRow_ = function(checkbox, row, opt_rows) {
 void _selectRow(final checkbox, row, opt_rows) {
@@ -99,7 +99,7 @@ void _selectRow(final checkbox, row, opt_rows) {
 /// Creates a checkbox for a single or or multiple rows and hooks up the
 /// event handling.
 /// 
-/// param {HTMLElement} row Row to toggle when checkbox changes.
+/// param {Element} row Row to toggle when checkbox changes.
 /// param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
 ///   MaterialDataTable.prototype.createCheckbox_ = function(row, opt_rows) {
 void _createCheckbox(final row, opt_rows) {

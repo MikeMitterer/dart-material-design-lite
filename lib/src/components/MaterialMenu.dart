@@ -175,7 +175,7 @@ class MaterialMenu extends MdlComponent {
 
             // Remove all transition delays; menu items fade out concurrently.
             items.forEach((final dom.Element item) {
-                item.style.transitionDelay = null;
+                item.style.removeProperty('transition-delay');
             });
 
             // Measure the inner element.
