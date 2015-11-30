@@ -8,7 +8,7 @@ class MdlTestModule extends di.Module {
 }
 
 testCoreUtils() {
-    final Logger _logger = new Logger("test.CoreUtils");
+    // final Logger _logger = new Logger("test.CoreUtils");
 
     final dom.DivElement div = new dom.DivElement();
 

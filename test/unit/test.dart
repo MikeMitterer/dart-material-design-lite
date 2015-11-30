@@ -42,6 +42,7 @@ import 'package:di/di.dart' as di;
 import 'package:test/test.dart';
 
 import "package:mdl/mdl.dart";
+import "package:mdl/mdlflux.dart";
 
 //-----------------------------------------------------------------------------
 // Logging
@@ -60,6 +61,9 @@ part "utils/observables_test.dart";
 part "core/utils_test.dart";
 part "form/form_test.dart";
 
+part "flux/ActionBus_test.dart";
+part "flux/Dispatcher_test.dart";
+
 Future prepareMdlTest(Future additionalRegistration()) async {
     registerApplicationComponents();
     await additionalRegistration();
@@ -74,10 +78,13 @@ main() async {
 
     configLogging();
 
-    testDataAttribute();
-    testObservables();
-    testCoreUtils();
-    testForm();
+//    testDataAttribute();
+//    testObservables();
+//    testCoreUtils();
+//    testForm();
+
+    testActionBus();
+    testDispatcher();
 }
 
 void configLogging() {

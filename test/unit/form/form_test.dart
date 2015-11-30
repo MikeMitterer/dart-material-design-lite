@@ -1,7 +1,7 @@
 part of mdl.unit.test;
 
 testForm() {
-    final Logger _logger = new Logger("test.Form");
+    // final Logger _logger = new Logger("test.Form");
 
     final dom.FormElement form = new dom.FormElement();
 

@@ -1,7 +1,7 @@
 part of mdl.unit.test;
 
 testDataAttribute() {
-    final Logger _logger = new Logger("test.DataAttribute");
+    // final Logger _logger = new Logger("test.DataAttribute");
 
     group('DataAttribute', () {
         setUp(() { });
