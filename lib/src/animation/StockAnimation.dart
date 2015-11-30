@@ -51,4 +51,7 @@ class StockAnimation {
     static const StockAnimation FadeOut =
         const StockAnimation(const Duration(milliseconds: 500), _FadeOut,AnimationTiming.EASE_IN_OUT);
 
+    static const StockAnimation MoveUpAndDisappear =
+        const StockAnimation(const Duration(milliseconds: 400), _MoveUpAndDisappear,AnimationTiming.EASE_IN_OUT);
+
 }

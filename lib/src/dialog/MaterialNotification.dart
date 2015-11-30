@@ -8,6 +8,8 @@ class _MaterialNotificationCssClasses {
     const _MaterialNotificationCssClasses();
 }
 
+final MdlAnimation shrinkNotification = new MdlAnimation.fromStock(StockAnimation.MoveUpAndDisappear);
+
 class _NotificationConfig extends DialogConfig {
     static const _MaterialNotificationCssClasses _cssClasses = const _MaterialNotificationCssClasses();
 
@@ -16,8 +18,8 @@ class _NotificationConfig extends DialogConfig {
         closeOnBackDropClick: false,
         autoClosePossible: true,
         appendNewDialog: true,
-        acceptEscToClose: false
-
+        acceptEscToClose: false,
+        closeAnimation: shrinkNotification
     );
 }
 
@@ -90,6 +92,7 @@ class MaterialNotification extends MaterialDialog {
     // TODO: Params are not used - change parent function...
     Future<MdlDialogStatus> show({ final Duration timeout,void dialogIDCallback(final String dialogId) }) {
         return super.show(timeout: new Duration(milliseconds: this.timeout));
+        //return super.show();
     }
 
     void onClose() {

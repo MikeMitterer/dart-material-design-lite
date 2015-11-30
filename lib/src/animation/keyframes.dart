@@ -37,7 +37,7 @@ const _FadeOut = const <int, Map<String, Object>>{
         "opacity" : 1},
     100 : const <String, Object>{
 
-        "opacity" : 2}
+        "opacity" : 0}
 };
 
 const _BounceInRight = const <int, Map<String, Object>>{
@@ -57,4 +57,31 @@ const _BounceInRight = const <int, Map<String, Object>>{
         // Final state should be visible
         "opacity" : 1,
         "transform" : "translateX(0)"}
+};
+
+/// More on http://codepen.io/MikeMitterer/pen/QjeOov
+const _Shrink = const <int, Map<String, Object>>{
+    0 : const <String, Object>{
+        "opacity" : 1 },
+
+    10 : const <String, Object>{
+        "opacity" : 1 },
+
+    100 : const <String, Object>{
+        "transform" : "scaleY(0)",
+        "height" : 0,
+        "opacity" : 1 }
+};
+
+/// More on http://codepen.io/MikeMitterer/pen/QjeOov
+const _MoveUpAndDisappear = const <int, Map<String, Object>>{
+    0 : const <String, Object>{
+        "opacity" : 1 },
+
+    10 : const <String, Object>{
+        "opacity" : 0.1 },
+
+    100 : const <String, Object>{
+        "transform" : "translateY(-50px)",
+        "opacity" : 0.1 }
 };

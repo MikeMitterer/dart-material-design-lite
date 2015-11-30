@@ -30,6 +30,7 @@ import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponets.dart';
 import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdltemplate.dart';
+import 'package:mdl/mdlanimation.dart';
 
 part "src/dialog/MaterialDialog.dart";
 part "src/dialog/MaterialAlertDialog.dart";

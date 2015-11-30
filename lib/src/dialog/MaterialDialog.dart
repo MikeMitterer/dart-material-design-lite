@@ -63,19 +63,24 @@ class DialogConfig {
     /// is not the case, for example, with Notifications
     final bool appendNewDialog;
 
+    /// Sets the [MdlAnimation] if the user clicks on close or if the dialog has and "auto-close" timer
+    final MdlAnimation closeAnimation;
+
     DialogConfig({ final String rootTagInTemplate: "mdl-dialog",
                    final bool closeOnBackDropClick: true,
                    final bool acceptEscToClose: true,
                    final String parentSelector: _DEFAULT_PARENT_SELECTOR,
                    final bool autoClosePossible: false,
-                   final bool appendNewDialog: false })
+                   final bool appendNewDialog: false,
+                   final MdlAnimation closeAnimation: null })
 
     : this.rootTagInTemplate = rootTagInTemplate,
       this.closeOnBackDropClick = closeOnBackDropClick,
       this.acceptEscToClose = acceptEscToClose,
       this.parentSelector = parentSelector,
       this.autoClosePossible = autoClosePossible,
-      this.appendNewDialog = appendNewDialog {
+      this.appendNewDialog = appendNewDialog,
+      this.closeAnimation = closeAnimation {
 
         Validate.notBlank(rootTagInTemplate);
     }
@@ -241,9 +246,16 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
             _dialogContainer.classes.add(_cssClasses.IS_HIDDEN);
         }
 
-        return new Future.delayed(new Duration(milliseconds: 200), () {
-            return _destroy(status);
-        });
+        if(_config.closeAnimation != null && _element != null) {
+
+            final MdlAnimation animation = _config.closeAnimation;
+            return animation(_element).then((_) => _destroy(status));
+
+        } else {
+            return new Future.delayed(new Duration(milliseconds: 200), () {
+                return _destroy(status);
+            });
+        }
     }
 
     /// The dialog gets removed from the DOM
