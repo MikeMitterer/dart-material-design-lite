@@ -1,6 +1,14 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.11.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.11.0...v1.11.1) - 2015-12-01
+
+### Fixes
+* ActionBusImpl was not injectable [b001dce](https://github.com/mikemitterer/dart-material-design-lite/commit/b001dce6a1d858c0f2b05486f0ac719c73559d02)
+
+### Docs
+* mdlflux-dataflow [e0a3910](https://github.com/mikemitterer/dart-material-design-lite/commit/e0a39108934bdd0a5c26ffcab333818321c126a9)
+
 ## [v1.11.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.10.3...v1.11.0) - 2015-12-01
 
 ### Feature
