@@ -18,6 +18,7 @@ export "package:mdl/mdlform.dart";
 export "package:mdl/mdlobservable.dart";
 export "package:mdl/mdlformatter.dart";
 export "package:mdl/mdldnd.dart";
+export "package:mdl/mdlflux.dart";
 
 void registerMdl() {
 

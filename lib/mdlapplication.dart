@@ -36,6 +36,7 @@ import 'package:route_hierarchical/client.dart';
 
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponets.dart";
+import "package:mdl/mdlflux.dart";
 
 part "src/application/interfaces.dart";
 
@@ -75,6 +76,7 @@ class MdlModule extends di.Module {
         bind(EventCompiler);
         bind(ViewFactory);
         bind(RootScope);
+        bind(ActionBus, toImplementation: ActionBusImpl);
     }
 }
 

@@ -47,6 +47,7 @@ testDispatcher() {
             final TestDataStore datastore = new TestDataStore(actionbus);
             final MyComponent component = new MyComponent(datastore,onDataChanged);
 
+            // The datastore emits an "onChange"-Event (UpdateView-Action)
             datastore.name = "Dart";
 
         }); // end of 'emitChange' test
