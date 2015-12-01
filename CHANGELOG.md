@@ -1,6 +1,17 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.11.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.10.3...v1.11.0) - 2015-12-01
+
+### Feature
+* Flux-Pattern for MDL/Dart [f4750ba](https://github.com/mikemitterer/dart-material-design-lite/commit/f4750ba0d2b6671f56d8743130a6412abbf19ed0)
+* Notification-Animation works [8273d61](https://github.com/mikemitterer/dart-material-design-lite/commit/8273d61143a3bb79f17cb87fae9def3002e41877)
+
+### Fixes
+* EventCompiler ignored the events defined for the base-Element [8825806](https://github.com/mikemitterer/dart-material-design-lite/commit/8825806863fd542048bb1499d445beb520ee44b5)
+* EventCompiler ignored the events defined for the base-Element [3fa59d6](https://github.com/mikemitterer/dart-material-design-lite/commit/3fa59d6e066de5f68606403665484faae7677005)
+* MaterialLayout fixes dart-lang#24868 [3e4514c](https://github.com/mikemitterer/dart-material-design-lite/commit/3e4514cb3cff594a3485ca73401f67cd082ff72e)
+
 ## [v1.10.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.10.2...v1.10.3) - 2015-11-24
 
 ### Fixes
