@@ -36,7 +36,7 @@
  */
 
 //@TestOn("dartium")
-//@TestOn("content-shell")
+@TestOn("content-shell")
 
 library mdl.ui.unit.test;
 

@@ -78,10 +78,10 @@ main() async {
 
     configLogging();
 
-//    testDataAttribute();
-//    testObservables();
-//    testCoreUtils();
-//    testForm();
+    testDataAttribute();
+    testObservables();
+    testCoreUtils();
+    testForm();
 
     testActionBus();
     testDispatcher();
