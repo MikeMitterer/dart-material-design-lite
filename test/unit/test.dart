@@ -19,7 +19,7 @@
 
 /**
  * Run this test with:
- *      pub run test -p content-shell test/integration/test.dart
+ *      pub run test -p content-shell test/unit/test.dart
  *
  * Configuration for IntelliJ to run this test:
  *      Type: Bash

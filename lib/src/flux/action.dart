@@ -41,6 +41,8 @@ enum ActionType { Signal, Data, Json }
 class ActionName {
     final String name;
     const ActionName(this.name);
+
+    String toString() => name;
 }
 
 /// Simples form of an Action
@@ -55,10 +57,12 @@ abstract class Action {
 
     const Action(this.type, this.actionname);
 
-    String get name => actionname.name;
+    ActionName get name => actionname;
 
     bool get hasData => false;
     bool get isJson => false;
+
+    String toString() => actionname.name;
 }
 
 /// This [Action] carries a data-package
