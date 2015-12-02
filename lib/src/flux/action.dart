@@ -43,6 +43,7 @@ class ActionName {
     const ActionName(this.name);
 
     String toString() => name;
+    bool operator==(final ActionName actionname) => name == actionname.name;
 }
 
 /// Simples form of an Action
