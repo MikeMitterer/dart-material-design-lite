@@ -30,26 +30,17 @@ abstract class ActionBus {
 
 }
 
-
-/// prettyPrint for JSON
-const JsonEncoder PRETTYJSON = const JsonEncoder.withIndent('   ');
-
-/// Basisklasse für alle Objekte die von bzw. nach Json konvertiert werden.
-abstract class JsonTO {
-    /// Standard Implementation für [toJson], die objektspezifischen Eingenschaften werden in [_toMap] umgesetzt.
-    Map<String, dynamic> toJson();
-
-    @override
-    String toString() {
-        return JSON.encode(toJson());
-    }
-
-    /// JSON-String wird eingerückt!
-    String toPrettyString() {
-        return PRETTYJSON.convert(toJson());
-    }
-
-    // -- private -----------------------------------------------------------------------------------
+/// Marker for all objects that can be deserialize from Json
+abstract class FromJson {
+    void fromJson(final data);
 }
+
+/// Marker for all objects that can be serialized to Json
+abstract class ToJson {
+    Map<String, dynamic> toJson();
+}
+
+/// Marker for all objects that can be serialized and deserialize from Json
+abstract class JsonObject implements FromJson,ToJson { }
 
 

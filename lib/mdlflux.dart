@@ -60,6 +60,7 @@ part "src/flux/action.dart";
 part "src/flux/ActionBusImpl.dart";
 part "src/flux/DataStore.dart";
 part "src/flux/Dispatcher.dart";
+part "src/flux/mixin.dart";
 
 /// Stock-Action that is emitted by the [Dispatcher.emitChange]-Function
 class UpdateView extends Action {

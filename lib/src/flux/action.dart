@@ -19,6 +19,9 @@
      
 part of mdlflux;
 
+/// Helper to prettyPrint JSON, used in [JsonAction.toPrettyString]
+const JsonEncoder _PRETTYJSON = const JsonEncoder.withIndent('   ');
+
 /// Gives you more infos about the action you receive
 ///
 /// Signal is the simplest form of an action. It contains no data
@@ -78,4 +81,36 @@ abstract class DataAction<T> extends Action {
 
     @override
     bool get hasData => data != null;
+}
+
+/// This [Action] carries a special data-package. The data-package can be serialized to JSON
+///
+///     class AlertAction extends JsonAction<AlertActionData> {
+///         static const ActionName NAME = const ActionName("sample.components.AlertAction");
+///         ActivateDevice(final AlertActionData data) : super(NAME,data);
+///     }
+///
+///     class AlertActionData extends JsonTO {
+///     ...
+///     }
+///
+abstract class JsonAction<T extends ToJson> extends Action implements ToJson {
+    final T data;
+    const JsonAction(final ActionName name,this.data) : super(ActionType.Json,name);
+
+    @override
+    bool get hasData => data != null;
+
+    @override
+    bool get isJson => true && hasData;
+
+    @override
+    String toString() {
+        return JSON.encode(toJson());
+    }
+
+    /// JSON-String wird eingerückt!
+    String toPrettyString() {
+        return _PRETTYJSON.convert(toJson());
+    }
 }
