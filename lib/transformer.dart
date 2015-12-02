@@ -11,12 +11,12 @@ import 'package:barback/barback.dart';
  * For the "styleguide-sample" this reduces the package size by around 50%!
  */
 class MDLCleanupTransformer extends Transformer implements LazyTransformer {
-    final BarbackSettings _settings;
+    // final BarbackSettings _settings;
 
     // A constructor named "asPlugin" is required. It can be empty, but
     // it must be present. It is how pub determines that you want this
     // class to be publicly available as a loadable transformer plugin.
-    MDLCleanupTransformer.asPlugin(this._settings);
+    MDLCleanupTransformer.asPlugin(/* this._settings*/ );
 
     Future<bool> isPrimary(final AssetId id) async {
         //print("Path: ${id.path}");
@@ -27,7 +27,7 @@ class MDLCleanupTransformer extends Transformer implements LazyTransformer {
             return true;
 
         } else if(id.path.startsWith("lib${path.separator}assets${path.separator}")) {
-            final String file = path.basename(id.path);
+            // final String file = path.basename(id.path);
             final String extension = path.extension(id.path).toLowerCase();
             return (extension == ".scss" || extension == ".md" || extension == ".html" || extension == ".txt");
         }

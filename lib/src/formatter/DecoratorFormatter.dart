@@ -22,7 +22,7 @@ part of mdlformatter;
 /// Just for Testing
 @MdlComponentModel
 class DecoratorFormatter {
-    final Logger _logger = new Logger('mdlformatter.DecoratorFormatter');
+    // final Logger _logger = new Logger('mdlformatter.DecoratorFormatter');
 
     String decorate(final value) {
         return "--${value}--";

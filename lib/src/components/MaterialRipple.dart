@@ -199,20 +199,20 @@ class MaterialRipple extends MdlComponent {
 
                 if(event is dom.MouseEvent) {
 
-                    clientX = (event as dom.MouseEvent).client.x;
-                    clientY = (event as dom.MouseEvent).client.y;
+                    clientX = event.client.x;
+                    clientY = event.client.y;
 
                 } else if(event is dom.TouchEvent) {
 
-                    clientX = (event as dom.TouchEvent).touches.first.client.x;
-                    clientY = (event as dom.TouchEvent).touches.first.client.y;
+                    clientX = event.touches.first.client.x;
+                    clientY = event.touches.first.client.y;
 
                 } else {
                     throw "$event must bei either MouseEvent or TouchEvent!";
                 }
 
-                x = ((clientX - bound.left) as num).round();
-                y = ((clientY - bound.top) as num).round();
+                x = (clientX - bound.left).round();
+                y = (clientY - bound.top).round();
             }
 
             //_logger.info("X $x Y $y ${bound} ${event.target} T ${hasRipple}");

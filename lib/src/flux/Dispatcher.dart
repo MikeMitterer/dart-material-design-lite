@@ -75,7 +75,7 @@ abstract class Dispatcher extends DataStore {
     }
 
     /// Informs the coupled [DataStore]s about the change
-    void emitChange({ final Action action: UpdateView }) {
+    void emitChange({ final Action action: UpdateViewAction }) {
         if (_onChange != null && _onChange.hasListener && !_onChange.isClosed) {
             _onChange.add(new DataStoreChangedEvent<Action>(action));
         }

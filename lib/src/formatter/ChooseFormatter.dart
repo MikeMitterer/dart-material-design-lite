@@ -25,7 +25,7 @@ part of mdlformatter;
 ///     <span mdl-observe="isNameNull | choose(value, '(Name-Object is null!)','')"></span>
 @MdlComponentModel
 class ChooseFormatter {
-    final Logger _logger = new Logger('mdlformatter.ChooseFormatter');
+    // final Logger _logger = new Logger('mdlformatter.ChooseFormatter');
 
     String choose(final bool value,[ final String option1 = "Yes",final String option2 = "No" ]) {
         return (value ? option1 : option2);

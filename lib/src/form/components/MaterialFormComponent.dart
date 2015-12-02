@@ -137,7 +137,7 @@ class MaterialFormComponent extends MdlComponent {
 
         _components.forEach((final MdlComponent component) {
             if(component is MaterialButton && component.classes.contains(_cssClasses.SUBMIT_BUTTON)) {
-                _submitButtons.add(component as MaterialButton);
+                _submitButtons.add(component);
             }
         });
 

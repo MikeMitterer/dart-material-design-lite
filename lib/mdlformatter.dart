@@ -19,7 +19,6 @@
 
 library mdlformatter;
 
-import 'package:logging/logging.dart';
 import "package:validate/validate.dart";
 import "package:intl/intl.dart";
 import 'package:di/di.dart' as di;

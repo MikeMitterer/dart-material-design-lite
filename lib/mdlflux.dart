@@ -51,8 +51,8 @@ library mdlflux;
 import 'dart:async';
 
 import 'package:di/di.dart' as di;
-import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
+import 'dart:convert';
 
 part "src/flux/interfaces.dart";
 
@@ -62,5 +62,8 @@ part "src/flux/DataStore.dart";
 part "src/flux/Dispatcher.dart";
 
 /// Stock-Action that is emitted by the [Dispatcher.emitChange]-Function
-const Action UpdateView = const Action(ActionType.Signal, const ActionName("mdl.mdlflux.datastore.update"));
+class UpdateView extends Action {
+    const UpdateView() : super(ActionType.Signal,const ActionName("mdl.mdlflux.datastore.update"));
+}
+const UpdateView UpdateViewAction = const UpdateView();
 

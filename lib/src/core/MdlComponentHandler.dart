@@ -316,18 +316,18 @@ class MdlComponentHandler {
         return configs;
     }
 
-    /// Returns true if the given element has already been upgraded for the given
-    /// class / Config.
-    /// The [element] we want to check.
-    /// [config] the config we check against [element]
-    bool _isElementUpgraded(final dom.Element element,final MdlConfig config) {
-
-        final bool upgraded = element.dataset.containsKey('upgraded');
-        if(!upgraded) {
-            return false;
-        }
-        return element.dataset['upgraded'].contains(config.classAsString);
-    }
+//    /// Returns true if the given element has already been upgraded for the given
+//    /// class / Config.
+//    /// The [element] we want to check.
+//    /// [config] the config we check against [element]
+//    bool _isElementUpgraded(final dom.Element element,final MdlConfig config) {
+//
+//        final bool upgraded = element.dataset.containsKey('upgraded');
+//        if(!upgraded) {
+//            return false;
+//        }
+//        return element.dataset['upgraded'].contains(config.classAsString);
+//    }
 
     /**
      * Searches existing DOM for elements of our component type and upgrades them

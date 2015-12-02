@@ -31,7 +31,7 @@ typedef dynamic PipeCommand(dynamic val);
  * 'decorate' is the last command in the chain so its output will be displayed.
  */
 class FormatterPipeline {
-    final Logger _logger = new Logger('mdlformatter.FormatterPipeline');
+    // final Logger _logger = new Logger('mdlformatter.FormatterPipeline');
 
     final _commands = new List<PipeCommand>();
     final Formatter _formatter;

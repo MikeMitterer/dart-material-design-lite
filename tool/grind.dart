@@ -4,7 +4,7 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:grinder/grinder.dart';
-import 'package:mdl/src/grinder/grinder.dart';
+import 'package:mdl/src/grinder/grinder.dart' as mdl;
 
 
 main(args) => grind(args);
@@ -21,23 +21,22 @@ build() {
 clean() => defaultClean();
 
 @Task()
-initSamples() => createSampleList();
+initSamples() => mdl.createSampleList();
 
 @Task()
 showConfig() {
-    config.settings.forEach((final String key,final String value) {
+    mdl.config.settings.forEach((final String key,final String value) {
         log("${key.padRight(28)}: $value");
     });
 }
 
-
 @Task("Initializes the sample-array")
 @Depends(initSamples)
 mergeMaster() {
-    final MergeMaster mergemaster = new MergeMaster();
+    final mdl.MergeMaster mergemaster = new mdl.MergeMaster();
 
-    samples.where((final Sample sample) => (sample.type == Type.Core || sample.type == Type.Ignore))
-        .forEach( (final Sample sample) {
+    mdl.samples.where((final mdl.Sample sample) => (sample.type == mdl.Type.Core || sample.type == mdl.Type.Ignore))
+        .forEach( (final mdl.Sample sample) {
 
         log("Name: ${sample.name.padRight(15)} ${sample.type}");
 
@@ -48,22 +47,23 @@ mergeMaster() {
     mergemaster.genMaterialCSS();
     mergemaster.copyDemoCSS();
 
-    Utils.genMaterialCSS();
+    mdl.Utils.genMaterialCSS();
 }
 
 
 @Task()
 @Depends(initSamples, genCss)
 genThemes() {
-    final ThemeGenerator generator = new ThemeGenerator();
+    final mdl.ThemeGenerator generator = new mdl.ThemeGenerator();
     generator.generate();
 }
 
 @Task()
 @Depends(initSamples)
 genCss() {
-    log("${Utils.genMaterialCSS()} created!");
-    log("${Utils.genSplashScreenCSS()} created!");
-    log("${Utils.genFontsCSS()} created!");
-    Utils.genPredefLayoutsCSS().forEach((final String file) => log("${file} created!"));
+    log("${mdl.Utils.genMaterialCSS()} created!");
+    log("${mdl.Utils.genSplashScreenCSS()} created!");
+    log("${mdl.Utils.genFontsCSS()} created!");
+
+    mdl.Utils.genPredefLayoutsCSS().forEach((final String file) => log("${file} created!"));
 }

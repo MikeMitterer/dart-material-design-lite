@@ -26,7 +26,7 @@ part of mdlformatter;
  */
 @MdlComponentModel
 class NumberFormatter {
-    final Logger _logger = new Logger('mdlformatter.NumberFormatter');
+    // final Logger _logger = new Logger('mdlformatter.NumberFormatter');
 
     final Map<String,Map<num, NumberFormat>> _nfs = new Map<String, Map<num, NumberFormat>>();
 

@@ -45,11 +45,11 @@ class ActionName {
 
 /// Simples form of an Action
 ///
-///     class DataLoadedAction extends Signal {
+///     class DataLoadedAction extends Action {
 ///         static const ActionName NAME = const ActionName("sample.datastore.DataLoadedAction");
 ///         DataLoadedAction(): super(ActionType.Signal,NAME);
 ///     }
-class Action {
+abstract class Action {
     final ActionType type;
     final ActionName actionname;
 
