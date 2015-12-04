@@ -76,10 +76,10 @@ class MaterialButton extends MdlComponent {
         _logger.fine("MaterialButton - init");
 
         if(element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
-            final dom.SpanElement rippleContainer = new dom.Element.span();
+            final dom.SpanElement rippleContainer = new dom.SpanElement();
             rippleContainer.classes.add(_cssClasses.RIPPLE_CONTAINER);
 
-            final dom.SpanElement rippleElement = new dom.Element.span();
+            final dom.SpanElement rippleElement = new dom.SpanElement();
             rippleElement.classes.add(_cssClasses.RIPPLE);
             rippleContainer.append(rippleElement);
 

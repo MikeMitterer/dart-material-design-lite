@@ -45,7 +45,7 @@ class MaterialModel extends MdlComponent implements RefreshableComponent {
     final ModelObserverFactory _observerFactory;
 
     MaterialModel.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector), _observerFactory = injector.get(ModelObserverFactory) {
+        : _observerFactory = injector.get(ModelObserverFactory), super(element,injector) {
     }
 
     @override

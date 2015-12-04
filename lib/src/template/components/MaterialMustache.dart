@@ -46,7 +46,7 @@ class MaterialMustache extends MdlComponent {
     String _template = "";
 
     MaterialMustache.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector), _renderer = injector.get(DomRenderer) {
+        : _renderer = injector.get(DomRenderer), super(element,injector) {
         _init();
     }
 

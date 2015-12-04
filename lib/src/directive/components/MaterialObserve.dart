@@ -60,8 +60,8 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
     Scope scope;
 
     MaterialObserve.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector),
-            _renderer = injector.get(DomRenderer), _eventCompiler = injector.get(EventCompiler) {
+        : _renderer = injector.get(DomRenderer), _eventCompiler = injector.get(EventCompiler),
+            super(element,injector) {
     }
     
     static MaterialObserve widget(final dom.HtmlElement element) => mdlComponent(element,MaterialObserve) as MaterialObserve;

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <title>Button Test</title>
+    <link rel="x-dart-test" href="button_test.dart">
+    <script src="packages/test/dart.js"></script>
+</head>
+<body>
+<div class="ui-test ui-test--button">
+    <button id="button1" class="mdl-button mdl-js-button">Flat</button>
+</div>
+
+<div class="ui-test ui-test--downgrade">
+    <button id="button-to-downgrade" class="mdl-button mdl-js-button">Downgrade</button>
+    <span class="message">Downgraded!</span>
+
+    <label class="mdl-checkbox mdl-js-checkbox" for="checkbox-to-downgrade">
+        <input type="checkbox" id="checkbox-to-downgrade" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Downgrade me</span>
+    </label>
+    <span class="message">Downgraded!</span>
+
+    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-to-downgrade-with-ripples">
+        <input type="checkbox" id="checkbox-to-downgrade-with-ripples" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Downgrade me</span>
+    </label>
+    <span class="message">Downgraded!</span>
+
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="tab-to-downgrade">
+        <div class="mdl-tabs__tab-bar">
+            <a href="#starks-panel" class="mdl-tabs__tab is-active">Tab I</a>
+            <a href="#lannisters-panel" class="mdl-tabs__tab">Tab II</a>
+            <a href="#targaryens-panel" class="mdl-tabs__tab">Tab III</a>
+        </div>
+
+        <div class="mdl-tabs__panel is-active" id="starks-panel">
+            <ul>
+                <li>
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-to-downgrade-with-ripples-in-tab">
+                        <input type="checkbox" id="checkbox-to-downgrade-with-ripples-in-tab" class="mdl-checkbox__input" />
+                        <span class="mdl-checkbox__label">Downgrade me</span>
+                    </label>
+                    <span class="message">Downgraded!</span>
+                </li>
+                <li>Rickon</li>
+            </ul>
+        </div>
+        <div class="mdl-tabs__panel" id="lannisters-panel">
+            <ul>
+                <li>Jamie</li>
+                <li>Tyrion</li>
+            </ul>
+        </div>
+        <div class="mdl-tabs__panel" id="targaryens-panel">
+            <ul>
+                <li>Viserys</li>
+                <li>Daenerys</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

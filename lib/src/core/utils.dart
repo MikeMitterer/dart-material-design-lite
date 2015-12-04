@@ -20,7 +20,8 @@
 part of mdlcore;
 
 class WrongComponentTypeException implements Exception {
-    factory WrongComponentTypeException([var message]) => new Exception(message);
+    final message;
+    WrongComponentTypeException([this.message]);
 }
 
 /**

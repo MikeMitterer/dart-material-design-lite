@@ -22,7 +22,7 @@ part of mdl.grinder;
 class Styleguide {
 
     void generate(final Sample sample) {
-        final Sample sampleStyleguide = samples.firstWhere((final Sample sample) => sample.type == Type.Styleguide);
+        // final Sample sampleStyleguide = samples.firstWhere((final Sample sample) => sample.type == Type.Styleguide);
 
         _copyDemoCssToStyleguide(sample,samplesToExclude: [ "layout1" ]);
         _copySampleViewToStyleguide(sample,samplesToExclude: [ "layout1" ]);
@@ -104,19 +104,19 @@ class Styleguide {
                 multiLine: true, caseSensitive: false),"");
 
         // Mustache-Block (not called - just to remember)
-        void _removeMustacheBlock() {
-            content = content.replaceAll(
-                new RegExp(
-                    // switches for mustache-delimiter
-                    r"(?:(\{\{= \| \| =\}\})|(\|= \{\{ \}\} =\|))",
-                    multiLine: true, caseSensitive: false),"");
-
-            content = content.replaceAll(
-                new RegExp(
-                    // Mustache comment
-                    r"\{\{\![^}]*\}\}",
-                    multiLine: true, caseSensitive: false),"");
-        }
+//        void _removeMustacheBlock() {
+//            content = content.replaceAll(
+//                new RegExp(
+//                    // switches for mustache-delimiter
+//                    r"(?:(\{\{= \| \| =\}\})|(\|= \{\{ \}\} =\|))",
+//                    multiLine: true, caseSensitive: false),"");
+//
+//            content = content.replaceAll(
+//                new RegExp(
+//                    // Mustache comment
+//                    r"\{\{\![^}]*\}\}",
+//                    multiLine: true, caseSensitive: false),"");
+//        }
 
         //content = content.replaceAll(new RegExp(r"^",caseSensitive: false, multiLine: true),"    ");
 

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <title>Layout Test</title>
+    <link rel="x-dart-test" href="layout_test.dart">
+    <script src="packages/test/dart.js"></script>
+</head>
+<body>
+<div class="ui-test ui-test--layout">
+    <h5>Fixed drawer with header</h5>
+    <p>The drawer is always open in large screen sizes, functioning as side
+        navigation.</p>
+    <div class="demo-layout">
+        <div id="demo-layout" class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--overlay-drawer-button">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title">Fixed drawer</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="sample-expclean">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" name="sample" id="sample-expclean" />
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Material Design Lite</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="#">Hello</a>
+                    <a class="mdl-navigation__link" href="#">World.</a>
+                    <a class="mdl-navigation__link" href="#">How</a>
+                    <a class="mdl-navigation__link" href="#">Are</a>
+                    <a class="mdl-navigation__link" href="#">You?</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="demo-layout__content">
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

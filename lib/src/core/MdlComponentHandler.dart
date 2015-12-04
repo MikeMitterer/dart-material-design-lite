@@ -22,7 +22,8 @@ part of mdlcore;
 /// Thrown if you try to register more than one widget per element
 /// Multiple components per element are allowed but not multiple widgets!
 class MultipleWidgetException implements Exception {
-    factory MultipleWidgetException([var message]) => new Exception(message);
+    final message;
+    MultipleWidgetException([this.message]);
 }
 
 /// Property for the Components JsObject to save/register the component

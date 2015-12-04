@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Progress Test</title>
+    <link rel="x-dart-test" href="progress_test.dart">
+    <script src="packages/test/dart.js"></script>
+</head>
+<body>
+
+<div class="ui-test ui-test--progress">
+    Should be 50%
+    <div id="p1" class="mdl-progress mdl-js-progress"></div>
+
+    Indeterminate
+    <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+
+    Progress set to 33%, buffer 66%
+    <div id="p3" class="mdl-progress mdl-js-progress"></div>
+
+    Should be 100%, was set to 1xx (> 100%)
+    <div id="p4" class="mdl-progress mdl-js-progress"></div>
+
+    Should be 0, was set to -xxx (< 0)
+    <div id="p5" class="mdl-progress mdl-js-progress"></div>
+</div>
+
+</body>
+</html>

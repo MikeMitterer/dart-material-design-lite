@@ -102,8 +102,8 @@ class MaterialRepeat extends MdlTemplateComponent {
     final List _items = new List();
 
     MaterialRepeat.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector),
-            _repeatRenderer = injector.get(DomRenderer), _eventCompiler = injector.get(EventCompiler) {
+        : _repeatRenderer = injector.get(DomRenderer), _eventCompiler = injector.get(EventCompiler),
+            super(element,injector) {
 
         _init();
     }

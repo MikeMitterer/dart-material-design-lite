@@ -1,4 +1,32 @@
-part of mdl.unit.test;
+/*
+ * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+ * IT-Consulting and Development Limited.
+ *
+ * All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@TestOn("content-shell")
+import 'package:test/test.dart';
+
+import 'dart:async';
+import 'dart:html' as dom;
+
+import "package:mdl/mdl.dart";
+import 'package:di/di.dart' as di;
+import 'package:logging/logging.dart';
+import 'package:logging_handlers/logging_handlers_shared.dart';
 
 class MdlTestModule extends di.Module {
 
@@ -7,8 +35,15 @@ class MdlTestModule extends di.Module {
     }
 }
 
-testCoreUtils() {
+Future prepareMdlTest(Future additionalRegistration()) async {
+    registerApplicationComponents();
+    await additionalRegistration();
+    await componentHandler().run();
+}
+
+main() {
     // final Logger _logger = new Logger("test.CoreUtils");
+    configLogging();
 
     final dom.DivElement div = new dom.DivElement();
 
@@ -78,4 +113,8 @@ testCoreUtils() {
     // end 'CoreUtils' group
 }
 
-// - Helper --------------------------------------------------------------------------------------
+void configLogging() {
+    //hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
+    Logger.root.level = Level.INFO;
+    Logger.root.onRecord.listen(new LogPrintHandler());
+}

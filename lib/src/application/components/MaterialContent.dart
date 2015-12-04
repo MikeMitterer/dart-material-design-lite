@@ -46,7 +46,7 @@ class MaterialContent extends MdlComponent {
     final DomRenderer _renderer;
 
     MaterialContent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector), _renderer = injector.get(DomRenderer) {
+        : _renderer = injector.get(DomRenderer), super(element,injector) {
         _init();
     }
 

@@ -131,7 +131,7 @@ class MaterialAccordion extends MdlComponent {
                 final String id = "accordion-${label.hashCode}";
                 (label as dom.LabelElement).htmlFor = id;
 
-                final dom.InputElement inputElement = new dom.CheckboxInputElement();
+                final dom.CheckboxInputElement inputElement = new dom.CheckboxInputElement();
                 if(isRadio) {
                     eventStreams.add(
                         inputElement.onClick.listen((final dom.Event event) {

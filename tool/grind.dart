@@ -1,20 +1,51 @@
 library gensamples;
 
-import 'dart:io';
-import 'dart:convert';
-
 import 'package:grinder/grinder.dart';
 import 'package:mdl/src/grinder/grinder.dart' as mdl;
 
 
 main(args) => grind(args);
 
-@Task()
-test() => new TestRunner().testAsync();
-
 @DefaultTask()
-@Depends(genCss)
+@Depends(genCss, test)
 build() {
+}
+
+@Task()
+@Depends(analyze)
+test() {
+    new TestRunner().testAsync(files: "test/unit");
+    new TestRunner().testAsync(files: "test/visual");
+
+    // Alle test mit @TestOn("content-shell") im header
+    new TestRunner().test(files: "test/unit",platformSelector: "content-shell");
+    new TestRunner().test(files: "test/visual",platformSelector: "content-shell");
+}
+
+@Task()
+analyze() {
+    final List<String> libs = [
+        "lib/mdl.dart",
+        "lib/mdlanimation.dart",
+        "lib/mdlapplication.dart",
+        "lib/mdlcomponets.dart",
+        "lib/mdlcore.dart",
+        "lib/mdldemo.dart",
+        "lib/mdldialog.dart",
+        "lib/mdldirective.dart",
+        "lib/mdldnd.dart",
+        "lib/mdlflux.dart",
+        "lib/mdlform.dart",
+        "lib/mdlformatter.dart",
+        "lib/mdlmock.dart",
+        "lib/mdlobservable.dart",
+        "lib/mdltemplate.dart",
+        "lib/mdlutils.dart",
+        "lib/transformer.dart"
+    ];
+
+    libs.forEach((final String lib) => Analyzer.analyze(lib));
+    Analyzer.analyze("test");
 }
 
 @Task()

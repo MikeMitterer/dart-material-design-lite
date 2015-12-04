@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>Parent Test</title>
+    <link rel="x-dart-test" href="repeat_test.dart">
+    <script src="packages/test/dart.js"></script>
+</head>
+<body>
+
+<div class="ui-test ui-test--repeat">
+    <div id="repeat" mdl-repeat>
+        <!-- {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}} -->
+        <template>
+            <div class="row">
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check-{{hashCode}}">
+                    <input type="checkbox" id="check-{{hashCode}}" class="mdl-checkbox__input" />
+                    <span class="mdl-checkbox__label">Repeat me: <strong>{{name}}</strong></span>
+                </label>
+
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi1-{{hashCode}}">
+                    <input type="radio" id="wifi1-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="1" />
+                    <span class="mdl-radio__label">Always</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi2-{{hashCode}}">
+                    <input type="radio" id="wifi2-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="2" />
+                    <span class="mdl-radio__label">Only when plugged in</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi3-{{hashCode}}">
+                    <input type="radio" id="wifi3-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="3" />
+                    <span class="mdl-radio__label">Never</span>
+                </label>
+            </div>
+        </template>
+        <!-- |= {{ }} =| {{! ----- Turn on mustache ---- }} -->
+    </div>
+    <div class="hint">
+        Last row checkbox should be checked and "Only when plugged in" should be selected.
+    </div>
+</div>
+
+</body>
+</html>

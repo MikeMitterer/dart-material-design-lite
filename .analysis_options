@@ -1,0 +1,9 @@
+analyzer:
+  # strong-mode: true
+
+  exclude:
+    - lib/_templates/**
+    - tool/demobase/**
+    - tool/jsbase/**
+    - tool/portbase/**
+    - tool/templates/**
