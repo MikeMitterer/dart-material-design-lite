@@ -41,7 +41,8 @@ analyze() {
         "lib/mdlobservable.dart",
         "lib/mdltemplate.dart",
         "lib/mdlutils.dart",
-        "lib/transformer.dart"
+        "lib/transformer.dart",
+        "lib/src/grinder.dart"
     ];
 
     libs.forEach((final String lib) => Analyzer.analyze(lib));
