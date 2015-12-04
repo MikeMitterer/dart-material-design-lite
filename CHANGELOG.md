@@ -1,6 +1,16 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.12.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.12.0...v1.12.1) - 2015-12-04
+
+### Docs
+* Move tests to new test-structure [264ca1d](https://github.com/mikemitterer/dart-material-design-lite/commit/264ca1d22b37605fc08e8b28d15a8a07e80bd6b1)
+
+## [v1.12.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.11.1...v1.12.0) - 2015-12-02
+
+### Docs
+* DataFlow-Diagram for mdlflux [0ab30e4](https://github.com/mikemitterer/dart-material-design-lite/commit/0ab30e4cd5d0877c42d197d05bb721a54747c894)
+
 ## [v1.11.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.11.0...v1.11.1) - 2015-12-01
 
 ### Fixes
