@@ -1,6 +1,11 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.12.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.12.1...v1.12.2) - 2015-12-04
+
+### Docs
+* MDLFlux message flow diagram [4c30055](https://github.com/mikemitterer/dart-material-design-lite/commit/4c30055fabf3dd1752c3b3fe9c367b12abfd9a1d)
+
 ## [v1.12.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.12.0...v1.12.1) - 2015-12-04
 
 ### Docs
