@@ -9,7 +9,8 @@ from the get-go.
 
 ## New
 v 1.11 - MDLFlux (REACT-like Actions, ActionBus, Dispatcher and DataStore)
-you can see further changes on the [CHANGELOG](https://github.com/MikeMitterer/dart-material-design-lite/blob/master/CHANGELOG.md)!
+
+You can see further changes on the [CHANGELOG](https://github.com/MikeMitterer/dart-material-design-lite/blob/master/CHANGELOG.md)!
 
 ![MDLFlux](doc/libs/flux/mdlFlux.png?raw=true "MDLFlux message flow")
 
