@@ -24,8 +24,8 @@ import 'dart:async';
 import 'dart:html' as dom;
 
 import "package:mdl/mdl.dart";
-import 'package:logging/logging.dart';
-import 'package:logging_handlers/logging_handlers_shared.dart';
+
+import '../config.dart';
 
 Future prepareMdlTest(Future additionalRegistration()) async {
     registerApplicationComponents();
@@ -121,10 +121,4 @@ main() {
         }); // end of 'is Form invalid' test
     });
     // end 'CoreUtils II' group
-}
-
-void configLogging() {
-    //hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogPrintHandler());
 }

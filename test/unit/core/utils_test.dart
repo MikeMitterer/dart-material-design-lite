@@ -25,8 +25,8 @@ import 'dart:html' as dom;
 
 import "package:mdl/mdl.dart";
 import 'package:di/di.dart' as di;
-import 'package:logging/logging.dart';
-import 'package:logging_handlers/logging_handlers_shared.dart';
+
+import '../config.dart';
 
 class MdlTestModule extends di.Module {
 
@@ -111,10 +111,4 @@ main() {
         }); // end of 'mdlComponents' test
     });
     // end 'CoreUtils' group
-}
-
-void configLogging() {
-    //hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogPrintHandler());
 }

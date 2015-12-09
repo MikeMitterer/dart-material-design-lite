@@ -23,7 +23,8 @@ import 'package:test/test.dart';
 import "package:mdl/mdl.dart";
 import "package:mdl/mdlobservable.dart";
 import 'package:logging/logging.dart';
-import 'package:logging_handlers/logging_handlers_shared.dart';
+
+import '../config.dart';
 
 main() {
     final Logger _logger = new Logger("mdl.unit.test.Observables");
@@ -50,10 +51,4 @@ main() {
 
     });
     // end 'Observables' group
-}
-
-void configLogging() {
-    //hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogPrintHandler());
 }
