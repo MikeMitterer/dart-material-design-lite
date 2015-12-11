@@ -1,6 +1,14 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.12.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.12.3...v1.12.4) - 2015-12-11
+
+### Feature
+* Set injector in ComponenHandler via mockComponentHandler [783bc12](https://github.com/mikemitterer/dart-material-design-lite/commit/783bc1263853a8d134cf6c3d8ebe0d44bed3d850)
+
+### Fixes
+* SampleGenerator sometimes deleted pubspec.yaml (was not sync) [aac5259](https://github.com/mikemitterer/dart-material-design-lite/commit/aac525969bfb7799a65ed0e1260a9c1eefdcd1d8)
+
 ## [v1.12.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.12.1...v1.12.2) - 2015-12-04
 
 ### Docs
