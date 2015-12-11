@@ -17,6 +17,23 @@
  * limitations under the License.
  */
 
+/// Helps testing MDL/Dart + DI
+///
+///     import 'package:mdl/mdlmock.dart' as mdlmock;
+///
+///     main() {
+///         ...
+///         setUp( () {
+///
+///             mdlmock.setUpInjector();
+///             mdlmock.module((final di.Module module) {
+///                 module.bind(SignalService, toImplementation: SignalServiceImpl);
+///                 module.bind(Translator, toValue: _translator);
+///         });
+///
+///         mdlmock.mockComponentHandler(mdlmock.injector(),mdlmock.componentFactory());
+///         }
+///     }
 library mdlmock;
 
 //import 'package:logging/logging.dart';
@@ -26,6 +43,8 @@ import 'dart:mirrors';
 import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdlapplication.dart';
+export 'package:mdl/mdlcore.dart' show mockComponentHandler;
+export 'package:mdl/mdlapplication.dart' show componentFactory;
 
 _MdlInjector _mdlInjector = null;
 
@@ -62,6 +81,7 @@ class _MdlInjector {
 
     // - private -------------------------------------------------------------------------------------------------------
 
+    /// Creates the "Injector" also called by the global [injector()] Function
     void _create() {
         if(_injector == null) {
             _injector = new di.ModuleInjector(_modules);
@@ -76,10 +96,7 @@ class MdlMockModule extends di.Module {
     }
 }
 
-
-/**
- * Call this method in your test harness [setUp] method to setup the injector.
- */
+/// Call this method in your test harness [setUp] method to setup the injector.
 void setUpInjector() {
     _mdlInjector = new _MdlInjector();
 
@@ -106,10 +123,26 @@ void inject(Function fn) {
     _mdlInjector.inject(fn);
 }
 
-/**
- * Call this method in your test harness [tearDown] method to cleanup the injector.
- */
+/// Call this method in your test harness [tearDown] method to cleanup the injector.
 void tearDownInjector() {
     _mdlInjector = null;
+}
+
+/// Returns this mocked injector
+///
+///     setUp(() {
+///         mdlmock.setUpInjector();
+///         mdlmock.module((final di.Module module) {
+///             module.bind(SignalService, toImplementation: SignalServiceImpl);
+///             module.bind(Translator, toValue: _translator);
+///         });
+///         mockComponentHandler(mdlmock.injector(),componentFactory());
+///     });
+di.Injector injector() {
+    if(_mdlInjector == null) {
+        setUpInjector();
+    }
+    _mdlInjector._create();
+    return _mdlInjector._injector;
 }
 

@@ -1,13 +1,13 @@
 /*
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
- *
+ * 
  * All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -16,35 +16,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+     
+part of mdlcore;
 
-/**
- * The core - handles the initialisation process and
- * defines the base-class for all components
- */
-library mdlcore;
-
-import 'dart:html' as dom;
-import 'dart:collection';
-import 'dart:async';
-import 'dart:js';
-
-import 'package:logging/logging.dart';
-import 'package:validate/validate.dart';
-import 'package:di/di.dart' as di;
-
-part "src/core/annotations.dart";
-part "src/core/ConvertValue.dart";
-part "src/core/interfaces.dart";
-part "src/core/mock.dart";
-part "src/core/utils.dart";
-
-part "src/core/MdlComponentHandler.dart";
-part "src/core/MdlConfig.dart";
-part "src/core/MdlComponent.dart";
-
-abstract class MdlDataConsumer {
-    void consume(final data);
+/// Purpose of [mockComponentHandler] is to inject the componentHandler
+/// with a mocked Injector for testing
+///
+///     setUp(() {
+///         mdlmock.setUpInjector();
+///         mdlmock.module((final di.Module module) {
+///             module.bind(SignalService, toImplementation: SignalServiceImpl);
+///             module.bind(Translator, toValue: _translator);
+///         });
+///         mockComponentHandler(mdlmock.injector(),componentFactory());
+///     });
+///
+void mockComponentHandler(final di.Injector injector,final MdlComponentHandler componentHandler) {
+    componentHandler._injector = injector;
 }
-
-
-

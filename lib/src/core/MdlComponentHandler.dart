@@ -81,6 +81,7 @@ class MdlComponentHandler {
     bool _enableVisualDebugging = false;
 
     /// The injector for this module.
+    /// Can also set via [mockComponentHandler]
     di.Injector _injector;
 
     /**
