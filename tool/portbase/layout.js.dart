@@ -39,9 +39,18 @@ class _  MaterialLayoutConstant {
       final String MAX_WIDTH = '(max-width: 1024px)';
       final int TAB_SCROLL_PIXELS = 100;
 
-      final String MENU_ICON = 'menu';
+      final String MENU_ICON = '&#xE5D2;';
       final String CHEVRON_LEFT = 'chevron_left';
       final String CHEVRON_RIGHT = 'chevron_right';
+  }
+
+/// Keycodes, for code readability.
+/// 
+/// enum {number}
+  MaterialLayout.prototype.Keycodes_ = {
+      final int ENTER = 13;
+      final int ESCAPE = 27;
+      final int SPACE = 32;
   }
 
 /// Modes.
@@ -125,6 +134,16 @@ void _contentScrollHandler() {
     }
   }
 
+/// Handles a keyboard event on the drawer.
+/// 
+/// param {Event} evt The event that fired.
+///   MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
+void _keyboardEventHandler(final evt) {
+    if (evt.keyCode == _Keycodes.ESCAPE) {
+      _toggleDrawer();
+    }
+  }
+
 /// Handles changes in screen size.
 /// 
 ///   MaterialLayout.prototype.screenSizeHandler_ = /*function*/ () {
@@ -142,12 +161,30 @@ void _screenSizeHandler() {
     }
   }
 
+/// Handles events of of drawer button.
+/// 
+/// param {Event} evt The event that fired.
+///   MaterialLayout.prototype.drawerToggleHandler_ = function(evt) {
+void _drawerToggleHandler(final evt) {
+    if (evt.type == 'keydown') {
+      if (evt.keyCode == _Keycodes.SPACE || evt.keyCode == _Keycodes.ENTER) {
+        // prevent scrolling in drawer nav
+        evt.preventDefault();
+
+      } else {
+        // prevent other keys
+        return;
+      }
+    }
+
+    _toggleDrawer();
+  }
+
 /// Handles toggling of the drawer.
 /// 
 ///   MaterialLayout.prototype.drawerToggleHandler_ = /*function*/ () {
 void _drawerToggleHandler() {
-    _drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
-    _obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
+    toggleDrawer();
   }
 
 /// Handles (un)setting the `is-animating` class
@@ -186,6 +223,35 @@ void _resetPanelState(final panels) {
       panels[j].classes.remove(_cssClasses.IS_ACTIVE);
     }
   }
+
+/// Toggle drawer state
+/// 
+/// public
+///   MaterialLayout.prototype.toggleDrawer = /*function*/ () {
+void toggleDrawer() {
+
+    final drawerButton = element.querySelector('.' + _cssClasses.DRAWER_BTN);
+
+    final firstLink = html.querySelector('.' + _cssClasses.DRAWER + ' a');
+    _drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
+    _obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
+
+    // focus first link if drawer will be opened otherwise focus the drawer button
+    if (_drawer.classes.contains(_cssClasses.IS_DRAWER_OPEN)) {
+      _drawer.setAttribute('aria-hidden', 'false');
+      drawerButton.setAttribute('aria-expanded', 'true');
+      if (firstLink) {
+        firstLink.focus();
+      }
+
+    } else {
+      _drawer.setAttribute('aria-hidden', 'true');
+      drawerButton.setAttribute('aria-expanded', 'false');
+      drawerButton.focus();
+    }
+  }
+  MaterialLayout.prototype['toggleDrawer'] =
+      MaterialLayout.prototype.toggleDrawer;
 
 /// Initialize element.
 ///   MaterialLayout.prototype.init = /*function*/ () {
@@ -275,11 +341,14 @@ void init() {
         if (!drawerButton) {
 
           drawerButton = new html.DivElement();
+          drawerButton.setAttribute('aria-expanded', 'false');
+          drawerButton.setAttribute('role', 'button');
+          drawerButton.setAttribute('tabindex', '0');
           drawerButton.classes.add(_cssClasses.DRAWER_BTN);
 
           final drawerButtonIcon = document.createElement('i');
           drawerButtonIcon.classes.add(_cssClasses.ICON);
-          drawerButtonIcon.textContent = _constant.MENU_ICON;
+          drawerButtonIcon.innerHTML = _constant.MENU_ICON;
           drawerButton.append(drawerButtonIcon);
         }
 
@@ -293,6 +362,9 @@ void init() {
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
         drawerButton.onClick.listen(
+            _drawerToggleHandler);
+
+        drawerButton.addEventListener('keydown',
             _drawerToggleHandler);
 
         // Add a class if the layout has a drawer, for altering the left padding.
@@ -317,6 +389,9 @@ void init() {
         obfuscator.onClick.listen(
             _drawerToggleHandler);
         _obfuscator = obfuscator;
+
+        _drawer.addEventListener('keydown', _keyboardEventHandler);
+        _drawer.setAttribute('aria-hidden', 'true');
       }
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling

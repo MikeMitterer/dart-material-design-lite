@@ -3609,8 +3609,10 @@ ul, ol {
     color: rgb(255,64,129);
     background: rgba(255,255,255,0.2);
     box-shadow: 0 0 1px gray; }
-  .mdl-badge.mdl-badge--overlap:after {
-    right: -10px; }
+  .mdl-badge.mdl-badge--overlap {
+    margin-right: 10px; }
+    .mdl-badge.mdl-badge--overlap:after {
+      right: -10px; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -5701,6 +5703,271 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Snackbar
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* SNACKBAR */
+/* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+.mdl-list {
+  display: block;
+  padding: 8px 0;
+  list-style: none; }
+
+.mdl-list__item {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  height: 48px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 16px 16px 20px 16px;
+  cursor: default; }
+  .mdl-list__item .mdl-list__item-primary-content {
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+        -ms-flex-order: 0;
+            order: 0;
+    -webkit-box-flex: 2;
+    -webkit-flex-grow: 2;
+        -ms-flex-positive: 2;
+            flex-grow: 2;
+    text-decoration: none; }
+    .mdl-list__item .mdl-list__item-primary-content .material-icons {
+      font-size: 40px;
+      line-height: 0;
+      vertical-align: middle;
+      padding: 0 12px 0 0; }
+  .mdl-list__item .mdl-list__item-secondary-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
+    .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-action label {
+      display: inline; }
+    .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-info {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0;
+      margin-bottom: 10px;
+      color: rgba(0,0,0, 0.54); }
+    .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-sub-header {
+      padding: 0 0 0 16px; }
+
+.mdl-list__item-avatar {
+  height: 56px; }
+
+.mdl-list__item-two-line {
+  height: 72px; }
+  .mdl-list__item-two-line .mdl-list__item-primary-content .material-icons {
+    vertical-align: text-bottom; }
+  .mdl-list__item-two-line .mdl-list__item-primary-content .mdl-list__item-sub-title {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    display: block;
+    padding: 0 0 0 56px; }
+
+.mdl-list__item-three-line {
+  height: 88px; }
+  .mdl-list__item-three-line .mdl-list__item-primary-content .material-icons {
+    vertical-align: text-bottom; }
+  .mdl-list__item-three-line .mdl-list__item-text-body {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    color: rgba(0,0,0, 0.54);
+    display: block;
+    height: 24px;
+    padding: 0 0 0 56px;
+    overflow: hidden; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6861,6 +7128,17 @@ input.mdl-button[type="submit"] {
   .mdl-layout__obfuscator.is-visible {
     background-color: rgba(0, 0, 0, 0.5);
     visibility: visible; }
+  @supports (pointer-events: auto) {
+    .mdl-layout__obfuscator {
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      -webkit-transition-property: opacity;
+              transition-property: opacity;
+      visibility: visible;
+      pointer-events: none; }
+      .mdl-layout__obfuscator.is-visible {
+        pointer-events: auto;
+        opacity: 1; } }
 
 .mdl-layout__content {
   -ms-flex: 0 1 auto;

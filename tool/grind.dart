@@ -6,7 +6,7 @@ import 'package:mdl/src/grinder/grinder.dart' as mdl;
 
 main(args) => grind(args);
 
-@DefaultTask()
+@Task()
 @Depends(genCss, test)
 build() {
 }

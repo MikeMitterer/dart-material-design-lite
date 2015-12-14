@@ -495,7 +495,8 @@ class MaterialMenu extends MdlComponent {
     /// Adds an event listener to clean up after the animation ends.
     void _addAnimationEndListener() {
 
-        final cleanup = (_) {
+        /// Cleanup function to remove animation listeners.
+        final _removeAnimationEndListener = (_) {
             if(_animationStream != null) {
                 _animationStream.cancel();
                 _animationStream = null;
@@ -504,7 +505,7 @@ class MaterialMenu extends MdlComponent {
         };
 
         // Remove animation class once the transition is done.
-        _animationStream = element.onTransitionEnd.listen(cleanup);
+        _animationStream = element.onTransitionEnd.listen(_removeAnimationEndListener);
     }
 }
 

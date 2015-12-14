@@ -209,6 +209,7 @@ $progress-image-path: $image_path;
 
 $list-container-item-border-color: ($palette-grey-300) !default;
 $list-container-view-background: ($color-white) !default;
+$list-supporting-text-text-color: rgba($color-black, 0.54) !default;
 
 // =========  Item =========
 
@@ -438,6 +439,7 @@ $badge-background: $color-accent !default;
 $badge-background-inverse: rgba($color-accent-contrast,0.2) !default;
 $badge-size : 22px !default;
 $badge-padding: 2px !default;
+$badge-overlap: 12px !default;
 
 // SHADOWS
 

@@ -27,6 +27,10 @@ class _MaterialTooltipCssClasses {
     static const String MAIN_CLASS  = "mdl-tooltip";
 
     final String IS_ACTIVE = 'is-active';
+    final String BOTTOM = 'mdl-tooltip--bottom';
+    final String LEFT = 'mdl-tooltip--left';
+    final String RIGHT = 'mdl-tooltip--right';
+    final String TOP = 'mdl-tooltip--top';
 
     const _MaterialTooltipCssClasses();
 }
@@ -104,20 +108,48 @@ class MaterialTooltip extends MdlComponent {
 
         final Math.Rectangle props = _forElement.getBoundingClientRect();
 
-        final int left = props.left + (props.width / 2);
+        int left = props.left + (props.width / 2);
+
+        final int top = props.top + (props.height / 2);
 
         final double marginLeft = -1 * (element.offsetWidth / 2);
 
-        if (left + marginLeft < 0) {
-            element.style.left = "0";
-            element.style.marginLeft = "0";
+        final double marginTop = -1 * (element.offsetHeight / 2);
+
+        if (element.classes.contains(_cssClasses.LEFT) || element.classes.contains(_cssClasses.RIGHT)) {
+
+            left = (props.width / 2);
+            if (top + marginTop < 0) {
+                element.style.top = 0;
+                element.style.marginTop = 0;
+
+            } else {
+                element.style.top = "${top}px";
+                element.style.marginTop = "${marginTop}px";
+            }
 
         } else {
-            element.style.left = "${left}px";
-            element.style.marginLeft = "${marginLeft}px";
+            if (left + marginLeft < 0) {
+                element.style.left = "0";
+                element.style.marginLeft = "0";
+
+            } else {
+                element.style.left = "${left}px";
+                element.style.marginLeft = "${marginLeft}px";
+            }
         }
 
-        element.style.top = "${props.top + props.height + 10}px";
+        if (element.classes.contains(_cssClasses.TOP)) {
+            element.style.top = "${props.top - element.offsetHeight - 10}px";
+        } else if (element.classes.contains(_cssClasses.RIGHT)) {
+            element.style.left = "${props.left + props.width + 10}px";
+        } else if (element.classes.contains(_cssClasses.LEFT)) {
+            element.style.left = "${props.left - element.offsetWidth - 10}px";
+
+        } else {
+            element.style.top = "${props.top + props.height + 10}px";
+        }
+
         element.classes.add(_cssClasses.IS_ACTIVE);
     }
 

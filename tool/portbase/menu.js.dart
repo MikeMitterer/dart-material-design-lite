@@ -336,20 +336,21 @@ void _applyClip(final height, width) {
     }
   }
 
+/// cleanup function to remove animation listeners.
+/// 
+/// param {Event} evt
+
+///   MaterialMenu.prototype.removeAnimationEndListener_ = function(evt) {
+void _removeAnimationEndListener(final evt) {
+    evt.target.classes.remove(MaterialMenu.prototype._cssClasses.IS_ANIMATING);
+  }
+
 /// Adds an event listener to clean up after the animation ends.
 /// 
 ///   MaterialMenu.prototype.addAnimationEndListener_ = /*function*/ () {
 void _addAnimationEndListener() {
-
-    final cleanup = /*function*/ () {
-      element.removeEventListener('transitionend', cleanup);
-      element.removeEventListener('webkitTransitionEnd', cleanup);
-      element.classes.remove(_cssClasses.IS_ANIMATING);
-    };
-
-    // Remove animation class once the transition is done.
-    element.addEventListener('transitionend', cleanup);
-    element.addEventListener('webkitTransitionEnd', cleanup);
+    element.addEventListener('transitionend', _removeAnimationEndListener);
+    element.addEventListener('webkitTransitionEnd', _removeAnimationEndListener);
   }
 
 /// Displays the menu.

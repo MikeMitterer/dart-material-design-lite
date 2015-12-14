@@ -209,6 +209,7 @@ class MaterialTextfield extends MdlComponent {
         _checkDisabled();
         _checkValidity();
         _checkDirty();
+        _checkFocus();
     }
 
     /// Handle reset event from out side.
@@ -246,6 +247,16 @@ class MaterialTextfield extends MdlComponent {
 
         } else {
             element.classes.remove(_cssClasses.IS_DIRTY);
+        }
+    }
+
+    /// Check the focus state and update field accordingly.
+    void _checkFocus() {
+        if (element.querySelector(':focus') != null) {
+            element.classes.add(_cssClasses.IS_FOCUSED);
+
+        } else {
+            element.classes.remove(_cssClasses.IS_FOCUSED);
         }
     }
 

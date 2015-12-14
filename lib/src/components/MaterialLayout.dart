@@ -79,11 +79,20 @@ class _MaterialLayoutConstant {
     final String MAX_WIDTH = '(max-width: 1024px)';
     final int TAB_SCROLL_PIXELS = 100;
 
-    final String MENU_ICON = 'menu';
+    final String MENU_ICON = '&#xE5D2;';
     final String CHEVRON_LEFT = 'chevron_left';
     final String CHEVRON_RIGHT = 'chevron_right';
 
     const _MaterialLayoutConstant();
+}
+
+/// Keycodes, for code readability.
+///
+/// enum {number}
+class _MaterialLayoutKeycodes {
+    static const int ENTER = 13;
+    static const int ESCAPE = 27;
+    static const int SPACE = 32;
 }
 
 /// Modes.
@@ -164,6 +173,29 @@ class MaterialLayout extends MdlComponent {
         _tabs.forEach((final MaterialLayoutTab tab) => tab._downgrade());
     }
 
+    /// Toggle drawer state
+    void toggleDrawer() {
+        final dom.HtmlElement drawerButton = element.querySelector(".${_cssClasses.DRAWER_BTN}");
+        final dom.AnchorElement firstLink = element.querySelector(".${_cssClasses.DRAWER} a.${_cssClasses.NAVI_LINK}");
+
+        _drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
+        _obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
+
+        // focus first link if drawer will be opened otherwise focus the drawer button
+        if (_drawer.classes.contains(_cssClasses.IS_DRAWER_OPEN)) {
+            _drawer.setAttribute('aria-hidden', 'false');
+            drawerButton.setAttribute('aria-expanded', 'true');
+
+            if (firstLink != null) {
+                firstLink.focus();
+            }
+
+        } else {
+            _drawer.setAttribute('aria-hidden', 'true');
+            drawerButton.setAttribute('aria-expanded', 'false');
+            drawerButton.focus();
+        }
+    }
     //- private -----------------------------------------------------------------------------------
 
 
@@ -262,11 +294,14 @@ class MaterialLayout extends MdlComponent {
                 if (drawerButton == null) {
 
                     drawerButton = new dom.DivElement();
+                    drawerButton.setAttribute('aria-expanded', 'false');
+                    drawerButton.setAttribute('role', 'button');
+                    drawerButton.setAttribute('tabindex', '0');
                     drawerButton.classes.add(_cssClasses.DRAWER_BTN);
 
                     final dom.HtmlElement drawerButtonIcon = dom.document.createElement('i');
                     drawerButtonIcon.classes.add(_cssClasses.ICON);
-                    drawerButtonIcon.text = _constant.MENU_ICON;
+                    drawerButtonIcon.innerHtml = _constant.MENU_ICON;
                     drawerButton.append(drawerButtonIcon);
                 }
 
@@ -280,6 +315,9 @@ class MaterialLayout extends MdlComponent {
 
                 eventStreams.add(
                     drawerButton.onClick.listen( _drawerToggleHandler ));
+
+                eventStreams.add(
+                    drawerButton.onKeyDown.listen( _drawerToggleHandler ));
 
                 // Add a class if the layout has a drawer, for altering the left padding.
                 // Adds the HAS_DRAWER_CLASS to the elements since _header may or may
@@ -305,9 +343,11 @@ class MaterialLayout extends MdlComponent {
                 obfuscator.classes.add(_cssClasses.OBFUSCATOR);
                 element.append(obfuscator);
 
-                eventStreams.add(
-                    obfuscator.onClick.listen( _drawerToggleHandler ));
+                eventStreams.add(obfuscator.onClick.listen( _drawerToggleHandler ));
                 _obfuscator = obfuscator;
+
+                _drawer.onKeyDown.listen(_keyboardEventHandler);
+                _drawer.setAttribute('aria-hidden', 'true');
             }
 
             // Keep an eye on screen size, and add/remove auxiliary class for styling
@@ -417,6 +457,16 @@ class MaterialLayout extends MdlComponent {
         }
     }
 
+    /// Handles a keyboard event on the drawer.
+    ///
+    /// param {Event} evt The event that fired.
+    ///   MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
+    void _keyboardEventHandler(final dom.KeyboardEvent event ) {
+        if (event.keyCode == _MaterialLayoutKeycodes.ESCAPE) {
+            toggleDrawer();
+        }
+    }
+
     /// Handles changes in screen size.
     void _screenSizeHandler() {
 
@@ -434,10 +484,22 @@ class MaterialLayout extends MdlComponent {
         }
     }
 
-    /// Handles toggling of the drawer.
-    void _drawerToggleHandler(final dom.MouseEvent _) {
-        drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
-        obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
+    /// Handles events of of drawer button.
+    ///
+    /// param {Event} evt The event that fired.
+    void _drawerToggleHandler(final dom.Event event ) {
+        if (event is dom.KeyEvent) {
+            if (event.keyCode == _MaterialLayoutKeycodes.SPACE || event.keyCode == _MaterialLayoutKeycodes.ENTER) {
+                // prevent scrolling in drawer nav
+                event.preventDefault();
+
+            } else {
+                // prevent other keys
+                return;
+            }
+        }
+
+        toggleDrawer();
     }
 
     /// Explicit remove drawer
