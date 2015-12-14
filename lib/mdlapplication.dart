@@ -35,7 +35,7 @@ import 'package:di/di.dart' as di;
 import 'package:route_hierarchical/client.dart';
 
 import "package:mdl/mdlcore.dart";
-import "package:mdl/mdlcomponets.dart";
+import "package:mdl/mdlcomponents.dart";
 import "package:mdl/mdlflux.dart";
 
 part "src/application/interfaces.dart";

@@ -28,7 +28,7 @@ analyze() {
         "lib/mdl.dart",
         "lib/mdlanimation.dart",
         "lib/mdlapplication.dart",
-        "lib/mdlcomponets.dart",
+        "lib/mdlcomponents.dart",
         "lib/mdlcore.dart",
         "lib/mdldemo.dart",
         "lib/mdldialog.dart",

@@ -25,7 +25,7 @@ import 'package:logging/logging.dart';
 import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdlcore.dart';
-import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdlcomponents.dart';
 
 part "src/form/components/MaterialFormComponent.dart";
 

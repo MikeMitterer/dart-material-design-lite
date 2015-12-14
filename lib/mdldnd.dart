@@ -27,7 +27,7 @@ import 'package:validate/validate.dart';
 import 'package:dnd/dnd.dart';
 
 import "package:mdl/mdlcore.dart";
-import "package:mdl/mdlcomponets.dart";
+import "package:mdl/mdlcomponents.dart";
 import "package:mdl/mdlapplication.dart";
 import "package:mdl/mdlutils.dart";
 

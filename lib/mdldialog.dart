@@ -27,7 +27,7 @@ import 'package:validate/validate.dart';
 import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdlcore.dart';
-import 'package:mdl/mdlcomponets.dart';
+import 'package:mdl/mdlcomponents.dart';
 import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdltemplate.dart';
 import 'package:mdl/mdlanimation.dart';

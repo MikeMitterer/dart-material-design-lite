@@ -1,6 +1,6 @@
 library mdl;
 
-import "package:mdl/mdlcomponets.dart";
+import "package:mdl/mdlcomponents.dart";
 import "package:mdl/mdldirective.dart";
 import "package:mdl/mdlapplication.dart";
 import "package:mdl/mdltemplate.dart";
@@ -9,7 +9,7 @@ import "package:mdl/mdldialog.dart";
 import "package:mdl/mdlform.dart";
 
 export "package:mdl/mdlcore.dart";
-export "package:mdl/mdlcomponets.dart";
+export "package:mdl/mdlcomponents.dart";
 export "package:mdl/mdldirective.dart";
 export "package:mdl/mdlapplication.dart";
 export "package:mdl/mdltemplate.dart";
