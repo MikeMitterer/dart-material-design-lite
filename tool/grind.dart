@@ -7,7 +7,7 @@ import 'package:mdl/src/grinder/grinder.dart' as mdl;
 main(args) => grind(args);
 
 @Task()
-@Depends(genCss, test)
+@Depends(genCss, genThemes, test)
 build() {
 }
 
@@ -50,9 +50,6 @@ analyze() {
 }
 
 @Task()
-clean() => defaultClean();
-
-@Task()
 initSamples() => mdl.createSampleList();
 
 @Task()
@@ -88,6 +85,7 @@ mergeMaster() {
 genThemes() {
     final mdl.ThemeGenerator generator = new mdl.ThemeGenerator();
     generator.generate();
+    pushThemesToGitHub();
 }
 
 @Task()
@@ -99,3 +97,11 @@ genCss() {
 
     mdl.Utils.genPredefLayoutsCSS().forEach((final String file) => log("${file} created!"));
 }
+
+@Task()
+pushThemesToGitHub() {
+    run("tool/scripts/push-theme-to-github.sh");
+}
+
+@Task()
+clean() => defaultClean();

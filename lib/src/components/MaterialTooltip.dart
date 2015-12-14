@@ -120,8 +120,8 @@ class MaterialTooltip extends MdlComponent {
 
             left = (props.width / 2);
             if (top + marginTop < 0) {
-                element.style.top = 0;
-                element.style.marginTop = 0;
+                element.style.top = "0";
+                element.style.marginTop = "0";
 
             } else {
                 element.style.top = "${top}px";
