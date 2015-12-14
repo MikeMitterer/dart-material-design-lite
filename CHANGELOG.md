@@ -1,6 +1,11 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.13.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.13.0...v1.13.1) - 2015-12-14
+
+### Fixes
+* Typo in filename mdlcompone[n]ts.dart [c7ad5f9](https://github.com/mikemitterer/dart-material-design-lite/commit/c7ad5f9e3aca4cd4bdd58c84c50d62b1c1bd6b41)
+
 ## [v1.12.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.12.3...v1.12.4) - 2015-12-11
 
 ### Feature
