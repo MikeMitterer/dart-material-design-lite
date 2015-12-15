@@ -20,6 +20,7 @@
 part of mdlflux;
 
 /// Implements the [ActionBus]-interface via Streams
+/// [ActionBus] is registered by default for DI
 ///
 /// There is ONE and really one ActionBus per system / application
 ///

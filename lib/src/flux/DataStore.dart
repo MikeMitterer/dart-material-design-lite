@@ -82,3 +82,50 @@ abstract class DataStore {
 
     void fire(final Action action);
 }
+
+/// Fire-Only DataStore
+///
+/// This is the simplest form of a DataStore.
+/// It hast no data but can fire Actions.
+/// [FireOnlyDataStore] is registered by default for DI
+///
+///     class MyComponent {
+///         final DataStore _store;
+///
+///         MyComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+///             : super(element,injector), _store = injector.get(DataStore) {
+///             _init();
+///         }
+///
+///         void _init() {
+///             render().then((_) => _bindSignals());
+///         }
+///
+///         void onClick() {
+///             _store.fire(const ActivateSomething());
+///         }
+///     }
+///     
+///     mdlapplication.dart: (already done for you)
+///     class MdlModule extends di.Module {
+///         MdlModule() {
+///             ...
+///             bind(ActionBus, toImplementation: ActionBusImpl);
+///             bind(DataStore, toImplementation: FireOnlyDataStore);
+///         }
+///     }
+///
+@di.Injectable()
+class FireOnlyDataStore extends DataStore {
+    final ActionBus _actionbus;
+
+    FireOnlyDataStore(this._actionbus) {
+        Validate.notNull(_actionbus);
+    }
+
+    /// Fire an [Action] to the global [ActionBus]
+    @override
+    void fire(final Action action) => _actionbus.fire(action);
+}
+
+

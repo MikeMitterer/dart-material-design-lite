@@ -76,7 +76,9 @@ class MdlModule extends di.Module {
         bind(EventCompiler);
         bind(ViewFactory);
         bind(RootScope);
+
         bind(ActionBus, toImplementation: ActionBusImpl);
+        bind(DataStore, toImplementation: FireOnlyDataStore);
     }
 }
 
