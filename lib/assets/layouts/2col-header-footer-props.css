@@ -168,7 +168,7 @@
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center;
-      min-height: 128px;
+      min-height: 96px;
       padding-left: initial;
       border-bottom: 1px solid rgba(213, 213, 213, 0.5);
       /* background: <your bg-image> repeat 0 0; */ }
@@ -192,7 +192,6 @@
                 transition: all 0.3s ease-in-out;
         opacity: 1; }
       .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion__label {
-        text-transform: uppercase;
         font-weight: 400;
         border-bottom: 1px solid rgba(221, 221, 221, 0.1); }
         .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion__label .symbol {
@@ -206,7 +205,6 @@
                 transition: all 0.3s ease-in-out; }
         .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion--content .mdl-navigation__link {
           padding: 12px 48px 12px 60px;
-          text-transform: uppercase;
           display: block;
           font-weight: 600; }
           .application.mdl-layout > .mdl-layout__drawer .mdl-navigation .mdl-accordion .mdl-accordion--content .mdl-navigation__link:last-child {

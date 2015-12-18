@@ -30,7 +30,10 @@ class DataStoreChangedEvent<T extends Action> {
     bool get hasNoParam => !hasParam;
 }
 
-/// The [DataStore] are responsible for managing business logic and data.
+/// The [DataStore]s are responsible for managing business logic and data.
+///
+/// Business logic CAN be managed by the [DataStore] but in a moderat for.
+/// It is recommended to put your BL into other classes like Services or Proxies.
 ///
 /// They're akin to models or collections in MVC systems,
 /// but stores may manage more than a single piece of data or a single collection,
@@ -69,16 +72,7 @@ class DataStoreChangedEvent<T extends Action> {
 ///         }
 ///     }
 ///
-abstract class DataStore {
-    StreamController<DataStoreChangedEvent<Action>> _onChange;
-
-    Stream<DataStoreChangedEvent<Action>> get onChange {
-        if (_onChange == null) {
-            _onChange =
-            new StreamController<DataStoreChangedEvent<Action>>.broadcast(onCancel: () => _onChange = null);
-        }
-        return _onChange.stream;
-    }
+abstract class DataStore extends Emitter {
 
     void fire(final Action action);
 }

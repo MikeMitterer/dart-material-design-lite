@@ -101,6 +101,10 @@ class MaterialFormComponent extends MdlComponent {
     final List<MdlComponent> _components = new List<MdlComponent>();
     final List<MaterialButton> _submitButtons = new List<MaterialButton>();
 
+    /// Will be set to true the first time one of the form-elements receives a
+    /// [onChange]
+    bool isDirty = false;
+
     MaterialFormComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         
@@ -151,6 +155,7 @@ class MaterialFormComponent extends MdlComponent {
                 _setFormState(isFormValid ? _MaterialFormState.VALID : _MaterialFormState.INVALID);
                 _setSubmitButtonState(isFormValid ? _MaterialFormState.VALID : _MaterialFormState.INVALID);
 
+                isDirty = true;
                 element.classes.add(_cssClasses.DIRTY);
             }));
 

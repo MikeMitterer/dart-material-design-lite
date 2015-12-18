@@ -68,17 +68,12 @@ part of mdlflux;
 ///     }
 ///
 abstract class Dispatcher extends DataStore {
+    // final Logger _logger = new Logger('mdlflux.Dispatcher');
+
     final ActionBus _actionbus;
 
     Dispatcher(this._actionbus) {
         Validate.notNull(_actionbus);
-    }
-
-    /// Informs the coupled [DataStore]s about the change
-    void emitChange({ final Action action: UpdateViewAction }) {
-        if (_onChange != null && _onChange.hasListener && !_onChange.isClosed) {
-            _onChange.add(new DataStoreChangedEvent<Action>(action));
-        }
     }
 
     /// Fire an [Action] to the global [ActionBus]

@@ -135,6 +135,13 @@ class MaterialTextfield extends MdlComponent {
     /// Updates the components CSS-Classes usually called from [MaterialAttribute] or [MaterialClass]
     void update() { _updateClasses(); }
 
+    /// If this input field has a validity-check and if this check fails it returns [false]
+    /// If this input field has NO validity-check or if the check goes OK it returns [true]
+    bool get isValid => _relaxedInput.validity != null && !_relaxedInput.validity.valid ? false : true;
+
+    /// Inverts [isValid]
+    bool get isNotValid => !isValid;
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
