@@ -488,7 +488,8 @@ class MaterialLayout extends MdlComponent {
     ///
     /// param {Event} evt The event that fired.
     void _drawerToggleHandler(final dom.Event event ) {
-        if (event is dom.KeyEvent) {
+        if (event != null && event is dom.KeyEvent) {
+
             if (event.keyCode == _MaterialLayoutKeycodes.SPACE || event.keyCode == _MaterialLayoutKeycodes.ENTER) {
                 // prevent scrolling in drawer nav
                 event.preventDefault();

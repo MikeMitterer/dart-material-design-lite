@@ -140,7 +140,7 @@ void _contentScrollHandler() {
 ///   MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
 void _keyboardEventHandler(final evt) {
     if (evt.keyCode == _Keycodes.ESCAPE) {
-      _toggleDrawer();
+      toggleDrawer();
     }
   }
 
@@ -166,7 +166,7 @@ void _screenSizeHandler() {
 /// param {Event} evt The event that fired.
 ///   MaterialLayout.prototype.drawerToggleHandler_ = function(evt) {
 void _drawerToggleHandler(final evt) {
-    if (evt.type == 'keydown') {
+    if (evt && (evt.type == 'keydown')) {
       if (evt.keyCode == _Keycodes.SPACE || evt.keyCode == _Keycodes.ENTER) {
         // prevent scrolling in drawer nav
         evt.preventDefault();
@@ -177,13 +177,6 @@ void _drawerToggleHandler(final evt) {
       }
     }
 
-    _toggleDrawer();
-  }
-
-/// Handles toggling of the drawer.
-/// 
-///   MaterialLayout.prototype.drawerToggleHandler_ = /*function*/ () {
-void _drawerToggleHandler() {
     toggleDrawer();
   }
 

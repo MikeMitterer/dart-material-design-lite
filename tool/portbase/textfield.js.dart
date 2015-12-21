@@ -74,7 +74,7 @@ void _onKeyDown(final html.Event event) {
 /// param {Event} event The event that fired.
 ///   MaterialTextfield.prototype.onFocus_ = function(event) {
 void _onFocus(final html.Event event) {
-    element.classes.add(_cssClasses.IS_FOCUSED);
+    checkFocus();
   }
 
 /// Handle lost focus.
@@ -120,6 +120,21 @@ void checkDisabled() {
   MaterialTextfield.prototype['checkDisabled'] =
       MaterialTextfield.prototype.checkDisabled;
 
+/// Check the focus state and update field accordingly.
+/// 
+/// public
+///   MaterialTextfield.prototype.checkFocus = /*function*/ () {
+void checkFocus() {
+    if (Boolean(element.querySelector(':focus'))) {
+      element.classes.add(_cssClasses.IS_FOCUSED);
+
+    } else {
+      element.classes.remove(_cssClasses.IS_FOCUSED);
+    }
+  }
+  MaterialTextfield.prototype['checkFocus'] =
+    MaterialTextfield.prototype.checkFocus;
+
 /// Check the validity state and update field accordingly.
 /// 
 /// public
@@ -151,21 +166,6 @@ void checkDirty() {
   }
   MaterialTextfield.prototype['checkDirty'] =
       MaterialTextfield.prototype.checkDirty;
-
-/// Check the focus state and update field accordingly.
-/// 
-/// public
-///   MaterialTextfield.prototype.checkFocus = /*function*/ () {
-void checkFocus() {
-    if (Boolean(element.querySelector(':focus'))) {
-      element.classes.add(_cssClasses.IS_FOCUSED);
-
-    } else {
-      element.classes.remove(_cssClasses.IS_FOCUSED);
-    }
-  }
-  MaterialTextfield.prototype['checkFocus'] =
-      MaterialTextfield.prototype.checkFocus;
 
 /// Disable text field.
 /// 
@@ -241,6 +241,10 @@ void init() {
         element.classes.add(_cssClasses.IS_UPGRADED);
         if (invalid) {
           element.classes.add(_cssClasses.IS_INVALID);
+        }
+        if (_input.hasAttribute('autofocus')) {
+          element.focus();
+          checkFocus();
         }
       }
     }

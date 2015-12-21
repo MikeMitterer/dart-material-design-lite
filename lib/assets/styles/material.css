@@ -3889,6 +3889,27 @@ input.mdl-button[type="submit"] {
       position: absolute;
       bottom: 8px;
       left: 24px; }
+    .mdl-data-table th .mdl-data-table__header--sorted-ascending, .mdl-data-table th .mdl-data-table__header--sorted-descending {
+      color: rgba(0, 0, 0, 0.87); }
+      .mdl-data-table th .mdl-data-table__header--sorted-ascending:before, .mdl-data-table th .mdl-data-table__header--sorted-descending:before {
+        font-size: 16px;
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        word-wrap: normal;
+        -moz-font-feature-settings: 'liga';
+             font-feature-settings: 'liga';
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased; }
+    .mdl-data-table th .mdl-data-table__header--sorted-ascending:before {
+      content: "\e5d8"; }
+    .mdl-data-table th .mdl-data-table__header--sorted-descending:before {
+      content: "\e5db"; }
 
 .mdl-data-table__select {
   width: 16px; }

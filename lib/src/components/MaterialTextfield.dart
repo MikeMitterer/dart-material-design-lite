@@ -200,8 +200,11 @@ class MaterialTextfield extends MdlComponent {
     }
 
     /// Handle focus.
-    void _onFocus(final dom.Event event) {
+    void _onFocus(_) {
         element.classes.add(_cssClasses.IS_FOCUSED);
+
+        // Original MDL/JS - Version
+        // _checkFocus();
     }
 
     /// Handle lost focus.
