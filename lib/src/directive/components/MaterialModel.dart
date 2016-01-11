@@ -33,7 +33,7 @@ class _MaterialModelConstant {
     static const String WIDGET_SELECTOR = "mdl-model";
 
     const _MaterialModelConstant();
-}    
+}
 
 class MaterialModel extends MdlComponent implements RefreshableComponent {
     final Logger _logger = new Logger('mdldirective.MaterialModel');

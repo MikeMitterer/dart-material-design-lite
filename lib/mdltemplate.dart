@@ -19,8 +19,8 @@
 
 library mdltemplate;
 
-@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
-import 'dart:mirrors';
+//@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
+//import 'dart:mirrors';
 
 import 'dart:html' as dom;
 import 'dart:async';
@@ -30,19 +30,17 @@ import 'package:validate/validate.dart';
 import 'package:mustache/mustache.dart';
 import 'package:di/di.dart' as di;
 
-//import 'package:mdl/mustache.dart';
-
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponents.dart';
 import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdlobservable.dart';
 
+part "src/template/interfaces.dart";
+
 part "src/template/MdlTemplateComponent.dart";
 
 part "src/template/components/MaterialMustache.dart";
 part "src/template/components/MaterialRepeat.dart";
-
-part "src/template/interfaces.dart";
 
 part "src/template/modules/Renderer.dart";
 part "src/template/modules/TemplateRenderer.dart";

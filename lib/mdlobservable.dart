@@ -23,7 +23,9 @@ import 'dart:collection';
 import "dart:async";
 
 import 'package:logging/logging.dart';
+
 import "package:mdl/mdlcore.dart";
+import "package:mdl/mdltemplate.dart";
 
 part "src/observable/ObservableList.dart";
 part "src/observable/ObservableProperty.dart";

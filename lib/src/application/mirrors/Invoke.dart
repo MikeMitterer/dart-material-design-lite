@@ -31,8 +31,8 @@ class Invoke {
     dynamic function(final StringToFunction stringToFunction, { final Map<String,dynamic> varsToReplace: const {} }) {
         Validate.notNull(stringToFunction);
 
-        final InstanceMirror myClassInstanceMirror = reflect(_scope.context);
-        final Symbol myFunction = stringToFunction.function;
+        final InstanceMirror myClassInstanceMirror = mdltemplate.reflect(_scope.context);
+        final String myFunction = stringToFunction.function;
 
         final List params = new List();
         stringToFunction.params.forEach((final String paramName) {
@@ -54,7 +54,7 @@ class Invoke {
             }
         });
 
-        _logger.fine("Function: ${stringToFunction.functionAsString}(${params})");
+        _logger.fine("Function: ${stringToFunction.function}(${params})");
 
         final InstanceMirror im = myClassInstanceMirror.invoke(myFunction,params);
         return im.reflectee;
@@ -75,22 +75,22 @@ class Invoke {
         final List<String> names = fieldname.split(".");
 
         names.forEach((final String name) {
-            final InstanceMirror myClassInstanceMirror = reflect(context);
+            final InstanceMirror myClassInstanceMirror = mdltemplate.reflect(context);
 
             if(!name.contains(new RegExp(r"\[[^\]]*\]$"))) {
 
-                final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(name));
-                context = getField.reflectee;
+                //final InstanceMirror getField = myClassInstanceMirror.invokeGetter(name);
+                context = myClassInstanceMirror.invokeGetter(name);
 
             } else {
                 final List<String> parts = name.trim().split(new RegExp(r"(\[|\])"));
                 //_logger.info("FFFFFx $name >${parts[1]}<, ${parts.length}");
 
-                final InstanceMirror instanceMirror = myClassInstanceMirror.getField(new Symbol(parts[0]));
-                final Symbol function = new Symbol("[]");
+                final InstanceMirror instanceMirror = myClassInstanceMirror.invokeGetter(parts[0]);
+                final String function = "[]";
 
-                final InstanceMirror getField = instanceMirror.invoke(function,[ int.parse(parts[1]) ]);
-                context = getField.reflectee;
+                //final InstanceMirror getField = instanceMirror.invoke(function,[ int.parse(parts[1]) ]);
+                context = instanceMirror.invoke(function,[ int.parse(parts[1]) ]);
                 // _logger.info("Value $context");
             }
 

@@ -26,6 +26,7 @@ import 'package:di/di.dart' as di;
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponents.dart';
 import "package:mdl/mdlapplication.dart";
+import "package:mdl/mdltemplate.dart";
 
 part "src/formatter/FormatterPipeline.dart";
 

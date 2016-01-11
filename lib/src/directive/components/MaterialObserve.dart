@@ -35,9 +35,9 @@ class _MaterialObserveConstant {
     final String TEMPLATE = "template";
 
     const _MaterialObserveConstant();
-}    
+}
 
-
+@MdlComponentModel
 class MaterialObserve extends MdlComponent implements ScopeAware {
     final Logger _logger = new Logger('mdldirective.MaterialObserve');
 

@@ -154,8 +154,8 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
             dialog.id = _elementID;
 
             // notification + snackbar is not _MaterialDialogComponent
-            if(isMdlComponent(dialog,_MaterialDialogComponent)) {
-                final _MaterialDialogComponent dialogComponent = _MaterialDialogComponent.widget(dialog);
+            if(isMdlComponent(dialog,MaterialDialogComponent)) {
+                final MaterialDialogComponent dialogComponent = MaterialDialogComponent.widget(dialog);
 
                 Validate.notNull(dialogComponent,"${dialog} must be a '_MaterialDialogComponent' (mdl-dialog class)");
 

@@ -19,26 +19,24 @@
 
 library mdldirective;
 
-@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
-import 'dart:mirrors';
+//@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
+//import 'dart:mirrors';
 
 import 'dart:html' as dom;
 import 'dart:async';
 import 'dart:collection';
 
-import 'package:logging/logging.dart';
-import 'package:validate/validate.dart';
 import 'package:di/di.dart' as di;
-
-import 'package:mdl/mdlcore.dart';
-import 'package:mdl/mdlcomponents.dart';
-import 'package:mdl/mdlapplication.dart';
-import 'package:mdl/mdlobservable.dart';
-import "package:mdl/mdlformatter.dart";
-
+import 'package:logging/logging.dart';
 import 'package:mustache/mustache.dart';
-//import 'package:mdl/mustache.dart';
+import 'package:validate/validate.dart';
 
+import "package:mdl/mdlformatter.dart";
+import "package:mdl/mdltemplate.dart";
+import 'package:mdl/mdlapplication.dart';
+import 'package:mdl/mdlcomponents.dart';
+import 'package:mdl/mdlcore.dart';
+import 'package:mdl/mdlobservable.dart';
 
 part "src/directive/components/MaterialObserve.dart";
 part "src/directive/components/MaterialModel.dart";

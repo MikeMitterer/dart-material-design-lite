@@ -21,14 +21,19 @@ dependencies:
 
   route_hierarchical: ^0.6.0
 
-  mustache: ^0.2.0
-    #git: git://github.com/xxgreg/mustache
+  mustache:
+    #^0.2.0
+    path: /Volumes/Daten/DevLocal/DevDart/Test/mustache
+    # ^0.2.0
+    # git: git://github.com/MikeMitterer/mustache
 
   dnd: ^0.3.0
 
-  di: ^3.3.0
+  di: '^3.3.0'
 
   barback: ^0.15.0
+
+  reflectable: '^0.4.0'
 
 dev_dependencies:
   test: any

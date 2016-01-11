@@ -20,9 +20,12 @@
 part of mdlcore;
 
 /// Mustache (+mirrors) needs to know which classes to include
-class MdlComponentModelAnnotation {
-    const MdlComponentModelAnnotation();
-}
+//class MdlComponentModelAnnotation extends Reflectable {
+//    const MdlComponentModelAnnotation(): super(
+//        invokingCapability,
+//        reflectedTypeCapability
+//    );
+//}
 
 
 /**
@@ -41,7 +44,8 @@ class MdlComponentModelAnnotation {
  *
  * mustache.render(model);
  */
-const MdlComponentModelAnnotation MdlComponentModel = const MdlComponentModelAnnotation();
+const MustacheMirrorsUsedAnnotation MdlComponentModel = const MustacheMirrorsUsedAnnotation();
+const MustacheMirrorsUsedAnnotation mdltemplate = const MustacheMirrorsUsedAnnotation();
 
 /**
  * Helper for Transformer to generate documentation

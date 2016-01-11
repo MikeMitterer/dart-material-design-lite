@@ -98,7 +98,7 @@ class EventCompiler {
      */
     Future compileElement(final Object scope,final dom.Element element) async {
 
-        final InstanceMirror myClassInstanceMirror = reflect(scope);
+        final InstanceMirror myClassInstanceMirror = mdltemplate.reflect(scope);
 
         datasets.keys.forEach((final String dataset) {
 
@@ -121,7 +121,7 @@ class EventCompiler {
                 final Match match = new RegExp(r"([^(]*)\(([^)]*)\)").firstMatch(element.dataset[dataset]);
 
                 // from the above sample this would be: check
-                Symbol getFunctionName() => new Symbol(match.group(1));
+                String getFunctionName() => match.group(1);
 
                 List getParams() {
                     final List params = new List();
@@ -162,12 +162,12 @@ class EventCompiler {
 
     /// Calls the defined function. If there is a $event param defined for the function it will be replace
     /// with {event}. If no $event param is defined then preventDefault and stopPropagation is called on this {event}
-    void _invokeFunction(final InstanceMirror myClassInstanceMirror,final Symbol function, final List params, final dom.Event event) {
+    void _invokeFunction(final InstanceMirror myClassInstanceMirror,final String functionName, final List params, final dom.Event event) {
         if(_hasNoEvent(params)) {
             //event.preventDefault();
             //event.stopPropagation();
         }
-        myClassInstanceMirror.invoke(function, _replaceEventInParams(params,event));
+        myClassInstanceMirror.invoke(functionName, _replaceEventInParams(params,event));
     }
 
     //- events ------------------------------------------------------------------------------------

@@ -19,24 +19,25 @@
 
 library mdlapplication;
 
-@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ],
-targets: const [ 'List' ],
-symbols: const [ '[]' ])
-import 'dart:mirrors';
+//@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ],
+//targets: const [ 'List' ],
+//symbols: const [ '[]' ])
+//import 'dart:mirrors';
 
 import 'dart:html' as dom;
 import 'dart:async';
 import 'dart:js';
 
-import 'package:logging/logging.dart';
-import 'package:validate/validate.dart';
 import 'package:di/di.dart' as di;
-
+import 'package:logging/logging.dart';
+import 'package:reflectable/reflectable.dart';
 import 'package:route_hierarchical/client.dart';
+import 'package:validate/validate.dart';
 
-import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponents.dart";
+import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlflux.dart";
+import "package:mdl/mdltemplate.dart";
 
 part "src/application/interfaces.dart";
 

@@ -58,9 +58,10 @@ class StringToFunction {
     }
 
     // from the above sample this would be: check
-    Symbol get function => new Symbol(functionAsString);
+    String get function => _match.group(1);
 
     // from the above sample this would be: check
+    @deprecated
     String get functionAsString => _match.group(1);
 
     List get params {
