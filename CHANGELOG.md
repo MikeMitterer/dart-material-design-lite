@@ -1,6 +1,15 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.14.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.13.1...v1.14.0) - 2016-01-11
+
+### Feature
+* Emitter-class added to mdlflux [e0e494a](https://github.com/mikemitterer/dart-material-design-lite/commit/e0e494aacf10921f85a535a96bafbc5d23fb4567)
+* FireOnlyDataStore - default implementation for DataStore [09be046](https://github.com/mikemitterer/dart-material-design-lite/commit/09be0464f986bb0eccee3ad77b408f6195043f8a)
+
+### Docs
+* Test for Emitter added [ff0c530](https://github.com/mikemitterer/dart-material-design-lite/commit/ff0c53024431672b20e9f282a08e710a026c2c34)
+
 ## [v1.13.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.13.0...v1.13.1) - 2015-12-14
 
 ### Fixes
