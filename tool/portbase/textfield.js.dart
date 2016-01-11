@@ -74,7 +74,7 @@ void _onKeyDown(final html.Event event) {
 /// param {Event} event The event that fired.
 ///   MaterialTextfield.prototype.onFocus_ = function(event) {
 void _onFocus(final html.Event event) {
-    checkFocus();
+    element.classes.add(_cssClasses.IS_FOCUSED);
   }
 
 /// Handle lost focus.

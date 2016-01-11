@@ -5914,16 +5914,19 @@ input.mdl-button[type="submit"] {
   right: 0; }
 
 @supports (-webkit-appearance: none) {
+  .mdl-progress:not(.mdl-progress--indeterminate):not(.mdl-progress--indeterminate) > .auxbar,
   .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
     -webkit-mask: url("/images/buffer.svg?embed");
             mask: url("/images/buffer.svg?embed"); } }
 
+.mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #3f51b5, #3f51b5); }
 
+.mdl-progress.mdl-progress--indeterminate > .bar1,
 .mdl-progress.mdl-progress__indeterminate > .bar1 {
   background-color: #3f51b5;
   -webkit-animation-name: indeterminate1;
@@ -5935,6 +5938,7 @@ input.mdl-button[type="submit"] {
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear; }
 
+.mdl-progress.mdl-progress--indeterminate > .bar3,
 .mdl-progress.mdl-progress__indeterminate > .bar3 {
   background-image: none;
   background-color: #3f51b5;
@@ -6098,9 +6102,12 @@ input.mdl-button[type="submit"] {
 .mdl-navigation__link {
   color: #424242;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 13px;
-  margin: 0; }
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  opacity: 0.87; }
   .mdl-navigation__link .material-icons {
     vertical-align: middle; }
 
@@ -6679,6 +6686,21 @@ input.mdl-button[type="submit"] {
  * limitations under the License.
  */
 /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  *
@@ -6801,11 +6823,11 @@ input.mdl-button[type="submit"] {
 .mdl-list__item-avatar {
   height: 56px; }
 
-.mdl-list__item-two-line {
+.mdl-list__item--two-line {
   height: 72px; }
-  .mdl-list__item-two-line .mdl-list__item-primary-content .material-icons {
+  .mdl-list__item--two-line .mdl-list__item-primary-content .material-icons {
     vertical-align: text-bottom; }
-  .mdl-list__item-two-line .mdl-list__item-primary-content .mdl-list__item-sub-title {
+  .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title {
     font-size: 12px;
     font-weight: 400;
     line-height: 1;
@@ -6813,11 +6835,11 @@ input.mdl-button[type="submit"] {
     display: block;
     padding: 0 0 0 56px; }
 
-.mdl-list__item-three-line {
+.mdl-list__item--three-line {
   height: 88px; }
-  .mdl-list__item-three-line .mdl-list__item-primary-content .material-icons {
+  .mdl-list__item--three-line .mdl-list__item-primary-content .material-icons {
     vertical-align: text-bottom; }
-  .mdl-list__item-three-line .mdl-list__item-text-body {
+  .mdl-list__item--three-line .mdl-list__item-text-body {
     font-size: 12px;
     font-weight: 400;
     line-height: 1;
@@ -8180,6 +8202,7 @@ template, div[template] {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   display: block;
   font-size: 16px;
+  font-family: "Helvetica", "Arial", sans-serif;
   margin: 0;
   padding: 4px 0;
   width: 100%;
