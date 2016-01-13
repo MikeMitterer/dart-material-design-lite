@@ -517,3 +517,7 @@ $sticky-mini-footer-vert-padding: 4px !default;
 // PROPERTIES
 $properties-vertical-distance: 12px !default;
 $properties-width: 264px !default;
+
+// Labelfield
+$labelfield-text-color: ($palette-grey-500) !default;
+$labelfield-border-color: $input-text-bottom-border-color !default;

@@ -1,0 +1,32 @@
+.mdl-labelfield {
+    box-sizing : border-box;
+    padding: 16px;
+    margin-right: 0;
+
+    &.mdl-labelfield--with-border {
+        border-bottom: 1px solid $labelfield-border-color;
+    }
+
+    .mdl-labelfield__label {
+        @include typo-subhead(true);
+        font-weight: 500;
+        line-height: 24px;
+
+        pointer-events: none;
+        display: block;
+
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: left;
+
+    }
+
+    .mdl-labelfield__text {
+        @include typo-body-1(false,true);
+        line-height: 16px;
+
+        color: $labelfield-text-color;
+    }
+}
+
