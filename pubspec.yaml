@@ -23,9 +23,9 @@ dependencies:
 
   mustache:
     #^0.2.0
-    path: /Volumes/Daten/DevLocal/DevDart/Test/mustache
+    #path: /Volumes/Daten/DevLocal/DevDart/Test/mustache
     # ^0.2.0
-    # git: git://github.com/MikeMitterer/mustache
+    git: https://github.com/MikeMitterer/mustache
 
   dnd: ^0.3.0
 
