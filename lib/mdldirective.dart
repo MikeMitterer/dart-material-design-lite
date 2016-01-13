@@ -32,7 +32,6 @@ import 'package:mustache/mustache.dart';
 import 'package:validate/validate.dart';
 
 import "package:mdl/mdlformatter.dart";
-import "package:mdl/mdltemplate.dart";
 import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdlcomponents.dart';
 import 'package:mdl/mdlcore.dart';

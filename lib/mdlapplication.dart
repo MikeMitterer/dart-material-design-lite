@@ -37,7 +37,6 @@ import 'package:validate/validate.dart';
 import "package:mdl/mdlcomponents.dart";
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlflux.dart";
-import "package:mdl/mdltemplate.dart";
 
 part "src/application/interfaces.dart";
 

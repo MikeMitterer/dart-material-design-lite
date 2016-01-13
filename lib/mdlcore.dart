@@ -31,7 +31,6 @@ import 'dart:js';
 import 'package:di/di.dart' as di;
 import 'package:logging/logging.dart';
 import 'package:mustache/mustache.dart';
-import 'package:reflectable/reflectable.dart';
 import 'package:validate/validate.dart';
 
 part "src/core/annotations.dart";
