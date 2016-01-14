@@ -7350,7 +7350,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       -ms-flex-positive: 1;
           flex-grow: 1; }
   .mdl-slider__container__container .mdl-slider__label {
-    padding-left: 20px; }
+    padding-left: 24px; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -8928,6 +8928,125 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+.mdl-sticky-mini-footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-align-content: space-between;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 8px;
+  min-height: 30px;
+  max-height: 30px;
+  z-index: 3; }
+  .mdl-sticky-mini-footer .mdl-mini-footer--left-section {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .mdl-sticky-mini-footer .mdl-mini-footer--left-section .mdl-logo {
+      margin: 0 8px 0 0; }
+      @media screen and (max-width: 1024px) {
+        .mdl-sticky-mini-footer .mdl-mini-footer--left-section .mdl-logo {
+          display: none; } }
+  .mdl-sticky-mini-footer .mdl-mini-footer--right-section {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+ * IT-Consulting and Development Limited.
+ *
+ * All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 .mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -9122,7 +9241,7 @@ mdl-draggable {
 .mdl-form, .mdl-form-registration {
   box-sizing: border-box;
   border-radius: 3px;
-  padding: 0 0  8px 0;
+  padding: 0 0 8px 0;
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
@@ -9136,6 +9255,11 @@ mdl-draggable {
     margin-right: 24px; }
     .mdl-form .mdl-form__content .mdl-textfield, .mdl-form-registration .mdl-form__content .mdl-textfield, .mdl-form .mdl-form__content .mdl-slider, .mdl-form-registration .mdl-form__content .mdl-slider {
       width: 100%; }
+    .mdl-form .mdl-form__content .mdl-checkbox, .mdl-form-registration .mdl-form__content .mdl-checkbox {
+      padding: 12px 0; }
+    .mdl-form .mdl-form__content .mdl-form__group--with-border, .mdl-form-registration .mdl-form__content .mdl-form__group--with-border {
+      padding: 12px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
     .mdl-form .mdl-form__content .mdl-form__group, .mdl-form-registration .mdl-form__content .mdl-form__group {
       display: -webkit-box;
       display: -webkit-flex;
@@ -9161,13 +9285,22 @@ mdl-draggable {
           -ms-flex-align: center;
               align-items: center;
       box-sizing: border-box; }
+      .mdl-form .mdl-form__content .mdl-form__group.mdl-form__group--with-border, .mdl-form-registration .mdl-form__content .mdl-form__group.mdl-form__group--with-border {
+        padding: inherit;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
       .mdl-form .mdl-form__content .mdl-form__group > *, .mdl-form-registration .mdl-form__content .mdl-form__group > * {
         width: inherit;
         min-width: 96px;
         margin-right: 8px; }
+      .mdl-form .mdl-form__content .mdl-form__group--slider, .mdl-form-registration .mdl-form__content .mdl-form__group--slider {
+        padding: 12px 0 12px 16px; }
+        .mdl-form .mdl-form__content .mdl-form__group--slider:first-child, .mdl-form-registration .mdl-form__content .mdl-form__group--slider:first-child {
+          margin-top: 20px; }
+        .mdl-form .mdl-form__content .mdl-form__group--slider > *, .mdl-form-registration .mdl-form__content .mdl-form__group--slider > * {
+          margin-right: 0; }
       .mdl-form .mdl-form__content .mdl-form__group .mdl-icon, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-icon {
         font-size: 24px;
-        min-width: 48px; }
+        min-width: 32px; }
   .mdl-form .mdl-form__actions, .mdl-form-registration .mdl-form__actions {
     display: -webkit-box;
     display: -webkit-flex;
@@ -9211,124 +9344,35 @@ mdl-draggable {
       -ms-flex-positive: 1;
           flex-grow: 1; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
- * IT-Consulting and Development Limited.
- *
- * All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-.mdl-sticky-mini-footer {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-align-content: space-between;
-      -ms-flex-line-pack: justify;
-          align-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 4px 8px;
-  min-height: 30px;
-  max-height: 30px;
-  z-index: 3; }
-  .mdl-sticky-mini-footer .mdl-mini-footer--left-section {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-align-content: space-between;
-        -ms-flex-line-pack: justify;
-            align-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; }
-    .mdl-sticky-mini-footer .mdl-mini-footer--left-section .mdl-logo {
-      margin: 0 8px 0 0; }
-      @media screen and (max-width: 1024px) {
-        .mdl-sticky-mini-footer .mdl-mini-footer--left-section .mdl-logo {
-          display: none; } }
-  .mdl-sticky-mini-footer .mdl-mini-footer--right-section {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-align-content: space-between;
-        -ms-flex-line-pack: justify;
-            align-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; }
+.mdl-labelfield {
+  box-sizing: border-box;
+  padding: 16px;
+  margin-right: 0; }
+  .mdl-labelfield.mdl-labelfield--with-border {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+  .mdl-labelfield .mdl-labelfield__label {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    opacity: 0.87;
+    font-weight: 500;
+    line-height: 24px;
+    pointer-events: none;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left; }
+  .mdl-labelfield .mdl-labelfield__text {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    line-height: 16px;
+    color: #9e9e9e; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -9835,9 +9879,6 @@ mdl-draggable {
       color: rgba(0, 0, 0, 0.87);
       background-color: white; }
 
-.mdl-property {
-  display: inline; }
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10026,6 +10067,9 @@ mdl-draggable {
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1; }
+
+.mdl-property {
+  display: inline; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.

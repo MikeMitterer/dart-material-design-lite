@@ -293,6 +293,11 @@ $_form_default_button_width : $_form_default_label_width !default;
             padding: 12px 0;
         }
 
+        .mdl-form__group--with-border {
+            padding: 12px;
+            border-bottom: 1px solid $form-border-color;
+        }
+
         .mdl-form__group {
             display: flex;
             flex-direction: row;
@@ -303,8 +308,8 @@ $_form_default_button_width : $_form_default_label_width !default;
 
             box-sizing      : border-box;
 
-
             &.mdl-form__group--with-border {
+                padding: inherit;
                 border-bottom: 1px solid $form-border-color;
             }
 
