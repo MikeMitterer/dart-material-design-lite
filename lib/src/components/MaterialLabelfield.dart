@@ -100,7 +100,7 @@ class MaterialLabelfield extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialLabelfield - init");
+        _logger.fine("MaterialLabelfield - init");
         
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
