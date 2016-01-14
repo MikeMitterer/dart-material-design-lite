@@ -160,7 +160,7 @@ void createSampleList() {
 
     // MDL/Dart
     samples.add(new Sample("accordion",     Type.Dart, hasOwnDemoHtml: true));
-    samples.add(new Sample("data-table2",   Type.Dart, hasOwnDemoHtml: true));
+    samples.add(new Sample("data-table2",   Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("dialog",        Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("dnd",           Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("forms",         Type.Dart, hasOwnDemoHtml: true));

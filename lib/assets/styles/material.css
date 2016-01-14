@@ -4000,7 +4000,6 @@ input.mdl-button[type="submit"] {
  */
 .mdl-data-tableex {
   position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.12);
   border-collapse: collapse;
   white-space: nowrap;
   font-size: 13px;
@@ -4027,10 +4026,14 @@ input.mdl-button[type="submit"] {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
-          align-items: flex-start; }
+          align-items: flex-start;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
   .debug .mdl-data-tableex {
     border: 1px solid red; }
-  .mdl-data-tableex > * {
+  .mdl-data-tableex .mdl-div-data-tableex__data {
+    width: 100%;
+    overflow: scroll; }
+  .mdl-data-tableex .mdl-div-data-tableex__row {
     box-sizing: border-box;
     width: 100%;
     display: -webkit-box;
@@ -4057,21 +4060,23 @@ input.mdl-button[type="submit"] {
         -ms-flex-align: center;
             align-items: center;
     height: 48px;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
     -webkit-transition-duration: 0.28s;
             transition-duration: 0.28s;
     -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     -webkit-transition-property: background-color;
             transition-property: background-color; }
-    .mdl-data-tableex > *:not(:last-child) {
+    .mdl-data-tableex .mdl-div-data-tableex__row:not(:last-child) {
       border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
-    .mdl-data-tableex > *.is-selected {
+    .mdl-data-tableex .mdl-div-data-tableex__row.is-selected {
       background-color: #e0e0e0; }
-    .mdl-data-tableex > *:hover {
+    .mdl-data-tableex .mdl-div-data-tableex__row:hover {
       background-color: #eeeeee; }
-    .debug .mdl-data-tableex > * {
+    .debug .mdl-data-tableex .mdl-div-data-tableex__row {
       border: 1px solid green; }
-    .mdl-data-tableex > *.mdl-div-data-tableex__head {
+    .mdl-data-tableex .mdl-div-data-tableex__row.mdl-div-data-tableex__head {
       -webkit-box-align: end;
       -webkit-align-items: flex-end;
           -ms-flex-align: end;
@@ -4087,9 +4092,9 @@ input.mdl-button[type="submit"] {
       padding-bottom: 8px;
       box-sizing: border-box;
       background-color: inherit; }
-      .mdl-data-tableex > *.mdl-div-data-tableex__head.is-selected, .mdl-data-tableex > *.mdl-div-data-tableex__head:hover {
+      .mdl-data-tableex .mdl-div-data-tableex__row.mdl-div-data-tableex__head.is-selected, .mdl-data-tableex .mdl-div-data-tableex__row.mdl-div-data-tableex__head:hover {
         background-color: inherit; }
-    .mdl-data-tableex > * > * {
+    .mdl-data-tableex .mdl-div-data-tableex__row > * {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -4115,24 +4120,24 @@ input.mdl-button[type="submit"] {
               align-items: flex-start;
       padding: 0 18px 0 18px;
       text-align: right; }
-      .mdl-data-tableex > * > *:first-of-type {
+      .mdl-data-tableex .mdl-div-data-tableex__row > *:first-of-type {
         padding-left: 24px; }
-      .mdl-data-tableex > * > *:last-of-type {
+      .mdl-data-tableex .mdl-div-data-tableex__row > *:last-of-type {
         padding-right: 24px; }
-      .debug .mdl-data-tableex > * > * {
+      .debug .mdl-data-tableex .mdl-div-data-tableex__row > * {
         border: 1px solid blue; }
-      .mdl-data-tableex > * > *.mdl-data-tableex__cell--numeric {
+      .mdl-data-tableex .mdl-div-data-tableex__row > *.mdl-data-tableex__cell--numeric {
         -webkit-box-align: end;
         -webkit-align-items: flex-end;
             -ms-flex-align: end;
                 align-items: flex-end; }
-      .mdl-data-tableex > * > *.mdl-data-tableex__cell--grow {
+      .mdl-data-tableex .mdl-div-data-tableex__row > *.mdl-data-tableex__cell--grow {
         width: initial;
         -webkit-box-flex: 1;
         -webkit-flex-grow: 1;
             -ms-flex-positive: 1;
                 flex-grow: 1; }
-      .mdl-data-tableex > * > *.mdl-data-tableex__cell--checkbox {
+      .mdl-data-tableex .mdl-div-data-tableex__row > *.mdl-data-tableex__cell--checkbox {
         width: 17px !important;
         padding-right: 0; }
   .mdl-data-tableex .mdl-data-tableex__select {

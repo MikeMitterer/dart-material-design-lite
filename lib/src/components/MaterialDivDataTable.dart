@@ -57,6 +57,13 @@ class _MaterialDivDataTableConstant {
 
 class DataTableChangedEvent {}
 
+/// If user clicks on a row this Event will be triggered
+class DataTableRowClickedEvent {
+    final MaterialDivDataTableRow row;
+    DataTableRowClickedEvent(this.row);
+}
+
+/// Controller for <div class="mdl-data-tableex"></div>
 class MaterialDivDataTable extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialDivDataTable');
 
@@ -66,6 +73,7 @@ class MaterialDivDataTable extends MdlComponent {
     MaterialDivDataTableRow __headerRow;
 
     StreamController<DataTableChangedEvent> _onChange;
+    StreamController<DataTableRowClickedEvent> _onRowClick;
 
     MaterialDivDataTable.fromElement(final dom.HtmlElement element, final di.Injector injector)
         : super(element, injector) {
@@ -101,9 +109,17 @@ class MaterialDivDataTable extends MdlComponent {
         return _onChange.stream;
     }
 
+    Stream<DataTableRowClickedEvent> get onRowClick {
+        if(_onRowClick == null) {
+            _onRowClick = new StreamController<DataTableRowClickedEvent>.broadcast( onCancel: () => _onRowClick = null);
+        }
+        return _onRowClick.stream;
+    }
+
     List<MaterialDivDataTableRow> get selectedRows {
         return new UnmodifiableListView(_rows.where((final MaterialDivDataTableRow row) => row.isSelected));
     }
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
@@ -154,6 +170,13 @@ class MaterialDivDataTable extends MdlComponent {
             _onChange.add(new DataTableChangedEvent());
         }
     }
+
+    /// Emitted by children (Rows)
+    void _fireClickEvent(final MaterialDivDataTableRow row) {
+        if(_onRowClick != null && _onRowClick.hasListener) {
+            _onRowClick.add(new DataTableRowClickedEvent(row));
+        }
+    }
 }
 
 /// Store strings for class names defined by this component that are used in
@@ -189,6 +212,11 @@ class _MaterialDivDataTableRowConstant {
 
     const _MaterialDivDataTableRowConstant();
 }
+
+/// Controller for <div class="mdl-div-data-tableex__row"></div>
+///
+/// If you click on one the the rows the parent emits an onRowClick-Event
+/// The Header does not emit this event
 class MaterialDivDataTableRow extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialDivDataTableRow');
 
@@ -264,6 +292,13 @@ class MaterialDivDataTableRow extends MdlComponent {
                 });
 
             }
+        }
+
+        if(!element.classes.contains(_cssClasses.HEAD)) {
+            eventStreams.add(
+                element.onClick.listen((_) {
+                    parent._fireClickEvent(this);
+                }));
         }
 
         element.classes.add(_cssClasses.IS_UPGRADED);

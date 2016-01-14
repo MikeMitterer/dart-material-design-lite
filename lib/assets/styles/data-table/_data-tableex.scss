@@ -18,7 +18,6 @@
 
 .mdl-data-tableex {
     position         : relative;
-    border           : $data-table-dividers;
     border-collapse  : collapse;
     white-space      : nowrap;
     font-size        : $data-table-font-size;
@@ -33,8 +32,24 @@
     align-content: space-between; // =
     align-items: flex-start; // ⇾
 
+    border-bottom           : $data-table-dividers;
+
+    // Set height in your own CSS
+    // Sample:
+    //      $_demo-data-tableex-table-height: ($data-table-row-height * 4);
+    //
+    //      .mdl-div-data-tableex__data {
+    //      max-height: $_demo-data-tableex-table-height;
+    //      height: $_demo-data-tableex-table-height;
+    //      }
+    //
+    .mdl-div-data-tableex__data {
+        width: 100%;
+        overflow: scroll;
+    }
+
     // row
-    > * {
+    .mdl-div-data-tableex__row {
         box-sizing: border-box;
         width: 100%;
 
@@ -46,6 +61,10 @@
         align-items: center; // ↓
 
         height: $data-table-row-height;
+
+        border-left           : $data-table-dividers;
+        border-right           : $data-table-dividers;
+
         &:not(:last-child) {
             border-bottom: $data-table-dividers;
         }
