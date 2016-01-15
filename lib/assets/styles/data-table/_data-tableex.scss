@@ -34,6 +34,11 @@
 
     border-bottom           : $data-table-dividers;
 
+    // No top-border for data if we define a header
+    .mdl-div-data-tableex__head ~ .mdl-div-data-tableex__data {
+        border-top           : none;
+    }
+
     // Set height in your own CSS
     // Sample:
     //      $_demo-data-tableex-table-height: ($data-table-row-height * 4);
@@ -46,6 +51,8 @@
     .mdl-div-data-tableex__data {
         width: 100%;
         overflow: scroll;
+
+        border-top           : $data-table-dividers;
     }
 
     // row
