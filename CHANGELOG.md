@@ -1,6 +1,11 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [Unreleased](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.1...HEAD)
+
+### Docs
+* Link to MDL-Flux diagram [9a7df6a](https://github.com/mikemitterer/dart-material-design-lite/commit/9a7df6a0f16fc03c3bdf7846e631186d6e11dd4f)
+
 ## [v1.15.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.14.0...v1.15.0) - 2016-01-18
 
 ### Feature
