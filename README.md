@@ -7,6 +7,9 @@ Material Design Lite lets you add a Material Design look and feel to your dynami
 frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
 from the get-go.
 
+## Getting started
+Here is a [short guide](http://styleguide.material-design-lite.pub/#/quickstart) to help you setting up your MDL/Dart page
+
 ## New
 v 1.11 - MDLFlux (REACT-like Actions, ActionBus, Dispatcher and DataStore)
 
