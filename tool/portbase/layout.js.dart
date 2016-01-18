@@ -161,7 +161,7 @@ void _screenSizeHandler() {
     }
   }
 
-/// Handles events of of drawer button.
+/// Handles events of drawer button.
 /// 
 /// param {Event} evt The event that fired.
 ///   MaterialLayout.prototype.drawerToggleHandler_ = function(evt) {

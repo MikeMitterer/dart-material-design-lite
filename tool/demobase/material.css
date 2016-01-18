@@ -3812,7 +3812,7 @@ ul, ol {
   line-height: 1;
   letter-spacing: 0;
   overflow: hidden;
-  will-change: box-shadow, transform;
+  will-change: box-shadow;
   -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
@@ -8221,6 +8221,24 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* DATA TABLE */
 /* SNACKBAR */
 /* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
 .mdl-snackbar {
   position: fixed;
   bottom: 0;
@@ -8229,16 +8247,18 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   cursor: default;
   background-color: #323232;
   z-index: 10000;
-  max-height: 0;
-  border-radius: 2px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   will-change: transform;
-  -webkit-transform: translate3d(0, -50px, 0) rotateZ(0deg);
-          transform: translate3d(0, -50px, 0) rotateZ(0deg); }
+  -webkit-transform: translate(0, 80px);
+      -ms-transform: translate(0, 80px);
+          transform: translate(0, 80px);
+  -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.4, 0, 1, 1);
+          transition: transform 0.25s cubic-bezier(0.4, 0, 1, 1);
+  pointer-events: none; }
   @media (max-width: 479px) {
     .mdl-snackbar {
       width: 100%;
@@ -8248,37 +8268,44 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   @media (min-width: 480px) {
     .mdl-snackbar {
       min-width: 288px;
-      max-width: 568px; } }
-  .mdl-snackbar.is-active {
-    max-height: 48px;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
-
-.mdl-snackbar__text {
-  padding: 14px 24px;
-  vertical-align: middle;
-  color: white; }
-
-.mdl-snackbar__action {
-  background: transparent;
-  border: none;
-  color: rgb(255,64,129);
-  text-transform: uppercase;
-  padding: 14px 24px;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0;
-  overflow: hidden;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  vertical-align: middle; }
-  .mdl-snackbar__action::-moz-focus-inner {
-    border: 0; }
+      max-width: 568px;
+      border-radius: 2px; } }
+  .mdl-snackbar--active {
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+    pointer-events: auto;
+    -webkit-transition: -webkit-transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1); }
+  .mdl-snackbar__text {
+    padding: 14px 24px;
+    vertical-align: middle;
+    color: white; }
+  .mdl-snackbar__action {
+    background: transparent;
+    border: none;
+    color: rgb(255,64,129);
+    text-transform: uppercase;
+    padding: 14px 24px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0;
+    overflow: hidden;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle; }
+    .mdl-snackbar__action::-moz-focus-inner {
+      border: 0; }
+    .mdl-snackbar__action:not([aria-hidden]) {
+      opacity: 1;
+      pointer-events: auto; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.

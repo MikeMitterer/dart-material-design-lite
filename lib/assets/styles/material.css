@@ -3190,7 +3190,7 @@ ul, ol {
   line-height: 1;
   letter-spacing: 0;
   overflow: hidden;
-  will-change: box-shadow, transform;
+  will-change: box-shadow;
   -webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
@@ -4030,9 +4030,12 @@ input.mdl-button[type="submit"] {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
   .debug .mdl-data-tableex {
     border: 1px solid red; }
+  .mdl-data-tableex .mdl-div-data-tableex__head ~ .mdl-div-data-tableex__data {
+    border-top: none; }
   .mdl-data-tableex .mdl-div-data-tableex__data {
     width: 100%;
-    overflow: scroll; }
+    overflow: scroll;
+    border-top: 1px solid rgba(0, 0, 0, 0.12); }
   .mdl-data-tableex .mdl-div-data-tableex__row {
     box-sizing: border-box;
     width: 100%;
