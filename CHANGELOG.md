@@ -1,6 +1,17 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.15.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.14.0...v1.15.0) - 2016-01-18
+
+### Feature
+* DataTable2 can scroll its data-section + Emits Event on click [d921f62](https://github.com/mikemitterer/dart-material-design-lite/commit/d921f6251b045625e9a67f7ddfe1c01feec4dd07)
+* MaterialLabelfield added [127f288](https://github.com/mikemitterer/dart-material-design-lite/commit/127f288bd46c774297215fb0e65c9ede6155feb6)
+* Styles for lablefield added [91d4720](https://github.com/mikemitterer/dart-material-design-lite/commit/91d47205e8b86069bca96b89ffb952a1cef4c759)
+
+### Docs
+* Link to quickstart + new Logos [5107eae](https://github.com/mikemitterer/dart-material-design-lite/commit/5107eaed94042e6b6c9f3426eaa205c7d2d989a1)
+* Test for Lablefield [04e7426](https://github.com/mikemitterer/dart-material-design-lite/commit/04e7426f91359c8c536d39f7eb2762f6a5d2b35f)
+
 ## [v1.14.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.13.1...v1.14.0) - 2016-01-11
 
 ### Feature
