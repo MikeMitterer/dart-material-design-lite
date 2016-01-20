@@ -87,7 +87,7 @@ class DialogConfig {
 }
 
 /// HTML-Part of MdlDialog.
-abstract class MaterialDialog extends Object with TemplateComponent implements ScopeAware {
+abstract class MaterialDialog extends Object with TemplateComponent, MdlEventListener implements ScopeAware {
     final Logger _logger = new Logger('mdldialog.DialogElement');
 
     static const _MaterialDialogCssClasses _cssClasses = const _MaterialDialogCssClasses();
@@ -115,6 +115,9 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
     final DialogConfig _config;
 
     Scope _scope;
+
+    /// Html-Representation of this dialog - will be set in show (after rendering)
+    dom.HtmlElement dialog = null;
 
     MaterialDialog(this._config) {
         Validate.notNull(_config);
@@ -150,7 +153,7 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
             // _autoIncrementID must be on top of this block! - will be used by _elementID
             _autoIncrementID = idCounter;
 
-            final dom.HtmlElement dialog = _dialogContainer.children.last;
+            dialog = _dialogContainer.children.last;
             dialog.id = _elementID;
 
             // notification + snackbar is not _MaterialDialogComponent
@@ -190,6 +193,7 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
     }
 
     Future close(final MdlDialogStatus status) {
+        _downgrade();
         _removeEscListener();
 
         void _resetTimer() {
@@ -367,6 +371,17 @@ abstract class MaterialDialog extends Object with TemplateComponent implements S
             _keyboardEventSubscription.cancel();
             _keyboardEventSubscription = null;
         }
+    }
+
+    /// Cancels all the registered streams
+    /// called from within close-function
+    void _downgrade() {
+        eventStreams.forEach((final StreamSubscription stream) {
+            if(stream != null) {
+                stream.cancel();
+            }
+        });
+        eventStreams.clear();
     }
 
     Renderer get _renderer {

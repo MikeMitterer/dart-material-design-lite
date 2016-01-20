@@ -38,9 +38,10 @@ part "src/core/interfaces.dart";
 part "src/core/mock.dart";
 part "src/core/utils.dart";
 
+part "src/core/MdlComponent.dart";
 part "src/core/MdlComponentHandler.dart";
 part "src/core/MdlConfig.dart";
-part "src/core/MdlComponent.dart";
+part "src/core/MdlEventListener.dart";
 
 abstract class MdlDataConsumer {
     void consume(final data);

@@ -19,13 +19,8 @@
 
 part of mdlcore;
 
-abstract class MdlComponent {
+abstract class MdlComponent extends Object with MdlEventListener {
     final Logger _logger = new Logger('mdlcore.MdlComponent');
-
-    /// All the registered Events - helpful for automatically downgrading the element
-    /// Sample:
-    ///     eventStreams.add(input.onFocus.listen( _onFocus));
-    final List<StreamSubscription> eventStreams = new List<StreamSubscription>();
 
     /**
      * If you want to you DI define your bindings like this:

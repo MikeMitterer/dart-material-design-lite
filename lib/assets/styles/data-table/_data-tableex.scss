@@ -69,12 +69,13 @@
 
         height: $data-table-row-height;
 
-        border-left           : $data-table-dividers;
-        border-right           : $data-table-dividers;
+        border-left   : $data-table-dividers;
+        border-right  : $data-table-dividers;
+        border-bottom : $data-table-dividers;
 
-        &:not(:last-child) {
-            border-bottom: $data-table-dividers;
-        }
+        //&:not(:last-child) {
+        //    border-bottom: $data-table-dividers;
+        //}
 
         @include material-animation-default(0.28s);
         transition-property: background-color;
