@@ -106,6 +106,11 @@ abstract class MdlComponent {
     /// Component like [MaterialAttribute] or [MaterialClass]
     void update() { /* _logger.info("${this} updated!"); */ }
 
+    /// Searches for child of [element] based on the given [selector]
+    ///
+    /// Shortcut to [querySelector]
+    dom.Element query(final String selector) => element.querySelector(selector);
+
     //- private -----------------------------------------------------------------------------------
 
     MdlComponent _getMdlParent(final dom.HtmlElement element) {
