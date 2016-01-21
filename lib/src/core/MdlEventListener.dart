@@ -36,7 +36,7 @@ part of mdlcore;
 ///                 });
 ///         }
 ///     }
-abstract class addMdlEventListener {
+abstract class MdlEventListener {
 
     /// All the registered Events - helpful for automatically downgrading the element
     /// Sample:

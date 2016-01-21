@@ -38,8 +38,6 @@ class MaterialLabelfieldModule  extends di.Module {
 
 /// Controller for <div class="mdl-labelfield"></div>
 ///
-/// The public functions set labele and set value escape the given value
-///
 /// HTML:
 ///     <div id="search_engine" class="mdl-labelfield mdl-labelfield--with-border">
 ///         <label class="mdl-labelfield__label ">Search engine</label>
@@ -71,12 +69,13 @@ class MaterialLabelfield extends MdlComponent {
     }
 
     void set label(final String v) {
-        Validate.notBlank(v);
+        Validate.notNull(v);
 
         final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
         if(_label != null) {
-            final HtmlEscape escaper = new HtmlEscape();
-            _label.text = (escaper.convert(v.trim()));
+            // final HtmlEscape escaper = new HtmlEscape();
+            // _label.text = (escaper.convert(v.trim()));
+            _label.text = v.trim();
         }
     }
 
@@ -86,12 +85,13 @@ class MaterialLabelfield extends MdlComponent {
     }
 
     void set value(final String v) {
-        Validate.notBlank(v);
+        Validate.notNull(v);
 
         final dom.HtmlElement _text = element.querySelector(".${_cssClasses.TEXT}");
         if(_text != null) {
-            final HtmlEscape escaper = new HtmlEscape();
-            _text.text = (escaper.convert(v.trim()));
+            // final HtmlEscape escaper = new HtmlEscape();
+            // _text.text = (escaper.convert(v.trim()));
+            _text.text = v.trim();
         }
     }
 
