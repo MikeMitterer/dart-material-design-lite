@@ -234,6 +234,17 @@ class MaterialLayout extends MdlComponent {
                 }
             });
 
+            dom.window.onPageShow.listen( (final dom.PageTransitionEvent event) {
+                if(event.persisted) {
+                    // when page is loaded from back/forward cache
+                    // trigger repaint to let layout scroll in safari
+                    element.style.overflowY = 'hidden';
+                    dom.window.requestAnimationFrame( (_) {
+                        element.style.overflowY = '';
+                    });
+                }
+            });
+
             if (_header != null) {
                 _tabBar = _header.querySelector('.' + _cssClasses.TAB_BAR);
             }

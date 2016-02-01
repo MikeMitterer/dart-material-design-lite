@@ -229,28 +229,6 @@ void init() {
     }
   }
 
-/// Downgrade the component
-/// 
-///   MaterialIconToggle.prototype.mdlDowngrade_ = /*function*/ () {
-void _mdlDowngrade() {
-    if (_rippleContainerElement) {
-      _rippleContainerElement.removeEventListener('mouseup', boundRippleMouseUp);
-    }
-    _inputElement.removeEventListener('change', boundInputOnChange);
-    _inputElement.removeEventListener('focus', boundInputOnFocus);
-    _inputElement.removeEventListener('blur', boundInputOnBlur);
-    element.removeEventListener('mouseup', boundElementOnMouseUp);
-  }
-
-/// Public alias for the downgrade method.
-/// 
-/// public
-  MaterialIconToggle.prototype.mdlDowngrade =
-      MaterialIconToggle.prototype.mdlDowngrade_;
-
-  MaterialIconToggle.prototype['mdlDowngrade'] =
-      MaterialIconToggle.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.
 

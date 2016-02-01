@@ -143,27 +143,6 @@ void init() {
     }
   }
 
-/// Downgrade the component
-/// 
-///   MaterialTooltip.prototype.mdlDowngrade_ = /*function*/ () {
-void _mdlDowngrade() {
-    if (_forElement) {
-      _forElement.removeEventListener('mouseenter', boundMouseEnterHandler, false);
-      _forElement.removeEventListener('touchend', boundMouseEnterHandler, false);
-      _forElement.removeEventListener('mouseleave', boundMouseLeaveHandler, false);
-      window.removeEventListener('touchstart', boundMouseLeaveHandler);
-    }
-  }
-
-/// Public alias for the downgrade method.
-/// 
-/// public
-  MaterialTooltip.prototype.mdlDowngrade =
-      MaterialTooltip.prototype.mdlDowngrade_;
-
-  MaterialTooltip.prototype['mdlDowngrade'] =
-      MaterialTooltip.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.
 

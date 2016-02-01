@@ -73,8 +73,6 @@ componentHandler = ( /*function*/ () {
 
   final createdComponents_ = [];
 
-  final downgradeMethod_ = 'mdlDowngrade';
-
   final componentConfigProperty_ = 'mdlComponentConfigInternal_';
 
 /// Searches registered components for a class we are interested in using.
@@ -208,7 +206,7 @@ componentHandler = ( /*function*/ () {
 
       } else {
         throw new Error(
-          'Unable to find a registered component for the given class.');
+            'Unable to find a registered component for the given class.');
       }
 
       final ev = document.createEvent('Events');
@@ -314,48 +312,25 @@ componentHandler = ( /*function*/ () {
     }
   }
 
-/// Finds a created component by a given DOM node.
-/// 
-/// param {!Node} node
-/// return {?componentHandler.Component}
-  function findCreatedComponentByNodeInternal(node) {
-
-    for (final n = 0; n < createdComponents_.length; n++) {
-
-      final component = createdComponents_[n];
-      if (component.element_ == node) {
-        return component;
-      }
-    }
-    return null;
-  }
-
 /// Check the component for the downgrade method.
 /// Execute if found.
 /// Remove component from createdComponents list.
 /// 
 /// param {?componentHandler.Component} component
   function deconstructComponentInternal(component) {
-    if (component &&
-        component[componentConfigProperty_]
-          .classConstructor.prototype
-          .hasOwnProperty(downgradeMethod_)) {
-      component[downgradeMethod_]();
 
-      final componentIndex = createdComponents_.indexOf(component);
-      createdComponents_.splice(componentIndex, 1);
+    final componentIndex = createdComponents_.indexOf(component);
+    createdComponents_.splice(componentIndex, 1);
 
-      final upgrades = component._element.getAttribute('data-upgraded').split(',');
+    final upgrades = component._element.getAttribute('data-upgraded').split(',');
 
-      final componentPlace = upgrades.indexOf(
-          component[componentConfigProperty_].classAsString);
-      upgrades.splice(componentPlace, 1);
-      component._element.setAttribute('data-upgraded', upgrades.join(','));
+    final componentPlace = upgrades.indexOf(component[componentConfigProperty_].classAsString);
+    upgrades.splice(componentPlace, 1);
+    component._element.setAttribute('data-upgraded', upgrades.join(','));
 
-      final ev = document.createEvent('Events');
-      ev.initEvent('mdl-componentdowngraded', true, true);
-      component._element.dispatchEvent(ev);
-    }
+    final ev = document.createEvent('Events');
+    ev.initEvent('mdl-componentdowngraded', true, true);
+    component._element.dispatchEvent(ev);
   }
 
 /// Downgrade either a given node, an array of nodes, or a NodeList.
@@ -366,7 +341,9 @@ componentHandler = ( /*function*/ () {
 /// param  {!Node} node the node to be downgraded
 
     final downgradeNode = function(node) {
-      deconstructComponentInternal(findCreatedComponentByNodeInternal(node));
+      createdComponents_.filter(function(item) {
+        return item.element_ == node;
+      }).forEach(deconstructComponentInternal);
     }
     if (nodes instanceof Array || nodes instanceof NodeList) {
 

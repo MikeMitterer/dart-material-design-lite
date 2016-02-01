@@ -477,28 +477,6 @@ void toggle(final evt) {
   }
   MaterialMenu.prototype['toggle'] = MaterialMenu.prototype.toggle;
 
-/// Downgrade the component.
-/// 
-///   MaterialMenu.prototype.mdlDowngrade_ = /*function*/ () {
-void _mdlDowngrade() {
-
-    final items = element.querySelectorAll('.' + _cssClasses.ITEM);
-
-    for (final i = 0; i < items.length; i++) {
-      items[i].removeEventListener('click', _boundItemClick);
-      items[i].removeEventListener('keydown', _boundItemKeydown);
-    }
-  }
-
-/// Public alias for the downgrade method.
-/// 
-/// public
-  MaterialMenu.prototype.mdlDowngrade =
-      MaterialMenu.prototype.mdlDowngrade_;
-
-  MaterialMenu.prototype['mdlDowngrade'] =
-      MaterialMenu.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.
 

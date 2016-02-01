@@ -280,6 +280,16 @@ void init() {
         }
       }
 
+      window.addEventListener('pageshow', /*function*/ (e) {
+        if (e.persisted) { // when page is loaded from back/forward cache
+          // trigger repaint to let layout scroll in safari
+          element.style.overflowY = 'hidden';
+          requestAnimationFrame( /*function*/ () {
+            element.style.overflowY = '';
+          });
+        }
+      }, false);
+
       if (_header) {
         _tabBar = _header.querySelector('.' + _cssClasses.TAB_BAR);
       }

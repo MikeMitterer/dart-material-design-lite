@@ -255,31 +255,6 @@ void init() {
     }
   }
 
-/// Downgrade the element.
-/// 
-///   MaterialRadio.prototype.mdlDowngrade_ = /*function*/ () {
-void _mdlDowngrade() {
-
-    final rippleContainer = element.querySelector('.' +
-      _cssClasses.RIPPLE_CONTAINER);
-    _btnElement.removeEventListener('change', _boundChangeHandler);
-    _btnElement.removeEventListener('focus', _boundFocusHandler);
-    _btnElement.removeEventListener('blur', _boundBlurHandler);
-    element.removeEventListener('mouseup', _boundMouseUpHandler);
-    if (rippleContainer) {
-      rippleContainer.removeEventListener('mouseup', _boundMouseUpHandler);
-      element.removeChild(rippleContainer);
-    }
-  }
-
-/// Public alias for the downgrade method.
-/// 
-/// public
-  MaterialRadio.prototype.mdlDowngrade = MaterialRadio.prototype.mdlDowngrade_;
-
-  MaterialRadio.prototype['mdlDowngrade'] =
-      MaterialRadio.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.
 

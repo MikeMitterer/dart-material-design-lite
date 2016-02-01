@@ -23,7 +23,6 @@ import 'dart:html' as dom;
 import 'dart:math' as Math;
 import 'dart:async';
 import 'dart:collection';
-import 'dart:convert';
 import 'package:logging/logging.dart';
 import 'package:browser_detect/browser_detect.dart';
 import 'package:di/di.dart' as di;

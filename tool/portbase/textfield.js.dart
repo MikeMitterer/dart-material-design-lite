@@ -250,28 +250,6 @@ void init() {
     }
   }
 
-/// Downgrade the component
-/// 
-///   MaterialTextfield.prototype.mdlDowngrade_ = /*function*/ () {
-void _mdlDowngrade() {
-    _input.removeEventListener('input', boundUpdateClassesHandler);
-    _input.removeEventListener('focus', boundFocusHandler);
-    _input.removeEventListener('blur', boundBlurHandler);
-    _input.removeEventListener('reset', boundResetHandler);
-    if (boundKeyDownHandler) {
-      _input.removeEventListener('keydown', boundKeyDownHandler);
-    }
-  }
-
-/// Public alias for the downgrade method.
-/// 
-/// public
-  MaterialTextfield.prototype.mdlDowngrade =
-      MaterialTextfield.prototype.mdlDowngrade_;
-
-  MaterialTextfield.prototype['mdlDowngrade'] =
-      MaterialTextfield.prototype.mdlDowngrade;
-
   // The component registers itself. It can assume componentHandler is available
 //   // in the global scope.
 
