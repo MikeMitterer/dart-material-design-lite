@@ -1,7 +1,10 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
-## [Unreleased](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.1...HEAD)
+## [v1.15.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.1...v1.15.2) - 2016-02-01
+
+### Feature
+* MdlComponent and MaterialDialog share the same MdlEventListener-Mixin to add eventStreams for downgrading the component [55f05b8](https://github.com/mikemitterer/dart-material-design-lite/commit/55f05b8855fe9c2cc9b8c7fa2814d7b080c2131c)
 
 ### Docs
 * Link to MDL-Flux diagram [9a7df6a](https://github.com/mikemitterer/dart-material-design-lite/commit/9a7df6a0f16fc03c3bdf7846e631186d6e11dd4f)

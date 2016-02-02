@@ -1,0 +1,328 @@
+// ----------------------------------------------------------------------------
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+// ----------------------------------------------------------------------------
+// ---- Thanks to Rafal Bromirski and ChrisJLee
+// ----
+// -        https://github.com/paranoida/sass-mediaqueries
+// -        https://gist.github.com/chrisjlee/5832418
+// -
+// -    MDL Layout Breakpoints
+// -        https://www.google.com/design/spec/layout/responsive-ui.html#
+// -        https://material.angularjs.org/latest/api/service/$mdMedia
+// -
+// -    SelfHTML:
+// -        https://wiki.selfhtml.org/wiki/CSS/Media_Queries
+// -
+// -    Media Queries for Standard Devices:
+// -        https://goo.gl/OYYDFT
+// -
+// -    also worth reading: (WHY YOU DON’T NEED DEVICE SPECIFIC BREAKPOINTS)
+// -        https://goo.gl/hg5IGm
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+$mq-size-10: 320px !default;
+
+/* smartphones, Android phones, landscape iPhone */
+$mq-size-20: 480px !default;
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+$mq-size-30: 600px !default;
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+$mq-size-40: 801px !default;
+
+/* big landscape tablets, laptops, and desktops */
+$mq-size-50: 1025px !default;
+
+/* hi-res laptops and desktops */
+$mq-size-60: 1281px !default;
+
+/*  According to MD Adaptive UI */
+$mq-xsmall-max: 599px !default;
+
+$mq-small: 600px !default;
+$mq-small-max: 959px !default;
+
+$mq-medium: 960px !default;
+$mq-medium-max: 1279px !default;
+
+$mq-large: 1280px !default;
+$mq-large-max: 1919px !default;
+
+$mq-xlarge: 1920px !default;
+
+// - Gutter
+$mp-gutter: 16px;
+$mq-desktop-gutter: 24px;
+
+// --- generator ---------------------------------------------------------------
+
+@mixin mq($args...) {
+    $media-type: 'only screen';
+    $media-type-key: 'media-type';
+    $args: keywords($args);
+    $expr: '';
+
+    @if map-has-key($args, $media-type-key) {
+        $media-type: map-get($args, $media-type-key);
+        $args: map-remove($args, $media-type-key);
+    }
+
+    @each $key, $value in $args {
+        @if $value {
+            $expr: "#{$expr} and (#{$key}: #{$value})";
+        }
+    }
+
+    @media #{$media-type} #{$expr} {
+        @content;
+    }
+}
+
+// --- screen ------------------------------------------------------------------
+
+@mixin screen($min, $max, $orientation: false) {
+    @include mq($min-width: $min, $max-width: $max, $orientation: $orientation) {
+        @content;
+    }
+}
+
+@mixin max-screen($max) {
+    @include mq($max-width: $max) {
+        @content;
+    }
+}
+
+@mixin min-screen($min) {
+    @include mq($min-width: $min) {
+        @content;
+    }
+}
+
+@mixin screen-height($min, $max, $orientation: false) {
+    @include mq($min-height: $min, $max-height: $max, $orientation: $orientation) {
+        @content;
+    }
+}
+
+@mixin max-screen-height($max) {
+    @include mq($max-height: $max) {
+        @content;
+    }
+}
+
+@mixin min-screen-height($min) {
+    @include mq($min-height: $min) {
+        @content;
+    }
+}
+
+// --- hdpi --------------------------------------------------------------------
+
+@mixin hdpi($ratio: 1.3) {
+    @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+    only screen and (min-resolution: #{round($ratio*96)}dpi) {
+        @content;
+    }
+}
+
+// --- orientation -------------------------------------------------------------
+
+@mixin landscape() {
+    @include mq($orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin portrait() {
+    @include mq($orientation: portrait) {
+        @content;
+    }
+}
+
+// --- basic modes -------------------------------------------------------------
+
+// < 599
+@mixin xsmall($orientation: false) {
+    @include mq($max-width: $mq-xsmall-max, $orientation: $orientation) {
+        @content;
+    }
+}
+
+// Between 600 and 959
+@mixin small($orientation: false) {
+    @include mq($min-width: $mq-small, $max-width: $mq-small-max, $orientation: $orientation) {
+        @content;
+    }
+}
+
+// Between 960 and 1279
+@mixin medium($orientation: false) {
+    @include mq($min-width: $mq-medium, $max-width: $mq-medium-max, $orientation: $orientation) {
+        @content;
+    }
+}
+
+// Between 1280 and  1919
+@mixin large($orientation: false) {
+    @include mq($min-width: $mq-large, $max-width: $mq-large-max, $orientation: $orientation) {
+        @content;
+    }
+}
+
+// >= 1920
+@mixin xlarge($orientation: false) {
+    @include mq($min-width: $mq-large, $orientation: $orientation) {
+        @content;
+    }
+}
+
+// --- iphone4 -----------------------------------------------------------------
+
+@mixin iphone4($orientation: false) {
+    $min: 320px;
+    $max: 480px;
+    $pixel-ratio: 2;
+    $aspect-ratio: '2/3';
+
+    @include mq(
+            $min-device-width: $min,
+            $max-device-width: $max,
+            $orientation: $orientation,
+            $device-aspect-ratio: $aspect-ratio,
+            $-webkit-device-pixel-ratio: $pixel-ratio
+    ) {
+        @content;
+    }
+}
+
+// --- iphone5 -----------------------------------------------------------------
+
+@mixin iphone5($orientation: false) {
+    $min: 320px;
+    $max: 568px;
+    $pixel-ratio: 2;
+    $aspect-ratio: '40/71';
+
+    @include mq(
+            $min-device-width: $min,
+            $max-device-width: $max,
+            $orientation: $orientation,
+            $device-aspect-ratio: $aspect-ratio,
+            $-webkit-device-pixel-ratio: $pixel-ratio
+    ) {
+        @content;
+    }
+}
+
+// --- iphone6 -----------------------------------------------------------------
+
+@mixin iphone6($orientation: false) {
+    $min: 375px;
+    $max: 667px;
+    $pixel-ratio: 2;
+
+    @include mq(
+            $min-device-width: $min,
+            $max-device-width: $max,
+            $orientation: $orientation,
+            $-webkit-device-pixel-ratio: $pixel-ratio
+    ) {
+        @content;
+    }
+}
+
+// --- iphone6 plus ------------------------------------------------------------
+
+@mixin iphone6-plus($orientation: false) {
+    $min: 414px;
+    $max: 736px;
+    $pixel-ratio: 3;
+
+    @include mq(
+            $min-device-width: $min,
+            $max-device-width: $max,
+            $orientation: $orientation,
+            $-webkit-device-pixel-ratio: $pixel-ratio
+    ) {
+        @content;
+    }
+}
+
+// --- ipad (all) --------------------------------------------------------------
+
+@mixin ipad($orientation: false) {
+    $min: 768px;
+    $max: 1024px;
+
+    @include mq(
+            $min-device-width: $min,
+            $max-device-width: $max,
+            $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+// --- ipad-retina -------------------------------------------------------------
+
+@mixin ipad-retina($orientation: false) {
+    $min: 768px;
+    $max: 1024px;
+    $pixel-ratio: 2;
+
+    @include mq(
+            $min-device-width: $min,
+            $max-device-width: $max,
+            $orientation: $orientation,
+            $-webkit-device-pixel-ratio: $pixel-ratio
+    ) {
+        @content;
+    }
+}
+
+// --- hdtv --------------------------------------------------------------------
+
+@mixin hdtv($standard: '1080') {
+    $min-width: false;
+    $min-height: false;
+
+    $standards: ('720p', 1280px, 720px)
+            ('1080', 1920px, 1080px)
+            ('2K', 2048px, 1080px)
+            ('4K', 4096px, 2160px);
+
+    @each $s in $standards {
+        @if $standard == nth($s, 1) {
+            $min-width: nth($s, 2);
+            $min-height: nth($s, 3);
+        }
+    }
+
+    @include mq(
+            $min-device-width: $min-width,
+            $min-device-height: $min-height,
+            $min-width: $min-width,
+            $min-height: $min-height
+    ) {
+        @content;
+    }
+}
+
