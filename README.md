@@ -15,6 +15,7 @@ v 1.11 - MDLFlux (REACT-like Actions, ActionBus, Dispatcher and DataStore)
 
 You can see further changes on the [CHANGELOG](https://github.com/MikeMitterer/dart-material-design-lite/blob/master/CHANGELOG.md)!
 
+[Flux - Overview](https://facebook.github.io/flux/docs/overview.html#content)
 ![MDLFlux](http://styleguide.material-design-lite.pub/assets/images/mdlFlux.png "MDLFlux message flow")
 
 ## Main features

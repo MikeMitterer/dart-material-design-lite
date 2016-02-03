@@ -98,18 +98,21 @@ $mq-desktop-gutter: 24px;
 
 // --- screen ------------------------------------------------------------------
 
+// Add @content if screensize is between $min and $manx
 @mixin screen($min, $max, $orientation: false) {
     @include mq($min-width: $min, $max-width: $max, $orientation: $orientation) {
         @content;
     }
 }
 
+// Add @content if screensize is below or equal $manx
 @mixin max-screen($max) {
     @include mq($max-width: $max) {
         @content;
     }
 }
 
+// Add @content if screensize is above or equal $min
 @mixin min-screen($min) {
     @include mq($min-width: $min) {
         @content;
