@@ -1,6 +1,15 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.15.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.2...v1.15.3) - 2016-02-15
+
+### Feature
+* Merged latest MDL/JS master [018bf12](https://github.com/mikemitterer/dart-material-design-lite/commit/018bf127d5096e3b177b1577d106ab7bf319777d)
+* SCSS-Mixin for media queries [ca34227](https://github.com/mikemitterer/dart-material-design-lite/commit/ca3422717f76eb569bea870d829789cc977e2600)
+
+### Docs
+* Link to FB-Flux-Overview [a8a9686](https://github.com/mikemitterer/dart-material-design-lite/commit/a8a9686638e04898ff9ad7f47f03072d6c7d8422)
+
 ## [v1.15.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.1...v1.15.2) - 2016-02-01
 
 ### Feature
