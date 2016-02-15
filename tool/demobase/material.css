@@ -4257,7 +4257,7 @@ input.mdl-button[type="submit"] {
   line-height: 18px;
   overflow: hidden;
   padding: 16px 16px;
-  width: 90%; }
+  box-sizing: border-box; }
 
 .mdl-card__actions {
   font-size: 16px;
@@ -4821,10 +4821,9 @@ input.mdl-button[type="submit"] {
     color: rgba(0, 0, 0, 0.54);
     padding-bottom: 8px;
     box-sizing: border-box; }
-    .mdl-data-table th .mdl-data-table__header--sorted-ascending, .mdl-data-table th .mdl-data-table__header--sorted-descending {
+    .mdl-data-table th.mdl-data-table__header--sorted-ascending, .mdl-data-table th.mdl-data-table__header--sorted-descending {
       color: rgba(0, 0, 0, 0.87); }
-      .mdl-data-table th .mdl-data-table__header--sorted-ascending:before, .mdl-data-table th .mdl-data-table__header--sorted-descending:before {
-        font-size: 16px;
+      .mdl-data-table th.mdl-data-table__header--sorted-ascending:before, .mdl-data-table th.mdl-data-table__header--sorted-descending:before {
         font-family: 'Material Icons';
         font-weight: normal;
         font-style: normal;
@@ -4837,10 +4836,16 @@ input.mdl-button[type="submit"] {
         -moz-font-feature-settings: 'liga';
              font-feature-settings: 'liga';
         -webkit-font-feature-settings: 'liga';
-        -webkit-font-smoothing: antialiased; }
-    .mdl-data-table th .mdl-data-table__header--sorted-ascending:before {
-      content: "\e5d8"; }
-    .mdl-data-table th .mdl-data-table__header--sorted-descending:before {
+        -webkit-font-smoothing: antialiased;
+        font-size: 16px;
+        content: "\e5d8";
+        margin-right: 5px;
+        vertical-align: sub; }
+      .mdl-data-table th.mdl-data-table__header--sorted-ascending:hover, .mdl-data-table th.mdl-data-table__header--sorted-descending:hover {
+        cursor: pointer; }
+        .mdl-data-table th.mdl-data-table__header--sorted-ascending:hover:before, .mdl-data-table th.mdl-data-table__header--sorted-descending:hover:before {
+          color: rgba(0, 0, 0, 0.26); }
+    .mdl-data-table th.mdl-data-table__header--sorted-descending:before {
       content: "\e5db"; }
 
 .mdl-data-table__select {
@@ -6154,16 +6159,18 @@ input.mdl-button[type="submit"] {
   list-style: none; }
 
 .mdl-list__item {
-  font-size: 14px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
+  line-height: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-height: 48px;
   box-sizing: border-box;
-  height: 48px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -6176,8 +6183,10 @@ input.mdl-button[type="submit"] {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 16px 16px 20px 16px;
-  cursor: default; }
+  padding: 16px;
+  cursor: default;
+  color: rgba(0,0,0, 0.87);
+  overflow: hidden; }
   .mdl-list__item .mdl-list__item-primary-content {
     -webkit-box-ordinal-group: 1;
     -webkit-order: 0;
@@ -6187,12 +6196,20 @@ input.mdl-button[type="submit"] {
     -webkit-flex-grow: 2;
         -ms-flex-positive: 2;
             flex-grow: 2;
-    text-decoration: none; }
-    .mdl-list__item .mdl-list__item-primary-content .material-icons {
-      font-size: 40px;
-      line-height: 0;
-      vertical-align: middle;
-      padding: 0 12px 0 0; }
+    text-decoration: none;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-icon {
+      margin-right: 32px; }
+    .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-avatar {
+      margin-right: 16px; }
   .mdl-list__item .mdl-list__item-secondary-content {
     display: -webkit-box;
     display: -webkit-flex;
@@ -6204,7 +6221,8 @@ input.mdl-button[type="submit"] {
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
         -ms-flex-align: end;
-            align-items: flex-end; }
+            align-items: flex-end;
+    margin-left: 16px; }
     .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-action label {
       display: inline; }
     .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-info {
@@ -6212,40 +6230,72 @@ input.mdl-button[type="submit"] {
       font-weight: 400;
       line-height: 1;
       letter-spacing: 0;
-      margin-bottom: 10px;
       color: rgba(0,0,0, 0.54); }
     .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-sub-header {
       padding: 0 0 0 16px; }
 
-.mdl-list__item-avatar {
-  height: 56px; }
+.mdl-list__item-icon,
+.mdl-list__item-icon.material-icons {
+  height: 24px;
+  width: 24px;
+  font-size: 24px;
+  box-sizing: border-box;
+  color: rgb(117,117,117); }
+
+.mdl-list__item-avatar,
+.mdl-list__item-avatar.material-icons {
+  height: 40px;
+  width: 40px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: rgb(117,117,117);
+  font-size: 40px;
+  color: white; }
 
 .mdl-list__item--two-line {
   height: 72px; }
-  .mdl-list__item--two-line .mdl-list__item-primary-content .material-icons {
-    vertical-align: text-bottom; }
-  .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    display: block;
-    padding: 0 0 0 56px; }
+  .mdl-list__item--two-line .mdl-list__item-primary-content {
+    height: 36px;
+    line-height: 20px;
+    display: block; }
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-avatar {
+      float: left; }
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-icon {
+      float: left;
+      margin-top: 6px; }
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-secondary-content {
+      height: 36px; }
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0;
+      line-height: 18px;
+      color: rgba(0,0,0, 0.54);
+      display: block;
+      padding: 0; }
 
 .mdl-list__item--three-line {
   height: 88px; }
-  .mdl-list__item--three-line .mdl-list__item-primary-content .material-icons {
-    vertical-align: text-bottom; }
+  .mdl-list__item--three-line .mdl-list__item-primary-content {
+    height: 52px;
+    line-height: 20px;
+    display: block; }
+    .mdl-list__item--three-line .mdl-list__item-primary-content .mdl-list__item-avatar,
+    .mdl-list__item--three-line .mdl-list__item-primary-content .mdl-list__item-icon {
+      float: left; }
+  .mdl-list__item--three-line .mdl-list__item-secondary-content {
+    height: 52px; }
   .mdl-list__item--three-line .mdl-list__item-text-body {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 24px;
     letter-spacing: 0;
+    line-height: 18px;
+    height: 52px;
     color: rgba(0,0,0, 0.54);
     display: block;
-    height: 24px;
-    padding: 0 0 0 56px;
-    overflow: hidden; }
+    padding: 0; }
 
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -9882,7 +9932,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-textfield.is-focused .mdl-textfield__input {
     outline: none; }
   .mdl-textfield.is-invalid .mdl-textfield__input {
-    border-color: rgb(222, 50, 38);
+    border-color: rgb(213,0,0);
     box-shadow: none; }
   fieldset[disabled] .mdl-textfield .mdl-textfield__input,
   .mdl-textfield.is-disabled .mdl-textfield__input {
@@ -9927,7 +9977,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder .mdl-textfield__label {
     top: -16px; }
   .mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
-    color: rgb(222, 50, 38);
+    color: rgb(213,0,0);
     font-size: 12px; }
   .mdl-textfield__label:after {
     background-color: rgb(63,81,181);
@@ -9947,10 +9997,10 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     visibility: visible;
     width: 100%; }
   .mdl-textfield.is-invalid .mdl-textfield__label:after {
-    background-color: rgb(222, 50, 38); }
+    background-color: rgb(213,0,0); }
 
 .mdl-textfield__error {
-  color: rgb(222, 50, 38);
+  color: rgb(213,0,0);
   position: absolute;
   font-size: 12px;
   margin-top: 3px;

@@ -121,16 +121,24 @@ void _contentScrollHandler() {
       return;
     }
 
+    final headerVisible =
+        !element.classes.contains(_cssClasses.IS_SMALL_SCREEN) ||
+        element.classes.contains(_cssClasses.FIXED_HEADER);
+
     if (_content.scrollTop > 0 &&
         !_header.classes.contains(_cssClasses.IS_COMPACT)) {
       _header.classes.add(_cssClasses.CASTING_SHADOW);
       _header.classes.add(_cssClasses.IS_COMPACT);
-      _header.classes.add(_cssClasses.IS_ANIMATING);
+      if (headerVisible) {
+        _header.classes.add(_cssClasses.IS_ANIMATING);
+      }
     } else if (_content.scrollTop <= 0 &&
         _header.classes.contains(_cssClasses.IS_COMPACT)) {
       _header.classes.remove(_cssClasses.CASTING_SHADOW);
       _header.classes.remove(_cssClasses.IS_COMPACT);
-      _header.classes.add(_cssClasses.IS_ANIMATING);
+      if (headerVisible) {
+        _header.classes.add(_cssClasses.IS_ANIMATING);
+      }
     }
   }
 
@@ -224,23 +232,17 @@ void _resetPanelState(final panels) {
 void toggleDrawer() {
 
     final drawerButton = element.querySelector('.' + _cssClasses.DRAWER_BTN);
-
-    final firstLink = html.querySelector('.' + _cssClasses.DRAWER + ' a');
     _drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
     _obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
 
-    // focus first link if drawer will be opened otherwise focus the drawer button
+    // Set accessibility properties.
     if (_drawer.classes.contains(_cssClasses.IS_DRAWER_OPEN)) {
       _drawer.setAttribute('aria-hidden', 'false');
       drawerButton.setAttribute('aria-expanded', 'true');
-      if (firstLink) {
-        firstLink.focus();
-      }
 
     } else {
       _drawer.setAttribute('aria-hidden', 'true');
       drawerButton.setAttribute('aria-expanded', 'false');
-      drawerButton.focus();
     }
   }
   MaterialLayout.prototype['toggleDrawer'] =

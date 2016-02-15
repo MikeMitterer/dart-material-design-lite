@@ -206,7 +206,7 @@ componentHandler = ( /*function*/ () {
 
       } else {
         throw new Error(
-            'Unable to find a registered component for the given class.');
+          'Unable to find a registered component for the given class.');
       }
 
       final ev = document.createEvent('Events');
@@ -318,19 +318,21 @@ componentHandler = ( /*function*/ () {
 /// 
 /// param {?componentHandler.Component} component
   function deconstructComponentInternal(component) {
+    if (component) {
 
-    final componentIndex = createdComponents_.indexOf(component);
-    createdComponents_.splice(componentIndex, 1);
+      final componentIndex = createdComponents_.indexOf(component);
+      createdComponents_.splice(componentIndex, 1);
 
-    final upgrades = component._element.getAttribute('data-upgraded').split(',');
+      final upgrades = component._element.getAttribute('data-upgraded').split(',');
 
-    final componentPlace = upgrades.indexOf(component[componentConfigProperty_].classAsString);
-    upgrades.splice(componentPlace, 1);
-    component._element.setAttribute('data-upgraded', upgrades.join(','));
+      final componentPlace = upgrades.indexOf(component[componentConfigProperty_].classAsString);
+      upgrades.splice(componentPlace, 1);
+      component._element.setAttribute('data-upgraded', upgrades.join(','));
 
-    final ev = document.createEvent('Events');
-    ev.initEvent('mdl-componentdowngraded', true, true);
-    component._element.dispatchEvent(ev);
+      final ev = document.createEvent('Events');
+      ev.initEvent('mdl-componentdowngraded', true, true);
+      component._element.dispatchEvent(ev);
+    }
   }
 
 /// Downgrade either a given node, an array of nodes, or a NodeList.

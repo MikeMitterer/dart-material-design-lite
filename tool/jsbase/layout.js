@@ -137,16 +137,24 @@
       return;
     }
 
+    var headerVisible =
+        !this.element_.classList.contains(this.CssClasses_.IS_SMALL_SCREEN) ||
+        this.element_.classList.contains(this.CssClasses_.FIXED_HEADER);
+
     if (this.content_.scrollTop > 0 &&
         !this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
       this.header_.classList.add(this.CssClasses_.CASTING_SHADOW);
       this.header_.classList.add(this.CssClasses_.IS_COMPACT);
-      this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+      if (headerVisible) {
+        this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+      }
     } else if (this.content_.scrollTop <= 0 &&
         this.header_.classList.contains(this.CssClasses_.IS_COMPACT)) {
       this.header_.classList.remove(this.CssClasses_.CASTING_SHADOW);
       this.header_.classList.remove(this.CssClasses_.IS_COMPACT);
-      this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+      if (headerVisible) {
+        this.header_.classList.add(this.CssClasses_.IS_ANIMATING);
+      }
     }
   };
 
@@ -250,21 +258,16 @@
   */
   MaterialLayout.prototype.toggleDrawer = function() {
     var drawerButton = this.element_.querySelector('.' + this.CssClasses_.DRAWER_BTN);
-    var firstLink = document.querySelector('.' + this.CssClasses_.DRAWER + ' a');
     this.drawer_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
     this.obfuscator_.classList.toggle(this.CssClasses_.IS_DRAWER_OPEN);
 
-    // focus first link if drawer will be opened otherwise focus the drawer button
+    // Set accessibility properties.
     if (this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
       this.drawer_.setAttribute('aria-hidden', 'false');
       drawerButton.setAttribute('aria-expanded', 'true');
-      if (firstLink) {
-        firstLink.focus();
-      }
     } else {
       this.drawer_.setAttribute('aria-hidden', 'true');
       drawerButton.setAttribute('aria-expanded', 'false');
-      drawerButton.focus();
     }
   };
   MaterialLayout.prototype['toggleDrawer'] =

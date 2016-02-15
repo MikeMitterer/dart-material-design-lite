@@ -176,28 +176,22 @@ class MaterialLayout extends MdlComponent {
     /// Toggle drawer state
     void toggleDrawer() {
         final dom.HtmlElement drawerButton = element.querySelector(".${_cssClasses.DRAWER_BTN}");
-        final dom.AnchorElement firstLink = element.querySelector(".${_cssClasses.DRAWER} a.${_cssClasses.NAVI_LINK}");
 
         _drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
         _obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
 
-        // focus first link if drawer will be opened otherwise focus the drawer button
+        // Set accessibility properties.
         if (_drawer.classes.contains(_cssClasses.IS_DRAWER_OPEN)) {
             _drawer.setAttribute('aria-hidden', 'false');
             drawerButton.setAttribute('aria-expanded', 'true');
 
-            if (firstLink != null) {
-                firstLink.focus();
-            }
-
         } else {
             _drawer.setAttribute('aria-hidden', 'true');
             drawerButton.setAttribute('aria-expanded', 'false');
-            drawerButton.focus();
         }
     }
-    //- private -----------------------------------------------------------------------------------
 
+    //- private -----------------------------------------------------------------------------------
 
     // Keep an eye on screen size, and add/remove auxiliary class for styling
     // of small screens.
@@ -456,15 +450,27 @@ class MaterialLayout extends MdlComponent {
             return;
         }
 
+        final bool headerVisible =
+            !element.classes.contains(_cssClasses.IS_SMALL_SCREEN) ||
+                element.classes.contains(_cssClasses.FIXED_HEADER);
+
         if (content.scrollTop > 0 && !header.classes.contains(_cssClasses.IS_COMPACT)) {
             header.classes.add(_cssClasses.CASTING_SHADOW);
             header.classes.add(_cssClasses.IS_COMPACT);
             header.classes.add(_cssClasses.IS_ANIMATING);
+
+            if (headerVisible) {
+                _header.classes.add(_cssClasses.IS_ANIMATING);
+            }
         }
         else if (content.scrollTop <= 0 && header.classes.contains(_cssClasses.IS_COMPACT)) {
             header.classes.remove(_cssClasses.CASTING_SHADOW);
             header.classes.remove(_cssClasses.IS_COMPACT);
             header.classes.add(_cssClasses.IS_ANIMATING);
+
+            if (headerVisible) {
+                _header.classes.add(_cssClasses.IS_ANIMATING);
+            }
         }
     }
 
