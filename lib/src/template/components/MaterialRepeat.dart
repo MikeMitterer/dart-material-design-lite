@@ -315,8 +315,8 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         if(list is ObservableList) {
             //_logger.info("List ist Observable!");
-            list.onChange.listen((final ListChangedEvent event) {
-                _logger.fine("Changetype: ${event.changetype} ");
+            list.onChange.listen( (final ListChangedEvent event) {
+                _logger.fine("Changetype: ${event} ");
 
                 switch(event.changetype) {
                     case ListChangeType.ADD:
