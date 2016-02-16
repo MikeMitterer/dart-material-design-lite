@@ -136,6 +136,7 @@ class EventCompiler {
                     return params;
                 }
 
+                // If, e.g. dataset is 'mdl-click', it calls _onClick(element,() { ... });
                 datasets[dataset](element,(final dom.Event event) {
                     //_logger.info("Compiled ${datasets[dataset]} for $element...");
                     _invokeFunction(myClassInstanceMirror,getFunctionName(),getParams(),event);
