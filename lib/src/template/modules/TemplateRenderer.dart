@@ -33,8 +33,11 @@ class TemplateRenderer {
     /// the new one.
     bool appendNewNodes = false;
 
-    TemplateRenderer(this._renderer, this._eventCompiler);
+    TemplateRenderer(this._renderer, this._eventCompiler) {
+        _logger.info("TemplateRenderer CTOR");
+    }
 
+    @deprecated
     Renderer call(final dom.Element parent,final Object scope, String template() ) {
         Validate.notNull(parent);
         Validate.notNull(scope);
@@ -63,6 +66,26 @@ class TemplateRenderer {
         return new Renderer(_render);
     }
 
+    Future render(final dom.Element parent, final Object scope, String template(),{ final bool replaceNode: true}) async {
+        Validate.notNull(parent);
+        Validate.notNull(scope);
+
+        /// Trims the template and replaces multiple spaces with a single space
+        String _template() {
+            final String data = template();
+            Validate.notNull(data,"Template for TemplateRenderer must not be null!!!!");
+
+            return data.trim().replaceAll(new RegExp(r"\s+")," ");
+        }
+
+        final Template mustacheTemplate = new Template(_template(),htmlEscapeValues: false);
+
+        // _renderer.render calls componentFactory().upgradeElement(child)
+        final String renderedTemplate = mustacheTemplate.renderString(scope);
+        final dom.Element child = await _renderer.render(parent,renderedTemplate,replaceNode: replaceNode);
+
+        return _eventCompiler.compileElement(scope,child);
+    }
 
     // - private ----------------------------------------------------------------------------------
 

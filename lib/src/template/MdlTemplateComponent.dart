@@ -57,9 +57,11 @@ abstract class MdlTemplateComponent extends MdlComponent implements TemplateComp
     }
 
     Future render() {
-        return _renderer.render();
+        final TemplateRenderer templateRenderer = injector.get(TemplateRenderer);
+        return templateRenderer.render(element,this,() => template);
     }
 
+    @deprecated
     void set renderer(final Renderer renderer) {
         Validate.notNull(renderer);
         _renderer = renderer;

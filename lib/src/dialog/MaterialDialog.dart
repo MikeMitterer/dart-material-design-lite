@@ -149,7 +149,8 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
         }
 
         // Now - add the template into the _dialogContainer
-        _renderer.render().then( (_) {
+        //_renderer.render().then( (_) {
+        _render().then( (_) {
             // _autoIncrementID must be on top of this block! - will be used by _elementID
             _autoIncrementID = idCounter;
 
@@ -384,12 +385,10 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
         eventStreams.clear();
     }
 
-    Renderer get _renderer {
+    Future _render() {
         final TemplateRenderer templateRenderer = componentFactory().injector.get(TemplateRenderer);
-        templateRenderer.appendNewNodes = _config.appendNewDialog;
 
-        final Renderer renderer = templateRenderer.call(_dialogContainer,this,() => template);
-        return renderer;
+        return templateRenderer.render(_dialogContainer,this,
+            () => template,replaceNode: !_config.appendNewDialog);
     }
-
 }

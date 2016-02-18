@@ -45,6 +45,10 @@ class DomRenderer {
 
     final List<_DomRenderFunction> _renderFunctions = new List<_DomRenderFunction>();
 
+    DomRenderer() {
+        _logger.info("CTOR for DomRenderer");
+    }
+
     /// Renders the {content} String into the given {parent} - {content} must have ONE! top level element.
     /// If {replaceNode} is false {content} will be added to {parent} otherwise th new
     /// {content} replaces the old content
@@ -54,7 +58,7 @@ class DomRenderer {
         Validate.notNull(parent);
         Validate.notBlank(content);
 
-        _logger.fine("Start with rendering process...");
+        _logger.info("Start with rendering process...");
 
         final Completer completer = new Completer();
 
@@ -79,7 +83,7 @@ class DomRenderer {
                                 componentHandler().downgradeElement(oldElement);
                             }
                             oldElement.remove();
-                            //_logger.info("Old element removed!");
+                            _logger.info("Old element removed!");
                         }
 
                         //element.append(child);
