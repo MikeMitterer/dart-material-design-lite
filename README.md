@@ -3,6 +3,8 @@
 
 [www.material-design-lite.pub](http://www.material-design-lite.pub).
 
+MDL/Dart is also on [Facebook](https://www.facebook.com/mdl4dart/)
+
 Material Design Lite lets you add a Material Design look and feel to your dynamic websites and web app. It doesn't rely on any JavaScript
 frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
 from the get-go.
@@ -35,7 +37,8 @@ You can see further changes on the [CHANGELOG](https://github.com/MikeMitterer/d
 Visit the [website](http://www.material-design-lite.pub) for a "Quick start" or check out the [Kitchen Sink](http://styleguide.material-design-lite.pub/)
 
 ## Examples
-Check out the [samples](http://styleguide.material-design-lite.pub/#/samples)
+Check out the [samples](http://styleguide.material-design-lite.pub/#/samples)  
+Download all the samples as TGZ from [here](http://www.material-design-lite.pub/#resources)
 
 ### IMPORTANT!!!
 All samples-sources are now on [GH dart-material-design-lite-site](https://github.com/MikeMitterer/dart-material-design-lite-site)
