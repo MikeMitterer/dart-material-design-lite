@@ -58,7 +58,7 @@ class DomRenderer {
         Validate.notNull(parent);
         Validate.notBlank(content);
 
-        _logger.info("Start with rendering process...");
+        _logger.fine("Start with rendering process...");
 
         final Completer completer = new Completer();
 
@@ -83,7 +83,7 @@ class DomRenderer {
                                 componentHandler().downgradeElement(oldElement);
                             }
                             oldElement.remove();
-                            _logger.info("Old element removed!");
+                            //_logger.info("Old element removed!");
                         }
 
                         //element.append(child);
