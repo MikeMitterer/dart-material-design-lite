@@ -30,6 +30,7 @@ analyze() {
         "lib/mdlapplication.dart",
         "lib/mdlcomponents.dart",
         "lib/mdlcore.dart",
+        "lib/src/core/annotations.dart",
         "lib/mdldemo.dart",
         "lib/mdldialog.dart",
         "lib/mdldirective.dart",

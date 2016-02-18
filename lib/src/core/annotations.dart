@@ -17,7 +17,21 @@
  * limitations under the License.
  */
 
-part of mdlcore;
+/// Core-Annotations got it's own library so that it's not DOM-Related.
+///
+/// Makes it better testable.
+///
+///     @MdlComponentModel
+///     class Person {
+///         final String id;
+///         String name;
+///
+///         Person(this.nae) : id = new Uuid().v1();
+///
+///         Person.from(final Person person) : name = person.name, id = person.id;
+///     }
+///
+library mdlcore.annotations;
 
 /// Mustache (+mirrors) needs to know which classes to include
 class MdlComponentModelAnnotation {

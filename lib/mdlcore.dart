@@ -32,7 +32,11 @@ import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 import 'package:di/di.dart' as di;
 
-part "src/core/annotations.dart";
+import 'package:mdl/src/core/annotations.dart';
+
+export 'package:mdl/src/core/annotations.dart';
+
+//part "src/core/annotations.dart";
 part "src/core/ConvertValue.dart";
 part "src/core/interfaces.dart";
 part "src/core/mock.dart";
