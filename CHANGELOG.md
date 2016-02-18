@@ -1,6 +1,17 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.15.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.3...v1.15.4) - 2016-02-18
+
+### Feature
+* Better media query integration [73d61d8](https://github.com/mikemitterer/dart-material-design-lite/commit/73d61d8b655d58c2b7c97652635a53d0de31ea1f)
+
+### Bugs
+* Notification-Dialog overwrites default DomRenderer [7e0acb6](https://github.com/mikemitterer/dart-material-design-lite/commit/7e0acb605add794cddc1f3348ad46cb035ab2ab4)
+
+### Docs
+* How event listener is called in EventCompiler [9e81930](https://github.com/mikemitterer/dart-material-design-lite/commit/9e819302713ffbb1229e38e2f2754f4cc0be5a98)
+
 ## [v1.15.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.2...v1.15.3) - 2016-02-15
 
 ### Feature
