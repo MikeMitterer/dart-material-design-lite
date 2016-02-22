@@ -18,28 +18,6 @@
  */
 part of mdlform;
  
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialFormComponentCssClasses {
-
-    final String IS_UPGRADED = 'is-upgraded';
-
-    final String INVALID = 'is-invalid';
-    final String DIRTY = 'is-dirty';
-
-    final String SUBMIT_BUTTON = 'mdl-button--submit';
-
-    const _MaterialFormComponentCssClasses(); }
-    
-/// Store constants in one place so they can be updated easily.
-class _MaterialFormComponentConstant {
-
-    static const String WIDGET_SELECTOR = "mdl-form";
-
-    const _MaterialFormComponentConstant();
-}   
- 
 /// Basic DI configuration for this Component or Service
 /// Usage:
 ///     class MainModule extends di.Module {
@@ -57,6 +35,12 @@ enum _MaterialFormState {
     VALID, INVALID
 }
 
+class FormChangedEvent {
+    final MdlComponent currentTarget;
+
+    FormChangedEvent(this.currentTarget);
+}
+
 /**
  * Upgrades mdl-form und does some validation checks.
  *
@@ -66,7 +50,6 @@ enum _MaterialFormState {
  * If MaterialFormComponent finds mdl-button--submit it enables/disables this
  * element depending on the validation check.
  * 
- * Usage:
  *      <form method="post" class="right mdl-form mdl-form-registration demo-registration">
  *          <h5 class="mdl-form__title">Register for launch</h5>
  *          <div class="mdl-form__content">
@@ -105,6 +88,8 @@ class MaterialFormComponent extends MdlComponent {
     /// [onChange]
     bool isDirty = false;
 
+    StreamController<FormChangedEvent> _onChange;
+
     MaterialFormComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         
@@ -127,6 +112,13 @@ class MaterialFormComponent extends MdlComponent {
 
     /// Returns true if all requirements are fulfilled 
     bool get isValid => _isFormValid();
+
+    Stream<FormChangedEvent> get onChange {
+        if(_onChange == null) {
+            _onChange = new StreamController<FormChangedEvent>.broadcast(onCancel: () => _onChange = null);
+        }
+        return _onChange.stream;
+    }
 
     // - EventHandler -----------------------------------------------------------------------------
 
@@ -157,6 +149,8 @@ class MaterialFormComponent extends MdlComponent {
 
                 isDirty = true;
                 element.classes.add(_cssClasses.DIRTY);
+
+                _fire(new FormChangedEvent(component));
             }));
 
         });
@@ -200,8 +194,11 @@ class MaterialFormComponent extends MdlComponent {
         });
     }
 
-
-
+    void _fire(final FormChangedEvent event) {
+        if(_onChange != null && _onChange.hasListener) {
+            _onChange.add(event);
+        }
+    }
 }
 
 /// registration-Helper
@@ -222,3 +219,24 @@ void registerMaterialFormComponent() {
     componentHandler().register(config);
 }
 
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialFormComponentCssClasses {
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    final String INVALID = 'is-invalid';
+    final String DIRTY = 'is-dirty';
+
+    final String SUBMIT_BUTTON = 'mdl-button--submit';
+
+    const _MaterialFormComponentCssClasses(); }
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialFormComponentConstant {
+
+    static const String WIDGET_SELECTOR = "mdl-form";
+
+    const _MaterialFormComponentConstant();
+}

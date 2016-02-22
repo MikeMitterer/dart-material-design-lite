@@ -127,6 +127,8 @@
 }
 
 // --- basic modes -------------------------------------------------------------
+// See https://www.google.com/design/spec/layout/responsive-ui.html for
+// more details
 
 // < 599
 @mixin xsmall($orientation: false) {

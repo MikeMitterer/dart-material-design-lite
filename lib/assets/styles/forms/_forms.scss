@@ -289,8 +289,13 @@ $_form_default_button_width : $_form_default_label_width !default;
             width : 100%;
         }
 
-        .mdl-checkbox {
-            padding: 12px 0;
+        .mdl-checkbox, .mdl-switch, .mdl-radio {
+            margin-top: 12px;
+            margin-bottom: 12px;
+            //@include max-screen($mq-small) {
+            //    margin-top: 12px;
+            //    margin-bottom: 12px;
+            //}
         }
 
         .mdl-form__group--with-border {
@@ -309,7 +314,7 @@ $_form_default_button_width : $_form_default_label_width !default;
             box-sizing      : border-box;
 
             &.mdl-form__group--with-border {
-                padding: inherit;
+                //padding: inherit;
                 border-bottom: 1px solid $form-border-color;
             }
 
@@ -321,7 +326,7 @@ $_form_default_button_width : $_form_default_label_width !default;
             }
 
             &--slider {
-                padding: 12px 0 12px 16px;
+                padding: 12px 8px 12px 16px;
 
                 &:first-child {
                     margin-top: 20px;

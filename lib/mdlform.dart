@@ -19,6 +19,7 @@
 
 library mdlform;
 
+import 'dart:async';
 import 'dart:html' as dom;
 
 import 'package:logging/logging.dart';

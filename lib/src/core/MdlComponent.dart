@@ -103,7 +103,7 @@ abstract class MdlComponent extends Object with MdlEventListener {
 
     /// Searches for child of [element] based on the given [selector]
     ///
-    /// Shortcut to [querySelector]
+    /// Shortcut to [element.querySelector]
     dom.Element query(final String selector) => element.querySelector(selector);
 
     //- private -----------------------------------------------------------------------------------

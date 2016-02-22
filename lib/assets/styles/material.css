@@ -10271,8 +10271,9 @@ mdl-draggable {
     margin-right: 24px; }
     .mdl-form .mdl-form__content .mdl-textfield, .mdl-form-registration .mdl-form__content .mdl-textfield, .mdl-form .mdl-form__content .mdl-slider, .mdl-form-registration .mdl-form__content .mdl-slider {
       width: 100%; }
-    .mdl-form .mdl-form__content .mdl-checkbox, .mdl-form-registration .mdl-form__content .mdl-checkbox {
-      padding: 12px 0; }
+    .mdl-form .mdl-form__content .mdl-checkbox, .mdl-form-registration .mdl-form__content .mdl-checkbox, .mdl-form .mdl-form__content .mdl-switch, .mdl-form-registration .mdl-form__content .mdl-switch, .mdl-form .mdl-form__content .mdl-radio, .mdl-form-registration .mdl-form__content .mdl-radio {
+      margin-top: 12px;
+      margin-bottom: 12px; }
     .mdl-form .mdl-form__content .mdl-form__group--with-border, .mdl-form-registration .mdl-form__content .mdl-form__group--with-border {
       padding: 12px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
@@ -10302,14 +10303,13 @@ mdl-draggable {
               align-items: center;
       box-sizing: border-box; }
       .mdl-form .mdl-form__content .mdl-form__group.mdl-form__group--with-border, .mdl-form-registration .mdl-form__content .mdl-form__group.mdl-form__group--with-border {
-        padding: inherit;
         border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
       .mdl-form .mdl-form__content .mdl-form__group > *, .mdl-form-registration .mdl-form__content .mdl-form__group > * {
         width: inherit;
         min-width: 96px;
         margin-right: 8px; }
       .mdl-form .mdl-form__content .mdl-form__group--slider, .mdl-form-registration .mdl-form__content .mdl-form__group--slider {
-        padding: 12px 0 12px 16px; }
+        padding: 12px 8px 12px 16px; }
         .mdl-form .mdl-form__content .mdl-form__group--slider:first-child, .mdl-form-registration .mdl-form__content .mdl-form__group--slider:first-child {
           margin-top: 20px; }
         .mdl-form .mdl-form__content .mdl-form__group--slider > *, .mdl-form-registration .mdl-form__content .mdl-form__group--slider > * {
