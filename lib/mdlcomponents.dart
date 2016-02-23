@@ -29,6 +29,7 @@ import 'package:di/di.dart' as di;
 import 'package:validate/validate.dart';
 
 import "package:mdl/mdlcore.dart";
+import "package:mdl/mdlformatter.dart";
 
 part "src/components/MaterialAccordion.dart";
 part "src/components/MaterialBadge.dart";

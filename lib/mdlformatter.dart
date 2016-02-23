@@ -19,22 +19,27 @@
 
 library mdlformatter;
 
-import "package:validate/validate.dart";
-import "package:intl/intl.dart";
+import 'dart:html' as dom;
+
+import 'dart:collection';
 import 'package:di/di.dart' as di;
+import 'package:intl/intl.dart';
+import 'package:logging/logging.dart';
+import 'package:validate/validate.dart';
 
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponents.dart';
-import "package:mdl/mdlapplication.dart";
+import 'package:mdl/mdlapplication.dart';
 
-part "src/formatter/FormatterPipeline.dart";
+part 'src/formatter/components/MaterialFormatter.dart';
 
-part "src/formatter/NumberFormatter.dart";
-part "src/formatter/UpperCaseFormatter.dart";
-part "src/formatter/LowerCaseFormatter.dart";
-part "src/formatter/ChooseFormatter.dart";
+part 'src/formatter/FormatterPipeline.dart';
 
-part "src/formatter/DecoratorFormatter.dart";
+part 'src/formatter/ChooseFormatter.dart';
+part 'src/formatter/DecoratorFormatter.dart';
+part 'src/formatter/LowerCaseFormatter.dart';
+part 'src/formatter/NumberFormatter.dart';
+part 'src/formatter/UpperCaseFormatter.dart';
 
 /**
  * Formatter ist a collection of formatters.
@@ -94,4 +99,6 @@ void registerMdlFormatterComponents() {
     }
 
     _addModule();
+
+    registerMaterialFormatter();
 }

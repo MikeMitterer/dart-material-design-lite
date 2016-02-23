@@ -116,7 +116,7 @@ class MaterialTextfield extends MdlComponent {
                 (_relaxedInput).setSelectionRange(position,position);
             }
 
-            _relaxedInput.value = value;
+            _relaxedInput.value = MaterialFormatter.widget(element).format(value);
             _placeTheCursorWhereItWasBefore(selStart);
         }
 

@@ -81,6 +81,7 @@ class MaterialLabelfield extends MdlComponent {
 
     String get value {
         final dom.HtmlElement _text = element.querySelector(".${_cssClasses.TEXT}");
+
         return _text != null ? _text.text.trim() : "";
     }
 
@@ -91,7 +92,8 @@ class MaterialLabelfield extends MdlComponent {
         if(_text != null) {
             // final HtmlEscape escaper = new HtmlEscape();
             // _text.text = (escaper.convert(v.trim()));
-            _text.text = v.trim();
+
+            _text.text = MaterialFormatter.widget(element).format(v);
         }
     }
 

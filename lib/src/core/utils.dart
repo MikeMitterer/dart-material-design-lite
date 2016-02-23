@@ -32,11 +32,14 @@ class WrongComponentTypeException implements Exception {
  *
  * If [type] is null and if there are more than one types available it throws and error!
  *
+ * [showWarning] indicates a list of available components for this element
+ * if it cannot find the requested component.
+ *
  * Sample:
  *      static MaterialAccordion widget(final dom.HtmlElement element) =>
  *          mdlComponent(MaterialAccordion,element) as MaterialAccordion;
  */
-MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
+MdlComponent mdlComponent(final dom.HtmlElement element,final Type type, { final bool showWarning: true }) {
     //final Logger _logger = new Logger('mdlcore.mdlComponent');
 
     if(element == null) {
@@ -90,8 +93,10 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type) {
         return (jsElement[typeAsString] as MdlComponent);
     }
 
-    // Show the available names
-    _listNames(jsElement);
+    if(showWarning) {
+        // Show the available names
+        _listNames(jsElement);
+    }
 
     throw "$element is not a ${typeAsString}-Component!!!\n(ID: ${element.id}, class: ${element.classes})\n"
         "These components are available: ${jsElement[MDL_COMPONENT_PROPERTY] as String}";

@@ -23,7 +23,7 @@ part of mdlformatter;
 ///
 ///     <span mdl-observe="name | uppercase(value)"></span>
 ///
-@MdlComponentModel
+//@MdlComponentModel
 class UpperCaseFormatter {
     String uppercase(final String value) {
         return value.toUpperCase();
