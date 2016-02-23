@@ -10063,6 +10063,111 @@ mdl-draggable {
 /* big landscape tablets, laptops, and desktops */
 /* hi-res laptops and desktops */
 /*  According to MD Adaptive UI */
+.mdl-form, .mdl-form-registration {
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 0 0 8px 0;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: white;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  .mdl-form .mdl-form__title, .mdl-form-registration .mdl-form__title {
+    padding-top: 24px;
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0 24px 4px 24px; }
+  .mdl-form .mdl-form__content, .mdl-form-registration .mdl-form__content {
+    margin-left: 24px;
+    margin-right: 24px; }
+    .mdl-form .mdl-form__content .mdl-textfield, .mdl-form-registration .mdl-form__content .mdl-textfield, .mdl-form .mdl-form__content .mdl-slider, .mdl-form-registration .mdl-form__content .mdl-slider {
+      width: 100%; }
+    .mdl-form .mdl-form__content .mdl-checkbox, .mdl-form-registration .mdl-form__content .mdl-checkbox, .mdl-form .mdl-form__content .mdl-switch, .mdl-form-registration .mdl-form__content .mdl-switch, .mdl-form .mdl-form__content .mdl-radio, .mdl-form-registration .mdl-form__content .mdl-radio {
+      margin-top: 12px;
+      margin-bottom: 12px; }
+    .mdl-form .mdl-form__content .mdl-form__group--with-border, .mdl-form-registration .mdl-form__content .mdl-form__group--with-border {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+    .mdl-form .mdl-form__content .mdl-form__group, .mdl-form-registration .mdl-form__content .mdl-form__group {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -webkit-align-content: space-between;
+          -ms-flex-line-pack: justify;
+              align-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      box-sizing: border-box; }
+      .mdl-form .mdl-form__content .mdl-form__group.mdl-form__group--with-border, .mdl-form-registration .mdl-form__content .mdl-form__group.mdl-form__group--with-border {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+      .mdl-form .mdl-form__content .mdl-form__group > *, .mdl-form-registration .mdl-form__content .mdl-form__group > * {
+        width: inherit;
+        min-width: 96px;
+        margin-right: 8px; }
+      .mdl-form .mdl-form__content .mdl-form__group--slider, .mdl-form-registration .mdl-form__content .mdl-form__group--slider {
+        padding: 12px 8px 12px 16px; }
+        .mdl-form .mdl-form__content .mdl-form__group--slider:first-child, .mdl-form-registration .mdl-form__content .mdl-form__group--slider:first-child {
+          margin-top: 20px; }
+        .mdl-form .mdl-form__content .mdl-form__group--slider > *, .mdl-form-registration .mdl-form__content .mdl-form__group--slider > * {
+          margin-right: 0; }
+      .mdl-form .mdl-form__content .mdl-form__group .mdl-icon, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-icon {
+        font-size: 24px;
+        min-width: 32px; }
+  .mdl-form .mdl-form__actions, .mdl-form-registration .mdl-form__actions {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin: 8px 8px 0 8px;
+    width: calc(100% - 16px); }
+    .mdl-form .mdl-form__actions > *, .mdl-form-registration .mdl-form__actions > * {
+      margin-left: 4px; }
+  .mdl-form .mdl-textfield.is-invalid .mdl-textfield__error, .mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: hidden; }
+  .mdl-form.is-dirty .mdl-textfield.is-invalid .mdl-textfield__error, .is-dirty.mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
+    visibility: visible; }
+  .debug .mdl-form.is-invalid, .debug .is-invalid.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.3); }
+  .debug .mdl-form.is-dirty, .debug .is-dirty.mdl-form-registration {
+    background-color: rgba(255, 143, 38, 0.6); }
+
+.mdl-form-registration .mdl-form__actions .mdl-button {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
 .mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -10254,115 +10359,9 @@ mdl-draggable {
         -ms-flex-item-align: end;
             align-self: flex-end; }
 
-.mdl-form, .mdl-form-registration {
-  box-sizing: border-box;
-  border-radius: 3px;
-  padding: 0 0 8px 0;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: white;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-  .mdl-form .mdl-form__title, .mdl-form-registration .mdl-form__title {
-    padding-top: 24px;
-    font-size: 24px;
-    line-height: 24px;
-    margin: 0 24px 4px 24px; }
-  .mdl-form .mdl-form__content, .mdl-form-registration .mdl-form__content {
-    margin-left: 24px;
-    margin-right: 24px; }
-    .mdl-form .mdl-form__content .mdl-textfield, .mdl-form-registration .mdl-form__content .mdl-textfield, .mdl-form .mdl-form__content .mdl-slider, .mdl-form-registration .mdl-form__content .mdl-slider {
-      width: 100%; }
-    .mdl-form .mdl-form__content .mdl-checkbox, .mdl-form-registration .mdl-form__content .mdl-checkbox, .mdl-form .mdl-form__content .mdl-switch, .mdl-form-registration .mdl-form__content .mdl-switch, .mdl-form .mdl-form__content .mdl-radio, .mdl-form-registration .mdl-form__content .mdl-radio {
-      margin-top: 12px;
-      margin-bottom: 12px; }
-    .mdl-form .mdl-form__content .mdl-form__group--with-border, .mdl-form-registration .mdl-form__content .mdl-form__group--with-border {
-      padding: 12px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
-    .mdl-form .mdl-form__content .mdl-form__group, .mdl-form-registration .mdl-form__content .mdl-form__group {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: row;
-          -ms-flex-direction: row;
-              flex-direction: row;
-      -webkit-flex-wrap: wrap;
-          -ms-flex-wrap: wrap;
-              flex-wrap: wrap;
-      -webkit-box-pack: start;
-      -webkit-justify-content: flex-start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
-      -webkit-align-content: space-between;
-          -ms-flex-line-pack: justify;
-              align-content: space-between;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      box-sizing: border-box; }
-      .mdl-form .mdl-form__content .mdl-form__group.mdl-form__group--with-border, .mdl-form-registration .mdl-form__content .mdl-form__group.mdl-form__group--with-border {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
-      .mdl-form .mdl-form__content .mdl-form__group > *, .mdl-form-registration .mdl-form__content .mdl-form__group > * {
-        width: inherit;
-        min-width: 96px;
-        margin-right: 8px; }
-      .mdl-form .mdl-form__content .mdl-form__group--slider, .mdl-form-registration .mdl-form__content .mdl-form__group--slider {
-        padding: 12px 8px 12px 16px; }
-        .mdl-form .mdl-form__content .mdl-form__group--slider:first-child, .mdl-form-registration .mdl-form__content .mdl-form__group--slider:first-child {
-          margin-top: 20px; }
-        .mdl-form .mdl-form__content .mdl-form__group--slider > *, .mdl-form-registration .mdl-form__content .mdl-form__group--slider > * {
-          margin-right: 0; }
-      .mdl-form .mdl-form__content .mdl-form__group .mdl-icon, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-icon {
-        font-size: 24px;
-        min-width: 32px; }
-  .mdl-form .mdl-form__actions, .mdl-form-registration .mdl-form__actions {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -webkit-align-content: space-between;
-        -ms-flex-line-pack: justify;
-            align-content: space-between;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    margin: 8px 8px 0 8px;
-    width: calc(100% - 16px); }
-    .mdl-form .mdl-form__actions > *, .mdl-form-registration .mdl-form__actions > * {
-      margin-left: 4px; }
-  .mdl-form .mdl-textfield.is-invalid .mdl-textfield__error, .mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
-    visibility: hidden; }
-  .mdl-form.is-dirty .mdl-textfield.is-invalid .mdl-textfield__error, .is-dirty.mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {
-    visibility: visible; }
-  .debug .mdl-form.is-invalid, .debug .is-invalid.mdl-form-registration {
-    background-color: rgba(255, 143, 38, 0.3); }
-  .debug .mdl-form.is-dirty, .debug .is-dirty.mdl-form-registration {
-    background-color: rgba(255, 143, 38, 0.6); }
-
-.mdl-form-registration .mdl-form__actions .mdl-button {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
-
 .mdl-labelfield {
   box-sizing: border-box;
-  padding: 16px;
+  padding: 16px 0;
   margin-right: 0; }
   .mdl-labelfield.mdl-labelfield--with-border {
     border-bottom: 1px solid rgba(0, 0, 0, 0.12); }

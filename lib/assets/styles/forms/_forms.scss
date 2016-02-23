@@ -37,6 +37,141 @@ $_form_default_label_padding : 12px !default;
 $_form_default_label_width : 130px !default;
 $_form_default_button_width : $_form_default_label_width !default;
 
+//-----------------------------------------------------------------------------
+// Material style
+//   More: http://www.google.com/design/spec/material-design/introduction.html
+//
+
+.mdl-form {
+    box-sizing       : border-box;
+    border-radius    : 3px;
+
+    padding          : 0 0 8px 0;
+
+    color            : $form-color;
+    background-color : $form-background-color;
+
+    .mdl-form__title {
+        padding-top : 24px;
+        font-size   : 24px;
+        line-height : 24px;
+        margin      : 0 24px 4px 24px;
+    }
+
+    .mdl-form__content {
+        margin-left  : 24px;
+        margin-right : 24px;
+
+        .mdl-textfield, .mdl-slider {
+            width : 100%;
+        }
+
+        .mdl-checkbox, .mdl-switch, .mdl-radio {
+            margin-top: 12px;
+            margin-bottom: 12px;
+            //@include max-screen($mq-small) {
+            //    margin-top: 12px;
+            //    margin-bottom: 12px;
+            //}
+        }
+
+        .mdl-form__group--with-border {
+            //padding: 12px;
+            border-bottom: 1px solid $form-border-color;
+        }
+
+        .mdl-form__group {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ⇾
+            align-content: space-between; // ||
+            align-items: center; // ↓
+
+            box-sizing      : border-box;
+
+            &.mdl-form__group--with-border {
+                //padding: inherit;
+                border-bottom: 1px solid $form-border-color;
+            }
+
+            > * {
+                width: inherit;
+                min-width: 96px;
+
+                margin-right: 8px;
+            }
+
+            &--slider {
+                padding: 12px 8px 12px 16px;
+
+                &:first-child {
+                    margin-top: 20px;
+                }
+
+                > * {
+                    margin-right: 0;
+                }
+            }
+
+            .mdl-icon {
+                font-size: 24px;
+                min-width: 32px;
+            }
+        }
+
+    }
+
+    .mdl-form__label {
+
+    }
+    .mdl-form__actions {
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : flex-end; // ⇾
+        align-content   : space-between; // ||
+        align-items     : flex-start; // ↓
+        margin          : 8px 8px 0 8px;
+        width           : calc(100% - 16px);
+
+        //border: 1px solid blue;
+
+        > * {
+            margin-left : 4px;
+        }
+    }
+
+    .mdl-textfield.is-invalid .mdl-textfield__error {
+        visibility : hidden;
+    }
+
+    &.is-dirty {
+        .mdl-textfield.is-invalid .mdl-textfield__error {
+            visibility : visible;
+        }
+    }
+
+
+    .debug & {
+        &.is-invalid { background-color: rgba(255, 143, 38, 0.30); }
+        &.is-dirty { background-color: rgba(255, 143, 38, 0.60); }
+    }
+
+    @include shadow-2dp();
+}
+
+.mdl-form-registration {
+    @extend .mdl-form;
+
+    .mdl-form__actions {
+        .mdl-button {
+            flex-grow: 1;
+        }
+    }
+
+}
+
 .mdl-basic-form {
     box-sizing       : border-box;
     display          : flex;
@@ -260,140 +395,6 @@ $_form_default_button_width : $_form_default_label_width !default;
     @include shadow-2dp();
 }
 
-//-----------------------------------------------------------------------------
-// Material style
-//   More: http://www.google.com/design/spec/material-design/introduction.html
-//
-
-.mdl-form {
-    box-sizing       : border-box;
-    border-radius    : 3px;
-
-    padding          : 0 0 8px 0;
-
-    color            : $form-color;
-    background-color : $form-background-color;
-
-    .mdl-form__title {
-        padding-top : 24px;
-        font-size   : 24px;
-        line-height : 24px;
-        margin      : 0 24px 4px 24px;
-    }
-
-    .mdl-form__content {
-        margin-left  : 24px;
-        margin-right : 24px;
-
-        .mdl-textfield, .mdl-slider {
-            width : 100%;
-        }
-
-        .mdl-checkbox, .mdl-switch, .mdl-radio {
-            margin-top: 12px;
-            margin-bottom: 12px;
-            //@include max-screen($mq-small) {
-            //    margin-top: 12px;
-            //    margin-bottom: 12px;
-            //}
-        }
-
-        .mdl-form__group--with-border {
-            padding: 12px;
-            border-bottom: 1px solid $form-border-color;
-        }
-
-        .mdl-form__group {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start; // ⇾
-            align-content: space-between; // ||
-            align-items: center; // ↓
-
-            box-sizing      : border-box;
-
-            &.mdl-form__group--with-border {
-                //padding: inherit;
-                border-bottom: 1px solid $form-border-color;
-            }
-
-            > * {
-                width: inherit;
-                min-width: 96px;
-
-                margin-right: 8px;
-            }
-
-            &--slider {
-                padding: 12px 8px 12px 16px;
-
-                &:first-child {
-                    margin-top: 20px;
-                }
-
-                > * {
-                    margin-right: 0;
-                }
-            }
-
-            .mdl-icon {
-                font-size: 24px;
-                min-width: 32px;
-            }
-        }
-
-    }
-
-    .mdl-form__label {
-
-    }
-    .mdl-form__actions {
-        display         : flex;
-        flex-direction  : row;
-        flex-wrap       : wrap;
-        justify-content : flex-end; // ⇾
-        align-content   : space-between; // ||
-        align-items     : flex-start; // ↓
-        margin          : 8px 8px 0 8px;
-        width           : calc(100% - 16px);
-
-        //border: 1px solid blue;
-
-        > * {
-            margin-left : 4px;
-        }
-    }
-
-    .mdl-textfield.is-invalid .mdl-textfield__error {
-        visibility : hidden;
-    }
-
-    &.is-dirty {
-        .mdl-textfield.is-invalid .mdl-textfield__error {
-            visibility : visible;
-        }
-    }
-
-
-    .debug & {
-        &.is-invalid { background-color: rgba(255, 143, 38, 0.30); }
-        &.is-dirty { background-color: rgba(255, 143, 38, 0.60); }
-    }
-
-    @include shadow-2dp();
-}
-
-.mdl-form-registration {
-    @extend .mdl-form;
-
-    .mdl-form__actions {
-        .mdl-button {
-            flex-grow: 1;
-        }
-    }
-
-}
 
 
 
