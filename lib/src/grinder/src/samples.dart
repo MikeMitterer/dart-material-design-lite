@@ -163,7 +163,7 @@ void createSampleList() {
     samples.add(new Sample("data-table2",   Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("dialog",        Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("dnd",           Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
-    samples.add(new Sample("forms",         Type.Dart, hasOwnDemoHtml: true));
+    samples.add(new Sample("forms",         Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("lablefield",    Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("nav-pills",     Type.Dart, hasOwnDemoHtml: true));
     samples.add(new Sample("notification",  Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));

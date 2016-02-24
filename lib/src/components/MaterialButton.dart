@@ -100,11 +100,12 @@ class MaterialButton extends MdlComponent {
 
     /// If <button> has children like material-icons it returns the first child
     /// and assumes this is the element to set the value for
-    dom.HtmlElement get _valueElement {
+    dom.Node get _valueElement {
         dom.HtmlElement valueElement = element;
 
         // Ignore "Text" for example
-        if(valueElement.hasChildNodes() && valueElement.firstChild is dom.HtmlElement) {
+        if(valueElement.hasChildNodes()) {
+            final dom.Node node = valueElement.firstChild;
             valueElement = valueElement.firstChild;
         }
         return valueElement;
