@@ -19,73 +19,16 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialRadioCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-radio";
-    static const String GROUP_CLASS = 'mdl-radio-group';
-
-    final String IS_FOCUSED = 'is-focused';
-
-    final String IS_DISABLED = 'is-disabled';
-
-    final String IS_CHECKED = 'is-checked';
-
-    final String IS_UPGRADED = 'is-upgraded';
-
-    final String JS_RADIO = 'mdl-js-radio';
-
-    final String RADIO_BTN = 'mdl-radio__button';
-
-    final String RADIO_OUTER_CIRCLE = 'mdl-radio__outer-circle';
-
-    final String RADIO_INNER_CIRCLE = 'mdl-radio__inner-circle';
-
-    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-
-    final String RIPPLE_CONTAINER = 'mdl-radio__ripple-container';
-
-    final String RIPPLE_CENTER = 'mdl-ripple--center';
-
-    final String RIPPLE = 'mdl-ripple';
-
-    const _MaterialRadioCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialRadioConstant {
-    final int TINY_TIMEOUT_IN_MS = 10;
-    const _MaterialRadioConstant();
-}
-
-/// creates MdlConfig for MaterialRadio
-MdlConfig materialRadioConfig() => new MdlWidgetConfig<MaterialRadio>(
-    _MaterialRadioCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialRadio.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialRadio() => componentHandler().register(materialRadioConfig());
-
-/// creates MdlConfig for MaterialRadio
-MdlConfig materialRadioGroupConfig() => new MdlWidgetConfig<MaterialRadioGroup>(
-    _MaterialRadioCssClasses.GROUP_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialRadioGroup.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialRadioGroup() => componentHandler().register(materialRadioGroupConfig());
-
-/**
- * Sample:
- *      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi1">
- *          <input type="radio" id="wifi1" class="mdl-radio__button" name="wifi[]" value="1" checked />
- *          <span class="mdl-radio__label">Always</span>
- *      </label>
- */
-class MaterialRadio extends MdlComponent {
+/// Controller-View for
+///      <label class="mdl-radio mdl-js-ripple-effect" for="wifi1">
+///         <input type="radio" id="wifi1" class="mdl-radio__button" name="wifi[]" value="1" checked />
+///          <span class="mdl-radio__label">Always</span>
+///      </label>
+///
+///    final MaterialRadio radio = MaterialRadio.widget(querySelector(".mdl-radio"));
+///    radio.checked = true;
+///
+class MaterialRadio extends MdlComponent with FallbackFormatter {
     final Logger _logger = new Logger('mdlcomponents.MaterialRadio');
 
     static const _MaterialRadioConstant _constant = const _MaterialRadioConstant();
@@ -93,15 +36,24 @@ class MaterialRadio extends MdlComponent {
 
     dom.RadioButtonInputElement _btnElement = null;
 
-    //factory MaterialRadio(final dom.HtmlElement element) => mdlComponent(element,MaterialRadio) as MaterialRadio;
-
     MaterialRadio.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         _init();
     }
 
-    static MaterialRadio widget(final dom.HtmlElement element) => mdlComponent(element,MaterialRadio) as MaterialRadio;
+    /// First checks if [element] is a [MaterialRadio] - if so, it returns the widget,
+    /// if not it queries for the input-element (this is where MaterialRadio is registered)
+    static MaterialRadio widget(final dom.HtmlElement element) {
+        MaterialRadio radio;
+        try {
+            radio = mdlComponent(element,MaterialRadio,showWarning: false) as MaterialRadio;
 
+        } on String {
+            final dom.HtmlElement inputField = element.querySelector(".${_cssClasses.INPUT}");
+            radio = mdlComponent(inputField,MaterialRadio) as MaterialRadio;
+        }
+        return radio;
+    }
 
     /**
      * Makes it possible to get the "widget" from the components input-element instead of its mdl-class
@@ -113,58 +65,67 @@ class MaterialRadio extends MdlComponent {
      *
      *      MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
      */
-    dom.Element get hub => btnElement;
+    dom.Element get hub => inputElement;
 
-    dom.RadioButtonInputElement get btnElement {
+    dom.RadioButtonInputElement get inputElement {
         if(_btnElement == null) {
-            _btnElement = element.querySelector(".${_cssClasses.RADIO_BTN}");
+            _btnElement = element.querySelector(".${_cssClasses.INPUT}");
         }
         return _btnElement;
     }
 
 
     /// Disable radio.
-    /// @public
-    /// MaterialRadio.prototype.disable = /*function*/ () {
     void disable() {
 
-        btnElement.disabled = true;
+        inputElement.disabled = true;
         _updateClasses();
     }
 
     /// Enable radio.
-    /// @public
-    /// MaterialRadio.prototype.enable = /*function*/ () {
     void enable() {
 
-        btnElement.disabled = false;
+        inputElement.disabled = false;
         _updateClasses();
     }
 
     /// Check radio.
-    /// @public
-    /// MaterialRadio.prototype.check = /*function*/ () {
     void check() {
 
         _uncheckSiblings();
 
-        btnElement.checked = true;
+        inputElement.checked = true;
         _updateClasses();
     }
 
     /// Uncheck radio.
-    /// @public
-    /// MaterialRadio.prototype.uncheck = /*function*/ () {
     void uncheck() {
-        btnElement.checked = false;
+        inputElement.checked = false;
         _updateClasses();
     }
 
-    bool get checked => btnElement.checked;
+    bool get checked => inputElement.checked;
 
     void set checked(final bool value) => value ? check() : uncheck();
 
-    String get value => btnElement.value;
+    String get label {
+        final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
+        return _label != null ? _label.text.trim() : "";
+    }
+
+    void set label(final String v) {
+        Validate.notNull(v);
+
+        final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
+        _label?.text = formatterFor(_label).format(v.trim());
+    }
+
+    String get value => inputElement.value;
+
+    void set value(final String value) {
+        Validate.notNull(value);
+        inputElement.value = formatterFor(inputElement).format(value);
+    }
 
     //- private -----------------------------------------------------------------------------------
 
@@ -204,18 +165,26 @@ class MaterialRadio extends MdlComponent {
             }
 
             eventStreams.add(
-                btnElement.onChange.listen( _onChange ));
+                inputElement.onChange.listen( _onChange ));
 
             eventStreams.add(
-                btnElement.onFocus.listen( _onFocus ));
+                inputElement.onFocus.listen( _onFocus ));
 
             eventStreams.add(
-                btnElement.onBlur.listen( _onBlur ));
+                inputElement.onBlur.listen( _onBlur ));
 
             eventStreams.add(
                 element.onMouseUp.listen( _onMouseUp ));
 
             _updateClasses();
+
+            /// Reformat according to [MaterialFormatter] definition
+            void _kickInFormatter() {
+                label = label;
+                value = value;
+            }
+            _kickInFormatter();
+
             element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
@@ -230,7 +199,7 @@ class MaterialRadio extends MdlComponent {
 
         for (int i = 0; i < radios.length; i++) {
 
-            final dom.RadioButtonInputElement button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
+            final dom.RadioButtonInputElement button = radios[i].querySelector('.' + _cssClasses.INPUT);
             // Different name == different group, so no point updating those.
             if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
                 final MaterialRadio radio = MaterialRadio.widget(button as dom.HtmlElement);
@@ -268,7 +237,7 @@ class MaterialRadio extends MdlComponent {
     ///
     /// MaterialRadio.prototype.checkDisabled = /*function*/ () {
     void _checkDisabled() {
-        if (btnElement.disabled) {
+        if (inputElement.disabled) {
 
             element.classes.add(_cssClasses.IS_DISABLED);
 
@@ -282,7 +251,7 @@ class MaterialRadio extends MdlComponent {
     ///
     /// MaterialRadio.prototype.checkToggleState = /*function*/ () {
     void _checkToggleState() {
-        if (btnElement.checked) {
+        if (inputElement.checked) {
 
             element.classes.add(_cssClasses.IS_CHECKED);
 
@@ -293,7 +262,7 @@ class MaterialRadio extends MdlComponent {
 
     void _blur() {
         new Timer(new Duration(milliseconds : _constant.TINY_TIMEOUT_IN_MS ), () {
-            btnElement.blur();
+            inputElement.blur();
         });
     }
 
@@ -303,7 +272,7 @@ class MaterialRadio extends MdlComponent {
         if(element.parent.classes.contains(_MaterialRadioCssClasses.GROUP_CLASS)) {
             final dom.HtmlElement group = element.parent;
             group.children.forEach((final dom.Element child) {
-                final MaterialRadio widget = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
+                final MaterialRadio widget = MaterialRadio.widget(child.querySelector(".${_cssClasses.INPUT}"));
 
                 if(widget != null && widget != this) {
                     widget.uncheck();
@@ -347,7 +316,7 @@ class MaterialRadioGroup extends MdlComponent {
     bool get hasValue {
         bool _hasValue = false;
         element.children.forEach((final dom.HtmlElement child) {
-            final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
+            final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.INPUT}"));
             if(radio != null && radio.checked) {
                 _hasValue = true;
             }
@@ -359,7 +328,7 @@ class MaterialRadioGroup extends MdlComponent {
         String _value = "";
         element.children.forEach((final dom.HtmlElement child) {
 
-            final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
+            final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.INPUT}"));
             if(radio != null && radio.checked) {
                 _value = radio.value;
             }
@@ -371,7 +340,7 @@ class MaterialRadioGroup extends MdlComponent {
     void set value(final String val) {
         element.children.forEach((final dom.HtmlElement child) {
 
-            final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.RADIO_BTN}"));
+            final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.INPUT}"));
             if(radio != null) {
 
                 if(radio.value == val) {
@@ -413,3 +382,64 @@ class MaterialRadioGroup extends MdlComponent {
     }
 }
 
+/// creates MdlConfig for MaterialRadio
+MdlConfig materialRadioConfig() => new MdlWidgetConfig<MaterialRadio>(
+    _MaterialRadioCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialRadio.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialRadio() => componentHandler().register(materialRadioConfig());
+
+/// creates MdlConfig for MaterialRadio
+MdlConfig materialRadioGroupConfig() => new MdlWidgetConfig<MaterialRadioGroup>(
+    _MaterialRadioCssClasses.GROUP_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialRadioGroup.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialRadioGroup() => componentHandler().register(materialRadioGroupConfig());
+
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialRadioCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-radio";
+    static const String GROUP_CLASS = 'mdl-radio-group';
+
+    final String IS_FOCUSED = 'is-focused';
+
+    final String IS_DISABLED = 'is-disabled';
+
+    final String IS_CHECKED = 'is-checked';
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    final String JS_RADIO = 'mdl-js-radio';
+
+    final String INPUT = 'mdl-radio__button';
+
+    final String LABEL = 'mdl-radio__label';
+
+    final String RADIO_OUTER_CIRCLE = 'mdl-radio__outer-circle';
+
+    final String RADIO_INNER_CIRCLE = 'mdl-radio__inner-circle';
+
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+
+    final String RIPPLE_CONTAINER = 'mdl-radio__ripple-container';
+
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+
+    final String RIPPLE = 'mdl-ripple';
+
+    const _MaterialRadioCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialRadioConstant {
+    final int TINY_TIMEOUT_IN_MS = 10;
+    const _MaterialRadioConstant();
+}

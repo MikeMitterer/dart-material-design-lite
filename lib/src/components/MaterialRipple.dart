@@ -53,7 +53,7 @@ MdlConfig materialRippleConfig() {
             (final dom.HtmlElement element, final di.Injector injector)
             => new MaterialRipple.fromElement(element, injector));
 
-    config.priority = 10;
+    config.priority = RegistrationPriority.LAST;
     return config;
 }
 

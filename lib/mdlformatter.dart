@@ -33,7 +33,8 @@ import 'package:mdl/mdlapplication.dart';
 
 part 'src/formatter/components/MaterialFormatter.dart';
 
-part 'src/formatter/FormatterPipeline.dart';
+part 'src/formatter/utils/FallbackFormatter.dart';
+part 'src/formatter/utils/FormatterPipeline.dart';
 
 part 'src/formatter/ChooseFormatter.dart';
 part 'src/formatter/DecoratorFormatter.dart';
@@ -45,7 +46,7 @@ part 'src/formatter/UpperCaseFormatter.dart';
  * Formatter ist a collection of formatters.
  * To add your own formatter follow the sample below
  *
- * Sample:
+ *      @MdlComponentModel @di.Injectable()
  *      class MyFormatter extends Formatter {
  *
  *          // Your super cool formatter
@@ -72,6 +73,8 @@ part 'src/formatter/UpperCaseFormatter.dart';
  *
  * HTML:
  *      <span mdl-observe="pi | test(value)"></span>
+ *      or
+ *      <div class="mdl-labelfield" mdl-formatter="uppercase(value)">...</div>
  */
 @MdlComponentModel @di.Injectable()
 class Formatter {

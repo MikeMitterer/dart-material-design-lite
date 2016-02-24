@@ -45,6 +45,8 @@ class _MdlComponentHandlerCssClasses {
 
     final String DOWNGRADED = "mdl-downgraded";
 
+    final String IS_UPGRADED = "is-upgraded";
+
     final String RIPPLE_EFFECT = "mdl-js-ripple-effect";
 
     const _MdlComponentHandlerCssClasses();
@@ -307,12 +309,12 @@ class MdlComponentHandler {
 
     bool _isValidClassName(final String classname) => (classname != "dynamic");
 
-    /// The component with the highest priority comes last
+    /// The component with the highest priority (index) comes last
     List<MdlConfig> get _configs {
         final List<MdlConfig> configs = new List<MdlConfig>.from(_registeredComponents.values);
 
         configs.sort((final MdlConfig a, final MdlConfig b) {
-            return a.priority.compareTo(b.priority);
+            return a.priority.index.compareTo(b.priority.index);
         });
 
         return configs;
@@ -531,6 +533,8 @@ class MdlComponentHandler {
             // doesn't mater if it is a widget or a ripple...
             if(component != null) {
                 component.attributes.remove(_DATA_KEY);
+                component.classes.remove(_cssClasses.IS_UPGRADED);
+
                 component.classes.add(_cssClasses.DOWNGRADED);
                 component = null;
             }

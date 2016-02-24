@@ -93,6 +93,10 @@ main() {
                 return component is MaterialButton && component.classes.contains("mdl-button--submit");
             });
 
+            MaterialTextfield input = MaterialTextfield.widget(form.querySelector(".mdl-textfield"));
+            expect(input,isNotNull);
+            print(input.value);
+
             expect(submit,isNotNull);
             expect(submit.enabled,isFalse);
             expect(form.classes.contains("is-valid"),isFalse);

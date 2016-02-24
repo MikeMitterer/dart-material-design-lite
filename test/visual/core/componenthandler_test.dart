@@ -151,7 +151,7 @@ main() async {
 
                 expect(e,"div is not a MdlComponent!!! (ID: tab-to-downgrade, "
                     "Classes: mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events "
-                    "is-upgraded mdl-downgraded, Dataset: null)");
+                    "mdl-downgraded, Dataset: null)");
 
                 foundException = true;
             }

@@ -213,8 +213,8 @@ void registerMaterialFormComponent() {
     // By default it's used as a class name. (<div class="mdl-form"></div>)
     config.selectorType = SelectorType.CLASS;
 
-    /// With priority 2 we make sure that all children are registered before this components gets initialized
-    config.priority = 2;
+    // With priority PRE_WIDGET we make sure that all children are registered before this components gets initialized
+    config.priority = RegistrationPriority.POST_WIDGET;
 
     componentHandler().register(config);
 }

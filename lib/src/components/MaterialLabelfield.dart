@@ -19,37 +19,17 @@
      
 part of mdlcomponents;
  
-/// Basic DI configuration for [MaterialLabelfield]
-///
-/// Usage:
-///     class MainModule extends di.Module {
-///         MainModule() {
-///             install(new MaterialLabelfieldModule());
-///         }     
-///     }
-class MaterialLabelfieldModule  extends di.Module {
-    MaterialLabelfieldModule() {
-        // bind(DeviceProxy);
-        
-        // -- services
-        // bind(SignalService, toImplementation: SignalServiceImpl);
-    }
-} 
-
-/// Controller for <div class="mdl-labelfield"></div>
-///
-/// HTML:
+/// Controller-View for
 ///     <div id="search_engine" class="mdl-labelfield mdl-labelfield--with-border">
 ///         <label class="mdl-labelfield__label ">Search engine</label>
 ///         <div class="mdl-labelfield__text">Google</div>
 ///     </div>
 ///
-/// Dart:
-///      final MaterialLabelfield label = MaterialLabelfield.widget(dom.querySelector("#search_engine"));
+///      final MaterialLabelfield label = MaterialLabelfield.widget(querySelector("#search_engine"));
 ///      label.label = "Another search engine";
 ///      label.value = "Yahoo";
 ///
-class MaterialLabelfield extends MdlComponent {
+class MaterialLabelfield extends MdlComponent with FallbackFormatter {
     final Logger _logger = new Logger('mdlcomponents.MaterialLabelfield');
 
     //static const _MaterialLabelfieldConstant _constant = const _MaterialLabelfieldConstant();
@@ -72,11 +52,7 @@ class MaterialLabelfield extends MdlComponent {
         Validate.notNull(v);
 
         final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
-        if(_label != null) {
-            // final HtmlEscape escaper = new HtmlEscape();
-            // _label.text = (escaper.convert(v.trim()));
-            _label.text = v.trim();
-        }
+        _label?.text = formatterFor(_label).format(v.trim());
     }
 
     String get value {
@@ -89,12 +65,7 @@ class MaterialLabelfield extends MdlComponent {
         Validate.notNull(v);
 
         final dom.HtmlElement _text = element.querySelector(".${_cssClasses.TEXT}");
-        if(_text != null) {
-            // final HtmlEscape escaper = new HtmlEscape();
-            // _text.text = (escaper.convert(v.trim()));
-
-            _text.text = MaterialFormatter.widget(element).format(v);
-        }
+        _text?.text = formatterFor(_text).format(v);
     }
 
     // - EventHandler -----------------------------------------------------------------------------
@@ -103,7 +74,14 @@ class MaterialLabelfield extends MdlComponent {
 
     void _init() {
         _logger.fine("MaterialLabelfield - init");
-        
+
+        /// Reformat according to [MaterialFormatter] definition
+        void _kickInFormatter() {
+            label = label;
+            value = value;
+        }
+        _kickInFormatter();
+
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 }
@@ -121,9 +99,9 @@ void registerMaterialLabelfield() {
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialLabelfield.fromElement(element,injector)
     );
     
-    // If you want <MaterialLabelfield></MaterialLabelfield> set selectorType to SelectorType.TAG.
-    // If you want <div MaterialLabelfield></div> set selectorType to SelectorType.ATTRIBUTE.
-    // By default it's used as a class name. (<div class="MaterialLabelfield"></div>)
+    // If you want <mdl-labelfield></mdl-labelfield> set selectorType to SelectorType.TAG.
+    // If you want <div mdl-labelfield=""></div> set selectorType to SelectorType.ATTRIBUTE.
+    // By default it's used as a class name. (<div class="mdl-labelfield"></div>)
     config.selectorType = SelectorType.CLASS;
     
     componentHandler().register(config);

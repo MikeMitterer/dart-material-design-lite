@@ -19,58 +19,17 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialSwitchCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-switch";
-
-    final String INPUT = 'mdl-switch__input';
-
-    final String TRACK = 'mdl-switch__track';
-
-    final String THUMB = 'mdl-switch__thumb';
-
-    final String FOCUS_HELPER = 'mdl-switch__focus-helper';
-
-    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-
-    final String RIPPLE_CONTAINER = 'mdl-switch__ripple-container';
-
-    final String RIPPLE_CENTER = 'mdl-ripple--center';
-
-    final String RIPPLE = 'mdl-ripple';
-
-    final String IS_FOCUSED = 'is-focused';
-
-    final String IS_DISABLED = 'is-disabled';
-
-    final String IS_CHECKED = 'is-checked';
-
-    final String IS_UPGRADED = 'is-upgraded';
-
-    const _MaterialSwitchCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialSwitchConstant {
-    final int TINY_TIMEOUT_IN_MS = 100;
-
-    const _MaterialSwitchConstant();
-}
-
-/// creates MdlConfig for MaterialSwitch
-MdlConfig materialSwitchConfig() => new MdlWidgetConfig<MaterialSwitch>(
-    _MaterialSwitchCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialSwitch.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialSwitch() => componentHandler().register(materialSwitchConfig());
-
-class MaterialSwitch extends MdlComponent {
+/// Controller-View for
+///
+///     <label class="mdl-switch mdl-js-ripple-effect" for="switch-1">
+///       <input type="checkbox" id="switch-1" class="mdl-switch__input" >
+///       <span class="mdl-switch__label">Switch me</span>
+///     </label>
+///
+///     final MaterialSwitch materialswitch = MaterialSwitch.widget(querySelector("#switch-1"));
+///     materialswitch.off();
+///
+class MaterialSwitch extends MdlComponent with FallbackFormatter {
     final Logger _logger = new Logger('mdlcomponents.MaterialSwitch');
 
     static const _MaterialSwitchConstant _constant = const _MaterialSwitchConstant();
@@ -83,12 +42,25 @@ class MaterialSwitch extends MdlComponent {
         _init();
     }
 
-    static MaterialSwitch widget(final dom.HtmlElement element) => mdlComponent(element,MaterialSwitch) as MaterialSwitch;
+    /// First checks if [element] is a [MaterialSwitch] - if so, it returns the widget,
+    /// if not it queries for the input-element (this is where MaterialSwitch is registered)
+    static MaterialSwitch widget(final dom.HtmlElement element) {
+        MaterialSwitch switchElement;
+        try {
+            switchElement = mdlComponent(element,MaterialSwitch,showWarning: false) as MaterialSwitch;
+
+        } on String {
+            final dom.HtmlElement inputField = element.querySelector(".${_cssClasses.INPUT}");
+            switchElement = mdlComponent(inputField,MaterialSwitch) as MaterialSwitch;
+        }
+        return switchElement;
+    }
+    
 
     /**
      * Makes it possible to get the "widget" from the components input-element instead of its mdl-class
      * Sample:
-     *      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+     *      <label class="mdl-switch mdl-js-ripple-effect" for="switch-1">
      *          <input type="checkbox" id="switch-1" class="mdl-switch__input" />
      *          <span class="mdl-switch__label">Switch me</span>
      *      </label>
@@ -131,8 +103,25 @@ class MaterialSwitch extends MdlComponent {
 
     void set checked(final bool _checked) => _checked ? on() : off();
 
+    String get label {
+        final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
+        return _label != null ? _label.text.trim() : "";
+    }
+
+    void set label(final String v) {
+        Validate.notNull(v);
+
+        final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
+        _label?.text = formatterFor(_label).format(v.trim());
+    }
+
     /// Returns the value for the given [inputElement]
     String get value => inputElement.value.trim();
+
+    void set value(final String value) {
+        Validate.notNull(value);
+        inputElement.value = formatterFor(inputElement).format(value);
+    }
 
     //- private -----------------------------------------------------------------------------------
 
@@ -183,6 +172,14 @@ class MaterialSwitch extends MdlComponent {
             eventStreams.add(element.onMouseUp.listen( _onMouseUp ));
 
             _updateClasses();
+
+            /// Reformat according to [MaterialFormatter] definition
+            void _kickInFormatter() {
+                label = label;
+                value = value;
+            }
+            _kickInFormatter();
+
             element.classes.add(_cssClasses.IS_UPGRADED);
         }
     }
@@ -244,3 +241,55 @@ class MaterialSwitch extends MdlComponent {
     }
 }
 
+/// creates MdlConfig for MaterialSwitch
+MdlConfig materialSwitchConfig() => new MdlWidgetConfig<MaterialSwitch>(
+    _MaterialSwitchCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialSwitch.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialSwitch() => componentHandler().register(materialSwitchConfig());
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialSwitchCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-switch";
+
+    final String INPUT = 'mdl-switch__input';
+
+    final String LABEL = 'mdl-switch__label';
+
+    final String TRACK = 'mdl-switch__track';
+
+    final String THUMB = 'mdl-switch__thumb';
+
+    final String FOCUS_HELPER = 'mdl-switch__focus-helper';
+
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+
+    final String RIPPLE_CONTAINER = 'mdl-switch__ripple-container';
+
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+
+    final String RIPPLE = 'mdl-ripple';
+
+    final String IS_FOCUSED = 'is-focused';
+
+    final String IS_DISABLED = 'is-disabled';
+
+    final String IS_CHECKED = 'is-checked';
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    const _MaterialSwitchCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialSwitchConstant {
+    final int TINY_TIMEOUT_IN_MS = 100;
+
+    const _MaterialSwitchConstant();
+}

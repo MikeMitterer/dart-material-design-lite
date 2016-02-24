@@ -31,7 +31,7 @@ typedef dynamic PipeCommand(dynamic val);
  * 'decorate' is the last command in the chain so its output will be displayed.
  */
 class FormatterPipeline {
-    // final Logger _logger = new Logger('mdlformatter.FormatterPipeline');
+    final Logger _logger = new Logger('mdlformatter.FormatterPipeline');
 
     final _commands = new List<PipeCommand>();
     final Formatter _formatter;
@@ -88,8 +88,14 @@ class FormatterPipeline {
                 // Parent-Scope null is OK here because we don't need it
                 final Invoke formatterFunction = new Invoke(new Scope(new Formatter(),null));
 
-                val = formatterFunction.function(stf,varsToReplace: { "value" : val });
-                return val;
+                try {
+                    val = formatterFunction.function(stf,varsToReplace: { "value" : val });
+                    return val;
+
+                } catch(e) {
+                    _logger.warning("Could not format '$val' with $formatter. ($e)");
+                    return val;
+                }
 
             });
 

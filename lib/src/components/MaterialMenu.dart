@@ -19,52 +19,6 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialMenuCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-menu";
-
-    final String CONTAINER = 'mdl-menu__container';
-    final String OUTLINE = 'mdl-menu__outline';
-    final String ITEM = 'mdl-menu__item';
-    final String ITEM_RIPPLE_CONTAINER = 'mdl-menu__item-ripple-container';
-    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-    final String RIPPLE = 'mdl-ripple';
-
-    // Statuses
-    final String IS_UPGRADED = 'is-upgraded';
-    final String IS_VISIBLE = 'is-visible';
-    final String IS_ANIMATING = 'is-animating';
-
-    // Alignment options
-    final String BOTTOM_LEFT = 'mdl-menu--bottom-left';
-    final String BOTTOM_RIGHT = 'mdl-menu--bottom-right';
-    final String TOP_LEFT = 'mdl-menu--top-left';
-    final String TOP_RIGHT = 'mdl-menu--top-right';
-    final String UNALIGNED = 'mdl-menu--unaligned';
-
-    const _MaterialMenuCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialMenuConstant {
-
-    // Total duration of the menu animation.
-    final int TRANSITION_DURATION_SECONDS = 0;
-
-    // The fraction of the total duration we want to use for menu item animations.
-    final int TRANSITION_DURATION_FRACTION = 0;
-
-    // How long the menu stays open after choosing an option (so the user can see
-    // the ripple).
-    final int CLOSE_TIMEOUT = 150;
-
-
-    const _MaterialMenuConstant();
-}
 
 /// KeyCodes, for code readability.
 class _KeyCode {
@@ -79,14 +33,25 @@ class _KeyCode {
     const _KeyCode(this.value);
 }
 
-/// creates MdlConfig for MaterialMenu
-MdlConfig materialMenuConfig() => new MdlWidgetConfig<MaterialMenu>(
-    _MaterialMenuCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialMenu.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialMenu() => componentHandler().register(materialMenuConfig());
-
+/// Controller-View for
+///     <div class="container-menu-lower-left mdl-shadow--2dp">
+///         <div class="bar-menu-lower-left">
+///             <!-- Left aligned menu below button -->
+///             <button id="demo-menu-lower-left"
+///                     class="mdl-button mdl-js-button mdl-button--icon">
+///                 <i class="material-icons">more_vert</i>
+///             </button>
+///
+///             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+///                 data-mdl-for="demo-menu-lower-left">
+///                 <li class="mdl-menu__item">Some Action</li>
+///                 <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Another Action</li>
+///                 <li disabled class="mdl-menu__item">Disabled Action</li>
+///                 <li class="mdl-menu__item">Yet Another Action</li>
+///             </ul>
+///         </div>
+///         <div class="background-menu-lower-left"></div>
+///     </div>
 class MaterialMenu extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialMenu');
 
@@ -509,3 +474,57 @@ class MaterialMenu extends MdlComponent {
     }
 }
 
+/// creates MdlConfig for MaterialMenu
+MdlConfig materialMenuConfig() => new MdlWidgetConfig<MaterialMenu>(
+    _MaterialMenuCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialMenu.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialMenu() => componentHandler().register(materialMenuConfig());
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialMenuCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-js-menu";
+
+    final String CONTAINER = 'mdl-menu__container';
+    final String OUTLINE = 'mdl-menu__outline';
+    final String ITEM = 'mdl-menu__item';
+    final String ITEM_RIPPLE_CONTAINER = 'mdl-menu__item-ripple-container';
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE = 'mdl-ripple';
+
+    // Statuses
+    final String IS_UPGRADED = 'is-upgraded';
+    final String IS_VISIBLE = 'is-visible';
+    final String IS_ANIMATING = 'is-animating';
+
+    // Alignment options
+    final String BOTTOM_LEFT = 'mdl-menu--bottom-left';
+    final String BOTTOM_RIGHT = 'mdl-menu--bottom-right';
+    final String TOP_LEFT = 'mdl-menu--top-left';
+    final String TOP_RIGHT = 'mdl-menu--top-right';
+    final String UNALIGNED = 'mdl-menu--unaligned';
+
+    const _MaterialMenuCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialMenuConstant {
+
+    // Total duration of the menu animation.
+    final int TRANSITION_DURATION_SECONDS = 0;
+
+    // The fraction of the total duration we want to use for menu item animations.
+    final int TRANSITION_DURATION_FRACTION = 0;
+
+    // How long the menu stays open after choosing an option (so the user can see
+    // the ripple).
+    final int CLOSE_TIMEOUT = 150;
+
+
+    const _MaterialMenuConstant();
+}

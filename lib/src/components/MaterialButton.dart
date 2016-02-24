@@ -19,31 +19,16 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// JavaScript. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialButtonCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-button";
-
-    final String RIPPLE_EFFECT =      'mdl-js-ripple-effect';
-    final String RIPPLE_CONTAINER =   'mdl-button__ripple-container';
-    final String RIPPLE =             'mdl-ripple';
-
-    const _MaterialButtonCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialButtonConstant { const _MaterialButtonConstant(); }
-
-/// creates MdlConfig for MaterialButton
-MdlConfig materialButtonConfig() => new MdlWidgetConfig<MaterialButton>(
-    _MaterialButtonCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialButton.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialButton() => componentHandler().register(materialButtonConfig());
-
+/// Controller-View for
+///     <button id="button" class="mdl-button">Flat</button>
+///     <button class="mdl-button mdl-js-ripple-effect">Flat</button>
+///     <button class="mdl-button mdl-js-button mdl-button--fab">
+///         <i class="material-icons">add</i>
+///     </button>
+///
+///     final MaterialButton button = MaterialButton.widget(dom.querySelector("#button");
+///     button.disable();
+///
 class MaterialButton extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialButton');
 
@@ -70,6 +55,14 @@ class MaterialButton extends MdlComponent {
     void set enabled(final bool _enabled) => _enabled ? enable() : disable();
     bool get enabled => !(element as dom.ButtonElement).disabled;
 
+    void set value(final String value) {
+        if(value != null) {
+            _valueElement.text = MaterialFormatter.widget(element).format(value);
+        }
+    }
+
+    String get value => _valueElement.text;
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
@@ -85,17 +78,72 @@ class MaterialButton extends MdlComponent {
 
             eventStreams.add(rippleElement.onMouseUp.listen(_blurHandler));
             element.append(rippleContainer);
-
-            _logger.finer("MaterialButton - init done...");
         }
 
         eventStreams.add(element.onMouseUp.listen(_blurHandler));
         eventStreams.add(element.onMouseLeave.listen(_blurHandler));
+
+        /// Reformat according to [MaterialFormatter] definition
+        void _kickInFormatter() {
+            value = value;
+        }
+        _kickInFormatter();
+
+        element.classes.add(_cssClasses.IS_UPGRADED);
+        _logger.finer("MaterialButton - init done...");
     }
 
     void _blurHandler(final dom.MouseEvent event) {
         _logger.finer("blur...");
         element.blur();
     }
+
+    /// If <button> has children like material-icons it returns the first child
+    /// and assumes this is the element to set the value for
+    dom.HtmlElement get _valueElement {
+        dom.HtmlElement valueElement = element;
+
+        // Ignore "Text" for example
+        if(valueElement.hasChildNodes() && valueElement.firstChild is dom.HtmlElement) {
+            valueElement = valueElement.firstChild;
+        }
+        return valueElement;
+    }
 }
+
+/// Registers the MaterialButton-Component
+///
+///     main() {
+///         registerMaterialButton();
+///         ...
+///     }
+///
+void registerMaterialButton() {
+    /// creates MdlConfig for MaterialButton
+    final MdlConfig config = new MdlWidgetConfig<MaterialButton>(
+        _MaterialButtonCssClasses.MAIN_CLASS,
+            (final dom.HtmlElement element,final di.Injector injector)
+                => new MaterialButton.fromElement(element,injector));
+
+    componentHandler().register(config);
+}
+
+/// Store strings for class names defined by this component that are used in
+/// JavaScript. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialButtonCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-button";
+
+    final String RIPPLE_EFFECT =      'mdl-js-ripple-effect';
+    final String RIPPLE_CONTAINER =   'mdl-button__ripple-container';
+    final String RIPPLE =             'mdl-ripple';
+
+    final String IS_UPGRADED        = 'is-upgraded';
+
+    const _MaterialButtonCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialButtonConstant { const _MaterialButtonConstant(); }
 

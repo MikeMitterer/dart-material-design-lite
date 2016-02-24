@@ -19,30 +19,9 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialBadgeCssClasses {
-    static const String MAIN_CLASS  = "mdl-js-badge";
-
-    final String IS_UPGRADED        = 'is-upgraded';
-
-    const _MaterialBadgeCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialBadgeConstant {
-    const _MaterialBadgeConstant();
-}
-
-/// creates MdlConfig for MaterialBadge
-MdlConfig materialBadgeConfig() => new MdlWidgetConfig<MaterialBadge>(
-    _MaterialBadgeCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-        => new MaterialBadge.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialBadge() => componentHandler().register(materialBadgeConfig());
-
+/// Controller-View for
+///     <div class="mdl-badge" data-badge="1"></div>
+///
 class MaterialBadge extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialBadge');
 
@@ -56,15 +35,12 @@ class MaterialBadge extends MdlComponent {
 
     static MaterialBadge widget(final dom.HtmlElement element) => mdlComponent(element,MaterialBadge) as MaterialBadge;
 
-    // Central Element - by default this is where mdl-js-badge was found (element)
-    // html.Element get hub => element;
-
     void set value(final String value) {
         if(value == null || value.isEmpty) {
             element.dataset.remove("badge");
             return;
         }
-        element.dataset["badge"] = value;
+        element.dataset["badge"] = MaterialFormatter.widget(element).format(value);
     }
 
     String get value => element.dataset.containsKey("badge") ? element.dataset["badge"] : "";
@@ -73,7 +49,54 @@ class MaterialBadge extends MdlComponent {
 
     void _init() {
         _logger.fine("MaterialBadge - init");
+
+        /// Reformat according to [MaterialFormatter] definition
+        void _kickInFormatter() {
+            value = value;
+        }
+
+        _kickInFormatter();
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 }
 
+
+
+/// Registers the MaterialBadge-Component
+///
+///     main() {
+///         registerMaterialBadge();
+///         ...
+///     }
+///
+void registerMaterialBadge() {
+    /// creates MdlConfig for MaterialBadge
+    final MdlConfig config = new MdlWidgetConfig<MaterialBadge>(
+        _MaterialBadgeCssClasses.MAIN_CLASS,
+            (final dom.HtmlElement element,final di.Injector injector)
+                => new MaterialBadge.fromElement(element,injector));
+
+    // If you want <mdl-badge></mdl-badge> set selectorType to SelectorType.TAG.
+    // If you want <div mdl-badge=""></div> set selectorType to SelectorType.ATTRIBUTE.
+    // By default it's used as a class name. (<div class="mdl-badge"></div>)
+    config.selectorType = SelectorType.CLASS;
+
+    componentHandler().register(config);
+}
+
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialBadgeCssClasses {
+    static const String MAIN_CLASS  = "mdl-badge";
+
+    final String IS_UPGRADED        = 'is-upgraded';
+
+    const _MaterialBadgeCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialBadgeConstant {
+    const _MaterialBadgeConstant();
+}

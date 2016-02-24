@@ -24,7 +24,7 @@ part of mdlformatter;
  *
  *      <span mdl-observe="pi | number(value,2)"></span>
  */
-//@MdlComponentModel
+@MdlComponentModel
 class NumberFormatter {
     // final Logger _logger = new Logger('mdlformatter.NumberFormatter');
 
@@ -53,7 +53,15 @@ class NumberFormatter {
     }
 
     /// Important! this function is called by the framework
+    ///
     ///     <span mdl-observe="pi | number(value,2)"></span>
-    String call(final value, [ int fractionSize = 2]) => number(ConvertValue.toDouble(value),
-        ConvertValue.toInt(fractionSize));
+    ///
+    /// REMARK: default-Params are not support by mirrors but
+    /// optional param works
+    String call(final value, [ final fractionSize ]) {
+        final double valueAsDouble = ConvertValue.toDouble(value);
+        final int fraction = ConvertValue.toInt(fractionSize != null ? fractionSize : 2);
+
+        return number(valueAsDouble,fraction);
+    }
 }

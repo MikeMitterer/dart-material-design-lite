@@ -19,73 +19,6 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialLayoutCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-layout";
-
-    final String CONTAINER = 'mdl-layout__container';
-    final String HEADER = 'mdl-layout__header';
-    final String DRAWER = 'mdl-layout__drawer';
-    final String CONTENT = 'mdl-layout__content';
-    final String DRAWER_BTN = 'mdl-layout__drawer-button';
-
-    final String ICON = 'material-icons';
-
-    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-    final String RIPPLE_CONTAINER = 'mdl-layout__tab-ripple-container';
-    final String RIPPLE = 'mdl-ripple';
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-
-    final String HEADER_SEAMED = 'mdl-layout__header--seamed';
-    final String HEADER_WATERFALL = 'mdl-layout__header--waterfall';
-    final String HEADER_SCROLL = 'mdl-layout__header--scroll';
-
-    final String FIXED_HEADER = 'mdl-layout--fixed-header';
-    final String OBFUSCATOR = 'mdl-layout__obfuscator';
-
-    final String TAB_BAR = 'mdl-layout__tab-bar';
-    final String TAB_CONTAINER = 'mdl-layout__tab-bar-container';
-    final String TAB = 'mdl-layout__tab';
-    final String TAB_BAR_BUTTON = 'mdl-layout__tab-bar-button';
-    final String TAB_BAR_LEFT_BUTTON = 'mdl-layout__tab-bar-left-button';
-    final String TAB_BAR_RIGHT_BUTTON = 'mdl-layout__tab-bar-right-button';
-    final String PANEL = 'mdl-layout__tab-panel';
-
-    final String NAVI_LINK = "mdl-navigation__link";
-
-    final String HAS_DRAWER = 'has-drawer';
-    final String HAS_TABS = 'has-tabs';
-    final String HAS_SCROLLING_HEADER = 'has-scrolling-header';
-    final String CASTING_SHADOW = 'is-casting-shadow';
-    final String IS_COMPACT = 'is-compact';
-    final String IS_SMALL_SCREEN = 'is-small-screen';
-    final String IS_DRAWER_OPEN = 'is-visible';
-    final String IS_ACTIVE = 'is-active';
-    final String IS_UPGRADED = 'is-upgraded';
-    final String IS_ANIMATING = 'is-animating';
-
-    final String ON_LARGE_SCREEN = 'mdl-layout--large-screen-only';
-    final String ON_SMALL_SCREEN  = 'mdl-layout--small-screen-only';
-
-    const _MaterialLayoutCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialLayoutConstant {
-
-    final String MAX_WIDTH = '(max-width: 1024px)';
-    final int TAB_SCROLL_PIXELS = 100;
-
-    final String MENU_ICON = '&#xE5D2;';
-    final String CHEVRON_LEFT = 'chevron_left';
-    final String CHEVRON_RIGHT = 'chevron_right';
-
-    const _MaterialLayoutConstant();
-}
-
 /// Keycodes, for code readability.
 ///
 /// enum {number}
@@ -106,14 +39,33 @@ class _MaterialLayoutMode {
     const _MaterialLayoutMode();
 }
 
-/// creates MdlConfig for MaterialLayout
-MdlConfig materialLayoutConfig() => new MdlWidgetConfig<MaterialLayout>(
-    _MaterialLayoutCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialLayout.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialLayout() => componentHandler().register(materialLayoutConfig());
-
+/// Controller-View for
+///     <div class="demo-layout fixed-drawer-container">
+///       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+///           <header class="mdl-layout__header">
+///               <div class="mdl-layout__header-row">
+///                   <!-- Title -->
+///                   <span class="mdl-layout-title">Title</span>
+///                   <!-- Add spacer, to align navigation to the right -->
+///                   <div class="mdl-layout-spacer"></div>
+///                   <!-- Navigation. We hide it in small screens. -->
+///                   <nav class="mdl-navigation mdl-layout--large-screen-only">
+///                       <a class="mdl-navigation__link" href="">Link</a>
+///                   </nav>
+///               </div>
+///           </header>
+///           <div class="mdl-layout__drawer">
+///               <span class="mdl-layout-title">Title</span>
+///               <nav class="mdl-navigation">
+///                   <a class="mdl-navigation__link" href="">Link</a>
+///               </nav>
+///           </div>
+///           <main class="mdl-layout__content">
+///               <div class="page-content"></div>
+///           </main>
+///       </div>
+///     </div>
+///
 class MaterialLayout extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialLayout');
 
@@ -650,3 +602,77 @@ class MaterialLayoutTab {
     }
 }
 
+/// creates MdlConfig for MaterialLayout
+MdlConfig materialLayoutConfig() => new MdlWidgetConfig<MaterialLayout>(
+    _MaterialLayoutCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialLayout.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialLayout() => componentHandler().register(materialLayoutConfig());
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialLayoutCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-js-layout";
+
+    final String CONTAINER = 'mdl-layout__container';
+    final String HEADER = 'mdl-layout__header';
+    final String DRAWER = 'mdl-layout__drawer';
+    final String CONTENT = 'mdl-layout__content';
+    final String DRAWER_BTN = 'mdl-layout__drawer-button';
+
+    final String ICON = 'material-icons';
+
+    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_CONTAINER = 'mdl-layout__tab-ripple-container';
+    final String RIPPLE = 'mdl-ripple';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+
+    final String HEADER_SEAMED = 'mdl-layout__header--seamed';
+    final String HEADER_WATERFALL = 'mdl-layout__header--waterfall';
+    final String HEADER_SCROLL = 'mdl-layout__header--scroll';
+
+    final String FIXED_HEADER = 'mdl-layout--fixed-header';
+    final String OBFUSCATOR = 'mdl-layout__obfuscator';
+
+    final String TAB_BAR = 'mdl-layout__tab-bar';
+    final String TAB_CONTAINER = 'mdl-layout__tab-bar-container';
+    final String TAB = 'mdl-layout__tab';
+    final String TAB_BAR_BUTTON = 'mdl-layout__tab-bar-button';
+    final String TAB_BAR_LEFT_BUTTON = 'mdl-layout__tab-bar-left-button';
+    final String TAB_BAR_RIGHT_BUTTON = 'mdl-layout__tab-bar-right-button';
+    final String PANEL = 'mdl-layout__tab-panel';
+
+    final String NAVI_LINK = "mdl-navigation__link";
+
+    final String HAS_DRAWER = 'has-drawer';
+    final String HAS_TABS = 'has-tabs';
+    final String HAS_SCROLLING_HEADER = 'has-scrolling-header';
+    final String CASTING_SHADOW = 'is-casting-shadow';
+    final String IS_COMPACT = 'is-compact';
+    final String IS_SMALL_SCREEN = 'is-small-screen';
+    final String IS_DRAWER_OPEN = 'is-visible';
+    final String IS_ACTIVE = 'is-active';
+    final String IS_UPGRADED = 'is-upgraded';
+    final String IS_ANIMATING = 'is-animating';
+
+    final String ON_LARGE_SCREEN = 'mdl-layout--large-screen-only';
+    final String ON_SMALL_SCREEN  = 'mdl-layout--small-screen-only';
+
+    const _MaterialLayoutCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialLayoutConstant {
+
+    final String MAX_WIDTH = '(max-width: 1024px)';
+    final int TAB_SCROLL_PIXELS = 100;
+
+    final String MENU_ICON = '&#xE5D2;';
+    final String CHEVRON_LEFT = 'chevron_left';
+    final String CHEVRON_RIGHT = 'chevron_right';
+
+    const _MaterialLayoutConstant();
+}

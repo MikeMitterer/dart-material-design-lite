@@ -18,24 +18,13 @@
  */
      
 part of mdlformatter;
- 
-/// Basic DI configuration for [MaterialFormatter]
-///
-/// Usage:
-///     class MainModule extends di.Module {
-///         MainModule() {
-///             install(new MaterialFormatterModule());
-///         }     
-///     }
-class MaterialFormatterModule  extends di.Module {
-    MaterialFormatterModule() {
-        // bind(DeviceProxy);
-        
-        // -- services
-        // bind(SignalService, toImplementation: SignalServiceImpl);
-    }
-}
 
+/// [MaterialDummyFormatter]-Singleton is used for
+/// MaterialComponents asking for a MaterialFormatter but haven't defined one
+///
+///     <div class="mdl-labelfield">
+///         ...
+///     </div>
 MaterialDummyFormatter _dummyFormatter = null;
 
 /// Controller for <element mdl-formatter="formattername()"></element>
@@ -55,7 +44,10 @@ class MaterialFormatter extends MdlComponent {
         
         _init();
     }
-    
+
+    /// [widget] returns the registered mdl-formatter component for this [element] if it finds one but
+    /// if there is no [MaterialFormatter] registered for [element]
+    /// it returns a [MaterialDummyFormatter] to avoid null-pointer checks / null-pointer problems
     static MaterialFormatter widget(final dom.HtmlElement element) {
         MaterialFormatter formatter;
         try {
@@ -72,7 +64,7 @@ class MaterialFormatter extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialFormatter - init");
+        _logger.fine("MaterialFormatter - init");
         
         // Recommended - add SELECTOR as class if this component is a TAG or an ATTRIBUTE!
         element.classes.add(_MaterialFormatterConstant.WIDGET_SELECTOR);
@@ -94,6 +86,9 @@ class MaterialFormatter extends MdlComponent {
     }
 }
 
+/// Created if a MaterialComponent has no [MaterialFormatter] registered but asks for one
+///
+/// Main purpose is to pass on the [format]-Function
 class MaterialDummyFormatter extends MaterialFormatter {
 
     static const _MaterialFormatterCssClasses _cssClasses = const _MaterialFormatterCssClasses();
@@ -106,7 +101,7 @@ class MaterialDummyFormatter extends MaterialFormatter {
 
     @override
     void _init() {
-        _logger.info("MaterialDummyFormatter - init");
+        _logger.fine("MaterialDummyFormatter - init");
 
         // Recommended - add SELECTOR as class if this component is a TAG or an ATTRIBUTE!
         element.classes.add(_MaterialFormatterConstant.WIDGET_SELECTOR);
@@ -127,7 +122,11 @@ void registerMaterialFormatter() {
         _MaterialFormatterConstant.WIDGET_SELECTOR,
             (final dom.HtmlElement element,final di.Injector injector) => new MaterialFormatter.fromElement(element,injector)
     );
-    
+
+    // Register this component before MaterialWidget so that we can kick in this
+    // Formatter when we initialize a Widget (e.g. MaterialCheckbox or MaterialButton)
+    config.priority = RegistrationPriority.PRE_WIDGET;
+
     // If you want <mdl-formatter></mdl-formatter> set selectorType to SelectorType.TAG.
     // If you want <div mdl-formatter></div> set selectorType to SelectorType.ATTRIBUTE.
     // By default it's used as a class name. (<div class="mdl-formatter"></div>)

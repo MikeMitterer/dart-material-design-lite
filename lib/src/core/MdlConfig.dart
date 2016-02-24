@@ -25,6 +25,28 @@ typedef MdlComponent MdlComponentFactory(final dom.HtmlElement element,final di.
 
 enum SelectorType { CLASS, TAG, ATTRIBUTE }
 
+enum RegistrationPriority {
+    FIRST,
+
+    // e.g. MaterialFormatter
+    PRE_WIDGET,
+
+    // e.g. MaterialButton
+    WIDGET,
+
+    // e.g. MaterialDivDataTableRow (MaterialDivDataTable has WIDGET-Priority to make sure
+    // each row has its MaterialDivDataTable-Parent
+    CHILD_WIDGET,
+
+    // e.g. MaterialForm needs all other Widgets
+    POST_WIDGET,
+
+    // everything else!
+    DEFAULT,
+
+    LAST
+}
+
 class MdlConfig<T extends MdlComponent> {
     final List<MdlCallback> callbacks = new List<MdlCallback>();
 
@@ -67,9 +89,9 @@ class MdlConfig<T extends MdlComponent> {
     /// The higher the priority the later the component will be upgraded.
     /// This is important e.g. for the ripple-effect. The ripple-effect must be called as last upgrade process
     /// Default {priority} is 5, materialRippleConfig sets {priority} to 10
-    /// It's important do know that MdlWidgetConfig gets [priority] 1
+    /// It's important do know that MdlWidgetConfig gets [priority] 3
     /// This guaranties that a widget exists always before it's properties
-    int priority = 5;
+    RegistrationPriority priority = RegistrationPriority.DEFAULT;
 
     /// Avoids problems with Components and Helpers like MaterialRipple
     final bool isWidget;
@@ -97,13 +119,13 @@ class MdlConfig<T extends MdlComponent> {
 /// Helps to decide what is a real Widget and what is just a helper.
 /// MaterialRipple would be such a "helper"
 ///
-/// MdlWidgetConfig sets [priority] to 1. (default is 5) This guaranties that a widget will be created before it's
+/// MdlWidgetConfig sets [priority] to 3. (default is 5) This guaranties that a widget will be created before it's
 /// (MdlComponent) properties!
 class MdlWidgetConfig<T extends MdlComponent> extends MdlConfig<T> {
     MdlWidgetConfig(final String selector,
                     T componentFactory(final dom.HtmlElement element,final di.Injector injector)) :
                         super(selector, componentFactory, isWidget: true) {
 
-        priority = 1;
+    priority = RegistrationPriority.WIDGET;
     }
 }

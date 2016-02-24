@@ -123,7 +123,7 @@ class MaterialDivDataTable extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialDivDataTable - init");
+        _logger.fine("MaterialDivDataTable - init");
 
         element.classes.add(_cssClasses.IS_UPGRADED);
 
@@ -251,9 +251,9 @@ class MaterialDivDataTableRow extends MdlComponent {
             throw new ArgumentError("Could not find parent-class (mdl-data-tableex) for this row... ($element)");
         }
         final dom.HtmlElement parent = _getParent(element);
-        _logger.info("Found parent: $parent");
+        _logger.fine("Found parent: $parent");
         _parent = MaterialDivDataTable.widget(parent);
-        _logger.info("Found parent-Widget: $_parent");
+        _logger.fine("Found parent-Widget: $_parent");
 
         return _parent;
     }
@@ -276,7 +276,7 @@ class MaterialDivDataTableRow extends MdlComponent {
 
 
     void _init() {
-        _logger.info("MaterialDivDataTableRow - init");
+        _logger.fine("MaterialDivDataTableRow - init");
 
         if(parent.isSelectable) {
 
@@ -315,7 +315,10 @@ class MaterialDivDataTableRow extends MdlComponent {
         }
 
         final dom.HtmlElement cellCheckbox = element.querySelector(".${_cssClasses.CELL_CHECKBOX}");
-        Validate.notNull(cellCheckbox);
+        //Validate.notNull(cellCheckbox);
+        if(cellCheckbox == null) {
+            return null;
+        }
 
         _checkbox = MaterialCheckbox.widget(cellCheckbox.querySelector(".${_cssClasses.CHECKBOX_INPUT}"));
         Validate.notNull(_checkbox);
@@ -398,8 +401,10 @@ void _registerMaterialDivDataTableRow() {
         _MaterialDivDataTableRowConstant.WIDGET_SELECTOR,
         (final dom.HtmlElement element, final di.Injector injector) => new MaterialDivDataTableRow.fromElement(element, injector)
     );
-    /// _registerMaterialDivDataTable hast priority 1 so here we make sure that
-    /// MaterialDivDataTable will allays be registered first - every Row needs needs a parent!
-    config.priority = 2;
+
+    // _registerMaterialDivDataTable has priority [RegistrationPriority.WIDGET] so here we make sure that
+    // MaterialDivDataTable will allays be registered first - every Row needs needs a parent!
+    config.priority = RegistrationPriority.CHILD_WIDGET;
+
     componentHandler().register(config);
 }

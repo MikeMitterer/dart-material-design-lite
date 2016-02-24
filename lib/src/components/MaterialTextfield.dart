@@ -19,48 +19,14 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialTextfieldCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-textfield";
-
-    final String LABEL = 'mdl-textfield__label';
-
-    final String INPUT = 'mdl-textfield__input';
-
-    final String IS_DIRTY = 'is-dirty';
-
-    final String IS_FOCUSED = 'is-focused';
-
-    final String IS_DISABLED = 'is-disabled';
-
-    final String IS_INVALID = 'is-invalid';
-
-    final String IS_UPGRADED = 'is-upgraded';
-
-    const _MaterialTextfieldCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialTextfieldConstant {
-
-    final int NO_MAX_ROWS = -1;
-    final String MAX_ROWS_ATTRIBUTE = 'maxrows';
-
-    const _MaterialTextfieldConstant();
-}
-
-/// creates MdlConfig for MaterialTextfield
-MdlConfig materialTextfieldConfig() => new MdlWidgetConfig<MaterialTextfield>(
-    _MaterialTextfieldCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialTextfield.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialTextfield() => componentHandler().register(materialTextfieldConfig());
-
-class MaterialTextfield extends MdlComponent {
+/// Controller-View for
+///
+///     <div class="mdl-textfield">
+///         <input class="mdl-textfield__input" type="text" id="sample1">
+///         <label class="mdl-textfield__label" for="sample1">Type Something...</label>
+///     </div>
+///
+class MaterialTextfield extends MdlComponent with FallbackFormatter {
     final Logger _logger = new Logger('mdlcomponents.MaterialTextfield');
 
     static const _MaterialTextfieldConstant _constant = const _MaterialTextfieldConstant();
@@ -76,19 +42,31 @@ class MaterialTextfield extends MdlComponent {
         _init();
     }
 
-    static MaterialTextfield widget(final dom.HtmlElement element) => mdlComponent(element,MaterialTextfield) as MaterialTextfield;
+    /// First checks if [element] is a [MaterialTextfield] - if so, it returns the widget,
+    /// if not it queries for the input-element (this is where MaterialTextfield is registered)
+    static MaterialTextfield widget(final dom.HtmlElement element) {
+        MaterialTextfield textfield;
+        try {
+            textfield = mdlComponent(element,MaterialTextfield,showWarning: false) as MaterialTextfield;
+
+        } on String {
+            final dom.HtmlElement inputField = element.querySelector(".${_cssClasses.INPUT}");
+            textfield = mdlComponent(inputField,MaterialTextfield) as MaterialTextfield;
+        }
+        return textfield;
+    }
 
     /// MaterialTextfield is one of the few exception where hub != element
-    dom.Element get hub => input;
+    dom.Element get hub => inputElement;
 
-    dom.HtmlElement get input {
+    dom.HtmlElement get inputElement {
         if(_input == null) {
             _input = element.querySelector(".${_cssClasses.INPUT}") as dom.HtmlElement;
         }
         return _input;
     }
 
-    dom.LabelElement get label {
+    dom.LabelElement get labelElement {
         if(_label == null) {
             _label = element.querySelector(".${_cssClasses.LABEL}") as dom.LabelElement;
         }
@@ -123,6 +101,18 @@ class MaterialTextfield extends MdlComponent {
         _updateClasses();
     }
 
+    String get label {
+        final dom.HtmlElement _label = labelElement;
+        return _label != null ? _label.text.trim() : "";
+    }
+
+    void set label(final String v) {
+        Validate.notNull(v);
+
+        final dom.HtmlElement _label = labelElement;
+        _label?.text = formatterFor(_label).format(v.trim());
+    }
+
     /// Returns text field value
     String get value => _relaxedInput.value;
 
@@ -149,7 +139,7 @@ class MaterialTextfield extends MdlComponent {
 
         if (element != null) {
 
-            if (input != null) {
+            if (inputElement != null) {
                 if (element.attributes.containsKey(_constant.MAX_ROWS_ATTRIBUTE) &&
                     element.attributes[_constant.MAX_ROWS_ATTRIBUTE] != null &&
                     element.attributes[_constant.MAX_ROWS_ATTRIBUTE].isNotEmpty ) {
@@ -161,15 +151,15 @@ class MaterialTextfield extends MdlComponent {
                     });
                 }
 
-                eventStreams.add(input.onInput.listen( (_) => _updateClasses() ));
+                eventStreams.add(inputElement.onInput.listen( (_) => _updateClasses() ));
 
                 // .addEventListener('focus', -- .onFocus.listen(<Event>);
-                eventStreams.add(input.onFocus.listen( _onFocus));
+                eventStreams.add(inputElement.onFocus.listen( _onFocus));
 
                 // .addEventListener('blur', -- .onBlur.listen(<Event>);
-                eventStreams.add(input.onBlur.listen( _onBlur));
+                eventStreams.add(inputElement.onBlur.listen( _onBlur));
 
-                eventStreams.add(input.onReset.listen( _onReset));
+                eventStreams.add(inputElement.onReset.listen( _onReset));
 
                 if (_maxRows != _constant.NO_MAX_ROWS) {
                     // TODO: This should handle pasting multi line text.
@@ -179,6 +169,13 @@ class MaterialTextfield extends MdlComponent {
 
                 final bool isInvalid = element.classes.contains(_cssClasses.IS_INVALID);
                 _updateClasses();
+
+                /// Reformat according to [MaterialFormatter] definition
+                void _kickInFormatter() {
+                    value = value;
+                }
+                _kickInFormatter();
+
                 element.classes.add(_cssClasses.IS_UPGRADED);
                 if (isInvalid) {
                     element.classes.add(_cssClasses.IS_INVALID);
@@ -268,7 +265,48 @@ class MaterialTextfield extends MdlComponent {
     }
 
     /// We have two different elements - InputElement and TextAreaElement
-    dynamic get _relaxedInput => input;
+    dynamic get _relaxedInput => inputElement;
 
 }
 
+/// creates MdlConfig for MaterialTextfield
+MdlConfig materialTextfieldConfig() => new MdlWidgetConfig<MaterialTextfield>(
+    _MaterialTextfieldCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialTextfield.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialTextfield() => componentHandler().register(materialTextfieldConfig());
+
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialTextfieldCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-textfield";
+
+    final String LABEL = 'mdl-textfield__label';
+
+    final String INPUT = 'mdl-textfield__input';
+
+    final String IS_DIRTY = 'is-dirty';
+
+    final String IS_FOCUSED = 'is-focused';
+
+    final String IS_DISABLED = 'is-disabled';
+
+    final String IS_INVALID = 'is-invalid';
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    const _MaterialTextfieldCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialTextfieldConstant {
+
+    final int NO_MAX_ROWS = -1;
+    final String MAX_ROWS_ATTRIBUTE = 'maxrows';
+
+    const _MaterialTextfieldConstant();
+}

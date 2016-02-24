@@ -19,67 +19,18 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialCheckboxCssClasses {
-    static const String MAIN_CLASS = "mdl-js-checkbox";
 
-    final String INPUT = 'mdl-checkbox__input';
 
-    final String BOX_OUTLINE = 'mdl-checkbox__box-outline';
-
-    final String FOCUS_HELPER = 'mdl-checkbox__focus-helper';
-
-    final String TICK_OUTLINE = 'mdl-checkbox__tick-outline';
-
-    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-
-    final String RIPPLE_CONTAINER = 'mdl-checkbox__ripple-container';
-
-    final String RIPPLE_CENTER = 'mdl-ripple--center';
-
-    final String RIPPLE = 'mdl-ripple';
-
-    final String IS_FOCUSED = 'is-focused';
-
-    final String IS_DISABLED = 'is-disabled';
-
-    final String IS_CHECKED = 'is-checked';
-
-    final String IS_UPGRADED = 'is-upgraded';
-
-    const _MaterialCheckboxCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialCheckboxConstant {
-    
-    final int TINY_TIMEOUT_IN_MS = 100;
-
-    final String DEFAULT_OFF_VALUE = "off";
-
-    const _MaterialCheckboxConstant();
-}
-
-/// creates MdlConfig for MaterialCheckbox
-MdlConfig materialCheckboxConfig() => new MdlWidgetConfig<MaterialCheckbox>(
-    _MaterialCheckboxCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialCheckbox.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialCheckbox() => componentHandler().register(materialCheckboxConfig());
-
-/**
- * Sample:
- *     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
- *          <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" />
- *          <span class="mdl-checkbox__label">Check me out</span>
- *    </label>
- */
-class MaterialCheckbox extends MdlComponent {
+/// Controller-View for
+///     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+///          <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" />
+///          <span class="mdl-checkbox__label">Check me out</span>
+///    </label>
+///
+///    final MaterialCheckbox checkbox = MaterialCheckbox.widget(querySelector(".mdl-checkbox"));
+///    checkbox.checked = true;
+///
+class MaterialCheckbox extends MdlComponent with FallbackFormatter {
     final Logger _logger = new Logger('mdlcomponents.MaterialCheckbox');
 
     static const _MaterialCheckboxConstant _constant = const _MaterialCheckboxConstant();
@@ -92,7 +43,19 @@ class MaterialCheckbox extends MdlComponent {
         _init();
     }
 
-    static MaterialCheckbox widget(final dom.HtmlElement element) => mdlComponent(element,MaterialCheckbox) as MaterialCheckbox;
+    /// First checks if [element] is a [MaterialCheckbox] - if so, it returns the widget,
+    /// if not it queries for the input-element (this is where MaterialCheckbox is registered)
+    static MaterialCheckbox widget(final dom.HtmlElement element) {
+        MaterialCheckbox checkbox;
+        try {
+            checkbox = mdlComponent(element,MaterialCheckbox,showWarning: false) as MaterialCheckbox;
+
+        } on String {
+            final dom.HtmlElement inputField = element.querySelector(".${_cssClasses.INPUT}");
+            checkbox = mdlComponent(inputField,MaterialCheckbox) as MaterialCheckbox;
+        }
+        return checkbox;
+    }
 
     /**
      * Makes it possible to get the "widget" from the components input-element instead of its mdl-class
@@ -142,12 +105,29 @@ class MaterialCheckbox extends MdlComponent {
     }
 
     void set checked(final bool _checked) => _checked ? check() : uncheck();
-    bool get checked => inputElement.checked;
+    bool get checked => inputElement?.checked;
 
     void set disabled(final bool _disabled) => _disabled ? disable() : enable();
-    bool get disabled => inputElement.disabled;
+    bool get disabled => inputElement?.disabled;
 
-    String get value => inputElement.value.trim();
+    String get label {
+        final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
+        return _label != null ? _label.text.trim() : "";
+    }
+
+    void set label(final String v) {
+        Validate.notNull(v);
+
+        final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
+        _label?.text = formatterFor(_label).format(v.trim());
+    }
+
+    String get value => (inputElement != null ? inputElement.value.trim() : "");
+
+    void set value(final String value) {
+        Validate.notNull(value);
+        inputElement.value = formatterFor(inputElement).format(value);
+    }
 
     //- private -----------------------------------------------------------------------------------
 
@@ -200,6 +180,14 @@ class MaterialCheckbox extends MdlComponent {
         // });
 
         _updateClasses();
+
+        /// Reformat according to [MaterialFormatter] definition
+        void _kickInFormatter() {
+            label = label;
+            value = value;
+        }
+        _kickInFormatter();
+
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
@@ -261,3 +249,57 @@ class MaterialCheckbox extends MdlComponent {
     }
 }
 
+/// creates MdlConfig for MaterialCheckbox
+MdlConfig materialCheckboxConfig() => new MdlWidgetConfig<MaterialCheckbox>(
+    _MaterialCheckboxCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialCheckbox.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialCheckbox() => componentHandler().register(materialCheckboxConfig());
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialCheckboxCssClasses {
+    static const String MAIN_CLASS = "mdl-js-checkbox";
+
+    final String INPUT = 'mdl-checkbox__input';
+
+    final String LABEL = 'mdl-checkbox__label';
+
+    final String BOX_OUTLINE = 'mdl-checkbox__box-outline';
+
+    final String FOCUS_HELPER = 'mdl-checkbox__focus-helper';
+
+    final String TICK_OUTLINE = 'mdl-checkbox__tick-outline';
+
+    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+
+    final String RIPPLE_CONTAINER = 'mdl-checkbox__ripple-container';
+
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+
+    final String RIPPLE = 'mdl-ripple';
+
+    final String IS_FOCUSED = 'is-focused';
+
+    final String IS_DISABLED = 'is-disabled';
+
+    final String IS_CHECKED = 'is-checked';
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    const _MaterialCheckboxCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialCheckboxConstant {
+
+    final int TINY_TIMEOUT_IN_MS = 100;
+
+    final String DEFAULT_OFF_VALUE = "off";
+
+    const _MaterialCheckboxConstant();
+}

@@ -34,7 +34,7 @@ class TemplateRenderer {
     bool appendNewNodes = false;
 
     TemplateRenderer(this._renderer, this._eventCompiler) {
-        _logger.info("TemplateRenderer CTOR");
+        //_logger.info("TemplateRenderer CTOR");
     }
 
     @deprecated

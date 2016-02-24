@@ -19,32 +19,9 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialProgressCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-progress";
-
-    final String INDETERMINATE_CLASS = 'mdl-progress__indeterminate';
-    final String IS_UPGRADED = 'is-upgraded';
-
-    const _MaterialProgressCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialProgressConstant {
-    const _MaterialProgressConstant();
-}
-
-/// creates MdlConfig for MaterialProgress
-MdlConfig materialProgressConfig() => new MdlWidgetConfig<MaterialProgress>(
-    _MaterialProgressCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialProgress.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialProgress() => componentHandler().register(materialProgressConfig());
-
+/// Controller-View for
+///     <div id="p1" class="mdl-progress mdl-js-progress"></div>
+///
 class MaterialProgress extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialProgress');
 
@@ -118,3 +95,28 @@ class MaterialProgress extends MdlComponent {
     }
 }
 
+/// creates MdlConfig for MaterialProgress
+MdlConfig materialProgressConfig() => new MdlWidgetConfig<MaterialProgress>(
+    _MaterialProgressCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialProgress.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialProgress() => componentHandler().register(materialProgressConfig());
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialProgressCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-js-progress";
+
+    final String INDETERMINATE_CLASS = 'mdl-progress__indeterminate';
+    final String IS_UPGRADED = 'is-upgraded';
+
+    const _MaterialProgressCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialProgressConstant {
+    const _MaterialProgressConstant();
+}

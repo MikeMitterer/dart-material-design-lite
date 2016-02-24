@@ -46,7 +46,7 @@ class DomRenderer {
     final List<_DomRenderFunction> _renderFunctions = new List<_DomRenderFunction>();
 
     DomRenderer() {
-        _logger.info("CTOR for DomRenderer");
+        //_logger.info("CTOR for DomRenderer");
     }
 
     /// Renders the {content} String into the given {parent} - {content} must have ONE! top level element.

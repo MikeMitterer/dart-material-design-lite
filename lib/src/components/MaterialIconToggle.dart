@@ -19,51 +19,13 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialIconToggleCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-icon-toggle";
-
-    final String INPUT = 'mdl-icon-toggle__input';
-    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-    final String RIPPLE_CONTAINER = 'mdl-icon-toggle__ripple-container';
-    final String RIPPLE_CENTER = 'mdl-ripple--center';
-    final String RIPPLE = 'mdl-ripple';
-    final String IS_FOCUSED = 'is-focused';
-    final String IS_DISABLED = 'is-disabled';
-    final String IS_CHECKED = 'is-checked';
-    final String IS_UPGRADED = 'is-upgraded';
-
-
-    const _MaterialIconToggleCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialIconToggleConstant {
-
-    final int TINY_TIMEOUT_IN_MS = 100;
-
-    const _MaterialIconToggleConstant();
-}
-
-/// creates MdlConfig for MaterialIconToggle
-MdlConfig materialIconToggleConfig() => new MdlWidgetConfig<MaterialIconToggle>(
-    _MaterialIconToggleCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialIconToggle.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialIconToggle() => componentHandler().register(materialIconToggleConfig());
-
-/**
- * Sample:
- *       <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-1">
- *           <input type="checkbox" id="checkbox-1" class="mdl-icon-toggle__input" />
- *           <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
- *       </label>
- */
+/// Controller-View for
+///
+///       <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-1">
+///           <input type="checkbox" id="checkbox-1" class="mdl-icon-toggle__input" />
+///           <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
+///       </label>
+///
 class MaterialIconToggle extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialIconToggle');
 
@@ -220,3 +182,40 @@ class MaterialIconToggle extends MdlComponent {
     }
 }
 
+/// creates MdlConfig for MaterialIconToggle
+MdlConfig materialIconToggleConfig() => new MdlWidgetConfig<MaterialIconToggle>(
+    _MaterialIconToggleCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialIconToggle.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialIconToggle() => componentHandler().register(materialIconToggleConfig());
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialIconToggleCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-js-icon-toggle";
+
+    final String INPUT = 'mdl-icon-toggle__input';
+    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_CONTAINER = 'mdl-icon-toggle__ripple-container';
+    final String RIPPLE_CENTER = 'mdl-ripple--center';
+    final String RIPPLE = 'mdl-ripple';
+    final String IS_FOCUSED = 'is-focused';
+    final String IS_DISABLED = 'is-disabled';
+    final String IS_CHECKED = 'is-checked';
+    final String IS_UPGRADED = 'is-upgraded';
+
+
+    const _MaterialIconToggleCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialIconToggleConstant {
+
+    final int TINY_TIMEOUT_IN_MS = 100;
+
+    const _MaterialIconToggleConstant();
+}
