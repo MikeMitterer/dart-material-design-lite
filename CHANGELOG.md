@@ -1,6 +1,12 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.16.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.5...v1.16.0) - 2016-02-24
+
+### Feature
+* Formatter-Support for all Core-Components [8391b68](https://github.com/mikemitterer/dart-material-design-lite/commit/8391b6889ae0bd3e2ab3f6b555e199328aa6cd2b)
+* MdlFormComponent emits FormChangedEvents [56590f9](https://github.com/mikemitterer/dart-material-design-lite/commit/56590f903df76f819f1c69c5fe37f01da92265ad)
+
 ## [v1.15.5](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.4...v1.15.5) - 2016-02-19
 
 ### Docs
