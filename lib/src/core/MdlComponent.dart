@@ -104,7 +104,13 @@ abstract class MdlComponent extends Object with MdlEventListener {
     /// Searches for child of [element] based on the given [selector]
     ///
     /// Shortcut to [element.querySelector]
-    dom.Element query(final String selector) => element.querySelector(selector);
+    dom.Element query(final String selector) {
+        final dom.Element result = element.querySelector(selector);
+        if(result == null) {
+            _logger.warning("Could not find '$selector' within $element!");
+        }
+        return result;
+    }
 
     //- private -----------------------------------------------------------------------------------
 

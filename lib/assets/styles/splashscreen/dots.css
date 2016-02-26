@@ -44,10 +44,30 @@ body .mdl-splashscreen {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
+  body .mdl-splashscreen--opacity-10 {
+    opacity: 0.1; }
+  body .mdl-splashscreen--opacity-20 {
+    opacity: 0.2; }
+  body .mdl-splashscreen--opacity-30 {
+    opacity: 0.3; }
+  body .mdl-splashscreen--opacity-40 {
+    opacity: 0.4; }
+  body .mdl-splashscreen--opacity-50 {
+    opacity: 0.5; }
+  body .mdl-splashscreen--opacity-60 {
+    opacity: 0.6; }
+  body .mdl-splashscreen--opacity-70 {
+    opacity: 0.7; }
+  body .mdl-splashscreen--opacity-80 {
+    opacity: 0.8; }
+  body .mdl-splashscreen--opacity-90 {
+    opacity: 0.9; }
+  body .mdl-splashscreen--opacity-100 {
+    opacity: 1; }
   body .mdl-splashscreen .spinner {
     margin: 100px auto;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     position: relative;
     text-align: center;
     -webkit-animation: sk-rotate 2.0s infinite linear;

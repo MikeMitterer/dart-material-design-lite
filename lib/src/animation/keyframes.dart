@@ -40,6 +40,48 @@ const _FadeOut = const <int, Map<String, Object>>{
         "opacity" : 0}
 };
 
+/// Base-Sample on
+/// * [CodePen](http://codepen.io/MikeMitterer/pen/grYEJW)
+///
+const _BounceInTop = const <int, Map<String, Object>>{
+    0 : const <String, Object>{
+        "opacity" : 0,
+        "transform" : "translateY(-800px)"},
+
+    60 : const <String, Object>{
+        "opacity" : 1,
+        "transform" : "translateY(30px)"},
+
+    80 : const <String, Object>{
+        "opacity" : 0.8,
+        "transform" : "translateY(-30px)"},
+
+    100 : const <String, Object>{
+
+        // Final state should be visible
+        "opacity" : 1,
+        "transform" : "translateY(0)"}
+};
+
+const _BounceInBottom = const <int, Map<String, Object>>{
+    0 : const <String, Object>{
+        "opacity" : 0,
+        "transform" : "translateY(800px)"},
+
+    60 : const <String, Object>{
+        "opacity" : 1,
+        "transform" : "translateY(-30px)"},
+
+    80 : const <String, Object>{
+        "transform" : "translateY(30px)"},
+
+    100 : const <String, Object>{
+
+        // Final state should be visible
+        "opacity" : 1,
+        "transform" : "translateY(0)"}
+};
+
 const _BounceInRight = const <int, Map<String, Object>>{
     0 : const <String, Object>{
 
@@ -57,6 +99,25 @@ const _BounceInRight = const <int, Map<String, Object>>{
         // Final state should be visible
         "opacity" : 1,
         "transform" : "translateX(0)"}
+};
+
+/// Base-Sample on
+/// * [CodePen](http://codepen.io/MikeMitterer/pen/grYEJW)
+///
+const _FlushRight = const <int, Map<String, Object>>{
+    0 : const <String, Object>{
+        "transform" : "translateX(-20px)"},
+
+    60 : const <String, Object>{
+        "transform" : "translateX(30px)"},
+
+    80 : const <String, Object>{
+        "opacity" : 0.8,
+        "transform" : "translateX(-10px)"},
+
+    100 : const <String, Object>{
+        "opacity" : 0,
+        "transform" : "translateX(100vw)"}
 };
 
 /// More on http://codepen.io/MikeMitterer/pen/QjeOov

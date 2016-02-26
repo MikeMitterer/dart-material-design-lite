@@ -32,26 +32,48 @@
  */
 class StockAnimation {
     /// Specifies the length of the animation
-    final Duration duration;
+    Duration duration;
 
     /// The keyframes for the animation
     final Map<int, Map<String, Object>> keyframes;
 
-    final AnimationTiming timing;
+    AnimationTiming timing;
 
     /// Specify your set of [keyframes]
-    const StockAnimation(this.duration, this.keyframes,this.timing);
+    StockAnimation(this.duration, this.keyframes,this.timing);
 
-    static const StockAnimation BounceInRight =
-        const StockAnimation(const Duration(milliseconds: 500), _BounceInRight,AnimationTiming.EASE_IN_OUT);
+    static final StockAnimation BounceInTop =
+        new StockAnimation(const Duration(milliseconds: 500), _BounceInTop,AnimationTiming.EASE_IN_OUT);
 
-    static const StockAnimation FadeIn =
-        const StockAnimation(const Duration(milliseconds: 500), _FadeIn,AnimationTiming.EASE_IN_OUT);
+    static final StockAnimation BounceInBottom =
+        new StockAnimation(const Duration(milliseconds: 500), _BounceInBottom,AnimationTiming.EASE_IN_OUT);
 
-    static const StockAnimation FadeOut =
-        const StockAnimation(const Duration(milliseconds: 500), _FadeOut,AnimationTiming.EASE_IN_OUT);
+    static final StockAnimation BounceInRight =
+        new StockAnimation(const Duration(milliseconds: 500), _BounceInRight,AnimationTiming.EASE_IN_OUT);
 
-    static const StockAnimation MoveUpAndDisappear =
-        const StockAnimation(const Duration(milliseconds: 400), _MoveUpAndDisappear,AnimationTiming.EASE_IN_OUT);
+    static final StockAnimation FadeIn =
+        new StockAnimation(const Duration(milliseconds: 500), _FadeIn,AnimationTiming.EASE_IN_OUT);
+
+    static final StockAnimation FadeOut =
+        new StockAnimation(const Duration(milliseconds: 500), _FadeOut,AnimationTiming.EASE_IN_OUT);
+
+    static final StockAnimation FlushRight =
+        new StockAnimation(const Duration(milliseconds: 500), _FlushRight,AnimationTiming.EASE_IN_OUT);
+
+    static final StockAnimation MoveUpAndDisappear =
+        new StockAnimation(const Duration(milliseconds: 400), _MoveUpAndDisappear,AnimationTiming.EASE_IN_OUT);
+
+    /// Modify the [StockAnimation] to your needs
+    ///
+    ///     final MdlAnimation bounceIn = new MdlAnimation.fromStock(
+    ///         StockAnimation.BounceInTop.change(duration: new Duration(milliseconds: 800)));
+    ///
+    StockAnimation change({ final Duration duration }) {
+        final StockAnimation newVersion = new StockAnimation(this.duration,this.keyframes,this.timing);
+        if(duration != null) {
+            newVersion.duration = duration;
+        }
+        return newVersion;
+    }
 
 }
