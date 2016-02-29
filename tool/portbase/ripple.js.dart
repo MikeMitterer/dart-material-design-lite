@@ -108,7 +108,7 @@ void _downHandler(final html.Event event) {
       }
       setRippleXY(x, y);
       setRippleStyles(true);
-      window.requestAnimationFrame(animFrameHandler);
+      requestAnimationFrame(animFrameHandler);
     }
   }
 
@@ -237,7 +237,7 @@ void init() {
 /// Handles an animation frame.
         animFrameHandler = /*function*/ () {
           if (_frameCount-- > 0) {
-            window.requestAnimationFrame(animFrameHandler);
+            requestAnimationFrame(animFrameHandler);
 
           } else {
             setRippleStyles(false);

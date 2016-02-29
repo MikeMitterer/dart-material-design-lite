@@ -156,9 +156,14 @@ class MaterialLayout extends MdlComponent {
 
             final dom.DivElement container = new dom.DivElement();
             container.classes.add(_cssClasses.CONTAINER);
+
+            final focusedElement = element.querySelector(':focus');
+
             element.parent.insertBefore(container, element);
             element.remove(); // element.parent.removeChild (element);
             container.append(element);
+
+            focusedElement?.focus();
 
             final List<dom.Node> directChildren = element.childNodes;
 
@@ -354,8 +359,10 @@ class MaterialLayout extends MdlComponent {
                 tabContainer.append(tabBar);
                 tabContainer.append(rightButton);
 
-                // Add and remove buttons depending on scroll position.
-                void tabScrollHandler () {
+                // Add and remove tab buttons depending on scroll position and total
+                // window size.
+
+                void tabUpdateHandler () {
                     if (tabBar.scrollLeft > 0) {
                         leftButton.classes.add(_cssClasses.IS_ACTIVE);
                     }
@@ -371,9 +378,26 @@ class MaterialLayout extends MdlComponent {
                     }
                 };
                 eventStreams.add(
-                    tabBar.onScroll.listen( (final dom.Event event) => tabScrollHandler()));
+                    tabBar.onScroll.listen( (final dom.Event event) => tabUpdateHandler()));
 
-                tabScrollHandler();
+                tabUpdateHandler();
+
+                // Update tabs when the window resizes.
+                Timer resizeTimer = null;
+                void windowResizeHandler () {
+                    // Use timeouts to make sure it doesn't happen too often.
+                    if (resizeTimer != null) {
+                        resizeTimer.cancel();
+                        resizeTimer = null;
+                    }
+                    resizeTimer = new Timer(new Duration(milliseconds: _constant.RESIZE_TIMEOUT),() {
+                        tabUpdateHandler();
+                        resizeTimer = null;
+                    });
+                }
+
+                eventStreams.add(
+                    dom.window.onResize.listen((_) => windowResizeHandler()));
 
                 if (tabBar.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
                     tabBar.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
@@ -669,6 +693,7 @@ class _MaterialLayoutConstant {
 
     final String MAX_WIDTH = '(max-width: 1024px)';
     final int TAB_SCROLL_PIXELS = 100;
+    final int RESIZE_TIMEOUT = 100;
 
     final String MENU_ICON = '&#xE5D2;';
     final String CHEVRON_LEFT = 'chevron_left';

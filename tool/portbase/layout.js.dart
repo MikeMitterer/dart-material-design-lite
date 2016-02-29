@@ -38,6 +38,7 @@ import 'dart:math' as Math;
 class _  MaterialLayoutConstant {
       final String MAX_WIDTH = '(max-width: 1024px)';
       final int TAB_SCROLL_PIXELS = 100;
+      final int RESIZE_TIMEOUT = 100;
 
       final String MENU_ICON = '&#xE5D2;';
       final String CHEVRON_LEFT = 'chevron_left';
@@ -255,9 +256,16 @@ void init() {
 
       final container = new html.DivElement();
       container.classes.add(_cssClasses.CONTAINER);
+
+      final focusedElement = element.querySelector(':focus');
+
       element.parent.insertBefore(container, element);
       element.parent.removeChild(element);
       container.append(element);
+
+      if (focusedElement) {
+        focusedElement.focus();
+      }
 
       final directChildren = element.childNodes;
 
@@ -446,9 +454,10 @@ void init() {
         tabContainer.append(_tabBar);
         tabContainer.append(rightButton);
 
-        // Add and remove buttons depending on scroll position.
+        // Add and remove tab buttons depending on scroll position and total
+        // window size.
 
-        final tabScrollHandler = /*function*/ () {
+        final tabUpdateHandler = /*function*/ () {
           if (_tabBar.scrollLeft > 0) {
             leftButton.classes.add(_cssClasses.IS_ACTIVE);
 
@@ -466,8 +475,22 @@ void init() {
         };
 
 	// .addEventListener('scroll', -- .onScroll.listen(<Event>);
-        _tabBar.onScroll.listen( tabScrollHandler);
-        tabScrollHandler();
+        _tabBar.onScroll.listen( tabUpdateHandler);
+        tabUpdateHandler();
+
+        // Update tabs when the window resizes.
+
+        final windowResizeHandler = /*function*/ () {
+          // Use timeouts to make sure it doesn't happen too often.
+          if (_resizeTimeoutId) {
+            clearTimeout(_resizeTimeoutId);
+          }
+          _resizeTimeoutId = setTimeout( /*function*/ () {
+            tabUpdateHandler();
+            _resizeTimeoutId = null;
+        };
+
+        window.addEventListener('resize', windowResizeHandler);
 
         if (_tabBar.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
           _tabBar.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);

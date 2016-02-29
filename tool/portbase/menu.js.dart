@@ -398,7 +398,7 @@ void show(final evt) {
 
       // Wait for the next frame, turn on animation, and apply the final clip.
       // Also make it visible. This triggers the transitions.
-      window.requestAnimationFrame( /*function*/ () {
+      requestAnimationFrame( /*function*/ () {
         element.classes.add(_cssClasses.IS_ANIMATING);
         element.style.clip = 'rect(0 ' + width + 'px ' + height + 'px 0)';
         _container.classes.add(_cssClasses.IS_VISIBLE);

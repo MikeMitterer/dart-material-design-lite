@@ -427,9 +427,11 @@ window.addEventListener('load', /*function*/ () {
 /// Performs a "Cutting the mustard" test. If the browser supports the features
 /// tested, adds a mdl-js class to the <html> element. It then upgrades all MDL
 /// components requiring JavaScript.
-  if ('classList' in new html.DivElement() &&
+  if (
+      'classList' in document.documentElement &&
       'querySelector' in document &&
-      'addEventListener' in window && Array.prototype.forEach) {
+      'addEventListener' in window &&
+      'forEach' in Array.prototype) {
     document.documentElement.classes.add('mdl-js');
     componentHandler.upgradeAllRegistered();
 
