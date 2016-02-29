@@ -223,8 +223,13 @@ class MaterialRepeat extends MdlTemplateComponent {
         if(_items.isNotEmpty) {
             _items.clear();
             //element.children.clear();
-            element.children.removeWhere( (final dom.Element element) =>
-                !element.classes.contains(_cssClasses.KEEP_THIS_ELEMENT));
+            element.children.removeWhere( (final dom.Element element) {
+                if(!element.classes.contains(_cssClasses.KEEP_THIS_ELEMENT)) {
+                    componentHandler().downgradeElement(element);
+                    return true;
+                }
+                return false;
+            });
         }
         new Future(() {
             completer.complete();
@@ -250,7 +255,15 @@ class MaterialRepeat extends MdlTemplateComponent {
         final dom.Element templateTag = _templateTag;
         _template = templateTag.innerHtml.trim().replaceAll(new RegExp(r"\s+")," ").replaceAll(new RegExp(r""),"");
 
-        _logger.fine("Template: |${_template}|");
+        // Hack around strange innerHtml behaviour:
+        // This
+        //      <input type="checkbox" {{#component.checked}} checked {{/component.checked}} >
+        // imports as
+        //      <input type="checkbox" {{#component.checked}}="" checked="" {{="" component.checked}}="">
+        //
+        _template = _template.replaceAll('}}=""',"}}").replaceAll('{{=""',"{{/");
+
+        _logger.info("Template: |${_template}|");
         templateTag.remove();
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);

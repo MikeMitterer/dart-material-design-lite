@@ -117,8 +117,13 @@ class MaterialDivDataTable extends MdlComponent {
     }
 
     List<MaterialDivDataTableRow> get selectedRows {
-        return new UnmodifiableListView(_rows.where((final MaterialDivDataTableRow row) => row.isSelected));
+        final List<MaterialDivDataTableRow> temp =
+            new List.from(_rows.where((final MaterialDivDataTableRow row) => row.isSelected));
+
+        return temp;
+        //return new UnmodifiableListView(temp);
     }
+
 
     //- private -----------------------------------------------------------------------------------
 
@@ -270,10 +275,11 @@ class MaterialDivDataTableRow extends MdlComponent {
         }
     }
 
-    bool get isSelected => _selectableCheckbox != null ? _selectableCheckbox.checked : false;
+    bool get isSelected {
+        return _selectableCheckbox != null ? _selectableCheckbox.checked : false;
+    }
 
     //- private -----------------------------------------------------------------------------------
-
 
     void _init() {
         _logger.fine("MaterialDivDataTableRow - init");
@@ -282,13 +288,22 @@ class MaterialDivDataTableRow extends MdlComponent {
 
             final dom.HtmlElement firstCell = element.querySelector(':first-child');
             if(firstCell != null) {
-                final dom.HtmlElement td = new dom.DivElement();
+                dom.HtmlElement td = element.querySelector(".${_cssClasses.CELL_CHECKBOX}");
+                final bool checkboxCellIsNotPredefined = (td == null);
+
+                td ??= new dom.DivElement();
                 td.classes.add(_cssClasses.CELL_CHECKBOX);
 
+                final bool checkboxIsNotPredefined = (element.querySelector(".${_cssClasses.SELECT}") == null);
                 final dom.LabelElement rowCheckbox = _createRowCheckbox();
-                td.append(rowCheckbox);
+
+                if(checkboxIsNotPredefined) {
+                    td.append(rowCheckbox);
+                }
                 componentHandler().upgradeElement(td).then( (_) {
-                    element.insertBefore(td, firstCell);
+                    if(checkboxCellIsNotPredefined) {
+                        element.insertBefore(td, firstCell);
+                    }
                 });
 
             }
@@ -329,18 +344,27 @@ class MaterialDivDataTableRow extends MdlComponent {
     /// event handling.
     dom.LabelElement _createRowCheckbox() {
 
-        final dom.LabelElement label = new dom.LabelElement();
+        dom.LabelElement label = element.querySelector(".${_cssClasses.SELECT}");
+        label ??= new dom.LabelElement();
 
         label.classes.add(_cssClasses.CHECKBOX);
         label.classes.add(_cssClasses.JS_CHECKBOX);
         label.classes.add(_cssClasses.JS_RIPPLE_EFFECT);
         label.classes.add(_cssClasses.SELECT);
 
-        final dom.CheckboxInputElement checkbox = new dom.CheckboxInputElement();
+        dom.CheckboxInputElement checkbox = label.querySelector(".${_cssClasses.CHECKBOX_INPUT}");
+        final bool checkboxIsNotPredefined = checkbox == null;
+
+        checkbox ??= new dom.CheckboxInputElement();
+
         checkbox.classes.add(_cssClasses.CHECKBOX_INPUT);
 
         if (element != null) {
-            checkbox.checked = element.classes.contains(_cssClasses.IS_SELECTED);
+            if(checkboxIsNotPredefined) {
+                checkbox.checked = element.classes.contains(_cssClasses.IS_SELECTED);
+            } else {
+                checkbox.checked ? element.classes.add(_cssClasses.IS_SELECTED) : element.classes.remove(_cssClasses.IS_SELECTED);
+            }
 
             eventStreams.add( checkbox.onChange.listen( (final dom.Event event) {
                 final bool checked = checkbox.checked;
@@ -362,7 +386,9 @@ class MaterialDivDataTableRow extends MdlComponent {
             }
         }
 
-        label.append(checkbox);
+        if(checkboxIsNotPredefined) {
+            label.append(checkbox);
+        }
         return label;
     }
 

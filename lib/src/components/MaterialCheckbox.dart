@@ -73,7 +73,7 @@ class MaterialCheckbox extends MdlComponent with FallbackFormatter {
         if(_inputElement == null) {
             _inputElement = element.querySelector(".${_cssClasses.INPUT}");
         }
-        return _inputElement;
+        return element.querySelector(".${_cssClasses.INPUT}");
     }
 
     /// Disable checkbox.
@@ -105,7 +105,9 @@ class MaterialCheckbox extends MdlComponent with FallbackFormatter {
     }
 
     void set checked(final bool _checked) => _checked ? check() : uncheck();
-    bool get checked => inputElement?.checked;
+    bool get checked {
+        return inputElement.checked;
+    }
 
     void set disabled(final bool _disabled) => _disabled ? disable() : enable();
     bool get disabled => inputElement?.disabled;
@@ -174,12 +176,12 @@ class MaterialCheckbox extends MdlComponent with FallbackFormatter {
 
         eventStreams.add(element.onMouseUp.listen(_onMouseUp));
 
+        _updateClasses();
+
         // Solves slow Touch on iOS...
         // element.onTouchEnd.listen((_) {
         //     checked = !checked;
         // });
-
-        _updateClasses();
 
         /// Reformat according to [MaterialFormatter] definition
         void _kickInFormatter() {
@@ -221,7 +223,7 @@ class MaterialCheckbox extends MdlComponent with FallbackFormatter {
 
     /// Check the inputs toggle state and update display.
     void _checkToggleState() {
-        if (_inputElement.checked) {
+        if (inputElement.checked) {
             element.classes.add(_cssClasses.IS_CHECKED);
 
         } else {
@@ -231,7 +233,7 @@ class MaterialCheckbox extends MdlComponent with FallbackFormatter {
 
     /// Check the inputs disabled state and update display.
     void _checkDisabled() {
-        if (_inputElement.disabled) {
+        if (inputElement.disabled) {
             element.classes.add(_cssClasses.IS_DISABLED);
 
         } else {

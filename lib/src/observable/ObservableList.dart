@@ -48,6 +48,7 @@ class ObservableList<T> extends ListBase<T> {
     //final Logger _logger = new Logger('mdlobservable.ObservableList');
 
     final List<T> _innerList = new List();
+    final List<T> _filterBackup = new List();
 
     StreamController<ListChangedEvent<T>> _onChange;
 
@@ -118,8 +119,8 @@ class ObservableList<T> extends ListBase<T> {
 
     @override
     void clear() {
-        _fire(new ListChangedEvent<T>(ListChangeType.CLEAR));
-        _innerList.clear();
+        _clearList();
+        _clearFilter();
     }
 
     @override
@@ -150,11 +151,65 @@ class ObservableList<T> extends ListBase<T> {
         itemsToRemove.forEach((final T element) => remove(element));
     }
 
+    @override
+    void retainWhere(bool test(final T element)) {
+        final List<T> itemsToRemove = new List<T>();
+
+        _innerList.forEach((final T element) {
+            // remove items where test fails
+            if(test(element) == false) {
+                itemsToRemove.add(element);
+            }
+        });
+
+        itemsToRemove.forEach((final T element) => remove(element));
+    }
+
+    /// Filter items in list
+    ///
+    ///     final String text = filter.value.trim();
+    ///
+    ///     if(text.isNotEmpty) {
+    ///         components.filter((final HackintoshComponent element) => element.name.contains(text));
+    ///     } else {
+    ///         components.resetFilter();
+    ///     }
+    ///
+    void filter(bool test(final T element)) {
+        if(_filterBackup.isEmpty) {
+            _filterBackup.addAll(_innerList);
+        }
+
+        _clearList();
+        addAll(_filterBackup.where(test));
+    }
+
+    /// Resets the item-List to it's original stand
+    void resetFilter() {
+        if(_filterBackup.isNotEmpty) {
+            _clearList();
+
+            addAll(_filterBackup);
+            _filterBackup.clear();
+        }
+    }
+
     //- private -----------------------------------------------------------------------------------
 
     void _fire(final ListChangedEvent<T> event) {
         if( _onChange != null && _onChange.hasListener) {
             _onChange.add(event);
         }
+    }
+
+    /// Remove all items from list (DOM + innerList)
+    void _clearList() {
+        _fire(new ListChangedEvent<T>(ListChangeType.CLEAR));
+        _innerList.clear();
+    }
+
+    /// Remove items backed up items for filter
+    void _clearFilter() {
+        _filterBackup.clear();
     }
 }
