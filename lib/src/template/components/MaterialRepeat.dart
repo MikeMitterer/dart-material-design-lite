@@ -263,7 +263,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         //
         _template = _template.replaceAll('}}=""',"}}").replaceAll('{{=""',"{{/");
 
-        _logger.info("Template: |${_template}|");
+        //_logger.info("Template: |${_template}|");
         templateTag.remove();
 
         _mustacheTemplate = new Template(template,htmlEscapeValues: false);
