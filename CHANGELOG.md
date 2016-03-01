@@ -1,6 +1,12 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.17.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.16.1...v1.17.0) - 2016-02-29
+
+### Feature
+* ObservableList can filter items (works nice with MaterialRepeat) [27ac384](https://github.com/mikemitterer/dart-material-design-lite/commit/27ac384bb238bdb9c935df12109ae700f46f91f8)
+* Added some more StockAnimations [2d6f1f3](https://github.com/mikemitterer/dart-material-design-lite/commit/2d6f1f39458f01004852d7ac4f1789a20deeba3b)
+
 ## [v1.16.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.15.5...v1.16.0) - 2016-02-24
 
 ### Feature
