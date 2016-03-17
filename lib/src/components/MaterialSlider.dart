@@ -187,7 +187,7 @@ class MaterialSlider extends MdlComponent {
             relatedTarget: event.target,
             button: 0,
             clientX: event.client.x.toInt(),
-            clientY: (element.getBoundingClientRect().topLeft.y as double).toInt());
+            clientY: (element.getBoundingClientRect().topLeft.y as num).toInt());
 
         element.dispatchEvent(newEvent);
     }

@@ -11101,7 +11101,6 @@ mdl-draggable {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11128,40 +11127,17 @@ mdl-draggable {
   height: 100%;
   -webkit-transition: all 0.5s ease-in-out;
           transition: all 0.5s ease-in-out; }
+  .show-properties .mdl-properties__container, .show-properties--permanent .mdl-properties__container {
+    margin-right: 264px; }
+  .is-small-screen .mdl-properties__container {
+    margin-right: initial; }
   .debug .mdl-properties__container {
     border: 1px solid yellow; }
-  .mdl-properties__container > :first-child {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-align-content: flex-start;
-        -ms-flex-line-pack: start;
-            align-content: flex-start;
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-        -ms-flex-align: start;
-            align-items: flex-start; }
-    .debug .mdl-properties__container > :first-child {
-      border: 1px solid red; }
-  .mdl-properties__container > .mdl-properties {
+  .mdl-properties__container .mdl-properties {
     box-sizing: border-box;
+    position: fixed;
+    top: 76px;
+    right: -264px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -11186,33 +11162,39 @@ mdl-draggable {
         -ms-flex-align: start;
             align-items: flex-start;
     overflow: scroll;
-    width: 0;
-    opacity: 0;
+    width: 264px;
+    min-width: 264px;
+    max-width: 264px;
+    opacity: 1;
     padding: 0;
     margin-right: -24px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
+    -webkit-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
     /* (footer + footer-padding + header) - (properties-vertical-distance * 2) */
     min-height: calc(100% - 102px - 24px); }
-    .is-small-screen .mdl-properties__container > .mdl-properties, .mdl-properties__container > .mdl-properties--sticky {
+    .mdl-properties__container .mdl-properties.animation.last-state {
+      right: 0; }
+    .is-small-screen .mdl-properties__container .mdl-properties, .mdl-properties__container .mdl-properties--sticky {
       z-index: 2;
       position: fixed;
       top: 76px;
-      right: 0;
       /* (footer + footer-padding + header) - (properties-vertical-distance * 2) */
       min-height: calc(100% - 102px - 24px); }
-    .is-small-screen .mdl-properties__container > .mdl-properties {
+    .is-small-screen .mdl-properties__container .mdl-properties {
       top: 68px;
       /* (footer + footer-padding + header) - (properties-vertical-distance * 2) */
       min-height: calc(100% - 94px - 24px); }
-    .show-properties .mdl-properties__container > .mdl-properties, .show-properties--permanent .mdl-properties__container > .mdl-properties {
-      width: 264px;
-      min-width: 264px;
-      max-width: 264px;
+    .show-properties .mdl-properties__container .mdl-properties, .show-properties--permanent .mdl-properties__container .mdl-properties {
+      opacity: 1;
+      -webkit-transition: all 0.5s ease-in-out;
+              transition: all 0.5s ease-in-out;
       box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
-    .show-properties--permanent .mdl-properties__container > .mdl-properties {
-      opacity: 1; }
-    .mdl-properties__container > .mdl-properties > :first-child {
+    .show-properties--permanent .mdl-properties__container .mdl-properties {
+      opacity: 1;
+      right: 0; }
+    .mdl-properties__container .mdl-properties > :first-child {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;

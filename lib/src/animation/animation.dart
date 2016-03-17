@@ -38,6 +38,34 @@ class AnimationTiming {
     static const AnimationTiming EASE_IN_OUT = const AnimationTiming("ease-in-out");
 }
 
+/// Sets animation-states
+///
+///     dom.querySelector(".mdl-properties").classes.removeAll(AnimationState.last);
+///
+class AnimationState {
+    static const String BASIC_STATE = "animation";
+
+    static const Map<String,String> states = const <String,String>{
+        "first" : "first-state",
+        "last" : "last-state"
+    };
+
+    static List<String> get first => <String>[ BASIC_STATE, states["first"] ];
+    static List<String> get last => <String>[ BASIC_STATE, states["last"] ];
+
+    static void removeAllStatesFrom(final dom.HtmlElement element) {
+        Validate.notNull(element);
+
+        element.classes.removeAll(states.values);
+        element.classes.remove(BASIC_STATE);
+    }
+
+    static void setState(final dom.HtmlElement element,final List<String> states) {
+        Validate.notNull(element);
+
+        element.classes.addAll(states);
+    }
+}
 
 /**
  * MdlAnimation simplifies the use of CSS3 animations.
@@ -241,7 +269,7 @@ class MdlAnimation {
         final Duration delay: const Duration(),
         final int iterations: 1,
         final bool alternate: false,
-        final bool persist: true,
+        final bool persist: false,
         final AnimationTiming timing: AnimationTiming.EASE,
         final dom.ShadowRoot shadow: null }) {
 
@@ -307,7 +335,17 @@ class MdlAnimation {
      *          bounceInRight(dom.querySelector(".properties")).then((_) => _logger.info("Animation completed!"));
      *      }
      */
-    Future call(final dom.Element element) => apply(element);
+    Future call(final dom.Element element, {
+        final Duration duration: const Duration(seconds: 1),
+        final Duration delay: const Duration(),
+        final int iterations: 1,
+        final bool alternate: false,
+        final bool persist: false,
+        final AnimationTiming timing: AnimationTiming.EASE,
+        final dom.ShadowRoot shadow: null } )
+
+            => apply(element, duration: duration, delay: delay,
+                iterations: iterations, persist: persist, timing: timing, shadow: shadow);
 
     /**
      * Modifies a single property for a specific keyframe.

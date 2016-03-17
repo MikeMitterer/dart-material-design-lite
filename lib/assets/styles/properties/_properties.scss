@@ -24,7 +24,7 @@
     box-sizing      : border-box;
 
     flex-grow : 1;
-    width: 100%;
+    // width: 100%;
 
     display         : flex;
     flex-direction  : row;
@@ -35,26 +35,40 @@
 
     height: 100%;
 
-    transition : all 0.5s ease-in-out;
-    .debug & { border: 1px solid yellow; }
-
-    > :first-child {
-        flex-grow : 1;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start; // ⇾
-        align-content: flex-start; // ||
-        align-items: flex-start; // ↓
-
-        //margin-right: 24px;
-
-        .debug & { border: 1px solid red; }
+    .show-properties &, .show-properties--permanent & {
+        margin-right: $properties-width;
     }
 
-    > .mdl-properties {
+    .is-small-screen & {
+        margin-right: initial;
+    }
+
+    // Transition sieht hier blöd aus - Linker Rand verschiebt sich auf negativ (außerhalb es Fensterrandes)
+    //transition : all 0.5s ease-in-out;
+
+    .debug & { border: 1px solid yellow; }
+
+    //> :first-child {
+    //    flex-grow : 1;
+    //
+    //    display: flex;
+    //    flex-direction: row;
+    //    flex-wrap: wrap;
+    //    justify-content: flex-start; // ⇾
+    //    align-content: flex-start; // ||
+    //    align-items: flex-start; // ↓
+    //
+    //    //margin-right: 24px;
+    //
+    //    .debug & { border: 1px solid red; }
+    //}
+
+     .mdl-properties {
         box-sizing                : border-box;
+
+        position: fixed;
+        top: $layout-header-desktop-row-height + $properties-vertical-distance;
+        right: -$properties-width;
 
         display: flex;
         flex-direction: column;
@@ -65,13 +79,23 @@
 
         overflow                  : scroll;
 
-        width: 0;
-        opacity                   : 0;
+         width      : $properties-width;
+         min-width  : $properties-width;
+         max-width  : $properties-width;
+
+        opacity                   : 1;
 
         padding                   : 0;
-        margin-right               : -24px;
+        margin-right              : 0;
         border-top-left-radius    : 3px;
         border-bottom-left-radius : 3px;
+
+        &.animation {
+            &.last-state {
+                right: 0;
+            }
+        }
+        transition : all 0.5s ease-in-out;
 
         @include properties-height($layout-header-desktop-row-height);
 
@@ -80,7 +104,7 @@
             position: fixed;
 
             top: $layout-header-desktop-row-height + $properties-vertical-distance;
-            right: 0;
+            //right: 0;
 
             @include properties-height($layout-header-desktop-row-height);
         }
@@ -92,14 +116,18 @@
         }
 
         .show-properties &, .show-properties--permanent & {
-            width      : $properties-width;
-            min-width  : $properties-width;
-            max-width  : $properties-width;
+            opacity                   : 1;
+            //right: 0;
+
+
+
+            transition : all 0.5s ease-in-out;
 
             @include shadow-2dp();
         }
         .show-properties--permanent & {
             opacity: 1;
+            right: 0;
         }
 
         > :first-child {

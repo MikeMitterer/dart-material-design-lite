@@ -84,6 +84,25 @@ const _BounceInBottom = const <int, Map<String, Object>>{
 
 const _BounceInRight = const <int, Map<String, Object>>{
     0 : const <String, Object>{
+        "right" : "-200px"},
+
+    30 : const <String, Object>{
+        "right" : "100px"},
+
+    60 : const <String, Object>{
+        "right" : "-20px"},
+
+    80 : const <String, Object>{
+        "right" : "20px"},
+
+    100 : const <String, Object>{
+
+        // Final state should be visible
+        "right" : "0"}
+};
+
+/*const _BounceInRight = const <int, Map<String, Object>>{
+    0 : const <String, Object>{
 
         "opacity" : 0,
         "transform" : "translateX(300px)"},
@@ -99,7 +118,7 @@ const _BounceInRight = const <int, Map<String, Object>>{
         // Final state should be visible
         "opacity" : 1,
         "transform" : "translateX(0)"}
-};
+};*/
 
 /// Base-Sample on
 /// * [CodePen](http://codepen.io/MikeMitterer/pen/grYEJW)
