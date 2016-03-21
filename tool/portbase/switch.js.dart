@@ -61,33 +61,29 @@ class _  MaterialSwitchCssClasses {
 
 /// Handle change of state.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialSwitch.prototype.onChange_ = function(event) {
-void _onChange(final html.Event event) {
+///   MaterialSwitch.prototype.onChange_ = /*function*/ () {
+void _onChange() {
     _updateClasses();
   }
 
 /// Handle focus of element.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialSwitch.prototype.onFocus_ = function(event) {
-void _onFocus(final html.Event event) {
+///   MaterialSwitch.prototype.onFocus_ = /*function*/ () {
+void _onFocus() {
     element.classes.add(_cssClasses.IS_FOCUSED);
   }
 
 /// Handle lost focus of element.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialSwitch.prototype.onBlur_ = function(event) {
-void _onBlur(final html.Event event) {
+///   MaterialSwitch.prototype.onBlur_ = /*function*/ () {
+void _onBlur() {
     element.classes.remove(_cssClasses.IS_FOCUSED);
   }
 
 /// Handle mouseup.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialSwitch.prototype.onMouseUp_ = function(event) {
-void _onMouseUp(final html.Event event) {
+///   MaterialSwitch.prototype.onMouseUp_ = /*function*/ () {
+void _onMouseUp() {
     _blur();
   }
 
@@ -212,11 +208,14 @@ void init() {
         _rippleContainerElement = new html.SpanElement();
         _rippleContainerElement.classes.add(
             _cssClasses.RIPPLE_CONTAINER);
-        _rippleContainerElement.classes.add(_cssClasses.RIPPLE_EFFECT);
-        _rippleContainerElement.classes.add(_cssClasses.RIPPLE_CENTER);
+        _rippleContainerElement.classes.add(
+            _cssClasses.RIPPLE_EFFECT);
+        _rippleContainerElement.classes.add(
+            _cssClasses.RIPPLE_CENTER);
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-        _rippleContainerElement.onMouseUp.listen( boundMouseUpHandler);
+        _rippleContainerElement.onMouseUp.listen(
+            boundMouseUpHandler);
 
         final ripple = new html.SpanElement();
         ripple.classes.add(_cssClasses.RIPPLE);

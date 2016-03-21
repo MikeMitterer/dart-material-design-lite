@@ -92,9 +92,8 @@ void init() {
         _rippleElement.classes.add(_cssClasses.RIPPLE);
         rippleContainer.append(_rippleElement);
         _boundRippleBlurHandler = blurHandler;
-
-	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-        _rippleElement.onMouseUp.listen( boundRippleBlurHandler);
+        _rippleElement.addEventListener(
+            'mouseup', boundRippleBlurHandler);
         element.append(rippleContainer);
       }
       _boundButtonBlurHandler = blurHandler;

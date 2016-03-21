@@ -68,7 +68,8 @@ void _handleMouseEnter(final html.Event event) {
 
     final marginTop = -1 * (element.offsetHeight / 2);
 
-    if (element.classes.contains(_cssClasses.LEFT) || element.classes.contains(_cssClasses.RIGHT)) {
+    if (element.classes.contains(_cssClasses.LEFT) ||
+        element.classes.contains(_cssClasses.RIGHT)) {
       left = (props.width / 2);
       if (top + marginTop < 0) {
         element.style.top = 0;
@@ -78,24 +79,23 @@ void _handleMouseEnter(final html.Event event) {
         element.style.top = top + 'px';
         element.style.marginTop = marginTop + 'px';
       }
+    } else if (left + marginLeft < 0) {
+      element.style.left = 0;
+      element.style.marginLeft = 0;
 
     } else {
-      if (left + marginLeft < 0) {
-        element.style.left = 0;
-        element.style.marginLeft = 0;
-
-      } else {
-        element.style.left = left + 'px';
-        element.style.marginLeft = marginLeft + 'px';
-      }
+      element.style.left = left + 'px';
+      element.style.marginLeft = marginLeft + 'px';
     }
 
     if (element.classes.contains(_cssClasses.TOP)) {
-      element.style.top = props.top - element.offsetHeight - 10 + 'px';
+      element.style.top =
+          props.top - element.offsetHeight - 10 + 'px';
     } else if (element.classes.contains(_cssClasses.RIGHT)) {
       element.style.left = props.left + props.width + 10 + 'px';
     } else if (element.classes.contains(_cssClasses.LEFT)) {
-      element.style.left = props.left - element.offsetWidth - 10 + 'px';
+      element.style.left =
+          props.left - element.offsetWidth - 10 + 'px';
 
     } else {
       element.style.top = props.top + props.height + 10 + 'px';
@@ -114,7 +114,6 @@ void _handleMouseLeave() {
 /// Initialize element.
 ///   MaterialTooltip.prototype.init = /*function*/ () {
 void init() {
-
     if (element != null) {
 
       final forElId = element.getAttribute('for');
@@ -131,13 +130,12 @@ void init() {
 
         _boundMouseEnterHandler = handleMouseEnter;
         _boundMouseLeaveHandler = handleMouseLeave;
-
-	// .addEventListener('mouseenter', -- .onMouseEnter.listen(<MouseEvent>);
-        _forElement.onMouseEnter.listen( boundMouseEnterHandler, false);
-        _forElement.addEventListener('touchend', boundMouseEnterHandler, false);
-
-	// .addEventListener('mouseleave', -- .onMouseLeave.listen(<MouseEvent>);
-        _forElement.onMouseLeave.listen( boundMouseLeaveHandler, false);
+        _forElement.addEventListener(
+            'mouseenter', boundMouseEnterHandler, false);
+        _forElement.addEventListener(
+            'touchend', boundMouseEnterHandler, false);
+        _forElement.addEventListener(
+            'mouseleave', boundMouseLeaveHandler, false);
         window.addEventListener('touchstart', boundMouseLeaveHandler);
       }
     }

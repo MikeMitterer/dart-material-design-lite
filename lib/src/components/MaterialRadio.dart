@@ -191,7 +191,7 @@ class MaterialRadio extends MdlComponent with FallbackFormatter {
 
     /// Handle change of state.
     /// @param {Event} event The event that fired.
-    void _onChange(final dom.Event event) {
+    void _onChange(_) {
 
         // Since other radio buttons don't get change events, we need to look for
         // them to update their classes.
@@ -211,17 +211,17 @@ class MaterialRadio extends MdlComponent with FallbackFormatter {
     }
 
     /// Handle focus.
-    void _onFocus(final dom.Event event) {
+    void _onFocus(_) {
         element.classes.add(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle lost focus.
-    void _onBlur(final dom.Event event) {
+    void _onBlur(_) {
         element.classes.remove(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle mouseup.
-    void _onMouseUp(final dom.MouseEvent event) {
+    void _onMouseUp(_) {
         _blur();
     }
 

@@ -455,7 +455,9 @@ class MaterialLayout extends MdlComponent {
     /// param {Event} evt The event that fired.
     ///   MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
     void _keyboardEventHandler(final dom.KeyboardEvent event ) {
-        if (event.keyCode == _MaterialLayoutKeycodes.ESCAPE) {
+        // Only react when the drawer is open.
+        if (event.keyCode == _MaterialLayoutKeycodes.ESCAPE &&
+                drawer.classes.contains(_cssClasses.IS_DRAWER_OPEN)) {
             toggleDrawer();
         }
     }
@@ -518,15 +520,18 @@ class MaterialLayout extends MdlComponent {
     }
 
     /// Reset tab state, dropping active classes
-    void _resetTabState(final tabBar) {
+    ///
+    /// [tabs] - The tabs to reset.
+    void _resetTabState(final tabs) {
 
-        for (int k = 0; k < tabBar.length; k++) {
-            tabBar[k].classes.remove(_cssClasses.IS_ACTIVE);
+        for (int k = 0; k < tabs.length; k++) {
+            tabs[k].classes.remove(_cssClasses.IS_ACTIVE);
         }
     }
 
     /// Reset panel state, dropping active classes
-    /// MaterialLayout.prototype.resetPanelState_ = function(panels) {
+    ///
+    /// [panels] to reset
     void _resetPanelState(final panels) {
 
         for (int j = 0; j < panels.length; j++) {
@@ -595,23 +600,6 @@ class MaterialLayoutTab {
             }));
 
             //tab.show = _selectTab();
-
-            // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-            eventStreams.add(
-                tab.onClick.listen( (final dom.MouseEvent event) {
-                event.preventDefault();
-
-                final String href = tab.href.split('#')[1];
-
-                final dom.Element panel = layout._content.querySelector('#' + href);
-
-                layout._resetTabState(tabs);
-                layout._resetPanelState(panels);
-
-                tab.classes.add(_cssClasses.IS_ACTIVE);
-                panel.classes.add(_cssClasses.IS_ACTIVE);
-            }));
-
         }
     }
 

@@ -202,17 +202,13 @@ void init() {
 
             final scale;
 
-            final size;
-
             final offset = 'translate(' + _x + 'px, ' + _y + 'px)';
 
             if (start) {
               scale = _constant.INITIAL_SCALE;
-              size = _constant.INITIAL_SIZE;
 
             } else {
               scale = _constant.FINAL_SCALE;
-              size = _rippleSize + 'px';
               if (recentering) {
                 offset = 'translate(' + boundWidth / 2 + 'px, ' +
                   boundHeight / 2 + 'px)';
@@ -226,7 +222,8 @@ void init() {
             _rippleElement.style.transform = transformString;
 
             if (start) {
-              _rippleElement.classes.remove(_cssClasses.IS_ANIMATING);
+              _rippleElement.classes.remove(
+                  _cssClasses.IS_ANIMATING);
 
             } else {
               _rippleElement.classes.add(_cssClasses.IS_ANIMATING);

@@ -24,10 +24,6 @@ part of mdltemplate;
 abstract class MdlTemplateComponent extends MdlComponent implements TemplateComponent, ScopeAware {
     final Logger _logger = new Logger('mdltemplate.MdlTemplateComponent');
 
-    /// {_renderer} takes the template, renders the current object to a resulting String
-    /// and adds this String as DOM-Tree to the DOM
-    Renderer _renderer;
-
     /**
      *  Makes it easy to add functionality to templates
      *  Sample:
@@ -51,20 +47,11 @@ abstract class MdlTemplateComponent extends MdlComponent implements TemplateComp
 
         Validate.notNull(element);
         Validate.notNull(injector);
-
-        final TemplateRenderer templateRenderer = injector.get(TemplateRenderer);
-        _renderer = templateRenderer.call(element,this,() => template);
     }
 
     Future render() {
         final TemplateRenderer templateRenderer = injector.get(TemplateRenderer);
         return templateRenderer.render(element,this,() => template);
-    }
-
-    @deprecated
-    void set renderer(final Renderer renderer) {
-        Validate.notNull(renderer);
-        _renderer = renderer;
     }
 
     Scope get scope {

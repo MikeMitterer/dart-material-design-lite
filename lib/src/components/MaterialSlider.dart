@@ -152,17 +152,17 @@ class MaterialSlider extends MdlComponent {
     }
 
     /// Handle input on element.
-    void _onInput(final dom.Event event) {
+    void _onInput(_) {
         _updateValueStyles();
     }
 
     /// Handle change on element.
-    void _onChange(final dom.Event event) {
+    void _onChange(_) {
         _updateValueStyles();
     }
 
     /// Handle mouseup on element.
-    void _onMouseUp(final dom.MouseEvent event) {
+    void _onMouseUp(_) {
         element.blur();
     }
 

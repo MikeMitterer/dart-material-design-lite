@@ -132,6 +132,18 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
     /// Inverts [isValid]
     bool get isNotValid => !isValid;
 
+    /// Focus text field.
+    void focus() {
+        _relaxedInput.focus();
+        _updateClasses();
+    }
+
+    /// Blur text field.
+    void blur() {
+        _relaxedInput.blur();
+        _updateClasses();
+    }
+
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
@@ -149,6 +161,10 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
                         _logger.severe('maxrows attribute provided, but wasn\'t a number: $value');
                         _maxRows = _constant.NO_MAX_ROWS;
                     });
+                }
+
+                if (inputElement.attributes.containsKey('placeholder')) {
+                    element.classes.add(_cssClasses.HAS_PLACEHOLDER);
                 }
 
                 eventStreams.add(inputElement.onInput.listen( (_) => _updateClasses() ));
@@ -202,7 +218,7 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
     }
 
     /// Handle lost focus.
-    void _onBlur(final dom.Event event) {
+    void _onBlur(_) {
         element.classes.remove(_cssClasses.IS_FOCUSED);
     }
 
@@ -217,7 +233,7 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
     }
 
     /// Handle reset event from out side.
-    void _onReset(final dom.Event event) {
+    void _onReset(_) {
         _updateClasses();
     }
 
@@ -298,6 +314,8 @@ class _MaterialTextfieldCssClasses {
     final String IS_INVALID = 'is-invalid';
 
     final String IS_UPGRADED = 'is-upgraded';
+
+    final String HAS_PLACEHOLDER = 'has-placeholder';
 
     const _MaterialTextfieldCssClasses();
 }

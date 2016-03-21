@@ -57,17 +57,15 @@ class _  MaterialSliderCssClasses {
 
 /// Handle input on element.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialSlider.prototype.onInput_ = function(event) {
-void _onInput(final html.Event event) {
+///   MaterialSlider.prototype.onInput_ = /*function*/ () {
+void _onInput() {
     _updateValueStyles();
   }
 
 /// Handle change on element.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialSlider.prototype.onChange_ = function(event) {
-void _onChange(final html.Event event) {
+///   MaterialSlider.prototype.onChange_ = /*function*/ () {
+void _onChange() {
     _updateValueStyles();
   }
 
@@ -147,7 +145,6 @@ void disable() {
 /// public
 ///   MaterialSlider.prototype.enable = /*function*/ () {
 void enable() {
-
     element.disabled = false;
   }
   MaterialSlider.prototype['enable'] = MaterialSlider.prototype.enable;
@@ -158,7 +155,6 @@ void enable() {
 /// public
 ///   MaterialSlider.prototype.change = function(value) {
 void change(final value) {
-
     if (typeof value != 'undefined') {
       element.value = value;
     }
@@ -169,7 +165,6 @@ void change(final value) {
 /// Initialize element.
 ///   MaterialSlider.prototype.init = /*function*/ () {
 void init() {
-
     if (element != null) {
       if (_isIE) {
         // Since we need to specify a very large height in IE due to
@@ -209,7 +204,8 @@ void init() {
       _boundInputHandler = onInput;
       _boundChangeHandler = onChange;
       _boundMouseUpHandler = onMouseUp;
-      _boundContainerMouseDownHandler = onContainerMouseDown;
+      boundContainerMouseDownHandler =
+          _onContainerMouseDown;
       element.addEventListener('input', boundInputHandler);
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
@@ -217,7 +213,8 @@ void init() {
 
 	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
       element.onMouseUp.listen( boundMouseUpHandler);
-      element.parent.addEventListener('mousedown', boundContainerMouseDownHandler);
+      element.parent.addEventListener(
+          'mousedown', boundContainerMouseDownHandler);
 
       _updateValueStyles();
       element.classes.add(_cssClasses.IS_UPGRADED);

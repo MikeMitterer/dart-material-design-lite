@@ -62,9 +62,8 @@ class _  MaterialRadioCssClasses {
 
 /// Handle change of state.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialRadio.prototype.onChange_ = function(event) {
-void _onChange(final html.Event event) {
+///   MaterialRadio.prototype.onChange_ = /*function*/ () {
+void _onChange() {
     // Since other radio buttons don't get change events, we need to look for
     // them to update their classes.
 
@@ -74,7 +73,8 @@ void _onChange(final html.Event event) {
 
       final button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
       // Different name == different group, so no point updating those.
-      if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
+      if (button.getAttribute('name') ==
+          _btnElement.getAttribute('name')) {
         radios[i]['MaterialRadio']._updateClasses();
       }
     }
@@ -82,25 +82,22 @@ void _onChange(final html.Event event) {
 
 /// Handle focus.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialRadio.prototype.onFocus_ = function(event) {
-void _onFocus(final html.Event event) {
+///   MaterialRadio.prototype.onFocus_ = /*function*/ () {
+void _onFocus() {
     element.classes.add(_cssClasses.IS_FOCUSED);
   }
 
 /// Handle lost focus.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialRadio.prototype.onBlur_ = function(event) {
-void _onBlur(final html.Event event) {
+///   MaterialRadio.prototype.onBlur_ = /*function*/ () {
+void _onBlur() {
     element.classes.remove(_cssClasses.IS_FOCUSED);
   }
 
 /// Handle mouseup.
 /// 
-/// param {Event} event The event that fired.
-///   MaterialRadio.prototype.onMouseup_ = function(event) {
-void _onMouseup(final html.Event event) {
+///   MaterialRadio.prototype.onMouseup_ = /*function*/ () {
+void _onMouseup() {
     _blur();
   }
 
@@ -116,7 +113,6 @@ void _updateClasses() {
 /// 
 ///   MaterialRadio.prototype.blur_ = /*function*/ () {
 void _blur() {
-
     // TODO: figure out why there's a focus event being fired after our blur,
     // so that we can avoid this hack.
     window.setTimeout( /*function*/ () {

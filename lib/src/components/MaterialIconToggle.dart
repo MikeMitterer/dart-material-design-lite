@@ -129,19 +129,19 @@ class MaterialIconToggle extends MdlComponent {
     }
 
     /// Handle focus of element.
-    void _onFocus(final dom.Event event) {
+    void _onFocus(_) {
 
         element.classes.add(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle lost focus of element.
-    void _onBlur(final dom.Event event) {
+    void _onBlur(_) {
 
         element.classes.remove(_cssClasses.IS_FOCUSED);
     }
 
     /// Handle mouseup.
-    void _onMouseUp(final dom.MouseEvent event) {
+    void _onMouseUp(_) {
         _blur();
     }
 

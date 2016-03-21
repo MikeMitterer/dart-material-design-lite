@@ -148,7 +148,9 @@ void _contentScrollHandler() {
 /// param {Event} evt The event that fired.
 ///   MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
 void _keyboardEventHandler(final evt) {
-    if (evt.keyCode == _Keycodes.ESCAPE) {
+    // Only react when the drawer is open.
+    if (evt.keyCode == _Keycodes.ESCAPE &&
+        _drawer.classes.contains(_cssClasses.IS_DRAWER_OPEN)) {
       toggleDrawer();
     }
   }
@@ -176,7 +178,8 @@ void _screenSizeHandler() {
 ///   MaterialLayout.prototype.drawerToggleHandler_ = function(evt) {
 void _drawerToggleHandler(final evt) {
     if (evt && (evt.type == 'keydown')) {
-      if (evt.keyCode == _Keycodes.SPACE || evt.keyCode == _Keycodes.ENTER) {
+      if (evt.keyCode == _Keycodes.SPACE ||
+          evt.keyCode == _Keycodes.ENTER) {
         // prevent scrolling in drawer nav
         evt.preventDefault();
 
@@ -208,16 +211,18 @@ void _headerClickHandler() {
 
 /// Reset tab state, dropping active classes
 /// 
-///   MaterialLayout.prototype.resetTabState_ = function(tabBar) {
-void _resetTabState(final tabBar) {
+/// param {NodeList} tabs The tabs to reset.
+///   MaterialLayout.prototype.resetTabState_ = function(tabs) {
+void _resetTabState(final tabs) {
 
-    for (final k = 0; k < tabBar.length; k++) {
-      tabBar[k].classes.remove(_cssClasses.IS_ACTIVE);
+    for (final k = 0; k < tabs.length; k++) {
+      tabs[k].classes.remove(_cssClasses.IS_ACTIVE);
     }
   }
 
 /// Reset panel state, droping active classes
 /// 
+/// param {NodeList} panels The panels to reset.
 ///   MaterialLayout.prototype.resetPanelState_ = function(panels) {
 void _resetPanelState(final panels) {
 
@@ -232,7 +237,8 @@ void _resetPanelState(final panels) {
 ///   MaterialLayout.prototype.toggleDrawer = /*function*/ () {
 void toggleDrawer() {
 
-    final drawerButton = element.querySelector('.' + _cssClasses.DRAWER_BTN);
+    final drawerButton =
+        element.querySelector('.' + _cssClasses.DRAWER_BTN);
     _drawer.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
     _obfuscator.classes.toggle(_cssClasses.IS_DRAWER_OPEN);
 
@@ -301,7 +307,8 @@ void init() {
       }, false);
 
       if (_header) {
-        _tabBar = _header.querySelector('.' + _cssClasses.TAB_BAR);
+        _tabBar =
+            _header.querySelector('.' + _cssClasses.TAB_BAR);
       }
 
       final mode = _Mode.STANDARD;
@@ -366,10 +373,11 @@ void init() {
         }
 
         if (_drawer.classes.contains(_cssClasses.ON_LARGE_SCREEN)) {
-          //If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
+          // If drawer has ON_LARGE_SCREEN class then add it to the drawer toggle button as well.
           drawerButton.classes.add(_cssClasses.ON_LARGE_SCREEN);
-        } else if (_drawer.classes.contains(_cssClasses.ON_SMALL_SCREEN)) {
-          //If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
+        } else if (_drawer.classes.contains(
+              _cssClasses.ON_SMALL_SCREEN)) {
+          // If drawer has ON_SMALL_SCREEN class then add it to the drawer toggle button as well.
           drawerButton.classes.add(_cssClasses.ON_SMALL_SCREEN);
         }
 
@@ -403,14 +411,16 @@ void init() {
             _drawerToggleHandler);
         _obfuscator = obfuscator;
 
-        _drawer.addEventListener('keydown', _keyboardEventHandler);
+        _drawer.addEventListener('keydown',
+            _keyboardEventHandler);
         _drawer.setAttribute('aria-hidden', 'true');
       }
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling
       // of small screens.
       _screenSizeMediaQuery = window.matchMedia(
-      _screenSizeMediaQuery.addListener(_screenSizeHandler);
+      _screenSizeMediaQuery.addListener(
+          _screenSizeHandler);
       _screenSizeHandler();
 
       // Initialize tabs, if any.
@@ -492,7 +502,8 @@ void init() {
 
         window.addEventListener('resize', windowResizeHandler);
 
-        if (_tabBar.classes.contains(_cssClasses.JS_RIPPLE_EFFECT)) {
+        if (_tabBar.classes.contains(
+            _cssClasses.JS_RIPPLE_EFFECT)) {
           _tabBar.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
         }
 
@@ -500,7 +511,8 @@ void init() {
 
         final tabs = _tabBar.querySelectorAll('.' + _cssClasses.TAB);
 
-        final panels = _content.querySelectorAll('.' + _cssClasses.PANEL);
+        final panels =
+            _content.querySelectorAll('.' + _cssClasses.PANEL);
 
         // Create new tabs for each tab element
 
@@ -517,11 +529,10 @@ void init() {
 /// 
 /// constructor
 /// param {HTMLElement} tab The HTML element for the tab.
-/// param {!Array<HTMLElement>} tabs Array with HTML elements for all tabs.
-/// param {!Array<HTMLElement>} panels Array with HTML elements for all panels.
+/// param {!NodeList} tabs Array with HTML elements for all tabs.
+/// param {!NodeList} panels Array with HTML elements for all panels.
 /// param {MaterialLayout} layout The MaterialLayout object that owns the tab.
   function MaterialLayoutTab(tab, tabs, panels, layout) {
-
 /// Auxiliary method to programmatically select a tab in the UI.
     function selectTab() {
 
@@ -557,18 +568,6 @@ void init() {
 
     tab.show = selectTab;
 
-	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-    tab.onClick.listen( /*function*/ (e) {
-      e.preventDefault();
-
-      final href = tab.href.split('#')[1];
-
-      final panel = layout._content.querySelector('#' + href);
-      layout._resetTabState(tabs);
-      layout._resetPanelState(panels);
-      tab.classes.add(layout._cssClasses.IS_ACTIVE);
-      panel.classes.add(layout._cssClasses.IS_ACTIVE);
-    });
   }
   window['MaterialLayoutTab'] = MaterialLayoutTab;
 

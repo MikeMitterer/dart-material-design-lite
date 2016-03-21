@@ -58,9 +58,10 @@ class _  MaterialDataTableCssClasses {
 /// 
 /// param {Element} checkbox Checkbox that toggles the selection state.
 /// param {Element} row Row to toggle when checkbox changes.
-/// param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
-///   MaterialDataTable.prototype.selectRow_ = function(checkbox, row, opt_rows) {
-void _selectRow(final checkbox, row, opt_rows) {
+/// param {(Array<Object>|NodeList)=} optRows Rows to toggle when checkbox changes.
+/// return {?function()} a function to toggle the selection state of the row(s).
+///   MaterialDataTable.prototype.selectRow_ = function(checkbox, row, optRows) {
+void _selectRow(final checkbox, row, optRows) {
     if (row) {
       return function() {
         if (checkbox.checked) {
@@ -72,37 +73,40 @@ void _selectRow(final checkbox, row, opt_rows) {
       };
     }
 
-    if (opt_rows) {
+    if (optRows) {
       return function() {
 
         final i;
 
         final el;
         if (checkbox.checked) {
-          for (i = 0; i < opt_rows.length; i++) {
-            el = opt_rows[i].querySelector('td').querySelector('.mdl-checkbox');
+          for (i = 0; i < optRows.length; i++) {
+            el = optRows[i].querySelector('td').querySelector('.mdl-checkbox');
             el['MaterialCheckbox'].check();
-            opt_rows[i].classes.add(_cssClasses.IS_SELECTED);
+            optRows[i].classes.add(_cssClasses.IS_SELECTED);
           }
 
         } else {
-          for (i = 0; i < opt_rows.length; i++) {
-            el = opt_rows[i].querySelector('td').querySelector('.mdl-checkbox');
+          for (i = 0; i < optRows.length; i++) {
+            el = optRows[i].querySelector('td').querySelector('.mdl-checkbox');
             el['MaterialCheckbox'].uncheck();
-            opt_rows[i].classes.remove(_cssClasses.IS_SELECTED);
+            optRows[i].classes.remove(_cssClasses.IS_SELECTED);
           }
         }
       };
     }
+
+    return null;
   }
 
 /// Creates a checkbox for a single or or multiple rows and hooks up the
 /// event handling.
 /// 
 /// param {Element} row Row to toggle when checkbox changes.
-/// param {(Array<Object>|NodeList)=} opt_rows Rows to toggle when checkbox changes.
-///   MaterialDataTable.prototype.createCheckbox_ = function(row, opt_rows) {
-void _createCheckbox(final row, opt_rows) {
+/// param {(Array<Object>|NodeList)=} optRows Rows to toggle when checkbox changes.
+/// return {Element} the created parent label.
+///   MaterialDataTable.prototype.createCheckbox_ = function(row, optRows) {
+void _createCheckbox(final row, optRows) {
 
     final label = document.createElement('label');
 
@@ -123,10 +127,11 @@ void _createCheckbox(final row, opt_rows) {
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
       checkbox.onChange.listen( _selectRow(checkbox, row));
-    } else if (opt_rows) {
+    } else if (optRows) {
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
-      checkbox.onChange.listen( _selectRow(checkbox, null, opt_rows));
+      checkbox.onChange.listen(
+          _selectRow(checkbox, null, optRows));
     }
 
     label.append(checkbox);
@@ -141,9 +146,11 @@ void init() {
 
       final firstHeader = element.querySelector('th');
 
-      final bodyRows = Array.prototype.slice.call(element.querySelectorAll('tbody tr'));
+      final bodyRows = Array.prototype.slice.call(
+          element.querySelectorAll('tbody tr'));
 
-      final footRows = Array.prototype.slice.call(element.querySelectorAll('tfoot tr'));
+      final footRows = Array.prototype.slice.call(
+          element.querySelectorAll('tfoot tr'));
 
       final rows = bodyRows.concat(footRows);
 

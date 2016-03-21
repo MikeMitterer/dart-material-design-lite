@@ -61,13 +61,15 @@ class _  MaterialTabsCssClasses {
 /// 
 ///   MaterialTabs.prototype.initTabs_ = /*function*/ () {
 void _initTabs() {
-    if (element.classes.contains(_cssClasses.MDL_JS_RIPPLE_EFFECT)) {
+    if (element.classes.contains(
+        _cssClasses.MDL_JS_RIPPLE_EFFECT)) {
       element.classes.add(
         _cssClasses.MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS);
     }
 
     // Select element tabs, document panels
-    _tabs = element.querySelectorAll('.' + _cssClasses.TAB_CLASS);
+    _tabs =
+        element.querySelectorAll('.' + _cssClasses.TAB_CLASS);
     _panels =
         element.querySelectorAll('.' + _cssClasses.PANEL_CLASS);
 
@@ -115,7 +117,8 @@ void init() {
 /// param {MaterialTabs} ctx The MaterialTabs object that owns the tab.
   function MaterialTab(tab, ctx) {
     if (tab) {
-      if (ctx._element.classes.contains(ctx._cssClasses.MDL_JS_RIPPLE_EFFECT)) {
+      if (ctx._element.classes.contains(
+          ctx._cssClasses.MDL_JS_RIPPLE_EFFECT)) {
 
         final rippleContainer = new html.SpanElement();
         rippleContainer.classes.add(ctx._cssClasses.MDL_RIPPLE_CONTAINER);
@@ -139,7 +142,6 @@ void init() {
         tab.classes.add(ctx._cssClasses.ACTIVE_CLASS);
         panel.classes.add(ctx._cssClasses.ACTIVE_CLASS);
       });
-
     }
   }
 

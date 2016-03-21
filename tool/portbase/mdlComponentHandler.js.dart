@@ -33,18 +33,18 @@ final componentHandler = {
 /// need to create a new instance of.
 /// param {string=} optCssClass the name of the CSS class elements of this
 /// type will have.
-  upgradeDom: function(optJsClass, optCssClass) {},
+  upgradeDom: function(optJsClass, optCssClass) {}, // eslint-disable-line
 /// Upgrades a specific element rather than all in the DOM.
 /// 
 /// param {!Element} element The element we wish to upgrade.
 /// param {string=} optJsClass Optional name of the class we want to upgrade
 /// the element to.
-  upgradeElement: function(element, optJsClass) {},
+  upgradeElement: function(element, optJsClass) {}, // eslint-disable-line
 /// Upgrades a specific list of elements rather than all in the DOM.
 /// 
 /// param {!Element|!Array<!Element>|!NodeList|!HTMLCollection} elements
 /// The elements we wish to upgrade.
-  upgradeElements: function(elements) {},
+  upgradeElements: function(elements) {}, // eslint-disable-line
 /// Upgrades all registered components found in the current DOM. This is
 /// automatically called on window load.
   upgradeAllRegistered: function() {},
@@ -56,15 +56,15 @@ final componentHandler = {
 /// param {function(!HTMLElement)} callback The function to call upon an
 /// upgrade. This function should expect 1 parameter - the HTMLElement which
 /// got upgraded.
-  registerUpgradedCallback: function(jsClass, callback) {},
+  registerUpgradedCallback: function(jsClass, callback) {}, // eslint-disable-line
 /// Registers a class for future use and attempts to upgrade existing DOM.
 /// 
 /// param {componentHandler.ComponentConfigPublic} config the registration configuration
-  register: function(config) {},
+  register: function(config) {}, // eslint-disable-line
 /// Downgrade either a given node, an array of nodes, or a NodeList.
 /// 
-/// param {!Node|!Array<!Node>|!NodeList} nodes
-  downgradeElements: function(nodes) {}
+/// param {!Node|!Array<!Node>|!NodeList} nodes The list of nodes.
+  downgradeElements: function(nodes) {} // eslint-disable-line
 }
 
 componentHandler = ( /*function*/ () {
@@ -80,7 +80,7 @@ componentHandler = ( /*function*/ () {
 /// 
 /// param {string} name The name of a class we want to use.
 /// param {componentHandler.ComponentConfig=} optReplace Optional object to replace match with.
-/// return {!Object|boolean}
+/// return {!Object|boolean} Registered components.
   function findRegisteredClass_(name, optReplace) {
 
     for (final i = 0; i < registeredComponents_.length; i++) {
@@ -97,7 +97,7 @@ componentHandler = ( /*function*/ () {
 /// Returns an array of the classNames of the upgraded classes on the element.
 /// 
 /// param {!Element} element The element to fetch data from.
-/// return {!Array<string>}
+/// return {!Array<string>} Array of classNames.
   function getUpgradedListOfElement_(element) {
 
     final dataUpgraded = element.getAttribute('data-upgraded');
@@ -110,7 +110,7 @@ componentHandler = ( /*function*/ () {
 /// 
 /// param {!Element} element The element we want to check.
 /// param {string} jsClass The class to check for.
-/// returns {boolean}
+/// return {boolean} Whether the element is upgraded.
   function isElementUpgraded_(element, jsClass) {
 
     final upgradedList = getUpgradedListOfElement_(element);
@@ -190,7 +190,7 @@ componentHandler = ( /*function*/ () {
         upgradedList.push(registeredClass.className);
         element.setAttribute('data-upgraded', upgradedList.join(','));
 
-        final instance = new registeredClass.classConstructor(element);
+        final instance = new registeredClass.classConstructor(element); // eslint-disable-line
         instance[componentConfigProperty_] = registeredClass;
         createdComponents_.push(instance);
         // Call any callbacks the user has registered with this component type.
@@ -209,8 +209,16 @@ componentHandler = ( /*function*/ () {
           'Unable to find a registered component for the given class.');
       }
 
-      final ev = document.createEvent('Events');
-      ev.initEvent('mdl-componentupgraded', true, true);
+      final ev;
+      if ('CustomEvent' in window && typeof window.CustomEvent == 'function') {
+        ev = new Event('mdl-componentupgraded', {
+          'bubbles': true, 'cancelable': false
+        });
+
+      } else {
+        ev = document.createEvent('Events');
+        ev.initEvent('mdl-componentupgraded', true, true);
+      }
       element.dispatchEvent(ev);
     }
   }
@@ -241,7 +249,7 @@ componentHandler = ( /*function*/ () {
 
 /// Registers a class for future use and attempts to upgrade existing DOM.
 /// 
-/// param {componentHandler.ComponentConfigPublic} config
+/// param {componentHandler.ComponentConfigPublic} config The configuration.
   function registerInternal(config) {
     // In order to support both Closure-compiled and uncompiled code accessing
     // this method, we need to allow for both the dot and array syntax for
@@ -266,7 +274,8 @@ componentHandler = ( /*function*/ () {
 
     registeredComponents_.forEach(function(item) {
       if (item.cssClass == newConfig.cssClass) {
-        throw new Error('The provided cssClass has already been registered: ' + item.cssClass);
+        throw new Error('The provided cssClass has already been registered: ' +
+            item.cssClass);
       }
       if (item.className == newConfig.className) {
         throw new Error('The provided className has already been registered');
@@ -316,28 +325,37 @@ componentHandler = ( /*function*/ () {
 /// Execute if found.
 /// Remove component from createdComponents list.
 /// 
-/// param {?componentHandler.Component} component
+/// param {?componentHandler.Component} component The component to downgrade.
   function deconstructComponentInternal(component) {
     if (component) {
 
       final componentIndex = createdComponents_.indexOf(component);
       createdComponents_.splice(componentIndex, 1);
 
-      final upgrades = component._element.getAttribute('data-upgraded').split(',');
+      final upgrades =
+          component._element.getAttribute('data-upgraded').split(',');
 
-      final componentPlace = upgrades.indexOf(component[componentConfigProperty_].classAsString);
+      final componentPlace =
+          upgrades.indexOf(component[componentConfigProperty_].classAsString);
       upgrades.splice(componentPlace, 1);
       component._element.setAttribute('data-upgraded', upgrades.join(','));
 
-      final ev = document.createEvent('Events');
-      ev.initEvent('mdl-componentdowngraded', true, true);
-      component._element.dispatchEvent(ev);
+      final ev;
+      if ('CustomEvent' in window && typeof window.CustomEvent == 'function') {
+        ev = new Event('mdl-componentdowngraded', {
+          'bubbles': true, 'cancelable': false
+        });
+
+      } else {
+        ev = document.createEvent('Events');
+        ev.initEvent('mdl-componentdowngraded', true, true);
+      }
     }
   }
 
 /// Downgrade either a given node, an array of nodes, or a NodeList.
 /// 
-/// param {!Node|!Array<!Node>|!NodeList} nodes
+/// param {!Node|!Array<!Node>|!NodeList} nodes The list of nodes.
   function downgradeNodesInternal(nodes) {
 /// Auxiliary function to downgrade a single node.
 /// param  {!Node} node the node to be downgraded
@@ -382,7 +400,7 @@ componentHandler = ( /*function*/ () {
 /// cssClass: string,
 /// widget: (string|boolean|undefined)
 /// 
-componentHandler.ComponentConfigPublic;  // jshint ignore:line
+componentHandler.ComponentConfigPublic; // eslint-disable-line
 
 /// Describes the type of a registered component type managed by
 /// componentHandler. Provided for benefit of the Closure compiler.
@@ -394,7 +412,7 @@ componentHandler.ComponentConfigPublic;  // jshint ignore:line
 /// widget: (string|boolean),
 /// callbacks: !Array<function(!HTMLElement)>
 /// 
-componentHandler.ComponentConfig;  // jshint ignore:line
+componentHandler.ComponentConfig; // eslint-disable-line
 
 /// Created component (i.e., upgraded element) type as managed by
 /// componentHandler. Provided for benefit of the Closure compiler.
@@ -406,7 +424,7 @@ componentHandler.ComponentConfig;  // jshint ignore:line
 /// cssClass: string,
 /// widget: string
 /// 
-componentHandler.Component;  // jshint ignore:line
+componentHandler.Component; // eslint-disable-line
 
 // Export all symbols, for the benefit of Closure compiler.
 // No effect on uncompiled code.
