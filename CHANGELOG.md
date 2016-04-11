@@ -1,6 +1,14 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.17.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.2...v1.17.3) - 2016-04-11
+
+### Feature
+* MaterialTabs fires onChange-Event if active tab changes [0323949](https://github.com/mikemitterer/dart-material-design-lite/commit/0323949893f879426a723e41577e9277bb9efd17)
+
+### Bugs
+* Fixes 'mdl-properties'-flickering [0a07d1e](https://github.com/mikemitterer/dart-material-design-lite/commit/0a07d1e540e594bf59d87e4575e02541a568849e)
+
 ## [v1.17.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.16.1...v1.17.0) - 2016-02-29
 
 ### Feature
