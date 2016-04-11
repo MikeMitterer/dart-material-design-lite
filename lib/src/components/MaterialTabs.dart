@@ -19,38 +19,33 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialTabsCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-tabs";
-
-    final String TAB_CLASS = 'mdl-tabs__tab';
-    final String PANEL_CLASS = 'mdl-tabs__panel';
-    final String ACTIVE_CLASS = 'is-active';
-    final String UPGRADED_CLASS = 'is-upgraded';
-
-    final String MDL_JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-    final String MDL_RIPPLE_CONTAINER = 'mdl-tabs__ripple-container';
-    final String MDL_RIPPLE = 'mdl-ripple';
-    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-    const _MaterialTabsCssClasses();
+class MaterialTabsChangedEvent {
+    final String targetID;
+    MaterialTabsChangedEvent(this.targetID);
 }
 
-/// Store constants in one place so they can be updated easily.
-class _MaterialTabsConstant {
-    const _MaterialTabsConstant();
-}
-
-/// creates MdlConfig for MaterialTabs
-MdlConfig materialTabsConfig() => new MdlWidgetConfig<MaterialTabs>(
-    _MaterialTabsCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-    => new MaterialTabs.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialTabs() => componentHandler().register(materialTabsConfig());
-
+/// Controller-View for mdl-tabs
+///
+///     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+///       <div class="mdl-tabs__tab-bar">
+///           <a href="#panel1" class="mdl-tabs__tab is-active">Tab I</a>
+///           <a href="#panel2" class="mdl-tabs__tab">Tab II</a>
+///       </div>
+///
+///       <div class="mdl-tabs__panel is-active" id="panel1">
+///         <ul>
+///           <li>Arya</li>
+///           <li>Rickon</li>
+///         </ul>
+///       </div>
+///       <div class="mdl-tabs__panel" id="panel2">
+///         <ul>
+///           <li>Jamie</li>
+///           <li>Tyrion</li>
+///         </ul>
+///       </div>
+///     </div>
+///
 class MaterialTabs extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialTabs');
 
@@ -60,12 +55,34 @@ class MaterialTabs extends MdlComponent {
     final List<dom.Element> _tabs = new List<dom.Element>();
     final List<dom.Element> _panels = new List<dom.Element>();
 
+    StreamController<MaterialTabsChangedEvent> _onChange;
+
     MaterialTabs.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : super(element,injector) {
         _init();
     }
 
     static MaterialTabs widget(final dom.HtmlElement element) => mdlComponent(element,MaterialTabs) as MaterialTabs;
+
+    /// [onChanged] informs the application about the the change of the active tab
+    Stream<MaterialTabsChangedEvent> get onChange {
+        _onChange ??= new StreamController<MaterialTabsChangedEvent>.broadcast(onCancel: () => _onChange = null);
+        return _onChange.stream;
+    }
+
+    /// Returns the active tabs "href" (without #)
+    ///
+    /// If there is no active tab it returns an empty string
+    String get activePanel {
+        for(int index = 0;index < _tabs.length;index++) {
+            if(_tabs[index].classes.contains(_cssClasses.ACTIVE_CLASS)) {
+                final String attribHref = _tabs[index].attributes["href"];
+                final String href = attribHref.split('#')[1];
+                return href;
+            }
+        }
+        return "";
+    }
 
     //- private -----------------------------------------------------------------------------------
 
@@ -104,11 +121,17 @@ class MaterialTabs extends MdlComponent {
         }
     }
 
-    /// Reset panel state, droping active classes
+    /// Reset panel state, dropping active classes
     void _resetPanelState() {
 
         for (int j = 0; j < _panels.length; j++) {
             _panels[j].classes.remove(_cssClasses.ACTIVE_CLASS);
+        }
+    }
+
+    void _fire(final MaterialTabsChangedEvent event) {
+        if(_onChange != null && _onChange.hasListener) {
+            _onChange.add(event);
         }
     }
 }
@@ -146,7 +169,41 @@ class _MaterialTab {
                 ctx._resetPanelState();
                 tab.classes.add(_cssClasses.ACTIVE_CLASS);
                 panel.classes.add(_cssClasses.ACTIVE_CLASS);
+
+                ctx._fire(new MaterialTabsChangedEvent(href));
             }));
         }
     }
+}
+
+/// creates MdlConfig for MaterialTabs
+MdlConfig materialTabsConfig() => new MdlWidgetConfig<MaterialTabs>(
+    _MaterialTabsCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialTabs.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialTabs() => componentHandler().register(materialTabsConfig());
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialTabsCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-js-tabs";
+
+    final String TAB_CLASS = 'mdl-tabs__tab';
+    final String PANEL_CLASS = 'mdl-tabs__panel';
+    final String ACTIVE_CLASS = 'is-active';
+    final String UPGRADED_CLASS = 'is-upgraded';
+
+    final String MDL_JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String MDL_RIPPLE_CONTAINER = 'mdl-tabs__ripple-container';
+    final String MDL_RIPPLE = 'mdl-ripple';
+    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    const _MaterialTabsCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialTabsConstant {
+    const _MaterialTabsConstant();
 }

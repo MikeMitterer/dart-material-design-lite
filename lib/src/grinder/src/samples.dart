@@ -142,7 +142,7 @@ void createSampleList() {
     samples.add(new Sample("shadow",    Type.Core,  hasScript: false, hasSnippet: false));
     samples.add(new Sample("slider",    Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("spinner",   Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasOwnDemoHtml: true, hasSnippet: true, hasDemoHtml: false));
-    samples.add(new Sample("switch",    Type.Core,  hasDemoCss: false, hasSnippet: true, hasDemoHtml: false));
+    samples.add(new Sample("switch",    Type.Core,  hasDemoCss: false, hasOwnDartMain: true, hasSnippet: true, hasDemoHtml: false));
     samples.add(new Sample("tabs",      Type.Core,  hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
     samples.add(new Sample("textfield", Type.Core,  hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
     samples.add(new Sample("tooltip",   Type.Core,  hasSnippet: true, hasDemoHtml: false, hasDemoCss: false));
