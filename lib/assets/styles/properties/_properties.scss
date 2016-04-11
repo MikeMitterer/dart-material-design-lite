@@ -35,12 +35,16 @@
 
     height: 100%;
 
+    // margin-right in combination with .mdl-properties#position: fixed causes
+    // a flickering of mdl-properties. padding-right instead of margin-right solves this issue
     .show-properties &, .show-properties--permanent & {
-        margin-right: $properties-width;
+        // margin-right: $properties-width;
+        padding-right: $properties-width !important;
     }
 
     .is-small-screen & {
         margin-right: initial;
+        padding-right: 16px !important;
     }
 
     // Transition sieht hier blöd aus - Linker Rand verschiebt sich auf negativ (außerhalb es Fensterrandes)
@@ -63,7 +67,7 @@
     //    .debug & { border: 1px solid red; }
     //}
 
-     .mdl-properties {
+    .mdl-properties {
         box-sizing                : border-box;
 
         position: fixed;
@@ -79,9 +83,9 @@
 
         overflow                  : scroll;
 
-         width      : $properties-width;
-         min-width  : $properties-width;
-         max-width  : $properties-width;
+        width      : $properties-width;
+        min-width  : $properties-width;
+        max-width  : $properties-width;
 
         opacity                   : 1;
 
@@ -95,7 +99,7 @@
                 right: 0;
             }
         }
-        transition : all 0.5s ease-in-out;
+        transition : all 0.25s ease-in-out;
 
         @include properties-height($layout-header-desktop-row-height);
 
@@ -117,11 +121,9 @@
 
         .show-properties &, .show-properties--permanent & {
             opacity                   : 1;
-            //right: 0;
+            right: 0;
 
-
-
-            transition : all 0.5s ease-in-out;
+            transition : all 0.25s ease-in-out;
 
             @include shadow-2dp();
         }
