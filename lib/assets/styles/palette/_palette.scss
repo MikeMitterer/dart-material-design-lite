@@ -18,6 +18,12 @@
 @import "palette.orig";
 @import "theme";
 
+// - Transparent -------------------------------------------------------------------------------------------------------
+
+.mdl-color--transparent {
+    background-color: transparent !important;
+}
+
 // - Primary and accent ------------------------------------------------------------------------------------------------
 
 .mdl-color--50 {

@@ -5289,6 +5289,8 @@ input.mdl-button[type="submit"] {
       -ms-flex-align: start;
           align-items: flex-start;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+  .mdl-data-tableex.transparent {
+    background-color: transparent; }
   .debug .mdl-data-tableex {
     border: 1px solid red; }
   .mdl-data-tableex .mdl-div-data-tableex__head ~ .mdl-div-data-tableex__data {
