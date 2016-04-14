@@ -46,7 +46,9 @@ class ActionName {
     const ActionName(this.name);
 
     String toString() => name;
+
     bool operator==(final ActionName actionname) => name == actionname.name;
+    int get hashCode => name.hashCode;
 }
 
 /// Simples form of an Action

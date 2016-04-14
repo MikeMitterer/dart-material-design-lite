@@ -50,9 +50,9 @@ library mdlflux;
 
 import 'dart:async';
 
+import 'dart:convert';
 import 'package:di/di.dart' as di;
 import 'package:validate/validate.dart';
-import 'dart:convert';
 
 part "src/flux/interfaces.dart";
 
