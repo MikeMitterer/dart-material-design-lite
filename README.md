@@ -51,9 +51,15 @@ Please file feature requests and bugs at the [issue tracker](https://github.com/
 
 ###License###
 
-    Copyright 2015 Michael Mitterer (office@mikemitterer.at),
+    Copyright 2016 Michael Mitterer (office@mikemitterer.at),
     IT-Consulting and Development Limited, Austrian Branch
 
+        __  ___ ____   __    __ __   ____                __ 
+       /  |/  // __ \ / /   / // /  / __ \ ____ _ _____ / /_
+      / /|_/ // / / // /   / // /_ / / / // __ `// ___// __/
+     / /  / // /_/ // /___/__  __// /_/ // /_/ // /   / /_  
+    /_/  /_//_____//_____/  /_/  /_____/ \__,_//_/    \__/  
+                                                            
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
