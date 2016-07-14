@@ -91,7 +91,7 @@ class Utils {
         }
 
         if(prefix) {
-            final ProcessResult resultPrefixer = Process.runSync('autoprefixer', [ targetCss.path]);
+            final ProcessResult resultPrefixer = Process.runSync('autoprefixer-cli', [ targetCss.path]);
             if(resultPrefixer.exitCode != 0) {
                 log(resultPrefixer.stderr);
             } else {
