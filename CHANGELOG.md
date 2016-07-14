@@ -1,13 +1,16 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
-## [Unreleased](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.3...HEAD)
+## [v1.17.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.3...v1.17.4) - 2016-07-14
 
 ### Feature
 * mdl-color--transparent extra setting in _palette.scss [9b6b809](https://github.com/mikemitterer/dart-material-design-lite/commit/9b6b809323e2a171a210c2080dbaac12060a2515)
 
 ### Bugs
 * hashCode was missing in 'ActionName' [f525066](https://github.com/mikemitterer/dart-material-design-lite/commit/f525066be948f5f740f16d0f1e13be9e4ce9796a)
+
+### Docs
+* Udated some version constraints [c1971fa](https://github.com/mikemitterer/dart-material-design-lite/commit/c1971fa42446d2526de794600d2e02e44ce1ac8b)
 
 ## [v1.17.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.2...v1.17.3) - 2016-04-11
 
