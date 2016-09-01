@@ -39,6 +39,22 @@ main() {
             expect(DataAttribute.forValue("").asBool(handleEmptyStringAs: true), isTrue);
         }); // end of 'asBool' test
 
+        test('> asInt', () {
+            expect(DataAttribute.forValue("10").asInt(), 10);
+            expect(DataAttribute.forValue("1000").asInt(), 1000);
+            expect(DataAttribute.forValue("99").asInt(defaultValue: 42), 99);
+            expect(DataAttribute.forValue("99.-").asInt(defaultValue: 42), 42);
+
+            expect(DataAttribute.forValue("abc").asInt(), 0);
+            expect(DataAttribute.forValue("1000,10").asInt(), 0);
+            expect(DataAttribute.forValue("1.000").asInt(), 0);
+
+            expect(DataAttribute.forValue(null).asInt(), 0);
+            expect(DataAttribute.forValue("true").asInt(), 0);
+            expect(DataAttribute.forValue("false").asInt(), 0);
+            expect(DataAttribute.forValue("").asInt(), 0);
+
+        }); // end of 'asInt' test
 
     });
     // end 'DataAttribute' group

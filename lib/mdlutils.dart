@@ -93,6 +93,23 @@ class _DataValue {
         }
         return _value.toString();
     }
+
+    /// turns value into a boolean
+    /// {defaultValue} defines the default value if the attribute is not set
+    /// or if attribute can not converted to an int
+    int asInt({ final int defaultValue: 0 }) {
+        if(_value == null) {
+            return defaultValue;
+        }
+        if(_value is num) {
+            return (_value as num).toInt();
+        }
+        final String string = _value.toString();
+        if(string.isEmpty) {
+            return defaultValue;
+        }
+        return int.parse(string,onError: (_) => defaultValue);
+    }
 }
 
 class ElementProperties {
