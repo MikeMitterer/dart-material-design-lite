@@ -61,6 +61,14 @@ main() {
                 return int.parse(value.replaceAll("px",""));
             }), 10);
 
+            expect(DataAttribute.forValue("10%").asInt(onError: (final String value) {
+                return int.parse(value.replaceAll(new RegExp("[^0-9]"),""));
+            }), 10);
+
+            expect(DataAttribute.forValue("99px").asInt(onError: (final String value) {
+                return int.parse(value.replaceAll(new RegExp("[^0-9]"),""));
+            }), 99);
+
         }); // end of 'asInt' test
 
         test('> forAttribute', () {
