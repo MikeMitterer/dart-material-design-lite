@@ -40,19 +40,52 @@ import "package:validate/validate.dart";
  */
 class DataAttribute {
 
-    static _DataValue forValue(final dynamic value) {
+    /// Converts the given {value} to a {_DataValue} which returns e.g. a boolean
+    ///
+    /// If value is null and onError-callback is set the return value that comes from
+    /// {onError} is used for conversion
+    static _DataValue forValue(final dynamic value, { dynamic onError() }) {
+        if(value == null && onError != null) {
+            return new _DataValue(onError());
+        }
         return new _DataValue(value);
     }
 
-    static _DataValue forAttribute(final dom.HtmlElement element,final String name) {
+    static _DataValue forAttribute(final dom.HtmlElement element,final String name,{ dynamic onError() }) {
         Validate.notNull(element,"Element for attribute $name must not be null");
         Validate.notNull(name,"Attribute-Name for $element must not be null");
         Validate.notBlank(name,"Attribute-Name for $element must not be blank");
 
+        var value;
         if(!element.attributes.containsKey(name)) {
-            throw new ArgumentError("$element has no attribute '$name' set!");
+            if(onError != null) {
+                value = onError();
+            } else {
+                throw new ArgumentError("$element has no attribute '$name' set!");
+            }
+        } else {
+            value = element.attributes[name];
         }
-        final String value = element.attributes[name];
+
+        return new _DataValue(value);
+    }
+
+    static _DataValue forDataAttribute(final dom.HtmlElement element,final String name,{ dynamic onError() }) {
+        Validate.notNull(element,"Element for data attribute $name must not be null");
+        Validate.notNull(name,"Data-Attribute for $element must not be null");
+        Validate.notBlank(name,"Data-Attribute for $element must not be blank");
+
+        var value;
+        if(!element.dataset.containsKey(name)) {
+            if(onError != null) {
+                value = onError();
+            } else {
+                throw new ArgumentError("$element has no data-attribute '$name' set!");
+            }
+        } else {
+            value = element.dataset[name];
+        }
+
         return new _DataValue(value);
     }
 }

@@ -18,6 +18,7 @@
  */
 
 @TestOn("content-shell")
+import 'dart:html' as dom;
 import 'package:test/test.dart';
 
 import "package:mdl/mdlutils.dart";
@@ -50,12 +51,48 @@ main() {
             expect(DataAttribute.forValue("1.000").asInt(), 0);
 
             expect(DataAttribute.forValue(null).asInt(), 0);
+            expect(DataAttribute.forValue(null,onError: () => 99).asInt(), 99);
+
             expect(DataAttribute.forValue("true").asInt(), 0);
             expect(DataAttribute.forValue("false").asInt(), 0);
             expect(DataAttribute.forValue("").asInt(), 0);
 
         }); // end of 'asInt' test
 
+        test('> forAttribute', () {
+            final dom.DivElement element = new dom.DivElement();
+            element.setAttribute("testvalue","10");
+
+            expect(element.attributes.containsKey("testvalue"),isTrue);
+
+            expect(element.dataset.containsKey("testvalue"),isFalse);
+            expect(element.dataset.containsKey("age"),isFalse);
+            expect(element.dataset["age"],isNull);
+
+            expect(DataAttribute.forAttribute(element,"testvalue").asInt(), 10);
+
+            expect(() => DataAttribute.forAttribute(element,"age").asInt(), throwsArgumentError);
+            expect(DataAttribute.forAttribute(element,"age",onError: () => "42").asInt(), 42);
+            expect(DataAttribute.forAttribute(element,"age",onError: () => 42).asInt(), 42);
+
+        }); // end of 'forAttribute' test
+
+        test('> forDataAttribute', () {
+            final dom.DivElement element = new dom.DivElement();
+            element.setAttribute("data-testvalue","10");
+
+            expect(element.dataset.containsKey("testvalue"),isTrue);
+            expect(element.dataset.containsKey("age"),isFalse);
+            expect(element.dataset["age"],isNull);
+
+            expect(DataAttribute.forDataAttribute(element,"testvalue").asInt(), 10);
+            expect(DataAttribute.forAttribute(element,"data-testvalue").asInt(), 10);
+
+            expect(() => DataAttribute.forDataAttribute(element,"age").asInt(), throwsArgumentError);
+            expect(DataAttribute.forDataAttribute(element,"age",onError: () => "42").asInt(), 42);
+            expect(DataAttribute.forDataAttribute(element,"age",onError: () => 42).asInt(), 42);
+
+        }); // end of 'forDataAttribute' test
     });
     // end 'DataAttribute' group
 }
