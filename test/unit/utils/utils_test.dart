@@ -57,6 +57,10 @@ main() {
             expect(DataAttribute.forValue("false").asInt(), 0);
             expect(DataAttribute.forValue("").asInt(), 0);
 
+            expect(DataAttribute.forValue("10px").asInt(onError: (final String value) {
+                return int.parse(value.replaceAll("px",""));
+            }), 10);
+
         }); // end of 'asInt' test
 
         test('> forAttribute', () {

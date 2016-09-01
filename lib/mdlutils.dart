@@ -130,7 +130,7 @@ class _DataValue {
     /// turns value into a boolean
     /// {defaultValue} defines the default value if the attribute is not set
     /// or if attribute can not converted to an int
-    int asInt({ final int defaultValue: 0 }) {
+    int asInt({ final int defaultValue: 0, int onError(final String value) }) {
         if(_value == null) {
             return defaultValue;
         }
@@ -141,7 +141,12 @@ class _DataValue {
         if(string.isEmpty) {
             return defaultValue;
         }
-        return int.parse(string,onError: (_) => defaultValue);
+        return int.parse(string,onError: (_) {
+            if(onError != null) {
+                return onError(string);
+            }
+            return defaultValue;
+        });
     }
 }
 
