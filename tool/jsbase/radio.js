@@ -71,18 +71,20 @@
   /**
    * Handle change of state.
    *
+   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialRadio.prototype.onChange_ = function() {
+  MaterialRadio.prototype.onChange_ = function(event) {
     // Since other radio buttons don't get change events, we need to look for
     // them to update their classes.
     var radios = document.getElementsByClassName(this.CssClasses_.JS_RADIO);
     for (var i = 0; i < radios.length; i++) {
       var button = radios[i].querySelector('.' + this.CssClasses_.RADIO_BTN);
       // Different name == different group, so no point updating those.
-      if (button.getAttribute('name') ===
-          this.btnElement_.getAttribute('name')) {
-        radios[i]['MaterialRadio'].updateClasses_();
+      if (button.getAttribute('name') === this.btnElement_.getAttribute('name')) {
+        if (typeof radios[i]['MaterialRadio'] !== 'undefined') {
+            radios[i]['MaterialRadio'].updateClasses_();
+        }
       }
     }
   };
@@ -90,27 +92,30 @@
   /**
    * Handle focus.
    *
+   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialRadio.prototype.onFocus_ = function() {
+  MaterialRadio.prototype.onFocus_ = function(event) {
     this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle lost focus.
    *
+   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialRadio.prototype.onBlur_ = function() {
+  MaterialRadio.prototype.onBlur_ = function(event) {
     this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
   };
 
   /**
    * Handle mouseup.
    *
+   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialRadio.prototype.onMouseup_ = function() {
+  MaterialRadio.prototype.onMouseup_ = function(event) {
     this.blur_();
   };
 
@@ -130,6 +135,7 @@
    * @private
    */
   MaterialRadio.prototype.blur_ = function() {
+
     // TODO: figure out why there's a focus event being fired after our blur,
     // so that we can avoid this hack.
     window.setTimeout(function() {
@@ -198,7 +204,7 @@
    */
   MaterialRadio.prototype.check = function() {
     this.btnElement_.checked = true;
-    this.updateClasses_();
+    this.onChange_(null);
   };
   MaterialRadio.prototype['check'] = MaterialRadio.prototype.check;
 
@@ -209,7 +215,7 @@
    */
   MaterialRadio.prototype.uncheck = function() {
     this.btnElement_.checked = false;
-    this.updateClasses_();
+    this.onChange_(null);
   };
   MaterialRadio.prototype['uncheck'] = MaterialRadio.prototype.uncheck;
 

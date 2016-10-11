@@ -203,7 +203,9 @@ class MaterialRadio extends MdlComponent with FallbackFormatter {
             // Different name == different group, so no point updating those.
             if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
                 final MaterialRadio radio = MaterialRadio.widget(button as dom.HtmlElement);
-                radio._updateClasses();
+                if(radio != null) {
+                    radio._updateClasses();
+                }
             }
         }
 

@@ -66,18 +66,20 @@
   /**
    * Handle input on element.
    *
+   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialSlider.prototype.onInput_ = function() {
+  MaterialSlider.prototype.onInput_ = function(event) {
     this.updateValueStyles_();
   };
 
   /**
    * Handle change on element.
    *
+   * @param {Event} event The event that fired.
    * @private
    */
-  MaterialSlider.prototype.onChange_ = function() {
+  MaterialSlider.prototype.onChange_ = function(event) {
     this.updateValueStyles_();
   };
 
@@ -162,6 +164,7 @@
    * @public
    */
   MaterialSlider.prototype.enable = function() {
+
     this.element_.disabled = false;
   };
   MaterialSlider.prototype['enable'] = MaterialSlider.prototype.enable;
@@ -173,6 +176,7 @@
    * @public
    */
   MaterialSlider.prototype.change = function(value) {
+
     if (typeof value !== 'undefined') {
       this.element_.value = value;
     }
@@ -184,6 +188,7 @@
    * Initialize element.
    */
   MaterialSlider.prototype.init = function() {
+
     if (this.element_) {
       if (this.isIE_) {
         // Since we need to specify a very large height in IE due to
@@ -217,13 +222,11 @@
       this.boundInputHandler = this.onInput_.bind(this);
       this.boundChangeHandler = this.onChange_.bind(this);
       this.boundMouseUpHandler = this.onMouseUp_.bind(this);
-      this.boundContainerMouseDownHandler =
-          this.onContainerMouseDown_.bind(this);
+      this.boundContainerMouseDownHandler = this.onContainerMouseDown_.bind(this);
       this.element_.addEventListener('input', this.boundInputHandler);
       this.element_.addEventListener('change', this.boundChangeHandler);
       this.element_.addEventListener('mouseup', this.boundMouseUpHandler);
-      this.element_.parentElement.addEventListener(
-          'mousedown', this.boundContainerMouseDownHandler);
+      this.element_.parentElement.addEventListener('mousedown', this.boundContainerMouseDownHandler);
 
       this.updateValueStyles_();
       this.element_.classList.add(this.CssClasses_.IS_UPGRADED);

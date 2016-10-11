@@ -51,9 +51,6 @@ analyze() {
 }
 
 @Task()
-initSamples() => mdl.createSampleList();
-
-@Task()
 showConfig() {
     mdl.config.settings.forEach((final String key,final String value) {
         log("${key.padRight(28)}: $value");
@@ -61,8 +58,8 @@ showConfig() {
 }
 
 @Task("Initializes the sample-array")
-@Depends(initSamples)
 mergeMaster() {
+    mdl.createSampleList();
     final mdl.MergeMaster mergemaster = new mdl.MergeMaster();
 
     mdl.samples.where((final mdl.Sample sample) => (sample.type == mdl.Type.Core || sample.type == mdl.Type.Ignore))
@@ -82,16 +79,19 @@ mergeMaster() {
 
 
 @Task()
-@Depends(initSamples, genCss)
+@Depends(genCss)
 genThemes() {
     final mdl.ThemeGenerator generator = new mdl.ThemeGenerator();
+    mdl.createSampleList();
+
     generator.generate();
     pushThemesToGitHub();
 }
 
 @Task()
-@Depends(initSamples)
 genCss() {
+    mdl.createSampleList();
+
     log("${mdl.Utils.genMaterialCSS()} created!");
     log("${mdl.Utils.genSplashScreenCSS()} created!");
     log("${mdl.Utils.genFontsCSS()} created!");

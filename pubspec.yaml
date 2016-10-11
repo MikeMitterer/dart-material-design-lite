@@ -16,7 +16,7 @@ dependencies:
 
   logging: ^0.11.0
   logging_handlers: ^0.8.0
-  console_log_handler: ^0.1.0
+  console_log_handler: ^0.2.0
     # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
   route_hierarchical: ^0.7.0

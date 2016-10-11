@@ -72,22 +72,25 @@ void _onKeyDown(final html.Event event) {
 
 /// Handle focus.
 /// 
-///   MaterialTextfield.prototype.onFocus_ = /*function*/ () {
-void _onFocus() {
+/// param {Event} event The event that fired.
+///   MaterialTextfield.prototype.onFocus_ = function(event) {
+void _onFocus(final html.Event event) {
     element.classes.add(_cssClasses.IS_FOCUSED);
   }
 
 /// Handle lost focus.
 /// 
-///   MaterialTextfield.prototype.onBlur_ = /*function*/ () {
-void _onBlur() {
+/// param {Event} event The event that fired.
+///   MaterialTextfield.prototype.onBlur_ = function(event) {
+void _onBlur(final html.Event event) {
     element.classes.remove(_cssClasses.IS_FOCUSED);
   }
 
 /// Handle reset event from out side.
 /// 
-///   MaterialTextfield.prototype.onReset_ = /*function*/ () {
-void _onReset() {
+/// param {Event} event The event that fired.
+///   MaterialTextfield.prototype.onReset_ = function(event) {
+void _onReset(final html.Event event) {
     _updateClasses();
   }
 
@@ -123,7 +126,7 @@ void checkDisabled() {
 /// public
 ///   MaterialTextfield.prototype.checkFocus = /*function*/ () {
 void checkFocus() {
-    if (element.querySelector(':focus')) {
+    if (Boolean(element.querySelector(':focus'))) {
       element.classes.add(_cssClasses.IS_FOCUSED);
 
     } else {
@@ -191,34 +194,16 @@ void enable() {
 /// public
 ///   MaterialTextfield.prototype.change = function(value) {
 void change(final value) {
+
     _input.value = value || '';
     _updateClasses();
   }
   MaterialTextfield.prototype['change'] = MaterialTextfield.prototype.change;
 
-/// Focus text field.
-/// 
-/// public
-///   MaterialTextfield.prototype.focus = /*function*/ () {
-void focus() {
-    _input.focus();
-    _updateClasses();
-  }
-  MaterialTextfield.prototype['focus'] = MaterialTextfield.prototype.focus;
-
-/// Blur text field.
-/// 
-/// public
-///   MaterialTextfield.prototype.blur = /*function*/ () {
-void blur() {
-    _input.blur();
-    _updateClasses();
-  }
-  MaterialTextfield.prototype['blur'] = MaterialTextfield.prototype.blur;
-
 /// Initialize element.
 ///   MaterialTextfield.prototype.init = /*function*/ () {
 void init() {
+
     if (element != null) {
       _label = element.querySelector('.' + _cssClasses.LABEL);
       _input = element.querySelector('.' + _cssClasses.INPUT);

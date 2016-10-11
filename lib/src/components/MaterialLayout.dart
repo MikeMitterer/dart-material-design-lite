@@ -521,11 +521,11 @@ class MaterialLayout extends MdlComponent {
 
     /// Reset tab state, dropping active classes
     ///
-    /// [tabs] - The tabs to reset.
-    void _resetTabState(final tabs) {
+    /// [tabBar] - The tabs to reset.
+    void _resetTabState(final tabBar) {
 
-        for (int k = 0; k < tabs.length; k++) {
-            tabs[k].classes.remove(_cssClasses.IS_ACTIVE);
+        for (int k = 0; k < tabBar.length; k++) {
+            tabBar[k].classes.remove(_cssClasses.IS_ACTIVE);
         }
     }
 

@@ -53,8 +53,7 @@ class _  MaterialProgressCssClasses {
 /// public
 ///   MaterialProgress.prototype.setProgress = function(p) {
 void setProgress(final p) {
-    if (element.classes.contains(
-        _cssClasses.INDETERMINATE_CLASS)) {
+    if (element.classes.contains(_cssClasses.INDETERMINATE_CLASS)) {
       return;
     }
 

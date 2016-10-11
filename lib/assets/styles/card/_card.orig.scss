@@ -83,7 +83,7 @@
   line-height: $card-supporting-text-line-height;
   overflow: hidden;
   padding: $card-vertical-padding $card-horizontal-padding;
-  box-sizing: border-box;
+  width: 90%;
 }
 
 .mdl-card__actions {

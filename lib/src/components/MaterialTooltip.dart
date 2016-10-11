@@ -70,7 +70,7 @@ class MaterialTooltip extends MdlComponent {
 
         if (element != null) {
 
-            final String forElId = element.getAttribute('for');
+            final String forElId = element.getAttribute('data-mdl-for') ?? element.getAttribute('for');
 
             if(forElId != null ) {
                 _logger.info("ELEMENT: ${forElId}");
@@ -88,10 +88,10 @@ class MaterialTooltip extends MdlComponent {
                     eventStreams.add(_forElement.onMouseEnter.listen( _handleMouseEnter ));
                     eventStreams.add(_forElement.onTouchEnd.listen( _handleMouseEnter));
 
-                    eventStreams.add(_forElement.onMouseLeave.listen( _handleMouseLeave));
+                    eventStreams.add(_forElement.onMouseLeave.listen( _hideTooltip));
                     eventStreams.add(dom.window.onTouchStart.listen( (final dom.Event event) {
                         event.stopPropagation();
-                        _handleMouseLeave(event);
+                        _hideTooltip(event);
                     }));
 
                 }
@@ -156,7 +156,7 @@ class MaterialTooltip extends MdlComponent {
     /// Handle mouseleave for tooltip.
     /// @param {Event} event The event that fired.
     /// MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
-    void _handleMouseLeave(final dom.Event event) {
+    void _hideTooltip(final dom.Event event) {
         element.classes.remove(_cssClasses.IS_ACTIVE);
     }
 }

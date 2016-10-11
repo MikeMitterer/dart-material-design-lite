@@ -138,9 +138,9 @@ void init() {
       if (element.classes.contains(_cssClasses.RIPPLE_EFFECT)) {
         element.classes.add(_cssClasses.RIPPLE_IGNORE_EVENTS);
 
-        for (final j = 0; j < items.length; j++) {
+        for (i = 0; i < items.length; i++) {
 
-          final item = items[j];
+          final item = items[i];
 
           final rippleContainer = new html.SpanElement();
           rippleContainer.classes.add(_cssClasses.ITEM_RIPPLE_CONTAINER);
@@ -252,8 +252,7 @@ void _handleItemKeyboardEvent(final evt) {
       if (items && items.length > 0 &&
           _container.classes.contains(_cssClasses.IS_VISIBLE)) {
 
-        final currentIndex =
-            Array.prototype.slice.call(items).indexOf(evt.target);
+        final currentIndex = Array.prototype.slice.call(items).indexOf(evt.target);
 
         if (evt.keyCode == _Keycodes.UP_ARROW) {
           evt.preventDefault();
@@ -301,7 +300,7 @@ void _handleItemClick(final evt) {
     } else {
       // Wait some time before closing menu, so the user can see the ripple.
       _closing = true;
-      window.setTimeout( /*function*/ () {
+      window.setTimeout(function(evt) {
         hide();
         _closing = false;
     }
@@ -318,11 +317,10 @@ void _applyClip(final height, width) {
     if (element.classes.contains(_cssClasses.UNALIGNED)) {
       // Do not clip.
       element.style.clip = '';
-    } else if (
-        element.classes.contains(_cssClasses.BOTTOM_RIGHT)) {
+    } else if (element.classes.contains(_cssClasses.BOTTOM_RIGHT)) {
       // Clip to the top right corner of the menu.
       element.style.clip =
-          'rect(0 ' + width + 'px 0 ' + width + 'px)';
+          'rect(0 ' + width + 'px ' + '0 ' + width + 'px)';
     } else if (element.classes.contains(_cssClasses.TOP_LEFT)) {
       // Clip to the bottom left corner of the menu.
       element.style.clip =
@@ -340,27 +338,23 @@ void _applyClip(final height, width) {
 
 /// Cleanup function to remove animation listeners.
 /// 
-/// param {Event} evt The event being handled.
+/// param {Event} evt
 
 ///   MaterialMenu.prototype.removeAnimationEndListener_ = function(evt) {
 void _removeAnimationEndListener(final evt) {
-    evt.target.classes.remove(
-        MaterialMenu.prototype._cssClasses.IS_ANIMATING);
+    evt.target.classes.remove(MaterialMenu.prototype._cssClasses.IS_ANIMATING);
   }
 
 /// Adds an event listener to clean up after the animation ends.
 /// 
 ///   MaterialMenu.prototype.addAnimationEndListener_ = /*function*/ () {
 void _addAnimationEndListener() {
-    element.addEventListener(
-        'transitionend', _removeAnimationEndListener);
-    element.addEventListener(
-        'webkitTransitionEnd', _removeAnimationEndListener);
+    element.addEventListener('transitionend', _removeAnimationEndListener);
+    element.addEventListener('webkitTransitionEnd', _removeAnimationEndListener);
   }
 
 /// Displays the menu.
 /// 
-/// param {Event} evt The event being handled.
 /// public
 ///   MaterialMenu.prototype.show = function(evt) {
 void show(final evt) {
@@ -404,7 +398,7 @@ void show(final evt) {
 
       // Wait for the next frame, turn on animation, and apply the final clip.
       // Also make it visible. This triggers the transitions.
-      requestAnimationFrame( /*function*/ () {
+      window.requestAnimationFrame( /*function*/ () {
         element.classes.add(_cssClasses.IS_ANIMATING);
         element.style.clip = 'rect(0 ' + width + 'px ' + height + 'px 0)';
         _container.classes.add(_cssClasses.IS_VISIBLE);
@@ -422,8 +416,7 @@ void show(final evt) {
         // do nothing in that case.
         // Also check if the clicked element is a menu item
         // if so, do nothing.
-        if (e != evt && !_closing &&
-            e.target.parentNode != element) {
+        if (e != evt && !_closing && e.target.parentNode != element) {
           document.removeEventListener('click', callback);
           hide();
         }
@@ -472,7 +465,6 @@ void hide() {
 
 /// Displays or hides the menu, depending on current state.
 /// 
-/// param {Event} evt The event being handled.
 /// public
 ///   MaterialMenu.prototype.toggle = function(evt) {
 void toggle(final evt) {

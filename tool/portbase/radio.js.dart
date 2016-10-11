@@ -62,8 +62,9 @@ class _  MaterialRadioCssClasses {
 
 /// Handle change of state.
 /// 
-///   MaterialRadio.prototype.onChange_ = /*function*/ () {
-void _onChange() {
+/// param {Event} event The event that fired.
+///   MaterialRadio.prototype.onChange_ = function(event) {
+void _onChange(final html.Event event) {
     // Since other radio buttons don't get change events, we need to look for
     // them to update their classes.
 
@@ -73,31 +74,35 @@ void _onChange() {
 
       final button = radios[i].querySelector('.' + _cssClasses.RADIO_BTN);
       // Different name == different group, so no point updating those.
-      if (button.getAttribute('name') ==
-          _btnElement.getAttribute('name')) {
-        radios[i]['MaterialRadio']._updateClasses();
+      if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
+        if (typeof radios[i]['MaterialRadio'] != 'undefined') {
+            radios[i]['MaterialRadio']._updateClasses();
+        }
       }
     }
   }
 
 /// Handle focus.
 /// 
-///   MaterialRadio.prototype.onFocus_ = /*function*/ () {
-void _onFocus() {
+/// param {Event} event The event that fired.
+///   MaterialRadio.prototype.onFocus_ = function(event) {
+void _onFocus(final html.Event event) {
     element.classes.add(_cssClasses.IS_FOCUSED);
   }
 
 /// Handle lost focus.
 /// 
-///   MaterialRadio.prototype.onBlur_ = /*function*/ () {
-void _onBlur() {
+/// param {Event} event The event that fired.
+///   MaterialRadio.prototype.onBlur_ = function(event) {
+void _onBlur(final html.Event event) {
     element.classes.remove(_cssClasses.IS_FOCUSED);
   }
 
 /// Handle mouseup.
 /// 
-///   MaterialRadio.prototype.onMouseup_ = /*function*/ () {
-void _onMouseup() {
+/// param {Event} event The event that fired.
+///   MaterialRadio.prototype.onMouseup_ = function(event) {
+void _onMouseup(final html.Event event) {
     _blur();
   }
 
@@ -113,6 +118,7 @@ void _updateClasses() {
 /// 
 ///   MaterialRadio.prototype.blur_ = /*function*/ () {
 void _blur() {
+
     // TODO: figure out why there's a focus event being fired after our blur,
     // so that we can avoid this hack.
     window.setTimeout( /*function*/ () {
@@ -177,7 +183,7 @@ void enable() {
 ///   MaterialRadio.prototype.check = /*function*/ () {
 void check() {
     _btnElement.checked = true;
-    _updateClasses();
+    _onChange(null);
   }
   MaterialRadio.prototype['check'] = MaterialRadio.prototype.check;
 
@@ -187,7 +193,7 @@ void check() {
 ///   MaterialRadio.prototype.uncheck = /*function*/ () {
 void uncheck() {
     _btnElement.checked = false;
-    _updateClasses();
+    _onChange(null);
   }
   MaterialRadio.prototype['uncheck'] = MaterialRadio.prototype.uncheck;
 
