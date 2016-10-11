@@ -1,6 +1,12 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.17.5](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.4...v1.17.5) - 2016-10-11
+
+### Feature
+* extra function for handling data-attributes added [613ad1a](https://github.com/mikemitterer/dart-material-design-lite/commit/613ad1a0234e2c35caef43ea776c89e4c1ddf55e)
+* Added 'asInt' convertion to DataAttribute [67e9ba9](https://github.com/mikemitterer/dart-material-design-lite/commit/67e9ba93ddadcd39b9d617ce377f2abb5c2373fa)
+
 ## [v1.17.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.3...v1.17.4) - 2016-07-14
 
 ### Feature
