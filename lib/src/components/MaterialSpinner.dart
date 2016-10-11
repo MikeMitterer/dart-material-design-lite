@@ -24,7 +24,7 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialSpinnerCssClasses {
 
-    static const String MAIN_CLASS  = "mdl-js-spinner";
+    static const String MAIN_CLASS  = "mdl-spinner";
 
     final String SPINNER_LAYER = 'mdl-spinner__layer';
     final String SPINNER_CIRCLE_CLIPPER = 'mdl-spinner__circle-clipper';

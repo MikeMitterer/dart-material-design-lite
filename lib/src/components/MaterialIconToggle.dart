@@ -21,7 +21,7 @@ part of mdlcomponents;
 
 /// Controller-View for
 ///
-///       <label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="checkbox-1">
+///       <label class="mdl-icon-toggle mdl-icon-toggle mdl-ripple-effect" for="checkbox-1">
 ///           <input type="checkbox" id="checkbox-1" class="mdl-icon-toggle__input" />
 ///           <span class="mdl-icon-toggle__label mdl-icon mdl-icon--format-bold"></span>
 ///       </label>
@@ -195,11 +195,11 @@ void registerMaterialIconToggle() => componentHandler().register(materialIconTog
 /// decide to modify at a later date.
 class _MaterialIconToggleCssClasses {
 
-    static const String MAIN_CLASS  = "mdl-js-icon-toggle";
+    static const String MAIN_CLASS  = "mdl-icon-toggle";
 
     final String INPUT = 'mdl-icon-toggle__input';
-    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String JS_RIPPLE_EFFECT = 'mdl-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-ripple-effect--ignore-events';
     final String RIPPLE_CONTAINER = 'mdl-icon-toggle__ripple-container';
     final String RIPPLE_CENTER = 'mdl-ripple--center';
     final String RIPPLE = 'mdl-ripple';

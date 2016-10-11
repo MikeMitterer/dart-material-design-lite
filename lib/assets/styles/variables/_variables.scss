@@ -1,25 +1,11 @@
 @import "functions";
-@import "../palette/color-definitions";
-@import "../palette/theme";
-
-// =========  TYPOGRAPHY  =========
-
-// We're splitting fonts into "preferred" and "performance" in order to optimize
-// page loading. For important text, such as the body, we want it to load
-// immediately and not wait for the web font load, whereas for other sections,
-// such as headers and titles, we're OK with things taking a bit longer to load.
-// We do have some optional classes and parameters in the mixins, in case you
-// definitely want to make sure you're using the preferred font and don't mind
-// the performance hit.
-// We should be able to improve on this once CSS Font Loading L3 becomes more
-// widely available.
+@import "../theme/color-definitions";
+@import "../theme/theme";
 
 
-$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
-$performance_font: 'Helvetica', 'Arial', sans-serif !default;
 
 // ==========  IMAGES  ==========
-$image_path: '/images' !default;
+//$image_path: '/images' !default;
 
 // =========  Color & Themes  =========
 
@@ -46,65 +32,15 @@ $color-primary-contrast: $color-dark-contrast !default;
 // Our accent is dark, so use $color-dark-contrast for overlaid text.
 $color-accent-contrast: $color-dark-contrast !default;
 
-// =========  Typography  =========
 
-// We use the following default color styles: text-color-primary and
-// text-color-secondary. For light themes, use text-color-primary-inverse
-// and text-color-secondary-inverse.
 
-$text-color-primary: rgba($color-black, 0.87) !default;
-$text-link-color: $color-accent !default;
 
-// Define whether to target elements directly for typographic enhancements.
-// Turning this off means you need to use mdl-* classes more often.
-// Other components may also fail to adhere to MD without these rules.
-// It is strongly recommended you leave this as true.
-
-$target-elements-directly: true !default;
 
 // =========  Components  =========
 
-// =========  Standard Buttons  =========
 
-// Default button colors.
-$button-primary-color: rgba($palette-grey-500, 0.20) !default;
-$button-secondary-color: ($color-black) !default;
-$button-hover-color: $button-primary-color !default;
-$button-active-color: rgba($palette-grey-500, 0.40) !default;
-$button-focus-color: rgba($color-black, 0.12) !default;
 
-// Colored button colors.
-$button-primary-color-alt: ($color-primary) !default;
-$button-secondary-color-alt: ($color-primary-contrast) !default;
-$button-hover-color-alt: ($color-primary) !default;
-$button-active-color-alt: ($color-primary) !default;
-$button-focus-color-alt: $button-focus-color !default;
 
-// Ripple color for colored raised buttons.
-$button-ripple-color-alt: ($color-primary-contrast) !default;
-
-// Disabled button colors.
-$button-primary-color-disabled: rgba($color-black, 0.12) !default;
-$button-secondary-color-disabled: rgba($color-black, 0.26) !default;
-
-// FAB colors and sizes.
-$button-fab-color-alt: ($color-accent) !default;
-$button-fab-hover-color-alt: ($color-accent) !default;
-$button-fab-active-color-alt: ($color-accent) !default;
-$button-fab-text-color-alt: ($color-accent-contrast) !default;
-$button-fab-ripple-color-alt: ($color-accent-contrast) !default;
-
-// Icon button colors and sizes.
-$button-icon-color: ($palette-grey-700) !default;
-$button-icon-focus-color: $button-focus-color !default;
-
-// =========  Icon Toggles  =========
-
-$icon-toggle-color: ($palette-grey-700) !default;
-$icon-toggle-focus-color: $button-focus-color !default;
-$icon-toggle-checked-color: ($color-primary) !default;
-$icon-toggle-checked-focus-color: rgba($color-primary, 0.26) !default;
-$icon-toggle-disabled-color: rgba($color-black, 0.26) !default;
 
 // =========  Radio Buttons  =========
 
@@ -116,26 +52,7 @@ $radio-disabled-color: rgba($color-black, 0.26) !default;
 
 $ripple-bg-color: ($color-light-contrast) !default;
 
-// =========  Layout  =========
 
-$layout-nav-color: ($palette-grey-300) !default;
-
-// Drawer
-$layout-drawer-bg-color: ($palette-grey-50) !default;
-$layout-drawer-border-color: ($palette-grey-300) !default;
-$layout-text-color: ($palette-grey-800) !default;
-$layout-drawer-navigation-color: #757575 !default;
-$layout-drawer-navigation-link-active-background: ($color-light-contrast) !default;
-$layout-drawer-navigation-link-active-color: ($palette-grey-300) !default;
-
-// Header
-$layout-header-bg-color: ($color-primary) !default;
-$layout-header-text-color: ($color-primary-contrast) !default;
-$layout-header-nav-hover-color: rgba($palette-grey-700, 0.6) !default;
-$layout-header-tab-text-color: rgba($color-primary-contrast, 0.6) !default;
-
-// Tabs
-$layout-header-tab-highlight: ($color-accent) !default;
 
 // =========  Content Tabs  =========
 
@@ -144,13 +61,7 @@ $tab-text-color: rgba($color-black, 0.54) !default;
 $tab-active-text-color: rgba($color-black, 0.87) !default;
 $tab-border-color: ($palette-grey-300) !default;
 
-// =========  Checkboxes  =========
 
-$checkbox-color: ($color-primary) !default;
-$checkbox-off-color: rgba($color-black, 0.54) !default;
-$checkbox-disabled-color: rgba($color-black, 0.26) !default;
-$checkbox-focus-color: rgba($color-primary, 0.26) !default;
-$checkbox-image-path: $image_path;
 
 // =========  Switches  =========
 
@@ -173,24 +84,9 @@ $spinner-color-4: ($palette-green-500) !default;
 
 $spinner-single-color: ($color-primary) !default;
 
-// =========  Text fields  =========
 
-$input-text-background-color: transparent !default;
-$input-text-label-color: rgba($color-black, 0.26) !default;
-$input-text-bottom-border-color: rgba($color-black, 0.12) !default;
-$input-text-highlight-color: ($color-primary) !default;
-$input-text-disabled-color: $input-text-bottom-border-color !default;
-$input-text-disabled-text-color: $input-text-label-color !default;
-$input-text-error-color: ($palette-red-A700) !default;
 
-// =========  Card  =========
 
-$card-background-color: ($color-white) !default;
-$card-text-color: ($color-black) !default;
-$card-image-placeholder-color: ($color-accent) !default;
-$card-supporting-text-text-color: $color-black !default;
-$card-border-color: rgba(0,0,0,0.1) !default;
-$card-subtitle-color: rgba($color-black, 0.54) !default;
 
 // =========  Sliders =========
 
@@ -234,25 +130,10 @@ $default-dropdown-bg-color: ($color-white) !default;
 $tooltip-text-color: ($color-white) !default;
 $tooltip-background-color: rgba($palette-grey-700, 0.9) !default;
 
-// =========  Footer  =========
-
-$footer-bg-color: ($palette-grey-800) !default;
-$footer-color: ($palette-grey-500) !default;
-$footer-heading-color: ($palette-grey-300) !default;
-$footer-button-fill-color: $footer-color !default;
-$footer-underline-color: $footer-color !default;
 
 
-// TEXTFIELD
 
-$input-text-font-size: 16px !default;
-$input-text-width: 100% !default;
-$input-text-padding: 4px !default;
-$input-text-vertical-spacing: 20px !default;
 
-$input-text-button-size: 32px !default;
-$input-text-floating-label-fontsize: 12px !default;
-$input-text-expandable-icon-top: 16px !default;
 
 
 // SWITCH
@@ -314,196 +195,41 @@ $list-icon-size: 24px !default;
 $list-two-line-height: 72px !default;
 $list-three-line-height: 88px !default;
 
-// LAYOUT */
-
-$layout-drawer-narrow: 240px !default;
-$layout-drawer-wide: 456px !default;
-$layout-drawer-width: $layout-drawer-narrow !default;
-
-$layout-header-icon-size: 32px !default;
-$layout-screen-size-threshold: 1024px !default;
-$layout-header-icon-margin: 24px !default;
-$layout-drawer-button-mobile-size: 32px !default;
-$layout-drawer-button-desktop-size: 48px !default;
-
-$layout-header-mobile-row-height: 56px !default;
-$layout-mobile-header-height: $layout-header-mobile-row-height;
-$layout-header-desktop-row-height: 64px !default;
-$layout-desktop-header-height: $layout-header-desktop-row-height;
-
-$layout-header-desktop-baseline: 80px !default;
-$layout-header-mobile-baseline: 72px !default;
-$layout-header-mobile-indent: 16px !default;
-$layout-header-desktop-indent: 40px !default;
-
-$layout-tab-font-size: 14px !default;
-$layout-tab-bar-height: 48px !default;
-$layout-tab-mobile-padding: 12px !default;
-$layout-tab-desktop-padding: 24px !default;
-$layout-tab-highlight-thickness: 2px !default;
 
 
-// ICON TOGGLE
 
-$icon-toggle-size: 32px !default;
-$icon-toggle-font-size: 24px !default;
-$icon-toggle-ripple-size: 36px !default;
 
 // FOOTER
 
-// mega-footer
-$footer-min-padding: 16px !default;
-$footer-padding-sides: 40px !default;
-$footer-heading-font-size: 14px !default;
-$footer-heading-line-height: (1.7 * $footer-heading-font-size) !default;
-$footer-btn-size: 36px  !default;
 
-// mini-footer
-$padding: 16px !default;
-$footer-heading-font-size: 24px !default;
-$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
-$footer-btn-size: 36px !default;
 
 // CHECKBOX
 
-$checkbox-label-font-size: 16px !default;
-$checkbox-label-height: 24px !default;
-$checkbox-button-size: 16px !default;
-$checkbox-inner-margin: 2px !default;
-$checkbox-padding: 8px !default;
-$checkbox-top-offset:
-($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
-$checkbox-ripple-size: $checkbox-label-height * 1.5;
-
 // CARD
 
-// Card dimensions
-$card-width: 330px !default;
-$card-height: 200px !default;
-$card-font-size: 16px !default;
-$card-title-font-size: 24px !default;
-$card-subtitle-font-size: 14px !default;
-$card-horizontal-padding: 16px !default;
-$card-vertical-padding: 16px !default;
 
-$card-title-perspective-origin-x: 165px !default;
-$card-title-perspective-origin-y: 56px !default;
-
-$card-title-transform-origin-x: 165px !default;
-$card-title-transform-origin-y: 56px !default;
-
-$card-title-text-transform-origin-x: 149px !default;
-$card-title-text-transform-origin-y: 48px !default;
-
-$card-supporting-text-font-size: 1rem !default;
-$card-supporting-text-line-height: 18px !default;
-
-$card-actions-font-size: 16px !default;
-
-$card-title-text-font-weight: 300 !default;
-$card-z-index: 1 !default;
-
-// Cover image
-$card-cover-image-height: 186px !default;
-$card-background-image-url: '' !default;
 
 
 // BUTTON
 //
 //
-// Dimensions
-//
-//
-$button-min-width: 64px !default;
-$button-height: 36px !default;
-$button-padding: 16px !default;
-$button-margin: 4px !default;
-$button-border-radius: 2px !default;
-
-$button-fab-size: 56px !default;
-$button-fab-size-mini: 40px !default;
-$button-fab-font-size: 24px !default;
-
-$button-icon-size: 32px !default;
-$button-icon-size-mini: 24px !default;
 
 
-// ANIMATION
-$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
-$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
-$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
 
-$animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
 
 // PROGRESS
 $bar-height: 4px !default;
 
-// BADGE */
-$badge-font-size: 12px !default;
-$badge-color: $color-accent-contrast !default;
-$badge-color-inverse: $color-accent !default;
-$badge-background: $color-accent !default;
-$badge-background-inverse: rgba($color-accent-contrast,0.2) !default;
-$badge-size : 22px !default;
-$badge-padding: 2px !default;
-$badge-overlap: 12px !default;
 
-// SHADOWS
 
-$shadow-key-umbra-opacity: 0.2 !default;
-$shadow-key-penumbra-opacity: 0.14 !default;
-$shadow-ambient-shadow-opacity: 0.12 !default;
 
-// GRID
 
-$grid-desktop-columns: 12 !default;
-$grid-desktop-gutter: 16px !default;
-$grid-desktop-margin: 16px !default;
 
-$grid-desktop-breakpoint: 840px !default;
-
-$grid-tablet-columns: 8 !default;
-$grid-tablet-gutter: $grid-desktop-gutter !default;
-$grid-tablet-margin: $grid-desktop-margin !default;
-
-$grid-tablet-breakpoint: 480px !default;
-
-$grid-phone-columns: 4 !default;
-$grid-phone-gutter: $grid-desktop-gutter !default;
-$grid-phone-margin: $grid-desktop-margin !default;
-
-$grid-cell-default-columns: $grid-phone-columns !default;
-$grid-max-columns: $grid-desktop-columns !default;
 
 // DATA TABLE
 
-$data-table-font-size: 13px !default;
-$data-table-header-font-size: 12px !default;
-$data-table-header-sort-icon-size: 16px !default;
 
-$data-table-header-color: rgba(#000, 0.54) !default;
-$data-table-header-sorted-color: rgba(#000, 0.87) !default;
-$data-table-header-sorted-icon-hover-color: rgba(#000, 0.26) !default;
-$data-table-divider-color: rgba(#000, 0.12) !default;
-
-$data-table-hover-color: #eeeeee !default;
-$data-table-selection-color: #e0e0e0 !default;
-
-$data-table-dividers: 1px solid $data-table-divider-color !default;
-
-$data-table-row-height: 48px !default;
-$data-table-last-row-height: 56px !default;
-$data-table-header-height: 56px !default;
-
-$data-table-column-spacing: 36px !default;
-$data-table-column-padding: $data-table-column-spacing / 2;
-
-$data-table-card-header-height: 64px !default;
-$data-table-card-title-top: 20px !default;
-$data-table-card-padding: 24px !default;
-$data-table-button-padding-right: 16px !default;
-$data-table-cell-top: $data-table-card-padding / 2;
 
 /* DIALOG */
 $dialog-content-color: $card-supporting-text-text-color;
@@ -529,10 +255,7 @@ $chip-font-size: 13px !default;
 // ---- Components++
 // -
 
-// STICKY-MINI-FOOTER
-$sticky-mini-footer-height: 30px !default;
-$sticky-mini-footer-hor-padding: 8px !default;
-$sticky-mini-footer-vert-padding: 4px !default;
+
 
 // PROPERTIES
 $properties-vertical-distance: 12px !default;

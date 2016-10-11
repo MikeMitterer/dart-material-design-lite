@@ -24,7 +24,7 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialSliderCssClasses {
 
-    static const String MAIN_CLASS  = "mdl-js-slider";
+    static const String MAIN_CLASS  = "mdl-slider";
 
     final String IE_CONTAINER = 'mdl-slider__ie-container';
 

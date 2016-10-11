@@ -1,3 +1,9 @@
+@import "../theme/theme";
+@import "../typography/mixins";
+@import "../shadow/mixins";
+@import "../animation/mixins";
+
+@import "variables";
 @import "layout.orig";
 
 //.mdl-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header {

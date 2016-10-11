@@ -18,42 +18,6 @@
  */
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialDivDataTableCssClasses {
-
-    final String DATA_TABLE =   'mdl-data-tableex';
-    final String SELECTABLE =   'mdl-data-tableex--selectable';
-    final String SELECT =       'mdl-data-tableex__select';
-
-    final String IS_SELECTED =  'is-selected';
-    final String IS_UPGRADED =  'is-upgraded';
-
-    final String HEAD = "mdl-div-data-tableex__head";
-    final String ROW =  "mdl-div-data-tableex__row";
-
-    final String CELL_CHECKBOX = "mdl-data-tableex__cell--checkbox";
-
-    final String CHECKBOX = "mdl-checkbox";
-    final String CHECKBOX_INPUT = "mdl-checkbox__input";
-
-    final String JS_CHECKBOX = "mdl-js-checkbox";
-    final String JS_RIPPLE_EFFECT = "mdl-js-ripple-effect";
-
-    const _MaterialDivDataTableCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialDivDataTableConstant {
-
-    static const String WIDGET_SELECTOR = "mdl-data-tableex";
-
-    final String SELECTABLE_NAME =  "mdl-data-tableex-selectable-name";
-    final String SELECTABLE_VALUE = "mdl-data-tableex-selectable-value";
-
-    const _MaterialDivDataTableConstant();
-}
 
 class DataTableChangedEvent {}
 
@@ -201,8 +165,8 @@ class _MaterialDivDataTableRowCssClasses {
     final String CHECKBOX = "mdl-checkbox";
     final String CHECKBOX_INPUT = "mdl-checkbox__input";
 
-    final String JS_CHECKBOX = "mdl-js-checkbox";
-    final String JS_RIPPLE_EFFECT = "mdl-js-ripple-effect";
+    final String JS_CHECKBOX = "mdl-checkbox";
+    final String JS_RIPPLE_EFFECT = "mdl-ripple-effect";
 
     const _MaterialDivDataTableRowCssClasses();
 }
@@ -433,4 +397,41 @@ void _registerMaterialDivDataTableRow() {
     config.priority = RegistrationPriority.CHILD_WIDGET;
 
     componentHandler().register(config);
+}
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialDivDataTableCssClasses {
+
+    final String DATA_TABLE =   'mdl-data-tableex';
+    final String SELECTABLE =   'mdl-data-tableex--selectable';
+    final String SELECT =       'mdl-data-tableex__select';
+
+    final String IS_SELECTED =  'is-selected';
+    final String IS_UPGRADED =  'is-upgraded';
+
+    final String HEAD = "mdl-div-data-tableex__head";
+    final String ROW =  "mdl-div-data-tableex__row";
+
+    final String CELL_CHECKBOX = "mdl-data-tableex__cell--checkbox";
+
+    final String CHECKBOX = "mdl-checkbox";
+    final String CHECKBOX_INPUT = "mdl-checkbox__input";
+
+    final String JS_CHECKBOX = "mdl-checkbox";
+    final String JS_RIPPLE_EFFECT = "mdl-ripple-effect";
+
+    const _MaterialDivDataTableCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialDivDataTableConstant {
+
+    static const String WIDGET_SELECTOR = "mdl-data-tableex";
+
+    final String SELECTABLE_NAME =  "mdl-data-tableex-selectable-name";
+    final String SELECTABLE_VALUE = "mdl-data-tableex-selectable-value";
+
+    const _MaterialDivDataTableConstant();
 }

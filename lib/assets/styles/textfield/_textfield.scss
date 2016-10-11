@@ -1,3 +1,8 @@
+@import "../theme/theme";
+@import "../typography/variables";
+@import "../animation/mixins";
+
+@import "variables";
 @import "textfield.orig";
 
 .mdl-textfield {

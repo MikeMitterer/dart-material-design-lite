@@ -31,8 +31,8 @@ class _MaterialDataTableCssClasses {
     final String IS_UPGRADED = 'is-upgraded';
 
     final String CHECKBOX = "mdl-checkbox";
-    final String JS_CHECKBOX = "mdl-js-checkbox";
-    final String JS_RIPPLE_EFFECT = "mdl-js-ripple-effect";
+    final String JS_CHECKBOX = "mdl-checkbox";
+    final String JS_RIPPLE_EFFECT = "mdl-ripple-effect";
 
     const _MaterialDataTableCssClasses();
 }

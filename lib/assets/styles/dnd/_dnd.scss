@@ -1,6 +1,4 @@
-
-$dnd-z-index-draggable: 0 !default;
-$dnd-z-index-dragging:  101 !default;
+@import "variables";
 
 // IMPORTANT!!!!! The D&D lib needs position: relative for "Drag-Container"
 .mdl-dnd__drag-container {

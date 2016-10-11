@@ -3,12 +3,12 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Material Colors
-@import "palette/color-definitions.scss";
+@import "theme/color-definitions.scss";
 
 // Color-Theme (default, defined in palette/_themes.scss)
-// $theme-name: "blue_grey-pink";
-// $palette-primary: $palette-blue-grey;
-// $palette-accent: $palette-pink;
+// $theme-name: "indigo-pink" !default;
+// $palette-primary: $palette-indigo !default;
+// $palette-accent: $palette-pink !default;
 
 // Config for this package
 @import "_config/config";
@@ -18,7 +18,7 @@
 @import "resets/resets";
 
 // CSS-Styles for colors
-@import "palette/palette";
+@import "theme/palette";
 
 // Components
 @import "components";

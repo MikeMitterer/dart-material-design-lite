@@ -26,7 +26,7 @@ class MaterialTabsChangedEvent {
 
 /// Controller-View for mdl-tabs
 ///
-///     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+///     <div class="mdl-tabs mdl-tabs mdl-ripple-effect">
 ///       <div class="mdl-tabs__tab-bar">
 ///           <a href="#panel1" class="mdl-tabs__tab is-active">Tab I</a>
 ///           <a href="#panel2" class="mdl-tabs__tab">Tab II</a>
@@ -189,17 +189,17 @@ void registerMaterialTabs() => componentHandler().register(materialTabsConfig())
 /// decide to modify at a later date.
 class _MaterialTabsCssClasses {
 
-    static const String MAIN_CLASS  = "mdl-js-tabs";
+    static const String MAIN_CLASS  = "mdl-tabs";
 
     final String TAB_CLASS = 'mdl-tabs__tab';
     final String PANEL_CLASS = 'mdl-tabs__panel';
     final String ACTIVE_CLASS = 'is-active';
     final String UPGRADED_CLASS = 'is-upgraded';
 
-    final String MDL_JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String MDL_JS_RIPPLE_EFFECT = 'mdl-ripple-effect';
     final String MDL_RIPPLE_CONTAINER = 'mdl-tabs__ripple-container';
     final String MDL_RIPPLE = 'mdl-ripple';
-    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-ripple-effect--ignore-events';
     const _MaterialTabsCssClasses();
 }
 

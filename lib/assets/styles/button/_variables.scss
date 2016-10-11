@@ -1,0 +1,48 @@
+// =========  Standard Buttons  =========
+
+// Default button colors.
+$button-primary-color: rgba($palette-grey-500, 0.20) !default;
+$button-secondary-color: ($color-black) !default;
+$button-hover-color: $button-primary-color !default;
+$button-active-color: rgba($palette-grey-500, 0.40) !default;
+$button-focus-color: rgba($color-black, 0.12) !default;
+
+// Colored button colors.
+$button-primary-color-alt: ($color-primary) !default;
+$button-secondary-color-alt: ($color-primary-contrast) !default;
+$button-hover-color-alt: ($color-primary) !default;
+$button-active-color-alt: ($color-primary) !default;
+$button-focus-color-alt: $button-focus-color !default;
+
+// Ripple color for colored raised buttons.
+$button-ripple-color-alt: ($color-primary-contrast) !default;
+
+// Disabled button colors.
+$button-primary-color-disabled: rgba($color-black, 0.12) !default;
+$button-secondary-color-disabled: rgba($color-black, 0.26) !default;
+
+// FAB colors and sizes.
+$button-fab-color-alt: ($color-accent) !default;
+$button-fab-hover-color-alt: ($color-accent) !default;
+$button-fab-active-color-alt: ($color-accent) !default;
+$button-fab-text-color-alt: ($color-accent-contrast) !default;
+$button-fab-ripple-color-alt: ($color-accent-contrast) !default;
+
+// Icon button colors and sizes.
+$button-icon-color: ($palette-grey-700) !default;
+$button-icon-focus-color: $button-focus-color !default;
+
+// Dimensions
+//
+$button-min-width: 64px !default;
+$button-height: 36px !default;
+$button-padding: 16px !default;
+$button-margin: 4px !default;
+$button-border-radius: 2px !default;
+
+$button-fab-size: 56px !default;
+$button-fab-size-mini: 40px !default;
+$button-fab-font-size: 24px !default;
+
+$button-icon-size: 32px !default;
+$button-icon-size-mini: 24px !default;

@@ -1,0 +1,37 @@
+// ----------------------------------------------------------------------------
+// Copyright (c) 2016, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+$form-color : $text-color-primary !default;
+$form-color-help : $input-text-error-color !default;
+$form-color-accent : white !default;
+$form-active-input-border-color : $input-text-highlight-color !default;
+$form-background-color : white !default;
+$form-background-color-accent : ($color-primary) !default;
+$form-button-radius : 2px !default;
+$form-default-button-color : $text-color-primary !default;
+$form-default-button-background-color : rgba($palette-grey-500, 0.20) !default;
+$form-border-color: $input-text-bottom-border-color !default;
+
+//$input-text-bottom-border-color: rgba(0, 0, 0, 0.12) !default;
+
+$_form_default_width : 320px !default;
+$_form_default_font_size : 15px !default;
+$_form_default_label_padding : 12px !default;
+$_form_default_label_width : 130px !default;
+$_form_default_button_width : $_form_default_label_width !default;

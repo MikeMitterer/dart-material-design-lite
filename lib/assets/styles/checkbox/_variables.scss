@@ -1,0 +1,34 @@
+//----
+// Copyright 2015 Google Inc. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+                          
+// =========  Checkboxes  =========
+
+$checkbox-color: ($color-primary) !default;
+$checkbox-off-color: rgba($color-black, 0.54) !default;
+$checkbox-disabled-color: rgba($color-black, 0.26) !default;
+$checkbox-focus-color: rgba($color-primary, 0.26) !default;
+$checkbox-image-path: ""; // (orig - in global variables: $image_path: '/images' !default;)
+
+// Checkboxes dimensions
+
+$checkbox-label-font-size: 16px !default;
+$checkbox-label-height: 24px !default;
+$checkbox-button-size: 16px !default;
+$checkbox-inner-margin: 2px !default;
+$checkbox-padding: 8px !default;
+$checkbox-top-offset: ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2;
+$checkbox-ripple-size: $checkbox-label-height * 1.5;
+

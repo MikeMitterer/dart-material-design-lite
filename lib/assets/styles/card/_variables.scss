@@ -1,0 +1,54 @@
+//----
+//  Copyright 2015 Google Inc. All Rights Reserved.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
+// =========  Card  =========
+
+$card-background-color: ($color-white) !default;
+$card-text-color: ($color-black) !default;
+$card-image-placeholder-color: ($color-accent) !default;
+$card-supporting-text-text-color: $color-black !default;
+$card-border-color: rgba(0,0,0,0.1) !default;
+$card-subtitle-color: rgba($color-black, 0.54) !default;
+
+// Card dimensions
+$card-width: 330px !default;
+$card-height: 200px !default;
+$card-font-size: 16px !default;
+$card-title-font-size: 24px !default;
+$card-subtitle-font-size: 14px !default;
+$card-horizontal-padding: 16px !default;
+$card-vertical-padding: 16px !default;
+
+$card-title-perspective-origin-x: 165px !default;
+$card-title-perspective-origin-y: 56px !default;
+
+$card-title-transform-origin-x: 165px !default;
+$card-title-transform-origin-y: 56px !default;
+
+$card-title-text-transform-origin-x: 149px !default;
+$card-title-text-transform-origin-y: 48px !default;
+
+$card-supporting-text-font-size: 1rem !default;
+$card-supporting-text-line-height: 18px !default;
+
+$card-actions-font-size: 16px !default;
+
+$card-title-text-font-weight: 300 !default;
+$card-z-index: 1 !default;
+
+// Cover image
+$card-cover-image-height: 186px !default;
+$card-background-image-url: '' !default;

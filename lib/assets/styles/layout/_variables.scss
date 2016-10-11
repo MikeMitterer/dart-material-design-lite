@@ -1,0 +1,64 @@
+//----
+// Copyright 2015 Google Inc. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+// =========  Layout  =========
+
+$layout-nav-color: ($palette-grey-300) !default;
+
+// Drawer
+$layout-drawer-bg-color: ($palette-grey-50) !default;
+$layout-drawer-border-color: ($palette-grey-300) !default;
+$layout-text-color: ($palette-grey-800) !default;
+$layout-drawer-navigation-color: #757575 !default;
+$layout-drawer-navigation-link-active-background: ($color-light-contrast) !default;
+$layout-drawer-navigation-link-active-color: ($palette-grey-300) !default;
+
+// Header
+$layout-header-bg-color: ($color-primary) !default;
+$layout-header-text-color: ($color-primary-contrast) !default;
+$layout-header-nav-hover-color: rgba($palette-grey-700, 0.6) !default;
+$layout-header-tab-text-color: rgba($color-primary-contrast, 0.6) !default;
+
+// Tabs
+$layout-header-tab-highlight: ($color-accent) !default;
+
+// Dimensions
+
+$layout-drawer-narrow: 240px !default;
+$layout-drawer-wide: 456px !default;
+$layout-drawer-width: $layout-drawer-narrow !default;
+
+$layout-header-icon-size: 32px !default;
+$layout-screen-size-threshold: 1024px !default;
+$layout-header-icon-margin: 24px !default;
+$layout-drawer-button-mobile-size: 32px !default;
+$layout-drawer-button-desktop-size: 48px !default;
+
+$layout-header-mobile-row-height: 56px !default;
+$layout-mobile-header-height: $layout-header-mobile-row-height;
+$layout-header-desktop-row-height: 64px !default;
+$layout-desktop-header-height: $layout-header-desktop-row-height;
+
+$layout-header-desktop-baseline: 80px !default;
+$layout-header-mobile-baseline: 72px !default;
+$layout-header-mobile-indent: 16px !default;
+$layout-header-desktop-indent: 40px !default;
+
+$layout-tab-font-size: 14px !default;
+$layout-tab-bar-height: 48px !default;
+$layout-tab-mobile-padding: 12px !default;
+$layout-tab-desktop-padding: 24px !default;
+$layout-tab-highlight-thickness: 2px !default;

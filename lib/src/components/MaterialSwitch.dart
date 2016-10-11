@@ -21,7 +21,7 @@ part of mdlcomponents;
 
 /// Controller-View for
 ///
-///     <label class="mdl-switch mdl-js-ripple-effect" for="switch-1">
+///     <label class="mdl-switch mdl-ripple-effect" for="switch-1">
 ///       <input type="checkbox" id="switch-1" class="mdl-switch__input" >
 ///       <span class="mdl-switch__label">Switch me</span>
 ///     </label>
@@ -60,7 +60,7 @@ class MaterialSwitch extends MdlComponent with FallbackFormatter {
     /**
      * Makes it possible to get the "widget" from the components input-element instead of its mdl-class
      * Sample:
-     *      <label class="mdl-switch mdl-js-ripple-effect" for="switch-1">
+     *      <label class="mdl-switch mdl-ripple-effect" for="switch-1">
      *          <input type="checkbox" id="switch-1" class="mdl-switch__input" />
      *          <span class="mdl-switch__label">Switch me</span>
      *      </label>
@@ -266,9 +266,9 @@ class _MaterialSwitchCssClasses {
 
     final String FOCUS_HELPER = 'mdl-switch__focus-helper';
 
-    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_EFFECT = 'mdl-ripple-effect';
 
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-ripple-effect--ignore-events';
 
     final String RIPPLE_CONTAINER = 'mdl-switch__ripple-container';
 

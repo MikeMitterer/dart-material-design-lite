@@ -1,0 +1,31 @@
+// Define whether to target elements directly for typographic enhancements.
+// Turning this off means you need to use mdl-* classes more often.
+// Other components may also fail to adhere to MD without these rules.
+// It is strongly recommended you leave this as true.
+
+$target-elements-directly: true !default;
+
+// =========  TYPOGRAPHY  =========
+
+// We're splitting fonts into "preferred" and "performance" in order to optimize
+// page loading. For important text, such as the body, we want it to load
+// immediately and not wait for the web font load, whereas for other sections,
+// such as headers and titles, we're OK with things taking a bit longer to load.
+// We do have some optional classes and parameters in the mixins, in case you
+// definitely want to make sure you're using the preferred font and don't mind
+// the performance hit.
+// We should be able to improve on this once CSS Font Loading L3 becomes more
+// widely available.
+
+
+$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
+$performance_font: 'Helvetica', 'Arial', sans-serif !default;
+
+// =========  Typography  =========
+
+// We use the following default color styles: text-color-primary and
+// text-color-secondary. For light themes, use text-color-primary-inverse
+// and text-color-secondary-inverse.
+
+$text-color-primary: rgba($color-black, 0.87) !default;
+$text-link-color: $color-accent !default;

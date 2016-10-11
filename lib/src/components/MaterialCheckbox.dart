@@ -22,7 +22,7 @@ part of mdlcomponents;
 
 
 /// Controller-View for
-///     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+///     <label class="mdl-checkbox mdl-ripple-effect" for="checkbox-1">
 ///          <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" />
 ///          <span class="mdl-checkbox__label">Check me out</span>
 ///    </label>
@@ -60,7 +60,7 @@ class MaterialCheckbox extends MdlComponent with FallbackFormatter {
     /**
      * Makes it possible to get the "widget" from the components input-element instead of its mdl-class
      * Sample:
-     *      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+     *      <label class="mdl-checkbox mdl-ripple-effect" for="checkbox-2">
      *          <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" />
      *          <span class="mdl-checkbox__label">I'm just a Material girl in a Material world</span>
      *      </label>
@@ -263,7 +263,7 @@ void registerMaterialCheckbox() => componentHandler().register(materialCheckboxC
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
 class _MaterialCheckboxCssClasses {
-    static const String MAIN_CLASS = "mdl-js-checkbox";
+    static const String MAIN_CLASS = "mdl-checkbox";
 
     final String INPUT = 'mdl-checkbox__input';
 
@@ -275,9 +275,9 @@ class _MaterialCheckboxCssClasses {
 
     final String TICK_OUTLINE = 'mdl-checkbox__tick-outline';
 
-    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_EFFECT = 'mdl-ripple-effect';
 
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-ripple-effect--ignore-events';
 
     final String RIPPLE_CONTAINER = 'mdl-checkbox__ripple-container';
 

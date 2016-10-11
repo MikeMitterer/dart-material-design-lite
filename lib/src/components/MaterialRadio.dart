@@ -20,7 +20,7 @@
 part of mdlcomponents;
 
 /// Controller-View for
-///      <label class="mdl-radio mdl-js-ripple-effect" for="wifi1">
+///      <label class="mdl-radio mdl-ripple-effect" for="wifi1">
 ///         <input type="radio" id="wifi1" class="mdl-radio__button" name="wifi[]" value="1" checked />
 ///          <span class="mdl-radio__label">Always</span>
 ///      </label>
@@ -58,7 +58,7 @@ class MaterialRadio extends MdlComponent with FallbackFormatter {
     /**
      * Makes it possible to get the "widget" from the components input-element instead of its mdl-class
      * Sample:
-     *      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi2">
+     *      <label class="mdl-radio mdl-radio mdl-ripple-effect" for="wifi2">
      *          <input type="radio" id="wifi2" class="mdl-radio__button" name="wifi[]" value="2"/>
      *          <span class="mdl-radio__label">Only when plugged in</span>
      *      </label>
@@ -417,7 +417,7 @@ class _MaterialRadioCssClasses {
 
     final String IS_UPGRADED = 'is-upgraded';
 
-    final String JS_RADIO = 'mdl-js-radio';
+    final String JS_RADIO = 'mdl-radio';
 
     final String INPUT = 'mdl-radio__button';
 
@@ -427,9 +427,9 @@ class _MaterialRadioCssClasses {
 
     final String RADIO_INNER_CIRCLE = 'mdl-radio__inner-circle';
 
-    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String RIPPLE_EFFECT = 'mdl-ripple-effect';
 
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-ripple-effect--ignore-events';
 
     final String RIPPLE_CONTAINER = 'mdl-radio__ripple-container';
 

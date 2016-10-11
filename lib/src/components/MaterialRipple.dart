@@ -24,10 +24,10 @@ part of mdlcomponents;
 /// decide to modify at a later date.
 class _MaterialRippleCssClasses {
 
-    static const String MAIN_CLASS                  = "mdl-js-ripple-effect";
+    static const String MAIN_CLASS                  = "mdl-ripple-effect";
 
     final String MDL_RIPPLE_CENTER                  = 'mdl-ripple--center';
-    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String MDL_JS_RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-ripple-effect--ignore-events';
     final String MDL_RIPPLE                         = 'mdl-ripple';
 
     final String IS_ANIMATING                       = 'is-animating';

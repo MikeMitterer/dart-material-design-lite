@@ -1,0 +1,33 @@
+// ----------------------------------------------------------------------------
+// Copyright (c) 2016, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+// =========  Icon Toggles  =========
+
+$icon-toggle-color: ($palette-grey-700) !default;
+$icon-toggle-focus-color: $button-focus-color !default;
+$icon-toggle-checked-color: ($color-primary) !default;
+$icon-toggle-checked-focus-color: rgba($color-primary, 0.26) !default;
+$icon-toggle-disabled-color: rgba($color-black, 0.26) !default;
+
+// Dimensions
+
+$icon-toggle-size: 32px !default;
+$icon-toggle-font-size: 24px !default;
+$icon-toggle-ripple-size: 36px !default;
+

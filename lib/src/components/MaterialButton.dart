@@ -21,8 +21,8 @@ part of mdlcomponents;
 
 /// Controller-View for
 ///     <button id="button" class="mdl-button">Flat</button>
-///     <button class="mdl-button mdl-js-ripple-effect">Flat</button>
-///     <button class="mdl-button mdl-js-button mdl-button--fab">
+///     <button class="mdl-button mdl-ripple-effect">Flat</button>
+///     <button class="mdl-button mdl-button--fab">
 ///         <i class="material-icons">add</i>
 ///     </button>
 ///
@@ -134,7 +134,7 @@ class _MaterialButtonCssClasses {
 
     static const String MAIN_CLASS  = "mdl-button";
 
-    final String RIPPLE_EFFECT =      'mdl-js-ripple-effect';
+    final String RIPPLE_EFFECT =      'mdl-ripple-effect';
     final String RIPPLE_CONTAINER =   'mdl-button__ripple-container';
     final String RIPPLE =             'mdl-ripple';
 

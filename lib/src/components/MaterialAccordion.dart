@@ -19,53 +19,10 @@
 
 part of mdlcomponents;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialAccordionCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-accordion";
-
-    final String GROUP              = "mdl-accordion-group";
-
-    final String ACCORDION_TYPE     = "mdl-accordion--radio-type";
-    final String NAVIGATION         = "mdl-accordion--navigation";
-
-    final String ACCORDION          = "mdl-accordion";
-    final String ACCORDION_LABEL    = "mdl-accordion__label";
-    final String RIPPLE_CONTAINER   = 'mdl-accordion__ripple-container';
-
-    final String RIPPLE_EFFECT      = 'mdl-js-ripple-effect';
-    final String RIPPLE             = 'mdl-ripple';
-
-    final String LINK               = "mdl-navigation__link";
-
-    final String RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-
-    final String IS_UPGRADED        = 'is-upgraded';
-
-    const _MaterialAccordionCssClasses();
-}
-
-/// Store constants in one place so they can be updated easily.
-class _MaterialAccordionConstant {
-
-    final String CHECKBOX_NAME      = "mdl-accordion";
-
-    const _MaterialAccordionConstant();
-}
-
-/// creates MdlConfig for MaterialAccordion
-MdlConfig materialAccordionConfig() => new MdlWidgetConfig<MaterialAccordion>(
-    _MaterialAccordionCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
-        => new MaterialAccordion.fromElement(element,injector));
-
-/// registration-Helper
-void registerMaterialAccordion() => componentHandler().register(materialAccordionConfig());
 
 /**
  * Sample:
- *   <div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect">
+ *   <div class="mdl-accordion-group mdl-accordion mdl-ripple-effect">
  *    <!-- Panel 1 -->
  *   <div class="mdl-accordion">
  *       <label class="mdl-accordion__label" for="panel-1-check">Panel 1<i class="fa fa-chevron-right indicator"></i></label>
@@ -227,3 +184,47 @@ class MaterialAccordion extends MdlComponent {
     }
 }
 
+/// creates MdlConfig for MaterialAccordion
+MdlConfig materialAccordionConfig() => new MdlWidgetConfig<MaterialAccordion>(
+    _MaterialAccordionCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+=> new MaterialAccordion.fromElement(element,injector));
+
+/// registration-Helper
+void registerMaterialAccordion() => componentHandler().register(materialAccordionConfig());
+
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialAccordionCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-accordion";
+
+    final String GROUP              = "${MAIN_CLASS}-group";
+
+    final String ACCORDION_TYPE     = "${MAIN_CLASS}--radio-type";
+    final String NAVIGATION         = "${MAIN_CLASS}--navigation";
+
+    final String ACCORDION          = "${MAIN_CLASS}";
+    final String ACCORDION_LABEL    = "${MAIN_CLASS}__label";
+    final String RIPPLE_CONTAINER   = '${MAIN_CLASS}__ripple-container';
+
+    final String RIPPLE             = 'mdl-ripple';
+    final String RIPPLE_EFFECT      = 'mdl-ripple-effect';
+
+    final String LINK               = "mdl-navigation__link";
+
+    final String RIPPLE_EFFECT_IGNORE_EVENTS = 'mdl-ripple-effect--ignore-events';
+
+    final String IS_UPGRADED        = 'is-upgraded';
+
+    const _MaterialAccordionCssClasses();
+}
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialAccordionConstant {
+
+    final String CHECKBOX_NAME      = "mdl-accordion";
+
+    const _MaterialAccordionConstant();
+}

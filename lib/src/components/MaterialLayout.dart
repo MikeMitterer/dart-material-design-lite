@@ -41,7 +41,7 @@ class _MaterialLayoutMode {
 
 /// Controller-View for
 ///     <div class="demo-layout fixed-drawer-container">
-///       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+///       <div class="mdl-layout mdl-layout mdl-layout--fixed-header">
 ///           <header class="mdl-layout__header">
 ///               <div class="mdl-layout__header-row">
 ///                   <!-- Title -->
@@ -627,7 +627,7 @@ void registerMaterialLayout() => componentHandler().register(materialLayoutConfi
 /// decide to modify at a later date.
 class _MaterialLayoutCssClasses {
 
-    static const String MAIN_CLASS  = "mdl-js-layout";
+    static const String MAIN_CLASS  = "mdl-layout";
 
     final String CONTAINER = 'mdl-layout__container';
     final String HEADER = 'mdl-layout__header';
@@ -637,10 +637,10 @@ class _MaterialLayoutCssClasses {
 
     final String ICON = 'material-icons';
 
-    final String JS_RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+    final String JS_RIPPLE_EFFECT = 'mdl-ripple-effect';
     final String RIPPLE_CONTAINER = 'mdl-layout__tab-ripple-container';
     final String RIPPLE = 'mdl-ripple';
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-ripple-effect--ignore-events';
 
     final String HEADER_SEAMED = 'mdl-layout__header--seamed';
     final String HEADER_WATERFALL = 'mdl-layout__header--waterfall';

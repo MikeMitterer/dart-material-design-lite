@@ -1,5 +1,5 @@
 //---
-// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// Copyright (c) 2016, Michael Mitterer (office@mikemitterer.at),
 // IT-Consulting and Development Limited.
 //
 // All Rights Reserved.
@@ -17,19 +17,12 @@
 // limitations under the License.
 //
 
-@import "../variables";
+@import "../theme/theme";
+@import "../shadow/mixins";
+@import "../typography/mixins";
+
+@import "variables";
 @import "mixins";
-
-$dialog-secondary-color: ($color-black) !default;
-
-$dialog-baseline-grid : 8px !default;
-$dialog-swift-ease-out-duration : 0.2s !default;
-
-$dialog-swift-ease-out-duration : 0.2s !default;
-$dialog-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
-$dialog-swift-ease-out : all $dialog-swift-ease-out-duration $dialog-swift-ease-out-timing-function !default;
-
-$dialog-z-index : 80 !default;
 
 .mdl-dialog-container {
     display          : flex;

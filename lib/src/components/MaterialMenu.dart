@@ -38,11 +38,11 @@ class _KeyCode {
 ///         <div class="bar-menu-lower-left">
 ///             <!-- Left aligned menu below button -->
 ///             <button id="demo-menu-lower-left"
-///                     class="mdl-button mdl-js-button mdl-button--icon">
+///                     class="mdl-button mdl-button mdl-button--icon">
 ///                 <i class="material-icons">more_vert</i>
 ///             </button>
 ///
-///             <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+///             <ul class="mdl-menu mdl-menu--bottom-left mdl-menu mdl-ripple-effect"
 ///                 data-mdl-for="demo-menu-lower-left">
 ///                 <li class="mdl-menu__item">Some Action</li>
 ///                 <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Another Action</li>
@@ -487,14 +487,14 @@ void registerMaterialMenu() => componentHandler().register(materialMenuConfig())
 /// decide to modify at a later date.
 class _MaterialMenuCssClasses {
 
-    static const String MAIN_CLASS  = "mdl-js-menu";
+    static const String MAIN_CLASS  = "mdl-menu";
 
     final String CONTAINER = 'mdl-menu__container';
     final String OUTLINE = 'mdl-menu__outline';
     final String ITEM = 'mdl-menu__item';
     final String ITEM_RIPPLE_CONTAINER = 'mdl-menu__item-ripple-container';
-    final String RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-    final String RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
+    final String RIPPLE_EFFECT = 'mdl-ripple-effect';
+    final String RIPPLE_IGNORE_EVENTS = 'mdl-ripple-effect--ignore-events';
     final String RIPPLE = 'mdl-ripple';
 
     // Statuses

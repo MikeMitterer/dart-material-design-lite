@@ -1,0 +1,85 @@
+// ----------------------------------------------------------------------------
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+// ---------------------------------------------------------------------------------------------------------------------
+//
+// default palette - can be overwritten with _theme.scss!!!!
+// (not in original version)
+//
+
+// Palettes (14 colors)  50 - 900 + A100 - A700 possible
+//     palette-red
+//     palette-pink
+//     palette-purple
+//     palette-deep-purple
+//     palette-indigo
+//     palette-blue
+//     palette-light-blue
+//     palette-cyan
+//     palette-teal
+//     palette-green
+//     palette-light-green
+//     palette-lime
+//     palette-yellow
+//     palette-amber
+//     palette-orange
+//     palette-deep-orange
+//
+// Palettes (10 colors) 50 - 900 possible
+//     palette-brown
+//     palette-grey
+//     palette-blue-grey
+//
+
+//----------
+// Original color-settings in _variables
+//
+// $color-primary: $palette-blue-grey-800 !default;
+// $color-primary-dark: $palette-blue-grey-900 !default;
+// $color-accent: $palette-cyan-600 !default;
+
+// Defines all the palettes (e.g. $palette-lime, $palette-yellow...)
+@import "color-definitions";
+
+// =========  Color & Themes  =========
+
+// Use color primarily for emphasis. Choose colors that fit with
+// your brand and provide good contrast between visual components.
+
+//
+// Define your primary palette and your accent palette in your main scss-file
+// or use one of the predefined themes.
+
+$theme-name: "indigo-pink" !default;
+$palette-primary: $palette-indigo !default;
+$palette-accent: $palette-pink !default;
+
+// Set theme_palette according to the settings made above
+@import "theme_palette";
+
+$color-primary: $palette-primary-500 !default;
+$color-primary-dark: $palette-primary-700 !default;
+
+$color-accent: $palette-accent-A200 !default;
+
+// Our primary is dark, so use $color-dark-contrast for overlaid text.
+$color-primary-contrast: $color-dark-contrast !default;
+
+// Our accent is dark, so use $color-dark-contrast for overlaid text.
+$color-accent-contrast: $color-dark-contrast !default;

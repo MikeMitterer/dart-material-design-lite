@@ -1,5 +1,5 @@
 //---
-// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// Copyright (c) 2016, Michael Mitterer (office@mikemitterer.at),
 // IT-Consulting and Development Limited.
 //
 // All Rights Reserved.
@@ -17,18 +17,8 @@
 // limitations under the License.
 //
 
-@import "../variables";
-
-// -
-// Sizes
-// ----------------------------------------------------------------------------
-
-$padding : 16px !default;
-$bottom-bar-heading-font-size : 24px !default;
-$bottom-bar-heading-line-height : (1.5 * $bottom-bar-heading-font-size) !default;
-$bottom-bar-btn-size : 36px !default;
-$bottom-bar-btn-color: $layout-header-bg-color !default;
-$bottom-bar-height: 56px;
+@import "../theme/theme";
+@import "variables";
 
 .mdl-bottom-bar {
     box-sizing       : border-box;
@@ -42,8 +32,8 @@ $bottom-bar-height: 56px;
     min-height: $bottom-bar-height;
 
     //padding          : $padding;
-    color            : $layout-header-text-color;
-    background-color : $layout-header-bg-color;
+    color            : $bottom-bar-text-color;
+    background-color : $bottom-bar-bg-color;
 
     width: 100%;
 
@@ -75,7 +65,7 @@ $bottom-bar-height: 56px;
         li {
             float         : left;
             margin-bottom : 0;
-            margin-right  : $padding;
+            margin-right  : $bottom-bar-padding;
         }
     }
 
@@ -89,7 +79,7 @@ $bottom-bar-height: 56px;
         padding          : 0;
 
         color            : $bottom-bar-btn-color;
-        background-color : $layout-header-text-color;
+        background-color : $bottom-bar-text-color;
         border           : none;
 
         //&:last-child {

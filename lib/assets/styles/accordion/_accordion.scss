@@ -1,5 +1,5 @@
 //---
-// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// Copyright (c) 2016, Michael Mitterer (office@mikemitterer.at),
 // IT-Consulting and Development Limited.
 //
 // All Rights Reserved.
@@ -17,24 +17,12 @@
 // limitations under the License.
 //
 
-@import "../variables";
+//@import "../theme/color-definitions";
+//@import "../theme/theme";
+@import "../theme/theme";
+@import "variables";
 
 // MasterSample: http://codepen.io/MikeMitterer/pen/yyjKPd
-
-// Color Variables
-$accordion-header-color : rgba(0, 0, 0, 0.8) !default; // like tabs
-$accordion-text-color : rgba(0, 0, 0, 0.6) !default; // like tabs
-$accordion-active-text-color : black !default;
-$accordion-highlight-color : unquote("rgb(#{$color-primary})") !default;
-$accordion-divider-color : #ddd !default;
-
-/* Animation Variables */
-$accordion-timing: .3s !default;
-$accordion-ease: cubic-bezier(0.865, 0.140, 0.095, 0.870);
-
-$accordion-label-height: 48px !default;
-$accordion-label-font-size: 16px !default;
-$accordion-padding: 16px !default;
 
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -140,7 +128,7 @@ mdl-accordion-group {
                 overflow: hidden;
 
                 & .mdl-ripple {
-                    background: $tab-highlight-color;
+                    background: $accordion-highlight-color;
                 }
             }
         }

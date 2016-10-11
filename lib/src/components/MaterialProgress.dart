@@ -20,7 +20,7 @@
 part of mdlcomponents;
 
 /// Controller-View for
-///     <div id="p1" class="mdl-progress mdl-js-progress"></div>
+///     <div id="p1" class="mdl-progress mdl-progress"></div>
 ///
 class MaterialProgress extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialProgress');
@@ -108,7 +108,7 @@ void registerMaterialProgress() => componentHandler().register(materialProgressC
 /// decide to modify at a later date.
 class _MaterialProgressCssClasses {
 
-    static const String MAIN_CLASS  = "mdl-js-progress";
+    static const String MAIN_CLASS  = "mdl-progress";
 
     final String INDETERMINATE_CLASS = 'mdl-progress__indeterminate';
     final String IS_UPGRADED = 'is-upgraded';
