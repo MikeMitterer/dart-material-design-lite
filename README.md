@@ -3,22 +3,20 @@
 
 [www.material-design-lite.pub](http://www.material-design-lite.pub).
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/MikeMitterer/dart-material-design-lite-site/master/doc/logo/mdl-dart-logo-500px.png" alt="Logo" />
+</p>
+
 MDL/Dart is also on [Facebook](https://www.facebook.com/mdl4dart/)
 
 Material Design Lite lets you add a Material Design look and feel to your dynamic websites and web app. It doesn't rely on any JavaScript
 frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
 from the get-go.
 
+Check out the [CHANGELOG](https://github.com/MikeMitterer/dart-material-design-lite/blob/master/CHANGELOG.md)! to see what's new.
+
 ## Getting started
 Here is a [short guide](http://styleguide.material-design-lite.pub/#/gettingstarted) to help you setting up your MDL/Dart page
-
-## New
-v 1.11 - MDLFlux (REACT-like Actions, ActionBus, Dispatcher and DataStore)
-
-You can see further changes on the [CHANGELOG](https://github.com/MikeMitterer/dart-material-design-lite/blob/master/CHANGELOG.md)!
-
-[Flux - Overview](https://facebook.github.io/flux/docs/overview.html#content)
-![MDLFlux](http://styleguide.material-design-lite.pub/assets/images/mdlFlux.png "MDLFlux message flow")
 
 ## Main features
 - 16 base components ready to use
@@ -39,6 +37,14 @@ Visit the [website](http://www.material-design-lite.pub) for a "Quick start" or 
 ## Examples
 Check out the [samples](http://styleguide.material-design-lite.pub/#/samples)  
 Download all the samples as TGZ from [here](http://www.material-design-lite.pub/#resources)
+
+## MDLFlux for Data-Handling
+**(REACT-like Actions, ActionBus, Dispatcher and DataStore)**
+
+[Flux - Overview](https://facebook.github.io/flux/docs/overview.html#content)
+![MDLFlux](http://styleguide.material-design-lite.pub/assets/images/mdlFlux.png "MDLFlux message flow")
+
+**MDLFlux in action**: [ToDO-Sample](http://samples.material-design-lite.pub/spa_todo/index.html) *([Source](https://github.com/MikeMitterer/dart-material-design-lite-site/tree/master/samples/spa_todo))*
 
 ### IMPORTANT!!!
 All samples-sources are now on [GH dart-material-design-lite-site](https://github.com/MikeMitterer/dart-material-design-lite-site)
