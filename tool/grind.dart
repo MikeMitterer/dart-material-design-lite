@@ -3,8 +3,14 @@ library gensamples;
 import 'package:grinder/grinder.dart';
 import 'package:mdl/src/grinder/grinder.dart' as mdl;
 
+import 'grinder/merge.dart';
 
 main(args) => grind(args);
+
+@Task()
+merge() {
+    new Merger2()..merge();
+}
 
 @Task()
 @Depends(genCss, genThemes, test)
