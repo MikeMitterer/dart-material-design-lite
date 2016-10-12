@@ -53,23 +53,23 @@ class FormChangedEvent {
  *      <form method="post" class="right mdl-form mdl-form-registration demo-registration">
  *          <h5 class="mdl-form__title">Register for launch</h5>
  *          <div class="mdl-form__content">
- *              <div class="mdl-textfield mdl-js-textfield">
+ *              <div class="mdl-textfield">
  *                  <input class="mdl-textfield__input" type="text" id="sample1" required />
  *                  <label class="mdl-textfield__label" for="sample1">Name</label>
  *                  <span class="mdl-textfield__error">This field must not be empty</span>
  *              </div>
- *              <div class="mdl-textfield mdl-js-textfield">
+ *              <div class="mdl-textfield">
  *                  <input class="mdl-textfield__input" type="email" id="email" required />
  *                  <label class="mdl-textfield__label" for="email">Email</label>
  *              </div>
- *              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="remember_me">
+ *              <label class="mdl-checkbox mdl-js-checkbox mdl-ripple-effect" for="remember_me">
  *                  <input type="checkbox" id="remember_me" class="mdl-checkbox__input" required />
  *                  <span class="mdl-checkbox__label">Remember me</span>
  *              </label>
  *              </div>
  *          <div class="mdl-form__actions">
  *              <button class="mdl-button mdl-js-button mdl-button--submit mdl-button--raised
- *                  mdl-button--primary mdl-js-ripple-effect" disabled>
+ *                  mdl-button--primary mdl-ripple-effect" disabled>
  *                 Login
  *              </button>
  *              </div>

@@ -23,7 +23,7 @@ part of mdlapplication;
 /// decide to modify at a later date.
 class _MaterialIncludeCssClasses {
 
-    static const String MAIN_CLASS  = "mdl-js-include";
+    static const String MAIN_CLASS  = "mdl-include";
 
     final String IS_UPGRADED = 'is-upgraded';
 

@@ -24,7 +24,7 @@ part of mdlapplication;
 /// decide to modify at a later date.
 class _MaterialContentCssClasses {
 
-    static const String MAIN_CLASS  = "mdl-js-content";
+    static const String MAIN_CLASS  = "mdl-content";
 
     final String IS_UPGRADED = 'is-upgraded';
 
@@ -53,7 +53,7 @@ class MaterialContent extends MdlComponent {
     static MaterialContent widget(final dom.HtmlElement element) => mdlComponent(element,MaterialContent) as MaterialContent;
 
 
-    // Central Element - by default this is where mdl-js-content was found (element)
+    // Central Element - by default this is where mdl-content was found (element)
     // html.Element get hub => inputElement;
 
     /// Render the {content} String - {content} must have ONE! top level element

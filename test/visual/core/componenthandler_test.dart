@@ -64,7 +64,7 @@ main() async {
             } on String catch(e) {
 
                 expect(e,"button is not a MdlComponent!!! (ID: button-to-downgrade, "
-                    "Classes: mdl-button mdl-js-button mdl-downgraded, Dataset: null)");
+                    "Classes: mdl-button mdl-downgraded, Dataset: null)");
 
                 foundException = true;
             }
@@ -150,7 +150,7 @@ main() async {
             } on String catch(e) {
 
                 expect(e,"div is not a MdlComponent!!! (ID: tab-to-downgrade, "
-                    "Classes: mdl-tabs mdl-js-tabs mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events "
+                    "Classes: mdl-tabs mdl-ripple-effect mdl-ripple-effect--ignore-events "
                     "mdl-downgraded, Dataset: null)");
 
                 foundException = true;

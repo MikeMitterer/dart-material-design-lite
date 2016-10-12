@@ -26,14 +26,14 @@ main() async {
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();
     final String html = '''
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi1" mdl-formatter="uppercase(value)">
+            <label class="mdl-radio mdl-ripple-effect" for="wifi1" mdl-formatter="uppercase(value)">
                 <input type="radio" id="wifi1" class="mdl-radio__button" name="wifi[]" value="1" checked>
                 <span class="mdl-radio__label">Always</span>
             </label>
     '''.trim().replaceAll(new RegExp(r"\s+")," ");
 
     final String htmlForLabelTest = '''
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi1">
+            <label class="mdl-radio mdl-ripple-effect" for="wifi1">
                 <input type="radio" id="wifi1" class="mdl-radio__button" name="wifi[]" value="1" checked>
                 <span class="mdl-radio__label" mdl-formatter="uppercase(value)">Always</span>
             </label>

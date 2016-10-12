@@ -1,0 +1,22 @@
+// =========  Dropdown menu =========
+
+$default-dropdown-bg-color: ($color-white) !default;
+
+// MENU
+
+$menu-expand-duration: 0.3s !default;
+$menu-fade-duration: 0.2s !default;
+
+// =========  Item =========
+
+// Default Item Colors
+$default-item-text-color: rgba($color-black, 0.87) !default;
+$default-item-outline-color: ($palette-grey-400) !default;
+$default-item-hover-bg-color: ($palette-grey-200) !default;
+$default-item-focus-bg-color: ($palette-grey-200) !default;
+$default-item-active-bg-color: ($palette-grey-300) !default;
+$default-item-divider-color: rgba($color-black, 0.12) !default;
+
+// Disabled Button Colors
+$disabled-item-text-color: ($palette-grey-400) !default;
+

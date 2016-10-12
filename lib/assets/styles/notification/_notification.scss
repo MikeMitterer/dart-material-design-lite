@@ -18,43 +18,10 @@
 //
 
 //@import "../variables";
+@import "../theme/theme";
 @import "../typography/mixins";
 
-//$notification-baseline-grid:            8px !default;
-//$notification-swift-ease-out-duration : 0.2s !default;
-//
-//$notification-height: $notification-baseline-grid * 3 !default;
-//$notification-margin: $notification-baseline-grid * 1 !default;
-
-$notification-swift-ease-in-duration: 1s !default;
-$notification-swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
-$notification-swift-ease-in: all $notification-swift-ease-in-duration $notification-swift-ease-in-timing-function !default;
-
-$notification-swift-ease-out-duration : 1s !default;
-$notification-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
-$notification-swift-ease-out : all $notification-swift-ease-out-duration $notification-swift-ease-out-timing-function !default;
-
-$notification-z-index: 90 !default;
-
-//$notification-layout-breakpoint-sm:     600px !default;
-//
-//$notification-color: invert($text-color-primary) !default;
-//$notification-button-color: nth($palette-accent, 5) !default;
-//$notification-background: nth($palette-grey, 9) !default;
-
-$notification-container-z-index: 3; // mdl-layout__drawer: 5
-$notification-container-width: 336px;
-
-$notification-width: $notification-container-width - 12px;
-
-$notification-baseline-grid : 8px !default;
-
-$notification-color-debug: $palette-light-green-300 !default;
-$notification-color-info: $palette-blue-400 !default;
-$notification-color-warning: $palette-orange-500 !default;
-$notification-color-error: $palette-red-900 !default;
-
-$notification-color-subtitle: $palette-grey-500 !default;
+@import "variables";
 
 .mdl-notification-container {
     z-index: $notification-container-z-index;

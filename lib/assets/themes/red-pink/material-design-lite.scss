@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Material Colors
-@import "../../styles/palette/color-definitions";
+@import "../../styles/theme/color-definitions";
 
 // Color-Theme
 $theme-name: "red-pink";
@@ -18,7 +18,7 @@ $palette-accent: $palette-pink; // All pallets except brown, grey and blue-grey
 @import "../../styles/resets/resets";
 
 // CSS-Styles for colors
-@import "../../styles/palette/palette";
+@import "../../styles/theme/palette";
 
 // Components
 @import "../../styles/components";

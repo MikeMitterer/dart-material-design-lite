@@ -1,0 +1,56 @@
+// ----------------------------------------------------------------------------
+// Copyright (c) 2016, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+// Media-Queries
+
+// smartphones, portrait iPhone, portrait 480x320 phones (Android) 
+$mq-size-10: 320px !default;
+
+// smartphones, Android phones, landscape iPhone 
+$mq-size-20: 480px !default;
+
+// portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) 
+$mq-size-30: 600px !default;
+
+// tablet, landscape iPad, lo-res laptops ands desktops 
+$mq-size-40: 801px !default;
+
+// big landscape tablets, laptops, and desktops 
+$mq-size-50: 1025px !default;
+
+// hi-res laptops and desktops 
+$mq-size-60: 1281px !default;
+
+//  According to MD Adaptive UI 
+$mq-xsmall-max: 599px !default;
+
+$mq-small: 600px !default;
+$mq-small-max: 959px !default;
+
+$mq-medium: 960px !default;
+$mq-medium-max: 1279px !default;
+
+$mq-large: 1280px !default;
+$mq-large-max: 1919px !default;
+
+$mq-xlarge: 1920px !default;
+
+// - Gutter
+$mp-gutter: 16px;
+$mq-desktop-gutter: 24px;

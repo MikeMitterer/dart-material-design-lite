@@ -1,122 +1,4 @@
 @charset "UTF-8";
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 /* Config - MaterialDesignLite
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -126,13 +8,13 @@
 
     Functions:
     ----------
-    package-docroot:       (package-docroot())                     ../../../..
-    package-root:          (package-root())                        ../../../../packages/mdl
-    package-assets:        (package-assets("upload/sample.svg"))   ../../../../packages/mdl/assets/styles/upload/sample.svg
+    package-docroot:       (package-docroot())                     package-docroot()
+    package-root:          (package-root())                        package-root()
+    package-assets:        (package-assets("upload/sample.svg"))   package-assets("upload/sample.svg")
 
     Fonts:
     ----------
-    Location:              (package-root("assets/fonts"))          ../../../../packages/mdl/assets/fonts
+    Location:              (package-root("assets/fonts"))          package-root("assets/fonts")
 
     Colors:
     ----------
@@ -140,98 +22,403 @@
     Primary palette:        ($palette-primary)            #e8eaf6 #c5cae9 #9fa8da #7986cb #5c6bc0 #3f51b5 #3949ab #303f9f #283593 #1a237e #8c9eff #536dfe #3d5afe #304ffe
     Accent palette:         ($palette-accent)             #fce4ec #f8bbd0 #f48fb1 #f06292 #ec407a #e91e63 #d81b60 #c2185b #ad1457 #880e4f #ff80ab #ff4081 #f50057 #c51162
 
-    Palette-primary-50:     ($palette-primary-50)         #e8eaf6
-    Palette-primary-100:    ($palette-primary-100)        #c5cae9
-    Palette-primary-200:    ($palette-primary-200)        #9fa8da
-    Palette-primary-300:    ($palette-primary-300)        #7986cb
-    Palette-primary-500:    ($palette-primary-500)        #3f51b5
-    Palette-primary-600:    ($palette-primary-600)        #3949ab
-    Palette-primary-400:    ($palette-primary-400)        #5c6bc0
-    Palette-primary-700:    ($palette-primary-700)        #303f9f
-    Palette-primary-800:    ($palette-primary-800)        #283593
-    Palette-primary-900:    ($palette-primary-900)        #1a237e
-
-    Palette-primary-A100:    ($palette-primary-A100)      #8c9eff
-    Palette-primary-A200:    ($palette-primary-A200)      #536dfe
-    Palette-primary-A400:    ($palette-primary-A400)      #3d5afe
-    Palette-primary-A700:    ($palette-primary-A700)      #304ffe
-
-    Palette-accent-50:       ($palette-accent-50)         #fce4ec
-    Palette-accent-100:      ($palette-accent-100)        #f8bbd0
-    Palette-accent-200:      ($palette-accent-200)        #f48fb1
-    Palette-accent-300:      ($palette-accent-300)        #f06292
-    Palette-accent-400:      ($palette-accent-400)        #ec407a
-    Palette-accent-500:      ($palette-accent-500)        #e91e63
-    Palette-accent-600:      ($palette-accent-600)        #d81b60
-    Palette-accent-700:      ($palette-accent-700)        #c2185b
-    Palette-accent-800:      ($palette-accent-800)        #ad1457
-    Palette-accent-900:      ($palette-accent-900)        #880e4f
-
-    Palette-accent-A100:     ($palette-accent-A100)       #ff80ab
-    Palette-accent-A200:     ($palette-accent-A200)       #ff4081
-    Palette-accent-A400:     ($palette-accent-A400)       #f50057
-    Palette-accent-A700:     ($palette-accent-A700)       #c51162
-
 --------------------------------------------------------------------------------------------------------------------- */
+html, body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0; }
+
 /**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+  * Styles for HTML elements
+  */
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  opacity: 0.54;
+  font-size: 0.6em; }
+
+h1 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin-top: 24px;
+  margin-bottom: 24px; }
+
+h2 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px;
+  margin-top: 24px;
+  margin-bottom: 24px; }
+
+h3 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+  margin-top: 24px;
+  margin-bottom: 24px; }
+
+h4 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 24px;
+  margin-bottom: 16px; }
+
+h5 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin-top: 24px;
+  margin-bottom: 16px; }
+
+h6 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  margin-top: 24px;
+  margin-bottom: 16px; }
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  margin-bottom: 16px; }
+
+a {
+  color: #ff4081;
+  font-weight: 500; }
+
+blockquote {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  position: relative;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.35;
+  letter-spacing: 0.08em; }
+  blockquote:before {
+    position: absolute;
+    left: -0.5em;
+    content: '“'; }
+  blockquote:after {
+    content: '”';
+    margin-left: -0.05em; }
+
+mark {
+  background-color: #f4ff81; }
+
+dt {
+  font-weight: 700; }
+
+address {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  font-style: normal; }
+
+ul, ol {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0; }
+
 /**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Class Name Styles
  */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
+.mdl-typography--display-4 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 112px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em; }
+
+.mdl-typography--display-4-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 112px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  opacity: 0.54; }
+
+.mdl-typography--display-3 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.02em; }
+
+.mdl-typography--display-3-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  opacity: 0.54; }
+
+.mdl-typography--display-2 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px; }
+
+.mdl-typography--display-2-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px;
+  opacity: 0.54; }
+
+.mdl-typography--display-1 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px; }
+
+.mdl-typography--display-1-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+  opacity: 0.54; }
+
+.mdl-typography--headline {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.mdl-typography--headline-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0.87; }
+
+.mdl-typography--title {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em; }
+
+.mdl-typography--title-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  opacity: 0.87; }
+
+.mdl-typography--subhead {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.mdl-typography--subhead-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.mdl-typography--body-2 {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: 0; }
+
+.mdl-typography--body-2-color-contrast {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: 0;
+  opacity: 0.87; }
+
+.mdl-typography--body-1 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0; }
+
+.mdl-typography--body-1-color-contrast {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  opacity: 0.87; }
+
+.mdl-typography--body-2-force-preferred-font {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0; }
+
+.mdl-typography--body-2-force-preferred-font-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0;
+  opacity: 0.87; }
+
+.mdl-typography--body-1-force-preferred-font {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0; }
+
+.mdl-typography--body-1-force-preferred-font-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  opacity: 0.87; }
+
+.mdl-typography--caption {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0; }
+
+.mdl-typography--caption-force-preferred-font {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0; }
+
+.mdl-typography--caption-color-contrast {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  opacity: 0.54; }
+
+.mdl-typography--caption-force-preferred-font-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  opacity: 0.54; }
+
+.mdl-typography--menu {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0; }
+
+.mdl-typography--menu-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  opacity: 0.87; }
+
+.mdl-typography--button {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0; }
+
+.mdl-typography--button-color-contrast {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0;
+  opacity: 0.87; }
+
+.mdl-typography--text-left {
+  text-align: left; }
+
+.mdl-typography--text-right {
+  text-align: right; }
+
+.mdl-typography--text-center {
+  text-align: center; }
+
+.mdl-typography--text-justify {
+  text-align: justify; }
+
+.mdl-typography--text-nowrap {
+  white-space: nowrap; }
+
+.mdl-typography--text-lowercase {
+  text-transform: lowercase; }
+
+.mdl-typography--text-uppercase {
+  text-transform: uppercase; }
+
+.mdl-typography--text-capitalize {
+  text-transform: capitalize; }
+
+.mdl-typography--font-thin {
+  font-weight: 200 !important; }
+
+.mdl-typography--font-light {
+  font-weight: 300 !important; }
+
+.mdl-typography--font-regular {
+  font-weight: 400 !important; }
+
+.mdl-typography--font-medium {
+  font-weight: 500 !important; }
+
+.mdl-typography--font-bold {
+  font-weight: 700 !important; }
+
+.mdl-typography--font-black {
+  font-weight: 900 !important; }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  word-wrap: normal;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; }
+
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -478,25 +665,53 @@ main {
 *[hidden] {
   display: none !important; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
 .mdl-color--transparent {
   background-color: transparent !important; }
+
+.mdl-color--primary {
+  background-color: #3f51b5 !important; }
+
+.mdl-color--primary-contrast {
+  background-color: white !important; }
+
+.mdl-color--primary-dark {
+  background-color: #303f9f !important; }
+
+.mdl-color--accent {
+  background-color: #ff4081 !important; }
+
+.mdl-color--accent-contrast {
+  background-color: white !important; }
+
+.mdl-color-text--primary {
+  color: #3f51b5 !important; }
+
+.mdl-color-text--primary-contrast {
+  color: white !important; }
+
+.mdl-color-text--primary-dark {
+  color: #303f9f !important; }
+
+.mdl-color-text--accent {
+  color: #ff4081 !important; }
+
+.mdl-color-text--accent-contrast {
+  color: white !important; }
+
+a.mdl-color-text--primary {
+  color: #3f51b5 !important; }
+
+a.mdl-color-text--primary-contrast {
+  color: white !important; }
+
+a.mdl-color-text--primary-dark {
+  color: #303f9f !important; }
+
+a.mdl-color-text--accent {
+  color: #ff4081 !important; }
+
+a.mdl-color-text--accent-contrast {
+  color: white !important; }
 
 .mdl-color--50 {
   background-color: #e8eaf6 !important; }
@@ -581,21 +796,6 @@ main {
 
 .mdl-color--accent-A700 {
   background-color: #c51162 !important; }
-
-a.mdl-color-text--primary {
-  color: #3f51b5 !important; }
-
-a.mdl-color-text--primary-contrast {
-  color: white !important; }
-
-a.mdl-color-text--primary-dark {
-  color: #303f9f !important; }
-
-a.mdl-color-text--accent {
-  color: #ff4081 !important; }
-
-a.mdl-color-text--accent-contrast {
-  color: white !important; }
 
 .mdl-color-text--50 {
   color: #e8eaf6 !important; }
@@ -2334,138 +2534,6 @@ a.mdl-color-text--accent-contrast {
 .mdl-color-text--white {
   color: white !important; }
 
-.mdl-color--primary {
-  background-color: #3f51b5 !important; }
-
-.mdl-color--primary-contrast {
-  background-color: white !important; }
-
-.mdl-color--primary-dark {
-  background-color: #303f9f !important; }
-
-.mdl-color--accent {
-  background-color: #ff4081 !important; }
-
-.mdl-color--accent-contrast {
-  background-color: white !important; }
-
-.mdl-color-text--primary {
-  color: #3f51b5 !important; }
-
-.mdl-color-text--primary-contrast {
-  color: white !important; }
-
-.mdl-color-text--primary-dark {
-  color: #303f9f !important; }
-
-.mdl-color-text--accent {
-  color: #ff4081 !important; }
-
-.mdl-color-text--accent-contrast {
-  color: white !important; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 html, body {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 14px;
@@ -2862,116 +2930,6 @@ ul, ol {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased; }
 
-.demo-typography--img-1 {
-  background-image: url("../../../../packages/mdl/assets/styles/typography/demo-images/img-1.png");
-  color: white; }
-
-.demo-typography--img-2 {
-  background-image: url("../../../../packages/mdl/assets/styles/typography/demo-images/img-2.png");
-  color: white; }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-shadow--2dp {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
 
@@ -2993,50 +2951,23 @@ ul, ol {
 .mdl-shadow--24dp {
   box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12); }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
+/* ANIMATION */
+.mdl-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.mdl-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.mdl-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.mdl-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 .mdl-ripple {
   background: black;
   border-radius: 50%;
@@ -3059,50 +2990,6 @@ ul, ol {
     opacity: 0.3; }
 
 /* ANIMATION */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3119,108 +3006,6 @@ ul, ol {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-button {
   background: transparent;
   border: none;
@@ -3411,50 +3196,6 @@ input.mdl-button[type="submit"] {
 .mdl-button .material-icons {
   vertical-align: middle; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3558,108 +3299,6 @@ input.mdl-button[type="submit"] {
   height: auto;
   min-height: 200px; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -3732,8 +3371,8 @@ input.mdl-button[type="submit"] {
   left: 0;
   height: 100%;
   width: 100%;
-  -webkit-mask: url("/images/tick-mask.svg?embed");
-          mask: url("/images/tick-mask.svg?embed");
+  -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2FclipPath%3E%3Cmask%20maskContentUnits%3D%22objectBoundingBox%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Cpath%20clip-path%3D%22url(%23a)%22%20d%3D%22M0%200h1v1H0z%22%2F%3E%3C%2Fsvg%3E");
+          mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2FclipPath%3E%3Cmask%20maskContentUnits%3D%22objectBoundingBox%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Cpath%20clip-path%3D%22url(%23a)%22%20d%3D%22M0%200h1v1H0z%22%2F%3E%3C%2Fsvg%3E");
   background: transparent;
   -webkit-transition-duration: 0.28s;
           transition-duration: 0.28s;
@@ -3742,10 +3381,10 @@ input.mdl-button[type="submit"] {
   -webkit-transition-property: background;
   transition-property: background; }
   .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-    background: #3f51b5 url("/images/tick.svg?embed"); }
+    background: #3f51b5 url("data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E"); }
   fieldset[disabled] .mdl-checkbox.is-checked .mdl-checkbox__tick-outline,
   .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
-    background: rgba(0, 0, 0, 0.26) url("/images/tick.svg?embed"); }
+    background: rgba(0, 0, 0, 0.26) url("data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E"); }
 
 .mdl-checkbox__label {
   position: relative;
@@ -3779,131 +3418,6 @@ input.mdl-button[type="submit"] {
   .mdl-checkbox.is-disabled .mdl-checkbox__ripple-container .mdl-ripple {
     background: transparent; }
 
-.mdl-checkbox__tick-outline {
-  -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2FclipPath%3E%3Cmask%20maskContentUnits%3D%22objectBoundingBox%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Cpath%20clip-path%3D%22url(%23a)%22%20d%3D%22M0%200h1v1H0z%22%2F%3E%3C%2Fsvg%3E");
-          mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2FclipPath%3E%3Cmask%20maskContentUnits%3D%22objectBoundingBox%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Cpath%20clip-path%3D%22url(%23a)%22%20d%3D%22M0%200h1v1H0z%22%2F%3E%3C%2Fsvg%3E"); }
-  .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-    background: #3f51b5 url("data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E"); }
-  .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
-    background: rgba(0, 0, 0, 0.26) url("data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E"); }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-data-table {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -3990,108 +3504,6 @@ input.mdl-button[type="submit"] {
 .mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {
   text-align: left; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-data-tableex {
   position: relative;
   border-collapse: collapse;
@@ -4223,50 +3635,6 @@ input.mdl-button[type="submit"] {
 .mdl-data-table__cell--non-numeric {
   text-align: left; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-icon--spin {
   -webkit-animation: mdl-icon--spin 2s infinite linear;
   animation: mdl-icon--spin 2s infinite linear;
@@ -4398,51 +3766,6 @@ input.mdl-button[type="submit"] {
   100% {
     top: -0.05em; } }
 
-/* ==========  Icon Toggles  ========== */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -4518,108 +3841,6 @@ input.mdl-button[type="submit"] {
   .mdl-icon-toggle.is-disabled .mdl-icon-toggle__ripple-container .mdl-ripple {
     background: transparent; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-mega-footer {
   padding: 16px 40px;
   color: #9e9e9e;
@@ -4848,50 +4069,6 @@ input.mdl-button[type="submit"] {
     margin-bottom: 0;
     margin-right: 16px; } }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4957,55 +4134,6 @@ input.mdl-button[type="submit"] {
   background-color: #9e9e9e;
   border: none; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/*
-* NOTE: Some rules here are applied using duplicate selectors.
-* This is on purpose to increase their specificity when applied.
-* For example: `.mdl-cell--1-col-phone.mdl-cell--1-col-phone`
-*/
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-grid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5620,108 +4748,6 @@ input.mdl-button[type="submit"] {
     .mdl-cell--11-offset-desktop.mdl-cell--11-offset-desktop {
       margin-left: 91.66667%; } }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -5870,50 +4896,6 @@ input.mdl-button[type="submit"] {
   z-index: 0;
   overflow: hidden; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-progress {
   display: block;
   position: relative;
@@ -5949,8 +4931,8 @@ input.mdl-button[type="submit"] {
   .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
-    -webkit-mask: url("/images/buffer.svg?embed");
-            mask: url("/images/buffer.svg?embed"); } }
+    -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E");
+            mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E"); } }
 
 .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
@@ -6032,115 +5014,6 @@ input.mdl-button[type="submit"] {
     left: 100%;
     width: 0%; } }
 
-@supports (-webkit-appearance: none) {
-  .mdl-js-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
-    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
-    -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E");
-            mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E"); } }
-
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-navigation {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6686,108 +5559,6 @@ input.mdl-button[type="submit"] {
   .mdl-layout.is-upgraded .mdl-layout__tab-panel.is-active {
     display: block; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-list {
   display: block;
   padding: 8px 0;
@@ -6930,115 +5701,18 @@ input.mdl-button[type="submit"] {
     padding-left: 5px;
     padding-right: 5px; }
 
+.mdl-list--no-bullets {
+  list-style-type: none; }
+  .mdl-list--no-bullets__no-border {
+    padding: 0;
+    margin: 0; }
+
 .mdl-list__item-secondary-action > .mdl-radio {
   vertical-align: top; }
 
 .mdl-list__item-secondary-content {
   min-width: 24px; }
 
-/* ==========  Radio Buttons  ========== */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -7145,50 +5819,23 @@ input.mdl-button[type="submit"] {
   .mdl-radio.is-disabled .mdl-radio__ripple-container .mdl-ripple {
     background: transparent; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
+/* ANIMATION */
+.mdl-animation--default {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.mdl-animation--fast-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+
+.mdl-animation--linear-out-slow-in {
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+.mdl-animation--fast-out-linear-in {
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -7432,50 +6079,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-slider__container__container .mdl-slider__label {
     padding-left: 24px; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -7484,8 +6087,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-spinner:not(.is-upgraded).is-active:after {
     content: "Loading..."; }
   .mdl-spinner.is-upgraded.is-active {
-    -webkit-animation: mdl-spinner__container-rotate 1568.23529ms linear infinite;
-            animation: mdl-spinner__container-rotate 1568.23529ms linear infinite; }
+    -webkit-animation: mdl-spinner__container-rotate 479880ms/strip-units(306deg) linear infinite;
+            animation: mdl-spinner__container-rotate 479880ms/strip-units(306deg) linear infinite; }
 
 @-webkit-keyframes mdl-spinner__container-rotate {
   to {
@@ -7801,108 +6404,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     -webkit-transform: rotate(-130deg);
             transform: rotate(-130deg); } }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -8038,50 +6539,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   .mdl-switch.is-checked .mdl-switch__ripple-container {
     left: 2px; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -8177,108 +6634,6 @@ template, div[template] {
   display: none;
   visibility: hidden; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -8429,50 +6784,7 @@ template, div[template] {
 .mdl-textfield.is-disabled .mdl-textfield__input {
   color: rgba(0, 0, 0, 0.26); }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
 /* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-tooltip {
   -webkit-transform: scale(0);
           transform: scale(0);
@@ -8530,8 +6842,6 @@ template, div[template] {
     opacity: 1;
     visibility: visible; } }
 
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
 /* Animation Variables */
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -8638,50 +6948,6 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
   -webkit-transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87);
   transition: max-height 0.3s cubic-bezier(0.865, 0.14, 0.095, 0.87); }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -8730,35 +6996,6 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     .mdl-badge.mdl-badge--overlap:after {
       right: -10px; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 /* Dialog */
 .mdl-dialog-container {
   display: -webkit-box;
@@ -8908,9 +7145,9 @@ mdl-draggable {
 
 .dnd-draggable {
   z-index: 0;
-  cursor: url("../../../../packages/dnd/cursor/openhand.cur"), move;
+  cursor: url(package-docroot()/packages/dnd/cursor/openhand.cur), move;
   /* Cursor for IE. */
-  cursor: url("../../../../packages/dnd/cursor/openhand.cur") 7 5, move;
+  cursor: url(package-docroot()/packages/dnd/cursor/openhand.cur) 7 5, move;
   /* Cursor for FF and Chrome (setting midpoint). */ }
   .debug .dnd-draggable {
     border: 1px solid lightcoral; }
@@ -8938,43 +7175,14 @@ mdl-draggable {
     border: 1px solid cyan; }
 
 .dnd-dragging, .dnd-drag-occurring {
-  cursor: url("../../../../packages/dnd/cursor/closedhand.cur"), move;
+  cursor: url(package-docroot()/packages/dnd/cursor/closedhand.cur), move;
   /* Cursor for IE. */
-  cursor: url("../../../../packages/dnd/cursor/closedhand.cur") 7 5, move;
+  cursor: url(package-docroot()/packages/dnd/cursor/closedhand.cur) 7 5, move;
   /* Cursor for FF and Chrome (setting midpoint). */ }
 
 .debug.dnd-drag-occurring {
   border: 1px solid orange; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-sticky-mini-footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9042,35 +7250,6 @@ mdl-draggable {
         -ms-flex-align: center;
             align-items: center; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-form, .mdl-form-registration {
   box-sizing: border-box;
   border-radius: 3px;
@@ -9367,35 +7546,6 @@ mdl-draggable {
     line-height: 16px;
     color: #9e9e9e; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-nav-pill, .mdl-nav-pills > * {
   padding: 4px 8px;
   margin: 0 0 8px 0;
@@ -9523,35 +7673,6 @@ mdl-draggable {
     .mdl-nav-pills > .mdl-nav-pill--light-text a {
       color: whitesmoke !important; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-notification-container {
   z-index: 3;
   position: absolute;
@@ -9742,53 +7863,6 @@ mdl-draggable {
             letter-spacing: 0;
             line-height: 130%; }
 
-/**
- * Copyright (c) 2016, Michael Mitterer (office@mikemitterer.at),
- * IT-Consulting and Development Limited.
- *
- * All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
@@ -9817,93 +7891,73 @@ mdl-draggable {
       color: rgba(0, 0, 0, 0.87);
       background-color: white; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
+.mdl-sticky-mini-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 8px;
+  min-height: 30px;
+  max-height: 30px;
+  z-index: 3; }
+  .mdl-sticky-mini-footer .mdl-mini-footer--left-section {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .mdl-sticky-mini-footer .mdl-mini-footer--left-section .mdl-logo {
+      margin: 0 8px 0 0; }
+      @media screen and (max-width: 1024px) {
+        .mdl-sticky-mini-footer .mdl-mini-footer--left-section .mdl-logo {
+          display: none; } }
+  .mdl-sticky-mini-footer .mdl-mini-footer--right-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+
 .mdl-properties__container {
   box-sizing: border-box;
   -webkit-box-flex: 1;
@@ -9998,35 +8052,6 @@ mdl-draggable {
 .mdl-property {
   display: inline; }
 
-/**
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* ==========  Color Palettes  ========== */
-/* colors.scss */
-/* DIALOG */
-/* TOOLTIP */
-/* CHIP */
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-/* smartphones, Android phones, landscape iPhone */
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-/* big landscape tablets, laptops, and desktops */
-/* hi-res laptops and desktops */
-/*  According to MD Adaptive UI */
 .mdl-snackbar-container.is-visible .mdl-snackbar {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);

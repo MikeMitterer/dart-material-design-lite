@@ -6,9 +6,12 @@
 @import "theme/color-definitions.scss";
 
 // Color-Theme (default, defined in palette/_themes.scss)
-// $theme-name: "indigo-pink" !default;
-// $palette-primary: $palette-indigo !default;
-// $palette-accent: $palette-pink !default;
+$theme-name: "indigo-pink" !default;
+$palette-primary: $palette-indigo !default;
+$palette-accent: $palette-pink !default;
+//$theme-name: "amber-brown";
+//$palette-primary: $palette-amber;
+//$palette-accent: $palette-brown; // All pallets except brown, grey and blue-grey
 
 // Config for this package
 @import "_config/config";

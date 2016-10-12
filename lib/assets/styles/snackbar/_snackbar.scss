@@ -17,32 +17,15 @@
 // limitations under the License.
 //
 
-//@import "../variables";
+@import "../theme/theme";
+@import "../typography/variables";
+@import "../shadow/mixins";
+
+@import "variables";
 
 // mdl-snackbar was mainly taken from Angular-Material
 //  More: https://github.com/angular/material/blob/master/src/components/toast/toast.scss
 
-$snackbar-baseline-grid:            8px !default;
-$snackbar-swift-ease-out-duration : 0.2s !default;
-
-$snackbar-height: $snackbar-baseline-grid * 3 !default;
-$snackbar-margin: $snackbar-baseline-grid * 1 !default;
-
-$snackbar-swift-ease-in-duration: 0.2s !default;
-$snackbar-swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
-$snackbar-swift-ease-in: all $snackbar-swift-ease-in-duration $snackbar-swift-ease-in-timing-function !default;
-
-$snackbar-swift-ease-out-duration : 0.2s !default;
-$snackbar-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
-$snackbar-swift-ease-out : all $snackbar-swift-ease-out-duration $snackbar-swift-ease-out-timing-function !default;
-
-$snackbar-z-index: 90 !default;
-
-$snackbar-layout-breakpoint-sm:     600px !default;
-
-$snackbar-color: invert($text-color-primary) !default;
-$snackbar-button-color: nth($palette-accent, 5) !default;
-$snackbar-background: nth($palette-grey, 9) !default;
 
 .mdl-snackbar-container {
     &.is-visible {

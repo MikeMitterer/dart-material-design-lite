@@ -17,8 +17,12 @@
  * limitations under the License.
  */
 
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import "../../styles/theme/theme";
+@import "../../styles/layout/variables";
+@import "../../styles/footer/variables";
+@import "../../styles/shadow/mixins";
+
+//@import "../../styles/mixins";
 
 $two-col-header-footer-props-shadow-opacity: 0.5 !default;
 $two-col-header-footer-props-center-breakpoint: 1280px !default;

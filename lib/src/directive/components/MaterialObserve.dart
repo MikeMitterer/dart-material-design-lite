@@ -18,24 +18,7 @@
  */
 part of mdldirective;
  
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialObserveCssClasses {
 
-    final String IS_UPGRADED = 'is-upgraded';
-    
-    const _MaterialObserveCssClasses(); }
-    
-/// Store constants in one place so they can be updated easily.
-class _MaterialObserveConstant {
-
-    static const String WIDGET_SELECTOR = "mdl-observe";
-
-    final String TEMPLATE = "template";
-
-    const _MaterialObserveConstant();
-}    
 
 
 class MaterialObserve extends MdlComponent implements ScopeAware {
@@ -197,3 +180,21 @@ void registerMaterialObserve() {
     componentHandler().register(config);
 }
 
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialObserveCssClasses {
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    const _MaterialObserveCssClasses(); }
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialObserveConstant {
+
+    static const String WIDGET_SELECTOR = "mdl-observe";
+
+    final String TEMPLATE = "template";
+
+    const _MaterialObserveConstant();
+}

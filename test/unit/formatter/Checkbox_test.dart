@@ -26,7 +26,7 @@ main() async {
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();
     final String html = '''
-        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+        <label class="mdl-checkbox mdl-ripple-effect"
             for="checkbox-1" mdl-formatter="uppercase(value)">
           <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" >
           <span class="mdl-checkbox__label">Check me out</span>

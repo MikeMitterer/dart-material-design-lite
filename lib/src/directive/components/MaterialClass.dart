@@ -18,23 +18,6 @@
  */
 part of mdldirective;
  
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialClassCssClasses {
-
-    final String IS_UPGRADED = 'is-upgraded';
-    
-    const _MaterialClassCssClasses(); }
-    
-/// Store constants in one place so they can be updated easily.
-class _MaterialClassConstant {
-
-    static const String WIDGET_SELECTOR = "mdl-class";
-
-    const _MaterialClassConstant();
-}    
-
 /**
  * Checks the given condition and adds the given class-name to the components [element].
  * Format: [!]<variable> : '<classname>'
@@ -50,7 +33,7 @@ class _MaterialClassConstant {
  *    </div>
  *
  *    <div class="switches">
- *        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-border">
+ *        <label class="mdl-switch mdl-ripple-effect" for="switch-border">
  *            <input type="checkbox" id="switch-border" class="mdl-switch__input" mdl-model="checkBorder"/>
  *            <span class="mdl-switch__label">Switch 'border' on/off</span>
  *        </label>
@@ -174,5 +157,22 @@ void registerMaterialClass() {
     config.selectorType = SelectorType.ATTRIBUTE;
     
     componentFactory().register(config);
+}
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialClassCssClasses {
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    const _MaterialClassCssClasses(); }
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialClassConstant {
+
+    static const String WIDGET_SELECTOR = "mdl-class";
+
+    const _MaterialClassConstant();
 }
 

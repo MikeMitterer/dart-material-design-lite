@@ -1,5 +1,13 @@
-@import "../mixins/mixins";
+//@import "../mixins/mixins";
 @import "../_config/config";
+
+
+@if variable-exists(theme-name) == false or
+    variable_exists(palette-primary) == false or
+    variable_exists(palette-accent) == false {
+
+    @error "Please define a color-theme in your main-css (material-design-lite.scss)"
+}
 
 $_show_config_info_for_mdl: 1 !default;
 @if $_show_config_info_for_mdl == 1 {
@@ -26,38 +34,6 @@ $_show_config_info_for_mdl: 1 !default;
     Theme:                  ($theme-name)                 #{$theme-name}
     Primary palette:        ($palette-primary)            #{$palette-primary}
     Accent palette:         ($palette-accent)             #{$palette-accent}
-
-    Palette-primary-50:     ($palette-primary-50)         #{$palette-primary-50}
-    Palette-primary-100:    ($palette-primary-100)        #{$palette-primary-100}
-    Palette-primary-200:    ($palette-primary-200)        #{$palette-primary-200}
-    Palette-primary-300:    ($palette-primary-300)        #{$palette-primary-300}
-    Palette-primary-500:    ($palette-primary-500)        #{$palette-primary-500}
-    Palette-primary-600:    ($palette-primary-600)        #{$palette-primary-600}
-    Palette-primary-400:    ($palette-primary-400)        #{$palette-primary-400}
-    Palette-primary-700:    ($palette-primary-700)        #{$palette-primary-700}
-    Palette-primary-800:    ($palette-primary-800)        #{$palette-primary-800}
-    Palette-primary-900:    ($palette-primary-900)        #{$palette-primary-900}
-
-    Palette-primary-A100:    ($palette-primary-A100)      #{$palette-primary-A100}
-    Palette-primary-A200:    ($palette-primary-A200)      #{$palette-primary-A200}
-    Palette-primary-A400:    ($palette-primary-A400)      #{$palette-primary-A400}
-    Palette-primary-A700:    ($palette-primary-A700)      #{$palette-primary-A700}
-
-    Palette-accent-50:       ($palette-accent-50)         #{$palette-accent-50}
-    Palette-accent-100:      ($palette-accent-100)        #{$palette-accent-100}
-    Palette-accent-200:      ($palette-accent-200)        #{$palette-accent-200}
-    Palette-accent-300:      ($palette-accent-300)        #{$palette-accent-300}
-    Palette-accent-400:      ($palette-accent-400)        #{$palette-accent-400}
-    Palette-accent-500:      ($palette-accent-500)        #{$palette-accent-500}
-    Palette-accent-600:      ($palette-accent-600)        #{$palette-accent-600}
-    Palette-accent-700:      ($palette-accent-700)        #{$palette-accent-700}
-    Palette-accent-800:      ($palette-accent-800)        #{$palette-accent-800}
-    Palette-accent-900:      ($palette-accent-900)        #{$palette-accent-900}
-
-    Palette-accent-A100:     ($palette-accent-A100)       #{$palette-accent-A100}
-    Palette-accent-A200:     ($palette-accent-A200)       #{$palette-accent-A200}
-    Palette-accent-A400:     ($palette-accent-A400)       #{$palette-accent-A400}
-    Palette-accent-A700:     ($palette-accent-A700)       #{$palette-accent-A700}
 
 --------------------------------------------------------------------------------------------------------------------- */
 //

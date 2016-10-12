@@ -1,0 +1,23 @@
+// =========  Switches  =========
+
+$switch-color: ($color-primary) !default;
+$switch-faded-color: rgba($color-primary, 0.26) !default;
+$switch-thumb-color: $switch-color !default;
+$switch-track-color: rgba($color-primary, 0.5) !default;
+
+$switch-off-thumb-color: ($palette-grey-50) !default;
+$switch-off-track-color: rgba($color-black, 0.26) !default;
+$switch-disabled-thumb-color: ($palette-grey-400) !default;
+$switch-disabled-track-color: rgba($color-black, 0.12) !default;
+
+// Dimensions
+
+$switch-label-font-size: 16px !default;
+$switch-label-height: 24px !default;
+$switch-track-height: 14px !default;
+$switch-track-length: 36px !default;
+$switch-thumb-size: 20px !default;
+$switch-track-top: ($switch-label-height - $switch-track-height) / 2 !default;
+$switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2 !default;
+$switch-ripple-size: $switch-label-height * 2 !default;
+$switch-helper-size: 8px !default;

@@ -52,7 +52,7 @@ main() {
             await prepareMdlTest(() async {
                 await registerMaterialButton();
             });
-            div.classes.addAll(["mdl-button","mdl-js-button"]);
+            div.classes.addAll(["mdl-button"]);
         });
 
         test('> register component', () async {

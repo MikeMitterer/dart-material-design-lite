@@ -47,7 +47,7 @@ class _MdlComponentHandlerCssClasses {
 
     final String IS_UPGRADED = "is-upgraded";
 
-    final String RIPPLE_EFFECT = "mdl-js-ripple-effect";
+    final String RIPPLE_EFFECT = "mdl-ripple-effect";
 
     const _MdlComponentHandlerCssClasses();
 }

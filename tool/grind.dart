@@ -86,6 +86,13 @@ genThemes() {
 
     generator.generate();
     pushThemesToGitHub();
+
+    // Wenn sich die Styles geändert haben muss die Version für CDN nach oben gezogen werden
+    // sonst gibt cdn.rawgit.com nicht die richtige Version zurück!!!!
+
+    log("ACHTUNG: der Tag unter 'MaterialDesignLiteTheme' muss mit dem ");
+    log("verlinketen Tag bei den Themes (styleguide/.sitegen/html/_content/views/theming.html)");
+    log("zusammenstimmen!");
 }
 
 @Task()

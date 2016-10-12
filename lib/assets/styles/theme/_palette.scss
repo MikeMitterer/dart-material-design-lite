@@ -32,6 +32,71 @@ $include-color-classes: true !default;
 
 // - Primary and accent ------------------------------------------------------------------------------------------------
 
+// Primary and accent
+
+.mdl-color--primary {
+    background-color: $color-primary !important;
+}
+
+.mdl-color--primary-contrast {
+    background-color: $color-primary-contrast !important;
+}
+
+.mdl-color--primary-dark {
+    background-color: $color-primary-dark !important;
+}
+
+.mdl-color--accent {
+    background-color: $color-accent !important;
+}
+
+.mdl-color--accent-contrast {
+    background-color: $color-accent-contrast !important;
+}
+
+.mdl-color-text--primary {
+    color: $color-primary !important;
+}
+
+.mdl-color-text--primary-contrast {
+    color: $color-primary-contrast !important;
+}
+
+.mdl-color-text--primary-dark {
+    color: $color-primary-dark !important;
+}
+
+.mdl-color-text--accent {
+    color: $color-accent !important;
+}
+
+.mdl-color-text--accent-contrast {
+    color: $color-accent-contrast !important;
+}
+
+// Forground ---
+
+
+a.mdl-color-text--primary {
+    color : $color-primary !important;
+}
+
+a.mdl-color-text--primary-contrast {
+    color : $color-primary-contrast !important;
+}
+
+a.mdl-color-text--primary-dark {
+    color : $color-primary-dark !important;
+}
+
+a.mdl-color-text--accent {
+    color : $color-accent !important;
+}
+
+a.mdl-color-text--accent-contrast {
+    color : $color-accent-contrast !important;
+}
+
 .mdl-color--50 {
     background-color: $palette-primary-50 !important;    
 }
@@ -144,28 +209,7 @@ $include-color-classes: true !default;
     background-color: $palette-accent-A700 !important;
 }
 
-// Forground ---
 
-
-a.mdl-color-text--primary {
-        color : $color-primary !important;
-}
-
-a.mdl-color-text--primary-contrast {
-        color : $color-primary-contrast !important;
-}
-
-a.mdl-color-text--primary-dark {
-        color : $color-primary-dark !important;
-}
-
-a.mdl-color-text--accent {
-        color : $color-accent !important;
-}
-
-a.mdl-color-text--accent-contrast {
-        color : $color-accent-contrast !important;
-}
 
 .mdl-color-text--50 {
     color: $palette-primary-50 !important;
@@ -278,6 +322,7 @@ a.mdl-color-text--accent-contrast {
 .mdl-color-text--accent-A700 {
     color: $palette-accent-A700 !important;
 }
+
 
 /**
  * Overwrite Googles weird "unquote / scss-var" hack
@@ -2528,44 +2573,4 @@ a.mdl-color-text--accent-contrast {
     }
 }
 
-// Primary and accent
 
-.mdl-color--primary {
-    background-color: $color-primary !important;
-}
-
-.mdl-color--primary-contrast {
-    background-color: $color-primary-contrast !important;
-}
-
-.mdl-color--primary-dark {
-    background-color: $color-primary-dark !important;
-}
-
-.mdl-color--accent {
-    background-color: $color-accent !important;
-}
-
-.mdl-color--accent-contrast {
-    background-color: $color-accent-contrast !important;
-}
-
-.mdl-color-text--primary {
-    color: $color-primary !important;
-}
-
-.mdl-color-text--primary-contrast {
-    color: $color-primary-contrast !important;
-}
-
-.mdl-color-text--primary-dark {
-    color: $color-primary-dark !important;
-}
-
-.mdl-color-text--accent {
-    color: $color-accent !important;
-}
-
-.mdl-color-text--accent-contrast {
-    color: $color-accent-contrast !important;
-}

@@ -18,22 +18,7 @@
  */
 part of mdldirective;
  
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialAttributeCssClasses {
 
-    final String IS_UPGRADED = 'is-upgraded';
-    
-    const _MaterialAttributeCssClasses(); }
-    
-/// Store constants in one place so they can be updated easily.
-class _MaterialAttributeConstant {
-
-    static const String WIDGET_SELECTOR = "mdl-attribute";
-
-    const _MaterialAttributeConstant();
-}
 
 /**
  * Checks the given condition and adds the given attribute to the components [element].
@@ -43,14 +28,14 @@ class _MaterialAttributeConstant {
  * Variable-Context is "parent". parent is either the next "[ScopeAware]' parent or root-context (MaterialApplication)
  *
  *    <div class="controls">
- *        <div class="mdl-textfield mdl-js-textfield">
+ *        <div class="mdl-textfield">
  *            <input class="mdl-textfield__input" type="text" id="sample-text-attribute" mdl-attribute="!checkAttribute : 'disabled' "/>
  *            <label class="mdl-textfield__label" for="sample-text-attribute" mdl-class="checkAttribute : 'enabled'">
  *            <span class="enabled">Type something</span>
  *            <span class="disabled">I'm Disabled</span>
  *        </label>
  *        </div>
- *        <button class="mdl-button mdl-js-button mdl-js-ripple-effect" mdl-attribute="!checkAttribute : 'disabled' ">Submit</button>
+ *        <button class="mdl-button mdl-js-button mdl-ripple-effect" mdl-attribute="!checkAttribute : 'disabled' ">Submit</button>
  *    </div>
  *
  *    @MdlComponentModel @di.Injectable()
@@ -172,3 +157,19 @@ void registerMaterialAttribute() {
     componentFactory().register(config);
 }
 
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialAttributeCssClasses {
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    const _MaterialAttributeCssClasses(); }
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialAttributeConstant {
+
+    static const String WIDGET_SELECTOR = "mdl-attribute";
+
+    const _MaterialAttributeConstant();
+}

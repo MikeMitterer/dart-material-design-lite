@@ -17,8 +17,13 @@
 // limitations under the License.
 //
 
-//@import "../variables";
-@import "../mixins";
+@import "../theme/theme";
+@import "../shadow/mixins";
+@import "../layout/variables";
+@import "../footer/sticky_mini_footer";
+
+@import "variables";
+@import "mixins";
 
 .mdl-properties__container {
     box-sizing      : border-box;

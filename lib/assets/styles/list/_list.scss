@@ -1,3 +1,7 @@
+@import "../theme/theme";
+@import "../typography/mixins";
+
+@import "variables";
 @import "list.orig";
 
 .mdl-list--inline {
@@ -9,6 +13,15 @@
         display      : inline-block;
         padding-left : 5px;
         padding-right: 5px;
+    }
+}
+
+.mdl-list--no-bullets {
+    list-style-type: none;
+
+    &__no-border {
+        padding: 0;
+        margin: 0;
     }
 }
 

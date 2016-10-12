@@ -26,7 +26,7 @@ main() async {
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();
     final String html = '''
-        <button class="mdl-button mdl-js-ripple-effect" mdl-formatter="uppercase(value)">Flat</button>
+        <button class="mdl-button mdl-ripple-effect" mdl-formatter="uppercase(value)">Flat</button>
     '''.trim().replaceAll(new RegExp(r"\s+")," ");
 
     group('Button', () {

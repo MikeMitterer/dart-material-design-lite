@@ -1,0 +1,41 @@
+// ----------------------------------------------------------------------------
+// Copyright (c) 2016, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+
+$snackbar-baseline-grid:            8px !default;
+$snackbar-swift-ease-out-duration : 0.2s !default;
+
+$snackbar-height: $snackbar-baseline-grid * 3 !default;
+$snackbar-margin: $snackbar-baseline-grid * 1 !default;
+
+$snackbar-swift-ease-in-duration: 0.2s !default;
+$snackbar-swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
+$snackbar-swift-ease-in: all $snackbar-swift-ease-in-duration $snackbar-swift-ease-in-timing-function !default;
+
+$snackbar-swift-ease-out-duration : 0.2s !default;
+$snackbar-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
+$snackbar-swift-ease-out : all $snackbar-swift-ease-out-duration $snackbar-swift-ease-out-timing-function !default;
+
+$snackbar-z-index: 90 !default;
+
+$snackbar-layout-breakpoint-sm:     600px !default;
+
+$snackbar-color: invert($text-color-primary) !default;
+$snackbar-button-color: nth($palette-accent, 5) !default;
+$snackbar-background: nth($palette-grey, 9) !default;

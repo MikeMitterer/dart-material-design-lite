@@ -17,17 +17,11 @@
 // limitations under the License.
 //
 
-//@import "../variables";
+@import "../theme/theme";
+@import "../typography/variables";
+@import "../shadow/mixins";
 
-$nav-pills-color : $text-color-primary !default;
-$nav-pills-light-color : nth($palette-grey, 2) !default;
-$nav-pills-background-color : white !default;
-
-$nav-pills-margin : 8px !default;
-$nav-pills-border-radius : 3px !default;
-$nav-pills-move-on-hover : 3px !default;
-$nav-pills-base-color-index : 6 !default;
-$nav-pills-color : nth($palette-grey, 2) !default;
+@import "variables";
 
 .mdl-nav-pill {
     padding          : 4px 8px;
@@ -155,7 +149,7 @@ $nav-pills-color : nth($palette-grey, 2) !default;
         display    : block;
     }
 
-    &.mdl-nav-pill--dark > *, {
+    &.mdl-nav-pill--dark > * {
         background-color : nth($palette-primary, $nav-pills-base-color-index);;
     }
     > .mdl-nav-pill--dark { // child gets priority

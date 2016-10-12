@@ -53,7 +53,7 @@ main() {
                 content.classes.add("mdl-form__content");
                 form.append(content);
                     final dom.DivElement textfield1 = new dom.DivElement();
-                    textfield1.classes.addAll([ "mdl-textfield", "mdl-js-textfield"] );
+                    textfield1.classes.addAll([ "mdl-textfield"] );
                     content.append(textfield1);
                         final dom.TextInputElement input1 = new dom.InputElement();
                         input1.classes.addAll([ "mdl-textfield__input"] );
@@ -68,7 +68,7 @@ main() {
                 actions.classes.add("mdl-form__actions");
                 form.append(actions);
                     final dom.ButtonElement submit = new dom.ButtonElement();
-                    submit.classes.addAll([ "mdl-button","mdl-js-button","mdl-button--submit"] );
+                    submit.classes.addAll([ "mdl-button","mdl-button--submit"] );
                     actions.append(submit);
 
         });

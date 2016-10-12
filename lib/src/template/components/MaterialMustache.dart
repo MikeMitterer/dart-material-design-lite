@@ -19,18 +19,6 @@
 
 part of mdltemplate;
 
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialMustacheCssClasses {
-
-    static const String MAIN_CLASS  = "mdl-js-mustache";
-
-    final String IS_UPGRADED = 'is-upgraded';
-
-    const _MaterialMustacheCssClasses();
-}
-
 // Store constants in one place so they can be updated easily.
 //class _MaterialMustacheConstant {
 //    const _MaterialMustacheConstant();
@@ -82,3 +70,15 @@ MdlConfig materialMustacheConfig() => new MdlWidgetConfig<MaterialMustache>(
 
 /// registration-Helper
 void registerMaterialMustache() => componentHandler().register(materialMustacheConfig());
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialMustacheCssClasses {
+
+    static const String MAIN_CLASS  = "mdl-mustache";
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    const _MaterialMustacheCssClasses();
+}

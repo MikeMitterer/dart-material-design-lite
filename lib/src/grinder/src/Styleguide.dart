@@ -123,7 +123,7 @@ class Styleguide {
         final StringBuffer buffer = new StringBuffer();
 
         buffer.writeln('<section class="demo-section demo-section--${sample.name} demo-page--${sample.name}">');
-        buffer.writeln('    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/${sample.name}.html">');
+        buffer.writeln('    <div id="usage" class="mdl-include" data-url="views/usage/${sample.name}.html">');
         buffer.writeln("        Loading...");
         buffer.writeln('    </div>');
         buffer.writeln(content);

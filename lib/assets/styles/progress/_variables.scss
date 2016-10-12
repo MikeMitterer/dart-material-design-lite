@@ -1,0 +1,8 @@
+// ========= Progress =========
+$progress-main-color: ($color-primary) !default;
+$progress-secondary-color: rgba($color-primary-contrast, 0.7) !default;
+$progress-fallback-buffer-color: rgba($color-primary-contrast, 0.26) !default;
+$progress-image-path: ""; // (orig - in global variables: $image_path: '/images' !default;)
+
+// Dimensions
+$bar-height: 4px !default;

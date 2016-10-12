@@ -26,7 +26,7 @@ main() async {
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();
     final String html = '''
-        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1" mdl-formatter="uppercase(value)">
+        <label class="mdl-switch mdl-ripple-effect" for="switch-1" mdl-formatter="uppercase(value)">
             <input type="checkbox" id="switch-1" class="mdl-switch__input" mdl-formatter="number(value,4)">
             <span class="mdl-switch__label">Switch me</span>
         </label>

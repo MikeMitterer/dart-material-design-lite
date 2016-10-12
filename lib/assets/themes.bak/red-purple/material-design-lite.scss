@@ -1,0 +1,24 @@
+//----------------------------------------------------------------------------------------------------------------------
+// Material Design Lite
+//----------------------------------------------------------------------------------------------------------------------
+
+// Material Colors
+@import "../../styles/palette/color-definitions";
+
+// Color-Theme
+$theme-name: "red-purple";
+$palette-primary: $palette-red;
+$palette-accent: $palette-purple; // All pallets except brown, grey and blue-grey
+
+// Config for this package
+@import "../../styles/_config/config";
+@import "../../styles/_config/show_config";
+
+// Resets and dependencies
+@import "../../styles/resets/resets";
+
+// CSS-Styles for colors
+@import "../../styles/palette/palette";
+
+// Components
+@import "../../styles/components";

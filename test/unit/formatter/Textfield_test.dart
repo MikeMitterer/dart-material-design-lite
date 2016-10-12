@@ -26,7 +26,7 @@ main() async {
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();
     final String html = '''
-        <div class="mdl-textfield mdl-js-textfield">
+        <div class="mdl-textfield">
             <input class="mdl-textfield__input" type="text" id="sample1" >
             <label class="mdl-textfield__label" for="sample1" mdl-formatter="uppercase(value)">Type Something...</label>
         </div>

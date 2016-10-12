@@ -57,7 +57,7 @@ abstract class MdlComponent extends Object with MdlEventListener {
      * hub = button = element
      *
      * but if there is a child element like in
-     *          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+     *          <label class="mdl-switch mdl-ripple-effect" for="switch-1">
      *              <input type="checkbox" id="switch-1" class="mdl-switch__input" />
      *              <span class="mdl-switch__label">Switch me</span>
      *          </label>

@@ -1,0 +1,15 @@
+// =========  Radio Buttons  =========
+
+$radio-color: ($color-primary) !default;
+$radio-off-color: rgba($color-black, 0.54) !default;
+$radio-disabled-color: rgba($color-black, 0.26) !default;
+
+// Dimensions
+
+$radio-label-font-size: 16px !default;
+$radio-label-height: 24px !default;
+$radio-button-size: 16px !default;
+$radio-inner-margin: $radio-button-size / 4;
+$radio-padding: 8px !default;
+$radio-top-offset: ($radio-label-height - $radio-button-size) / 2;
+$radio-ripple-size: 42px !default;

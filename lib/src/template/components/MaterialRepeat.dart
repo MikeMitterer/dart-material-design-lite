@@ -18,43 +18,6 @@
  */
 part of mdltemplate;
  
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialRepeatCssClasses {
-
-    final String IS_UPGRADED = 'is-upgraded';
-    final String KEEP_THIS_ELEMENT = "mdl-repeat__keep_this_element";
-
-    const _MaterialRepeatCssClasses(); }
-    
-/// Store constants in one place so they can be updated easily.
-class _MaterialRepeatConstant {
-
-    static const String WIDGET_SELECTOR = "mdl-repeat";
-
-    /**
-     * Used if child is a 'MdlDataConsumer' - e.g. MaterialDraggable
-     *
-     *      <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
-     *          {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
-     *          <mdl-draggable template class="language" consumes="language" drop-zone="trash">
-     *              {{language.name}}
-     *          </mdl-draggable>
-     *          |= {{ }} =| {{! ----- Turn on mustache ---- }}
-     *      </div>
-     *
-     *      class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
-     *          ...
-     *      }
-     */
-    final String CONSUMES   = "consumes";
-
-    final String TEMPLATE   = "template";
-
-    const _MaterialRepeatConstant();
-}
-
 /**
  * Iterates through a [ObservableList]
  * Sample:
@@ -449,3 +412,39 @@ void registerMaterialRepeat() {
     componentFactory().register(config);
 }
 
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialRepeatCssClasses {
+
+    final String IS_UPGRADED = 'is-upgraded';
+    final String KEEP_THIS_ELEMENT = "mdl-repeat__keep_this_element";
+
+    const _MaterialRepeatCssClasses(); }
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialRepeatConstant {
+
+    static const String WIDGET_SELECTOR = "mdl-repeat";
+
+    /**
+     * Used if child is a 'MdlDataConsumer' - e.g. MaterialDraggable
+     *
+     *      <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
+     *          {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+     *          <mdl-draggable template class="language" consumes="language" drop-zone="trash">
+     *              {{language.name}}
+     *          </mdl-draggable>
+     *          |= {{ }} =| {{! ----- Turn on mustache ---- }}
+     *      </div>
+     *
+     *      class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
+     *          ...
+     *      }
+     */
+    final String CONSUMES   = "consumes";
+
+    final String TEMPLATE   = "template";
+
+    const _MaterialRepeatConstant();
+}

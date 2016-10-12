@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 
 // Material Colors
-@import "../../styles/palette/color-definitions";
+@import "../../styles/theme/color-definitions";
 
 // Color-Theme
 $theme-name: "red-deep-purple";
@@ -18,7 +18,7 @@ $palette-accent: $palette-deep-purple; // All pallets except brown, grey and blu
 @import "../../styles/resets/resets";
 
 // CSS-Styles for colors
-@import "../../styles/palette/palette";
+@import "../../styles/theme/palette";
 
 // Components
 @import "../../styles/components";

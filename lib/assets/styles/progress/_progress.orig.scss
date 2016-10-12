@@ -56,7 +56,7 @@
   .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
       linear-gradient(to right, $progress-main-color, $progress-main-color);
-    mask: url('#{$progress-image-path}/buffer.svg?embed');
+    mask: svg-buffer();
   }
 }
 

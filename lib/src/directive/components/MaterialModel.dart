@@ -18,22 +18,6 @@
  */
 part of mdldirective;
  
-/// Store strings for class names defined by this component that are used in
-/// Dart. This allows us to simply change it in one place should we
-/// decide to modify at a later date.
-class _MaterialModelCssClasses {
-
-    final String IS_UPGRADED = 'is-upgraded';
-    
-    const _MaterialModelCssClasses(); }
-    
-/// Store constants in one place so they can be updated easily.
-class _MaterialModelConstant {
-
-    static const String WIDGET_SELECTOR = "mdl-model";
-
-    const _MaterialModelConstant();
-}    
 
 class MaterialModel extends MdlComponent implements RefreshableComponent {
     final Logger _logger = new Logger('mdldirective.MaterialModel');
@@ -120,3 +104,19 @@ void registerMaterialModel() {
     componentHandler().register(config);
 }
 
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _MaterialModelCssClasses {
+
+    final String IS_UPGRADED = 'is-upgraded';
+
+    const _MaterialModelCssClasses(); }
+
+/// Store constants in one place so they can be updated easily.
+class _MaterialModelConstant {
+
+    static const String WIDGET_SELECTOR = "mdl-model";
+
+    const _MaterialModelConstant();
+}

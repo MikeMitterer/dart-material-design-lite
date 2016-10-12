@@ -1,0 +1,21 @@
+// =========  List =========
+
+$list-main-text-text-color: rgba($color-black, 0.87) !default;
+$list-supporting-text-text-color: rgba($color-black, 0.54) !default;
+$list-icon-color: ($palette-grey-600) !default;
+$list-avatar-color: white !default;
+
+// Dimensions
+
+$list-border: 8px !default;
+$list-min-height: 48px !default;
+$list-min-padding: 16px !default;
+$list-bottom-padding: 20px !default;
+$list-avatar-text-left-distance: 72px !default;
+$list-icon-text-left-distance: 72px !default;
+
+$list-avatar-size: 40px !default;
+$list-icon-size: 24px !default;
+
+$list-two-line-height: 72px !default;
+$list-three-line-height: 88px !default;
