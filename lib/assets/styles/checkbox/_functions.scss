@@ -30,6 +30,7 @@
 //    </svg>
 
 
+// Usage: background: $checkbox-color svg-tick();
 @function svg-tick() {
     // URL-Encoded tick.svg
     @return url('data:image/svg+xml;charset=utf-8,' +
@@ -39,8 +40,10 @@
 // SVG-Base:
 //      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" preserveAspectRatio="xMinYMin meet"><defs><clipPath id="a"><path d="M0 0v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z" fill="#fff"/></clipPath><mask maskContentUnits="objectBoundingBox"><path d="M0 0v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z" fill="#fff"/></mask></defs><path clip-path="url(#a)" d="M0 0h1v1H0z"/></svg>
 
+// Usage: mask: svg-tick-mask();
 @function svg-tick-mask() {
     // URL-Encoded tick-mask.svg
     @return url('data:image/svg+xml;charset=utf-8,' +
         '%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2FclipPath%3E%3Cmask%20maskContentUnits%3D%22objectBoundingBox%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Cpath%20clip-path%3D%22url(%23a)%22%20d%3D%22M0%200h1v1H0z%22%2F%3E%3C%2Fsvg%3E');
 }
+

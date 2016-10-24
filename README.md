@@ -65,7 +65,7 @@ Please file feature requests and bugs at the [issue tracker](https://github.com/
 ## More links
 - [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 
-###License###
+###License 
 
     Copyright 2016 Michael Mitterer (office@mikemitterer.at),
     IT-Consulting and Development Limited, Austrian Branch

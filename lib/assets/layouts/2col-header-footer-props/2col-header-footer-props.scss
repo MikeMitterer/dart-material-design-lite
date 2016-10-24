@@ -26,7 +26,8 @@
 
 $two-col-header-footer-props-shadow-opacity: 0.5 !default;
 $two-col-header-footer-props-center-breakpoint: 1280px !default;
-$two-col-header-footer-props-title-height: ($layout-header-desktop-row-height * 1.5) + 0 !default;
+//$two-col-header-footer-props-title-height: ($layout-header-desktop-row-height * 1.5) + 0 !default;
+$two-col-header-footer-props-title-height: ($layout-header-desktop-row-height) + 0 !default;
 
 // If you use this SCSS-file direct - you can define something like this
 // to get a pattern-background for your header + footer

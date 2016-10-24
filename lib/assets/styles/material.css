@@ -7263,6 +7263,9 @@ mdl-draggable {
     line-height: 24px;
     margin: 0 24px 4px 24px; }
   .mdl-form .mdl-form__content, .mdl-form-registration .mdl-form__content {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     margin-left: 24px;
     margin-right: 24px; }
     .mdl-form .mdl-form__content .mdl-textfield, .mdl-form-registration .mdl-form__content .mdl-textfield, .mdl-form .mdl-form__content .mdl-slider, .mdl-form-registration .mdl-form__content .mdl-slider {

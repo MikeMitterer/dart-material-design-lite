@@ -89,7 +89,7 @@
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
-      min-height: 96px;
+      min-height: 64px;
       padding-left: initial;
       border-bottom: 1px solid rgba(213, 213, 213, 0.5);
       /* background: <your bg-image> repeat 0 0; */ }
