@@ -43,7 +43,7 @@ part of mdltemplate;
  */
 @MdlComponentModel
 class MaterialRepeat extends MdlTemplateComponent {
-    final Logger _logger = new Logger('mdltemplate.MaterialRepeat');
+    static final Logger _logger = new Logger('mdltemplate.MaterialRepeat');
 
     static const _MaterialRepeatConstant _constant = const _MaterialRepeatConstant();
     static const _MaterialRepeatCssClasses _cssClasses = const _MaterialRepeatCssClasses();

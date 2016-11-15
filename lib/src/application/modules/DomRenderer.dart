@@ -60,7 +60,7 @@ class DomRenderer {
 
         _logger.fine("Start with rendering process...");
 
-        final Completer completer = new Completer();
+        final Completer<dom.Element> completer = new Completer<dom.Element>();
 
         // add the render-function to the list where the "new Future" can pick it
         _renderFunctions.insert(0, () {
@@ -128,7 +128,7 @@ class DomRenderer {
 
         //_logger.info("Content: $content");
 
-        final Completer completer = new Completer();
+        final Completer<dom.Element> completer = new Completer<dom.Element>();
 
         // add the render-function to the list where the "new Future" can pick it
         _renderFunctions.insert(0, () {

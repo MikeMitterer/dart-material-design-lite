@@ -36,7 +36,7 @@ class ToJsonEvent<T extends ToJson> {
         Validate.notBlank(eventname,"Eventname must not be blank!");
         Validate.notNull(data,"Event-Data must not be null!");
 
-        final Map map = new Map<String, dynamic>();
+        final Map<String, dynamic> map = new Map<String, dynamic>();
 
         map[eventKey] = eventname;
         map[dataKey] = data.toJson();

@@ -58,7 +58,7 @@ main() {
                     expect(action.hasData,isFalse);
                 });
 
-                actionbus.on(TestSignal.NAME).listen(onSignalTest);
+                actionbus.on(TestSignal.NAME).listen((final Action action) => onSignalTest(action));
 
                 actionbus.fire(const TestSignal());
             });
@@ -75,7 +75,7 @@ main() {
                     expect(action.data,"Test");
                 });
 
-                actionbus.on(TestDataAction.NAME).listen(onDataActionTest);
+                actionbus.on(TestDataAction.NAME).listen((final Action action) => onDataActionTest(action));
 
                 actionbus.fire(const TestDataAction("Test"));
             });

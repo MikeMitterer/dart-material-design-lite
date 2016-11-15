@@ -108,12 +108,12 @@ class _DataValue {
             return _value;
 
         // IntelliJ needs the "as String" to support autocompletion...
-        } else if((_value.toString() as String).toLowerCase() == "true" ||
+        } else if(_value.toString().toLowerCase() == "true" ||
         _value.toString() == "1" || _value.toString() == "yes" ) {
 
             return true;
 
-        } else if((_value.toString() as String).isEmpty) {
+        } else if(_value.toString().isEmpty) {
             return handleEmptyStringAs;
         }
 

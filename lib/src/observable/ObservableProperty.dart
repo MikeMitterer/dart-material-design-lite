@@ -101,7 +101,7 @@ class ObservableProperty<T> {
         if(_value.runtimeType == double || _treatAsDouble ) {
 
             // Strange - but this avoids DA-Warning
-            _value = ConvertValue.toDouble(val) as dynamic;
+            _value = ConvertValue.toDouble(val) as T;
 
         } else if(_value.runtimeType == bool) {
 
@@ -112,7 +112,7 @@ class ObservableProperty<T> {
             _value = ConvertValue.toInt(val) as T;
 
         } else {
-            _value = val;
+            _value = val as T;
         }
 
         _logger.fine("Input-Value: '$val' (${val.runtimeType}) -> '${_value}' (${_value.runtimeType})");
@@ -174,7 +174,7 @@ class ObservableProperty<T> {
 
     void _setValue() {
         if(_observe != null) {
-            final T newValue = _observe();
+            final T newValue = _observe() as T;
             if(newValue != _value) {
               value = newValue;
               }

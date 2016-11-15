@@ -189,8 +189,8 @@ class MaterialRipple extends MdlComponent {
             if (event == dom.MouseEvent &&
                 (event as dom.MouseEvent).client.x == 0 && (event as dom.MouseEvent).client.y == 0) {
 
-                x = ((bound.width / 2) as double).round();
-                y = ((bound.height / 2) as double).round();
+                x = (bound.width / 2).round();
+                y = (bound.height / 2).round();
 
             } else {
 

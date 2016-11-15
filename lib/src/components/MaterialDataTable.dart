@@ -125,12 +125,12 @@ class MaterialDataTable extends MdlComponent {
             checkbox.checked = row.classes.contains(_cssClasses.IS_SELECTED);
 
             // .addEventListener('change', -- .onChange.listen(<Event>);
-            checkbox.onChange.listen( _selectRow(checkbox, row, null));
+            checkbox.onChange.listen( (_) => _selectRow(checkbox, row, null));
 
         } else if (optRows != null && optRows.isNotEmpty) {
 
             // .addEventListener('change', -- .onChange.listen(<Event>);
-            checkbox.onChange.listen( _selectRow(checkbox, null, optRows));
+            checkbox.onChange.listen( (_) => _selectRow(checkbox, null, optRows));
         }
 
         label.append(checkbox);

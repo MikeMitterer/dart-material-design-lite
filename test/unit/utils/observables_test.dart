@@ -42,7 +42,7 @@ main() {
                 _logger.fine(list.toString());
             });
 
-            list.onChange.listen(onChange);
+            list.onChange.listen((final ListChangedEvent event) => onChange(event));
             list.add("Hallo");
 
         }); // end of 'List' test

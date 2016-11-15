@@ -28,7 +28,7 @@ typedef _EventHandler(final dom.Element element,invoke(final dom.Event event));
  */
 @di.Injectable()
 class EventCompiler {
-    final Logger _logger = new Logger('mdlapplication.EventCompiler');
+    static final Logger _logger = new Logger('mdlapplication.EventCompiler');
 
     static final Map<String,_EventHandler> datasets = {
         'mdl-abort':            _onAbort,
@@ -377,7 +377,7 @@ class EventCompiler {
 /// Same as {EventCompiler} but uses MdlComponent as basis.
 /// {MdlComponent} already brings it's dom.Element
 class MdlEventCompiler extends EventCompiler {
-    final Logger _logger = new Logger('mdltemplatecomponents.MdlEventCompiler');
+    static final Logger _logger = new Logger('mdltemplatecomponents.MdlEventCompiler');
 
     Future compile(final MdlComponent component) async {
         final dom.Element element = component.element;

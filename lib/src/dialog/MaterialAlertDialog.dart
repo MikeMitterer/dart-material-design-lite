@@ -2,7 +2,7 @@ part of mdldialog;
 
 @MdlComponentModel @di.Injectable()
 class MaterialAlertDialog extends MaterialDialog {
-    final Logger _logger = new Logger('mdldialog.MaterialAlertDialog');
+    static final Logger _logger = new Logger('mdldialog.MaterialAlertDialog');
 
     static const String _DEFAULT_OK_BUTTON = "OK";
 

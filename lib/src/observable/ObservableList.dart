@@ -133,7 +133,7 @@ class ObservableList<T> extends ListBase<T> {
     }
 
     @override
-    bool remove(final T element) {
+    bool remove(final Object element) {
         _fire(new ListChangedEvent<T>(ListChangeType.REMOVE,item: element ));
         return _innerList.remove(element);
     }

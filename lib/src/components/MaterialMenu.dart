@@ -64,7 +64,7 @@ class MaterialMenu extends MdlComponent {
     dom.DivElement _outline;
     dom.Element _forElement;
 
-    StreamSubscription _animationStream = null;
+    StreamSubscription<dom.TransitionEvent> _animationStream = null;
 
     dom.Element get forElement {
         if(_forElement == null) {
@@ -88,8 +88,8 @@ class MaterialMenu extends MdlComponent {
         if (element != null && _container != null && _outline != null ) {
             // Measure the inner element.
 
-            final height = element.getBoundingClientRect().height as num;
-            final width = element.getBoundingClientRect().width as num;
+            final num height = element.getBoundingClientRect().height;
+            final num width = element.getBoundingClientRect().width;
 
             // Apply the inner element's size to the container and outline.
             _container.style.width = "${width}px";
@@ -461,7 +461,7 @@ class MaterialMenu extends MdlComponent {
     void _addAnimationEndListener() {
 
         /// Cleanup function to remove animation listeners.
-        final _removeAnimationEndListener = (_) {
+        final _removeAnimationEndListener = (final dom.TransitionEvent event) {
             if(_animationStream != null) {
                 _animationStream.cancel();
                 _animationStream = null;

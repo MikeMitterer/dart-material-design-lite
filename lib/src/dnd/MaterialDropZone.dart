@@ -17,7 +17,9 @@
  * limitations under the License.
  */
 part of mdldnd;
- 
+
+typedef List<String> GetZoneNamesCallback();
+
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
@@ -128,13 +130,13 @@ class _MdlAcceptor extends Acceptor {
     final _logger = new Logger('mdldnd._MdlAcceptor');
 
     final DragInfo _dragDropService;
-    final _getZoneNamesCallback;
+    final GetZoneNamesCallback _getZoneNamesCallback;
 
-    _MdlAcceptor(this._dragDropService,void getZoneNames())
-        : _getZoneNamesCallback = getZoneNames {
+    _MdlAcceptor(this._dragDropService,final GetZoneNamesCallback callback)
+        : _getZoneNamesCallback = callback {
 
         Validate.notNull(_dragDropService);
-        Validate.notNull(getZoneNames);
+        Validate.notNull(callback);
     }
 
     @override

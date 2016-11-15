@@ -22,7 +22,7 @@ part of mdltemplate;
 
 /// Basis for all MdlComponents with Templates
 abstract class MdlTemplateComponent extends MdlComponent implements TemplateComponent, ScopeAware {
-    final Logger _logger = new Logger('mdltemplate.MdlTemplateComponent');
+    static final Logger _logger = new Logger('mdltemplate.MdlTemplateComponent');
 
     /**
      *  Makes it easy to add functionality to templates

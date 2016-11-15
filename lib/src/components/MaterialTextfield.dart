@@ -110,7 +110,7 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
         Validate.notNull(v);
 
         final dom.HtmlElement _label = labelElement;
-        _label?.text = formatterFor(_label).format(v.trim());
+        _label?.text = formatterFor(_label,element).format(v.trim());
     }
 
     /// Returns text field value
@@ -202,9 +202,9 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
 
     /// Handle input being entered.
     void _onKeyDown(final dom.KeyboardEvent event) {
-        final input = element;
+        //final input = element;
 
-        final currentRowCount = input.value.split('\n').length;
+        final currentRowCount = value.split('\n').length;
         if (event.keyCode == 13) {
             if (currentRowCount >= _maxRows) {
                 event.preventDefault();

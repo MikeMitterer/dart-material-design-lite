@@ -317,7 +317,7 @@ class MdlAnimation {
 
                     completer.complete();
                 };
-                subscription = element.on["animationend"].listen(_onAnimationEnd);
+                subscription = element.on["animationend"].listen(_onAnimationEnd) as StreamSubscription<dom.EventListener>;
             }
         });
 

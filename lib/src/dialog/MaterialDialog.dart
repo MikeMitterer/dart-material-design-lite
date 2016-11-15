@@ -88,7 +88,7 @@ class DialogConfig {
 
 /// HTML-Part of MdlDialog.
 abstract class MaterialDialog extends Object with TemplateComponent, MdlEventListener implements ScopeAware {
-    final Logger _logger = new Logger('mdldialog.DialogElement');
+    static final Logger _logger = new Logger('mdldialog.DialogElement');
 
     static const _MaterialDialogCssClasses _cssClasses = const _MaterialDialogCssClasses();
 

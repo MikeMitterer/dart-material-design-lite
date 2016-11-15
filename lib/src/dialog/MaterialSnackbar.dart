@@ -39,7 +39,7 @@ class SnackbarPosition {
 /// MaterialSnackbarComponent
 @MdlComponentModel @di.Injectable()
 class MaterialSnackbar extends MaterialDialog {
-    final Logger _logger = new Logger('mdldialog.MaterialSnackbar');
+    static final Logger _logger = new Logger('mdldialog.MaterialSnackbar');
 
     static const String DEFAULT_CONFIRM_BUTTON = "OK";
 
@@ -136,7 +136,7 @@ class MaterialSnackbar extends MaterialDialog {
         _confirmationID = "";
     }
 
-    String _snackbarClasses(_) {
+    String _snackbarClasses(final LambdaContext _) {
         final List<String> classes = new List<String>();
 
         void _addIf(final List<String> classes,final bool check,final String classToAdd) {

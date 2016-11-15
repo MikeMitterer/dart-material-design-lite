@@ -28,7 +28,7 @@ abstract class ModelObserver<T extends MdlComponent> {
 
     static int toInt(final dynamic value) {
         if(value is num) {
-            return (value as num).toInt();
+            return value.toInt();
         }
         return int.parse(value.toString());
     }

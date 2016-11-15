@@ -4,7 +4,7 @@ import 'package:grinder/grinder.dart';
 import 'package:mdl/src/grinder/grinder.dart' as mdl;
 
 
-main(args) => grind(args);
+main(final List<String> args) => grind(args);
 
 @Task()
 @Depends(genCss, genThemes, test)

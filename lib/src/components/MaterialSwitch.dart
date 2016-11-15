@@ -112,7 +112,7 @@ class MaterialSwitch extends MdlComponent with FallbackFormatter {
         Validate.notNull(v);
 
         final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
-        _label?.text = formatterFor(_label).format(v.trim());
+        _label?.text = formatterFor(_label,element).format(v.trim());
     }
 
     /// Returns the value for the given [inputElement]
@@ -120,7 +120,7 @@ class MaterialSwitch extends MdlComponent with FallbackFormatter {
 
     void set value(final String value) {
         Validate.notNull(value);
-        inputElement.value = formatterFor(inputElement).format(value);
+        inputElement.value = formatterFor(inputElement,element).format(value);
     }
 
     //- private -----------------------------------------------------------------------------------

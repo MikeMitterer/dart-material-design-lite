@@ -29,11 +29,11 @@ class ConvertValue {
         }
 
         if(value is bool) {
-            return value as bool;
+            return value;
         }
 
         if(value is num) {
-            return (value as num).toInt() == 1;
+            return value.toInt() == 1;
         }
         final String stringvalue = "$value".toLowerCase();
         return stringvalue == "true" || stringvalue == "on" || stringvalue == "1" || stringvalue == "yes";
@@ -44,7 +44,7 @@ class ConvertValue {
             return value;
         }
         if(value is num) {
-            return (value as num).toInt();
+            return value.toInt();
         }
         final String stringvalue = "$value".toLowerCase();
         return int.parse(stringvalue);
@@ -55,7 +55,7 @@ class ConvertValue {
             return value;
         }
         if(value is num) {
-            return (value as num).toDouble();
+            return value.toDouble();
         }
         final String stringvalue = "$value".toLowerCase();
         return double.parse(stringvalue);

@@ -185,8 +185,8 @@ class MaterialLayout extends MdlComponent {
                 }
             });
 
-            dom.window.onPageShow.listen( (final dom.PageTransitionEvent event) {
-                if(event.persisted) {
+            dom.window.onPageShow.listen( (final dom.Event event) {
+                if(event is dom.PageTransitionEvent && event.persisted) {
                     // when page is loaded from back/forward cache
                     // trigger repaint to let layout scroll in safari
                     element.style.overflowY = 'hidden';

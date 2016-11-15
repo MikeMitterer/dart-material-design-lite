@@ -117,14 +117,14 @@ class MaterialRadio extends MdlComponent with FallbackFormatter {
         Validate.notNull(v);
 
         final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
-        _label?.text = formatterFor(_label).format(v.trim());
+        _label?.text = formatterFor(_label,element).format(v.trim());
     }
 
     String get value => inputElement.value;
 
     void set value(final String value) {
         Validate.notNull(value);
-        inputElement.value = formatterFor(inputElement).format(value);
+        inputElement.value = formatterFor(inputElement,element).format(value);
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -317,7 +317,7 @@ class MaterialRadioGroup extends MdlComponent {
 
     bool get hasValue {
         bool _hasValue = false;
-        element.children.forEach((final dom.HtmlElement child) {
+        element.children.forEach((final dom.Element child) {
             final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.INPUT}"));
             if(radio != null && radio.checked) {
                 _hasValue = true;
@@ -328,7 +328,7 @@ class MaterialRadioGroup extends MdlComponent {
 
     String get value {
         String _value = "";
-        element.children.forEach((final dom.HtmlElement child) {
+        element.children.forEach((final dom.Element child) {
 
             final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.INPUT}"));
             if(radio != null && radio.checked) {
@@ -340,7 +340,7 @@ class MaterialRadioGroup extends MdlComponent {
     }
 
     void set value(final String val) {
-        element.children.forEach((final dom.HtmlElement child) {
+        element.children.forEach((final dom.Element child) {
 
             final MaterialRadio radio = MaterialRadio.widget(child.querySelector(".${_cssClasses.INPUT}"));
             if(radio != null) {

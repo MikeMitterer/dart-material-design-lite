@@ -52,7 +52,7 @@ class MaterialLabelfield extends MdlComponent with FallbackFormatter {
         Validate.notNull(v);
 
         final dom.HtmlElement _label = element.querySelector(".${_cssClasses.LABEL}");
-        _label?.text = formatterFor(_label).format(v.trim());
+        _label?.text = formatterFor(_label,element).format(v.trim());
     }
 
     String get value {
@@ -65,7 +65,7 @@ class MaterialLabelfield extends MdlComponent with FallbackFormatter {
         Validate.notNull(v);
 
         final dom.HtmlElement _text = element.querySelector(".${_cssClasses.TEXT}");
-        _text?.text = formatterFor(_text).format(v);
+        _text?.text = formatterFor(_text,element).format(v);
     }
 
     // - EventHandler -----------------------------------------------------------------------------

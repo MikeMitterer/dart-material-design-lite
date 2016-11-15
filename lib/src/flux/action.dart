@@ -47,7 +47,14 @@ class ActionName {
 
     String toString() => name;
 
-    bool operator==(final ActionName actionname) => name == actionname.name;
+    bool operator==(final Object actionname) {
+        if(actionname is! ActionName) {
+            return false;
+        }
+
+        return name == (actionname as ActionName).name;
+    }
+
     int get hashCode => name.hashCode;
 }
 

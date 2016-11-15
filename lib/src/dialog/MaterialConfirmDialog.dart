@@ -2,7 +2,7 @@ part of mdldialog;
 
 @MdlComponentModel  @di.Injectable()
 class MdlConfirmDialog extends MaterialDialog {
-    final Logger _logger = new Logger('mdldialog.MdlConfirmDialog');
+    static final Logger _logger = new Logger('mdldialog.MdlConfirmDialog');
 
     static const String _DEFAULT_YES_BUTTON = "Yes";
     static const String _DEFAULT_NO_BUTTON = "No";

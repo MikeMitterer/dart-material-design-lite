@@ -50,7 +50,7 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
     static MaterialObserve widget(final dom.HtmlElement element) => mdlComponent(element,MaterialObserve) as MaterialObserve;
 
     @public
-    void set value(final val) => element.text = (val != null ? val.toString() : "");
+    void set value(final val) { element.text = (val != null ? val.toString() : ""); }
 
     @public
     String get value => element.text.trim();
@@ -142,13 +142,13 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
 
     void _renderValue(dynamic val) {
         if(val != null) {
-            _renderer.render(element,_mustacheTemplate.renderString(val)).then((final dom.HtmlElement child) {
+            _renderer.render(element,_mustacheTemplate.renderString(val)).then((final dom.Element child) {
                 _eventCompiler.compileElement(scope,child);
             });
         } else {
             void _cleanup() {
                 UnmodifiableListView<dom.Node> nodes = new UnmodifiableListView(element.childNodes);
-                nodes.forEach((final dom.Element child) {
+                nodes.forEach((final dom.Node child) {
                     if(child is dom.Element) {
                         componentHandler().downgradeElement(child).then((_) {
                             child.remove();

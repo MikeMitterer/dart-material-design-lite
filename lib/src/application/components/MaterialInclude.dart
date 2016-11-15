@@ -60,7 +60,7 @@ class MaterialInclude extends MdlComponent {
     MaterialInclude.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : _renderer = injector.get(DomRenderer), super(element,injector) {
 
-        onLoadEnd = _controller.stream;
+        onLoadEnd = _controller.stream as Stream<MaterialContentEvent>;
         _init();
     }
 
@@ -92,7 +92,7 @@ class MaterialInclude extends MdlComponent {
 
     /// loads the given {url} and returns the content
     Future<String> _load(final String url) {
-        final Completer completer = new Completer();
+        final Completer<String> completer = new Completer<String>();
         final dom.HttpRequest request = new dom.HttpRequest();
 
         request.open("GET", url);

@@ -22,6 +22,11 @@ part of mdlformatter;
 /// Helper-Class to get the right [MaterialFormatter] if a [MdlComponent] could have
 /// registered more than one [MaterialFormatter]
 ///
+/// <div class="mdl-textfield mdl-textfield--floating-label" mdl-formatter="lowercase(value)">
+///     <input class="mdl-textfield__input" type="text" id="textfield">
+///     <label class="mdl-textfield__label" for="textfield">X-Men (lowercase)</label>
+/// </div>
+///
 ///     class MaterialLabelfield extends MdlComponent with FallbackFormatter {
 ///         ...
 ///
@@ -30,18 +35,20 @@ part of mdlformatter;
 ///             _text?.text = formatterFor(_text).format(v);
 ///         }
 ///
+///
 abstract class FallbackFormatter {
 
-    dom.Element get element;
-
     /// Checks if [inquirer] has a [MaterialFormatter] and returns the Formatter.
-    /// If it has no formatter it returns the [element]-Formatter
-    MaterialFormatter formatterFor(final dom.Element inquirer) {
+    /// If it has no formatter it returns the [baseElement]-Formatter
+    ///
+    /// E.G. In the above sample the mdl-textfield__input would be the
+    /// [baseElement] ([MdlComponent#element])
+    MaterialFormatter formatterFor(final dom.Element inquirer,final dom.Element baseElement) {
         Validate.notNull(inquirer);
 
         MaterialFormatter formatter = MaterialFormatter.widget(inquirer);
         if(formatter is MaterialDummyFormatter) {
-            formatter = MaterialFormatter.widget(element);
+            formatter = MaterialFormatter.widget(baseElement);
         }
         return formatter;
     }

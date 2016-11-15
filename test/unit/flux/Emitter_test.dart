@@ -24,10 +24,12 @@ main() async {
 
         test('> onChange', () {
 
-            emitter.onChange.listen( expectAsync( (final DataStoreChangedEvent event) {
+            final Function onChangedEvent = expectAsync( (final DataStoreChangedEvent event) {
                 expect(event,isNotNull);
                 expect(event.data,new isInstanceOf<UpdateView>());
-            }));
+            });
+
+            emitter.onChange.listen((final DataStoreChangedEvent event) => onChangedEvent(event));
 
             emitter.changeSomething();
 

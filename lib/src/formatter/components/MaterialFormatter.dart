@@ -29,6 +29,11 @@ MaterialDummyFormatter _dummyFormatter = null;
 
 /// Controller for <element mdl-formatter="formattername()"></element>
 ///
+/// <div class="mdl-textfield mdl-textfield--floating-label" mdl-formatter="lowercase(value)">
+///     <input class="mdl-textfield__input" type="text" id="textfield">
+///     <label class="mdl-textfield__label" for="textfield">X-Men (lowercase)</label>
+/// </div>
+///
 @MdlComponentModel
 class MaterialFormatter extends MdlComponent {
     final Logger _logger = new Logger('mdlformatter.MaterialFormatter');
