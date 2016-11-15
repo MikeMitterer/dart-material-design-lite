@@ -85,14 +85,21 @@ genThemes() {
     mdl.createSampleList();
 
     generator.generate();
+
+    // Übernimmt den letzten TAG aus MDL und setzt den selben Tag im Themes-Folder
     pushThemesToGitHub();
+
 
     // Wenn sich die Styles geändert haben muss die Version für CDN nach oben gezogen werden
     // sonst gibt cdn.rawgit.com nicht die richtige Version zurück!!!!
 
-    log("ACHTUNG: der Tag unter 'MaterialDesignLiteTheme' muss mit dem ");
-    log("verlinketen Tag bei den Themes (styleguide/.sitegen/html/_content/views/theming.html)");
-    log("zusammenstimmen!");
+    // MDL-Version wird in styleguide/.sitegen/html/_content/views/theming.html
+    // upgedatet
+    updateVersionTagInStyleguide();
+
+    //log("ACHTUNG: der Tag unter 'MaterialDesignLiteTheme' muss mit dem ");
+    //log("verlinketen Tag bei den Themes (styleguide/.sitegen/html/_content/views/theming.html)");
+    //log("zusammenstimmen!");
 }
 
 @Task()
@@ -109,6 +116,11 @@ genCss() {
 @Task()
 pushThemesToGitHub() {
     run("tool/scripts/push-theme-to-github.sh");
+}
+
+@Task()
+updateVersionTagInStyleguide() {
+    run("tool/scripts/update_theme_version_in_styleguide.sh");
 }
 
 @Task()
