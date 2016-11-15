@@ -1,9 +1,10 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
-## [Unreleased](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.6...HEAD)
+## [v1.18.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.6...v1.18.0) - 2016-11-15
 
 ### Docs
+* Strong-Mode added [5e58b22](https://github.com/mikemitterer/dart-material-design-lite/commit/5e58b224c39f93dd240cfc2c456f9faa6c0e84a1)
 * updated Readme.md [40cfb9b](https://github.com/mikemitterer/dart-material-design-lite/commit/40cfb9bfa70a8bc2d71d774bd5298622f983544f)
 
 ## [v1.17.5](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.4...v1.17.5) - 2016-10-11

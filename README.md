@@ -15,7 +15,7 @@ from the get-go.
 
 Check out the [CHANGELOG](https://github.com/MikeMitterer/dart-material-design-lite/blob/master/CHANGELOG.md)! to see what's new.
 
-### Breaking changes in 1.20!
+### Breaking changes in 1.18!
 All mdl-js-xxx CSS-classes are gone! It's not necessary anymore to define e.g. mdl-button and! mdl-js-button
 for a MDL-Widget. The Widget-class is enough.
 
