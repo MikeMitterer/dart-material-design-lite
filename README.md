@@ -13,6 +13,8 @@ Material Design Lite lets you add a Material Design look and feel to your dynami
 frameworks or libraries. Optimised for cross-device use, gracefully degrades in older browsers, and offers an experience that is accessible
 from the get-go.
 
+Since v1.18 MDL/Dart is **STRONG_MODE** compliant!
+
 Check out the [CHANGELOG](https://github.com/MikeMitterer/dart-material-design-lite/blob/master/CHANGELOG.md)! to see what's new.
 
 ### Breaking changes in 1.18!

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LASTEST_TAG=`git tags | tail -1 | sed "s/^v//"`
+LASTEST_TAG=`git tags | tail -1`
 
 cd ../MaterialDesignLiteTheme/
 git add .
