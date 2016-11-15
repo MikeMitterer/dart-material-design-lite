@@ -36,6 +36,7 @@ class Sample {
     final bool hasOwnDemoHtml;
     final bool hasOwnPubSpec;
     final bool excludeFromStyleguide;
+    final bool demoSCSSNeedsSassPath;
 
     // Sample has his own demo.scss
     //final bool hasOwnDemoSCSS;
@@ -55,13 +56,13 @@ class Sample {
     String cssDemo =    "demo.css";
 
     Sample(this.name,this.type,
-           {    final hasScript: true, final hasDemoCss: true,
+           {    final hasScript: true, final hasDemoCss: true, final demoSCSSNeedsSassPath: false,
                 final bool hasReadme: true, final bool hasDemoHtml: true, final bool hasSnippet: false,
                 final bool hasOwnDartMain: false, bool hasOwnDemoHtml: false,
                 final bool excludeFromStyleguide: false,
                 final bool hasStyle: true, final bool hasOwnPubSpec: false
            }) :
-                this.hasScript = hasScript, this.hasDemoCss = hasDemoCss,
+                this.hasScript = hasScript, this.hasDemoCss = hasDemoCss, this.demoSCSSNeedsSassPath = demoSCSSNeedsSassPath,
                 this.hasReadme = hasReadme,this.hasDemoHtml = hasDemoHtml, this.hasSnippet = hasSnippet,
                 this.hasOwnDartMain = hasOwnDartMain, this.hasOwnDemoHtml = hasOwnDemoHtml,
                 this.excludeFromStyleguide = excludeFromStyleguide,
@@ -185,7 +186,9 @@ void createSampleList() {
     // SPA Samples
     samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("include",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true));
-    samples.add(new Sample("inplace",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true));
+    // demoSCSSNeedsSassPath schaltet bei dem dem inplace-sample die SCSS Konvertierung aus (es funkt hier nur die Konvertierung
+    // mit sitegen -c da die packages-Folder nicht mehr unterstützt werden
+    samples.add(new Sample("inplace",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true, demoSCSSNeedsSassPath: true));
     samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
 
     // Styleguide!

@@ -110,7 +110,11 @@ class SampleGenerator {
             targetScss.createSync(recursive: true);
             targetScss.writeAsStringSync(".demo-page--${sample.name}, .demo-section--${sample.name} {\n}");
         }
-        Utils.sasscAndAutoPrefix(targetScss,targetCss);
+        if(!sample.demoSCSSNeedsSassPath) {
+            Utils.sasscAndAutoPrefix(targetScss,targetCss);
+        } else {
+            log("     Run sitegen -c for ${sample.name}-sample");
+        }
 
         if(sample.hasStyle && sample.type == Type.Core) {
             _copySubdirs(new File("${config.mdldartdir}/${config.demobase}/${sample.name}"),new File(webDir.path));
