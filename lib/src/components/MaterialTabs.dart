@@ -158,19 +158,21 @@ class _MaterialTab {
             }
 
             ctx.eventStreams.add( tab.onClick.listen( (final dom.Event event) {
-                event.preventDefault();
-                event.stopPropagation();
-
                 final String attribHref = tab.attributes["href"];
-                final String href = attribHref.split('#')[1];
-                final dom.HtmlElement panel = ctx.element.querySelector('#' + href);
+                if(attribHref.startsWith("#")) {
+                    event.preventDefault();
+                    event.stopPropagation();
 
-                ctx._resetTabState();
-                ctx._resetPanelState();
-                tab.classes.add(_cssClasses.ACTIVE_CLASS);
-                panel.classes.add(_cssClasses.ACTIVE_CLASS);
+                    final String href = attribHref.split('#')[1];
+                    final dom.HtmlElement panel = ctx.element.querySelector('#' + href);
 
-                ctx._fire(new MaterialTabsChangedEvent(href));
+                    ctx._resetTabState();
+                    ctx._resetPanelState();
+                    tab.classes.add(_cssClasses.ACTIVE_CLASS);
+                    panel.classes.add(_cssClasses.ACTIVE_CLASS);
+
+                    ctx._fire(new MaterialTabsChangedEvent(href));
+                }
             }));
         }
     }
