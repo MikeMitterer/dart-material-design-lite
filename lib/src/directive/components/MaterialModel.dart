@@ -44,7 +44,7 @@ class MaterialModel extends MdlComponent implements RefreshableComponent {
             // If MaterialDialog pops up attached() is called but only then the parent-scope is set
             // via dialogComponent.parentScope = this;
 
-            if(!_scope.parentContext is HasDynamicParentScope) {
+            if(!(_scope.parentContext is HasDynamicParentScope)) {
                 _logger.shout(e.toString(),e,stacktrace);
             }
         }
