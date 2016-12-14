@@ -10,3 +10,9 @@ analyzer:
     - tool/jsbase/**
     - tool/portbase/**
     - tool/templates/**
+    - tool/templates/**
+
+    # Exclude test because of https://github.com/dart-lang/sdk/issues/26420
+    # and https://github.com/dart-lang/test/issues/436
+    - test/**
+

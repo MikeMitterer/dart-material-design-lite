@@ -15,6 +15,18 @@ from the get-go.
 
 Since v1.18 MDL/Dart is **STRONG_MODE** compliant!
 
+## IMPORTANT
+If you use material.css from cdn.rawgit.com - don't forget to specify your MDL-Dart version in for your css-link
+
+        <link id="theme" rel="stylesheet"
+            href="https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/v<latest mdl-dart version>/red-pink/material.min.css">
+            
+        <!-- Something like this: -->
+        <link id="theme" rel="stylesheet"
+            href="https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/v1.18.1/red-pink/material.min.css">
+            
+More on themes: [http://styleguide.material-design-lite.pub/#/theming](http://styleguide.material-design-lite.pub/#/theming)             
+
 Check out the [CHANGELOG](https://github.com/MikeMitterer/dart-material-design-lite/blob/master/CHANGELOG.md)! to see what's new.
 
 ### Breaking changes in 1.18!
