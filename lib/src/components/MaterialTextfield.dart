@@ -191,18 +191,16 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
                 }
                 _kickInFormatter();
 
-                final bool isInvalid = element.classes.contains(_cssClasses.IS_INVALID);
-
                 // If field is invalid but empty we reset the invalid-class during this initialization
                 // phase.
                 //
                 // E.g. - solves the problem of showing an empty Login-Form empty fields marked as error.
                 // We turn this flag on after the user keys something in or field looses focus
                 // (Form becomes dirty)
+                final bool isInvalid = element.classes.contains(_cssClasses.IS_INVALID);
                 if (isInvalid && value.isEmpty) {
                     element.classes.remove(_cssClasses.IS_INVALID);
                 }
-
                 element.classes.add(_cssClasses.IS_UPGRADED);
             }
         }

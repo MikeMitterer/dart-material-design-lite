@@ -60,11 +60,17 @@ class _TextFieldObserver implements ModelObserver<MaterialTextfield> {
             _subscriptions.add(
                 prop.onChange.listen( (final PropertyChangeEvent event) => _textfield.value = prop.value.toString()));
 
-            _textfield.value = prop.value.toString();
+            // Changes the value in the _textfield only if prop.value is different
+            // Avoids unnecessary _textfield-updates
+            if(_textfield.value != prop.value.toString()) {
+                _textfield.value = prop.value.toString();
+            }
 
         } else if(val != null) {
 
-            _textfield.value = val.toString();
+            if(_textfield.value != val.toString()) {
+                _textfield.value = val.toString();
+            }
             _logger.warning("${fieldname} is not Observable, MaterialTextfield will not be able to set its value!");
 
         } else {
@@ -105,7 +111,11 @@ class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
                 prop.onChange.listen( (final PropertyChangeEvent event) =>
                 _checkbox.value == prop.value.toString() || prop.toBool() ? _checkbox.checked = true : _checkbox.checked = false));
 
-            _checkbox.checked = _checkbox.value == prop.value.toString() || prop.toBool();
+            // Check avoids unnecessary updates
+            final bool newState = _checkbox.value == prop.value.toString() || prop.toBool();
+            if(_checkbox.checked != newState) {
+                _checkbox.checked = newState;
+            }
 
         } else if(val != null) {
 
@@ -150,7 +160,10 @@ class _RadioObserver implements ModelObserver<MaterialRadioGroup> {
             _subscriptions.add(
                 prop.onChange.listen( (final PropertyChangeEvent event) => _radioGroup.value = prop.value.toString()));
 
-            _radioGroup.value = prop.value.toString();
+            // Avoids unnecessary updates
+            if(_radioGroup.value != prop.value.toString()) {
+                _radioGroup.value = prop.value.toString();
+            }
 
         } else if(val != null) {
 
@@ -196,7 +209,11 @@ class _SwitchObserver implements ModelObserver<MaterialSwitch> {
                 prop.onChange.listen( (final PropertyChangeEvent event) =>
                 _switch.value == prop.value.toString() || prop.toBool() ? _switch.checked = true : _switch.checked = false));
 
-            _switch.checked = _switch.value.toString() == prop.value || prop.toBool();
+            // Avoids unnecessary updates
+            final bool newState = _switch.value.toString() == prop.value || prop.toBool();
+            if(_switch.checked != newState) {
+                _switch.checked = newState;
+            }
 
         } else if(val != null) {
 
@@ -240,7 +257,11 @@ class _SliderObserver implements ModelObserver<MaterialSlider> {
             _subscriptions.add(
                 prop.onChange.listen( (final PropertyChangeEvent event) => _slider.value = ModelObserver.toInt(prop.value)));
 
-            _slider.value = ModelObserver.toInt(prop.value);
+            // Avoids unnecessary updates
+            final int newValue = ModelObserver.toInt(prop.value);
+            if(_slider.value != newValue) {
+                _slider.value = newValue;
+            }
 
         } else if(val != null) {
 
