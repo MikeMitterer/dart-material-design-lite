@@ -183,7 +183,6 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
                     eventStreams.add(element.onKeyDown.listen( _onKeyDown ));
                 }
 
-                final bool isInvalid = element.classes.contains(_cssClasses.IS_INVALID);
                 _updateClasses();
 
                 /// Reformat according to [MaterialFormatter] definition
@@ -192,10 +191,19 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
                 }
                 _kickInFormatter();
 
-                element.classes.add(_cssClasses.IS_UPGRADED);
-                if (isInvalid) {
-                    element.classes.add(_cssClasses.IS_INVALID);
+                final bool isInvalid = element.classes.contains(_cssClasses.IS_INVALID);
+
+                // If field is invalid but empty we reset the invalid-class during this initialization
+                // phase.
+                //
+                // E.g. - solves the problem of showing an empty Login-Form empty fields marked as error.
+                // We turn this flag on after the user keys something in or field looses focus
+                // (Form becomes dirty)
+                if (isInvalid && value.isEmpty) {
+                    element.classes.remove(_cssClasses.IS_INVALID);
                 }
+
+                element.classes.add(_cssClasses.IS_UPGRADED);
             }
         }
     }
