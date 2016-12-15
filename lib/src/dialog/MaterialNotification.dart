@@ -43,6 +43,11 @@ class MaterialNotification extends MaterialDialog {
 
     int timeout = SHORT_DELAY;
 
+    /// MaterialNotification-Dialog is by default auto-closable
+    ///
+    /// This setting overwrites this behaviour
+    bool _autoClose = true;
+
     MaterialNotification() : super(new _NotificationConfig()) {
         lambdas["type"] = _notificationType;
     }
@@ -86,13 +91,16 @@ class MaterialNotification extends MaterialDialog {
     bool get hasSubTitle => subtitle != null && subtitle.isNotEmpty;
     bool get hasContent => content != null && content.isNotEmpty;
 
+    /// Overwrites the default behaviour which is auto-closable by default
+    void set autoClose(final bool enabled) { _autoClose = enabled;  }
+    bool get autoClose => _autoClose;
+
     // - EventHandler -----------------------------------------------------------------------------
 
     @override
     // TODO: Params are not used - change parent function...
     Future<MdlDialogStatus> show({ final Duration timeout,void dialogIDCallback(final String dialogId) }) {
-        return super.show(timeout: new Duration(milliseconds: this.timeout));
-        //return super.show();
+        return super.show(timeout: (_autoClose == true ? new Duration(milliseconds: this.timeout ): null ));
     }
 
     void onClose() {

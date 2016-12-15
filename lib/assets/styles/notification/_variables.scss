@@ -31,7 +31,7 @@ $notification-swift-ease-out-duration : 1s !default;
 $notification-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
 $notification-swift-ease-out : all $notification-swift-ease-out-duration $notification-swift-ease-out-timing-function !default;
 
-$notification-z-index: 90 !default;
+//$notification-z-index: 90 !default;
 
 //$notification-layout-breakpoint-sm:     600px !default;
 //
@@ -39,7 +39,7 @@ $notification-z-index: 90 !default;
 //$notification-button-color: nth($palette-accent, 5) !default;
 //$notification-background: nth($palette-grey, 9) !default;
 
-$notification-container-z-index: 3; // mdl-layout__drawer: 5
+$notification-container-z-index: 90 !default; // mdl-layout__drawer: 5, mdl-dialog-container: 80
 $notification-container-width: 336px;
 
 $notification-width: $notification-container-width - 12px;

@@ -7679,7 +7679,7 @@ mdl-draggable {
       color: whitesmoke !important; }
 
 .mdl-notification-container {
-  z-index: 3;
+  z-index: 90;
   position: absolute;
   right: 12px;
   top: 12px;
