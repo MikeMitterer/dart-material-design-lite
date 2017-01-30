@@ -17,7 +17,7 @@ class MaterialAlertDialog extends MaterialDialog {
         Validate.notNull(title);
         Validate.notBlank(okButton);
 
-        this.text = text;
+        this.text = text.replaceAll("\n","<br>");
         this.title = title;
         this.okButton = okButton;
         return this;
