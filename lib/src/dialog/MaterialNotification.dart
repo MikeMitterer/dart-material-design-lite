@@ -78,7 +78,7 @@ class MaterialNotification extends MaterialDialog {
         this.type = type;
         this.title = title;
         this.subtitle = subtitle;
-        this.content = content;
+        this.content = content.replaceAll(new RegExp("\n",multiLine: true),"<br>");
 
         if(type == NotificationType.ERROR || type == NotificationType.WARNING) {
             timeout = LONG_DELAY;

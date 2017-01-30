@@ -179,6 +179,10 @@
 
                     + span {
                         max-width: $notification-width - 62px;
+
+                        // If not set - Chrome on Mac is not able to calculate the right size
+                        min-width: 1px;
+
                         @include typo-body-1($usePreferred: true);
                         line-height: 130%;
                     }

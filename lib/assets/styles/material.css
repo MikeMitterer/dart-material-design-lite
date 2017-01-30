@@ -7861,6 +7861,7 @@ mdl-draggable {
           margin-right: 12px; }
           .mdl-notification-container .mdl-notification .mdl-notification__content .mdl-notification__text .mdl-notification__avatar + span {
             max-width: 262px;
+            min-width: 1px;
             font-family: "Roboto", "Helvetica", "Arial", sans-serif;
             font-size: 14px;
             font-weight: 400;
