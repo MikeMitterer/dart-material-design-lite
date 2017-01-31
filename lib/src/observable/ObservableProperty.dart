@@ -98,6 +98,7 @@ class ObservableProperty<T> {
     void set value(final val) {
         final T old = _value;
 
+        // JS does not support double - so you have to specify treatAsDouble
         if(_value.runtimeType == double || _treatAsDouble ) {
 
             // Strange - but this avoids DA-Warning
@@ -121,6 +122,12 @@ class ObservableProperty<T> {
     }
 
     T get value => _value;
+
+    /// Mimics a function call
+    ///
+    /// final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
+    /// nrOfItems(10)
+    void call(final val) { value = val; }
 
     /**
      * Observe values in your app
