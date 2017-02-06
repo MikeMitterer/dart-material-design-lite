@@ -1,17 +1,17 @@
 //----
-//  Copyright 2015 Google Inc. All Rights Reserved.
+// Copyright 2015 Google Inc. All Rights Reserved.
 //
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
-//       http://www.apache.org/licenses/LICENSE-2.0
+//      http://www.apache.org/licenses/LICENSE-2.0
 //
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 //
 
 //@import "../variables";
@@ -117,16 +117,15 @@
   87.5% { transform: rotate(3.5 * $spinner-arc-size); }
   to    { transform: rotate(4 * $spinner-arc-size); }
 }
-
-/**
-* HACK: Even though the intention is to have the current .mdl-spinner__layer-N
-* at `opacity: 1`, we set it to `opacity: 0.99` instead since this forces Chrome
-* to do proper subpixel rendering for the elements being animated. This is
-* especially visible in Chrome 39 on Ubuntu 14.04. See:
-*
-* - https://github.com/Polymer/paper-spinner/issues/9
-* - https://code.google.com/p/chromium/issues/detail?id=436255
-*/
+//----
+// HACK: Even though the intention is to have the current .mdl-spinner__layer-N
+// at `opacity: 1`, we set it to `opacity: 0.99` instead since this forces Chrome
+// to do proper subpixel rendering for the elements being animated. This is
+// especially visible in Chrome 39 on Ubuntu 14.04. See:
+//
+// - https://github.com/Polymer/paper-spinner/issues/9
+// - https://code.google.com/p/chromium/issues/detail?id=436255
+//
 @keyframes mdl-spinner__layer-1-fade-in-out {
   from { opacity: 0.99; }
   25% { opacity: 0.99; }
@@ -159,15 +158,14 @@
   90% { opacity: 0.99; }
   100% { opacity: 0; }
 }
-
-/**
-* Patch the gap that appear between the two adjacent
-* div.mdl-spinner__circle-clipper while the spinner is rotating
-* (appears on Chrome 38, Safari 7.1, and IE 11).
-*
-* Update: the gap no longer appears on Chrome when .mdl-spinner__layer-N's
-* opacity is 0.99, but still does on Safari and IE.
-*/
+//----
+// Patch the gap that appear between the two adjacent
+// div.mdl-spinner__circle-clipper while the spinner is rotating
+// (appears on Chrome 38, Safari 7.1, and IE 11).
+//
+// Update: the gap no longer appears on Chrome when .mdl-spinner__layer-N's
+// opacity is 0.99, but still does on Safari and IE.
+//
 .mdl-spinner__gap-patch {
   position: absolute;
   box-sizing: border-box;
@@ -191,6 +189,14 @@
   height: 100%;
   overflow: hidden;
   border-color: inherit;
+
+  &.mdl-spinner__left {
+    float: left;
+  }
+
+  &.mdl-spinner__right {
+    float: right;
+  }
 
   & .mdl-spinner__circle {
     width: 200%;

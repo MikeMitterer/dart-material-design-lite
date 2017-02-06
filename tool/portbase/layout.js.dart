@@ -96,6 +96,7 @@ class _  MaterialLayoutCssClasses {
       final String TAB_BAR_BUTTON = 'mdl-layout__tab-bar-button';
       final String TAB_BAR_LEFT_BUTTON = 'mdl-layout__tab-bar-left-button';
       final String TAB_BAR_RIGHT_BUTTON = 'mdl-layout__tab-bar-right-button';
+      final String TAB_MANUAL_SWITCH = 'mdl-layout__tab-manual-switch';
       final String PANEL = 'mdl-layout__tab-panel';
 
       final String HAS_DRAWER = 'has-drawer';
@@ -549,13 +550,17 @@ void init() {
       tab.append(rippleContainer);
     }
 
+    if (!layout._tabBar.classes.contains(
+      layout._cssClasses.TAB_MANUAL_SWITCH)) {
+
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-    tab.onClick.listen( /*function*/ (e) {
-      if (tab.getAttribute('href').charAt(0) == '#') {
-        e.preventDefault();
-        selectTab();
-      }
-    });
+      tab.onClick.listen( /*function*/ (e) {
+        if (tab.getAttribute('href').charAt(0) == '#') {
+          e.preventDefault();
+          selectTab();
+        }
+      });
+    }
 
     tab.show = selectTab;
   }

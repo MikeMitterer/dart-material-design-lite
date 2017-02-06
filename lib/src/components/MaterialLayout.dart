@@ -589,15 +589,17 @@ class MaterialLayoutTab {
                 tab.append(rippleContainer);
             }
 
-            eventStreams.add(
-                tab.onClick.listen( (final dom.MouseEvent event) {
-                if(tab.attributes["href"].startsWith("#")) {
-                    event.preventDefault();
-                    event.stopPropagation();
+            if(! layout.tabBar.classes.contains(_cssClasses.TAB_MANUAL_SWITCH)) {
+                eventStreams.add(
+                    tab.onClick.listen((final dom.MouseEvent event) {
+                        if (tab.attributes["href"].startsWith("#")) {
+                            event.preventDefault();
+                            event.stopPropagation();
 
-                    _selectTab();
-                }
-            }));
+                            _selectTab();
+                        }
+                    }));
+            }
 
             //tab.show = _selectTab();
         }
@@ -655,6 +657,7 @@ class _MaterialLayoutCssClasses {
     final String TAB_BAR_BUTTON = 'mdl-layout__tab-bar-button';
     final String TAB_BAR_LEFT_BUTTON = 'mdl-layout__tab-bar-left-button';
     final String TAB_BAR_RIGHT_BUTTON = 'mdl-layout__tab-bar-right-button';
+    final String TAB_MANUAL_SWITCH = 'mdl-layout__tab-manual-switch';
     final String PANEL = 'mdl-layout__tab-panel';
 
     final String NAVI_LINK = "mdl-navigation__link";

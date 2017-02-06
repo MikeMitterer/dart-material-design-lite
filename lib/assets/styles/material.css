@@ -33,9 +33,6 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0; }
 
-/**
-  * Styles for HTML elements
-  */
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 56px;
@@ -143,9 +140,6 @@ ul, ol {
   line-height: 24px;
   letter-spacing: 0; }
 
-/**
- * Class Name Styles
- */
 .mdl-typography--display-4 {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 112px;
@@ -2544,9 +2538,6 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0; }
 
-/**
-  * Styles for HTML elements
-  */
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 56px;
@@ -2654,9 +2645,6 @@ ul, ol {
   line-height: 24px;
   letter-spacing: 0; }
 
-/**
- * Class Name Styles
- */
 .mdl-typography--display-4 {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 112px;
@@ -3233,9 +3221,6 @@ input.mdl-button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
   line-height: normal;
   padding: 16px 16px;
   -webkit-perspective-origin: 165px 56px;
@@ -3275,7 +3260,7 @@ input.mdl-button[type="submit"] {
   padding: 16px 16px;
   width: 90%; }
   .mdl-card__supporting-text.mdl-card--border {
-    border-top: 1px solid rgba(0, 0, 0, 0.1); }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
 .mdl-card__actions {
   font-size: 16px;
@@ -3373,8 +3358,8 @@ input.mdl-button[type="submit"] {
   left: 0;
   height: 100%;
   width: 100%;
-  -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2FclipPath%3E%3Cmask%20maskContentUnits%3D%22objectBoundingBox%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Cpath%20clip-path%3D%22url(%23a)%22%20d%3D%22M0%200h1v1H0z%22%2F%3E%3C%2Fsvg%3E");
-          mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2FclipPath%3E%3Cmask%20maskContentUnits%3D%22objectBoundingBox%22%3E%3Cpath%20d%3D%22M0%200v1h1V0H0zm.853.167L.96.273l-.53.53L.322.91.217.803.04.627.147.52l.176.177.53-.53z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Cpath%20clip-path%3D%22url(%23a)%22%20d%3D%22M0%200h1v1H0z%22%2F%3E%3C%2Fsvg%3E");
+  -webkit-mask: url("/tick-mask.svg?embed");
+          mask: url("/tick-mask.svg?embed");
   background: transparent;
   -webkit-transition-duration: 0.28s;
           transition-duration: 0.28s;
@@ -3383,10 +3368,10 @@ input.mdl-button[type="submit"] {
   -webkit-transition-property: background;
   transition-property: background; }
   .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-    background: #3f51b5 url("data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E"); }
+    background: #3f51b5 url("/tick.svg?embed"); }
   fieldset[disabled] .mdl-checkbox.is-checked .mdl-checkbox__tick-outline,
   .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
-    background: rgba(0, 0, 0, 0.26) url("data:image/svg+xml;charset=utf-8,%3Csvg%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20version%3D%221.1%22%0A%20%20%20viewBox%3D%220%200%201%201%22%0A%20%20%20preserveAspectRatio%3D%22xMinYMin%20meet%22%3E%0A%20%20%3Cpath%0A%20%20%20%20%20d%3D%22M%200.04038059%2C0.6267767%200.14644661%2C0.52071068%200.42928932%2C0.80355339%200.3232233%2C0.90961941%20z%20M%200.21715729%2C0.80355339%200.85355339%2C0.16715729%200.95961941%2C0.2732233%200.3232233%2C0.90961941%20z%22%0A%20%20%20%20%20id%3D%22rect3780%22%0A%20%20%20%20%20style%3D%22fill%3A%23ffffff%3Bfill-opacity%3A1%3Bstroke%3Anone%22%20%2F%3E%0A%3C%2Fsvg%3E"); }
+    background: rgba(0, 0, 0, 0.26) url("/tick.svg?embed"); }
 
 .mdl-checkbox__label {
   position: relative;
@@ -3426,7 +3411,7 @@ input.mdl-button[type="submit"] {
   border-collapse: collapse;
   white-space: nowrap;
   font-size: 13px;
-  background-color: white; }
+  background-color: rgb(white); }
   .mdl-data-table thead {
     padding-bottom: 3px; }
     .mdl-data-table thead .mdl-data-table__select {
@@ -4933,8 +4918,8 @@ input.mdl-button[type="submit"] {
   .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
-    -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E");
-            mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E"); } }
+    -webkit-mask: url("/buffer.svg?embed");
+            mask: url("/buffer.svg?embed"); } }
 
 .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
@@ -5720,7 +5705,9 @@ input.mdl-button[type="submit"] {
   font-size: 16px;
   line-height: 24px;
   display: inline-block;
+  vertical-align: middle;
   box-sizing: border-box;
+  height: 24px;
   margin: 0;
   padding-left: 0; }
   .mdl-radio.is-upgraded {
@@ -5779,13 +5766,13 @@ input.mdl-button[type="submit"] {
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
-  -webkit-transform: scale3d(0, 0, 0);
-          transform: scale3d(0, 0, 0);
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
   border-radius: 50%;
   background: #3f51b5; }
   .mdl-radio.is-checked .mdl-radio__inner-circle {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1); }
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1); }
   fieldset[disabled] .mdl-radio .mdl-radio__inner-circle,
   .mdl-radio.is-disabled .mdl-radio__inner-circle {
     background: rgba(0, 0, 0, 0.26);
@@ -5862,11 +5849,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     -ms-flex-item-align: center;
         align-self: center;
     z-index: 1;
-    cursor: pointer;
-    /**************************** Tracks ****************************/
-    /**************************** Thumbs ****************************/
-    /**************************** 0-value ****************************/
-    /**************************** Disabled ****************************/ }
+    cursor: pointer; }
     .mdl-slider.is-upgraded::-moz-focus-outer {
       border: 0; }
     .mdl-slider.is-upgraded::-ms-tooltip {
@@ -6192,15 +6175,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     -webkit-transform: rotate(1080deg);
             transform: rotate(1080deg); } }
 
-/**
-* HACK: Even though the intention is to have the current .mdl-spinner__layer-N
-* at `opacity: 1`, we set it to `opacity: 0.99` instead since this forces Chrome
-* to do proper subpixel rendering for the elements being animated. This is
-* especially visible in Chrome 39 on Ubuntu 14.04. See:
-*
-* - https://github.com/Polymer/paper-spinner/issues/9
-* - https://code.google.com/p/chromium/issues/detail?id=436255
-*/
 @-webkit-keyframes mdl-spinner__layer-1-fade-in-out {
   from {
     opacity: 0.99; }
@@ -6214,6 +6188,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     opacity: 0.99; }
   100% {
     opacity: 0.99; } }
+
 @keyframes mdl-spinner__layer-1-fade-in-out {
   from {
     opacity: 0.99; }
@@ -6300,14 +6275,6 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   100% {
     opacity: 0; } }
 
-/**
-* Patch the gap that appear between the two adjacent
-* div.mdl-spinner__circle-clipper while the spinner is rotating
-* (appears on Chrome 38, Safari 7.1, and IE 11).
-*
-* Update: the gap no longer appears on Chrome when .mdl-spinner__layer-N's
-* opacity is 0.99, but still does on Safari and IE.
-*/
 .mdl-spinner__gap-patch {
   position: absolute;
   box-sizing: border-box;
@@ -6328,6 +6295,10 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   height: 100%;
   overflow: hidden;
   border-color: inherit; }
+  .mdl-spinner__circle-clipper.mdl-spinner__left {
+    float: left; }
+  .mdl-spinner__circle-clipper.mdl-spinner__right {
+    float: right; }
   .mdl-spinner__circle-clipper .mdl-spinner__circle {
     width: 200%; }
 

@@ -100,9 +100,9 @@ void _downHandler(final html.Event event) {
 
       } else {
 
-        final clientX = event.clientX ? event.clientX : event.touches[0].clientX;
+        final clientX = event.clientX != undefined ? event.clientX : event.touches[0].clientX;
 
-        final clientY = event.clientY ? event.clientY : event.touches[0].clientY;
+        final clientY = event.clientY != undefined ? event.clientY : event.touches[0].clientY;
         x = Math.round(clientX - bound.left);
         y = Math.round(clientY - bound.top);
       }

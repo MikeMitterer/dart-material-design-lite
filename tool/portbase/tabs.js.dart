@@ -129,15 +129,17 @@ void init() {
 
 	// .addEventListener('click', -> .onClick.listen(<MouseEvent>);
       tab.onClick.listen( /*function*/ (e) {
-        e.preventDefault();
+        if (tab.getAttribute('href').charAt(0) == '#') {
+          e.preventDefault();
 
-        final href = tab.href.split('#')[1];
+          final href = tab.href.split('#')[1];
 
-        final panel = ctx._element.querySelector('#' + href);
-        ctx._resetTabState();
-        ctx._resetPanelState();
-        tab.classes.add(ctx._cssClasses.ACTIVE_CLASS);
-        panel.classes.add(ctx._cssClasses.ACTIVE_CLASS);
+          final panel = ctx._element.querySelector('#' + href);
+          ctx._resetTabState();
+          ctx._resetPanelState();
+          tab.classes.add(ctx._cssClasses.ACTIVE_CLASS);
+          panel.classes.add(ctx._cssClasses.ACTIVE_CLASS);
+        }
       });
 
     }

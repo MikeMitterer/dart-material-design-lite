@@ -1,22 +1,21 @@
 //----
-//  Copyright 2015 Google Inc. All Rights Reserved.
+// Copyright 2015 Google Inc. All Rights Reserved.
 //
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
-//       http://www.apache.org/licenses/LICENSE-2.0
+//      http://www.apache.org/licenses/LICENSE-2.0
 //
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 //
 
 //@import "../variables";
 //@import "../mixins";
-
 
 @if $target-elements-directly == true {
   html, body {
@@ -30,10 +29,9 @@
     margin: 0;
     padding: 0;
   }
-
-  /**
-  * Styles for HTML elements
-  */
+//----
+// Styles for HTML elements
+//
 
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
     @include typo-display-3($colorContrast: true);
@@ -116,10 +114,9 @@
     @include typo-body-1;
   }
 }
-
-/**
- * Class Name Styles
- */
+//----
+// Class Name Styles
+//
 
 .mdl-typography--display-4 {
   @include typo-display-4;

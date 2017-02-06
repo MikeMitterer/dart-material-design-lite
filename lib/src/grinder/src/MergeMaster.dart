@@ -29,9 +29,9 @@ class MergeMaster {
 
         final Directory mdlSampleDir = new Directory("${mdlDir}/${sample.name}");
         final Directory mdlSnippetDir = new Directory("${mdlDir}/${sample.name}/snippets");
-        final Directory sassDir = new Directory("${config.sassdir}/${sample.name}");
         final Directory demoBaseDir = new Directory("${config.demobase}/${sample.name}");
         final Directory demoBaseSnippetDir = new Directory("${config.demobase}/${sample.name}/snippets");
+        final Directory sassDir = new Directory("${config.sassdir}/${sample.name}");
 
         if(!mdlSampleDir.existsSync()) {
             throw "${mdlSampleDir.path} does not exist!";
@@ -47,9 +47,11 @@ class MergeMaster {
             demoBaseSnippetDir.createSync(recursive: true);
         }
 
+
         final File srcSCSS = new File("${mdlSampleDir.path}/${sample.scssFile}");
         final File targetSCSS = new File("${sassDir.path}/${sample.scssFileTarget}");
         srcSCSS.copySync(targetSCSS.path);
+        _optimizeOrigFile(targetSCSS);
 
         if(sample.hasReadme) {
             final File srcReadme = new File("${mdlSampleDir.path}/${sample.readme}");
@@ -108,11 +110,10 @@ class MergeMaster {
         final Directory mdlSampleDir = new Directory("${mdlDir}");
 
         final File srcScss = new File("${mdlSampleDir.path}/_mixins.scss");
-        final File targetScss = new File("${sassDir}/mixins/_mixins.orig.scss");
+        final File targetMixins = new File("${sassDir}/variables/_mixins.orig.scss");
 
-        // log.fine("mixins: ${srcScss.path} -> ${targetScss.path}");
-
-        srcScss.copySync(targetScss.path);
+        srcScss.copySync(targetMixins.path);
+        _optimizeOrigFile(targetMixins);
 
         final File srcJS = new File("${mdlDir}/mdlComponentHandler.js");
         final File targetConvertedJS = new File("${config.portbase}/mdlComponentHandler.js.dart");
@@ -124,16 +125,25 @@ class MergeMaster {
         final File targetVariables = new File("${sassDir}/variables/_variables.orig.scss");
 
         srcVariables.copySync(targetVariables.path);
+        //_optimizeOrigFile(targetVariables);
 
         final File srcFunctions = new File("${mdlDir}/_functions.scss");
         final File targetFunctions = new File("${sassDir}/variables/_functions.orig.scss");
 
         srcFunctions.copySync(targetFunctions.path);
+        _optimizeOrigFile(targetFunctions);
 
         final File srcColordef = new File("${mdlDir}/_color-definitions.scss");
-        final File targetColordev = new File("${sassDir}/palette/_color-definitions.orig.scss");
+        final File targetColordev = new File("${sassDir}/theme/_color-definitions.orig.scss");
 
         srcColordef.copySync(targetColordev.path);
+        _optimizeOrigFile(targetColordev);
+
+        final File srcPalette = new File("${mdlDir}/palette/_palette.scss");
+        final File targetPalette = new File("${sassDir}/theme/_palette.orig.scss");
+
+        srcPalette.copySync(targetPalette.path);
+        _optimizeOrigFile(targetPalette);
     }
 
     void genMaterialCSS() {
@@ -151,7 +161,26 @@ class MergeMaster {
         src.copySync(target.path);
     }
 
-    // -- private -------------------------------------------------------------
+    // -- private ------------------------------------------------------------------------------------------------------
+
+    void _optimizeOrigFile(final File file) {
+        String content = file.readAsStringSync();
+        content = _commentOutSassImport(content);
+        content = _optimizeCSSComment(content);
+
+        file.writeAsStringSync(content);
+    }
+    String _commentOutSassImport(final String content) {
+        return content.replaceAll(new RegExp(r"@import",multiLine: true),"//@import");
+    }
+
+    String _optimizeCSSComment(String content) {
+        content = content.replaceAll(new RegExp(r"^\s*/\*\*",multiLine: true),"//----");
+        content = content.replaceAll(new RegExp(r"^\s*/\*",multiLine: true),"//");
+        content = content.replaceAll(new RegExp(r"^\s*\*/",multiLine: true),"//");
+        content = content.replaceAll(new RegExp(r"^\s*\*",multiLine: true),"//");
+        return content;
+    }
 }
 
 

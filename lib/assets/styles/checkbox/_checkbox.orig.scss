@@ -1,17 +1,17 @@
 //----
-//  Copyright 2015 Google Inc. All Rights Reserved.
+// Copyright 2015 Google Inc. All Rights Reserved.
 //
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
 //
-//       http://www.apache.org/licenses/LICENSE-2.0
+//      http://www.apache.org/licenses/LICENSE-2.0
 //
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 //
 
 //@import "../variables";
@@ -118,19 +118,19 @@
   left: 0;
   height: 100%;
   width: 100%;
-  mask: svg-tick-mask();
+  mask: url("#{$checkbox-image-path}/tick-mask.svg?embed");
 
   background: transparent;
   @include material-animation-default(0.28s);
   transition-property: background;
 
   .mdl-checkbox.is-checked & {
-      background: $checkbox-color svg-tick();
+    background: $checkbox-color url("#{$checkbox-image-path}/tick.svg?embed");
   }
 
   fieldset[disabled] .mdl-checkbox.is-checked &,
   .mdl-checkbox.is-checked.is-disabled & {
-      background: $checkbox-disabled-color svg-tick();
+    background: $checkbox-disabled-color url("#{$checkbox-image-path}/tick.svg?embed");
   }
 }
 

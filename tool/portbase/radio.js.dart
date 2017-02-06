@@ -76,7 +76,7 @@ void _onChange(final html.Event event) {
       // Different name == different group, so no point updating those.
       if (button.getAttribute('name') == _btnElement.getAttribute('name')) {
         if (typeof radios[i]['MaterialRadio'] != 'undefined') {
-            radios[i]['MaterialRadio']._updateClasses();
+          radios[i]['MaterialRadio']._updateClasses();
         }
       }
     }
