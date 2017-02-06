@@ -1,6 +1,26 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.18.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.18.2...v1.18.3) - 2017-02-06
+
+### Feature
+* ObservableProperty got call-operator [f28fc4e9](https://github.com/mikemitterer/dart-material-design-lite/commit/f28fc4e9ec7bb60e6b20f3f0e6bf25187bb5efe6)
+* AlertDialog supports '\n' (Converts it to <br>) [d7d05fdf](https://github.com/mikemitterer/dart-material-design-lite/commit/d7d05fdfa131d21c12845dbf38d366b0d229bee1)
+* Optimized ModelObserver - avoids unnecessary updates [c7ece403](https://github.com/mikemitterer/dart-material-design-lite/commit/c7ece40381bea8749015dee82fb477b1a97907c4)
+
+### Fixes
+* Initializes empty form with fields marked as invalid [30dfc346](https://github.com/mikemitterer/dart-material-design-lite/commit/30dfc346eaf49697cfdfdb1bf2be5fa9a1f564b5)
+
+### Bugs
+* Scrollbar in Custom-Dialog was visible [710e32b9](https://github.com/mikemitterer/dart-material-design-lite/commit/710e32b97df7883a70b64f80c375823c37303ad8)
+* NotificationMessage could not create correct text-block-width [a2bb60d1](https://github.com/mikemitterer/dart-material-design-lite/commit/a2bb60d1362a75866d765b1f55eb142491c0be91)
+
+### Style
+* HideScrollbar-SCSS added [8077323f](https://github.com/mikemitterer/dart-material-design-lite/commit/8077323f01ec9f9aaae01ecb815e0a6f72277a4e)
+
+### Test
+* Mocked injection [b4943166](https://github.com/mikemitterer/dart-material-design-lite/commit/b4943166d8e80c3ce529bac7f4c460133a65b990)
+
 ## [v1.18.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.17.6...v1.18.0) - 2016-11-15
 
 ### Docs
