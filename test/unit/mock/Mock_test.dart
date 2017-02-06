@@ -1,4 +1,4 @@
-//@TestOn("content-shell")
+@TestOn("content-shell")
 import 'dart:async';
 import 'package:test/test.dart';
 

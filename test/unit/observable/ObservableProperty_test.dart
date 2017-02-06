@@ -1,5 +1,6 @@
-import 'dart:async';
 @TestOn("content-shell")
+
+import 'dart:async';
 import 'package:test/test.dart';
 
 // import 'package:logging/logging.dart';
