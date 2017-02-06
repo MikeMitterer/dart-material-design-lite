@@ -7031,7 +7031,9 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
               order: 1;
       padding: 24px 24px 0 24px;
       overflow: auto;
-      -webkit-overflow-scrolling: touch; }
+      -webkit-overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content:not([layout=row]) > *:first-child:not(.mdl-subheader) {
         margin-top: 0; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content h1, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h2, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h3, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h4, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h5, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h6 {
@@ -7044,6 +7046,15 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
         letter-spacing: 0.04em;
         opacity: 0.87;
         color: black; }
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar {
+        display: none;
+        -webkit-appearance: none; }
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__content:hover::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 2px solid white;
+        background-color: rgba(0, 0, 0, 0.5); }
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar-button {
+        display: none; }
     .mdl-dialog-container .mdl-dialog .mdl-dialog__actions {
       display: -webkit-box;
       display: -ms-flexbox;

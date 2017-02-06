@@ -20,6 +20,7 @@
 @import "../theme/theme";
 @import "../shadow/mixins";
 @import "../typography/mixins";
+@import "../scrollbars/mixins";
 
 @import "variables";
 @import "mixins";
@@ -87,6 +88,8 @@
             h1,h2,h3,h4,h5,h6 { margin-bottom: 18px; }
 
             p { @include typo-subhead(true); color: $dialog-secondary-color; }
+
+            @include hide_scrollbar($show_on_hover: false);
         }
 
         .mdl-dialog__actions {
