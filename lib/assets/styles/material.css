@@ -7048,7 +7048,8 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
         color: black; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar {
         display: none;
-        -webkit-appearance: none; }
+        -webkit-appearance: none;
+        background-color: transparent; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content:hover::-webkit-scrollbar-thumb {
         border-radius: 8px;
         border: 2px solid white;

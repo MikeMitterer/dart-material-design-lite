@@ -27,16 +27,26 @@
 //        html, body, body > div, .mdl-splashscreen, .application {
 //            @include hide_scrollbar($show_on_hover: false);
 //        }
-@mixin hide_scrollbar($show_on_hover: true) {
+@mixin hide_scrollbar($show_on_hover: true, $bg_color: transparent) {
     // 1. hides the scrollbar on webkit browsers
     &::-webkit-scrollbar {
         display : none;
         -webkit-appearance: none;
 
         @if $show_on_hover {
-            width: 11px;
-            height: 11px;
+            width: 9px;
+            height: 9px;
         }
+        background-color: $bg_color;
+    }
+
+    &::-webkit-scrollbar-track {
+    }
+
+    &::-webkit-scrollbar-track-piece:start {
+    }
+
+    &::-webkit-scrollbar-track-piece:end {
     }
 
     &:hover::-webkit-scrollbar-thumb {
