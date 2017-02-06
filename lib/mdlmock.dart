@@ -36,7 +36,6 @@
 ///     }
 library mdlmock;
 
-//import 'package:logging/logging.dart';
 //import 'package:validate/validate.dart';
 
 import 'dart:mirrors';
@@ -59,21 +58,38 @@ class _MdlInjector {
         }
     }
 
-    void inject(Function function) {
+    inject(final Function function) {
         _create();
 
         final ClosureMirror cm = reflect(function);
         final MethodMirror mm = cm.function;
 
-        final List args = mm.parameters.map( (ParameterMirror parameter) {
+//        List args = new List();
+//        try {
+//            args = mm.parameters.map( (final ParameterMirror parameter) {
+//                var metadata = parameter.metadata;
+//
+//                di.Key key = new di.Key(
+//                    (parameter.type as ClassMirror).reflectedType,
+//                    metadata.isEmpty ? null : metadata.first.type.reflectedType);
+//
+//                return _injector.getByKey(key);
+//            }).toList();
+//
+//
+//
+//        } on di_errors.NoProviderError catch(error) {
+//            print(error);
+//        }
+
+        final List args = mm.parameters.map( (final ParameterMirror parameter) {
             var metadata = parameter.metadata;
 
             di.Key key = new di.Key(
                 (parameter.type as ClassMirror).reflectedType,
-                    metadata.isEmpty ? null : metadata.first.type.reflectedType);
+                metadata.isEmpty ? null : metadata.first.type.reflectedType);
 
             return _injector.getByKey(key);
-
         }).toList();
 
         return cm.apply(args).reflectee;
