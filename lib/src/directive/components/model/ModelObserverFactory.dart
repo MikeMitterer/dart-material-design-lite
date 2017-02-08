@@ -82,6 +82,11 @@ class ModelObserverFactory {
             return new _SliderObserver._internal(component);
         });
 
+        setBuilderFor( MaterialModel, (final MdlComponent component) {
+            Validate.notNull(component);
+            return new _HtmlElementObserver._internal(component);
+        });
+
     }
 }
 

@@ -19,7 +19,7 @@
 
 part of mdldirective;
 
-abstract class ModelObserver<T extends MdlComponent> {
+abstract class ModelObserver {
     final Logger _logger = new Logger('mdldirective.ModelObserver');
 
     /// Returns the registered Stream so that they can be cleaned up in
@@ -37,7 +37,7 @@ abstract class ModelObserver<T extends MdlComponent> {
 }
 
 
-class _TextFieldObserver implements ModelObserver<MaterialTextfield> {
+class _TextFieldObserver implements ModelObserver {
     final Logger _logger = new Logger('mdldirective.TextFieldObserver');
 
     final MaterialTextfield _textfield;
@@ -87,7 +87,8 @@ class _TextFieldObserver implements ModelObserver<MaterialTextfield> {
     }
 }
 
-class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
+
+class _CheckBoxObserver implements ModelObserver {
     final Logger _logger = new Logger('mdldirective.CheckBoxObserver');
 
     final MaterialCheckbox _checkbox;
@@ -137,7 +138,7 @@ class _CheckBoxObserver implements ModelObserver<MaterialCheckbox> {
 
 }
 
-class _RadioObserver implements ModelObserver<MaterialRadioGroup> {
+class _RadioObserver implements ModelObserver {
     final Logger _logger = new Logger('mdldirective.RadioObserver');
 
     final MaterialRadioGroup _radioGroup;
@@ -185,7 +186,7 @@ class _RadioObserver implements ModelObserver<MaterialRadioGroup> {
 
 }
 
-class _SwitchObserver implements ModelObserver<MaterialSwitch> {
+class _SwitchObserver implements ModelObserver {
     final Logger _logger = new Logger('mdldirective.SwitchObserver');
 
     final MaterialSwitch _switch;
@@ -234,7 +235,7 @@ class _SwitchObserver implements ModelObserver<MaterialSwitch> {
     }
 }
 
-class _SliderObserver implements ModelObserver<MaterialSlider> {
+class _SliderObserver implements ModelObserver {
     final Logger _logger = new Logger('mdldirective.SliderObserver');
 
     final MaterialSlider _slider;
@@ -279,5 +280,57 @@ class _SliderObserver implements ModelObserver<MaterialSlider> {
 
     _SliderObserver._internal(this._slider) {
         Validate.notNull(_slider);
+    }
+}
+
+/// Default-Observer
+///
+/// Fits e.g. for span or div elements
+class _HtmlElementObserver implements ModelObserver {
+    final Logger _logger = new Logger('mdldirective.HtmlElementObserver');
+
+    final MaterialModel _model;
+
+    /// StreamSubscriptions registered by this Observer
+    final List<StreamSubscription> _subscriptions = new List<StreamSubscription>();
+
+    List<StreamSubscription> observe(final Scope scope,final String fieldname) {
+        Validate.notNull(scope);
+        Validate.notBlank(fieldname);
+
+        final dom.HtmlElement _element = _model.element;
+
+        final val = (new Invoke(scope)).field(fieldname);
+        if (val != null && val is ObservableProperty) {
+
+            final ObservableProperty prop = val;
+
+            _subscriptions.add(
+                prop.onChange.listen( (_) => _element.text = prop.value.toString()));
+
+            // Changes the value in the _textfield only if prop.value is different
+            // Avoids unnecessary _textfield-updates
+            if(_element.text != prop.value.toString()) {
+                _element.text = prop.value.toString();
+            }
+
+        } else if(val != null) {
+
+            if(_element.text != val.toString()) {
+                _element.text = val.toString();
+            }
+            _logger.warning("${fieldname} is not Observable, _HtmlElementObserver will not be able to set its value!");
+
+        } else {
+
+            throw new ArgumentError("${fieldname} is null!");
+        }
+        return _subscriptions;
+    }
+
+    //- private -----------------------------------------------------------------------------------
+
+    _HtmlElementObserver._internal(this._model) {
+        Validate.notNull(_model);
     }
 }
