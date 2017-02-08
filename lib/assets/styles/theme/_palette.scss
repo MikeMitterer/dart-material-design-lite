@@ -30,6 +30,14 @@ $include-color-classes: true !default;
     background-color: transparent !important;
 }
 
+// - Disabled ----------------------------------------------------------------------------------------------------------
+
+// Light background
+.mdl-color-text--disabled, .mdl-color-text--disabled--light-bg { opacity: 0.38; }
+
+// Dark background
+.mdl-color-text--disabled--dark-bg { opacity: 0.50; }
+
 // - Primary and accent ------------------------------------------------------------------------------------------------
 
 // Primary and accent
@@ -74,9 +82,6 @@ $include-color-classes: true !default;
     color: $color-accent-contrast !important;
 }
 
-// Forground ---
-
-
 a.mdl-color-text--primary {
     color : $color-primary !important;
 }
@@ -96,6 +101,8 @@ a.mdl-color-text--accent {
 a.mdl-color-text--accent-contrast {
     color : $color-accent-contrast !important;
 }
+
+// Spectrum from 50 to 900 and from A100 to A700 ---
 
 .mdl-color--50 {
     background-color: $palette-primary-50 !important;    

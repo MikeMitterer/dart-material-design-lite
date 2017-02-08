@@ -40,6 +40,10 @@
         background-color: $bg_color;
     }
 
+    &::-webkit-scrollbar * {
+        background-color: transparent;
+    }
+
     &::-webkit-scrollbar-track {
     }
 
@@ -53,8 +57,9 @@
         border-radius: 8px;
         //  Angleichen mit Hintergrundfarbe-nicht transparent!
         border: 2px solid white;
-        background-color: rgba(0, 0, 0, .5);
+        background-color: rgba(0, 0, 0, .5) !important;
     }
+
     // 3. enables smooth scrolling on mobile
     -webkit-overflow-scrolling: touch;
 
