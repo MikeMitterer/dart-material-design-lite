@@ -1,6 +1,12 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.18.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.18.3...v1.18.4) - 2017-02-28
+
+### Feature
+* ModelObserver support now HtmlElementObserver as a default-observer (e.g. span or div elements) [35786f5a](https://github.com/mikemitterer/dart-material-design-lite/commit/35786f5a5fdc9122247b6e3ec1a13d6124423576)
+* Style for disabled text added [0ee8c50f](https://github.com/mikemitterer/dart-material-design-lite/commit/0ee8c50f6ac1e6cbe3244aa22d68fca8b023745e)
+
 ## [v1.18.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.18.2...v1.18.3) - 2017-02-06
 
 ### Feature

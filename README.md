@@ -1,6 +1,8 @@
 # Material Design Lite for Dart
 > A GUI library and framework to develop web apps in Dart.  
 
+> Limited support for 1.x bra
+
 [www.material-design-lite.pub](http://www.material-design-lite.pub).
 
 <p align="center">
