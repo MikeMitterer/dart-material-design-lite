@@ -15,7 +15,6 @@ import 'dart:math' as Math;
 /// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
-
 /// A component handler interface using the revealing module design pattern.
 /// More details on this design pattern here:
 /// https://github.com/jasonmayes/mdl-component-design-pattern

@@ -60,4 +60,6 @@ abstract class Emitter {
             _onChange.add(new DataStoreChangedEvent<Action>(action));
         }
     }
+
+    // Future close() => _onChange?.close();
 }

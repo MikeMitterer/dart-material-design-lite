@@ -4558,13 +4558,14 @@ input.mdl-button[type="submit"] {
           transition-duration: 0.28s;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition-property: background;
-  transition-property: background; }
+  -webkit-transition-property: background-image;
+  transition-property: background-image; }
   .mdl-checkbox.is-checked .mdl-checkbox__tick-outline {
-    background: rgb(63,81,181) url("/images/tick.svg?embed"); }
+    background-color: rgb(63,81,181);
+    background-image: url("/images/tick.svg?embed"); }
   fieldset[disabled] .mdl-checkbox.is-checked .mdl-checkbox__tick-outline,
   .mdl-checkbox.is-checked.is-disabled .mdl-checkbox__tick-outline {
-    background: rgba(0,0,0, 0.26) url("/images/tick.svg?embed"); }
+    background-color: rgba(0,0,0, 0.26); }
 
 .mdl-checkbox__label {
   position: relative;
@@ -7880,8 +7881,8 @@ input.mdl-button[type="submit"] {
     left: 0;
     position: absolute;
     background: rgb(255,64,129);
-    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
-            animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) alternate forwards;
+            animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) alternate forwards;
     -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
     transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
   .mdl-layout__tab .mdl-layout__tab-ripple-container {
@@ -9909,8 +9910,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     left: 0px;
     position: absolute;
     background: rgb(63,81,181);
-    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
-            animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) 0.01s alternate forwards;
+    -webkit-animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) alternate forwards;
+            animation: border-expand 0.2s cubic-bezier(0.4, 0, 0.4, 1) alternate forwards;
     -webkit-transition: all 1s cubic-bezier(0.4, 0, 1, 1);
     transition: all 1s cubic-bezier(0.4, 0, 1, 1); }
   .mdl-tabs__tab .mdl-tabs__ripple-container {
