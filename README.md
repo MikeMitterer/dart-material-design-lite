@@ -1,7 +1,12 @@
 # Material Design Lite for Dart
 > A GUI library and framework to develop web apps in Dart.  
 
-> Limited support for 1.x bra
+> **Limited support for 1.x branch!**  
+> Google switched from MaterialDesignLite to *[Material Components for web](https://github.com/material-components/material-components-web)*  
+> The Dart-Version makes the same move.
+> I'm working on **"Material Components for Dart"**   
+> Stay tuned - I'll make the move for you as smooth as possible.
+
 
 [www.material-design-lite.pub](http://www.material-design-lite.pub).
 
