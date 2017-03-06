@@ -1,7 +1,13 @@
 # Material Design Lite for Dart
 > A GUI library and framework to develop web apps in Dart.  
 
-> **Limited support for 1.x branch!**  
+# Bug in Dart 1.21.1
+> Due to a bug in Dart 1.21.1 all MDL-Dialog (AlertDialog, ConfirmDialog, ... SnackBar and Notification)
+> crash with [**"Unsupported operation: Cannot find class for ..."**](https://github.com/dart-lang/sdk/issues/28915)  
+> I hope this will be solved in 1.22!
+
+
+### **Limited support for 1.x branch!**  
 > Google switched from MaterialDesignLite to *[Material Components for web](https://github.com/material-components/material-components-web)*  
 > The Dart-Version makes the same move.
 > I'm working on **"Material Components for Dart"**   
@@ -86,7 +92,7 @@ Please file feature requests and bugs at the [issue tracker](https://github.com/
 ## More links
 - [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 
-###License 
+### License 
 
     Copyright 2016 Michael Mitterer (office@mikemitterer.at),
     IT-Consulting and Development Limited, Austrian Branch
