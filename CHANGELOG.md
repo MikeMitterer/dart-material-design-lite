@@ -1,6 +1,14 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.19.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.18.5...v1.19.0) - 2017-03-08
+
+### Feature
+* MaterialRepeat / ObservableList got callback for fast rendering [46d70f6f](https://github.com/mikemitterer/dart-material-design-lite/commit/46d70f6f63ff06c2aed72539f25efe887e2eb49c)
+
+### Bugs
+* With of menu-item was no correct [297269c0](https://github.com/mikemitterer/dart-material-design-lite/commit/297269c02c0f9de0bb7ec926a0265782ab9125bf)
+
 ## [v1.18.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.18.3...v1.18.4) - 2017-02-28
 
 ### Feature

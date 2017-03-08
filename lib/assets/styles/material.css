@@ -4855,7 +4855,8 @@ input.mdl-button[type="submit"] {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none; }
+          user-select: none;
+  width: 100%; }
   .mdl-menu__container.is-visible .mdl-menu__item {
     opacity: 1; }
   .mdl-menu__item::-moz-focus-inner {
