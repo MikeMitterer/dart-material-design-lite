@@ -181,6 +181,7 @@ void createSampleList() {
     samples.add(new Sample("observe",           Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("repeat",            Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("repeat_data-table", Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("repeat_callback",   Type.Directive, hasOwnDartMain: true, hasOwnDemoHtml: true));
 
     // SPA Samples
     samples.add(new Sample("content",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
