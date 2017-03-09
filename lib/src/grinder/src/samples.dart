@@ -168,7 +168,7 @@ void createSampleList() {
     samples.add(new Sample("nav-pills",     Type.Dart, hasOwnDemoHtml: true));
     samples.add(new Sample("notification",  Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
     samples.add(new Sample("panel",         Type.Dart, hasOwnDemoHtml: true));
-    samples.add(new Sample("snackbar",      Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("snackbar",      Type.Dart, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true));
 
     // MDL/Dart old
     samples.add(new Sample("icons",Type.DartOld, hasScript: false, hasDemoHtml: false, hasDemoCss: false));
