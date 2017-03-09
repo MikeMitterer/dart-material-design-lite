@@ -370,10 +370,15 @@ class MaterialRepeat extends MdlTemplateComponent {
                         break;
 
                     case ListChangeType.UPDATE:
-                        int index = -1;
+
+                        // Index wird aus der Original-Liste mitgeliefert (wenn nicht gesetzt dann -1)
+                        int index = event.index;
+
                         try {
-                            final Map itemToRemove = _getItemFromInternalList(event.prevItem);
-                            index = _items.indexOf(itemToRemove);
+                            if(index == -1 || index >= _items.length) {
+                                final Map itemToRemove = _getItemFromInternalList(event.prevItem);
+                                index = _items.indexOf(itemToRemove);
+                            }
 
                             final dom.HtmlElement child = element.children[index];
 
@@ -385,6 +390,10 @@ class MaterialRepeat extends MdlTemplateComponent {
                                 _items[index] = { itemName: event.item};
                             }
                             else {
+                                //final Map itemToRemove = _getItemFromInternalList(event.prevItem);
+                                final Map itemToRemove = _items[index];
+                                index = _items.indexOf(itemToRemove);
+                                
                                 // _logger.fine("Index to remove: ${index}");
                                 final int indexRemoved = await remove(itemToRemove);
                                 // _logger.fine("Index removed: ${indexRemoved}/${_items.length}");
@@ -409,7 +418,9 @@ class MaterialRepeat extends MdlTemplateComponent {
                             }
                         }
                         on StateError catch (e, stacktrace) {
-                            _logger.shout("_getItemFromInternalList(${event.prevItem}) produced '$e' (Index: $index)",
+                            _logger.shout(
+                                "_getItemFromInternalList(${event.prevItem}) produced '$e' "
+                                "(Index: $index/${_items.length})",
                                 stacktrace);
                         }
 

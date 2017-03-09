@@ -37,7 +37,10 @@ class ListChangedEvent<T> {
     /// It is also set on INSERT. It defines the previous items a the given index
     final T prevItem;
 
-    ListChangedEvent(this.changetype,{ final T this.item, final this.prevItem });
+    /// Index in der Original-Liste (_innerList)
+    final int index;
+
+    ListChangedEvent(this.changetype,{ final T this.item, final this.prevItem, final this.index: -1 });
 }
 
 /// List that sends [ListChangeEvents] to the listener if this list changes
@@ -131,7 +134,8 @@ class ObservableList<T> extends ListBase<T> {
     void operator []=(int index, T value) {
         _fire(new ListChangedEvent<T>(ListChangeType.UPDATE,
             item: value,
-            prevItem: _innerList[index]));
+            prevItem: _innerList[index],
+            index: index ));
 
         _innerList[index] = value;
     }
@@ -140,13 +144,20 @@ class ObservableList<T> extends ListBase<T> {
 
     void add(final T value) {
         _innerList.add(value);
-        _fire(new ListChangedEvent<T>(ListChangeType.ADD,item: value));
+
+        _fire(new ListChangedEvent<T>(
+            ListChangeType.ADD,
+            item: value,
+            index: _innerList.indexOf(value)));
     }
 
     void addAll(Iterable<T> all) {
         _innerList.addAll(all);
         all.forEach((final element) {
-            _fire(new ListChangedEvent<T>(ListChangeType.ADD,item: element));
+            _fire(new ListChangedEvent<T>(
+                ListChangeType.ADD,
+                item: element,
+                index: _innerList.indexOf(element)));
         });
     }
 
@@ -166,13 +177,20 @@ class ObservableList<T> extends ListBase<T> {
         } else {
             if(index == 0) {
 
-                _fire(new ListChangedEvent<T>(ListChangeType.INSERT,item: element));
+                _fire(new ListChangedEvent<T>(
+                    ListChangeType.INSERT,
+                    item: element,
+                    index: index ));
+
                 _innerList.insert(index,element);
 
             } else {
 
-                _fire(new ListChangedEvent<T>(ListChangeType.INSERT,
-                    item: element, prevItem: _innerList[index]));
+                _fire(new ListChangedEvent<T>(
+                    ListChangeType.INSERT,
+                    item: element,
+                    prevItem: _innerList[index],
+                    index: index));
 
                 _innerList.insert(index,element);
             }
@@ -189,14 +207,21 @@ class ObservableList<T> extends ListBase<T> {
     void removeRange(int start, int end) {
         RangeError.checkValidRange(start, end, this.length);
         for(int index = start;index < end;index++) {
-            _fire(new ListChangedEvent<T>(ListChangeType.REMOVE,item: _innerList[index] ));
+            _fire(new ListChangedEvent<T>(
+                ListChangeType.REMOVE,
+                item: _innerList[index],
+                index: index ));
         }
         _innerList.removeRange(start,end);
     }
 
     @override
     bool remove(final Object element) {
-        _fire(new ListChangedEvent<T>(ListChangeType.REMOVE,item: element as T ));
+        _fire(new ListChangedEvent<T>(
+            ListChangeType.REMOVE,
+            item: element as T,
+            index: _innerList.indexOf(element as T) ));
+
         return _innerList.remove(element);
     }
 

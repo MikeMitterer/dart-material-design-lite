@@ -1,5 +1,6 @@
-# Material Design Lite for Dart
-> A GUI library and framework to develop web apps in Dart.  
+# Material Design for Dart
+> A User Interface Library / GUI-Framework to 
+> develop *__Progressive Web Apps (PWA)__* in Dart.  
 
 # Bug in Dart 1.21.1
 > Due to a bug in Dart 1.21.1 all MDL-Dialog (AlertDialog, ConfirmDialog, ... SnackBar and Notification)
