@@ -1,6 +1,14 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.19.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.0...v1.19.1) - 2017-03-09
+
+### Feature
+* Better list syncronisation for MaterialRepeat [511a9510](https://github.com/mikemitterer/dart-material-design-lite/commit/511a9510699cd7f607d7f38b8cd9a91d2daeea35)
+
+### Bugs
+* MaterialMenu couldn't always find it's 'for'-part [2812d7c1](https://github.com/mikemitterer/dart-material-design-lite/commit/2812d7c179c9145385d3703b0df097bc90bda63f)
+
 ## [v1.19.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.18.5...v1.19.0) - 2017-03-08
 
 ### Feature
