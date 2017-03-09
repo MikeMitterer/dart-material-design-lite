@@ -1,5 +1,5 @@
 # Material Design for Dart
-> A User Interface Library / GUI-Framework to 
+> A User Interface Library / GUI-Framework to   
 > develop *__Progressive Web Apps (PWA)__* in Dart.  
 
 # Bug in Dart 1.21.1
