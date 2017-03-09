@@ -283,6 +283,9 @@ class ObservableList<T> extends ListBase<T> {
     ///
     /// It returns false which indicates that MaterialRepeater should call it's own
     /// update routines
-    static bool _defaultUpdateCallback<T>(final dom.HtmlElement element, final T item) => false;
+    // @ToDo: https://github.com/dart-lang/sdk/issues/28996
+    static bool _defaultUpdateCallback/*<T>*/(final dom.HtmlElement element, final /* T */ item) {
+        return false;
+    }
 
 }
