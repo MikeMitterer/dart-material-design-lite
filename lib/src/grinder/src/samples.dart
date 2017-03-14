@@ -190,6 +190,8 @@ void createSampleList() {
     // mit sitegen -c da die packages-Folder nicht mehr unterstützt werden
     samples.add(new Sample("inplace",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true, demoSCSSNeedsSassPath: true));
     samples.add(new Sample("todo",      Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true));
+    samples.add(new Sample("chartjs",   Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true));
+    samples.add(new Sample("plotly",    Type.SPA, hasOwnDartMain: true, hasOwnDemoHtml: true, hasOwnPubSpec: true));
 
     // Styleguide!
     samples.add(new Sample("styleguide",Type.Styleguide));
