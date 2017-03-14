@@ -1,6 +1,11 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.19.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.1...v1.19.2) - 2017-03-14
+
+### Docs
+* Readme - MDL-Dialog, Material Components for web [77ec0c3d](https://github.com/mikemitterer/dart-material-design-lite/commit/77ec0c3daa4f99ff11b7bb0f2f62ecbf412d2d3e)
+
 ## [v1.19.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.0...v1.19.1) - 2017-03-09
 
 ### Feature
