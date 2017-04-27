@@ -20,7 +20,6 @@
 @TestOn("content-shell")
 import 'package:test/test.dart';
 
-import 'dart:async';
 import 'dart:html' as dom;
 
 import "package:mdl/mdl.dart";
@@ -33,12 +32,6 @@ class MdlTestModule extends di.Module {
     MdlTestModule() {
         bind(MaterialApplication);
     }
-}
-
-Future prepareMdlTest(Future additionalRegistration()) async {
-    registerApplicationComponents();
-    await additionalRegistration();
-    await componentHandler().run();
 }
 
 main() {

@@ -36,7 +36,7 @@ main() {
         test('> List', () {
             final ObservableList<String> list = new ObservableList<String>();
 
-            final onChange = expectAsync((final ListChangedEvent event) {
+            final onChange = expectAsync1((final ListChangedEvent event) {
                 expect(event.changetype,ListChangeType.ADD);
 
                 _logger.fine(list.toString());

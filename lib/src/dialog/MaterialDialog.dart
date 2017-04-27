@@ -332,10 +332,10 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
         container.onClick.listen((final dom.MouseEvent event) {
             _logger.info("click on container");
 
-            event.preventDefault();
-            event.stopPropagation();
-
             if (event.target == container) {
+                event.preventDefault();
+                event.stopPropagation();
+
                 close(MdlDialogStatus.CLOSED_BY_BACKDROPCLICK);
             }
         });

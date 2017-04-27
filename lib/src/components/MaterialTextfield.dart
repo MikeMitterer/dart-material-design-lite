@@ -88,14 +88,21 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
     /// Update text field value.
     void change(final String value) {
         if (value != null && value != _relaxedInput.value) {
-            int selStart = (_relaxedInput).selectionStart;
+            final bool isSelectionSupported = (_relaxedInput as dom.InputElement).type == "text";
+
+            int selStart = 0;
+            if(isSelectionSupported) {
+                selStart = (_relaxedInput).selectionStart;
+            }
 
             void _placeTheCursorWhereItWasBefore(final int position) {
                 (_relaxedInput).setSelectionRange(position,position);
             }
 
             _relaxedInput.value = MaterialFormatter.widget(element).format(value);
-            _placeTheCursorWhereItWasBefore(selStart);
+            if(isSelectionSupported) {
+                _placeTheCursorWhereItWasBefore(selStart);
+            }
         }
 
         _updateClasses();

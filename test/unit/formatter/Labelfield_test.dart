@@ -1,7 +1,6 @@
 @TestOn("content-shell")
 import 'package:test/test.dart';
 
-import 'dart:async';
 import 'dart:html' as dom;
 
 import "package:mdl/mdl.dart";
@@ -9,14 +8,6 @@ import "package:mdl/mdl.dart";
 // import 'package:logging/logging.dart';
 
 import '../config.dart';
-
-Future prepareMdlTest(Future additionalRegistration()) async {
-    registerApplicationComponents();
-    await additionalRegistration();
-
-    registerMdlFormatterComponents();
-    await componentHandler().run();
-}
 
 main() async {
     // final Logger _logger = new Logger("test.Formatter.LabelField");
@@ -57,6 +48,7 @@ main() async {
         setUp(() async {
             await prepareMdlTest( () async {
                 await registerMaterialLabelfield();
+                await registerMdlFormatterComponents();
             });
         });
 

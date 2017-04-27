@@ -176,7 +176,7 @@ class MaterialRepeat extends MdlTemplateComponent {
             _logger.warning(
                 "Could not find $item in ${_MaterialRepeatConstant.WIDGET_SELECTOR}, so nothing to remove here...");
 
-            _logger.warning("Number of items in list: ${_items.length}, First: ${_items.first.name}");
+            _logger.warning("Number of items in list: ${_items.length}, First: ${_items.first.client_name}");
             throw "Could not find $item in internal item list!";
         }
 
@@ -192,7 +192,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         final int index1 = _items.indexOf(item1);
         final int index2 = _items.indexOf(item2);
 
-        _logger.fine("Swap: ${item1.name} ($index1) -> ${item2.name} ($index2)");
+        _logger.fine("Swap: ${item1.client_name} ($index1) -> ${item2.client_name} ($index2)");
 
         _items[index1] = item2;
         _items[index2] = item1;

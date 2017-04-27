@@ -57,14 +57,6 @@ void registerTestComponent() {
     componentHandler().register(config);
 }
 
-Future prepareMdlTest(Future additionalRegistration()) async {
-    registerApplicationComponents();
-    await additionalRegistration();
-
-    registerMdlTemplateComponents();
-    await componentHandler().run();
-}
-
 main() async {
     //final Logger _logger = new Logger("test.TemplateRenderer");
 
@@ -79,7 +71,8 @@ main() async {
             });
             mdlmock.mockComponentHandler(mdlmock.injector(), mdlmock.componentFactory());
             prepareMdlTest(() async {
-                registerTestComponent();
+                await registerTestComponent();
+                await registerMdlTemplateComponents();
             });
         });
 
@@ -92,7 +85,7 @@ main() async {
 
             // wait for 500ms to give requestAnimationFrame a chance to do its work
             // insertElement + removes mdl-content__loading flag from element
-            new Future.delayed(new Duration(milliseconds: 500), expectAsync( () {
+            new Future.delayed(new Duration(milliseconds: 500), expectAsync0( () {
                 final String content = parent.innerHtml;
                 expect(content,
                     '<test-component class="is-upgraded mdl-upgraded mdl-content__loaded" data-upgraded="TestComponent">'
