@@ -174,7 +174,7 @@ class MaterialMenu extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialMenu - init");
+        _logger.fine("MaterialMenu - init");
 
         if (element != null) {
             // Create container for the menu.
@@ -290,7 +290,7 @@ class MaterialMenu extends MdlComponent {
             // Also getElementById is slow - so we wait a few ms
             new Future.delayed(new Duration(milliseconds: 100),() {
                 _addEventListeners(dom.document.getElementById(forElId));
-                _logger.info("_addEventListeners $forElId");
+                _logger.fine("_addEventListeners $forElId");
             });
         }
     }
