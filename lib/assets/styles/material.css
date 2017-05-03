@@ -7057,13 +7057,10 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar {
         display: none;
         -webkit-appearance: none;
+        width: 0;
         background-color: transparent; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar * {
         background-color: transparent; }
-      .mdl-dialog-container .mdl-dialog .mdl-dialog__content:hover::-webkit-scrollbar-thumb {
-        border-radius: 8px;
-        border: 2px solid white;
-        background-color: rgba(0, 0, 0, 0.5) !important; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar-button {
         display: none; }
     .mdl-dialog-container .mdl-dialog .mdl-dialog__actions {
