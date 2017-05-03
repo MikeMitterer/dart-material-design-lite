@@ -2,12 +2,6 @@
 > A User Interface Library / GUI-Framework to   
 > develop *__Progressive Web Apps (PWA)__* in Dart.  
 
-# Bug in Dart 1.22.1
-> Due to a bug in Dart 1.21.1 all MDL-Dialog (AlertDialog, ConfirmDialog, ... SnackBar and Notification)
-> crash with [**"Unsupported operation: Cannot find class for ..."**](https://github.com/dart-lang/sdk/issues/28915)  
-> This should be solve in [1.23.0-dev.5.0]!(https://github.com/dart-lang/sdk/commit/fc56b59a88d963475af5db1b3fefad3bf6de07ea)
-
-
 ## Material Components for web
 > Google switched from MaterialDesignLite to *[Material Components for web](https://github.com/material-components/material-components-web)*  
 > The Dart-Version makes the same move.
