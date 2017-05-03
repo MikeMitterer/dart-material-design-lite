@@ -30,12 +30,16 @@ dependencies:
 
   barback: ^0.15.0
 
+  path: ^1.4.0
+
 dev_dependencies:
   test: any
   args: any
   material_icons: any
-  path: any
   grinder: any
+  mdl_grinder:
+    # git: https://github.com/MikeMitterer/dart-mdl-grinder
+    path: /Volumes/Daten/DevLocal/DevDart/MaterialGrinder
 
 transformers:
   - di
