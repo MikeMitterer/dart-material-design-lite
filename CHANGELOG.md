@@ -1,6 +1,15 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.19.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.2...v1.19.3) - 2017-05-03
+
+### Feature
+* MdlComponent has 'waitForChild' now - great for slow rendering components [94bdfdbb](https://github.com/mikemitterer/dart-material-design-lite/commit/94bdfdbb758177ad2c18715048b68a26563eb9a4)
+* Panel with menu [be1f13a9](https://github.com/mikemitterer/dart-material-design-lite/commit/be1f13a952d9862b4a5d2051ee00988a5512e043)
+
+### Bugs
+* Removed debug-output from MaterialMenu [103bc853](https://github.com/mikemitterer/dart-material-design-lite/commit/103bc8534b013fb57905571c8ff988e208f8a63f)
+
 ## [v1.19.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.1...v1.19.2) - 2017-03-14
 
 ### Docs
