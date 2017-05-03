@@ -4903,7 +4903,7 @@ input.mdl-button[type="submit"] {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 0%;
+  width: 0;
   -webkit-transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
@@ -4926,8 +4926,8 @@ input.mdl-button[type="submit"] {
   .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
-    -webkit-mask: url("/buffer.svg?embed");
-            mask: url("/buffer.svg?embed"); } }
+    -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E");
+            mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E"); } }
 
 .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
@@ -4961,53 +4961,53 @@ input.mdl-button[type="submit"] {
 
 @-webkit-keyframes indeterminate1 {
   0% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   50% {
     left: 25%;
     width: 75%; }
   75% {
     left: 100%;
-    width: 0%; } }
+    width: 0; } }
 
 @keyframes indeterminate1 {
   0% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   50% {
     left: 25%;
     width: 75%; }
   75% {
     left: 100%;
-    width: 0%; } }
+    width: 0; } }
 
 @-webkit-keyframes indeterminate2 {
   0% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   50% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   75% {
-    left: 0%;
+    left: 0;
     width: 25%; }
   100% {
     left: 100%;
-    width: 0%; } }
+    width: 0; } }
 
 @keyframes indeterminate2 {
   0% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   50% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   75% {
-    left: 0%;
+    left: 0;
     width: 25%; }
   100% {
     left: 100%;
-    width: 0%; } }
+    width: 0; } }
 
 .mdl-navigation {
   display: -webkit-box;
