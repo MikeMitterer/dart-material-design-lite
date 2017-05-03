@@ -1,6 +1,21 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [Unreleased](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.20.0...HEAD)
+
+### Feature
+* VerticalProgressbar added [d1892f22](https://github.com/mikemitterer/dart-material-design-lite/commit/d1892f226e420f65b8007adfbbb39fdc8fe8a26a)
+
+## [v1.20.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.4...v1.20.0) - 2017-05-03
+
+### Feature
+* VerticalProgressbar added [6500c54c](https://github.com/mikemitterer/dart-material-design-lite/commit/6500c54ca14da0e07041895c8c62a3fcb5be9c8e)
+
+### Bugs
+* Buffered progress-bar did not show dots at the end [c946f8bd](https://github.com/mikemitterer/dart-material-design-lite/commit/c946f8bdfbfd0e29ce6f60da40df85b3ae8f1ccf)
+* Double-klick on accordion label selected (highlighted) the label [12373110](https://github.com/mikemitterer/dart-material-design-lite/commit/12373110c6e1a319b2d33de06b5e86a03d8a13eb)
+* -webkit-scrollbar did not hide if 'show_on_hover' was false [01461bb2](https://github.com/mikemitterer/dart-material-design-lite/commit/01461bb25715002e1d85df3bcbb093098e2b4878)
+
 ## [v1.19.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.2...v1.19.3) - 2017-05-03
 
 ### Feature
