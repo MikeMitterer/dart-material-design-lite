@@ -4891,11 +4891,99 @@ input.mdl-button[type="submit"] {
   z-index: 0;
   overflow: hidden; }
 
+.mdl-vprogress {
+  display: block;
+  position: relative;
+  height: 100px;
+  width: 8px;
+  max-height: 100%; }
+
+.mdl-vprogress > .bar {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  -webkit-transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.mdl-vprogress > .progressbar {
+  background-color: #3f51b5;
+  z-index: 1;
+  left: 0; }
+
+.mdl-vprogress > .bufferbar {
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
+  z-index: 0;
+  left: 0; }
+
+.mdl-vprogress > .auxbar {
+  top: 0; }
+
+.mdl-vprogress:not(.mdl-vprogress--indeterminate) > .auxbar,
+.mdl-vprogress:not(.mdl-vprogress__indeterminate) > .auxbar {
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #3f51b5, #3f51b5);
+  -webkit-animation-name: fadeinout;
+          animation-name: fadeinout;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear; }
+
+.mdl-vprogress.mdl-vprogress--indeterminate > .bar1,
+.mdl-vprogress.mdl-vprogress__indeterminate > .bar1 {
+  background-color: #3f51b5;
+  -webkit-animation-name: vindeterminate1;
+          animation-name: vindeterminate1;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear; }
+
+@-webkit-keyframes vindeterminate1 {
+  0% {
+    bottom: 0;
+    height: 0; }
+  50% {
+    bottom: 25%;
+    height: 75%; }
+  75% {
+    bottom: 100%;
+    height: 0; } }
+
+@keyframes vindeterminate1 {
+  0% {
+    bottom: 0;
+    height: 0; }
+  50% {
+    bottom: 25%;
+    height: 75%; }
+  75% {
+    bottom: 100%;
+    height: 0; } }
+
+@-webkit-keyframes fadeinout {
+  0%, 100% {
+    opacity: 0.3; }
+  50% {
+    opacity: 0.7; } }
+
+@keyframes fadeinout {
+  0%, 100% {
+    opacity: 0.3; }
+  50% {
+    opacity: 0.7; } }
+
 .mdl-progress {
   display: block;
   position: relative;
   height: 4px;
-  width: 500px;
   max-width: 100%; }
 
 .mdl-progress > .bar {
@@ -4932,7 +5020,15 @@ input.mdl-button[type="submit"] {
 .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #3f51b5, #3f51b5); }
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #3f51b5, #3f51b5);
+  -webkit-animation-name: fadeinout;
+          animation-name: fadeinout;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear; }
 
 .mdl-progress.mdl-progress--indeterminate > .bar1,
 .mdl-progress.mdl-progress__indeterminate > .bar1 {
@@ -5008,6 +5104,12 @@ input.mdl-button[type="submit"] {
   100% {
     left: 100%;
     width: 0; } }
+
+@keyframes fadeinout {
+  0%, 100% {
+    opacity: 0.3; }
+  50% {
+    opacity: 0.7; } }
 
 .mdl-navigation {
   display: -webkit-box;

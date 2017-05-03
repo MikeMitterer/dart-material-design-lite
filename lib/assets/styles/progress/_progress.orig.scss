@@ -20,7 +20,7 @@
   display: block;
   position: relative;
   height: $bar-height;
-  width: 500px;
+  //width: 500px;
   max-width: 100%;
 }
 
@@ -67,6 +67,11 @@
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color),
     linear-gradient(to right, $progress-main-color, $progress-main-color);
+
+    animation-name: fadeinout;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .mdl-progress.mdl-progress--indeterminate > .bar1,
@@ -121,3 +126,9 @@
     width: 0;
   }
 }
+
+@keyframes fadeinout {
+    0%, 100% { opacity : 0.3; }
+    50% { opacity : 0.7; }
+}
+
