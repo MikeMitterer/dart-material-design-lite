@@ -127,6 +127,9 @@ mdl-accordion-group {
                 z-index: 1;
                 overflow: hidden;
 
+                // Turns off accidentally selecting this label
+                user-select: none;
+
                 & .mdl-ripple {
                     background: $accordion-highlight-color;
                 }

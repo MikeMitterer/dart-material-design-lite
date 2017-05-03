@@ -6894,7 +6894,11 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       left: 0;
       top: 0;
       z-index: 1;
-      overflow: hidden; }
+      overflow: hidden;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none; }
       .mdl-accordion-group .mdl-accordion .mdl-accordion__label .mdl-accordion__ripple-container .mdl-ripple {
         background: #3f51b5; }
   .mdl-accordion-group .mdl-accordion input:checked + .mdl-accordion__label {
@@ -7058,6 +7062,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
         display: none;
         -webkit-appearance: none;
         width: 0;
+        height: 0;
         background-color: transparent; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar * {
         background-color: transparent; }
