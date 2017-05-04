@@ -1,0 +1,33 @@
+@mixin progress_color_indicator() {
+    $colors : ( nth($palette-green,6),nth($palette-orange,6),nth($palette-red,6));
+    %commonStyles {
+        transition : background-color 0.2s $animation-curve-default;
+    }
+
+    @for $i from 0 through 30 {
+        .mdl-vprogress.mdl-vprogress--progress-#{$i} {
+            .mdl-vprogress__section {
+                @extend %commonStyles;
+                background-color : nth($colors, (3));
+            }
+        }
+    }
+
+    @for $i from 31 through 60 {
+        .mdl-vprogress.mdl-vprogress--progress-#{$i} {
+            .mdl-vprogress__section {
+                @extend %commonStyles;
+                background-color : nth($colors, (2));
+            }
+        }
+    }
+
+    @for $i from 61 through 100 {
+        .mdl-vprogress.mdl-vprogress--progress-#{$i} {
+            .mdl-vprogress__section {
+                @extend %commonStyles;
+                background-color : nth($colors, (1));
+            }
+        }
+    }
+}

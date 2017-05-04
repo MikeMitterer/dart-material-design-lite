@@ -18,37 +18,67 @@
 //
 
 .mdl-vprogress {
-  display: block;
-  position: relative;
-  height: 100px;
-  width: $bar-width;
-  max-height: 100%;
+    display    : block;
+    position   : relative;
+    height     : 100px;
+    width      : $bar-width;
+    max-height : 100%;
 }
 
 .mdl-vprogress > .bar {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  height: 0;
-  width: 100%;
-  transition: height 0.2s $animation-curve-default;
+    display    : block;
+    position   : absolute;
+    bottom     : 0;
+    //height     : 0;
+    width      : 100%;
+    transition : height 0.2s $animation-curve-default;
 }
 
 .mdl-vprogress > .progressbar {
-  background-color: $progress-main-color;
-  z-index: 1;
-  left: 0;
+    background-color : $progress-main-color;
+    z-index          : 1;
+    left             : 0;
 }
 
 .mdl-vprogress > .bufferbar {
-  background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
+    background-image : linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
     linear-gradient(to right, $progress-main-color, $progress-main-color);
-  z-index: 0;
-  left: 0;
+    z-index          : 0;
+    left             : 0;
 }
 
 .mdl-vprogress > .auxbar {
-  top: 0;
+    top : 0;
+}
+
+.mdl-vprogress > .indicatorbar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between; // ↓
+    align-content: space-between; // =
+    align-items: stretch; // ⇾
+
+    height: 100%;
+    top : 0;
+    opacity: 0.5;
+
+    .mdl-vprogress__section {
+        width: 100%;
+        border-top: 1px solid $progress-section-indicator;
+        margin: 0;
+        padding :0;
+        //height: 1px;
+        background-color: $progress-section-background;
+        flex-grow: 1;
+        
+        &:first-child {
+            border-top: none;
+        }
+
+        //transition : background-color 0.2s $animation-curve-default;
+
+    }
 }
 
 // Webkit only
@@ -66,22 +96,21 @@
 
 .mdl-vprogress:not(.mdl-vprogress--indeterminate) > .auxbar,
 .mdl-vprogress:not(.mdl-vprogress__indeterminate) > .auxbar {
-  background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color),
+    background-image          : linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color),
     linear-gradient(to right, $progress-main-color, $progress-main-color);
-    
-    animation-name: fadeinout;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation-name            : fadeinout;
+    animation-duration        : 2s;
+    animation-iteration-count : infinite;
+    animation-timing-function : linear;
 }
 
 .mdl-vprogress.mdl-vprogress--indeterminate > .bar1,
 .mdl-vprogress.mdl-vprogress__indeterminate > .bar1 {
-  background-color: $progress-main-color;
-  animation-name: vindeterminate1;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+    background-color          : $progress-main-color;
+    animation-name            : vindeterminate1;
+    animation-duration        : 4s;
+    animation-iteration-count : infinite;
+    animation-timing-function : linear;
 }
 
 //.mdl-vprogress.mdl-vprogress--indeterminate > .bar3,
@@ -95,18 +124,18 @@
 //}
 
 @keyframes vindeterminate1 {
-  0% {
-    bottom: 0;
-    height: 0;
-  }
-  50% {
-      bottom: 25%;
-      height: 75%;
-  }
-  75% {
-      bottom: 100%;
-      height: 0;
-  }
+    0% {
+        bottom : 0;
+        height : 0;
+    }
+    50% {
+        bottom : 25%;
+        height : 75%;
+    }
+    75% {
+        bottom : 100%;
+        height : 0;
+    }
 }
 
 //@keyframes vindeterminate2 {

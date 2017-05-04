@@ -4902,7 +4902,6 @@ input.mdl-button[type="submit"] {
   display: block;
   position: absolute;
   bottom: 0;
-  height: 0;
   width: 100%;
   -webkit-transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -4920,6 +4919,39 @@ input.mdl-button[type="submit"] {
 
 .mdl-vprogress > .auxbar {
   top: 0; }
+
+.mdl-vprogress > .indicatorbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 100%;
+  top: 0;
+  opacity: 0.5; }
+  .mdl-vprogress > .indicatorbar .mdl-vprogress__section {
+    width: 100%;
+    border-top: 1px solid #9fa8da;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
+    .mdl-vprogress > .indicatorbar .mdl-vprogress__section:first-child {
+      border-top: none; }
 
 .mdl-vprogress:not(.mdl-vprogress--indeterminate) > .auxbar,
 .mdl-vprogress:not(.mdl-vprogress__indeterminate) > .auxbar {
