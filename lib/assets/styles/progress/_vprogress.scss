@@ -113,15 +113,9 @@
     animation-timing-function : linear;
 }
 
-//.mdl-vprogress.mdl-vprogress--indeterminate > .bar3,
-//.mdl-vprogress.mdl-vprogress__indeterminate > .bar3 {
-//  background-image: none;
-//  background-color: $progress-main-color;
-//  animation-name: vindeterminate2;
-//  animation-duration: 2s;
-//  animation-iteration-count: infinite;
-//  animation-timing-function: linear;
-//}
+// You can include this mixin in your application
+// Check out the progress-bar sample - it shows how this can be done
+// @include progress_color_indicator();
 
 @keyframes vindeterminate1 {
     0% {
@@ -137,25 +131,6 @@
         height : 0;
     }
 }
-
-//@keyframes vindeterminate2 {
-//  0% {
-//      bottom: 0;
-//      height: 0;
-//  }
-//  50% {
-//      bottom: 0;
-//      height: 0;
-//  }
-//  75% {
-//      bottom: 0;
-//      height: 70%;
-//  }
-//  100% {
-//      bottom: 100%;
-//      height: 0;
-//  }
-//}
 
 @keyframes fadeinout {
     0%, 100% { opacity : 0.3; }
