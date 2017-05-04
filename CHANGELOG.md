@@ -1,9 +1,11 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
-## [Unreleased](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.20.0...HEAD)
+## [v1.20.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.20.0...v1.20.1) - 2017-05-04
 
 ### Feature
+* Vertical ProgressBar supports background-color-sections [65cf2536](https://github.com/mikemitterer/dart-material-design-lite/commit/65cf25363749fdbed959b01b1e2d53ca9b4e5ef6)
+* VerticalProgressBar supports 'sections' [ad4ad7c4](https://github.com/mikemitterer/dart-material-design-lite/commit/ad4ad7c4a15a415fed1b23d91b37456c30c676d0)
 * VerticalProgressbar added [d1892f22](https://github.com/mikemitterer/dart-material-design-lite/commit/d1892f226e420f65b8007adfbbb39fdc8fe8a26a)
 
 ## [v1.20.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.4...v1.20.0) - 2017-05-03
