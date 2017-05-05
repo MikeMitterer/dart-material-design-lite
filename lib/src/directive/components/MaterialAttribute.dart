@@ -38,7 +38,7 @@ part of mdldirective;
  *        <button class="mdl-button mdl-js-button mdl-ripple-effect" mdl-attribute="!checkAttribute : 'disabled' ">Submit</button>
  *    </div>
  *
- *    @MdlComponentModel @di.Injectable()
+ *    @MdlComponentModel
  *    class Application extends MaterialApplication {
  *          ...
  *          final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);

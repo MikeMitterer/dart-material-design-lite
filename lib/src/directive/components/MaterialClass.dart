@@ -39,7 +39,7 @@ part of mdldirective;
  *        </label>
  *    </div>
  *
- *    @MdlComponentModel @di.Injectable()
+ *    @MdlComponentModel
  *    class Application extends MaterialApplication {
  *          ...
  *          final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);
@@ -76,7 +76,7 @@ class MaterialClass extends MdlComponent {
 
 
     void _init() {
-        _logger.fine("MaterialClass - init $element");
+        _logger.info("MaterialClass - init $element");
         
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialClassConstant.WIDGET_SELECTOR);
@@ -122,9 +122,12 @@ class MaterialClass extends MdlComponent {
 
                 _setValue(negateValue == false ? prop.toBool() : !prop.toBool() );
 
-                prop.onChange.listen((_) {
+                eventStreams.add(
+                    prop.onChange.listen((_) {
                     _setValue(negateValue == false ? prop.toBool() : !prop.toBool());
-                });
+                }));
+            } else {
+                _logger.warning("Could not invoke $varname on ${val}! (Scope: ${scope.context})");
             }
 
         });

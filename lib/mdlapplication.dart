@@ -30,7 +30,7 @@ import 'dart:js';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:route_hierarchical/client.dart';
 
@@ -69,16 +69,16 @@ part "src/application/Utils.dart";
  */
 class MdlModule extends di.Module {
 
-    MdlModule() {
-        bind(MaterialApplication);
+    configure() {
+        register(MaterialApplication);
 
-        bind(DomRenderer);
-        bind(EventCompiler);
-        bind(ViewFactory);
-        bind(RootScope);
+        register(DomRenderer);
+        register(EventCompiler);
+        register(ViewFactory);
+        register(RootScope);
 
-        bind(ActionBus, toImplementation: ActionBusImpl);
-        bind(DataStore, toImplementation: FireOnlyDataStore);
+        register(ActionBus).toType(ActionBusImpl);
+        register(DataStore).toType(FireOnlyDataStore);
     }
 }
 

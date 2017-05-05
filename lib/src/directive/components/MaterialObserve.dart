@@ -17,10 +17,8 @@
  * limitations under the License.
  */
 part of mdldirective;
- 
 
-
-
+@MdlComponentModel
 class MaterialObserve extends MdlComponent implements ScopeAware {
     final Logger _logger = new Logger('mdldirective.MaterialObserve');
 
@@ -43,7 +41,7 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
     Scope scope;
 
     MaterialObserve.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : _renderer = injector.get(DomRenderer), _eventCompiler = injector.get(EventCompiler),
+        : _renderer = injector.getInstance(DomRenderer), _eventCompiler = injector.getInstance(EventCompiler),
             super(element,injector) {
     }
     
@@ -124,7 +122,7 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
     FormatterPipeline get _pipe {
         if(_lazyPipe == null) {
             final UnmodifiableListView<String> parts = _parts;
-            _lazyPipe = new FormatterPipeline.fromList(injector.get(Formatter),parts.getRange(1,parts.length));
+            _lazyPipe = new FormatterPipeline.fromList(injector.getInstance(Formatter),parts.getRange(1,parts.length));
         }
         return _lazyPipe;
     }

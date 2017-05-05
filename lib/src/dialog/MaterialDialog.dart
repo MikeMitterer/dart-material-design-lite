@@ -386,7 +386,7 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
     }
 
     Future _render() {
-        final TemplateRenderer templateRenderer = componentFactory().injector.get(TemplateRenderer);
+        final TemplateRenderer templateRenderer = componentFactory().injector.getInstance(TemplateRenderer);
 
         return templateRenderer.render(_dialogContainer,this,
             () => template,replaceNode: !_config.appendNewDialog);

@@ -53,7 +53,7 @@ class DataStoreChangedEvent<T extends Action> {
 ///         final MyComponentStore _store;
 ///         
 ///         MyComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-///             : super(element,injector), _store = injector.get(MyComponentStore) {
+///             : super(element,injector), _store = injector.getInstance(MyComponentStore) {
 ///             _init();
 ///         }
 ///
@@ -87,7 +87,7 @@ abstract class DataStore extends Emitter {
 ///         final DataStore _store;
 ///
 ///         MyComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-///             : super(element,injector), _store = injector.get(DataStore) {
+///             : super(element,injector), _store = injector.getInstance(DataStore) {
 ///             _init();
 ///         }
 ///
@@ -109,10 +109,11 @@ abstract class DataStore extends Emitter {
 ///         }
 ///     }
 ///
-@di.Injectable()
+@MdlComponentModel
 class FireOnlyDataStore extends DataStore {
     final ActionBus _actionbus;
 
+    @di.inject
     FireOnlyDataStore(this._actionbus) {
         Validate.notNull(_actionbus);
     }

@@ -58,7 +58,7 @@ class MaterialInclude extends MdlComponent {
     Stream<MaterialContentEvent> onLoadEnd;
 
     MaterialInclude.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : _renderer = injector.get(DomRenderer), super(element,injector) {
+        : _renderer = injector.getInstance(DomRenderer), super(element,injector) {
 
         onLoadEnd = _controller.stream as Stream<MaterialContentEvent>;
         _init();

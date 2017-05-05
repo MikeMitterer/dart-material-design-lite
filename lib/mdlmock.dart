@@ -39,7 +39,7 @@ library mdlmock;
 //import 'package:validate/validate.dart';
 
 import 'dart:mirrors';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdlapplication.dart';
 export 'package:mdl/mdlcore.dart' show mockComponentHandler;
@@ -100,7 +100,7 @@ class _MdlInjector {
     /// Creates the "Injector" also called by the global [injector()] Function
     void _create() {
         if(_injector == null) {
-            _injector = new di.ModuleInjector(_modules);
+            _injector = new di.Injector.fromModules(_modules);
         }
     }
 }

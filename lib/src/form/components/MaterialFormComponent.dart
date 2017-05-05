@@ -26,10 +26,11 @@ part of mdlform;
 ///         }     
 ///     }
 class MaterialFormComponentModule  extends di.Module {
-    MaterialFormComponentModule() {
-        // bind(DeviceProxy);
-    }
-} 
+  @override
+  configure() {
+      // register(DeviceProxy);
+  }
+}
 
 enum _MaterialFormState {
     VALID, INVALID

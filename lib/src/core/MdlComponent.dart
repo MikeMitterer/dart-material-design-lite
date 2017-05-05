@@ -34,7 +34,7 @@ abstract class MdlComponent extends Object with MdlEventListener {
      *
      *     componentFactory().addModule(new StyleguideModule())
      *          .run().then(( final di.Injector injector) {
-     *               final Model model = injector.get(Model);
+     *               final Model model = injector.getInstance(Model);
      *         });
      *      });
      *

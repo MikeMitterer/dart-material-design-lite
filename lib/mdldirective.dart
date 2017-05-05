@@ -28,7 +28,7 @@ import 'dart:collection';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponents.dart';
@@ -51,9 +51,10 @@ part "src/directive/components/model/ModelObserver.dart";
 part "src/directive/utils.dart";
 
 class MdlDirectiveModule extends di.Module {
-    MdlDirectiveModule() {
-        bind(ModelObserverFactory);
-    }
+  @override
+  configure() {
+      register(ModelObserverFactory);
+  }
 }
 final MdlDirectiveModule _directiveModule = new MdlDirectiveModule();
 

@@ -21,7 +21,7 @@ part of mdldirective;
 
 typedef ModelObserver ModelObserverBuilder(final MdlComponent component);
 
-@di.Injectable()
+@MdlComponentModel
 class ModelObserverFactory {
     final Logger _logger = new Logger('mdldirective.ModelObserverFactory');
 

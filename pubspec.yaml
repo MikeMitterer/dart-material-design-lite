@@ -26,7 +26,11 @@ dependencies:
 
   dnd: ^0.3.0
 
-  di: ^3.3.0
+  dice:
+    #1.6.5
+    path: /Volumes/Daten/DevLocal/DevDart/dice
+    
+  #di: ^3.3.0
 
   barback: ^0.15.0
 
@@ -42,7 +46,7 @@ dev_dependencies:
     path: /Volumes/Daten/DevLocal/DevDart/MaterialGrinder
 
 transformers:
-  - di
+#  - di
   - mdl
 
   - $dart2js:

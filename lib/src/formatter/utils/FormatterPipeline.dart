@@ -37,14 +37,14 @@ class FormatterPipeline {
     final Formatter _formatter;
 
     /// [_formatter] should be obtained from injector
-    ///     new FormatterPipeline(injector.get(Formatter))
+    ///     new FormatterPipeline(injector.getInstance(Formatter))
     FormatterPipeline(this._formatter) {
         Validate.notNull(_formatter);
     }
 
     /**
      * [_formatter] should be obtained from injector
-     *     new FormatterPipeline(injector.get(Formatter))
+     *     new FormatterPipeline(injector.getInstance(Formatter))
      *
      * [parts] is a list of formatter-names
      *
