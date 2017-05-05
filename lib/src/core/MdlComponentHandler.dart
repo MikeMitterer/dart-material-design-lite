@@ -514,10 +514,11 @@ class MdlComponentHandler {
                 componentsForElement.forEach((final String componentName) {
 
                     component = jsElement[componentName] as MdlComponent;
-
                     component.downgrade();
+                    
                     _logger.fine("$componentName downgraded to HTML-Element: $element!");
 
+                    jsElement[componentName] = null;
                     jsElement.deleteProperty(componentName);
 
                 });
