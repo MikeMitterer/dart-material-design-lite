@@ -23,14 +23,14 @@ import 'package:test/test.dart';
 import 'dart:html' as dom;
 
 import "package:mdl/mdl.dart";
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import '../config.dart';
 
 class MdlTestModule extends di.Module {
 
-    MdlTestModule() {
-        bind(MaterialApplication);
+    configure() {
+        register(MaterialApplication);
     }
 }
 

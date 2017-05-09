@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 import 'dart:html' as dom;
 import 'dart:async';
 
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import "package:mdl/mdl.dart";
 import 'package:mdl/mdlmock.dart' as mdlmock;
@@ -66,9 +66,6 @@ main() async {
     group('TemplateRenderer', () {
         setUp(() async {
             mdlmock.setUpInjector();
-            mdlmock.module((final di.Module module) {
-                //module.bind(SignalService, toImplementation: SignalServiceImpl);
-            });
             mdlmock.mockComponentHandler(mdlmock.injector(), mdlmock.componentFactory());
             prepareMdlTest(() async {
                 await registerTestComponent();

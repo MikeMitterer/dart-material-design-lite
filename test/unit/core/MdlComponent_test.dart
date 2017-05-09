@@ -4,7 +4,7 @@ library test.unit.core.mdlcomponent;
 import 'dart:async';
 import 'dart:html' as dom;
 import 'package:test/test.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlmock.dart' as mdlmock;
@@ -35,9 +35,7 @@ main() async {
     group('MdlComponent', () {
         setUp(() async {
             mdlmock.setUpInjector();
-            mdlmock.module((final di.Module module) {
-                //module.bind(SignalService, toImplementation: SignalServiceImpl);
-            });
+
             mdlmock.mockComponentHandler(mdlmock.injector(), mdlmock.componentFactory());
             await prepareMdlTest( () async {
                 await registerMaterialButton();
