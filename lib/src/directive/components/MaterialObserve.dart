@@ -18,7 +18,7 @@
  */
 part of mdldirective;
 
-@MdlComponentModel
+@Component
 class MaterialObserve extends MdlComponent implements ScopeAware {
     final Logger _logger = new Logger('mdldirective.MaterialObserve');
 

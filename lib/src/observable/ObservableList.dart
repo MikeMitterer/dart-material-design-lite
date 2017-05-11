@@ -47,7 +47,7 @@ class ListChangedEvent<T> {
 /// Supported methods:
 ///     Add, insert, update ([]), remove, clear, removeAll
 ///
-///     @MdlComponentModel
+///     @Component
 ///     class MyComponent extends MdlTemplateComponent {
 ///
 ///         final ObservableList<RecordsPerDay> records = new ObservableList<RecordsPerDay>(
@@ -99,7 +99,7 @@ class ListChangedEvent<T> {
 ///         final String template = "...";
 ///     }
 ///
-@MdlComponentModel
+@Directive
 class ObservableList<T> extends ListBase<T> {
     //final Logger _logger = new Logger('mdlobservable.ObservableList');
 

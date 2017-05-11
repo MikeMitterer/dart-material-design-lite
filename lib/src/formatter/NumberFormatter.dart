@@ -24,7 +24,7 @@ part of mdlformatter;
  *
  *      <span mdl-observe="pi | number(value,2)"></span>
  */
-@MdlComponentModel
+@Directive
 class NumberFormatter {
     // final Logger _logger = new Logger('mdlformatter.NumberFormatter');
 

@@ -19,7 +19,7 @@
 
 part of mdltemplate;
 
-@MdlComponentModel
+@di.injectable
 class TemplateRenderer {
     final Logger _logger = new Logger('mdltemplate.TemplateRenderer');
 

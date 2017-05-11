@@ -34,7 +34,7 @@ MaterialDummyFormatter _dummyFormatter = null;
 ///     <label class="mdl-textfield__label" for="textfield">X-Men (lowercase)</label>
 /// </div>
 ///
-@MdlComponentModel
+@Component
 class MaterialFormatter extends MdlComponent {
     final Logger _logger = new Logger('mdlformatter.MaterialFormatter');
 

@@ -48,7 +48,7 @@ void _defaultPostRenderingCallback(final dom.HtmlElement element) {}
  *             |= {{ }} =| {{! ----- Turn on mustache ---- }}
  *        </div>
  */
-@MdlComponentModel
+@Component
 class MaterialRepeat extends MdlTemplateComponent {
     static final Logger _logger = new Logger('mdltemplate.MaterialRepeat');
 

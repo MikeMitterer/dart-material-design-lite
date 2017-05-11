@@ -11,6 +11,7 @@ import '../config.dart';
 
 typedef String TestCallback(final String name);
 
+@di.injectable
 class SimpleService {
     String get name => "simple";
 

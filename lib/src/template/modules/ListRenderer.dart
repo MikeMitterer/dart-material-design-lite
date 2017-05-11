@@ -19,7 +19,7 @@
 
 part of mdltemplate;
 
-@MdlComponentModel
+@di.injectable
 class ListRenderer {
     final Logger _logger = new Logger('mdltemplate.ListRenderer');
 

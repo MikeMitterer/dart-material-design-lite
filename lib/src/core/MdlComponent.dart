@@ -129,7 +129,7 @@ abstract class MdlComponent extends Object with MdlEventListener {
     ///     }
     ///     
     FutureOr<T> waitForChild<T>(final String selector,{
-        final Duration wait: const Duration(milliseconds: 50),
+        final Duration wait: const Duration(milliseconds: 100),
         final int maxIterations: 10 }) async {
 
         Validate.notBlank(selector);

@@ -52,7 +52,6 @@ import 'dart:async';
 
 import 'dart:convert';
 import 'package:dice/dice.dart' as di;
-import 'package:mdl/src/core/annotations.dart';
 import 'package:validate/validate.dart';
 
 part "src/flux/interfaces.dart";

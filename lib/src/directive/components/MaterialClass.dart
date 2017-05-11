@@ -39,13 +39,13 @@ part of mdldirective;
  *        </label>
  *    </div>
  *
- *    @MdlComponentModel
+ *    @Component @di.injectable
  *    class Application extends MaterialApplication {
  *          ...
  *          final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);
  *    }
  */
-@MdlComponentModel
+@Component
 class MaterialClass extends MdlComponent {
     final Logger _logger = new Logger('mdldirective.MaterialClass');
 
@@ -76,7 +76,7 @@ class MaterialClass extends MdlComponent {
 
 
     void _init() {
-        _logger.info("MaterialClass - init $element");
+        _logger.fine("MaterialClass - init $element");
         
         /// Recommended - add SELECTOR as class
         element.classes.add(_MaterialClassConstant.WIDGET_SELECTOR);

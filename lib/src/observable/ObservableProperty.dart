@@ -26,13 +26,13 @@ class PropertyChangeEvent<T> {
     PropertyChangeEvent(this.value,this.oldValue);
 }
 
-@MdlComponentModel
+@Directive
 class ObservableProperty<T> {
     static const String _DEFAULT_NAME = "<undefinded>";
 
     final Logger _logger = new Logger('mdlobservable.ObservableProperty');
 
-    @MdlComponentModel
+    @Directive
     T _value;
 
     /// Always convert to double

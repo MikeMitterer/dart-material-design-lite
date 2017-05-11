@@ -46,7 +46,7 @@ part 'src/formatter/UpperCaseFormatter.dart';
  * Formatter ist a collection of formatters.
  * To add your own formatter follow the sample below
  *
- *      @MdlComponentModel @di.inject
+ *      @Directive
  *      class MyFormatter extends Formatter {
  *
  *          // Your super cool formatter
@@ -76,7 +76,7 @@ part 'src/formatter/UpperCaseFormatter.dart';
  *      or
  *      <div class="mdl-labelfield" mdl-formatter="uppercase(value)">...</div>
  */
-@MdlComponentModel @di.inject
+@di.injectable
 class Formatter {
     final NumberFormatter    number = new NumberFormatter();
     final DecoratorFormatter decorate = new DecoratorFormatter();

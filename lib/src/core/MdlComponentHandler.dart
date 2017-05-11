@@ -251,7 +251,7 @@ class MdlComponentHandler {
      * In most cases this is your AppController
      *
      * Sample:
-     *        @MdlComponentModel
+     *        @di.injectable
      *        class AppController {
      *
      *        }
@@ -290,7 +290,7 @@ class MdlComponentHandler {
      *
      * Define it like this:
      *
-     *     @MdlComponentModel
+     *     @di.injectable
      *     class Application extends MaterialApplication {
      *         Application() { }
      *

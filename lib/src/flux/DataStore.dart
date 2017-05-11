@@ -71,7 +71,7 @@ class DataStoreChangedEvent<T extends Action> {
 ///             _store.fire(const ActivateSomething());
 ///         }
 ///     }
-///
+@di.injectable
 abstract class DataStore extends Emitter {
 
     void fire(final Action action);
@@ -109,7 +109,7 @@ abstract class DataStore extends Emitter {
 ///         }
 ///     }
 ///
-@MdlComponentModel
+@di.injectable
 class FireOnlyDataStore extends DataStore {
     final ActionBus _actionbus;
 

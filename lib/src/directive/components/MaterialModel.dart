@@ -18,7 +18,7 @@
  */
 part of mdldirective;
 
-@MdlComponentModel
+@Component
 class MaterialModel extends MdlComponent implements RefreshableComponent {
     final Logger _logger = new Logger('mdldirective.MaterialModel');
 

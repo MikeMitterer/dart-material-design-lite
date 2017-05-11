@@ -41,7 +41,7 @@ part of mdlcore;
  *          });
  *      }
  */
-@MdlComponentModel
+@di.injectable
 class MaterialApplication {
     void run() {}
 }

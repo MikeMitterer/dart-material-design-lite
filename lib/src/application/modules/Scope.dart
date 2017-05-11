@@ -93,7 +93,7 @@ class Scope {
     //- private -----------------------------------------------------------------------------------
 }
 
-@MdlComponentModel
+@di.injectable
 class RootScope extends Scope {
     RootScope() : super(mdlRootContext(),null);
 }
