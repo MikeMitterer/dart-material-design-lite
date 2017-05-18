@@ -30,7 +30,7 @@
 @mixin hide_scrollbar($show_on_hover: true, $bg_color: transparent) {
     // 1. hides the scrollbar on webkit browsers
     &::-webkit-scrollbar {
-        display : none;
+        visibility : hidden;
         -webkit-appearance: none;
 
         @if $show_on_hover {
@@ -74,7 +74,7 @@
 
     @if $show_on_hover {
         &:hover::-webkit-scrollbar {
-            display : inherit;
+            visibility : visible;
         }
     }
 

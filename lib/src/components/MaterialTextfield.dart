@@ -128,6 +128,15 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
         change(value);
     }
 
+    /// Updates text field value only if it has not the focus
+    ///
+    /// Focus on the field means we are in edit-mode
+    void set valueIfNotFocused(final String value) {
+        if(notFocused) {
+            change(value);
+        }
+    }
+
     @override
     /// Updates the components CSS-Classes usually called from [MaterialAttribute] or [MaterialClass]
     void update() { _updateClasses(); }
@@ -150,6 +159,13 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
         _relaxedInput.blur();
         _updateClasses();
     }
+
+    /// Check if this element has the focus (is activeElement)
+    bool get hasFocus {
+        return dom.document.activeElement != null && dom.document.activeElement == hub;
+    }
+
+    bool get notFocused => !hasFocus;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -218,7 +234,7 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
         //final input = element;
 
         final currentRowCount = value.split('\n').length;
-        if (event.keyCode == 13) {
+        if (event.keyCode == dom.KeyCode.ENTER) {
             if (currentRowCount >= _maxRows) {
                 event.preventDefault();
             }

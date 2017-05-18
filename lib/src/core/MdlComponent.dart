@@ -135,7 +135,7 @@ abstract class MdlComponent extends Object with MdlEventListener {
         Validate.notBlank(selector);
 
         // Maybe the child is already in the DOM then return it ASAP
-        T child = query(selector) as T;
+        T child = element.querySelector(selector) as T;
         if(child != null) {
             return child;
         }

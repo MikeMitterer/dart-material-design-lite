@@ -83,7 +83,8 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
              }
 
             scope.context = scope.parentContext;
-            _logger.info(scope.context);
+            //_logger.info(scope.context);
+
             final val = (new Invoke(scope)).field(fieldname);
 
             if(val != null && val is ObservableProperty) {
@@ -96,8 +97,6 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
 
                 _setValue(val);
             }
-
-            //_logger.info("Property done!");
         }
         
         element.classes.add(_cssClasses.IS_UPGRADED);
