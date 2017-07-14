@@ -26,9 +26,8 @@ dependencies:
 
   dnd: ^0.3.0
 
-  dice:
-    #1.6.5
-    path: /Volumes/Daten/DevLocal/DevDart/dice
+  dice: ^1.7.0
+    # path: /Volumes/Daten/DevLocal/DevDart/dice
     
   #di: ^3.3.0
 

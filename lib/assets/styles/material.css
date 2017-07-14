@@ -7202,7 +7202,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
         opacity: 0.87;
         color: black; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar {
-        display: none;
+        visibility: hidden;
         -webkit-appearance: none;
         width: 0;
         height: 0;
