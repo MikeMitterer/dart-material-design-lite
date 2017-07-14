@@ -20,7 +20,7 @@
 part of mdlformatter;
 
 /// Just for Testing
-@MdlComponentModel
+@Directive
 class DecoratorFormatter {
     // final Logger _logger = new Logger('mdlformatter.DecoratorFormatter');
 

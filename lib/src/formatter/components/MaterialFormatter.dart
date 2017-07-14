@@ -34,7 +34,7 @@ MaterialDummyFormatter _dummyFormatter = null;
 ///     <label class="mdl-textfield__label" for="textfield">X-Men (lowercase)</label>
 /// </div>
 ///
-@MdlComponentModel
+@Component
 class MaterialFormatter extends MdlComponent {
     final Logger _logger = new Logger('mdlformatter.MaterialFormatter');
 
@@ -85,7 +85,7 @@ class MaterialFormatter extends MdlComponent {
     FormatterPipeline get _pipeline {
         if(_lazyPipe == null) {
             final UnmodifiableListView<String> parts = _parts;
-            _lazyPipe = new FormatterPipeline.fromList(injector.get(Formatter),parts.getRange(0,parts.length));
+            _lazyPipe = new FormatterPipeline.fromList(injector.getInstance(Formatter),parts.getRange(0,parts.length));
         }
         return _lazyPipe;
     }

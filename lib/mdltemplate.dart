@@ -28,7 +28,7 @@ import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 import 'package:mustache/mustache.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 //import 'package:mdl/mustache.dart';
 
@@ -49,9 +49,9 @@ part "src/template/modules/TemplateRenderer.dart";
 part "src/template/modules/ListRenderer.dart";
 
 class MdlTemplateModule extends di.Module {
-    MdlTemplateModule() {
-        bind(TemplateRenderer);
-        bind(ListRenderer);
+    configure() {
+        register(TemplateRenderer);
+        register(ListRenderer);
     }
 }
 final MdlTemplateModule _templateModule = new MdlTemplateModule();

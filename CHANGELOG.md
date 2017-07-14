@@ -1,6 +1,53 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v1.20.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.20.0...v1.20.1) - 2017-05-04
+
+### Feature
+* Vertical ProgressBar supports background-color-sections [65cf2536](https://github.com/mikemitterer/dart-material-design-lite/commit/65cf25363749fdbed959b01b1e2d53ca9b4e5ef6)
+* VerticalProgressBar supports 'sections' [ad4ad7c4](https://github.com/mikemitterer/dart-material-design-lite/commit/ad4ad7c4a15a415fed1b23d91b37456c30c676d0)
+* VerticalProgressbar added [d1892f22](https://github.com/mikemitterer/dart-material-design-lite/commit/d1892f226e420f65b8007adfbbb39fdc8fe8a26a)
+
+## [v1.20.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.4...v1.20.0) - 2017-05-03
+
+### Feature
+* VerticalProgressbar added [6500c54c](https://github.com/mikemitterer/dart-material-design-lite/commit/6500c54ca14da0e07041895c8c62a3fcb5be9c8e)
+
+### Bugs
+* Buffered progress-bar did not show dots at the end [c946f8bd](https://github.com/mikemitterer/dart-material-design-lite/commit/c946f8bdfbfd0e29ce6f60da40df85b3ae8f1ccf)
+* Double-klick on accordion label selected (highlighted) the label [12373110](https://github.com/mikemitterer/dart-material-design-lite/commit/12373110c6e1a319b2d33de06b5e86a03d8a13eb)
+* -webkit-scrollbar did not hide if 'show_on_hover' was false [01461bb2](https://github.com/mikemitterer/dart-material-design-lite/commit/01461bb25715002e1d85df3bcbb093098e2b4878)
+
+## [v1.19.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.2...v1.19.3) - 2017-05-03
+
+### Feature
+* MdlComponent has 'waitForChild' now - great for slow rendering components [94bdfdbb](https://github.com/mikemitterer/dart-material-design-lite/commit/94bdfdbb758177ad2c18715048b68a26563eb9a4)
+* Panel with menu [be1f13a9](https://github.com/mikemitterer/dart-material-design-lite/commit/be1f13a952d9862b4a5d2051ee00988a5512e043)
+
+### Bugs
+* Removed debug-output from MaterialMenu [103bc853](https://github.com/mikemitterer/dart-material-design-lite/commit/103bc8534b013fb57905571c8ff988e208f8a63f)
+
+## [v1.19.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.1...v1.19.2) - 2017-03-14
+
+### Docs
+* Readme - MDL-Dialog, Material Components for web [77ec0c3d](https://github.com/mikemitterer/dart-material-design-lite/commit/77ec0c3daa4f99ff11b7bb0f2f62ecbf412d2d3e)
+
+## [v1.19.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.19.0...v1.19.1) - 2017-03-09
+
+### Feature
+* Better list syncronisation for MaterialRepeat [511a9510](https://github.com/mikemitterer/dart-material-design-lite/commit/511a9510699cd7f607d7f38b8cd9a91d2daeea35)
+
+### Bugs
+* MaterialMenu couldn't always find it's 'for'-part [2812d7c1](https://github.com/mikemitterer/dart-material-design-lite/commit/2812d7c179c9145385d3703b0df097bc90bda63f)
+
+## [v1.19.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.18.5...v1.19.0) - 2017-03-08
+
+### Feature
+* MaterialRepeat / ObservableList got callback for fast rendering [46d70f6f](https://github.com/mikemitterer/dart-material-design-lite/commit/46d70f6f63ff06c2aed72539f25efe887e2eb49c)
+
+### Bugs
+* With of menu-item was no correct [297269c0](https://github.com/mikemitterer/dart-material-design-lite/commit/297269c02c0f9de0bb7ec926a0265782ab9125bf)
+
 ## [v1.18.4](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.18.3...v1.18.4) - 2017-02-28
 
 ### Feature

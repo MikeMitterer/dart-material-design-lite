@@ -67,15 +67,37 @@
             padding: 8px 16px;
         }
 
+        > .mdl-panel__heading--with-menu {
+            padding: 0 0 0 16px !important;
+            position: relative;
+            
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start; // ⇾
+            align-content: space-between; // ||
+            align-items: center; // ↓
+
+            .mdl-panel__title-text {
+                flex-grow: 1;
+
+                color: inherit;
+                display: flex;
+                line-height: normal;
+                overflow: hidden;
+                margin: 0;
+            }
+
+            .mdl-panel__menu {
+                display: block;
+            }
+        }
+
         > .mdl-panel__content {
             padding: 8px 16px;
 
             color: $panel-color;
             background-color: $panel-background-color;
         }
-
-        //&.mdl-panel--shadow > .mdl-panel__content {
-        //    @include shadow-z2();
-        //}
     }
 }

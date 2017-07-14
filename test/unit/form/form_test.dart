@@ -20,18 +20,12 @@
 @TestOn("content-shell")
 import 'package:test/test.dart';
 
-import 'dart:async';
 import 'dart:html' as dom;
 
 import "package:mdl/mdl.dart";
 
 import '../config.dart';
 
-Future prepareMdlTest(Future additionalRegistration()) async {
-    registerApplicationComponents();
-    await additionalRegistration();
-    await componentHandler().run();
-}
 
 main() {
     // final Logger _logger = new Logger("test.Form");

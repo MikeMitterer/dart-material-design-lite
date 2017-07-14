@@ -32,7 +32,8 @@ part of mdlflux;
 ///
 ///     actionbus.fire(const TestSignal());
 ///
-@di.Injectable()
+
+@di.injectable
 class ActionBusImpl implements ActionBus {
     StreamController<Action> _controller;
     Stream<Action> _stream;

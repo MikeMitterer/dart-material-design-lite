@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 part of mdldirective;
- 
 
+@Component
 class MaterialModel extends MdlComponent implements RefreshableComponent {
     final Logger _logger = new Logger('mdldirective.MaterialModel');
 
@@ -29,7 +29,7 @@ class MaterialModel extends MdlComponent implements RefreshableComponent {
     final ModelObserverFactory _observerFactory;
 
     MaterialModel.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : _observerFactory = injector.get(ModelObserverFactory), super(element,injector) {
+        : _observerFactory = injector.getInstance(ModelObserverFactory), super(element,injector) {
     }
 
     @override

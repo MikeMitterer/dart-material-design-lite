@@ -1,7 +1,6 @@
 @TestOn("content-shell")
 import 'package:test/test.dart';
 
-import 'dart:async';
 import 'dart:html' as dom;
 
 import "package:mdl/mdl.dart";
@@ -10,13 +9,6 @@ import "package:mdl/mdl.dart";
 
 import '../config.dart';
 
-Future prepareMdlTest(Future additionalRegistration()) async {
-    registerApplicationComponents();
-    await additionalRegistration();
-
-    registerMdlFormatterComponents();
-    await componentHandler().run();
-}
 
 main() async {
     // final Logger _logger = new Logger("test.Formatter.Checkbox");
@@ -37,6 +29,7 @@ main() async {
         setUp(() async {
             await prepareMdlTest( () async {
                 await registerMaterialCheckbox();
+                await registerMdlFormatterComponents();
             });
         });
 
@@ -71,3 +64,4 @@ main() async {
 }
 
 // - Helper --------------------------------------------------------------------------------------
+

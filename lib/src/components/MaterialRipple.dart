@@ -145,9 +145,10 @@ class MaterialRipple extends MdlComponent {
         bool _hasRipple(final dom.Element element) {
             if(element is dom.HtmlElement == false) { return false; }
 
-            final dom.Element child = element.firstChild;
             return element.classes.contains(_cssClasses.MDL_RIPPLE) ||
-            (child != null && child is dom.HtmlElement && child.classes.contains(_cssClasses.MDL_RIPPLE));
+                (element.firstChild != null
+                    && element.firstChild is dom.Element
+                    && (element.firstChild as dom.Element).classes.contains(_cssClasses.MDL_RIPPLE));
         }
 
         final bool hasRipple = _hasRipple(event.target);

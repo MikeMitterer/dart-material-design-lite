@@ -1,6 +1,6 @@
 part of mdldialog;
 
-@MdlComponentModel @di.Injectable()
+@Component
 class MaterialAlertDialog extends MaterialDialog {
     static final Logger _logger = new Logger('mdldialog.MaterialAlertDialog');
 

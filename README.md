@@ -1,13 +1,8 @@
-# Material Design Lite for Dart
-> A GUI library and framework to develop web apps in Dart.  
+# Material Design for Dart
+> A User Interface Library / GUI-Framework to   
+> develop *__Progressive Web Apps (PWA)__* in Dart.  
 
-# Bug in Dart 1.21.1
-> Due to a bug in Dart 1.21.1 all MDL-Dialog (AlertDialog, ConfirmDialog, ... SnackBar and Notification)
-> crash with [**"Unsupported operation: Cannot find class for ..."**](https://github.com/dart-lang/sdk/issues/28915)  
-> I hope this will be solved in 1.22!
-
-
-### **Limited support for 1.x branch!**  
+## Material Components for web
 > Google switched from MaterialDesignLite to *[Material Components for web](https://github.com/material-components/material-components-web)*  
 > The Dart-Version makes the same move.
 > I'm working on **"Material Components for Dart"**   

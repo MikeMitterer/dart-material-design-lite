@@ -40,7 +40,7 @@ class WrongComponentTypeException implements Exception {
  *          mdlComponent(MaterialAccordion,element) as MaterialAccordion;
  */
 MdlComponent mdlComponent(final dom.HtmlElement element,final Type type, { final bool showWarning: true }) {
-    //final Logger _logger = new Logger('mdlcore.mdlComponent');
+    // final Logger _logger = new Logger('mdlcore.mdlComponent');
 
     if(element == null) {
         return element as MdlComponent;
@@ -89,7 +89,7 @@ MdlComponent mdlComponent(final dom.HtmlElement element,final Type type, { final
 
     // OK we found the right type - return the component
     if(jsElement.hasProperty(typeAsString)) {
-        //_logger.fine("Found $typeAsString");
+        //_logger.info("Found $typeAsString - ${jsElement[typeAsString]}");
         return (jsElement[typeAsString] as MdlComponent);
     }
 

@@ -24,7 +24,7 @@ Object mdlRootContext() {
 
     Object rootContext;
     try {
-        rootContext = componentFactory().injector.get(MaterialApplication);
+        rootContext = componentFactory().injector.getInstance(MaterialApplication);
     }
     on Error catch(e,stack) {
         _logger.shout(e,stack);
@@ -93,7 +93,7 @@ class Scope {
     //- private -----------------------------------------------------------------------------------
 }
 
-@di.Injectable()
+@di.injectable
 class RootScope extends Scope {
     RootScope() : super(mdlRootContext(),null);
 }

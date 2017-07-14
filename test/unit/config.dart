@@ -19,15 +19,23 @@
      
 library mdl.test.unit.config;
 
+import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:logging_handlers/logging_handlers_shared.dart';
+import "package:mdl/mdl.dart";
 
-void configLogging() {
+Future prepareMdlTest(Future additionalRegistration()) async {
+    registerApplicationComponents();
+    await additionalRegistration();
+    await componentHandler().run();
+}
+
+void configLogging({final Level defaultLogLevel: Level.OFF }) {
     //hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
 
     // now control the logging.
     // Turn off all logging first
-    Logger.root.level = Level.INFO;
+    Logger.root.level = defaultLogLevel;
     Logger.root.onRecord.listen(new LogPrintHandler());
 }
 

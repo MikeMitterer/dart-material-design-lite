@@ -268,7 +268,7 @@ class MaterialMenu extends MdlComponent {
 
         _logger.fine("forElId $forElId");
 
-        dom.Element forEl = null;
+        //dom.Element forEl = null;
         if (forElId != null) {
 
             void _addEventListeners(final dom.HtmlElement forEl) {
@@ -278,22 +278,20 @@ class MaterialMenu extends MdlComponent {
                     _forElement = forEl;
 
                     // .addEventListener('click', -> .onClick.listen(<MouseEvent>);
-                    forEl.onClick.listen( _handleForClick );
-                    forEl.onKeyDown.listen( _handleForKeyboardEvent );
+                    eventStreams.add(
+                        forEl.onClick.listen( _handleForClick ));
+
+                    eventStreams.add(
+                        forEl.onKeyDown.listen( _handleForKeyboardEvent ));
                 }
             }
 
             // getElementById is OK here! element.querySelector not possible!
-            forEl = dom.document.getElementById(forElId);
-            if(forEl != null) {
-                _addEventListeners(forEl);
-            } else {
-                // forEl was not found but maybe just because it takes a while for the DOM
-                // to recognize it... so we wait 50ms
-                new Future.delayed(new Duration(milliseconds: 50),() {
-                    _addEventListeners(dom.document.getElementById(forElId));
-                });
-            }
+            // Also getElementById is slow - so we wait a few ms
+            new Future.delayed(new Duration(milliseconds: 100),() {
+                _addEventListeners(dom.document.getElementById(forElId));
+                _logger.fine("_addEventListeners $forElId");
+            });
         }
     }
 

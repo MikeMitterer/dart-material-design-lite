@@ -1,7 +1,7 @@
 library gensamples;
 
 import 'package:grinder/grinder.dart';
-import 'package:mdl/src/grinder/grinder.dart' as mdl;
+import 'package:mdl_grinder/grinder.dart' as mdl;
 
 
 main(final List<String> args) => grind(args);
@@ -43,7 +43,6 @@ analyze() {
         "lib/mdltemplate.dart",
         "lib/mdlutils.dart",
         "lib/transformer.dart",
-        "lib/src/grinder/grinder.dart"
     ];
 
     libs.forEach((final String lib) => Analyzer.analyze(lib));

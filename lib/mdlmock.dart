@@ -39,7 +39,7 @@ library mdlmock;
 //import 'package:validate/validate.dart';
 
 import 'dart:mirrors';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdlapplication.dart';
 export 'package:mdl/mdlcore.dart' show mockComponentHandler;
@@ -64,32 +64,12 @@ class _MdlInjector {
         final ClosureMirror cm = reflect(function);
         final MethodMirror mm = cm.function;
 
-//        List args = new List();
-//        try {
-//            args = mm.parameters.map( (final ParameterMirror parameter) {
-//                var metadata = parameter.metadata;
-//
-//                di.Key key = new di.Key(
-//                    (parameter.type as ClassMirror).reflectedType,
-//                    metadata.isEmpty ? null : metadata.first.type.reflectedType);
-//
-//                return _injector.getByKey(key);
-//            }).toList();
-//
-//
-//
-//        } on di_errors.NoProviderError catch(error) {
-//            print(error);
-//        }
-
         final List args = mm.parameters.map( (final ParameterMirror parameter) {
             var metadata = parameter.metadata;
 
-            di.Key key = new di.Key(
-                (parameter.type as ClassMirror).reflectedType,
-                metadata.isEmpty ? null : metadata.first.type.reflectedType);
+            final Type reflectedType = (parameter.type as ClassMirror).reflectedType;
+            return _injector.getInstance(reflectedType);
 
-            return _injector.getByKey(key);
         }).toList();
 
         return cm.apply(args).reflectee;
@@ -100,14 +80,14 @@ class _MdlInjector {
     /// Creates the "Injector" also called by the global [injector()] Function
     void _create() {
         if(_injector == null) {
-            _injector = new di.ModuleInjector(_modules);
+            _injector = new di.Injector.fromModules(_modules);
         }
     }
 }
 
 class MdlMockModule extends di.Module {
 
-    MdlMockModule() {
+    configure() {
 
     }
 }
@@ -120,16 +100,13 @@ void setUpInjector() {
     _mdlInjector.addModule(new MdlModule());
 }
 
-void module(void regFunction(final di.Module module)) {
-    final di.Module mod = new di.Module();
-
-    regFunction(mod);
+void module(final di.Module module) {
 
     if(_mdlInjector == null) {
         setUpInjector();
     }
 
-    _mdlInjector.addModule(mod);
+    _mdlInjector.addModule(module);
 }
 
 void inject(Function fn) {

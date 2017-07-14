@@ -26,6 +26,17 @@ class MultipleWidgetException implements Exception {
     MultipleWidgetException([this.message]);
 }
 
+class _ApplicationModule extends di.Module {
+  final Type _rootContext;
+
+  _ApplicationModule(this._rootContext);
+
+  @override
+  configure() {
+      register(MaterialApplication).toType(_rootContext).asSingleton();
+  }
+}
+
 /// Property for the Components JsObject to save/register the component
 const String MDL_COMPONENT_PROPERTY     = "mdlcomponent";
 
@@ -232,7 +243,7 @@ class MdlComponentHandler {
         _injector = _createInjector();
 
         return upgradeElement(body).then((_) => new Future<MaterialApplication>(() {
-                return _injector.get(MaterialApplication) as MaterialApplication;
+                return _injector.getInstance(MaterialApplication) as MaterialApplication;
         }));
     }
 
@@ -240,7 +251,7 @@ class MdlComponentHandler {
      * In most cases this is your AppController
      *
      * Sample:
-     *        @MdlComponentModel @di.Injectable()
+     *        @di.injectable
      *        class AppController {
      *
      *        }
@@ -254,7 +265,7 @@ class MdlComponentHandler {
      *        }
      */
     MdlComponentHandler rootContext(final Type rootContext) {
-        _modules.add(new di.Module()..bind(MaterialApplication, toImplementation: rootContext));
+        _modules.add(new _ApplicationModule(rootContext));
         return this;
     }
 
@@ -279,7 +290,7 @@ class MdlComponentHandler {
      *
      * Define it like this:
      *
-     *     @MdlComponentModel @di.Injectable()
+     *     @di.injectable
      *     class Application extends MaterialApplication {
      *         Application() { }
      *
@@ -300,7 +311,7 @@ class MdlComponentHandler {
      *
      */
     MaterialApplication get application {
-        return injector.get(MaterialApplication);
+        return injector.getInstance(MaterialApplication);
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -498,7 +509,7 @@ class MdlComponentHandler {
      * dependency injection.
      */
     di.Injector _createInjector() {
-        return new di.ModuleInjector(_modules);
+        return new di.Injector.fromModules(_modules);
     }
 
     /// Downgrades the given {element} with all it's components
@@ -514,10 +525,11 @@ class MdlComponentHandler {
                 componentsForElement.forEach((final String componentName) {
 
                     component = jsElement[componentName] as MdlComponent;
-
                     component.downgrade();
+                    
                     _logger.fine("$componentName downgraded to HTML-Element: $element!");
 
+                    jsElement[componentName] = null;
                     jsElement.deleteProperty(componentName);
 
                 });

@@ -24,7 +24,7 @@ import 'dart:math' as Math;
 import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:browser_detect/browser_detect.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 import 'package:validate/validate.dart';
 
 import "package:mdl/mdlcore.dart";
@@ -41,6 +41,7 @@ part "src/components/MaterialLabelfield.dart";
 part "src/components/MaterialLayout.dart";
 part "src/components/MaterialMenu.dart";
 part "src/components/MaterialProgress.dart";
+part "src/components/MaterialProgressVertical.dart";
 part "src/components/MaterialRadio.dart";
 part "src/components/MaterialRipple.dart";
 part "src/components/MaterialSlider.dart";
@@ -67,6 +68,7 @@ void registerMdlComponents() {
     registerMaterialLabelfield();
     registerMaterialMenu();
     registerMaterialProgress();
+    registerMaterialProgressVertical();
     registerMaterialRadio();
     registerMaterialRadioGroup();
     registerMaterialSlider();

@@ -29,7 +29,7 @@ part of mdlformatter;
 ///         ...
 ///     </div>
 ///
-@MdlComponentModel
+@Directive
 class UpperCaseFormatter {
     String uppercase(final String value) {
         return value.toUpperCase();

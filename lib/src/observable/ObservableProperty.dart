@@ -26,13 +26,13 @@ class PropertyChangeEvent<T> {
     PropertyChangeEvent(this.value,this.oldValue);
 }
 
-@MdlComponentModel
+@Directive
 class ObservableProperty<T> {
     static const String _DEFAULT_NAME = "<undefinded>";
 
     final Logger _logger = new Logger('mdlobservable.ObservableProperty');
 
-    @MdlComponentModel
+    @Directive
     T _value;
 
     /// Always convert to double
@@ -191,6 +191,7 @@ class ObservableProperty<T> {
     void _fire(final PropertyChangeEvent<T> event) {
         if(_name != ObservableProperty._DEFAULT_NAME) {  _logger.fine("Fireing $event from ${_name}...");  }
 
+        //_logger.info("onChange: ${_onChange}, hasListeners: ${_onChange ?.hasListener}");
         if(_onChange != null && _onChange.hasListener) {
             _onChange.add(event);
         }

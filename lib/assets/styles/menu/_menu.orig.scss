@@ -142,6 +142,7 @@
   opacity: 0;
   transition: opacity $menu-fade-duration $animation-curve-default;
   user-select: none;
+  width: 100%;
 
   .mdl-menu__container.is-visible & {
     opacity: 1;

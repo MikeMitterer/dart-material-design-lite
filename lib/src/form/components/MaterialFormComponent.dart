@@ -26,10 +26,11 @@ part of mdlform;
 ///         }     
 ///     }
 class MaterialFormComponentModule  extends di.Module {
-    MaterialFormComponentModule() {
-        // bind(DeviceProxy);
-    }
-} 
+  @override
+  configure() {
+      // register(DeviceProxy);
+  }
+}
 
 enum _MaterialFormState {
     VALID, INVALID
@@ -139,7 +140,8 @@ class MaterialFormComponent extends MdlComponent {
 
         _components.forEach((final MdlComponent component) {
 
-            eventStreams.add(component.hub.onChange.listen((final dom.Event event) {
+            eventStreams.add(
+                component.hub.onChange.listen((final dom.Event event) {
                 _logger.info("$component changed!");
 
                 final bool isFormValid = _isFormValid();
@@ -153,6 +155,18 @@ class MaterialFormComponent extends MdlComponent {
                 _fire(new FormChangedEvent(component));
             }));
 
+            eventStreams.add(
+                component.hub.onKeyDown.listen((final dom.KeyboardEvent event) {
+                    if(event.keyCode == dom.KeyCode.ENTER) {
+                        if(component is MaterialTextfield) {
+                            event.preventDefault();
+                            
+                            component.element.nextElementSibling.focus();
+                            component.blur();
+                        }
+                    }
+                })
+            );
         });
 
         final dom.HtmlElement elementWithAutoFocus = element.querySelector("[autofocus]");

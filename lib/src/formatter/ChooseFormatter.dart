@@ -23,7 +23,7 @@ part of mdlformatter;
 /// ChooseFormatter must be registered in mdlformatter.Formatter
 /// Sample:
 ///     <span mdl-observe="isNameNull | choose(value, '(Name-Object is null!)','')"></span>
-@MdlComponentModel
+@Directive
 class ChooseFormatter {
     // final Logger _logger = new Logger('mdlformatter.ChooseFormatter');
 

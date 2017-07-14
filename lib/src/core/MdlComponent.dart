@@ -34,7 +34,7 @@ abstract class MdlComponent extends Object with MdlEventListener {
      *
      *     componentFactory().addModule(new StyleguideModule())
      *          .run().then(( final di.Injector injector) {
-     *               final Model model = injector.get(Model);
+     *               final Model model = injector.getInstance(Model);
      *         });
      *      });
      *
@@ -104,12 +104,58 @@ abstract class MdlComponent extends Object with MdlEventListener {
     /// Searches for child of [element] based on the given [selector]
     ///
     /// Shortcut to [element.querySelector]
-    dom.Element query(final String selector) {
+    /// You can turn off error logging by setting [logError] to false
+    dom.Element query(final String selector,{ final bool logError: true }) {
         final dom.Element result = element.querySelector(selector);
-        if(result == null) {
+        if(result == null && logError) {
             _logger.warning("Could not find '$selector' within $element!");
         }
         return result;
+    }
+
+    /// Waits until the first descendant element of [element] that matches the
+    /// specified selector is available.
+    ///
+    /// [wait] defines the time between DOM-queries
+    /// If the child is not ready within [maxIterations] the function stops
+    /// with a [TimeoutException]
+    /// 
+    ///     try {
+    ///         final dom.CanvasElement canvas = await waitForChild<dom.CanvasElement>("canvas");
+    ///         _chart = new Chart(canvas , _chartConfig);
+    ///     
+    ///     } on TimeoutException catch(e) {
+    ///         _logger.shout(e.message);
+    ///     }
+    ///     
+    FutureOr<T> waitForChild<T>(final String selector,{
+        final Duration wait: const Duration(milliseconds: 100),
+        final int maxIterations: 10 }) async {
+
+        Validate.notBlank(selector);
+
+        // Maybe the child is already in the DOM then return it ASAP
+        T child = element.querySelector(selector) as T;
+        if(child != null) {
+            return child;
+        }
+
+        int iterationCounter = 0;
+        await Future.doWhile( () async {
+            await new Future.delayed(wait, () {
+                child = query(selector) as T;
+                iterationCounter++;
+            });
+
+            return child == null && iterationCounter < maxIterations;
+        });
+
+        if(iterationCounter >= maxIterations) {
+            throw new TimeoutException(
+                "Could not find '$selector' within ${element}, "
+                    "gave up after $maxIterations retries!");
+        }
+        return child;
     }
 
     //- private -----------------------------------------------------------------------------------

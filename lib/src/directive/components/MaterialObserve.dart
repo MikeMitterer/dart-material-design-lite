@@ -17,10 +17,8 @@
  * limitations under the License.
  */
 part of mdldirective;
- 
 
-
-
+@Component
 class MaterialObserve extends MdlComponent implements ScopeAware {
     final Logger _logger = new Logger('mdldirective.MaterialObserve');
 
@@ -43,7 +41,7 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
     Scope scope;
 
     MaterialObserve.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : _renderer = injector.get(DomRenderer), _eventCompiler = injector.get(EventCompiler),
+        : _renderer = injector.getInstance(DomRenderer), _eventCompiler = injector.getInstance(EventCompiler),
             super(element,injector) {
     }
     
@@ -85,7 +83,8 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
              }
 
             scope.context = scope.parentContext;
-            _logger.info(scope.context);
+            //_logger.info(scope.context);
+
             final val = (new Invoke(scope)).field(fieldname);
 
             if(val != null && val is ObservableProperty) {
@@ -98,8 +97,6 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
 
                 _setValue(val);
             }
-
-            //_logger.info("Property done!");
         }
         
         element.classes.add(_cssClasses.IS_UPGRADED);
@@ -124,7 +121,7 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
     FormatterPipeline get _pipe {
         if(_lazyPipe == null) {
             final UnmodifiableListView<String> parts = _parts;
-            _lazyPipe = new FormatterPipeline.fromList(injector.get(Formatter),parts.getRange(1,parts.length));
+            _lazyPipe = new FormatterPipeline.fromList(injector.getInstance(Formatter),parts.getRange(1,parts.length));
         }
         return _lazyPipe;
     }

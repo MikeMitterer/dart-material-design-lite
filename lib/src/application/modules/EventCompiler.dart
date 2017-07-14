@@ -26,7 +26,7 @@ typedef _EventHandler(final dom.Element element,invoke(final dom.Event event));
  *
  * Needed in mdltemplatecomponents!
  */
-@di.Injectable()
+@di.injectable
 class EventCompiler {
     static final Logger _logger = new Logger('mdlapplication.EventCompiler');
 

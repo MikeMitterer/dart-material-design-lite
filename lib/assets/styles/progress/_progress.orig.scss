@@ -20,7 +20,7 @@
   display: block;
   position: relative;
   height: $bar-height;
-  width: 500px;
+  //width: 500px;
   max-width: 100%;
 }
 
@@ -29,7 +29,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 0%;
+  width: 0;
   transition: width 0.2s $animation-curve-default;
 }
 
@@ -56,7 +56,10 @@
   .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
       linear-gradient(to right, $progress-main-color, $progress-main-color);
-    mask: url('#{$progress-image-path}/buffer.svg?embed');
+
+    // mask: url('#{$progress-image-path}/buffer.svg?embed');
+    mask: svg-buffer();
+
   }
 }
 
@@ -64,6 +67,11 @@
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color),
     linear-gradient(to right, $progress-main-color, $progress-main-color);
+
+    animation-name: fadeinout;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .mdl-progress.mdl-progress--indeterminate > .bar1,
@@ -87,8 +95,8 @@
 
 @keyframes indeterminate1 {
   0% {
-    left: 0%;
-    width: 0%;
+    left: 0;
+    width: 0;
   }
   50% {
     left: 25%;
@@ -96,25 +104,31 @@
   }
   75% {
     left: 100%;
-    width: 0%;
+    width: 0;
   }
 }
 
 @keyframes indeterminate2 {
   0% {
-    left: 0%;
-    width: 0%;
+    left: 0;
+    width: 0;
   }
   50% {
-    left: 0%;
-    width: 0%;
+    left: 0;
+    width: 0;
   }
   75% {
-    left: 0%;
+    left: 0;
     width: 25%;
   }
   100% {
     left: 100%;
-    width: 0%;
+    width: 0;
   }
 }
+
+@keyframes fadeinout {
+    0%, 100% { opacity : 0.3; }
+    50% { opacity : 0.7; }
+}
+

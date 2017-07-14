@@ -29,6 +29,7 @@ part of mdlcomponents;
 ///      label.label = "Another search engine";
 ///      label.value = "Yahoo";
 ///
+@Component
 class MaterialLabelfield extends MdlComponent with FallbackFormatter {
     final Logger _logger = new Logger('mdlcomponents.MaterialLabelfield');
 

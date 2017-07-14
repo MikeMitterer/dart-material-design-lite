@@ -39,13 +39,13 @@ part of mdldirective;
  *        </label>
  *    </div>
  *
- *    @MdlComponentModel @di.Injectable()
+ *    @Component @di.injectable
  *    class Application extends MaterialApplication {
  *          ...
  *          final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);
  *    }
  */
-@MdlComponentModel
+@Component
 class MaterialClass extends MdlComponent {
     final Logger _logger = new Logger('mdldirective.MaterialClass');
 
@@ -122,9 +122,12 @@ class MaterialClass extends MdlComponent {
 
                 _setValue(negateValue == false ? prop.toBool() : !prop.toBool() );
 
-                prop.onChange.listen((_) {
+                eventStreams.add(
+                    prop.onChange.listen((_) {
                     _setValue(negateValue == false ? prop.toBool() : !prop.toBool());
-                });
+                }));
+            } else {
+                _logger.warning("Could not invoke $varname on ${val}! (Scope: ${scope.context})");
             }
 
         });

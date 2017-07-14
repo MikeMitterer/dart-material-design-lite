@@ -4132,12 +4132,21 @@ input.mdl-button[type="submit"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  margin: 0 auto 0 auto;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 0 auto 0 auto; }
   .mdl-grid.mdl-grid--no-spacing {
     padding: 0; }
 
@@ -4855,7 +4864,8 @@ input.mdl-button[type="submit"] {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none; }
+          user-select: none;
+  width: 100%; }
   .mdl-menu__container.is-visible .mdl-menu__item {
     opacity: 1; }
   .mdl-menu__item::-moz-focus-inner {
@@ -4890,11 +4900,131 @@ input.mdl-button[type="submit"] {
   z-index: 0;
   overflow: hidden; }
 
+.mdl-vprogress {
+  display: block;
+  position: relative;
+  height: 100px;
+  width: 8px;
+  max-height: 100%; }
+
+.mdl-vprogress > .bar {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  -webkit-transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.mdl-vprogress > .progressbar {
+  background-color: #3f51b5;
+  z-index: 1;
+  left: 0; }
+
+.mdl-vprogress > .bufferbar {
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
+  z-index: 0;
+  left: 0; }
+
+.mdl-vprogress > .auxbar {
+  top: 0; }
+
+.mdl-vprogress > .indicatorbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 100%;
+  top: 0;
+  opacity: 0.5; }
+  .mdl-vprogress > .indicatorbar .mdl-vprogress__section {
+    width: 100%;
+    border-top: 1px solid #9fa8da;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
+    .mdl-vprogress > .indicatorbar .mdl-vprogress__section:first-child {
+      border-top: none; }
+
+.mdl-vprogress:not(.mdl-vprogress--indeterminate) > .auxbar,
+.mdl-vprogress:not(.mdl-vprogress__indeterminate) > .auxbar {
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #3f51b5, #3f51b5);
+  -webkit-animation-name: fadeinout;
+          animation-name: fadeinout;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear; }
+
+.mdl-vprogress.mdl-vprogress--indeterminate > .bar1,
+.mdl-vprogress.mdl-vprogress__indeterminate > .bar1 {
+  background-color: #3f51b5;
+  -webkit-animation-name: vindeterminate1;
+          animation-name: vindeterminate1;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear; }
+
+@-webkit-keyframes vindeterminate1 {
+  0% {
+    bottom: 0;
+    height: 0; }
+  50% {
+    bottom: 25%;
+    height: 75%; }
+  75% {
+    bottom: 100%;
+    height: 0; } }
+
+@keyframes vindeterminate1 {
+  0% {
+    bottom: 0;
+    height: 0; }
+  50% {
+    bottom: 25%;
+    height: 75%; }
+  75% {
+    bottom: 100%;
+    height: 0; } }
+
+@-webkit-keyframes fadeinout {
+  0%, 100% {
+    opacity: 0.3; }
+  50% {
+    opacity: 0.7; } }
+
+@keyframes fadeinout {
+  0%, 100% {
+    opacity: 0.3; }
+  50% {
+    opacity: 0.7; } }
+
 .mdl-progress {
   display: block;
   position: relative;
   height: 4px;
-  width: 500px;
   max-width: 100%; }
 
 .mdl-progress > .bar {
@@ -4902,7 +5032,7 @@ input.mdl-button[type="submit"] {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 0%;
+  width: 0;
   -webkit-transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
@@ -4925,13 +5055,21 @@ input.mdl-button[type="submit"] {
   .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
     background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #3f51b5, #3f51b5);
-    -webkit-mask: url("/buffer.svg?embed");
-            mask: url("/buffer.svg?embed"); } }
+    -webkit-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E");
+            mask: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2212%22%20height%3D%224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cellipse%20cx%3D%222%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%222%22%20to%3D%22-10%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3Cellipse%20cx%3D%2214%22%20cy%3D%222%22%20rx%3D%222%22%20ry%3D%222%22%20class%3D%22loader%22%3E%3Canimate%20attributeName%3D%22cx%22%20from%3D%2214%22%20to%3D%222%22%20dur%3D%220.6s%22%20repeatCount%3D%22indefinite%22%2F%3E%3C%2Fellipse%3E%3C%2Fsvg%3E"); } }
 
 .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #3f51b5, #3f51b5); }
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #3f51b5, #3f51b5);
+  -webkit-animation-name: fadeinout;
+          animation-name: fadeinout;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear; }
 
 .mdl-progress.mdl-progress--indeterminate > .bar1,
 .mdl-progress.mdl-progress__indeterminate > .bar1 {
@@ -4960,53 +5098,59 @@ input.mdl-button[type="submit"] {
 
 @-webkit-keyframes indeterminate1 {
   0% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   50% {
     left: 25%;
     width: 75%; }
   75% {
     left: 100%;
-    width: 0%; } }
+    width: 0; } }
 
 @keyframes indeterminate1 {
   0% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   50% {
     left: 25%;
     width: 75%; }
   75% {
     left: 100%;
-    width: 0%; } }
+    width: 0; } }
 
 @-webkit-keyframes indeterminate2 {
   0% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   50% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   75% {
-    left: 0%;
+    left: 0;
     width: 25%; }
   100% {
     left: 100%;
-    width: 0%; } }
+    width: 0; } }
 
 @keyframes indeterminate2 {
   0% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   50% {
-    left: 0%;
-    width: 0%; }
+    left: 0;
+    width: 0; }
   75% {
-    left: 0%;
+    left: 0;
     width: 25%; }
   100% {
     left: 100%;
-    width: 0%; } }
+    width: 0; } }
+
+@keyframes fadeinout {
+  0%, 100% {
+    opacity: 0.3; }
+  50% {
+    opacity: 0.7; } }
 
 .mdl-navigation {
   display: -webkit-box;
@@ -6893,7 +7037,11 @@ mdl-accordion-group mdl-accordion:first-of-type .mdl-accordion {
       left: 0;
       top: 0;
       z-index: 1;
-      overflow: hidden; }
+      overflow: hidden;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none; }
       .mdl-accordion-group .mdl-accordion .mdl-accordion__label .mdl-accordion__ripple-container .mdl-ripple {
         background: #3f51b5; }
   .mdl-accordion-group .mdl-accordion input:checked + .mdl-accordion__label {
@@ -7054,15 +7202,13 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
         opacity: 0.87;
         color: black; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar {
-        display: none;
+        visibility: hidden;
         -webkit-appearance: none;
+        width: 0;
+        height: 0;
         background-color: transparent; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar * {
         background-color: transparent; }
-      .mdl-dialog-container .mdl-dialog .mdl-dialog__content:hover::-webkit-scrollbar-thumb {
-        border-radius: 8px;
-        border: 2px solid white;
-        background-color: rgba(0, 0, 0, 0.5) !important; }
       .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar-button {
         display: none; }
     .mdl-dialog-container .mdl-dialog .mdl-dialog__actions {
@@ -7884,6 +8030,39 @@ mdl-draggable {
     padding: 0; }
     .mdl-panel.mdl-panel--with-heading > .mdl-panel__heading {
       padding: 8px 16px; }
+    .mdl-panel.mdl-panel--with-heading > .mdl-panel__heading--with-menu {
+      padding: 0 0 0 16px !important;
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .mdl-panel.mdl-panel--with-heading > .mdl-panel__heading--with-menu .mdl-panel__title-text {
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        color: inherit;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        line-height: normal;
+        overflow: hidden;
+        margin: 0; }
+      .mdl-panel.mdl-panel--with-heading > .mdl-panel__heading--with-menu .mdl-panel__menu {
+        display: block; }
     .mdl-panel.mdl-panel--with-heading > .mdl-panel__content {
       padding: 8px 16px;
       color: rgba(0, 0, 0, 0.87);

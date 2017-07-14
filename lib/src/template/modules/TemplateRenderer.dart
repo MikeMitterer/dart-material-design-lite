@@ -19,7 +19,7 @@
 
 part of mdltemplate;
 
-@di.Injectable()
+@di.injectable
 class TemplateRenderer {
     final Logger _logger = new Logger('mdltemplate.TemplateRenderer');
 
@@ -33,6 +33,7 @@ class TemplateRenderer {
     /// the new one.
     bool appendNewNodes = false;
 
+    @di.inject
     TemplateRenderer(this._renderer, this._eventCompiler) {
         //_logger.info("TemplateRenderer CTOR");
     }

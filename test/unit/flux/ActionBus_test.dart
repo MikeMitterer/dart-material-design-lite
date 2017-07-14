@@ -51,7 +51,7 @@ main() {
             test('> fire Simple Action', () {
                 expect(actionbus, isNotNull);
 
-                final Function onSignalTest = expectAsync( (final Action action ) {
+                final Function onSignalTest = expectAsync1( (final Action action ) {
                     //_logger.info("ActionTest: ${action.name}");
 
                     expect(action.type,ActionType.Signal);
@@ -67,7 +67,7 @@ main() {
                 expect(actionbus, isNotNull);
 
                 /// Hier komm angular-signal-test an (Keine Daten!!!!!)
-                final Function onDataActionTest = expectAsync( (final DataAction<String> action ) {
+                final Function onDataActionTest = expectAsync1( (final DataAction<String> action ) {
                     //_logger.info("ActionTest: ${action.name}");
 
                     expect(action.type,ActionType.Data);

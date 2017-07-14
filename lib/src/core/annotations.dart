@@ -21,7 +21,7 @@
 ///
 /// Makes it better testable.
 ///
-///     @MdlComponentModel
+///     @Component @di.injectable
 ///     class Person {
 ///         final String id;
 ///         String name;
@@ -43,7 +43,7 @@ class MdlComponentModelAnnotation {
  * Helps mustache to know which vars are available to render
  * Sample:
  *
- * @MdlComponentModel
+ * @Component
  * class Model {
  *     int sliderValue = 20;
  * }
@@ -55,7 +55,17 @@ class MdlComponentModelAnnotation {
  *
  * mustache.render(model);
  */
+@deprecated
 const MdlComponentModelAnnotation MdlComponentModel = const MdlComponentModelAnnotation();
+
+/// All MDLComponents
+const MdlComponentModelAnnotation Component = const MdlComponentModelAnnotation();
+
+/// Usually used for Templates
+const MdlComponentModelAnnotation Model = const MdlComponentModelAnnotation();
+
+/// Directives like [Formatter]
+const MdlComponentModelAnnotation Directive = const MdlComponentModelAnnotation();
 
 /**
  * Helper for Transformer to generate documentation

@@ -1,5 +1,7 @@
-import 'package:test/test.dart';
+@TestOn("content-shell")
+library test.unit.flux.emitter;
 
+import 'package:test/test.dart';
 import 'package:mdl/mdlflux.dart';
 // import 'package:logging/logging.dart';
 
@@ -24,7 +26,7 @@ main() async {
 
         test('> onChange', () {
 
-            final Function onChangedEvent = expectAsync( (final DataStoreChangedEvent event) {
+            final Function onChangedEvent = expectAsync1( (final DataStoreChangedEvent event) {
                 expect(event,isNotNull);
                 expect(event.data,new isInstanceOf<UpdateView>());
             });
@@ -41,3 +43,4 @@ main() async {
 }
 
 // - Helper --------------------------------------------------------------------------------------
+
