@@ -1,6 +1,13 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v2.0.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.20.1...v2.0.0) - 2017-05-18
+
+### Feature
+* MaterialTextfield can determine if it has the focus [5c0f79e0](https://github.com/mikemitterer/dart-material-design-lite/commit/5c0f79e01c6de5c6a7f4f54783884223f95ac27c)
+* Mdlmock works with dice [4a892654](https://github.com/mikemitterer/dart-material-design-lite/commit/4a892654e87422be5045d8078eea00601cacf50f)
+* Removed depencency to DI, switched over to Dice [49d5c71d](https://github.com/mikemitterer/dart-material-design-lite/commit/49d5c71d558ca35eb5b0adf3e68d256f88470dee)
+
 ## [v1.20.1](http://github.com/mikemitterer/dart-material-design-lite/compare/v1.20.0...v1.20.1) - 2017-05-04
 
 ### Feature
