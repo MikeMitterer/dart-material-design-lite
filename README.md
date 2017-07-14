@@ -2,6 +2,10 @@
 > A User Interface Library / GUI-Framework to   
 > develop *__Progressive Web Apps (PWA)__* in Dart.  
 
+## Version 2.0.0
+I switch from the old, unsupported DI-Package to [Dice](https://pub.dartlang.org/packages/dice)  
+It's awesome - check it out.
+
 ## Material Components for web
 > Google switched from MaterialDesignLite to *[Material Components for web](https://github.com/material-components/material-components-web)*  
 > The Dart-Version makes the same move.
