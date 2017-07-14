@@ -10,7 +10,7 @@
 [GitHub]([https://github.com/MikeMitterer/dart-material-design-lite) |
 [GibtHub WebSite + Samples](https://github.com/MikeMitterer/dart-material-design-lite-site)
 
-## Version 2.0.0
+## Version 2.0.x
 I switch from the old, unsupported DI-Package to [Dice](https://pub.dartlang.org/packages/dice)  
 It's awesome - check it out.
 
