@@ -291,7 +291,10 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
 
     /// Check the dirty state and update field accordingly.
     void _checkDirty() {
-        if (_relaxedInput.value != null && _relaxedInput.value.isNotEmpty) {
+        if ((_relaxedInput.value != null && _relaxedInput.value.isNotEmpty) ||
+            _relaxedInput is dom.InputElement &&
+                (_relaxedInput as dom.InputElement).placeholder.toString().trim().isNotEmpty) {
+            
             element.classes.add(_cssClasses.IS_DIRTY);
 
         } else {

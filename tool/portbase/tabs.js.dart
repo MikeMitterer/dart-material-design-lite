@@ -99,6 +99,25 @@ void _resetPanelState() {
     }
   }
 
+/// Set the active tab.
+/// 
+/// public
+/// param {Element|number} tab The tab element or index to set active.
+///   MaterialTabs.prototype.setTab = function(tab) {
+void setTab(final tab) {
+    tab = (typeof tab == 'number') ? _tabs[tab] : tab;
+    if (tab && tab.getAttribute('href').charAt(0) == '#') {
+
+      final href = tab.href.split('#')[1];
+
+      final panel = element.querySelector('#' + href);
+      _resetTabState();
+      _resetPanelState();
+      tab.classes.add(_cssClasses.ACTIVE_CLASS);
+      panel.classes.add(_cssClasses.ACTIVE_CLASS);
+    }
+  }
+
 /// Initialize element.
 ///   MaterialTabs.prototype.init = /*function*/ () {
 void init() {
@@ -130,14 +149,7 @@ void init() {
       tab.onClick.listen( /*function*/ (e) {
         if (tab.getAttribute('href').charAt(0) == '#') {
           e.preventDefault();
-
-          final href = tab.href.split('#')[1];
-
-          final panel = ctx._element.querySelector('#' + href);
-          ctx._resetTabState();
-          ctx._resetPanelState();
-          tab.classes.add(ctx._cssClasses.ACTIVE_CLASS);
-          panel.classes.add(ctx._cssClasses.ACTIVE_CLASS);
+          ctx.setTab(tab);
         }
       });
 

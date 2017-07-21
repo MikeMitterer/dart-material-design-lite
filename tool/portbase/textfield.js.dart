@@ -157,7 +157,10 @@ void checkValidity() {
 /// public
 ///   MaterialTextfield.prototype.checkDirty = /*function*/ () {
 void checkDirty() {
-    if (_input.value && _input.value.length > 0) {
+    if (
+      (_input.value && _input.value.length > 0) ||
+      (_input.placeholder.trim() != '')
+    ) {
       element.classes.add(_cssClasses.IS_DIRTY);
 
     } else {

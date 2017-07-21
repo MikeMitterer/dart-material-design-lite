@@ -70,14 +70,6 @@ void _onChange(final html.Event event) {
     _updateValueStyles();
   }
 
-/// Handle mouseup on element.
-/// 
-/// param {Event} event The event that fired.
-///   MaterialSlider.prototype.onMouseUp_ = function(event) {
-void _onMouseUp(final html.Event event) {
-    event.target.blur();
-  }
-
 /// Handle mousedown on container element.
 /// This handler is purpose is to not require the use to click
 /// exactly on the 2px slider element, as FireFox seems to be very
@@ -207,15 +199,11 @@ void init() {
 
       _boundInputHandler = onInput;
       _boundChangeHandler = onChange;
-      _boundMouseUpHandler = onMouseUp;
       _boundContainerMouseDownHandler = onContainerMouseDown;
       element.addEventListener('input', boundInputHandler);
 
 	// .addEventListener('change', -- .onChange.listen(<Event>);
       element.onChange.listen( boundChangeHandler);
-
-	// .addEventListener('mouseup', -- .onMouseUp.listen(<MouseEvent>);
-      element.onMouseUp.listen( boundMouseUpHandler);
       element.parent.addEventListener('mousedown', boundContainerMouseDownHandler);
 
       _updateValueStyles();

@@ -54,6 +54,8 @@ class MaterialDataTable extends MdlComponent {
     static const _MaterialDataTableConstant _constant = const _MaterialDataTableConstant();
     static const _MaterialDataTableCssClasses _cssClasses = const _MaterialDataTableCssClasses();
 
+    dom.LabelElement _headerCheckbox;
+
     MaterialDataTable.fromElement(final dom.HtmlElement element, final di.Injector injector)
         : super(element, injector) {
 
@@ -82,8 +84,8 @@ class MaterialDataTable extends MdlComponent {
 
             final dom.HtmlElement th = dom.document.createElement('th');
 
-            final dom.LabelElement headerCheckbox = _createCheckbox(null, rows);
-            th.append(headerCheckbox);
+            _headerCheckbox = _createCheckbox(null, rows);
+            th.append(_headerCheckbox);
             firstHeader.parent.insertBefore(th, firstHeader);
 
             for (int i = 0; i < rows.length; i++) {
@@ -125,12 +127,12 @@ class MaterialDataTable extends MdlComponent {
             checkbox.checked = row.classes.contains(_cssClasses.IS_SELECTED);
 
             // .addEventListener('change', -- .onChange.listen(<Event>);
-            checkbox.onChange.listen( (_) => _selectRow(checkbox, row, null));
+            checkbox.onChange.listen(_selectRow(checkbox, row, null));
 
         } else if (optRows != null && optRows.isNotEmpty) {
 
             // .addEventListener('change', -- .onChange.listen(<Event>);
-            checkbox.onChange.listen( (_) => _selectRow(checkbox, null, optRows));
+            checkbox.onChange.listen(_selectRow(checkbox, null, optRows));
         }
 
         label.append(checkbox);
@@ -145,14 +147,22 @@ class MaterialDataTable extends MdlComponent {
     /// [rows] to toggle when checkbox changes.
     Function _selectRow(final dom.CheckboxInputElement checkbox, final dom.TableRowElement row, final List<dom.HtmlElement> optRows) {
 
+        _logger.info("Row: ${row}");
+
         if (row != null) {
 
             return (final dom.Event event) {
+                _logger.info("Checkbox checked: ${checkbox.checked}");
+
                 if (checkbox.checked) {
                     row.classes.add(_cssClasses.IS_SELECTED);
 
                 } else {
                     row.classes.remove(_cssClasses.IS_SELECTED);
+                    if(_headerCheckbox != null && _headerCheckbox.querySelector('.mdl-checkbox__input') != null) {
+                        _logger.info("Checkbox");
+                        MaterialCheckbox.widget(_headerCheckbox).uncheck();
+                    }
                 }
             };
         }

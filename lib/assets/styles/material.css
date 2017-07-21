@@ -4864,8 +4864,7 @@ input.mdl-button[type="submit"] {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none;
-  width: 100%; }
+          user-select: none; }
   .mdl-menu__container.is-visible .mdl-menu__item {
     opacity: 1; }
   .mdl-menu__item::-moz-focus-inner {
@@ -5025,6 +5024,7 @@ input.mdl-button[type="submit"] {
   display: block;
   position: relative;
   height: 4px;
+  width: 500px;
   max-width: 100%; }
 
 .mdl-progress > .bar {
@@ -5061,15 +5061,7 @@ input.mdl-button[type="submit"] {
 .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), -webkit-linear-gradient(left, #3f51b5, #3f51b5);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #3f51b5, #3f51b5);
-  -webkit-animation-name: fadeinout;
-          animation-name: fadeinout;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear; }
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)), linear-gradient(to right, #3f51b5, #3f51b5); }
 
 .mdl-progress.mdl-progress--indeterminate > .bar1,
 .mdl-progress.mdl-progress__indeterminate > .bar1 {
@@ -5145,12 +5137,6 @@ input.mdl-button[type="submit"] {
   100% {
     left: 100%;
     width: 0; } }
-
-@keyframes fadeinout {
-  0%, 100% {
-    opacity: 0.3; }
-  50% {
-    opacity: 0.7; } }
 
 .mdl-navigation {
   display: -webkit-box;

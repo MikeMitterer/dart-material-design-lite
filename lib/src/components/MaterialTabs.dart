@@ -163,17 +163,27 @@ class _MaterialTab {
                     event.preventDefault();
                     event.stopPropagation();
 
-                    final String href = attribHref.split('#')[1];
-                    final dom.HtmlElement panel = ctx.element.querySelector('#' + href);
-
-                    ctx._resetTabState();
-                    ctx._resetPanelState();
-                    tab.classes.add(_cssClasses.ACTIVE_CLASS);
-                    panel.classes.add(_cssClasses.ACTIVE_CLASS);
-
-                    ctx._fire(new MaterialTabsChangedEvent(href));
+                    _setActiveTab(tab);
                 }
             }));
+        }
+    }
+
+    /// Sets the active tab
+    ///
+    /// The original version makes this function public...
+    _setActiveTab(final dom.Element tab) {
+        final String attribHref = tab.attributes["href"];
+        if(attribHref.startsWith("#")) {
+            final String href = attribHref.split('#')[1];
+            final dom.HtmlElement panel = ctx.element.querySelector('#' + href);
+
+            ctx._resetTabState();
+            ctx._resetPanelState();
+            tab.classes.add(_cssClasses.ACTIVE_CLASS);
+            panel.classes.add(_cssClasses.ACTIVE_CLASS);
+
+            ctx._fire(new MaterialTabsChangedEvent(href));
         }
     }
 }

@@ -61,7 +61,7 @@
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -263,7 +263,7 @@
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -690,7 +690,7 @@ main {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -1273,7 +1273,7 @@ ul, ol {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -3121,7 +3121,7 @@ ul, ol {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -3310,7 +3310,7 @@ ul, ol {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -3494,7 +3494,7 @@ ul, ol {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -3710,7 +3710,7 @@ ul, ol {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -4087,7 +4087,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -4353,7 +4353,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -4660,7 +4660,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -4902,7 +4902,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -5175,7 +5175,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -5341,6 +5341,305 @@ input.mdl-button[type="submit"] {
     color: rgba(0,0,0, 0.54); }
 
 /**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ * -----Tooltip
+ * -----Chip
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent on one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* DIALOG */
+/* SNACKBAR */
+/* TOOLTIP */
+/* CHIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+/* Dialog */
+.mdl-expansion {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box; }
+  .mdl-expansion__summary {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 48px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    outline: none; }
+    .mdl-expansion__summary::-webkit-details-marker {
+      display: none; }
+    .mdl-expansion__summary::after {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      word-wrap: normal;
+      font-feature-settings: 'liga';
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+      content: '\e313';
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-transition: color 200ms, -webkit-transform 200ms;
+      transition: color 200ms, -webkit-transform 200ms;
+      transition: transform 200ms, color 200ms;
+      transition: transform 200ms, color 200ms, -webkit-transform 200ms;
+      margin-left: auto;
+      color: rgba(0, 0, 0, 0.38); }
+    .mdl-expansion__summary:focus {
+      background-color: rgba(238,238,238, 1); }
+      .mdl-expansion__summary:focus::after {
+        color: rgba(0, 0, 0, 0.54); }
+  .mdl-expansion__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+    margin-right: 16px; }
+  .mdl-expansion__subheader {
+    font-size: .75rem;
+    color: rgba(0, 0, 0, 0.54); }
+  .mdl-expansion__secondary-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+    color: rgba(0, 0, 0, 0.87);
+    margin-right: 16px; }
+  .mdl-expansion__content {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px; }
+    .mdl-expansion__content + .mdl-expansion__actions {
+      border-top: 1px solid rgba(0, 0, 0, 0.12); }
+  .mdl-expansion__actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    padding-top: 16px;
+    padding-bottom: 16px; }
+  .mdl-expansion__action {
+    margin-right: 8px; }
+  .mdl-expansion[open] .mdl-expansion__summary::after {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
+
+/**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -5401,7 +5700,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -5816,7 +6115,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -6049,7 +6348,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -6292,7 +6591,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -6612,7 +6911,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -6947,7 +7246,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -7233,7 +7532,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -7965,7 +8264,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -8260,7 +8559,7 @@ input.mdl-button[type="submit"] {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -8664,7 +8963,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -8932,7 +9231,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -9429,7 +9728,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -9751,7 +10050,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -10010,7 +10309,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -10341,7 +10640,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -10566,7 +10865,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */
@@ -10779,7 +11078,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
- * should not be changed as they are dependent one another. This can cause
+ * should not be changed as they are dependent on one another. This can cause
  * visual distortions (like alignment issues) that are hard to track down
  * and fix.
  */

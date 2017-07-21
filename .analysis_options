@@ -16,3 +16,4 @@ analyzer:
     # and https://github.com/dart-lang/test/issues/436
     - test/**
 
+

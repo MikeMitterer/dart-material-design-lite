@@ -467,6 +467,10 @@ class MaterialLayout extends MdlComponent {
 
         if (_screenSizeMediaQuery.matches) {
             element.classes.add(_cssClasses.IS_SMALL_SCREEN);
+
+            if (_drawer != null) {
+                _drawer.setAttribute('aria-hidden', 'true');
+            }
         }
         else {
             element.classes.remove(_cssClasses.IS_SMALL_SCREEN);
@@ -475,6 +479,10 @@ class MaterialLayout extends MdlComponent {
             if (_drawer != null) {
                 _drawer.classes.remove(_cssClasses.IS_DRAWER_OPEN);
                 obfuscator.classes.remove(_cssClasses.IS_DRAWER_OPEN);
+
+                if (element.classes.contains(_cssClasses.FIXED_DRAWER)) {
+                    _drawer.setAttribute('aria-hidden', 'false');
+                }
             }
         }
     }
@@ -649,6 +657,7 @@ class _MaterialLayoutCssClasses {
     final String HEADER_SCROLL = 'mdl-layout__header--scroll';
 
     final String FIXED_HEADER = 'mdl-layout--fixed-header';
+    final String FIXED_DRAWER = 'mdl-layout--fixed-drawer';
     final String OBFUSCATOR = 'mdl-layout__obfuscator';
 
     final String TAB_BAR = 'mdl-layout__tab-bar';

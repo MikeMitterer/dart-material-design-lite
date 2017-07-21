@@ -87,6 +87,7 @@ class _  MaterialLayoutCssClasses {
       final String HEADER_SCROLL = 'mdl-layout__header--scroll';
 
       final String FIXED_HEADER = 'mdl-layout--fixed-header';
+      final String FIXED_DRAWER = 'mdl-layout--fixed-drawer';
       final String OBFUSCATOR = 'mdl-layout__obfuscator';
 
       final String TAB_BAR = 'mdl-layout__tab-bar';
@@ -112,6 +113,15 @@ class _  MaterialLayoutCssClasses {
       final String ON_LARGE_SCREEN = 'mdl-layout--large-screen-only';
       final String ON_SMALL_SCREEN = 'mdl-layout--small-screen-only';
 
+  }
+
+/// Provide local version of matchMedia. This is needed in order to support
+/// monkey-patching of matchMedia in the unit tests. Due to peculiarities in
+/// PhantomJS, it doesn't work to monkey patch window.matchMedia directly.
+/// 
+///   MaterialLayout.prototype.matchMedia_ = function(query) {
+void _matchMedia(final query) {
+    return window.matchMedia(query);
   }
 
 /// Handles scrolling on the content.
@@ -162,12 +172,20 @@ void _screenSizeHandler() {
     if (_screenSizeMediaQuery.matches) {
       element.classes.add(_cssClasses.IS_SMALL_SCREEN);
 
+      if (_drawer) {
+        _drawer.setAttribute('aria-hidden', 'true');
+      }
+
     } else {
       element.classes.remove(_cssClasses.IS_SMALL_SCREEN);
       // Collapse drawer (if any) when moving to a large screen size.
       if (_drawer) {
         _drawer.classes.remove(_cssClasses.IS_DRAWER_OPEN);
         _obfuscator.classes.remove(_cssClasses.IS_DRAWER_OPEN);
+
+        if (element.classes.contains(_cssClasses.FIXED_DRAWER)) {
+          _drawer.setAttribute('aria-hidden', 'false');
+        }
       }
     }
   }
@@ -411,7 +429,7 @@ void init() {
 
       // Keep an eye on screen size, and add/remove auxiliary class for styling
       // of small screens.
-      _screenSizeMediaQuery = window.matchMedia(
+      _screenSizeMediaQuery = _matchMedia(
       _screenSizeMediaQuery.addListener(_screenSizeHandler);
       _screenSizeHandler();
 

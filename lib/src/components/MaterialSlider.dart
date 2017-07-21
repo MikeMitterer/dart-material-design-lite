@@ -142,8 +142,6 @@ class MaterialSlider extends MdlComponent {
 
             eventStreams.add(element.onChange.listen( _onChange ));
 
-            eventStreams.add(element.onMouseUp.listen( _onMouseUp ));
-
             eventStreams.add(element.parent.onMouseDown.listen(_onContainerMouseDown));
 
             _updateValueStyles();
@@ -159,11 +157,6 @@ class MaterialSlider extends MdlComponent {
     /// Handle change on element.
     void _onChange(_) {
         _updateValueStyles();
-    }
-
-    /// Handle mouseup on element.
-    void _onMouseUp(_) {
-        element.blur();
     }
 
     /// Handle mousedown on container element.

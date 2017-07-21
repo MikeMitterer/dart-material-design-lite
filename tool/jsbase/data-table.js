@@ -76,6 +76,9 @@
           row.classList.add(this.CssClasses_.IS_SELECTED);
         } else {
           row.classList.remove(this.CssClasses_.IS_SELECTED);
+          if (this.headerCheckbox['MaterialCheckbox'].inputElement_.checked) {
+            this.headerCheckbox['MaterialCheckbox'].uncheck();
+          }
         }
       }.bind(this);
     }
@@ -146,8 +149,8 @@
 
       if (this.element_.classList.contains(this.CssClasses_.SELECTABLE)) {
         var th = document.createElement('th');
-        var headerCheckbox = this.createCheckbox_(null, rows);
-        th.appendChild(headerCheckbox);
+        this.headerCheckbox = this.createCheckbox_(null, rows);
+        th.appendChild(this.headerCheckbox);
         firstHeader.parentElement.insertBefore(th, firstHeader);
 
         for (var i = 0; i < rows.length; i++) {
