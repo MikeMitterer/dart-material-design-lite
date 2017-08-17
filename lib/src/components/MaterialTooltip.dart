@@ -108,9 +108,9 @@ class MaterialTooltip extends MdlComponent {
 
         final Math.Rectangle props = _forElement.getBoundingClientRect();
 
-        int left = props.left + (props.width / 2);
+        int left = props.left + (props.width ~/ 2);
 
-        final int top = props.top + (props.height / 2);
+        final int top = props.top + (props.height ~/ 2);
 
         final double marginLeft = -1 * (element.offsetWidth / 2);
 
