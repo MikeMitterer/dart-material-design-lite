@@ -35,6 +35,9 @@ dependencies:
 
   path: ^1.4.0
 
+  l10n: # ^0.17.0
+    path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
+
 dev_dependencies:
   test: any
   args: any

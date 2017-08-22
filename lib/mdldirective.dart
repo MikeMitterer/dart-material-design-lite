@@ -29,6 +29,7 @@ import 'dart:collection';
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 import 'package:dice/dice.dart' as di;
+import 'package:l10n/l10n.dart';
 
 import 'package:mdl/mdlcore.dart';
 import 'package:mdl/mdlcomponents.dart';
@@ -40,13 +41,14 @@ import 'package:mustache/mustache.dart';
 //import 'package:mdl/mustache.dart';
 
 
-part "src/directive/components/MaterialObserve.dart";
-part "src/directive/components/MaterialModel.dart";
-part "src/directive/components/MaterialClass.dart";
 part "src/directive/components/MaterialAttribute.dart";
+part "src/directive/components/MaterialClass.dart";
+part "src/directive/components/MaterialModel.dart";
+part "src/directive/components/MaterialObserve.dart";
+part "src/directive/components/MaterialTranslate.dart";
 
-part "src/directive/components/model/ModelObserverFactory.dart";
 part "src/directive/components/model/ModelObserver.dart";
+part "src/directive/components/model/ModelObserverFactory.dart";
 
 part "src/directive/utils.dart";
 
@@ -61,10 +63,11 @@ final MdlDirectiveModule _directiveModule = new MdlDirectiveModule();
 
 void registerMdlDirectiveComponents() {
 
-    registerMaterialObserve();
-    registerMaterialModel();
-    registerMaterialClass();
     registerMaterialAttribute();
+    registerMaterialClass();
+    registerMaterialModel();
+    registerMaterialObserve();
+    registerMaterialTranslate();
 
     componentHandler().addModule(_directiveModule);
 
