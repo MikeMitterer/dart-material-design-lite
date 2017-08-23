@@ -47,26 +47,33 @@ class MaterialTranslate extends MdlComponent {
     void _init() {
         _logger.info("MaterialTranslate - init");
 
-        /// Recommended - add SELECTOR as class
+        // Recommended - add SELECTOR as class
         element.classes.add(_MaterialTranslateConstant.WIDGET_SELECTOR);
 
         final String translation = element.text.replaceFirstMapped(
             new RegExp('(_|l10n|L10N)\\((\'|\")([^\"\']*)(\'|\")\\)'),
                 (final Match match) {
-                    _idToTranslate = match.group(3).trim();
-                    return translator.translate(new L10N(_idToTranslate));
-        });
+                _idToTranslate = match.group(3).trim();
+                return translator.translate(new L10N(_idToTranslate));
+            });
 
         _logger.info("-> " + _idToTranslate);
-        
-        if(_idToTranslate.isNotEmpty) {
-            element.text = translation;
+
+        if (_idToTranslate.isNotEmpty) {
+            // If attribute is set to true or if attribute is available but has no
+            // value set
+            if(_fieldvalue) {
+                element.text = translation;
+            } else {
+                element.text = _idToTranslate;
+            }
         }
 
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
-    String get _fieldname => element.attributes[_MaterialTranslateConstant.WIDGET_SELECTOR].trim();
+    /// Returns true if attribute has not value set or if it's value is not 'no'
+    bool get _fieldvalue => !('no' == element.attributes[_MaterialTranslateConstant.WIDGET_SELECTOR]?.trim());
 }
 
 /// registration-Helper
