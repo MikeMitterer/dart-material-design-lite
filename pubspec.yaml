@@ -35,8 +35,8 @@ dependencies:
 
   path: ^1.4.0
 
-  l10n: # ^0.17.0
-    path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
+  l10n: ^0.17.0
+    # path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
 
 dev_dependencies:
   test: any
@@ -44,8 +44,8 @@ dev_dependencies:
   material_icons: any
   grinder: any
   mdl_grinder:
-    # git: https://github.com/MikeMitterer/dart-mdl-grinder
-    path: /Volumes/Daten/DevLocal/DevDart/MaterialGrinder
+    git: https://github.com/MikeMitterer/dart-mdl-grinder
+    # path: /Volumes/Daten/DevLocal/DevDart/MaterialGrinder
 
 transformers:
 #  - di
