@@ -127,7 +127,7 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
     /// The returned Future informs about how the dialog was closed
     /// If {timeout} is set - the corresponding dialog closes automatically after this period
     /// The callback {dialogIDCallback} can be given to find out the dialogID - useful for Toast that needs confirmation
-    Future<MdlDialogStatus> show({ final Duration timeout,void dialogIDCallback(final String dialogId) }) {
+    Future<MdlDialogStatus> show({ final Duration timeout,Future dialogIDCallback(final String dialogId) }) {
         Validate.isTrue(_completer == null || _completer.isCompleted);
 
         _logger.fine("start MaterialDialog#show...");
@@ -166,28 +166,32 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
                 dialogComponent.parentScope = this;
             }
 
+            void _finalizeDialog() {
+                _dialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
+                _dialogContainer.classes.add(_cssClasses.IS_VISIBLE);
+                _dialogContainer.classes.remove(_cssClasses.APPENDING);
+
+                if(_config.acceptEscToClose) {
+                    _addEscListener();
+                }
+                if(timeout != null && _config.autoClosePossible == true) {
+                    _startTimeoutTimer(timeout);
+                }
+
+                final dom.HtmlElement elementWithAutoFocus = dialog.querySelector("[autofocus]");
+                if(elementWithAutoFocus != null) {
+                    elementWithAutoFocus.focus();
+                }
+
+                idCounter++;
+                _logger.fine("show end (Dialog is rendered, got ID: ${_elementID})!");
+            }
+
             if(dialogIDCallback != null) {
-                dialogIDCallback(hashCode.toString());
+                dialogIDCallback(hashCode.toString()).then( (_) => _finalizeDialog());
+            } else {
+                _finalizeDialog();
             }
-
-            _dialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
-            _dialogContainer.classes.add(_cssClasses.IS_VISIBLE);
-            _dialogContainer.classes.remove(_cssClasses.APPENDING);
-
-            if(_config.acceptEscToClose) {
-                _addEscListener();
-            }
-            if(timeout != null && _config.autoClosePossible == true) {
-                _startTimeoutTimer(timeout);
-            }
-
-            final dom.HtmlElement elementWithAutoFocus = dialog.querySelector("[autofocus]");
-            if(elementWithAutoFocus != null) {
-                elementWithAutoFocus.focus();
-            }
-
-            idCounter++;
-            _logger.fine("show end (Dialog is rendered, got ID: ${_elementID})!");
         });
 
         return _completer.future;

@@ -46,10 +46,10 @@ body {
     }
 
     .mdl-splashscreen {
+        display         : none;
         box-sizing      : border-box;
         font-size       : 24px;
         z-index         : 99;
-        display         : none;
         position        : absolute;
         opacity         : 0.8;
         top             : 0;

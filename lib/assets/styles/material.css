@@ -7164,6 +7164,25 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     position: relative;
     overflow: hidden;
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
+    .mdl-dialog-container .mdl-dialog .mdl-dialog__toolbar {
+      padding: 18px 24px 18px 24px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start; }
     .mdl-dialog-container .mdl-dialog .mdl-dialog__content {
       display: block;
       box-sizing: border-box;
@@ -7219,6 +7238,203 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
         margin-left: 8px; }
     .mdl-dialog-container .mdl-dialog.mdl-content-overflow .mdl-actions {
       border-top: 1px solid; }
+
+.mdl-datepicker {
+  display: block;
+  width: 330px; }
+  .mdl-datepicker .mdl-datepicker__year, .mdl-datepicker .mdl-datepicker__date {
+    opacity: 0.8;
+    cursor: pointer; }
+    .mdl-datepicker .mdl-datepicker__year.is-active, .mdl-datepicker .mdl-datepicker__date.is-active {
+      opacity: 1;
+      cursor: default; }
+  .mdl-datepicker .mdl-datepicker__day_view {
+    height: 320px; }
+    .mdl-datepicker.show-year-view .mdl-datepicker__day_view {
+      display: none; }
+    .mdl-datepicker .mdl-datepicker__day_view .mdl-datepicker__month_selection {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      margin-bottom: 8px; }
+      .mdl-datepicker .mdl-datepicker__day_view .mdl-datepicker__month_selection i {
+        cursor: pointer; }
+      .mdl-datepicker .mdl-datepicker__day_view .mdl-datepicker__month_selection .mdl-datepicker__month_selection--month {
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        text-align: center; }
+    .mdl-datepicker .mdl-datepicker__day_view .mdl-datepicker__dow {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -ms-flex-line-pack: distribute;
+          align-content: space-around;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      height: 40px;
+      font-size: 12px;
+      opacity: 0.6; }
+      .mdl-datepicker .mdl-datepicker__day_view .mdl-datepicker__dow > * {
+        text-align: center;
+        width: calc(100% / 7); }
+    .mdl-datepicker .mdl-datepicker__day_view .mdl-datepicker__dom {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+      -webkit-box-align: stretch;
+          -ms-flex-align: stretch;
+              align-items: stretch; }
+      .mdl-datepicker .mdl-datepicker__day_view .mdl-datepicker__dom .mdl-datepicker__dom__row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -ms-flex-line-pack: distribute;
+            align-content: space-around;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        height: 40px; }
+        .mdl-datepicker .mdl-datepicker__day_view .mdl-datepicker__dom .mdl-datepicker__dom__row > .mdl-datepicker__dom--day {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          -ms-flex-line-pack: distribute;
+              align-content: space-around;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          text-align: center;
+          width: calc(100% / 7);
+          font-size: 12px;
+          line-height: 40px;
+          cursor: pointer; }
+          .mdl-datepicker .mdl-datepicker__day_view .mdl-datepicker__dom .mdl-datepicker__dom__row > .mdl-datepicker__dom--day.mdl-color--accent {
+            border-radius: 100%;
+            vertical-align: middle; }
+  .mdl-datepicker .mdl-datepicker__year_view {
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    display: none;
+    height: 320px;
+    overflow: scroll; }
+    .mdl-datepicker .mdl-datepicker__year_view::-webkit-scrollbar {
+      visibility: hidden;
+      -webkit-appearance: none;
+      width: 0;
+      height: 0;
+      background-color: transparent; }
+    .mdl-datepicker .mdl-datepicker__year_view::-webkit-scrollbar * {
+      background-color: transparent; }
+    .mdl-datepicker .mdl-datepicker__year_view::-webkit-scrollbar-button {
+      display: none; }
+    .mdl-datepicker.show-year-view .mdl-datepicker__year_view {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+    .mdl-datepicker .mdl-datepicker__year_view ul li {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      cursor: pointer; }
+      .mdl-datepicker .mdl-datepicker__year_view ul li.mdl-color-text--accent {
+        font-size: 26px; }
+
+.mdl-dialog-container .mdl-dialog.mdl-datepicker {
+  max-height: 90%; }
+
+.mdl-dialog.mdl-datepicker .mdl-dialog__toolbar {
+  min-height: 60px; }
+
+.mdl-dialog.mdl-datepicker .mdl-dialog__content {
+  padding: 18px 18px 0 18px; }
+
+.mdl-dialog.mdl-datepicker .mdl-dialog__actions {
+  padding-top: 0;
+  padding-right: 0;
+  margin-right: -8px;
+  margin-bottom: 2px; }
 
 .mdl-dnd__drag-container {
   position: relative; }

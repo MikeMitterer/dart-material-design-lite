@@ -72,6 +72,17 @@
 
         @include shadow-2dp();
 
+        .mdl-dialog__toolbar {
+            padding : 18px 24px 18px 24px;
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start; // ↓
+            align-content: space-between; // =
+            align-items: flex-start; // ⇾
+        }
+
         .mdl-dialog__content {
             display: block;
             box-sizing      : border-box;

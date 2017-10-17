@@ -46,7 +46,7 @@ class MaterialAlertDialog extends MaterialDialog {
             <p>{{text}}</p>
           </div>
           <div class="mdl-dialog__actions" layout="row">
-              <button class="mdl-button mdl-js-button mdl-button--colored" data-mdl-click="onClose()">
+              <button class="mdl-button mdl-button--colored" data-mdl-click="onClose()">
                   {{okButton}}
               </button>
           </div>

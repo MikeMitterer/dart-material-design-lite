@@ -1,0 +1,61 @@
+/// Mixin to put items on a circle
+/// [1] - Allows children to be absolutely positioned
+/// [2] - Allows the mixin to be used on a list
+/// [3] - In case box-sizing: border-box has been enabled
+/// [4] - Allows any type of direct children to be targeted
+///
+/// @param {Integer} $nb-items - Number or items
+/// @param {Origin} $origin - 0deg means east (3 on clock, -90deg means 12 on clock)
+/// @param {Length} $circle-size - Container size
+/// @param {Length} $item-size - Item size
+///
+/// Usage: @include distribute-on-circle(12, -60deg, 250px, 20px);
+///
+/// More: https://hugogiraudel.com/2013/04/02/items-on-circle/
+@mixin distribute-on-circle( $nb-items, $origin, $circle-size, $item-size) {
+    $half-item: ($item-size / 2);
+    $half-parent: ($circle-size / 2);
+
+    position: relative; /* 1 */
+    width:  $circle-size;
+    height: $circle-size;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none; /* 2 */
+    box-sizing: content-box; /* 3 */
+
+    > * { /* 4 */
+        display: block;
+        position: absolute;
+        top:  50%;
+        left: 50%;
+        width:  $item-size;
+        height: $item-size;
+        line-height: $item-size;
+
+        margin: -$half-item;
+
+        text-align: center;
+        vertical-align: center;
+    }
+
+    $angle: (360 / $nb-items);
+    $rot: 0;
+
+    transform: rotate($origin);
+
+    @for $i from 1 through $nb-items {
+        > :nth-of-type(#{$i}) {
+            // Rotate the axis
+            transform: rotate($rot * 1deg)
+
+                // Move the item from the center
+            translate($half-parent)
+
+                // Rotate the item back to its default position
+            rotate(($rot * -1deg) - $origin);
+        }
+
+        $rot: ($rot + $angle);
+    }
+}
