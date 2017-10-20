@@ -40,8 +40,8 @@ dev_dependencies:
   material_icons: any
   grinder: any
   mdl_grinder:
-    # git: https://github.com/MikeMitterer/dart-mdl-grinder
-    path: /Volumes/Daten/DevLocal/DevDart/MaterialGrinder
+    git: https://github.com/MikeMitterer/dart-mdl-grinder
+    # path: /Volumes/Daten/DevLocal/DevDart/MaterialGrinder
 
 transformers:
 #  - di
