@@ -21,9 +21,7 @@ library mdldialog;
 
 import 'dart:html' as dom;
 import 'dart:async';
-import 'dart:math' as math;
 import 'package:intl/intl.dart';
-import 'package:intl/date_symbols.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 

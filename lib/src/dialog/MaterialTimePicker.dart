@@ -117,8 +117,6 @@ class MaterialTimePicker extends MaterialDialog {
     String get _selectedHourPrefixClass => "mdl-timepicker__hours--";
     String get _selectedMinutePrefixClass => "mdl-timepicker__minutes--";
 
-    List<String> get _nowClasses => <String>["mdl-color-text--accent"];
-
     dom.HtmlElement get _elementHour => dialog.querySelector(".mdl-timepicker__time--hour");
     dom.SpanElement get _elementMinute => dialog.querySelector(".mdl-timepicker__time--minute");
     dom.HtmlElement get _elementHours => dialog.querySelector(".mdl-timepicker__hours");

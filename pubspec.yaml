@@ -29,14 +29,10 @@ dependencies:
   dice: ^1.7.0
     # path: /Volumes/Daten/DevLocal/DevDart/dice
     
-  #di: ^3.3.0
-
-  barback: ^0.15.0
-
   path: ^1.4.0
 
-  l10n: # ^0.17.0
-    path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
+  l10n: ^1.0.0
+    # path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
 
 dev_dependencies:
   test: any
