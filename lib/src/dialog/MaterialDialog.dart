@@ -184,7 +184,7 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
                 }
 
                 idCounter++;
-                _logger.fine("show end (Dialog is rendered, got ID: ${_elementID})!");
+                _logger.info("show end (Dialog is rendered, got ID: ${_elementID})!");
             }
 
             if(dialogIDCallback != null) {
@@ -306,7 +306,7 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
 
         } else {
 
-            _logger.info("Could not find element with ID: ${_elementSelector}");
+            _logger.fine("Could not find element with ID: ${_elementSelector}");
             _destroyContainer();
             _callCallbacksAndQuit();
         }

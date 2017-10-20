@@ -10,7 +10,7 @@ environment:
 dependencies:
   browser: ^0.10.0
 
-  intl: ^0.14.0
+  intl: ^0.15.0
   validate: ^1.0.0
   browser_detect: ^1.0.0
 

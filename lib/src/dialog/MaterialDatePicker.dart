@@ -258,7 +258,9 @@ class MaterialDatePicker extends MaterialDialog {
     /// Mo, Th, ...
     void _initWeekdays() {
         _weekdays.clear();
-        final List weekdays = dateTimeSymbolMap()[Intl.defaultLocale].STANDALONESHORTWEEKDAYS;
+        // 
+        final String locale = Intl.shortLocale(Intl.defaultLocale);
+        final List weekdays = dateTimeSymbolMap()[locale].STANDALONESHORTWEEKDAYS;
 
         // We start with Monday
         for(int index = 1;index < weekdays.length;index++) {

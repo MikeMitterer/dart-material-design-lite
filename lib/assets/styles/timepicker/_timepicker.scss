@@ -1,0 +1,180 @@
+@import "variables";
+@import "mixin";
+
+.mdl-timepicker {
+    .mdl-timepicker__time {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        .mdl-timepicker__time--hour, .mdl-timepicker__time--minute {
+            opacity : 0.8;
+            cursor  : pointer;
+
+            &.is-active {
+                opacity : 1;
+            }
+        }
+    }
+
+    .mdl-timepicker__hours {
+        @at-root .mdl-timepicker.show-minute-view {
+            .mdl-timepicker__hours {
+                display: none;
+            }
+        }
+
+        width: $_timepicker_radius;
+        height: $_timepicker_radius;
+        border-radius: 100%;
+
+        position: relative;
+
+        &__center {
+            @include set_center_point();
+        }
+
+        $angle: (360deg / 12);
+        $rot: (0deg - ($angle * 5)); // 0deg points to 6 o`clock
+
+        @for $i from 1 through 12 {
+            &--#{$i} {
+                .mdl-timepicker__hours__center {
+                    transform : rotate($rot);
+                }
+            }
+            &--#{$i + 12} {
+                .mdl-timepicker__hours__center {
+                    transform : rotate($rot);
+                    &:before {
+                        height : $_timepicker_radius-13-24 / 2;
+                    }
+                }
+            }
+
+            $rot: ($rot + $angle);
+        }
+
+        .mdl-timepicker__hours__circle--1-12 {
+            top: (($_timepicker_radius - $_timepicker_radius-1-12) / 2);
+            left: (($_timepicker_radius - $_timepicker_radius-1-12) / 2);
+            @include distribute-on-circle(12, -60deg, $_timepicker_radius-1-12, $_timepicker_radius-item);
+
+            .debug & {
+                border: solid 1px tomato;
+            }
+
+            li { }
+
+
+        }
+
+        .mdl-timepicker__hours__circle--13-24 {
+            top: ((($_timepicker_radius - $_timepicker_radius-13-24) / 2) -
+                ($_timepicker_radius-item / 2) + $_timepicker_inner_circle-top-margin);
+
+            left: (($_timepicker_radius - $_timepicker_radius-13-24) / 2);
+
+            @include distribute-on-circle(12, -60deg, $_timepicker_radius-13-24, $_timepicker_radius-item);
+            
+            position: absolute;
+
+            .debug & {
+                border : solid 1px blue;
+            }
+        }
+
+        li {
+            border-radius: 100%;
+            cursor: pointer;
+
+            .debug & {
+                border : 1px solid blueviolet;
+            }
+        }
+    }
+
+    .mdl-timepicker__minutes {
+        display: none;
+        @at-root .mdl-timepicker.show-minute-view {
+            .mdl-timepicker__minutes {
+                display: block;
+            }
+        }
+
+        width: $_timepicker_radius;
+        height: $_timepicker_radius;
+        border-radius: 100%;
+
+        position: relative;
+
+        &__center {
+            @include set_center_point();
+        }
+
+        $angle: (360deg / 12);
+        $rot: (0deg - ($angle * 5)); // 0deg points to 6 o`clock
+
+        $i: 0;
+        @while $i <= 55 {
+            &--#{$i} {
+                .mdl-timepicker__minutes__center {
+                    transform : rotate($rot);
+                }
+            }
+
+            $i: $i + 5;
+            $rot: ($rot + $angle);
+        }
+
+        &__circle {
+            top: (($_timepicker_radius - $_timepicker_radius-1-12) / 2);
+            left: (($_timepicker_radius - $_timepicker_radius-1-12) / 2);
+            @include distribute-on-circle(12, -60deg, $_timepicker_radius-1-12, $_timepicker_radius-item);
+
+            .debug & {
+                border: solid 1px tomato;
+            }
+        }
+
+        li {
+            border-radius: 100%;
+            cursor: pointer;
+            
+            .debug & {
+                border : 1px solid blueviolet;
+            }
+        }
+    }
+
+
+}
+
+// Special Time-Picker-Dialog settings
+.mdl-dialog.mdl-timepicker {
+    .mdl-dialog-container & {
+        max-height: 90%;
+    }
+
+    .mdl-dialog__toolbar {
+        min-height: 60px; // Padding top+bottom 18px x 2 + 60 = 96
+
+        justify-content: center; // ↓
+        align-content: space-between; // =
+        align-items: center; // ⇾
+    }
+
+    .mdl-dialog__content {
+        padding: 18px 18px 0 18px;
+    }
+    .mdl-dialog__actions {
+        padding-top: 0;
+        padding-right: 0;
+        margin-right: -8px;
+        margin-bottom: 2px;
+    }
+
+}

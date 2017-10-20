@@ -1,7 +1,6 @@
 @import "../scrollbars/mixins";
 
 @import "variables";
-@import "mixin";
 
 .mdl-datepicker {
     display : block;
@@ -78,6 +77,8 @@
                 justify-content : space-between; // ⇾
                 align-content   : space-around; // ||
                 align-items     : center; // ↓
+
+                width: 100%;
                 height          : $_datepicker_line_height;
 
                 > .mdl-datepicker__dom--day {
@@ -126,7 +127,8 @@
         }
 
         ul {
-
+            width: 100%;
+            
             li {
                 display         : flex;
                 flex-direction  : row;
