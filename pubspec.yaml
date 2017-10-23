@@ -29,6 +29,8 @@ dependencies:
   dice: ^1.7.0
     # path: /Volumes/Daten/DevLocal/DevDart/dice
     
+  barback: ^0.15.0
+
   path: ^1.4.0
 
   l10n: ^1.0.0
