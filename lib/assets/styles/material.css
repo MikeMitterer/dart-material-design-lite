@@ -6894,10 +6894,12 @@ template, div[template] {
 .mdl-textfield.is-disabled .mdl-textfield__input {
   color: rgba(0, 0, 0, 0.26); }
 
-.mdl-textfield__label.mdl-textfield__label--icon-right i {
-  float: right;
-  padding-right: 2px;
-  font-size: 21px; }
+.mdl-textfield__label.mdl-textfield__label--icon-right {
+  white-space: normal; }
+  .mdl-textfield__label.mdl-textfield__label--icon-right i {
+    float: right;
+    padding-right: 2px;
+    font-size: 21px; }
 
 /* TOOLTIP */
 .mdl-tooltip {

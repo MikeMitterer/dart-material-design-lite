@@ -20,6 +20,9 @@
 
 .mdl-textfield__label {
     &.mdl-textfield__label--icon-right {
+        // without Firefox wraps icon to next line
+        white-space: normal;
+
         i {
             float: right;
             padding-right: 2px;
