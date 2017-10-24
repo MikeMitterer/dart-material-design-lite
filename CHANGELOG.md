@@ -1,6 +1,14 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v2.1.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v2.1.1...v2.1.2) - 2017-10-24
+
+### Feature
+* textfield with icon [46d0f3b0](https://github.com/mikemitterer/dart-material-design-lite/commit/46d0f3b05564a358f8177829cfc96b99bd526d40)
+
+### Bugs
+* Firefox wraps icon to next line in textfield [769f0b40](https://github.com/mikemitterer/dart-material-design-lite/commit/769f0b40a7db30f3d1ddf8835f3fb2bff6c3a026)
+
 ## [v2.1.0](http://github.com/mikemitterer/dart-material-design-lite/compare/v2.0.3...v2.1.0) - 2017-10-20
 
 ### Feature
