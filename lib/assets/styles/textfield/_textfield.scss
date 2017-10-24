@@ -17,3 +17,13 @@
         color: $input-text-label-color;
     }
 }
+
+.mdl-textfield__label {
+    &.mdl-textfield__label--icon-right {
+        i {
+            float: right;
+            padding-right: 2px;
+            font-size: 21px;
+        }
+    }
+}
