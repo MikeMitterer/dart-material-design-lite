@@ -74,7 +74,9 @@ class MaterialDatePicker extends MaterialDialog {
     void onClose() {
         _logger.fine("onClose");
 
-        dateTime = new DateTime(_selectedDateTime.year,_selectedDateTime.month,_selectedDateTime.day);
+        dateTime = new DateTime(_selectedDateTime.year,_selectedDateTime.month,_selectedDateTime.day,
+            _selectedDateTime.hour, _selectedDateTime.minute, _selectedDateTime.second);
+
         close(MdlDialogStatus.OK);
     }
 
@@ -90,7 +92,7 @@ class MaterialDatePicker extends MaterialDialog {
         dateTime = new DateTime(
             dateTime.month == DateTime.JANUARY ? dateTime.year - 1 : dateTime.year,
             dateTime.month == DateTime.JANUARY ? 12 : dateTime.month - 1,
-            dateTime.day);
+            dateTime.day,dateTime.hour, dateTime.minute, dateTime.second);
 
         _elementMonth.text = month;
         _removeCurrentDaySelection();
@@ -104,7 +106,7 @@ class MaterialDatePicker extends MaterialDialog {
         dateTime = new DateTime(
             dateTime.month == DateTime.DECEMBER ? dateTime.year + 1 : dateTime.year,
             dateTime.month == DateTime.DECEMBER ? 1 : dateTime.month + 1,
-            dateTime.day);
+            dateTime.day, dateTime.hour, dateTime.minute, dateTime.second);
 
         _elementMonth.text = month;
         _removeCurrentDaySelection();
@@ -121,10 +123,12 @@ class MaterialDatePicker extends MaterialDialog {
 
         _selectionMade = true;
 
-        dateTime = new DateTime(dateTime.year,dateTime.month,int.parse(day));
+        dateTime = new DateTime(dateTime.year,dateTime.month,int.parse(day),
+            dateTime.hour, dateTime.minute, dateTime.second);
 
         // Remember the selected DateTime so that we can set the correct Date in onClose
-        _selectedDateTime = new DateTime(dateTime.year,dateTime.month,dateTime.day);
+        _selectedDateTime = new DateTime(dateTime.year,dateTime.month,dateTime.day,
+            dateTime.hour, dateTime.minute, dateTime.second);
 
         _updateDays();
 
@@ -165,10 +169,12 @@ class MaterialDatePicker extends MaterialDialog {
 
         _selectionMade = true;
         
-        dateTime = new DateTime(int.parse(element.text),dateTime.month,dateTime.day);
+        dateTime = new DateTime(int.parse(element.text),dateTime.month,dateTime.day,
+            dateTime.hour, dateTime.minute, dateTime.second);
 
         // Remember the selected DateTime so that we can set the correct Date in onClose
-        _selectedDateTime = new DateTime(dateTime.year,dateTime.month,dateTime.day);
+        _selectedDateTime = new DateTime(dateTime.year,dateTime.month,dateTime.day,
+            dateTime.hour, dateTime.minute, dateTime.second);
 
         _removeCurrentDaySelection();
         _updateDays();

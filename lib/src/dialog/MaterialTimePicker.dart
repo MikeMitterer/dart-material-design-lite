@@ -76,7 +76,7 @@ class MaterialTimePicker extends MaterialDialog {
         _logger.info("onClickHour - $hour");
 
         dateTime = new DateTime(dateTime.year,dateTime.month,dateTime.day,
-            int.parse(hour),dateTime.minute);
+            int.parse(hour),dateTime.minute,dateTime.second);
 
         _selectHour(dateTime.hour);
 
@@ -92,7 +92,7 @@ class MaterialTimePicker extends MaterialDialog {
         _logger.info("onClickMinute - $minute");
 
         dateTime = new DateTime(dateTime.year,dateTime.month,dateTime.day,
-            dateTime.hour,int.parse(minute));
+            dateTime.hour,int.parse(minute),dateTime.second);
 
         _selectMinute(dateTime.minute);
         
