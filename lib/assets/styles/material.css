@@ -7661,8 +7661,8 @@ mdl-draggable {
       .mdl-form .mdl-form__content .mdl-form__group .mdl-icon, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-icon {
         font-size: 24px;
         min-width: 32px; }
-      .mdl-form .mdl-form__content .mdl-form__group .mdl-button > .mdl-icon, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-button > .mdl-icon {
-        min-width: auto; }
+      .mdl-form .mdl-form__content .mdl-form__group .mdl-button--icon, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-button--icon {
+        min-width: 32px; }
   .mdl-form .mdl-form__actions, .mdl-form-registration .mdl-form__actions {
     display: -webkit-box;
     display: -ms-flexbox;
