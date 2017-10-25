@@ -7663,6 +7663,8 @@ mdl-draggable {
         min-width: 32px; }
       .mdl-form .mdl-form__content .mdl-form__group .mdl-button--icon, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-button--icon {
         min-width: 32px; }
+        .mdl-form .mdl-form__content .mdl-form__group .mdl-button--icon .material-icons, .mdl-form-registration .mdl-form__content .mdl-form__group .mdl-button--icon .material-icons {
+          left: 12px; }
   .mdl-form .mdl-form__actions, .mdl-form-registration .mdl-form__actions {
     display: -webkit-box;
     display: -ms-flexbox;

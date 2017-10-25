@@ -109,6 +109,9 @@
 
             .mdl-button--icon {
                 min-width: 32px;
+                .material-icons {
+                    left: 12px;
+                }
             }
         }
 
