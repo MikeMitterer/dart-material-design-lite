@@ -48,16 +48,16 @@
                     opacity    : 1;
                 }
 
-                transition : $dialog-swift-ease-out-duration;
-                transform  : translate3d(0, 0, 0) scale(1.0);
+                //transition : $dialog-swift-ease-out-duration;
+                //transform  : translate3d(0, 0, 0) scale(1.0);
             }
         }
 
         &.is-hidden {
             .mdl-dialog {
                 // hidden
-                transition : $dialog-swift-ease-out;
-                transform  : translate3d(0, 100%, 0) scale(0.2);
+                //transition : $dialog-swift-ease-out;
+                //transform  : translate3d(0, 100%, 0) scale(0.2);
             }
         }
 

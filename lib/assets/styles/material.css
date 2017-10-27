@@ -7143,18 +7143,8 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
   .mdl-dialog-container.is-visible, .mdl-datepicker-container.is-visible, .mdl-timepicker-container.is-visible {
     background-color: rgba(0, 0, 0, 0.25);
     visibility: visible; }
-    .mdl-dialog-container.is-visible .mdl-dialog, .mdl-datepicker-container.is-visible .mdl-dialog, .mdl-timepicker-container.is-visible .mdl-dialog {
-      -webkit-transition: 0.3s;
-      transition: 0.3s;
-      -webkit-transform: translate3d(0, 0, 0) scale(1);
-              transform: translate3d(0, 0, 0) scale(1); }
-      .mdl-dialog-container.is-visible .mdl-dialog.animation.last-state, .mdl-datepicker-container.is-visible .mdl-dialog.animation.last-state, .mdl-timepicker-container.is-visible .mdl-dialog.animation.last-state {
-        opacity: 1; }
-  .mdl-dialog-container.is-hidden .mdl-dialog, .mdl-datepicker-container.is-hidden .mdl-dialog, .mdl-timepicker-container.is-hidden .mdl-dialog {
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    -webkit-transform: translate3d(0, 100%, 0) scale(0.2);
-            transform: translate3d(0, 100%, 0) scale(0.2); }
+    .mdl-dialog-container.is-visible .mdl-dialog.animation.last-state, .mdl-datepicker-container.is-visible .mdl-dialog.animation.last-state, .mdl-timepicker-container.is-visible .mdl-dialog.animation.last-state {
+      opacity: 1; }
   .mdl-dialog-container > .mdl-dialog, .mdl-datepicker-container > .mdl-dialog, .mdl-timepicker-container > .mdl-dialog {
     pointer-events: none; }
     .mdl-dialog-container > .mdl-dialog:last-of-type, .mdl-datepicker-container > .mdl-dialog:last-of-type, .mdl-timepicker-container > .mdl-dialog:last-of-type {

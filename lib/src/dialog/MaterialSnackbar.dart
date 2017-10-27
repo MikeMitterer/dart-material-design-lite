@@ -23,10 +23,10 @@ class _SnackbarConfig extends DialogConfig {
 
 /// Position on Screen or in container
 class SnackbarPosition {
-    bool _top = true;
-    bool _right = true;
-    bool _bottom = false;
-    bool left = false;
+    bool _top = false;
+    bool _right = false;
+    bool _bottom = true;
+    bool left = true;
 
     bool get top => _top || bottom ? _top : true;
     bool get right => _right || left ? _right : true;
