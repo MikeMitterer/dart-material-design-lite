@@ -22,6 +22,9 @@
  */
 part of mdlanimation;
 
+const _NoOp = const <int, Map<String, Object>>{
+};
+
 const _FadeIn = const <int, Map<String, Object>>{
     0 : const <String, Object>{
 
@@ -125,7 +128,7 @@ const _BounceInRight = const <int, Map<String, Object>>{
 ///
 const _FlushRight = const <int, Map<String, Object>>{
     0 : const <String, Object>{
-        "transform" : "translateX(-20px)"},
+        "transform" : "translateX(-10px)"},
 
     60 : const <String, Object>{
         "transform" : "translateX(30px)"},
@@ -144,13 +147,13 @@ const _Shrink = const <int, Map<String, Object>>{
     0 : const <String, Object>{
         "opacity" : 1 },
 
-    10 : const <String, Object>{
-        "opacity" : 1 },
+    50 : const <String, Object>{
+        "opacity" : 0.5 },
 
     100 : const <String, Object>{
-        "transform" : "scaleY(0)",
+        "transform" : "scaleY(0.5)",
         "height" : 0,
-        "opacity" : 1 }
+        "opacity" : 0.2 }
 };
 
 /// More on http://codepen.io/MikeMitterer/pen/QjeOov
@@ -159,9 +162,12 @@ const _MoveUpAndDisappear = const <int, Map<String, Object>>{
         "opacity" : 1 },
 
     10 : const <String, Object>{
-        "opacity" : 0.1 },
+        "opacity" : 0.5 },
+
+    90 : const <String, Object>{
+        "opacity" : 0.2 },
 
     100 : const <String, Object>{
-        "transform" : "translateY(-50px)",
-        "opacity" : 0.1 }
+        "transform" : "translateY(-100px)",
+        "opacity" : 0 }
 };

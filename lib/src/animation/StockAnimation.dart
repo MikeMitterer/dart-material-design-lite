@@ -42,6 +42,9 @@ class StockAnimation {
     /// Specify your set of [keyframes]
     StockAnimation(this.duration, this.keyframes,this.timing);
 
+    static final StockAnimation NoOp =
+        new StockAnimation(const Duration(milliseconds: 100), _NoOp,AnimationTiming.EASE_IN_OUT);
+
     static final StockAnimation BounceInTop =
         new StockAnimation(const Duration(milliseconds: 500), _BounceInTop,AnimationTiming.EASE_IN_OUT);
 
@@ -61,7 +64,10 @@ class StockAnimation {
         new StockAnimation(const Duration(milliseconds: 500), _FlushRight,AnimationTiming.EASE_IN_OUT);
 
     static final StockAnimation MoveUpAndDisappear =
-        new StockAnimation(const Duration(milliseconds: 400), _MoveUpAndDisappear,AnimationTiming.EASE_IN_OUT);
+        new StockAnimation(const Duration(milliseconds: 600), _MoveUpAndDisappear,AnimationTiming.EASE_IN_OUT);
+
+    static final StockAnimation Shrink =
+    new StockAnimation(const Duration(milliseconds: 500), _Shrink,AnimationTiming.EASE_IN_OUT);
 
     /// Modify the [StockAnimation] to your needs
     ///

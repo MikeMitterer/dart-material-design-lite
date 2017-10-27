@@ -47,11 +47,13 @@ class AnimationState {
 
     static const Map<String,String> states = const <String,String>{
         "first" : "first-state",
-        "last" : "last-state"
+        "last" : "last-state",
+        "closed" : "closed-state"
     };
 
     static List<String> get first => <String>[ BASIC_STATE, states["first"] ];
     static List<String> get last => <String>[ BASIC_STATE, states["last"] ];
+    static List<String> get closed => <String>[ BASIC_STATE, states["closed"] ];
 
     static void removeAllStatesFrom(final dom.HtmlElement element) {
         Validate.notNull(element);
@@ -157,7 +159,7 @@ class MdlAnimation {
      */
     MdlAnimation.fromStock(this._stockanimation) {
         Validate.notNull(_stockanimation);
-        Validate.isTrue(_stockanimation.keyframes.isNotEmpty);
+        //Validate.isTrue(_stockanimation.keyframes.isNotEmpty);
 
         _buildRule(_stockanimation.keyframes);
     }

@@ -7144,11 +7144,12 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     background-color: rgba(0, 0, 0, 0.25);
     visibility: visible; }
     .mdl-dialog-container.is-visible .mdl-dialog, .mdl-datepicker-container.is-visible .mdl-dialog, .mdl-timepicker-container.is-visible .mdl-dialog {
-      opacity: 1;
       -webkit-transition: 0.3s;
       transition: 0.3s;
       -webkit-transform: translate3d(0, 0, 0) scale(1);
               transform: translate3d(0, 0, 0) scale(1); }
+      .mdl-dialog-container.is-visible .mdl-dialog.animation.last-state, .mdl-datepicker-container.is-visible .mdl-dialog.animation.last-state, .mdl-timepicker-container.is-visible .mdl-dialog.animation.last-state {
+        opacity: 1; }
   .mdl-dialog-container.is-hidden .mdl-dialog, .mdl-datepicker-container.is-hidden .mdl-dialog, .mdl-timepicker-container.is-hidden .mdl-dialog {
     -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -8063,14 +8064,9 @@ mdl-draggable {
   .mdl-notification-container.is-visible {
     background-color: transparent;
     visibility: visible; }
-    .mdl-notification-container.is-visible .mdl-notification {
+    .mdl-notification-container.is-visible .mdl-notification.animation.last-state {
       opacity: 1;
-      -webkit-transition: all 1s cubic-bezier(0.55, 0, 0.55, 0.2);
-      transition: all 1s cubic-bezier(0.55, 0, 0.55, 0.2); }
-  .mdl-notification-container.is-hidden .mdl-notification {
-    opacity: 0;
-    -webkit-transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1); }
+      border: 1px solid red; }
   .mdl-notification-container .mdl-notification {
     position: relative;
     box-sizing: border-box;
@@ -8094,6 +8090,7 @@ mdl-draggable {
             align-items: flex-start;
     -ms-flex-negative: 0;
         flex-shrink: 0;
+    opacity: 0;
     min-height: 48px;
     min-width: 324px;
     max-width: 324px;
@@ -8107,6 +8104,8 @@ mdl-draggable {
     font-size: 14px;
     cursor: default;
     margin-bottom: 12px; }
+    .mdl-notification-container .mdl-notification.animation.closed-state {
+      opacity: 0; }
     .mdl-notification-container .mdl-notification h1, .mdl-notification-container .mdl-notification h2, .mdl-notification-container .mdl-notification h3, .mdl-notification-container .mdl-notification h4, .mdl-notification-container .mdl-notification h5, .mdl-notification-container .mdl-notification h6 {
       margin-top: 0;
       margin-bottom: 0; }

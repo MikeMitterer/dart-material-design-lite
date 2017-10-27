@@ -8,8 +8,6 @@ class _MaterialNotificationCssClasses {
     const _MaterialNotificationCssClasses();
 }
 
-final MdlAnimation shrinkNotification = new MdlAnimation.fromStock(StockAnimation.MoveUpAndDisappear);
-
 class _NotificationConfig extends DialogConfig {
     static const _MaterialNotificationCssClasses _cssClasses = const _MaterialNotificationCssClasses();
 
@@ -19,7 +17,7 @@ class _NotificationConfig extends DialogConfig {
         autoClosePossible: true,
         appendNewDialog: true,
         acceptEscToClose: false,
-        closeAnimation: shrinkNotification
+        closeAnimation: new MdlAnimation.fromStock(StockAnimation.MoveUpAndDisappear)
     );
 }
 

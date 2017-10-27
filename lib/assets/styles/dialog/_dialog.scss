@@ -43,7 +43,11 @@
             visibility       : visible;
 
             .mdl-dialog {
-                opacity    : 1;
+                // opacity    : 1;
+                &.animation.last-state {
+                    opacity    : 1;
+                }
+
                 transition : $dialog-swift-ease-out-duration;
                 transform  : translate3d(0, 0, 0) scale(1.0);
             }

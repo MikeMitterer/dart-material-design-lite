@@ -14,6 +14,8 @@ enum MdlDialogStatus {
 /// Called if ESC is pressed or if the user clicks on the backdrop-Container
 typedef void OnCloseCallback(final MaterialDialog dialog, final MdlDialogStatus status);
 
+//final MdlAnimation openAnimation = new MdlAnimation.fromStock(StockAnimation.BounceInBottom);
+
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
@@ -66,13 +68,17 @@ class DialogConfig {
     /// Sets the [MdlAnimation] if the user clicks on close or if the dialog has and "auto-close" timer
     final MdlAnimation closeAnimation;
 
+    /// Sets the open-[MdlAnimation]
+    final MdlAnimation openAnimation;
+
     DialogConfig({ final String rootTagInTemplate: "mdl-dialog",
                    final bool closeOnBackDropClick: true,
                    final bool acceptEscToClose: true,
                    final String parentSelector: _DEFAULT_PARENT_SELECTOR,
                    final bool autoClosePossible: false,
                    final bool appendNewDialog: false,
-                   final MdlAnimation closeAnimation: null })
+                   final MdlAnimation closeAnimation: null,
+                   final MdlAnimation openAnimation: null })
 
     : this.rootTagInTemplate = rootTagInTemplate,
       this.closeOnBackDropClick = closeOnBackDropClick,
@@ -80,7 +86,8 @@ class DialogConfig {
       this.parentSelector = parentSelector,
       this.autoClosePossible = autoClosePossible,
       this.appendNewDialog = appendNewDialog,
-      this.closeAnimation = closeAnimation {
+      this.closeAnimation = closeAnimation,
+      this.openAnimation = openAnimation ?? new MdlAnimation.fromStock(StockAnimation.BounceInBottom) {
 
         Validate.notBlank(rootTagInTemplate);
     }
@@ -184,9 +191,10 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
 
                 _dialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
                 _dialogContainer.classes.remove(_cssClasses.APPENDING);
-                // Give Transition a chance to kick in
-                new Timer(new Duration(milliseconds: 100), () {
-                    _dialogContainer.classes.add(_cssClasses.IS_VISIBLE);
+                _dialogContainer.classes.add(_cssClasses.IS_VISIBLE);
+                
+                _config.openAnimation(dialog).then((_) {
+                    AnimationState.setState(dialog, AnimationState.last);
                 });
 
                 idCounter++;
@@ -264,7 +272,12 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
         if(_config.closeAnimation != null && _element != null) {
 
             final MdlAnimation animation = _config.closeAnimation;
-            return animation(_element).then((_) => _destroy(status));
+            
+            AnimationState.removeAllStatesFrom(dialog);
+            return animation(_element).then((_) {
+                AnimationState.setState(dialog, AnimationState.closed);
+                _destroy(status);
+            });
 
         } else {
             return new Future.delayed(new Duration(milliseconds: 200), () {

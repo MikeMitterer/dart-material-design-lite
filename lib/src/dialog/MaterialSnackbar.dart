@@ -16,7 +16,8 @@ part of mdldialog;
 class _SnackbarConfig extends DialogConfig {
     _SnackbarConfig() : super(rootTagInTemplate: "mdl-snackbar",
     closeOnBackDropClick: false,
-    autoClosePossible: true);
+    autoClosePossible: true,
+    openAnimation: new MdlAnimation.fromStock(StockAnimation.NoOp));
 }
 
 
