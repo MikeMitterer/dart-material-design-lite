@@ -42,7 +42,9 @@ class MaterialTimePicker extends MaterialDialog {
     /// All Minute-Elements. Valid after [_init]
     final _minutes = new List<dom.HtmlElement>();
 
-    MaterialTimePicker() : super(new DialogConfig()) {
+    MaterialTimePicker() : super(new DialogConfig(
+        // Create extra container for timepicker - allows stackable containers
+        rootTagInTemplate: "mdl-timepicker")) {
     }
 
     @override

@@ -7118,7 +7118,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
       right: -10px; }
 
 /* Dialog */
-.mdl-dialog-container {
+.mdl-dialog-container, .mdl-datepicker-container, .mdl-timepicker-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7140,21 +7140,25 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
   z-index: 80;
   visibility: hidden;
   background-color: transparent; }
-  .mdl-dialog-container.is-visible {
+  .mdl-dialog-container.is-visible, .mdl-datepicker-container.is-visible, .mdl-timepicker-container.is-visible {
     background-color: rgba(0, 0, 0, 0.25);
     visibility: visible; }
-    .mdl-dialog-container.is-visible .mdl-dialog {
+    .mdl-dialog-container.is-visible .mdl-dialog, .mdl-datepicker-container.is-visible .mdl-dialog, .mdl-timepicker-container.is-visible .mdl-dialog {
       opacity: 1;
-      -webkit-transition: 0.2s;
-      transition: 0.2s;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
       -webkit-transform: translate3d(0, 0, 0) scale(1);
               transform: translate3d(0, 0, 0) scale(1); }
-  .mdl-dialog-container.is-hidden .mdl-dialog {
-    -webkit-transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  .mdl-dialog-container.is-hidden .mdl-dialog, .mdl-datepicker-container.is-hidden .mdl-dialog, .mdl-timepicker-container.is-hidden .mdl-dialog {
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     -webkit-transform: translate3d(0, 100%, 0) scale(0.2);
             transform: translate3d(0, 100%, 0) scale(0.2); }
-  .mdl-dialog-container .mdl-dialog {
+  .mdl-dialog-container > .mdl-dialog, .mdl-datepicker-container > .mdl-dialog, .mdl-timepicker-container > .mdl-dialog {
+    pointer-events: none; }
+    .mdl-dialog-container > .mdl-dialog:last-of-type, .mdl-datepicker-container > .mdl-dialog:last-of-type, .mdl-timepicker-container > .mdl-dialog:last-of-type {
+      pointer-events: all; }
+  .mdl-dialog-container .mdl-dialog, .mdl-datepicker-container .mdl-dialog, .mdl-timepicker-container .mdl-dialog {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -7168,10 +7172,9 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
     min-width: 280px;
     max-width: 80%;
     max-height: 80%;
-    position: relative;
     overflow: hidden;
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
-    .mdl-dialog-container .mdl-dialog .mdl-dialog__toolbar {
+    .mdl-dialog-container .mdl-dialog .mdl-dialog__toolbar, .mdl-datepicker-container .mdl-dialog .mdl-dialog__toolbar, .mdl-timepicker-container .mdl-dialog .mdl-dialog__toolbar {
       padding: 18px 24px 18px 24px;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -7190,7 +7193,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
       -webkit-box-align: start;
           -ms-flex-align: start;
               align-items: flex-start; }
-    .mdl-dialog-container .mdl-dialog .mdl-dialog__content {
+    .mdl-dialog-container .mdl-dialog .mdl-dialog__content, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content {
       display: block;
       box-sizing: border-box;
       -webkit-box-ordinal-group: 2;
@@ -7201,11 +7204,11 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
       -webkit-overflow-scrolling: touch;
       -webkit-overflow-scrolling: touch;
       -ms-overflow-style: -ms-autohiding-scrollbar; }
-      .mdl-dialog-container .mdl-dialog .mdl-dialog__content:not([layout=row]) > *:first-child:not(.mdl-subheader) {
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__content:not([layout=row]) > *:first-child:not(.mdl-subheader), .mdl-datepicker-container .mdl-dialog .mdl-dialog__content:not([layout=row]) > *:first-child:not(.mdl-subheader), .mdl-timepicker-container .mdl-dialog .mdl-dialog__content:not([layout=row]) > *:first-child:not(.mdl-subheader) {
         margin-top: 0; }
-      .mdl-dialog-container .mdl-dialog .mdl-dialog__content h1, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h2, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h3, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h4, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h5, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h6 {
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__content h1, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h2, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h3, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h4, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h5, .mdl-dialog-container .mdl-dialog .mdl-dialog__content h6, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content h1, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content h2, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content h3, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content h4, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content h5, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content h6, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content h1, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content h2, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content h3, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content h4, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content h5, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content h6 {
         margin-bottom: 18px; }
-      .mdl-dialog-container .mdl-dialog .mdl-dialog__content p {
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__content p, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content p, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content p {
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         font-size: 16px;
         font-weight: 400;
@@ -7213,17 +7216,17 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
         letter-spacing: 0.04em;
         opacity: 0.87;
         color: black; }
-      .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar {
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar {
         visibility: hidden;
         -webkit-appearance: none;
         width: 0;
         height: 0;
         background-color: transparent; }
-      .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar * {
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar *, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar *, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar * {
         background-color: transparent; }
-      .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar-button {
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar-button, .mdl-datepicker-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar-button, .mdl-timepicker-container .mdl-dialog .mdl-dialog__content::-webkit-scrollbar-button {
         display: none; }
-    .mdl-dialog-container .mdl-dialog .mdl-dialog__actions {
+    .mdl-dialog-container .mdl-dialog .mdl-dialog__actions, .mdl-datepicker-container .mdl-dialog .mdl-dialog__actions, .mdl-timepicker-container .mdl-dialog .mdl-dialog__actions {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -7241,9 +7244,9 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
       margin-top: 16px;
       margin-bottom: 8px;
       min-height: 40px; }
-      .mdl-dialog-container .mdl-dialog .mdl-dialog__actions > * {
+      .mdl-dialog-container .mdl-dialog .mdl-dialog__actions > *, .mdl-datepicker-container .mdl-dialog .mdl-dialog__actions > *, .mdl-timepicker-container .mdl-dialog .mdl-dialog__actions > * {
         margin-left: 8px; }
-    .mdl-dialog-container .mdl-dialog.mdl-content-overflow .mdl-actions {
+    .mdl-dialog-container .mdl-dialog.mdl-content-overflow .mdl-actions, .mdl-datepicker-container .mdl-dialog.mdl-content-overflow .mdl-actions, .mdl-timepicker-container .mdl-dialog.mdl-content-overflow .mdl-actions {
       border-top: 1px solid; }
 
 .mdl-datepicker {
@@ -7431,20 +7434,19 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
         .mdl-datepicker .mdl-datepicker__year_view ul li.mdl-color-text--accent {
           font-size: 26px; }
 
-.mdl-dialog-container .mdl-dialog.mdl-datepicker {
-  max-height: 90%; }
-
-.mdl-dialog.mdl-datepicker .mdl-dialog__toolbar {
-  min-height: 60px; }
-
-.mdl-dialog.mdl-datepicker .mdl-dialog__content {
-  padding: 18px 18px 0 18px; }
-
-.mdl-dialog.mdl-datepicker .mdl-dialog__actions {
-  padding-top: 0;
-  padding-right: 0;
-  margin-right: -8px;
-  margin-bottom: 2px; }
+.mdl-dialog.mdl-datepicker {
+  left: calc(50% - (330px) / 2); }
+  .mdl-dialog-container .mdl-dialog.mdl-datepicker {
+    max-height: 90%; }
+  .mdl-dialog.mdl-datepicker .mdl-dialog__toolbar {
+    min-height: 60px; }
+  .mdl-dialog.mdl-datepicker .mdl-dialog__content {
+    padding: 18px 18px 0 18px; }
+  .mdl-dialog.mdl-datepicker .mdl-dialog__actions {
+    padding-top: 0;
+    padding-right: 0;
+    margin-right: -8px;
+    margin-bottom: 2px; }
 
 .mdl-dnd__drag-container {
   position: relative; }
@@ -9000,26 +9002,25 @@ mdl-draggable {
     .debug .mdl-timepicker .mdl-timepicker__minutes li {
       border: 1px solid blueviolet; }
 
-.mdl-dialog-container .mdl-dialog.mdl-timepicker {
-  max-height: 90%; }
-
-.mdl-dialog.mdl-timepicker .mdl-dialog__toolbar {
-  min-height: 60px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-              -ms-grid-row-align: center;
-          align-items: center; }
-
-.mdl-dialog.mdl-timepicker .mdl-dialog__content {
-  padding: 18px 18px 0 18px; }
-
-.mdl-dialog.mdl-timepicker .mdl-dialog__actions {
-  padding-top: 0;
-  padding-right: 0;
-  margin-right: -8px;
-  margin-bottom: 2px; }
+.mdl-dialog.mdl-timepicker {
+  left: calc(50% - (330px) / 2); }
+  .mdl-dialog-container .mdl-dialog.mdl-timepicker {
+    max-height: 90%; }
+  .mdl-dialog.mdl-timepicker .mdl-dialog__toolbar {
+    min-height: 60px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center; }
+  .mdl-dialog.mdl-timepicker .mdl-dialog__content {
+    padding: 18px 18px 0 18px; }
+  .mdl-dialog.mdl-timepicker .mdl-dialog__actions {
+    padding-top: 0;
+    padding-right: 0;
+    margin-right: -8px;
+    margin-bottom: 2px; }

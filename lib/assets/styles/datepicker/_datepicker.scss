@@ -150,6 +150,8 @@
 
 // Special Date-Picker-Dialog settings
 .mdl-dialog.mdl-datepicker {
+    left: calc(50% - (#{$_datepicker_width}) / 2);
+
     .mdl-dialog-container & {
         max-height : 90%;
     }

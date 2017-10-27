@@ -56,7 +56,9 @@ class MaterialDatePicker extends MaterialDialog {
     /// If the users clicks on a day this flag becomes true.
     bool _selectionMade = false;
 
-    MaterialDatePicker() : super(new DialogConfig()) {
+    MaterialDatePicker() : super(new DialogConfig(
+        // Create extra container for date-picker - allows stackable containers
+        rootTagInTemplate: "mdl-datepicker")) {
     }
 
     @override
@@ -435,7 +437,7 @@ class MaterialDatePicker extends MaterialDialog {
                         data-mdl-click="onCancel()">{{cancelButton}}</button>
                         
                     <button class="mdl-button mdl-button--colored" 
-                        data-mdl-click="onClose()">{{okButton}}</button>
+                        data-mdl-click="onClose()" autofocus>{{okButton}}</button>
                 </div>
             </div>
         </div>

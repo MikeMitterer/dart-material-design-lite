@@ -155,6 +155,8 @@
 
 // Special Time-Picker-Dialog settings
 .mdl-dialog.mdl-timepicker {
+    left: calc(50% - (#{$_timepicker_width}) / 2);
+
     .mdl-dialog-container & {
         max-height: 90%;
     }

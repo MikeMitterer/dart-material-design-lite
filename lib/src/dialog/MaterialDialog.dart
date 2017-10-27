@@ -167,9 +167,8 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
             }
 
             void _finalizeDialog() {
-                _dialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
-                _dialogContainer.classes.add(_cssClasses.IS_VISIBLE);
-                _dialogContainer.classes.remove(_cssClasses.APPENDING);
+                //dialog.style.left = "calc(50% - ${dialog.clientWidth ~/ 2}px)";
+                //dialog.style.top = "calc(50% - ${dialog.clientHeight ~/ 2}px)";
 
                 if(_config.acceptEscToClose) {
                     _addEscListener();
@@ -182,6 +181,13 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
                 if(elementWithAutoFocus != null) {
                     elementWithAutoFocus.focus();
                 }
+
+                _dialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
+                _dialogContainer.classes.remove(_cssClasses.APPENDING);
+                // Give Transition a chance to kick in
+                new Timer(new Duration(milliseconds: 100), () {
+                    _dialogContainer.classes.add(_cssClasses.IS_VISIBLE);
+                });
 
                 idCounter++;
                 _logger.info("show end (Dialog is rendered, got ID: ${_elementID})!");
