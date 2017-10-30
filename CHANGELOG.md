@@ -1,6 +1,20 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v2.1.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v2.1.2...v2.1.3) - 2017-10-28
+
+### Feature
+* All dialogs can define open and close animations [832ac5d6](https://github.com/mikemitterer/dart-material-design-lite/commit/832ac5d65fa2bdfd7c6c36be3bbfd2c102609bc9)
+* Date- and TimePicker are stackable [091528b3](https://github.com/mikemitterer/dart-material-design-lite/commit/091528b3f7292e34f34a52df60fbd3800d206c8c)
+* DatePicker remembers it's time settings / TimePicker remembers it's date settings [1c043ac8](https://github.com/mikemitterer/dart-material-design-lite/commit/1c043ac88d792c33a05976306b17e6f26dff2014)
+
+### Bugs
+* Wrong size for icon-button in form [04931f23](https://github.com/mikemitterer/dart-material-design-lite/commit/04931f231a9725b223c36982c8f10947d3c7e20d)
+* icon-button in Form had wrong min-width [dac223b1](https://github.com/mikemitterer/dart-material-design-lite/commit/dac223b1383e4fbe2984b3159390ed63476bb76b)
+
+### Refactor
+* Default position for Snackbar is now bottom left [c0e456b9](https://github.com/mikemitterer/dart-material-design-lite/commit/c0e456b94564a710d43c2901cdb1c037aebe03bd)
+
 ## [v2.1.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v2.1.1...v2.1.2) - 2017-10-24
 
 ### Feature
