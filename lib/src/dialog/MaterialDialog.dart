@@ -134,6 +134,23 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
     /// The returned Future informs about how the dialog was closed
     /// If {timeout} is set - the corresponding dialog closes automatically after this period
     /// The callback {onDialogInit} can be given to find out the dialogID - useful for Toast that needs confirmation
+    ///
+    /// Sample for overriding "onDialogInit"
+    ///     @Component
+    ///     class SetTimeFrameDialog extends MaterialDialog {
+    ///     ...
+    ///         @override
+    ///         Future<MdlDialogStatus> show({
+    ///             final Duration timeout, Future onDialogInit(final String dialogId)}) {
+    ///             return super.show(onDialogInit: _init);
+    ///         }
+    ///
+    ///         ...
+    ///
+    ///         Future _init(final String dialogID) async {
+    ///             ...
+    ///         }
+    ///
     Future<MdlDialogStatus> show({ final Duration timeout, Future onDialogInit(final String dialogId) }) {
         Validate.isTrue(_completer == null || _completer.isCompleted);
 

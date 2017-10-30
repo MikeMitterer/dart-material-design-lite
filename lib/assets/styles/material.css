@@ -7678,6 +7678,10 @@ mdl-draggable {
             align-items: flex-start;
     margin: 8px 8px 0 8px;
     width: calc(100% - 16px); }
+    .mdl-form .mdl-form__actions .mdl-form__actions__spacer, .mdl-form-registration .mdl-form__actions .mdl-form__actions__spacer {
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1; }
     .mdl-form .mdl-form__actions > *, .mdl-form-registration .mdl-form__actions > * {
       margin-left: 4px; }
   .mdl-form .mdl-textfield.is-invalid .mdl-textfield__error, .mdl-form-registration .mdl-textfield.is-invalid .mdl-textfield__error {

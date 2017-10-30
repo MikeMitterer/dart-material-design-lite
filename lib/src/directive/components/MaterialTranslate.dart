@@ -41,6 +41,22 @@ class MaterialTranslate extends MdlComponent {
 
     static MaterialTranslate widget(final dom.HtmlElement element) => mdlComponent(element,MaterialTranslate) as MaterialTranslate;
 
+    /// Resets text in the corresponding Element to the translation
+    void reset() {
+        if (_idToTranslate.isNotEmpty) {
+            // If attribute is set to true or if attribute is available but has no
+            // value set
+            if(_fieldvalue) {
+                final String translation = translator.translate(new L10N(_idToTranslate));
+                element.text = translation;
+            } else {
+                element.text = _idToTranslate;
+            }
+        }
+        else {
+            _logger.shout("ID to Translate is empty!!!");
+        }
+    }
 
     //- private -----------------------------------------------------------------------------------
 
@@ -67,6 +83,9 @@ class MaterialTranslate extends MdlComponent {
             } else {
                 element.text = _idToTranslate;
             }
+        }
+        else {
+            _logger.shout("ID to Translate is empty!!!");
         }
 
         element.classes.add(_cssClasses.IS_UPGRADED);
