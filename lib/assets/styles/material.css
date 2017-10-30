@@ -8055,8 +8055,7 @@ mdl-draggable {
     background-color: transparent;
     visibility: visible; }
     .mdl-notification-container.is-visible .mdl-notification.animation.last-state {
-      opacity: 1;
-      border: 1px solid red; }
+      opacity: 1; }
   .mdl-notification-container .mdl-notification {
     position: relative;
     box-sizing: border-box;
