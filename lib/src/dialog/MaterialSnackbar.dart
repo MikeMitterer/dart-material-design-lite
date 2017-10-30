@@ -94,7 +94,7 @@ class MaterialSnackbar extends MaterialDialog {
 
     @override
     /// if there is already a Snackbar open - it will be closed
-    Future<MdlDialogStatus> show({ Duration timeout, void dialogIDCallback(final String dialogId) }) {
+    Future<MdlDialogStatus> show({ Duration timeout, FutureOr onDialogInit(final String dialogId) }) {
         Validate.isTrue(!waitingForConfirmation,"There is alread a Snackbar waiting for confirmation!!!!");
 
         return close(MdlDialogStatus.CLOSED_VIA_NEXT_SHOW).then( (_) {
@@ -105,7 +105,7 @@ class MaterialSnackbar extends MaterialDialog {
                 return super.show(timeout: timeout);
             }
 
-            return super.show(dialogIDCallback: _setConfirmationID );
+            return super.show(onDialogInit: _init );
         });
     }
 
@@ -128,9 +128,12 @@ class MaterialSnackbar extends MaterialDialog {
 
     /// Its important to know the ID of the dialog that needs a confirmation - otherwise another
     /// dialog could reset the {_needsConfirmation} flag
-    void _setConfirmationID(final String id) {
+    Future _init(final String id) async {
         Validate.notBlank(id);
         _confirmationID = id;
+
+        // Hacky but _init must return a Future
+        //return new Future(() => true);
     }
 
     void _clearConfirmationCheck() {

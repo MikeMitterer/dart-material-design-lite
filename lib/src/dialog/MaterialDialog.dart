@@ -133,8 +133,8 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
 
     /// The returned Future informs about how the dialog was closed
     /// If {timeout} is set - the corresponding dialog closes automatically after this period
-    /// The callback {dialogIDCallback} can be given to find out the dialogID - useful for Toast that needs confirmation
-    Future<MdlDialogStatus> show({ final Duration timeout,Future dialogIDCallback(final String dialogId) }) {
+    /// The callback {onDialogInit} can be given to find out the dialogID - useful for Toast that needs confirmation
+    Future<MdlDialogStatus> show({ final Duration timeout, Future onDialogInit(final String dialogId) }) {
         Validate.isTrue(_completer == null || _completer.isCompleted);
 
         _logger.fine("start MaterialDialog#show...");
@@ -201,8 +201,8 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
                 _logger.info("show end (Dialog is rendered, got ID: ${_elementID})!");
             }
 
-            if(dialogIDCallback != null) {
-                dialogIDCallback(hashCode.toString()).then( (_) => _finalizeDialog());
+            if(onDialogInit != null) {
+                onDialogInit(hashCode.toString()).then( (_) => _finalizeDialog());
             } else {
                 _finalizeDialog();
             }

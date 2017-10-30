@@ -97,7 +97,7 @@ class MaterialNotification extends MaterialDialog {
 
     @override
     // TODO: Params are not used - change parent function...
-    Future<MdlDialogStatus> show({ final Duration timeout,void dialogIDCallback(final String dialogId) }) {
+    Future<MdlDialogStatus> show({ final Duration timeout,void onDialogInit(final String dialogId) }) {
         return super.show(timeout: (_autoClose == true ? new Duration(milliseconds: this.timeout ): null ));
     }
 

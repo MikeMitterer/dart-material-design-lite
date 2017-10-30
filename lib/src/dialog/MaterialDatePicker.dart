@@ -63,8 +63,8 @@ class MaterialDatePicker extends MaterialDialog {
 
     @override
     Future<MdlDialogStatus> show({final Duration timeout,
-        void dialogIDCallback(final String dialogId)}) {
-        return super.show(timeout: null, dialogIDCallback: _init);
+        void onDialogInit(final String dialogId)}) {
+        return super.show(timeout: null, onDialogInit: _init);
     }
 
     String get year => new DateFormat("yyyy").format(dateTime);
