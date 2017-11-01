@@ -55,15 +55,25 @@ class _TextFieldObserver implements ModelObserver {
             final ObservableProperty prop = val;
 
             _subscriptions.add(
-                _textfield.onInput.listen((_) => prop.value = _textfield.value));
+                // We use onChange instead of onInput because
+                // it gives us the chance to cast the input-value to the appropriate
+                // pro.value (in ObservableProperty)
+                _textfield.hub.onChange.listen((_)
+                    => prop.value = _textfield.value)
+
+                // _textfield.onInput.listen((_)
+                //    => prop.value = _textfield.value)
+            );
 
             _subscriptions.add(
-                prop.onChange.listen( (final PropertyChangeEvent event) => _textfield.value = prop.value.toString()));
+                prop.onChange.listen( (final PropertyChangeEvent event)
+                    => _textfield.value = prop.toString())
+            );
 
             // Changes the value in the _textfield only if prop.value is different
             // Avoids unnecessary _textfield-updates
-            if(_textfield.value != prop.value.toString()) {
-                _textfield.value = prop.value.toString();
+            if(_textfield.value != prop.toString()) {
+                _textfield.value = prop.toString();
             }
 
         } else if(val != null) {
@@ -110,10 +120,10 @@ class _CheckBoxObserver implements ModelObserver {
 
             _subscriptions.add(
                 prop.onChange.listen( (final PropertyChangeEvent event) =>
-                _checkbox.value == prop.value.toString() || prop.toBool() ? _checkbox.checked = true : _checkbox.checked = false));
+                _checkbox.value == prop.toString() || prop.toBool() ? _checkbox.checked = true : _checkbox.checked = false));
 
             // Check avoids unnecessary updates
-            final bool newState = _checkbox.value == prop.value.toString() || prop.toBool();
+            final bool newState = _checkbox.value == prop.toString() || prop.toBool();
             if(_checkbox.checked != newState) {
                 _checkbox.checked = newState;
             }
@@ -159,11 +169,11 @@ class _RadioObserver implements ModelObserver {
                 _radioGroup.onGroupChange.listen((_) => _radioGroup.hasValue ? prop.value = _radioGroup.value : prop.value = ""));
 
             _subscriptions.add(
-                prop.onChange.listen( (final PropertyChangeEvent event) => _radioGroup.value = prop.value.toString()));
+                prop.onChange.listen( (final PropertyChangeEvent event) => _radioGroup.value = prop.toString()));
 
             // Avoids unnecessary updates
-            if(_radioGroup.value != prop.value.toString()) {
-                _radioGroup.value = prop.value.toString();
+            if(_radioGroup.value != prop.toString()) {
+                _radioGroup.value = prop.toString();
             }
 
         } else if(val != null) {
@@ -208,7 +218,7 @@ class _SwitchObserver implements ModelObserver {
 
             _subscriptions.add(
                 prop.onChange.listen( (final PropertyChangeEvent event) =>
-                _switch.value == prop.value.toString() || prop.toBool() ? _switch.checked = true : _switch.checked = false));
+                _switch.value == prop.toString() || prop.toBool() ? _switch.checked = true : _switch.checked = false));
 
             // Avoids unnecessary updates
             final bool newState = _switch.value.toString() == prop.value || prop.toBool();
@@ -306,12 +316,12 @@ class _HtmlElementObserver implements ModelObserver {
             final ObservableProperty prop = val;
 
             _subscriptions.add(
-                prop.onChange.listen( (_) => _element.text = prop.value.toString()));
+                prop.onChange.listen( (_) => _element.text = prop.toString()));
 
             // Changes the value in the _textfield only if prop.value is different
             // Avoids unnecessary _textfield-updates
-            if(_element.text != prop.value.toString()) {
-                _element.text = prop.value.toString();
+            if(_element.text != prop.toString()) {
+                _element.text = prop.toString();
             }
 
         } else if(val != null) {

@@ -253,6 +253,10 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
     /// scope is read only
     Scope get scope => _scope;
 
+    /// Find the first descendant element of this dialog that matches
+    /// the specified group of selectors
+    dom.Element query(final String selector) => dialog.querySelector(selector);
+
     // - private ----------------------------------------------------------------------------------
 
     /// This timer is used to close automatically this dialog (Toast, Growl)

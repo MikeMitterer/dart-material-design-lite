@@ -32,18 +32,46 @@ class ModelObserverFactory {
     }
 
     ModelObserver createFor(final dom.Element element) {
-        final MdlComponent component = mdlComponent(element,null);
-        final Type type = component.runtimeType;
+        final components = mdlComponents(element);
 
-        if(_builders.containsKey(type)) {
+        Type type = null;
+        MdlComponent component;
 
-            return _builders[type](component);
+        if(components.length == 0) {
+            throw new ArgumentError("${element} cannot be observed. This is not a MdlComponent! Type: ${type}");
 
+        } else if(components.length == 1) {
+            type = component.runtimeType;
+            if(_builders.containsKey(type)) {
+                component = components.first;
+            }
         } else {
+            // Model has lowest priority if multiple components defined
+            MaterialModel model;
 
-            throw new ArgumentError("${element} cannot be observed. Probably not a MdlComponent! Type: ${type}");
+            component = components.firstWhere((final MdlComponent componentFromElement) {
+                type = componentFromElement.runtimeType;
+                if(type == MaterialModel) {
+                    // Remember the model
+                    model = componentFromElement;
+                    return false;
+                }
+                return _builders.containsKey(type);
 
+            },orElse: () => null);
+
+            // If we have no other components - use MaterialModel
+            if(component == null && model != null) {
+                type = model.runtimeType;
+                component = model;
+            }
         }
+
+        if(component == null) {
+            throw new ArgumentError("${element} cannot be observed. This is not an observable type! (${type})");
+        }
+
+        return _builders[type](component);
     }
 
     void setBuilderFor(final Type type,final ModelObserverBuilder builder) {
@@ -82,6 +110,7 @@ class ModelObserverFactory {
             return new _SliderObserver._internal(component);
         });
 
+        // Fits e.g. for span or div elements
         setBuilderFor( MaterialModel, (final MdlComponent component) {
             Validate.notNull(component);
             return new _HtmlElementObserver._internal(component);

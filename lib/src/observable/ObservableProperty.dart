@@ -26,6 +26,10 @@ class PropertyChangeEvent<T> {
     PropertyChangeEvent(this.value,this.oldValue);
 }
 
+typedef T ResetObserver<T>();
+typedef String FormatObservedValue<T>(final T value);
+typedef T StaticCast<T>(final value);
+
 @Directive
 class ObservableProperty<T> {
     static const String _DEFAULT_NAME = "<undefinded>";
@@ -43,12 +47,22 @@ class ObservableProperty<T> {
     /// Default interval if no specified in CTOR
     Duration _interval = new Duration(milliseconds: 100);
 
+    final bool _observeViaTimer;
+
     bool _pause = false;
 
     /// Observername - helps with debugging!
     final String _name;
 
     StreamController<PropertyChangeEvent<T>> _onChange;
+
+    /// Callback called if [reset] is executed
+    ResetObserver<T> _onReset;
+
+    /// Formatter for this value - used in [toString]
+    final FormatObservedValue _formatter;
+
+    StaticCast<T> _staticCast;
 
     /**
      * [_value] The observed value
@@ -72,9 +86,12 @@ class ObservableProperty<T> {
      */
     ObservableProperty(this._value,{ T observe(), final Duration interval,
         final String name: ObservableProperty._DEFAULT_NAME, final bool observeViaTimer: true,
-            final bool treatAsDouble: false } ) : _name = name, _treatAsDouble = treatAsDouble {
+            final bool treatAsDouble: false, final FormatObservedValue formatter } )
+                : _name = name, _treatAsDouble = treatAsDouble, _observeViaTimer = observeViaTimer,
+                    _formatter = formatter {
 
-        if(interval != null && observeViaTimer) {
+        if(interval != null && _observeViaTimer) {
+            // per default 100ms
             _interval = interval;
         }
         if(observe != null) {
@@ -113,10 +130,17 @@ class ObservableProperty<T> {
             _value = ConvertValue.toInt(val) as T;
 
         } else {
-            _value = val as T;
+            try {
+                _value = val as T;
+            } catch (e) {
+                if(_staticCast == null) {
+                    throw e;
+                }
+                _value = _staticCast(val);
+            }
         }
 
-        _logger.fine("Input-Value: '$val' (${val.runtimeType}) -> '${_value}' (${_value.runtimeType})");
+        _logger.info("Input-Value: '$val' (${val.runtimeType}) -> '${_value}' (${_value.runtimeType})");
 
         _fire(new PropertyChangeEvent(_value,old));
     }
@@ -127,22 +151,26 @@ class ObservableProperty<T> {
     ///
     /// final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
     /// nrOfItems(10)
-    void call(final val) { value = val; }
+    //void call(final val) { value = val; }
 
-    /**
-     * Observe values in your app
-     * Sample:
-     *      final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
-     *      ...
-     *      nrOfItems.observes( () => items.length > 0 ? items.length.toString() : "<no records>");
-     *
-     *  HTML:
-     *      <mdl-property consumes="nrOfItems"></mdl-property>
-     */
+    /// Observe values in your app
+    /// Sample:
+    ///      final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
+    ///      ...
+    ///      nrOfItems.observes( () => items.length > 0 ? items.length.toString() : "<no records>");
+    ///
+    ///  HTML:
+    ///      <mdl-property consumes="nrOfItems"></mdl-property>
     void observes( T observe() ) {
         _observe = observe;
         run();
     }
+
+    /// Defines a callback that is called if
+    /// [reset] is called
+    void onReset(ResetObserver<T> callback) => _onReset = callback;
+
+    void staticCast(StaticCast<T> callback) => _staticCast = callback;
 
     /// Pauses the checks - no further observation.
     /// Observing can be restarted via [run]
@@ -153,23 +181,48 @@ class ObservableProperty<T> {
     /// Continues with the checks. Manually calling this function is only necessary after [pause]
     void run() {
         if(_observe != null) {
-            // first timer comes after short period - this shows the value
-            // for the first time
-            new Timer(new Duration(milliseconds: 50),() {
-                _setValue();
 
-                // second timer comes after specified time
-                new Timer.periodic(_interval,(final Timer timer) {
-                    if(_pause) {
-                        _logger.info("Pause");
-                        timer.cancel();
-                        _pause = false;
-                        return;
-                    }
-                    _setValue();
+            if(_observeViaTimer) {
+                // first timer comes after short period - this shows the value
+                // for the first time
+
+                new Timer(new Duration(milliseconds: 50), () {
+                    update();
+
+                    // second timer comes after specified time
+                    new Timer.periodic(_interval, (final Timer timer) {
+                        if (_pause) {
+                            _logger.info("Pause");
+                            timer.cancel();
+
+                            // Prepare for the next run
+                            // At this state auto-update is already stopped 
+                            _pause = false;
+                            return;
+                        }
+                        update();
+                    });
                 });
-            });
+            } else {
+
+                update();
+            }
         }
+    }
+
+    /// Sets the value via callback
+    /// See [observes]
+    ///
+    /// Call this method manually if observeViaTimer (Constructor) is
+    /// set to false
+    void update() {
+        if(_observe != null) {
+            final T newValue = _observe() as T;
+            if(newValue != _value) {
+                value = newValue;
+            }
+        }
+        _fire(new PropertyChangeEvent(_value,_value));
     }
 
     /// Converts [value] to bool. If [value] is a String, "true", "on", "1" are valid boolean values
@@ -177,16 +230,19 @@ class ObservableProperty<T> {
         return ConvertValue.toBool(value);
     }
 
-    // - private ----------------------------------------------------------------------------------
+    /// Whatever reset should do can be defined in CTOR
+    /// or by defining the resetCallback
+    T reset() {
+        if(_onReset != null) {
+            value = _onReset();
+        }
+        return value;
+    }
 
-    void _setValue() {
-        if(_observe != null) {
-            final T newValue = _observe() as T;
-            if(newValue != _value) {
-              value = newValue;
-              }
-          }
-     }
+    @override
+    String toString() => _formatter != null ? _formatter(_value) : _value.toString();
+    
+    // - private ----------------------------------------------------------------------------------
 
     void _fire(final PropertyChangeEvent<T> event) {
         if(_name != ObservableProperty._DEFAULT_NAME) {  _logger.fine("Fireing $event from ${_name}...");  }

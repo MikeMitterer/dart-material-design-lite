@@ -137,8 +137,9 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
         }
     }
 
+    /// Updates the components CSS-Classes usually
+    /// called from [MaterialAttribute] or [MaterialClass]
     @override
-    /// Updates the components CSS-Classes usually called from [MaterialAttribute] or [MaterialClass]
     void update() { _updateClasses(); }
 
     /// If this input field has a validity-check and if this check fails it returns [false]

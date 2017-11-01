@@ -42,21 +42,40 @@ class MaterialTranslate extends MdlComponent {
     static MaterialTranslate widget(final dom.HtmlElement element) => mdlComponent(element,MaterialTranslate) as MaterialTranslate;
 
     /// Resets text in the corresponding Element to the translation
-    void reset() {
+    /// and returns the [value] set for this Element
+    String reset() {
         if (_idToTranslate.isNotEmpty) {
-            // If attribute is set to true or if attribute is available but has no
-            // value set
-            if(_fieldvalue) {
-                final String translation = translator.translate(new L10N(_idToTranslate));
-                element.text = translation;
-            } else {
-                element.text = _idToTranslate;
-            }
+            value = _idToTranslate;
         }
         else {
             _logger.shout("ID to Translate is empty!!!");
         }
+
+        return value;
     }
+
+    void set value(final String idToTranslate) {
+        if(idToTranslate == null) {
+            element.text = "null";
+            return;
+        } else if(idToTranslate.isEmpty) {
+            element.text = "";
+            return;
+        }
+
+        _idToTranslate = idToTranslate;
+        
+        // If attribute is set to true or if attribute is available but has no
+        // value set
+        if(_fieldvalue) {
+            final String translation = translator.translate(new L10N(_idToTranslate));
+            element.text = translation;
+        } else {
+            element.text = _idToTranslate;
+        }
+    }
+
+    String get value => element.text;
 
     //- private -----------------------------------------------------------------------------------
 
@@ -66,23 +85,17 @@ class MaterialTranslate extends MdlComponent {
         // Recommended - add SELECTOR as class
         element.classes.add(_MaterialTranslateConstant.WIDGET_SELECTOR);
 
-        final String translation = element.text.replaceFirstMapped(
+        /*final String translation =*/ element.text.replaceFirstMapped(
             new RegExp('(_|l10n|L10N)\\((\'|\")([^\"\']*)(\'|\")\\)'),
                 (final Match match) {
                 _idToTranslate = match.group(3).trim();
-                return translator.translate(new L10N(_idToTranslate));
+                //return translator.translate(new L10N(_idToTranslate));
             });
 
         _logger.info("-> " + _idToTranslate);
 
         if (_idToTranslate.isNotEmpty) {
-            // If attribute is set to true or if attribute is available but has no
-            // value set
-            if(_fieldvalue) {
-                element.text = translation;
-            } else {
-                element.text = _idToTranslate;
-            }
+            value = _idToTranslate;
         }
         else {
             _logger.shout("ID to Translate is empty!!!");
@@ -91,7 +104,7 @@ class MaterialTranslate extends MdlComponent {
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
-    /// Returns true if attribute has not value set or if it's value is not 'no'
+    /// Returns true if attribute has no value set or if it's value is set to 'no'
     bool get _fieldvalue => !('no' == element.attributes[_MaterialTranslateConstant.WIDGET_SELECTOR]?.trim());
 }
 
