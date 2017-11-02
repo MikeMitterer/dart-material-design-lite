@@ -54,18 +54,22 @@ class _TextFieldObserver implements ModelObserver {
 
             final ObservableProperty prop = val;
 
+            // MaterialTextfield -> ObservableProperty
             _subscriptions.add(
                 // We use onChange instead of onInput because
                 // it gives us the chance to cast the input-value to the appropriate
                 // pro.value (in ObservableProperty)
-                _textfield.hub.onChange.listen((_)
-                    => prop.value = _textfield.value)
+                //_textfield.hub.onChange.listen((_)
+                //   => prop.value = _textfield.value)
 
-                // _textfield.onInput.listen((_)
-                //    => prop.value = _textfield.value)
+                _textfield.onInput.listen((_)
+                    => prop.value = _textfield.value)
             );
 
+            // ObservableProperty -> MaterialTextfield
             _subscriptions.add(
+                // prop.toString uses the "Formatter" from ObservableProperty.
+                // The Formatter can change e.g. null-values to valid strings (or empty strings)
                 prop.onChange.listen( (final PropertyChangeEvent event)
                     => _textfield.value = prop.toString())
             );

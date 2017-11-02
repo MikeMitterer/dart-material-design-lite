@@ -215,7 +215,7 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
                 });
 
                 idCounter++;
-                _logger.info("show end (Dialog is rendered, got ID: ${_elementID})!");
+                _logger.fine("show end (Dialog is rendered, got ID: ${_elementID})!");
             }
 
             if(onDialogInit != null) {
@@ -374,7 +374,7 @@ abstract class MaterialDialog extends Object with TemplateComponent, MdlEventLis
 
     void _addBackDropClickListener(final dom.DivElement container) {
         container.onClick.listen((final dom.MouseEvent event) {
-            _logger.info("click on container");
+            _logger.fine("click on container");
 
             if (event.target == container) {
                 event.preventDefault();

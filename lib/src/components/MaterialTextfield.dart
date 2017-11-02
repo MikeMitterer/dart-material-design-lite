@@ -103,6 +103,23 @@ class MaterialTextfield extends MdlComponent with FallbackFormatter {
             if(isSelectionSupported) {
                 _placeTheCursorWhereItWasBefore(selStart);
             }
+
+            // If a text-field-value changed manually (via Dart-Script)
+            // the form doesn't get informed about the change so we send a CustomEvent
+            void _triggerFormUpdate() {
+                dom.HtmlElement _findForm(final dom.HtmlElement element) {
+                    if(element == null || element.classes.contains("mdl-form")) {
+                        return element;
+                    }
+                    return _findForm(element.parent);
+                }
+
+                dom.HtmlElement formElement = _findForm(element);
+                formElement?.dispatchEvent(new dom.CustomEvent("MaterialTextfieldChanged",detail: this));
+            }
+            
+            _triggerFormUpdate();
+            focus();
         }
 
         _updateClasses();

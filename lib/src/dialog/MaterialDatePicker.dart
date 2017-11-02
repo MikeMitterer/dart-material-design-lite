@@ -24,15 +24,6 @@ part of mdldialog;
 class MaterialDatePicker extends MaterialDialog {
     static final Logger _logger = new Logger('mdldialog.MaterialDatePicker');
 
-    static const String _DEFAULT_CONFIRM_BUTTON = "OK";
-    static const String _DEFAULT_CANCEL_BUTTON = "Cancel";
-
-    /// Text for OK Button
-    String okButton = _DEFAULT_CONFIRM_BUTTON;
-
-    /// Text for Cancel-Button
-    String cancelButton = _DEFAULT_CANCEL_BUTTON;
-
     /// Initial [DateTime] for this Dialog
     DateTime dateTime = new DateTime.now();
 
@@ -434,10 +425,10 @@ class MaterialDatePicker extends MaterialDialog {
                 </div>
                 <div class="mdl-dialog__actions">
                     <button class="mdl-button" 
-                        data-mdl-click="onCancel()">{{cancelButton}}</button>
+                        data-mdl-click="onCancel()" translate='yes'>_('Cancel')</button>
                         
                     <button class="mdl-button mdl-button--colored" 
-                        data-mdl-click="onClose()" autofocus>{{okButton}}</button>
+                        data-mdl-click="onClose()" autofocus translate='yes'>_('OK')</button>
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@ class PropertyChangeEvent<T> {
 }
 
 typedef T ResetObserver<T>();
-typedef String FormatObservedValue<T>(final T value);
+typedef String FormatObservedValue<T>(final T value, final original);
 typedef T StaticCast<T>(final value);
 
 @Directive
@@ -38,6 +38,9 @@ class ObservableProperty<T> {
 
     @Directive
     T _value;
+
+    /// The original value set by [value]
+    dynamic _inputValue;
 
     /// Always convert to double
     final bool _treatAsDouble;
@@ -60,7 +63,7 @@ class ObservableProperty<T> {
     ResetObserver<T> _onReset;
 
     /// Formatter for this value - used in [toString]
-    final FormatObservedValue _formatter;
+    FormatObservedValue _formatter;
 
     StaticCast<T> _staticCast;
 
@@ -88,7 +91,7 @@ class ObservableProperty<T> {
         final String name: ObservableProperty._DEFAULT_NAME, final bool observeViaTimer: true,
             final bool treatAsDouble: false, final FormatObservedValue formatter } )
                 : _name = name, _treatAsDouble = treatAsDouble, _observeViaTimer = observeViaTimer,
-                    _formatter = formatter {
+                    _formatter = formatter, _inputValue = _value {
 
         if(interval != null && _observeViaTimer) {
             // per default 100ms
@@ -112,46 +115,52 @@ class ObservableProperty<T> {
         return _onChange.stream;
     }
 
-    void set value(final val) {
+    /// Sets the internal value and emits a [PropertyChangeEvent]
+    /// 
+    /// If mdl-model is used this event changes
+    /// the corresponding Material[Textfield | Checkbox ...] (defined in ModelObserver.dart)
+    void set value(final input) {
         final T old = _value;
+
+        // Remember the original value so that we can use it in toString (_formatter)
+        _inputValue = input;
 
         // JS does not support double - so you have to specify treatAsDouble
         if(_value.runtimeType == double || _treatAsDouble ) {
 
             // Strange - but this avoids DA-Warning
-            _value = ConvertValue.toDouble(val) as T;
+            _value = ConvertValue.toDouble(_inputValue) as T;
 
         } else if(_value.runtimeType == bool) {
 
-            _value = ConvertValue.toBool(val) as T;
+            _value = ConvertValue.toBool(_inputValue) as T;
 
         } else if(_value.runtimeType == int) {
 
-            _value = ConvertValue.toInt(val) as T;
+            _value = ConvertValue.toInt(_inputValue) as T;
 
         } else {
             try {
-                _value = val as T;
+                _value = _inputValue as T;
             } catch (e) {
                 if(_staticCast == null) {
                     throw e;
                 }
-                _value = _staticCast(val);
+                _value = _staticCast(_inputValue);
             }
         }
 
-        _logger.info("Input-Value: '$val' (${val.runtimeType}) -> '${_value}' (${_value.runtimeType})");
+        if(_value == null && old != null) {
+            _logger.warning(
+                "Input-Value: '$_inputValue' (${_inputValue.runtimeType})"
+                " -> "
+                "'${_value}' (${_value.runtimeType}) was: $old");
+        }
 
         _fire(new PropertyChangeEvent(_value,old));
     }
 
     T get value => _value;
-
-    /// Mimics a function call
-    ///
-    /// final ObservableProperty<String> nrOfItems = new ObservableProperty<String>("");
-    /// nrOfItems(10)
-    //void call(final val) { value = val; }
 
     /// Observe values in your app
     /// Sample:
@@ -168,9 +177,16 @@ class ObservableProperty<T> {
 
     /// Defines a callback that is called if
     /// [reset] is called
-    void onReset(ResetObserver<T> callback) => _onReset = callback;
+    ///
+    /// Basically changes the internal value to the result of [callback]
+    void onReset(final ResetObserver<T> callback) => _onReset = callback;
 
-    void staticCast(StaticCast<T> callback) => _staticCast = callback;
+    /// If the input value for [value] can not be converted to T
+    /// this [callback] is called for conversion
+    void onStaticCast(final StaticCast<T> callback) => _staticCast = callback;
+
+    /// Called before [toString] to convert the internal value to String
+    void onFormat(final FormatObservedValue callback) => _formatter = callback;
 
     /// Pauses the checks - no further observation.
     /// Observing can be restarted via [run]
@@ -240,8 +256,8 @@ class ObservableProperty<T> {
     }
 
     @override
-    String toString() => _formatter != null ? _formatter(_value) : _value.toString();
-    
+    String toString() => _formatter != null ? _formatter(_value,_inputValue) : _value.toString();
+
     // - private ----------------------------------------------------------------------------------
 
     void _fire(final PropertyChangeEvent<T> event) {

@@ -80,7 +80,7 @@ class MaterialTranslate extends MdlComponent {
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("MaterialTranslate - init");
+        _logger.fine("MaterialTranslate - init");
 
         // Recommended - add SELECTOR as class
         element.classes.add(_MaterialTranslateConstant.WIDGET_SELECTOR);
@@ -92,7 +92,7 @@ class MaterialTranslate extends MdlComponent {
                 //return translator.translate(new L10N(_idToTranslate));
             });
 
-        _logger.info("-> " + _idToTranslate);
+        //_logger.info("-> " + _idToTranslate);
 
         if (_idToTranslate.isNotEmpty) {
             value = _idToTranslate;

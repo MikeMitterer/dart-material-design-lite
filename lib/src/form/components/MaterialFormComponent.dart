@@ -32,7 +32,7 @@ class MaterialFormComponentModule  extends di.Module {
   }
 }
 
-enum _MaterialFormState {
+enum MaterialFormState {
     VALID, INVALID
 }
 
@@ -41,6 +41,12 @@ class FormChangedEvent {
 
     FormChangedEvent(this.currentTarget);
 }
+
+/// Callback can be set as a last resort for
+/// validation checks
+///
+/// [originalState] is the status determined by MaterialFormComponent
+typedef bool IsFormValidCallback(final MaterialFormState originalState);
 
 /**
  * Upgrades mdl-form und does some validation checks.
@@ -95,31 +101,35 @@ class MaterialFormComponent extends MdlComponent {
         : super(element,injector) {
         
         _init();
-        
     }
     
     static MaterialFormComponent widget(final dom.HtmlElement element) => mdlComponent(element,MaterialFormComponent) as MaterialFormComponent;
 
-    /// Iterates through all MdlComponent found in this form, checks if all the requirements are fulfilled (set via HTML)
+    /// Iterates through all MdlComponent in this form,
+    /// checks if all the requirements are fulfilled (set via HTML)
+    ///
     /// If the check returns true the "is-invalid" class is removed 
-    /// Normally it's not necessary to call this function manually. This is done automatically if one of the 
+    /// Normally it's not necessary to call this function manually.
+    /// This is done automatically if one of the
     /// MdlComponents gets an "onChange" event
-    void updateStatus() {
-        final bool isFormValid = _isFormValid();
-
-        _setFormState(isFormValid ? _MaterialFormState.VALID : _MaterialFormState.INVALID);
-        _setSubmitButtonState(isFormValid ? _MaterialFormState.VALID : _MaterialFormState.INVALID);
-    }
+    @override
+    void update() => _updateStatus(repeatAfter: new Duration(milliseconds: 100));
 
     /// Returns true if all requirements are fulfilled 
     bool get isValid => _isFormValid();
 
+    /// If focus changes from one field to the other
     Stream<FormChangedEvent> get onChange {
         if(_onChange == null) {
             _onChange = new StreamController<FormChangedEvent>.broadcast(onCancel: () => _onChange = null);
         }
         return _onChange.stream;
     }
+
+    /// Called by the framework as last resort before it enables/disables the
+    /// submit-button
+    IsFormValidCallback isFormValidCallback = (final MaterialFormState state)
+        => state == MaterialFormState.VALID;
 
     // - EventHandler -----------------------------------------------------------------------------
 
@@ -139,21 +149,19 @@ class MaterialFormComponent extends MdlComponent {
         });
 
         _components.forEach((final MdlComponent component) {
+            eventStreams.add(
+                // Update internal form-status onInput
+                component.onInput.listen((final dom.Event event) {
+                    _logger.fine("$component changed!");
+                    _componentChanged(component);
+            }));
 
             eventStreams.add(
+                // If focus changes - send FormChangedEvent
                 component.hub.onChange.listen((final dom.Event event) {
-                _logger.info("$component changed!");
-
-                final bool isFormValid = _isFormValid();
-
-                _setFormState(isFormValid ? _MaterialFormState.VALID : _MaterialFormState.INVALID);
-                _setSubmitButtonState(isFormValid ? _MaterialFormState.VALID : _MaterialFormState.INVALID);
-
-                isDirty = true;
-                element.classes.add(_cssClasses.DIRTY);
-
-                _fire(new FormChangedEvent(component));
-            }));
+                    _fire(new FormChangedEvent(component));
+                })
+            );
 
             eventStreams.add(
                 component.hub.onKeyDown.listen((final dom.KeyboardEvent event) {
@@ -169,48 +177,91 @@ class MaterialFormComponent extends MdlComponent {
             );
         });
 
+        eventStreams.add(
+            // Send from MaterialTextfield
+            element.on["MaterialTextfieldChanged"].listen((event) {
+                event.preventDefault();
+                
+                final customEvent = event as dom.CustomEvent;
+                final component = customEvent.detail as MdlComponent;
+
+                _logger.fine("${component} changed! (on MaterialTextfieldChanged)");
+                _componentChanged(component);
+            })
+        );
+
+
         final dom.HtmlElement elementWithAutoFocus = element.querySelector("[autofocus]");
         if(elementWithAutoFocus != null) {
             elementWithAutoFocus.focus();
         }
 
-        updateStatus();
+        _updateStatus(repeatAfter: new Duration(milliseconds: 100));
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
+    void _componentChanged(final MdlComponent component) {
+        isDirty = true;
+        element.classes.add(_cssClasses.DIRTY);
+
+        _updateStatus(repeatAfter: new Duration(milliseconds: 100));
+    }
+
     bool _isFormValid() {
-        bool state = true;
+        var state = MaterialFormState.VALID;
 
         _components.forEach((final MdlComponent component) {
             if(component.hub is dom.InputElement) {
                 if(!(component.hub as dom.InputElement).checkValidity()) {
                     _logger.fine("Checked ${component.hub.id}");
-                    state = false;
+                    state = MaterialFormState.INVALID;
                     return;
                 }
             }
         });
-        return state;
+        return (isFormValidCallback == null ? state : isFormValidCallback(state));
     }
 
-    void _setFormState(final _MaterialFormState state) {
+    void _setFormState(final MaterialFormState state) {
 
-        if(state == _MaterialFormState.VALID) {
+        if(state == MaterialFormState.VALID) {
             element.classes.remove(_cssClasses.INVALID);
         } else {
             element.classes.add(_cssClasses.INVALID);
         }
     }
 
-    void _setSubmitButtonState(final _MaterialFormState state) {
+    void _setSubmitButtonState(final MaterialFormState state) {
         _submitButtons.forEach((final MaterialButton button) {
-            button.enabled = state == _MaterialFormState.VALID;
+            button.enabled = state == MaterialFormState.VALID;
         });
     }
 
     void _fire(final FormChangedEvent event) {
         if(_onChange != null && _onChange.hasListener) {
             _onChange.add(event);
+        }
+    }
+
+    /// Updates the FormState (Valid/Invalid) and the status of the
+    /// SubmitButton.
+    ///
+    /// With [repeatAfter] you can define if you want to repeat this
+    /// function-call automatically after [repeatAfter]
+    ///
+    /// This is necessary for form-fields connected via [ObservableProperty] and [MaterialModel]
+    void _updateStatus({ final Duration repeatAfter }) {
+        final bool isFormValid = _isFormValid();
+
+        _setFormState(isFormValid ? MaterialFormState.VALID : MaterialFormState.INVALID);
+        _setSubmitButtonState(isFormValid ? MaterialFormState.VALID : MaterialFormState.INVALID);
+
+        if(repeatAfter != null) {
+            // Update Form-State again - just in case something took longer than expected
+            new Timer(repeatAfter, () {
+                _logger.fine("Auto-Update form state!");
+                _updateStatus();
+            });
         }
     }
 }
