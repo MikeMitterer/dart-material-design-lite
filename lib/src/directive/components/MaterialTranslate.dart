@@ -86,9 +86,18 @@ class MaterialTranslate extends MdlComponent {
         element.classes.add(_MaterialTranslateConstant.WIDGET_SELECTOR);
 
         /*final String translation =*/ element.text.replaceFirstMapped(
-            new RegExp('(_|l10n|L10N)\\((\'|\")([^\"\']*)(\'|\")\\)'),
+            new RegExp(
+                '(_|l10n|L10N)(\\(\'|\\(\")'
+                '(.*)'
+                '(\'\\)|\"\\))'),
                 (final Match match) {
                 _idToTranslate = match.group(3).trim();
+                /*
+                for(int i = 1;i <= match.groupCount;i++) {
+                    _logger.info(match[i]);
+                }
+                _logger.info("......................................");
+                */
                 //return translator.translate(new L10N(_idToTranslate));
             });
 
