@@ -74,7 +74,10 @@ class MdlModule extends di.Module {
 
         register(DomRenderer);
         register(EventCompiler);
-        register(ViewFactory);
+
+        // Removed 2017.11.9 - because injection should'nt be necessary with ViewFactory
+        // More infos: [ViewFactory]
+        // register(ViewFactory);
         register(RootScope);
 
         register(ActionBus).toType(ActionBusImpl);

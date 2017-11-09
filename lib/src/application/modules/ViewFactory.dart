@@ -38,8 +38,11 @@ part of mdlapplication;
  *
  *          router.listen();
  *      }
+ *
+ * Until 2017.11.09 ViewFactory was "injectable". This should not be necessary.
+ * Changing the ViewFactory to a individual version should be very easy without DI.
+ * See example from above
  */
-@di.injectable
 class ViewFactory {
     final Logger _logger = new Logger('mdlremote.ViewFactory');
 
