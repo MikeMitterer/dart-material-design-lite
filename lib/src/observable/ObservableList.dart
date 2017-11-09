@@ -30,7 +30,7 @@ class ListChangedEvent<T> {
     /// [changetype] shows what changed
     final ListChangeType changetype;
 
-    /// [item] is set on ADD, REMOVE and update
+    /// [item] is set on ADD, REMOVE and UPDATE
     final T item;
 
     /// [prevItem] is set on UPDATE and defines the old Entry
@@ -101,7 +101,7 @@ class ListChangedEvent<T> {
 ///
 @Directive
 class ObservableList<T> extends ListBase<T> {
-    //final Logger _logger = new Logger('mdlobservable.ObservableList');
+    final Logger _logger = new Logger('mdlobservable.ObservableList');
 
     final List<T> _innerList = new List();
     final List<T> _filterBackup = new List();
@@ -284,6 +284,42 @@ class ObservableList<T> extends ListBase<T> {
     /// Called by MaterialRepeat do make fast updates
     bool update(final dom.HtmlElement element, final T item)
         => _updateCallback(element,item);
+
+    /// ADD, INSERT, UPDATE, REMOVE, CLEAR
+    ObservableList<T> where(bool test(final T element)) {
+        final newList = new ObservableList<T>();
+        onChange.listen((final ListChangedEvent event) {
+            if(event.changetype != ListChangeType.CLEAR && test(event.item)) {
+                // ignore: missing_enum_constant_in_switch
+                switch(event.changetype) {
+                    case ListChangeType.ADD:
+                        newList.add(event.item);
+                        break;
+                    case ListChangeType.INSERT:
+                        //newList.insert(event.index,event.item);
+                        newList.add(event.item);
+
+                        _logger.info("Items1: ${newList.length}");
+                        break;
+//                    case ListChangeType.UPDATE:
+//                        if(newList.contains(event.item)) {
+//                            //final index = newList.
+//                            newList.update(event., item)
+//                        }
+//                        newList.add(event.item);
+//                        break;
+                    case ListChangeType.REMOVE:
+                        newList.remove(event.item);
+                        break;
+                }
+            }
+            if(event.changetype == ListChangeType.CLEAR) {
+                newList.clear();
+            }
+        });
+        
+        return newList;
+    }
 
     //- private -----------------------------------------------------------------------------------
 

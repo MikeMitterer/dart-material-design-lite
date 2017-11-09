@@ -68,7 +68,7 @@ class Scope {
     Object _rootContext;
 
     /// [_parentScope] can be null if there is no parent
-    Scope(this._context,this._parentScope);
+    Scope(this._context,[ this._parentScope ]);
 
     Object get context => _context;
     void set context(final Object cntxt) {

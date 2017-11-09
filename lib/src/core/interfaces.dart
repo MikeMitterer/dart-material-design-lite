@@ -59,7 +59,7 @@ abstract class RefreshableComponent {
 
 /**
  * For Components like [_MaterialDialogComponent] where it's necessary to
- * change the ParentScope on runtime. For example if [MaterialDialog] pops up
+ * change the ParentScope at runtime. For example if [MaterialDialog] pops up
  * the Parent-Scope is set to the new Dialog
  */
 abstract class HasDynamicParentScope {

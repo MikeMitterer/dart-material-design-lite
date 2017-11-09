@@ -21,7 +21,7 @@ part of mdlapplication;
 
 abstract class MaterialController {
     /**
-     * {injector} will be set after {ViewFactory} receives the {onLoadEnd} Event
+     * [injector] will be set after {ViewFactory} receives the {onLoadEnd} Event
      *
      * Part in ViewFactory:
      *      main.render(content).then( (_) {
@@ -31,7 +31,9 @@ abstract class MaterialController {
      */
     di.Injector injector;
 
-    /// {loaded} is called after {ViewFactory} received the {onLoadEnd} Event
+    /// [loaded] is called after [ViewFactory] received the onLoadEnd-Event
+    ///
+    /// At this point the Template is already rendered
     void loaded(final Route route);
 
     /// Called before the next controller is loaded

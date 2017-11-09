@@ -66,7 +66,7 @@ class ViewFactory {
         final dom.Element contentElement = dom.querySelector(selector);
 
         if(contentElement == null) {
-            _logger.severe('Please add <div id="$selector" class="mdl-content mdl-js-content">Loading...</div> to your index.html');
+            _logger.severe('Please add <div id="$selector" class="mdl-content">Loading...</div> to your index.html');
             return;
         }
 
@@ -83,6 +83,16 @@ class ViewFactory {
 
                 final String content = _sanitizeResponseText(request.responseText);
                 final MaterialContent main = MaterialContent.widget(contentElement);
+
+                if(controller is ScopeAware) {
+                    // If you have observable-Properties in your Controller it must be
+                    // marked as [@mdl.Model]
+                    // TODO: Check controller if it has a Annotation
+                    main.scope = (controller as ScopeAware).scope;
+                }
+                else {
+                    main.resetScope();
+                }
 
                 main.render(content).then( (_) {
 

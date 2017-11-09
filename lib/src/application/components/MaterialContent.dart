@@ -39,20 +39,88 @@ MdlConfig materialContentConfig() => new MdlWidgetConfig<MaterialContent>(
 /// registration-Helper
 void registerMaterialContent() => componentFactory().register(materialContentConfig());
 
-class MaterialContent extends MdlComponent {
+/// MaterialContent is [ScopeAware] - this means that it can be found by child-MaterialComponent
+/// looking for Data (like [MaterialRepeat]
+///
+/// Unlike other [ScopeAware] components MaterialContent redirects its [Scope] to
+/// [MaterialApplication]
+///
+/// This means if you have a smaller Application you can implement your observable properties
+/// in your Application
+///
+///     @Model
+///     class Application extends MaterialApplication {
+///         final ObservableProperty<String> time = new ObservableProperty<String>("",interval: new Duration(seconds: 1));
+///     
+///         Application() {
+///             time.observes(() => _getTime());
+///         }
+///     
+///         String _getTime() {
+///             final DateTime now = new DateTime.now();
+///             return "${now.hour.toString().padLeft(2,"0")}:${now.minute.toString().padLeft(2,"0")}:${now.second.toString().padLeft(2,"0")}";
+///         }
+///     }
+///
+/// If you use routes and [MaterialController] implement the [ScopeAware] and tag your
+/// Controller with [Model]
+///
+///     @mdl.Model
+///     class ObservableController extends mdl.MaterialController implements ScopeAware {
+///         final ObservableProperty<String> time
+///         = new ObservableProperty<String>("",interval: new Duration(seconds: 1));
+///
+///         @override
+///         void loaded(final Route route) {
+///             time.observes(() => _getTime());
+///         }
+///
+///         @override
+///         mdl.Scope get scope => new mdl.Scope(this);
+///
+///         String _getTime() {
+///             final DateTime now = new DateTime.now();
+///             return "${now.hour.toString().padLeft(2,"0")}:${now.minute.toString().padLeft(2,"0")}:${now.second.toString().padLeft(2,"0")}";
+///         }
+///     }
+class MaterialContent extends MdlComponent implements ScopeAware {
     final Logger _logger = new Logger('mdlapplication.MaterialContent');
 
     static const _MaterialContentCssClasses _cssClasses = const _MaterialContentCssClasses();
     final DomRenderer _renderer;
 
+    Scope scope;
+
     MaterialContent.fromElement(final dom.HtmlElement element,final di.Injector injector)
         : _renderer = injector.getInstance(DomRenderer), super(element,injector) {
+    }
+
+    @override
+    void attached() {
+        scope = new Scope(mdlRootContext());
         _init();
     }
 
     static MaterialContent widget(final dom.HtmlElement element) => mdlComponent(element,MaterialContent) as MaterialContent;
 
-
+    /// Sets the scope back to it's original value
+    ///
+    /// We have one MaterialContent with multiple [MaterialController]s but it the
+    /// [MaterialController] is not [ScopeAware] we have to switch back to [Application]-scope
+    ///
+    ///     class ViewFactory {
+    ///         ...
+    ///         if(controller is ScopeAware) {
+    ///             main.scope = (controller as ScopeAware).scope;
+    ///         }
+    ///         else {
+    ///             main.resetScope();
+    ///         }
+    ///         ...
+    ///     }
+    ///
+    void resetScope() => scope = new Scope(mdlRootContext());
+    
     // Central Element - by default this is where mdl-content was found (element)
     // html.Element get hub => inputElement;
 
