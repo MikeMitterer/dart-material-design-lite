@@ -1,7 +1,7 @@
 /**
     This is a "standalone" CSS for faster loading!
 */
-body.mdl-upgrading .mdl-splashscreen {
+body.mdl-upgrading .mdl-splashscreen, body.mdl-splashscreen--show .mdl-splashscreen {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }

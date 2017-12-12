@@ -287,6 +287,8 @@ class ObservableList<T> extends ListBase<T> {
 
     /// ADD, INSERT, UPDATE, REMOVE, CLEAR
     ObservableList<T> where(bool test(final T element)) {
+        _logger.info("Where called!!!!!!!!!!!!!!!");
+
         final newList = new ObservableList<T>();
         onChange.listen((final ListChangedEvent event) {
             if(event.changetype != ListChangeType.CLEAR && test(event.item)) {
