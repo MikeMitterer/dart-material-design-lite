@@ -39,22 +39,25 @@ class MdlComponentModelAnnotation {
 }
 
 
-/**
- * Helps mustache to know which vars are available to render
- * Sample:
- *
- * @Component
- * class Model {
- *     int sliderValue = 20;
- * }
- *
- * mustache.template = """
- *             <div>
- *                 Slider value: {{sliderValue}}
- *             </div>""";
- *
- * mustache.render(model);
- */
+/// Helps mustache to know which vars are available to render
+///
+/// Sample:
+///     @Component
+///     class Model {
+///         int sliderValue = 20;
+///     }
+///     mustache.template = """
+///                 <div>
+///                    Slider value: {{sliderValue}}
+///                </div>""";
+///     mustache.render(model);
+///
+/// For 'class Application...' use @di.injectable
+///
+///     @di.injectable
+///     class Application extends MaterialApplication {
+///         ...
+///     }
 @deprecated
 const MdlComponentModelAnnotation MdlComponentModel = const MdlComponentModelAnnotation();
 
