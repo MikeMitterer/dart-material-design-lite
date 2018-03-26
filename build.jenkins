@@ -23,8 +23,8 @@ pipeline {
         stage('Test') {
             steps {
                 ansiColor('xterm') {
-                    sh 'pub run test/unit'
-                    sh 'pub run test/visual'
+                    sh 'pub run test test/unit'
+                    sh 'pub run test test/visual'
                 }
             }
         }
