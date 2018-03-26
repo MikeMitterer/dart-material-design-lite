@@ -1,6 +1,23 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [v2.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v2.1.4...v2.2) - 2018-03-26
+
+### Feature
+* MaterialContent is now ScopeAware - works nice with MaterialController [b490746b](https://github.com/mikemitterer/dart-material-design-lite/commit/b490746b383922c553f6bdc8f8a679a37bb8a533)
+* Improved Form-Handling and databinding between form, field and ObservableProperty [781efc0b](https://github.com/mikemitterer/dart-material-design-lite/commit/781efc0b04ddc98b0822b498fe05cbe2c71ba02d)
+
+### Bugs
+* Solves problem with quotation marks in MaterialTranslate [2e99ca1c](https://github.com/mikemitterer/dart-material-design-lite/commit/2e99ca1cecb0996e0a663f71c21827781619fca4)
+
+### Docs
+* @di.injectable for class Application [e35a1d76](https://github.com/mikemitterer/dart-material-design-lite/commit/e35a1d7615c96caa7926acf85b20dfada983ab3c)
+* Sample for overriding onDialogInit [7da7d6ea](https://github.com/mikemitterer/dart-material-design-lite/commit/7da7d6ea4782e777581d02338f0cd1b720266602)
+
+### Refactor
+* Switched from Dice to DryIce, Preparation for Jenkins [c0190ee5](https://github.com/mikemitterer/dart-material-design-lite/commit/c0190ee555a5ad9f77df0099d5a4f1137eac966c)
+* Removed 'injectable' from ViewFactory [b34d9c02](https://github.com/mikemitterer/dart-material-design-lite/commit/b34d9c0246d55f0595fd8a0d5af52b59f2c4fac9)
+
 ## [v2.1.3](http://github.com/mikemitterer/dart-material-design-lite/compare/v2.1.2...v2.1.3) - 2017-10-28
 
 ### Feature
