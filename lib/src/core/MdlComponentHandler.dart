@@ -33,7 +33,7 @@ class _ApplicationModule extends di.Module {
 
   @override
   configure() {
-      register(MaterialApplication).toType(_rootContext).asSingleton();
+      bind(MaterialApplication).toType(_rootContext).asSingleton();
   }
 }
 

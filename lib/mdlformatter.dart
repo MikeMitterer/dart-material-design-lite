@@ -22,7 +22,7 @@ library mdlformatter;
 import 'dart:html' as dom;
 
 import 'dart:collection';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
@@ -88,7 +88,7 @@ class Formatter {
 /// Makes Formatter available in DI
 class MdlFormatterModule extends di.Module {
     configure() {
-        register(Formatter);
+        bind(Formatter);
     }
 }
 final MdlFormatterModule _formatterModule = new MdlFormatterModule();

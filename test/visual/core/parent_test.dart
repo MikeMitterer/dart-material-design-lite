@@ -18,7 +18,7 @@
  */
 
 // @TestOn("dartium")
-@TestOn("content-shell")
+@TestOn("chrome")
 import 'package:test/test.dart';
 
 import 'dart:html' as dom;

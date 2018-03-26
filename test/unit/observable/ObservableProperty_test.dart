@@ -1,4 +1,4 @@
-@TestOn("content-shell")
+@TestOn("chrome")
 
 import 'dart:async';
 import 'package:test/test.dart';
@@ -43,25 +43,25 @@ main() async {
 
             expect(property.value, false);
 
-            property("true");
+            property.value = "true";
             expect(property.value, true);
 
-            property("false");
+            property.value = "false";
             expect(property.value, false);
 
-            property(false);
+            property.value = false;
             expect(property.value, false);
 
-            property("1");
+            property.value = "1";
             expect(property.value, true);
 
-            property("0");
+            property.value = "0";
             expect(property.value, false);
 
-            property("yes");
+            property.value = "yes";
             expect(property.value, true);
 
-            property("no");
+            property.value = "no";
             expect(property.value, false);
 
         }); // end of 'set value with call operator' test

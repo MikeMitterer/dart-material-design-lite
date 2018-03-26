@@ -39,7 +39,7 @@ library mdlmock;
 //import 'package:validate/validate.dart';
 
 import 'dart:mirrors';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 import 'package:mdl/mdlapplication.dart';
 export 'package:mdl/mdlcore.dart' show mockComponentHandler;

@@ -1,10 +1,10 @@
-@TestOn("content-shell")
+@TestOn("chrome")
 library test.unit.core.mdlcomponent;
 
 import 'dart:async';
 import 'dart:html' as dom;
 import 'package:test/test.dart';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlmock.dart' as mdlmock;

@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-@TestOn("content-shell")
+@TestOn("chrome")
 import 'package:test/test.dart';
 
 import 'dart:html' as dom;
@@ -111,7 +111,7 @@ main() {
 
             final MaterialFormComponent mdlForm = MaterialFormComponent.widget(form);
             expect(mdlForm,isNotNull);
-            mdlForm.updateStatus();
+            mdlForm.update();
 
             expect(mdlForm.isValid,isTrue);
             expect(form.classes.contains("is-invalid"),isFalse);

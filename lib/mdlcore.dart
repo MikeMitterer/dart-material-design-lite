@@ -30,7 +30,7 @@ import 'dart:js';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 export 'package:mdl/src/core/annotations.dart';
 

@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-@TestOn("content-shell")
+@TestOn("chrome")
 import 'dart:html' as dom;
 import 'package:test/test.dart';
 

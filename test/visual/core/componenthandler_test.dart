@@ -17,8 +17,7 @@
  * limitations under the License.
  */
 
-// @TestOn("dartium")
-@TestOn("content-shell")
+@TestOn("chrome")
 import 'package:test/test.dart';
 
 import 'dart:html' as dom;
@@ -63,8 +62,16 @@ main() async {
                 mdlComponent(element,null);
             } on String catch(e) {
 
+                // mdl-formatter comes from MaterialButton#set value
+                //      void set value(final String value) {
+                //          if(value != null) {
+                //              _valueElement.text = MaterialFormatter.widget(element).format(value);
+                //          }
+                //      }
+
+
                 expect(e,"button is not a MdlComponent!!! (ID: button-to-downgrade, "
-                    "Classes: mdl-button mdl-downgraded, Dataset: null)");
+                    "Classes: mdl-button mdl-formatter mdl-downgraded, Dataset: null)");
 
                 foundException = true;
             }

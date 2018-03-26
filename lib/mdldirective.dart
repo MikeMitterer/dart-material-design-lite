@@ -28,7 +28,7 @@ import 'dart:collection';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 import 'package:l10n/l10n.dart';
 
 import 'package:mdl/mdlcore.dart';
@@ -55,7 +55,7 @@ part "src/directive/utils.dart";
 class MdlDirectiveModule extends di.Module {
   @override
   configure() {
-      register(ModelObserverFactory);
+      bind(ModelObserverFactory);
   }
 }
 final MdlDirectiveModule _directiveModule = new MdlDirectiveModule();

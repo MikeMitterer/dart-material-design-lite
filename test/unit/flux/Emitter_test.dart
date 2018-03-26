@@ -1,4 +1,4 @@
-@TestOn("content-shell")
+@TestOn("chrome")
 library test.unit.flux.emitter;
 
 import 'package:test/test.dart';

@@ -6,13 +6,18 @@ import 'package:mdl_grinder/grinder.dart' as mdl;
 
 main(final List<String> args) => grind(args);
 
+@DefaultTask('Shows this help-info')
+showHelp() {
+    run("grind", arguments: [ "--help"]);
+}
+
 @Task()
 @Depends(genCss, genThemes, test)
 build() {
 }
 
 @Task()
-@Depends(analyze)
+//@Depends(analyze)
 test() {
     new TestRunner().testAsync(files: "test/unit");
     new TestRunner().testAsync(files: "test/visual");

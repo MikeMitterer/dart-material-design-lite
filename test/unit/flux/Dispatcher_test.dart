@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-@TestOn("content-shell")
+@TestOn("chrome")
 import 'package:test/test.dart';
 
 import "package:mdl/mdl.dart";

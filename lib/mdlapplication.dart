@@ -30,7 +30,7 @@ import 'dart:js';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 import 'package:route_hierarchical/client.dart';
 
@@ -70,18 +70,18 @@ part "src/application/Utils.dart";
 class MdlModule extends di.Module {
 
     configure() {
-        register(MaterialApplication);
+        bind(MaterialApplication);
 
-        register(DomRenderer);
-        register(EventCompiler);
+        bind(DomRenderer);
+        bind(EventCompiler);
 
         // Removed 2017.11.9 - because injection should'nt be necessary with ViewFactory
         // More infos: [ViewFactory]
         // register(ViewFactory);
-        register(RootScope);
+        bind(RootScope);
 
-        register(ActionBus).toType(ActionBusImpl);
-        register(DataStore).toType(FireOnlyDataStore);
+        bind(ActionBus).toType(ActionBusImpl);
+        bind(DataStore).toType(FireOnlyDataStore);
     }
 }
 

@@ -17,20 +17,20 @@
  * limitations under the License.
  */
 
-@TestOn("content-shell")
+@TestOn("chrome")
 import 'package:test/test.dart';
 
 import 'dart:html' as dom;
 
 import "package:mdl/mdl.dart";
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 import '../config.dart';
 
 class MdlTestModule extends di.Module {
 
     configure() {
-        register(MaterialApplication);
+        bind(MaterialApplication);
     }
 }
 
