@@ -25,6 +25,8 @@ import 'dart:html' as dom;
 import "package:mdl/mdl.dart";
 import 'package:dryice/dryice.dart' as di;
 
+//import "package:console_log_handler/console_log_handler.dart";
+
 import '../config.dart';
 
 class MdlTestModule extends di.Module {
@@ -36,7 +38,7 @@ class MdlTestModule extends di.Module {
 
 main() {
     // final Logger _logger = new Logger("test.CoreUtils");
-    configLogging();
+    // configLogging();
 
     final dom.DivElement div = new dom.DivElement();
 

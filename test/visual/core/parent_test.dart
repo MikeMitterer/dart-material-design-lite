@@ -30,7 +30,7 @@ import '../config.dart';
 /// Search next MDL-Parent in MDL-Component-Tree
 main() async {
     // final Logger _logger = new Logger("test.Parent");
-    configLogging();
+    // configLogging();
 
     registerMdl();
     await initComponents();

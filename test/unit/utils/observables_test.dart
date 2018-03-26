@@ -23,8 +23,7 @@ import 'package:test/test.dart';
 import "package:mdl/mdl.dart";
 import "package:mdl/mdlobservable.dart";
 import 'package:logging/logging.dart';
-
-import '../config.dart';
+import 'package:console_log_handler/console_log_handler.dart';
 
 main() {
     final Logger _logger = new Logger("mdl.unit.test.Observables");

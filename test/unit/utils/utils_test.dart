@@ -23,11 +23,9 @@ import 'package:test/test.dart';
 
 import "package:mdl/mdlutils.dart";
 
-import '../config.dart';
-
 main() {
     // final Logger _logger = new Logger("test.DataAttribute");
-    configLogging();
+    // configLogging();
 
     group('DataAttribute', () {
         setUp(() { });

@@ -13,7 +13,7 @@ import 'package:mdl/mdlmock.dart' as mdlmock;
 
 import '../config.dart';
 
-@MdlComponentModel
+@Component
 class TestComponent extends MdlTemplateComponent {
     static const String WIDGET_SELECTOR = "test-component";
 
@@ -59,8 +59,8 @@ void registerTestComponent() {
 
 main() async {
     //final Logger _logger = new Logger("test.TemplateRenderer");
+    // configLogging();
 
-    configLogging();
     final DomRenderer renderer = new DomRenderer();
 
     group('TemplateRenderer', () {

@@ -28,7 +28,7 @@ import 'package:mdl/mdl.dart';
 import '../config.dart';
 
 main() async {
-    configLogging();
+    // configLogging();
 
     registerMdl();
     await initComponents();

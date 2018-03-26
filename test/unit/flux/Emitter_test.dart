@@ -16,8 +16,7 @@ class MyEmitter extends Emitter {
 
 main() async {
     // final Logger _logger = new Logger("test.Emitter");
-    
-    configLogging();
+    // configLogging();
 
     final MyEmitter emitter = new MyEmitter();
 

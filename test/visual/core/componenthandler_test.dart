@@ -28,7 +28,7 @@ import '../config.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.Progress");
-    configLogging();
+    // configLogging();
 
     registerMdl();
     await initComponents();

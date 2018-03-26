@@ -9,7 +9,7 @@ import 'package:dryice/dryice.dart' as di;
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlmock.dart' as mdlmock;
 
-//import 'package:logging/logging.dart';
+import "package:console_log_handler/console_log_handler.dart";
 
 import '../config.dart';
 

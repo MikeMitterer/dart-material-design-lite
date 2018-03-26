@@ -11,8 +11,7 @@ import '../../config.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.Formatter.Button");
-    
-    configLogging();
+    // configLogging();
 
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();

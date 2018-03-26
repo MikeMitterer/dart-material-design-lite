@@ -54,7 +54,7 @@ class MockModule2 extends di.Module {
 main() async {
     // final Logger _logger = new Logger("test.Mock");
     
-    configLogging();
+    // configLogging();
 
     group('Injection', () {
         setUp(() {

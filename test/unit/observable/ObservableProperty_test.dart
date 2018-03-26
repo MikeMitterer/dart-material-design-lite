@@ -11,7 +11,7 @@ import '../config.dart';
 main() async {
     // final Logger _logger = new Logger("test.ObservableProperty");
     
-    configLogging();
+    // configLogging();
     //await saveDefaultCredentials();
 
 

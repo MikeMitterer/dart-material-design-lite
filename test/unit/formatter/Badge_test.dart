@@ -12,7 +12,7 @@ import '../config.dart';
 main() async {
     // final Logger _logger = new Logger("test.Formatter.Badge");
     
-    configLogging();
+    // configLogging();
 
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();

@@ -37,7 +37,7 @@ class TestSignal extends Action {
 
 main() {
     // final Logger _logger = new Logger("test.ActionBus");
-    configLogging();
+    // configLogging();
 
     group('ActionBus', () {
 

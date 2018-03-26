@@ -29,7 +29,7 @@ import '../config.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.IconToggle");
-    configLogging();
+    // configLogging();
 
     registerMdl();
     await initComponents();

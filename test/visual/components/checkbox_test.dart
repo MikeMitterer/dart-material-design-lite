@@ -29,7 +29,7 @@ import '../config.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.Checkbox");
-    configLogging();
+    // configLogging();
 
     registerMdl();
     await initComponents();

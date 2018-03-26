@@ -23,7 +23,6 @@ import 'dart:async';
 
 import 'package:mdl/mdl.dart';
 import 'package:logging/logging.dart';
-import 'package:logging_handlers/logging_handlers_shared.dart';
 
 /*
  * Two ways to run these tests
@@ -42,15 +41,6 @@ import 'package:logging_handlers/logging_handlers_shared.dart';
  *
  *      pub run test -p content-shell test/visual/test.dart
  */
-
-void configLogging() {
-    //hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogPrintHandler());
-}
 
 Future initComponents() async {
     final Logger _logger = new Logger('mdl.test.visual.config.initComponents');

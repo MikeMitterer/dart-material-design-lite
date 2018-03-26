@@ -57,7 +57,7 @@ class MyComponent {
 
 main() {
     // final Logger _logger = new Logger("test.Dispatcher");
-    configLogging();
+    // configLogging();
 
     group('Dispatcher', () {
         final ActionBus actionbus = new ActionBus();
