@@ -1,6 +1,11 @@
 # Change Log for mdl
 Material Design Lite for Dart
 
+## [Unreleased](http://github.com/mikemitterer/dart-material-design-lite/compare/v2.2...HEAD)
+
+### Refactor
+* Removed unnecessary logging_handler-dependency [ba2b3fdb](https://github.com/mikemitterer/dart-material-design-lite/commit/ba2b3fdb02c75e377cc638b31966588be58c12dc)
+
 ## [v2.2](http://github.com/mikemitterer/dart-material-design-lite/compare/v2.1.4...v2.2) - 2018-03-26
 
 ### Feature
