@@ -37,15 +37,23 @@ class ModelObserverFactory {
         Type type = null;
         MdlComponent component;
 
+        _logger.info("CL ${components.length}/${components.first.runtimeType}");
         if(components.length == 0) {
             throw new ArgumentError("${element} cannot be observed. This is not a MdlComponent! Type: ${type}");
 
-        } else if(components.length == 1) {
+        }
+        // Element is probably a div or a span
+        else if(components.length == 1 && components.first.runtimeType == MaterialModel) {
+            component = components.first;
             type = component.runtimeType;
             if(_builders.containsKey(type)) {
                 component = components.first;
             }
-        } else {
+        }
+        // Take first MDL-Component that is not a MaterialModel
+        else {
+            _logger.info("IST in ELSE");
+            
             // Model has lowest priority if multiple components defined
             MaterialModel model;
 
@@ -68,7 +76,17 @@ class ModelObserverFactory {
         }
 
         if(component == null) {
-            throw new ArgumentError("${element} cannot be observed. This is not an observable type! (${type})");
+            final attributes = new List<String>();
+            element.attributes.forEach((key,value) => attributes.add("$key:$value"));
+
+            String classes = element.classes.join(", ");
+
+            throw new ArgumentError(
+                "${element} cannot be observed. This is not an observable type! Maybe you want to use 'mdl-observe'?\n"
+                "    Type: ${type},\n"
+                "    Attributes: ${attributes.join(", ")},\n"
+                "    Classes: ${classes}"
+            );
         }
 
         return _builders[type](component);
