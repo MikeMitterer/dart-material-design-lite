@@ -18,6 +18,33 @@
  */
 part of mdldirective;
 
+/// Usage (HTML):
+///
+///      <div class="mdl-textfield">
+///             <input class="mdl-textfield__input" type="text" id="sample1" mdl-model="modelTest.minimodel"/>
+///            <label class="mdl-textfield__label" for="sample1">Type Something...</label>
+///      </div>
+///      
+/// Usage (Dart):
+///
+///     @Model
+///     class ModelTest {
+///         final ObservableProperty<String> minimodel = new ObservableProperty<String>("test");
+///     }
+///
+///     @Model
+///     class Application extends MaterialApplication {
+///         final ModelTest modelTest = new ModelTest();
+///     }
+///
+///     main() async {
+///         registerMdl();
+///
+///         final MaterialApplication application = await componentFactory().
+///         rootContext(Application).run(enableVisualDebugging: true);
+///
+///         application.run();
+///     }
 @Component
 class MaterialModel extends MdlComponent implements RefreshableComponent {
     final Logger _logger = new Logger('mdldirective.MaterialModel');

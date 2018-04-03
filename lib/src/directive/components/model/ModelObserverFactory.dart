@@ -37,7 +37,6 @@ class ModelObserverFactory {
         Type type = null;
         MdlComponent component;
 
-        _logger.info("CL ${components.length}/${components.first.runtimeType}");
         if(components.length == 0) {
             throw new ArgumentError("${element} cannot be observed. This is not a MdlComponent! Type: ${type}");
 
@@ -52,8 +51,6 @@ class ModelObserverFactory {
         }
         // Take first MDL-Component that is not a MaterialModel
         else {
-            _logger.info("IST in ELSE");
-            
             // Model has lowest priority if multiple components defined
             MaterialModel model;
 

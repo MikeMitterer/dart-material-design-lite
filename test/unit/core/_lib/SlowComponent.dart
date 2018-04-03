@@ -37,7 +37,7 @@ class SlowComponentModule  extends di.Module {
 /// Controller-View for <test-component></test-component>
 ///
 /// Use this Component to test slow rendering
-@MdlComponentModel
+@Model
 class SlowComponent extends MdlTemplateComponent {
     /// Make rendering really! slow
     static const Duration RENDER_DELAY = const Duration(milliseconds: 400);

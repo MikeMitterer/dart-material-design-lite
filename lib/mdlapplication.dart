@@ -70,7 +70,7 @@ part "src/application/Utils.dart";
 class MdlModule extends di.Module {
 
     configure() {
-        bind(MaterialApplication);
+        bind(MaterialApplication).asSingleton();
 
         bind(DomRenderer);
         bind(EventCompiler);
@@ -78,6 +78,7 @@ class MdlModule extends di.Module {
         // Removed 2017.11.9 - because injection should'nt be necessary with ViewFactory
         // More infos: [ViewFactory]
         // register(ViewFactory);
+
         bind(RootScope);
 
         bind(ActionBus).toType(ActionBusImpl);
@@ -94,9 +95,5 @@ void registerApplicationComponents() {
     registerMaterialContent();
     registerMaterialInclude();
 
-    void _addModule() {
-        componentHandler().addModule(_mdlmodule);
-    }
-
-    _addModule();
+    componentHandler().addModule(_mdlmodule);
 }

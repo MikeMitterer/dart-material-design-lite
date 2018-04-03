@@ -23,8 +23,8 @@ test() {
     new TestRunner().testAsync(files: "test/visual");
 
     // Alle test mit @TestOn("content-shell") im header
-    new TestRunner().test(files: "test/unit",platformSelector: "content-shell");
-    new TestRunner().test(files: "test/visual",platformSelector: "content-shell");
+    new TestRunner().test(files: "test/unit",platformSelector: "chrome");
+    new TestRunner().test(files: "test/visual",platformSelector: "chrome");
 }
 
 @Task()

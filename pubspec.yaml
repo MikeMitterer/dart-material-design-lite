@@ -25,8 +25,7 @@ dependencies:
   dnd: ^0.3.0
 
   dryice: ^1.8.0
-    # path: /Volumes/Daten/DevLocal/DevDart/dice
-    
+
   barback: ^0.15.0
 
   path: ^1.4.0

@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 // import 'package:logging/logging.dart';
 import 'package:mdl/mdlobservable.dart';
 
-import '../config.dart';
+//import '../config.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.ObservableProperty");

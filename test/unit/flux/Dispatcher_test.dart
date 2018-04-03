@@ -23,7 +23,7 @@ import 'package:test/test.dart';
 import "package:mdl/mdl.dart";
 import "package:mdl/mdlflux.dart";
 
-import '../config.dart';
+//import '../config.dart';
 
 class TestDataStore extends Dispatcher implements TestDataStoreInterface {
 

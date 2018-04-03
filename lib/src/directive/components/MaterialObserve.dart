@@ -91,7 +91,10 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
                 final ObservableProperty prop = val;
 
                 _setValue(prop.value);
-                prop.onChange.listen( (final PropertyChangeEvent event) => _setValue(event.value));
+
+                eventStreams.add(
+                    prop.onChange.listen( (final PropertyChangeEvent event) => _setValue(event.value))
+                );
 
             } else {
 

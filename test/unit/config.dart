@@ -22,9 +22,11 @@ library mdl.test.unit.config;
 import 'dart:async';
 import "package:mdl/mdl.dart";
 
-Future prepareMdlTest(Future additionalRegistration()) async {
+Future prepareMdlTest(Future additionalRegistrations()) async {
     registerApplicationComponents();
-    await additionalRegistration();
+
+    await additionalRegistrations();
+
     await componentHandler().run();
 }
 
