@@ -30,7 +30,8 @@ dependencies:
 
   path: ^1.4.0
 
-  l10n: ^1.0.0
+
+  l10n: ">=1.2.7 <2.0.0"
     # path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
 
 dev_dependencies:
