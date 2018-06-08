@@ -63,7 +63,7 @@ class StringToFunction {
     // from the above sample this would be: check
     String get functionAsString => _match.group(1);
 
-    List get params {
+    List<String> get params {
         final List _params = new List();
 
         // first group is function name, second - params

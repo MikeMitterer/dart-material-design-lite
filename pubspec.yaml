@@ -8,46 +8,49 @@ environment:
   sdk: ">=1.8.0 <2.0.0"
 
 dependencies:
-  browser: ^0.10.0
-
   intl: ^0.15.0
   validate: ^1.0.0
   browser_detect: ^1.0.0
 
   logging: '>=0.11.3 <1.0.0'
-  console_log_handler: '>=0.5.0 <1.0.0'
+  console_log_handler: ^1.0.0
 
   route_hierarchical: ^0.7.0
 
-  mustache: ^0.2.0
+  mustache: # ^0.2.0
+    path: /Volumes/Daten/DevLocal/DevDart/mustache
     #git: git://github.com/xxgreg/mustache
 
   dnd: ^0.3.0
 
-  dryice: ^1.8.0
+  dryice: # ^2.0.0
+    path: /Volumes/Daten/DevLocal/DevDart/dryice
 
-  barback: ^0.15.0
 
   path: ^1.4.0
 
-
-  l10n: ">=1.2.7 <2.0.0"
-    # path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
+  l10n: #">=1.2.7 <2.0.0"
+    path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
 
 dev_dependencies:
   test: any
+
+  build_runner: ^0.8.0
+  build_test: ^0.10.0
+  build_web_compilers: ^0.4.0
+    
   args: any
   material_icons: any
   grinder: any
   mdl_grinder:
-    git: https://github.com/MikeMitterer/dart-mdl-grinder
-    # path: /Volumes/Daten/DevLocal/DevDart/MaterialGrinder
+    # git: https://github.com/MikeMitterer/dart-mdl-grinder
+    path: /Volumes/Daten/DevLocal/DevDart/MaterialGrinder
 
-transformers:
-#  - di
-  - mdl
-
-  - $dart2js:
-      commandLineOptions: [--enable-experimental-mirrors]
+#transformers:
+##  - di
+#  - mdl
+#
+#  - $dart2js:
+#      commandLineOptions: [--enable-experimental-mirrors]
 
 

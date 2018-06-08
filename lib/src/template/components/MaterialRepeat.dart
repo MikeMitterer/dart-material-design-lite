@@ -69,7 +69,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     String _template = "<div>not set</div>";
 
     /// {_items} holds all the items to render
-    final List _items = new List();
+    final List<Map<String, dynamic>> _items = new List();
 
     /// Checks if Component is fully initialized
     bool _initialized = false;

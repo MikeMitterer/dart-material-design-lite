@@ -35,7 +35,7 @@ class Invoke {
         final Symbol myFunction = stringToFunction.function;
 
         final List params = new List();
-        stringToFunction.params.forEach((final String paramName) {
+        stringToFunction.params.forEach( (final String paramName) {
             //_logger.info("Param: $paramName");
 
             if(varsToReplace.containsKey(paramName)) {
