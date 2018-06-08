@@ -33,7 +33,7 @@ class MaterialMustache extends MdlComponent {
 
     String _template = "";
 
-    MaterialMustache.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialMustache.fromElement(final dom.HtmlElement element,final Injector injector)
         : _renderer = injector.getInstance(DomRenderer), super(element,injector) {
         _init();
     }
@@ -65,7 +65,7 @@ class MaterialMustache extends MdlComponent {
 
 /// creates MdlConfig for MaterialMustache
 MdlConfig materialMustacheConfig() => new MdlWidgetConfig<MaterialMustache>(
-    _MaterialMustacheCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialMustacheCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
     => new MaterialMustache.fromElement(element,injector));
 
 /// registration-Helper

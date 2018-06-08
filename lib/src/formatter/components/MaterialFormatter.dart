@@ -44,7 +44,7 @@ class MaterialFormatter extends MdlComponent {
     /// Like Unix Pipe for formatters
     FormatterPipeline _lazyPipe;
 
-    MaterialFormatter.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialFormatter.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         
         _init();
@@ -98,7 +98,7 @@ class MaterialDummyFormatter extends MaterialFormatter {
 
     static const _MaterialFormatterCssClasses _cssClasses = const _MaterialFormatterCssClasses();
 
-    MaterialDummyFormatter(final dom.HtmlElement element,final di.Injector injector)
+    MaterialDummyFormatter(final dom.HtmlElement element,final Injector injector)
         : super.fromElement(element,injector);
 
     @override
@@ -125,7 +125,7 @@ class MaterialDummyFormatter extends MaterialFormatter {
 void registerMaterialFormatter() {
     final MdlConfig config = new MdlConfig<MaterialFormatter>(
         _MaterialFormatterConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialFormatter.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialFormatter.fromElement(element,injector)
     );
 
     // Register this component before MaterialWidget so that we can kick in this

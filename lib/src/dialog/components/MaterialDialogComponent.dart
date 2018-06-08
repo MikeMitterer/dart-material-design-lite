@@ -50,7 +50,7 @@ class _MaterialDialogComponent extends MdlComponent implements ScopeAware, HasDy
 
     Scope _scope;
 
-    _MaterialDialogComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    _MaterialDialogComponent.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
 
         _scope = new Scope(this, mdlParentScope(this));
@@ -104,7 +104,7 @@ class _MaterialDialogComponent extends MdlComponent implements ScopeAware, HasDy
 void _registerMaterialDialogComponent() {
     final MdlConfig config = new MdlWidgetConfig<_MaterialDialogComponent>(
         _MaterialDialogComponentConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new _MaterialDialogComponent.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new _MaterialDialogComponent.fromElement(element,injector)
     );
     
     // If you want <mdl-dialog></mdl-dialog> set selectorType to SelectorType.TAG.

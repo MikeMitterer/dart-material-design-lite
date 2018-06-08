@@ -52,7 +52,7 @@ class DataStoreChangedEvent<T extends Action> {
 ///     class MyComponent {
 ///         final MyComponentStore _store;
 ///         
-///         MyComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+///         MyComponent.fromElement(final dom.HtmlElement element,final Injector injector)
 ///             : super(element,injector), _store = injector.getInstance(MyComponentStore) {
 ///             _init();
 ///         }
@@ -71,7 +71,7 @@ class DataStoreChangedEvent<T extends Action> {
 ///             _store.fire(const ActivateSomething());
 ///         }
 ///     }
-@di.injectable
+@inject
 abstract class DataStore extends Emitter {
 
     void fire(final Action action);
@@ -86,7 +86,7 @@ abstract class DataStore extends Emitter {
 ///     class MyComponent {
 ///         final DataStore _store;
 ///
-///         MyComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+///         MyComponent.fromElement(final dom.HtmlElement element,final Injector injector)
 ///             : super(element,injector), _store = injector.getInstance(DataStore) {
 ///             _init();
 ///         }
@@ -101,7 +101,7 @@ abstract class DataStore extends Emitter {
 ///     }
 ///     
 ///     mdlapplication.dart: (already done for you)
-///     class MdlModule extends di.Module {
+///     class MdlModule extends Module {
 ///         MdlModule() {
 ///             ...
 ///             bind(ActionBus, toImplementation: ActionBusImpl);
@@ -109,11 +109,11 @@ abstract class DataStore extends Emitter {
 ///         }
 ///     }
 ///
-@di.injectable
+@inject
 class FireOnlyDataStore extends DataStore {
     final ActionBus _actionbus;
 
-    @di.inject
+    @inject
     FireOnlyDataStore(this._actionbus) {
         Validate.notNull(_actionbus);
     }

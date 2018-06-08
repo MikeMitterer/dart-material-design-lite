@@ -50,7 +50,7 @@ class _MaterialSliderConstant {
 
 /// creates MdlConfig for MaterialSlider
 MdlConfig materialSliderConfig() => new MdlWidgetConfig<MaterialSlider>(
-    _MaterialSliderCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialSliderCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
     => new MaterialSlider.fromElement(element,injector));
 
 /// registration-Helper
@@ -63,12 +63,12 @@ class MaterialSlider extends MdlComponent {
     static const _MaterialSliderCssClasses _cssClasses = const _MaterialSliderCssClasses();
 
     // Browser feature detection.
-    final bool _isIE = browser.isIe;
+    final bool _isIE = browser.isInternetExplorer;
 
     dom.DivElement _backgroundLower = null;
     dom.DivElement _backgroundUpper = null;
 
-    MaterialSlider.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialSlider.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }

@@ -71,7 +71,7 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
 
     var _consumedData;
 
-    MaterialDraggable.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialDraggable.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         
         _init();
@@ -138,7 +138,7 @@ class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
 void registerMaterialDraggable() {
     final MdlConfig config = new MdlConfig<MaterialDraggable>(
         _MaterialDraggableConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialDraggable.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialDraggable.fromElement(element,injector)
     );
 
     config.selectorType = SelectorType.TAG;

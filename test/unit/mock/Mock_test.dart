@@ -2,7 +2,7 @@
 import 'dart:async';
 import 'package:test/test.dart';
 
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 import 'package:mdl/mdlmock.dart' as mdlmock;
 
 // import 'package:logging/logging.dart';
@@ -11,7 +11,7 @@ import '../config.dart';
 
 typedef String TestCallback(final String name);
 
-@di.injectable
+@inject
 class SimpleService {
     String get name => "simple";
 
@@ -39,13 +39,13 @@ class AnotherMockedService extends SimpleService {
     }
 }
 
-class MockModule extends di.Module {
+class MockModule extends Module {
     configure() {
         register(SimpleService);
     }
 }
 
-class MockModule2 extends di.Module {
+class MockModule2 extends Module {
     configure() {
         register(SimpleService).toType(MockedService);
     }

@@ -29,7 +29,7 @@ abstract class MaterialController {
      *          controller.loaded(event.route);
      *      });
      */
-    di.Injector injector;
+    Injector injector;
 
     /// [loaded] is called after [ViewFactory] received the onLoadEnd-Event
     ///

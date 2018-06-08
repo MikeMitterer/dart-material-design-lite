@@ -26,7 +26,7 @@
 ///         setUp( () {
 ///
 ///             mdlmock.setUpInjector();
-///             mdlmock.module((final di.Module module) {
+///             mdlmock.module((final Module module) {
 ///                 module.bind(SignalService, toImplementation: SignalServiceImpl);
 ///                 module.bind(Translator, toValue: _translator);
 ///         });
@@ -38,7 +38,9 @@ library mdlmock;
 
 //import 'package:validate/validate.dart';
 
-import 'dart:mirrors';
+//import 'dart:mirrors';
+
+import 'package:reflectable/reflectable.dart';
 import 'package:dryice/dryice.dart' as di;
 
 import 'package:mdl/mdlapplication.dart';
@@ -61,7 +63,7 @@ class _MdlInjector {
     inject(final Function function) {
         _create();
 
-        final ClosureMirror cm = reflect(function);
+        final ClosureMirror cm = di.inject.reflect(function);
         final MethodMirror mm = cm.function;
 
         final List args = mm.parameters.map( (final ParameterMirror parameter) {
@@ -72,7 +74,7 @@ class _MdlInjector {
 
         }).toList();
 
-        return cm.apply(args).reflectee;
+        return cm.apply(args);
     }
 
     // - private -------------------------------------------------------------------------------------------------------
@@ -125,7 +127,7 @@ void tearDownInjector() {
 ///
 ///     setUp(() {
 ///         mdlmock.setUpInjector();
-///         mdlmock.module((final di.Module module) {
+///         mdlmock.module((final Module module) {
 ///             module.bind(SignalService, toImplementation: SignalServiceImpl);
 ///             module.bind(Translator, toValue: _translator);
 ///         });

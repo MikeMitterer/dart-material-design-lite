@@ -4,7 +4,7 @@ library test.unit.core.mdlcomponent;
 import 'dart:async';
 import 'dart:html' as dom;
 import 'package:test/test.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlmock.dart' as mdlmock;
@@ -12,12 +12,14 @@ import 'package:mdl/mdlmock.dart' as mdlmock;
 import "package:console_log_handler/console_log_handler.dart";
 
 import '../config.dart';
+import 'MdlComponent_test.reflectable.dart';
 
 part '_lib/SlowComponent.dart';
 
 main() async {
     //final Logger _logger = new Logger("test.MdlComponent");
-    
+
+    initializeReflectable();
     configLogging();
 
     final DomRenderer renderer = new DomRenderer();

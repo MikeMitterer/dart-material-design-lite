@@ -57,7 +57,7 @@ class MaterialTabs extends MdlComponent {
 
     StreamController<MaterialTabsChangedEvent> _onChange;
 
-    MaterialTabs.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialTabs.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }
@@ -190,7 +190,7 @@ class _MaterialTab {
 
 /// creates MdlConfig for MaterialTabs
 MdlConfig materialTabsConfig() => new MdlWidgetConfig<MaterialTabs>(
-    _MaterialTabsCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialTabsCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
 => new MaterialTabs.fromElement(element,injector));
 
 /// registration-Helper

@@ -36,7 +36,7 @@ class MaterialRadio extends MdlComponent with FallbackFormatter {
 
     dom.RadioButtonInputElement _btnElement = null;
 
-    MaterialRadio.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialRadio.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }
@@ -308,7 +308,7 @@ class MaterialRadioGroup extends MdlComponent {
 
     StreamController<MaterialRadioGroupChangedEvent> _onGroupChange;
 
-    MaterialRadioGroup.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialRadioGroup.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }
@@ -386,7 +386,7 @@ class MaterialRadioGroup extends MdlComponent {
 
 /// creates MdlConfig for MaterialRadio
 MdlConfig materialRadioConfig() => new MdlWidgetConfig<MaterialRadio>(
-    _MaterialRadioCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialRadioCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
 => new MaterialRadio.fromElement(element,injector));
 
 /// registration-Helper
@@ -394,7 +394,7 @@ void registerMaterialRadio() => componentHandler().register(materialRadioConfig(
 
 /// creates MdlConfig for MaterialRadio
 MdlConfig materialRadioGroupConfig() => new MdlWidgetConfig<MaterialRadioGroup>(
-    _MaterialRadioCssClasses.GROUP_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialRadioCssClasses.GROUP_CLASS, (final dom.HtmlElement element,final Injector injector)
 => new MaterialRadioGroup.fromElement(element,injector));
 
 /// registration-Helper

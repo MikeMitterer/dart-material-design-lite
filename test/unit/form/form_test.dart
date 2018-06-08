@@ -25,12 +25,14 @@ import 'dart:html' as dom;
 import "package:mdl/mdl.dart";
 
 import '../config.dart';
-
+import 'form_test.reflectable.dart';
 
 main() {
     // final Logger _logger = new Logger("test.Form");
     // configLogging();
 
+    initializeReflectable();
+    
     final dom.FormElement form = new dom.FormElement();
 
     group('Form', () {

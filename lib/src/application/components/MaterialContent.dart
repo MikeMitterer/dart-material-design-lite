@@ -33,7 +33,7 @@ class _MaterialContentCssClasses {
 
 /// creates MdlConfig for MaterialContent
 MdlConfig materialContentConfig() => new MdlWidgetConfig<MaterialContent>(
-    _MaterialContentCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialContentCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
         => new MaterialContent.fromElement(element,injector));
 
 /// registration-Helper
@@ -91,7 +91,7 @@ class MaterialContent extends MdlComponent implements ScopeAware {
 
     Scope scope;
 
-    MaterialContent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialContent.fromElement(final dom.HtmlElement element,final Injector injector)
         : _renderer = injector.getInstance(DomRenderer), super(element,injector) {
     }
 

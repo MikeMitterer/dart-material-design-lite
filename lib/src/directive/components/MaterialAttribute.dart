@@ -38,7 +38,7 @@ part of mdldirective;
  *        <button class="mdl-button mdl-js-button mdl-ripple-effect" mdl-attribute="!checkAttribute : 'disabled' ">Submit</button>
  *    </div>
  *
- *    @di.injectable
+ *    @inject
  *    class Application extends MaterialApplication {
  *          ...
  *          final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);
@@ -54,7 +54,7 @@ class MaterialAttribute extends MdlComponent {
 
     bool _isElementAWidget = null;
 
-    MaterialAttribute.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialAttribute.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
     }
     
@@ -146,7 +146,7 @@ class MaterialAttribute extends MdlComponent {
 void registerMaterialAttribute() {
     final MdlConfig config = new MdlConfig<MaterialAttribute>(
         _MaterialAttributeConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialAttribute.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialAttribute.fromElement(element,injector)
     );
     
     // If you want <mdl-attribute></mdl-attribute> set selectorType to SelectorType.TAG.

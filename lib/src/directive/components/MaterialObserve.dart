@@ -41,7 +41,7 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
 
     Scope scope;
 
-    MaterialObserve.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialObserve.fromElement(final dom.HtmlElement element,final Injector injector)
         : _renderer = injector.getInstance(DomRenderer), _eventCompiler = injector.getInstance(EventCompiler),
             super(element,injector) {
     }
@@ -171,7 +171,7 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
 void registerMaterialObserve() {
     final MdlConfig config = new MdlConfig<MaterialObserve>(
         _MaterialObserveConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialObserve.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialObserve.fromElement(element,injector)
     );
     
     // if you want <mdl-property></mdl-property> set isSelectorAClassName to false.

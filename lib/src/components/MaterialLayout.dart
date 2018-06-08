@@ -84,7 +84,7 @@ class MaterialLayout extends MdlComponent {
     /// All the Tabs - necessary for downgrading
     final List<MaterialLayoutTab> _tabs = new List<MaterialLayoutTab>();
 
-    MaterialLayout.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialLayout.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }
@@ -626,7 +626,7 @@ class MaterialLayoutTab {
 
 /// creates MdlConfig for MaterialLayout
 MdlConfig materialLayoutConfig() => new MdlWidgetConfig<MaterialLayout>(
-    _MaterialLayoutCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialLayoutCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
 => new MaterialLayout.fromElement(element,injector));
 
 /// registration-Helper

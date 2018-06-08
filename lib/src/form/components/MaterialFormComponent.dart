@@ -20,12 +20,12 @@ part of mdlform;
  
 /// Basic DI configuration for this Component or Service
 /// Usage:
-///     class MainModule extends di.Module {
+///     class MainModule extends Module {
 ///         MainModule() {
 ///             install(new MaterialFormComponentModule());
 ///         }     
 ///     }
-class MaterialFormComponentModule  extends di.Module {
+class MaterialFormComponentModule  extends Module {
   @override
   configure() {
       // register(DeviceProxy);
@@ -97,7 +97,7 @@ class MaterialFormComponent extends MdlComponent {
 
     StreamController<FormChangedEvent> _onChange;
 
-    MaterialFormComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialFormComponent.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         
         _init();
@@ -270,7 +270,7 @@ class MaterialFormComponent extends MdlComponent {
 void registerMaterialFormComponent() {
     final MdlConfig config = new MdlWidgetConfig<MaterialFormComponent>(
         _MaterialFormComponentConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialFormComponent.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialFormComponent.fromElement(element,injector)
     );
     
     // If you want <mdl-form></mdl-form> set selectorType to SelectorType.TAG.

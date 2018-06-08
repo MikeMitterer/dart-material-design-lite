@@ -56,7 +56,7 @@ class MaterialModel extends MdlComponent implements RefreshableComponent {
     Scope _scope;
     final ModelObserverFactory _observerFactory;
 
-    MaterialModel.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialModel.fromElement(final dom.HtmlElement element,final Injector injector)
         : _observerFactory = injector.getInstance(ModelObserverFactory), super(element,injector) {
     }
 
@@ -124,7 +124,7 @@ class MaterialModel extends MdlComponent implements RefreshableComponent {
 void registerMaterialModel() {
     final MdlConfig config = new MdlConfig<MaterialModel>(
         _MaterialModelConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialModel.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialModel.fromElement(element,injector)
     );
     
     // If you want <mdl-model></mdl-model> set selectorType to SelectorType.TAG.

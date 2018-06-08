@@ -37,7 +37,7 @@ typedef void _DomRenderFunction();
  *  DomRenderer converts a String into HtmlNodes
  *
  */
-@di.injectable
+@inject
 class DomRenderer {
     final Logger _logger = new Logger('mdlapplication.DomRenderer');
 

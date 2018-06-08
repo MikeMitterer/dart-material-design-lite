@@ -28,7 +28,7 @@ class MaterialBadge extends MdlComponent {
     static const _MaterialBadgeConstant _constant = const _MaterialBadgeConstant();
     static const _MaterialBadgeCssClasses _cssClasses = const _MaterialBadgeCssClasses();
 
-    MaterialBadge.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialBadge.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }
@@ -73,7 +73,7 @@ void registerMaterialBadge() {
     /// creates MdlConfig for MaterialBadge
     final MdlConfig config = new MdlWidgetConfig<MaterialBadge>(
         _MaterialBadgeCssClasses.MAIN_CLASS,
-            (final dom.HtmlElement element,final di.Injector injector)
+            (final dom.HtmlElement element,final Injector injector)
                 => new MaterialBadge.fromElement(element,injector));
 
     // If you want <mdl-badge></mdl-badge> set selectorType to SelectorType.TAG.

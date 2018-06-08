@@ -42,7 +42,7 @@ abstract class MdlTemplateComponent extends MdlComponent implements TemplateComp
 
     Scope _scope;
 
-    MdlTemplateComponent(final dom.Element element,final di.Injector injector)
+    MdlTemplateComponent(final dom.Element element,final Injector injector)
       : super(element,injector) {
 
         Validate.notNull(element);

@@ -26,7 +26,7 @@ class MultipleWidgetException implements Exception {
     MultipleWidgetException([this.message]);
 }
 
-class _ApplicationModule extends di.Module {
+class _ApplicationModule extends Module {
   final Type _rootContext;
 
   _ApplicationModule(this._rootContext);
@@ -88,14 +88,14 @@ class MdlComponentHandler {
 
     final Map<String, MdlConfig> _registeredComponents = new HashMap<String, MdlConfig>();
 
-    final List<di.Module> _modules = new List<di.Module>();
+    final List<Module> _modules = new List<Module>();
 
     /// If set to true it
     bool _enableVisualDebugging = false;
 
     /// The injector for this module.
     /// Can also set via [mockComponentHandler]
-    di.Injector _injector;
+    Injector _injector;
 
     /**
      * Registers a class for future use and attempts to upgrade existing DOM.
@@ -136,7 +136,7 @@ class MdlComponentHandler {
 
 
     /// Upgrades all children for {element} and returns the current Injector
-    Future<di.Injector> upgradeElement(final dom.HtmlElement element) {
+    Future<Injector> upgradeElement(final dom.HtmlElement element) {
         Validate.notNull(_injector,"Injector must not be null - did you call run?");
         Validate.notNull(element,"Component must not be null!");
 
@@ -144,7 +144,7 @@ class MdlComponentHandler {
     }
 
     /// Upgrades a specific list of elements rather than all in the DOM.
-    Future<di.Injector> upgradeElements(final List<dom.HtmlElement> elements) {
+    Future<Injector> upgradeElements(final List<dom.HtmlElement> elements) {
         Validate.notNull(_injector,"Injector must not be null - did you call run?");
         Validate.notNull(elements,"List of elements must not be null!");
 
@@ -153,7 +153,7 @@ class MdlComponentHandler {
             ..classes.add(_cssClasses.HTML_DART)
             ..classes.remove(_cssClasses.UPGRADED);
 
-            final Future<di.Injector> future = new Future<di.Injector>( () {
+            final Future<Injector> future = new Future<Injector>( () {
 
                 elements.forEach((final dom.HtmlElement element) {
 
@@ -238,7 +238,7 @@ class MdlComponentHandler {
         final dom.Element body = dom.querySelector("body");
 
         _enableVisualDebugging = enableVisualDebugging;
-        //_modules.add(new di.Module()..bind(DomRenderer));
+        //_modules.add(new Module()..bind(DomRenderer));
 
         _injector = _createInjector();
 
@@ -251,7 +251,7 @@ class MdlComponentHandler {
      * In most cases this is your AppController
      *
      * Sample:
-     *        @di.injectable
+     *        @inject
      *        class AppController {
      *
      *        }
@@ -259,7 +259,7 @@ class MdlComponentHandler {
      *        main() {
      *        registerMdl();
      *
-     *        componentFactory().rootContext(AppController).run().then( (final di.Injector injector) {
+     *        componentFactory().rootContext(AppController).run().then( (final Injector injector) {
      *                  new AppController();
      *              });
      *        }
@@ -270,7 +270,7 @@ class MdlComponentHandler {
     }
 
     /// Add your App-specific modules
-    MdlComponentHandler addModule(final di.Module module) {
+    MdlComponentHandler addModule(final Module module) {
         if(_modules.indexOf(module) == -1) {
             _modules.add(module);
         }
@@ -278,7 +278,7 @@ class MdlComponentHandler {
     }
 
     /// Returns the injector for this module.
-    di.Injector get injector {
+    Injector get injector {
         if(_injector == null) {
             _injector = _createInjector();
         }
@@ -290,7 +290,7 @@ class MdlComponentHandler {
      *
      * Define it like this:
      *
-     *     @di.injectable
+     *     @inject
      *     class Application extends MaterialApplication {
      *         Application() { }
      *
@@ -508,8 +508,8 @@ class MdlComponentHandler {
      * Creates an injector function that can be used for retrieving services as well as for
      * dependency injection.
      */
-    di.Injector _createInjector() {
-        return new di.Injector.fromModules(_modules);
+    Injector _createInjector() {
+        return new Injector.fromModules(_modules);
     }
 
     /// Downgrades the given {element} with all it's components

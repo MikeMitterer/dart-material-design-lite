@@ -20,7 +20,7 @@
 part of mdlflux;
 
 /// Main-Class for sending [Action]s
-@di.injectable
+@inject
 abstract class ActionBus {
 
     void fire(final Action action);

@@ -21,7 +21,7 @@ library mdldnd;
 
 import 'dart:html' as dom;
 import 'package:logging/logging.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 import 'package:validate/validate.dart';
 
 import 'package:dnd/dnd.dart';

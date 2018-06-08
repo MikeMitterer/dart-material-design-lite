@@ -19,10 +19,10 @@
 
 library mdlapplication;
 
-@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ],
-targets: const [ 'List' ],
-symbols: const [ '[]' ])
-import 'dart:mirrors';
+//@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ],
+//targets: const [ 'List' ],
+//symbols: const [ '[]' ])
+//import 'dart:mirrors';
 
 import 'dart:html' as dom;
 import 'dart:async';
@@ -30,9 +30,11 @@ import 'dart:js';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
-import 'package:dryice/dryice.dart' as di;
 
-import 'package:route_hierarchical/client.dart';
+import 'package:reflectable/reflectable.dart';
+import 'package:dryice/dryice.dart';
+
+import 'package:angel_route/angel_route.dart';
 
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponents.dart";
@@ -67,7 +69,7 @@ part "src/application/Utils.dart";
  *          });
  *      }
  */
-class MdlModule extends di.Module {
+class MdlModule extends Module {
 
     configure() {
         bind(MaterialApplication).asSingleton();

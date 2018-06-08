@@ -24,7 +24,7 @@ abstract class MdlComponent extends Object with MdlEventListener {
 
     /**
      * If you want to you DI define your bindings like this:
-     *      class StyleguideModule extends di.Module {
+     *      class StyleguideModule extends Module {
      *          StyleguideModule() {
      *              bind( Model,toValue: new Model() );
      *          }
@@ -33,13 +33,13 @@ abstract class MdlComponent extends Object with MdlEventListener {
      * and use it like the following sample: (in main method)
      *
      *     componentFactory().addModule(new StyleguideModule())
-     *          .run().then(( final di.Injector injector) {
+     *          .run().then(( final Injector injector) {
      *               final Model model = injector.getInstance(Model);
      *         });
      *      });
      *
      */
-    final di.Injector injector;
+    final Injector injector;
 
     /// This is the element witch has the mdl-js- class
     final dom.Element element;

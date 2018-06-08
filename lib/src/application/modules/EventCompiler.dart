@@ -26,7 +26,7 @@ typedef _EventHandler(final dom.Element element,invoke(final dom.Event event));
  *
  * Needed in mdltemplatecomponents!
  */
-@di.injectable
+@inject
 class EventCompiler {
     static final Logger _logger = new Logger('mdlapplication.EventCompiler');
 
@@ -98,7 +98,7 @@ class EventCompiler {
      */
     Future compileElement(final Object scope,final dom.Element element) async {
 
-        final InstanceMirror myClassInstanceMirror = reflect(scope);
+        final InstanceMirror myClassInstanceMirror = inject.reflect(scope);
 
         datasets.keys.forEach((final String dataset) {
 
@@ -123,7 +123,9 @@ class EventCompiler {
                 // from the above sample this would be: check
                 Symbol getFunctionName() => new Symbol(match.group(1));
 
-                List getParams() {
+                String getFunctionNameAsString() => match.group(1);
+
+               ; List getParams() {
                     final List params = new List();
 
                     // first group is function name, second - params
@@ -139,7 +141,7 @@ class EventCompiler {
                 // If, e.g. dataset is 'mdl-click', it calls _onClick(element,() { ... });
                 datasets[dataset](element,(final dom.Event event) {
                     //_logger.info("Compiled ${datasets[dataset]} for $element...");
-                    _invokeFunction(myClassInstanceMirror,getFunctionName(),getParams(),event);
+                    _invokeFunction(myClassInstanceMirror,getFunctionNameAsString(),getParams(),event);
                 });
             });
 
@@ -163,7 +165,7 @@ class EventCompiler {
 
     /// Calls the defined function. If there is a $event param defined for the function it will be replace
     /// with {event}. If no $event param is defined then preventDefault and stopPropagation is called on this {event}
-    void _invokeFunction(final InstanceMirror myClassInstanceMirror,final Symbol function, final List params, final dom.Event event) {
+    void _invokeFunction(final InstanceMirror myClassInstanceMirror,final String function, final List params, final dom.Event event) {
         if(_hasNoEvent(params)) {
             //event.preventDefault();
             //event.stopPropagation();

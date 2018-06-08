@@ -33,7 +33,7 @@ class MaterialTranslate extends MdlComponent {
     String _idToTranslate = "";
     final Translator translator;
 
-    MaterialTranslate.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialTranslate.fromElement(final dom.HtmlElement element,final Injector injector)
         : translator = injector.get(Translator), super(element,injector) {
 
         _init();
@@ -121,7 +121,7 @@ class MaterialTranslate extends MdlComponent {
 void registerMaterialTranslate() {
     final MdlConfig config = new MdlConfig<MaterialTranslate>(
         _MaterialTranslateConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialTranslate.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialTranslate.fromElement(element,injector)
     );
     
     // If you want <mdl-model></mdl-model> set selectorType to SelectorType.TAG.

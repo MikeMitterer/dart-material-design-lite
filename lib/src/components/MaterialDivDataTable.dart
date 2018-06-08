@@ -39,7 +39,7 @@ class MaterialDivDataTable extends MdlComponent {
     StreamController<DataTableChangedEvent> _onChange;
     StreamController<DataTableRowClickedEvent> _onRowClick;
 
-    MaterialDivDataTable.fromElement(final dom.HtmlElement element, final di.Injector injector)
+    MaterialDivDataTable.fromElement(final dom.HtmlElement element, final Injector injector)
         : super(element, injector) {
 
         _init();
@@ -198,7 +198,7 @@ class MaterialDivDataTableRow extends MdlComponent {
     /// See [_selectableCheckbox]
     MaterialCheckbox _checkbox;
 
-    MaterialDivDataTableRow.fromElement(final dom.HtmlElement element, final di.Injector injector)
+    MaterialDivDataTableRow.fromElement(final dom.HtmlElement element, final Injector injector)
         : super(element, injector) {
     }
 
@@ -381,7 +381,7 @@ void registerMaterialDivDataTable() {
 void _registerMaterialDivDataTable() {
     final MdlConfig config = new MdlWidgetConfig<MaterialDivDataTable>(
         _MaterialDivDataTableConstant.WIDGET_SELECTOR,
-        (final dom.HtmlElement element, final di.Injector injector) => new MaterialDivDataTable.fromElement(element, injector)
+        (final dom.HtmlElement element, final Injector injector) => new MaterialDivDataTable.fromElement(element, injector)
     );
     componentHandler().register(config);
 }
@@ -389,7 +389,7 @@ void _registerMaterialDivDataTable() {
 void _registerMaterialDivDataTableRow() {
     final MdlConfig config = new MdlWidgetConfig<MaterialDivDataTableRow>(
         _MaterialDivDataTableRowConstant.WIDGET_SELECTOR,
-        (final dom.HtmlElement element, final di.Injector injector) => new MaterialDivDataTableRow.fromElement(element, injector)
+        (final dom.HtmlElement element, final Injector injector) => new MaterialDivDataTableRow.fromElement(element, injector)
     );
 
     // _registerMaterialDivDataTable has priority [RegistrationPriority.WIDGET] so here we make sure that

@@ -55,7 +55,7 @@ class _DemoAnimationConstant {
 
 /// creates MdlConfig for DemoAnimation
 MdlConfig demoAnimationConfig() => new MdlWidgetConfig<DemoAnimation>(
-    _DemoAnimationCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _DemoAnimationCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
         => new DemoAnimation.fromElement(element,injector));
 
 /// registration-Helper
@@ -80,7 +80,7 @@ class DemoAnimation extends MdlComponent {
     int _position = _constant.STARTING_POSITION;
     dom.HtmlElement _movable = null;
 
-    DemoAnimation.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    DemoAnimation.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }

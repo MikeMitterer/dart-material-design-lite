@@ -42,7 +42,7 @@ class _MaterialTooltipConstant {
 
 /// creates MdlConfig for MaterialTooltip
 MdlConfig materialTooltipConfig() => new MdlWidgetConfig<MaterialTooltip>(
-    _MaterialTooltipCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialTooltipCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
     => new MaterialTooltip.fromElement(element,injector));
 
 /// registration-Helper
@@ -56,7 +56,7 @@ class MaterialTooltip extends MdlComponent {
 
     dom.HtmlElement _forElement = null;
 
-    MaterialTooltip.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialTooltip.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }

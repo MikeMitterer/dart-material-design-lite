@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 
 import 'dart:html' as dom;
 
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import "package:mdl/mdl.dart";
@@ -13,8 +13,9 @@ import "package:mdl/mdl.dart";
 // import 'package:logging/logging.dart';
 
 import '../../../config.dart';
+import 'Observable_test.reflectable.dart';
 
-@di.injectable @Model
+@inject @Model
 class TestApplication extends MaterialApplication {
     final ObservableProperty<String> clientName = new ObservableProperty<String>("789",observeViaTimer: true);
 
@@ -26,7 +27,7 @@ class TestApplication extends MaterialApplication {
     }
 }
 
-class TestModule extends di.Module {
+class TestModule extends Module {
   @override
   configure() {
       bind(Formatter);
@@ -36,7 +37,7 @@ class TestModule extends di.Module {
 main() async {
     // final Logger _logger = new Logger("test.Formatter.Button");
     configLogging(show: Level.INFO);
-
+    initializeReflectable();
 
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();

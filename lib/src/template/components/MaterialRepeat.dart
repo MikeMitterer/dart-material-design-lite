@@ -74,7 +74,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     /// Checks if Component is fully initialized
     bool _initialized = false;
 
-    MaterialRepeat.fromElement(final dom.HtmlElement element, final di.Injector injector)
+    MaterialRepeat.fromElement(final dom.HtmlElement element, final Injector injector)
         : _repeatRenderer = injector.getInstance(DomRenderer),
             _eventCompiler = injector.getInstance(EventCompiler),
             super(element, injector) {
@@ -496,7 +496,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 void registerMaterialRepeat() {
     final MdlConfig config = new MdlConfig<MaterialRepeat>(
         _MaterialRepeatConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element, final di.Injector injector) =>
+            (final dom.HtmlElement element, final Injector injector) =>
         new MaterialRepeat.fromElement(element, injector)
     );
 

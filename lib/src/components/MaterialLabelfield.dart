@@ -36,7 +36,7 @@ class MaterialLabelfield extends MdlComponent with FallbackFormatter {
     //static const _MaterialLabelfieldConstant _constant = const _MaterialLabelfieldConstant();
     static const _MaterialLabelfieldCssClasses _cssClasses = const _MaterialLabelfieldCssClasses();
 
-    MaterialLabelfield.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialLabelfield.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         
         _init();
@@ -97,7 +97,7 @@ class MaterialLabelfield extends MdlComponent with FallbackFormatter {
 void registerMaterialLabelfield() {
     final MdlConfig config = new MdlWidgetConfig<MaterialLabelfield>(
         _MaterialLabelfieldConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialLabelfield.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialLabelfield.fromElement(element,injector)
     );
     
     // If you want <mdl-labelfield></mdl-labelfield> set selectorType to SelectorType.TAG.

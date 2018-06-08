@@ -48,16 +48,20 @@ class ViewFactory {
 
     MaterialController _previousController;
 
-    RouteEnterEventHandler call(final String url, final MaterialController controller, { final String selector: "#main"}) {
-        return (final RouteEnterEvent event) => _enterHandler(event, url, controller, selector);
+//    RouteEnterEventHandler call(final String url, final MaterialController controller, { final String selector: "#main"}) {
+//        return (final RouteEnterEvent event) => _enterHandler(event, url, controller, selector);
+//    }
+
+    void call(final String url, final MaterialController controller, { final String selector: "#main"}) {
+         _enterHandler( url, controller, selector);
     }
 
     //- private -----------------------------------------------------------------------------------
 
-    void _enterHandler(final RouteEnterEvent event, final String url,
+    void _enterHandler(/*final RouteEnterEvent event, */final String url,
                        final MaterialController controller, final String selector) {
 
-        Validate.notNull(event);
+        //Validate.notNull(event);
         Validate.notNull(url);
         Validate.notNull(controller);
         Validate.notBlank(selector);
@@ -97,7 +101,8 @@ class ViewFactory {
                 main.render(content).then( (_) {
 
                     controller.injector = main.injector;
-                    controller.loaded(event.route);
+
+                    //controller.loaded(event.route);
                 });
             }
         });

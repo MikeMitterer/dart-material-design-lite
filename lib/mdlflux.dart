@@ -51,8 +51,10 @@ library mdlflux;
 import 'dart:async';
 
 import 'dart:convert';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 import 'package:validate/validate.dart';
+
+import 'package:mdl/mdlcore.dart';
 
 part "src/flux/interfaces.dart";
 

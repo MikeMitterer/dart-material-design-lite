@@ -37,7 +37,7 @@ class MaterialSwitch extends MdlComponent with FallbackFormatter {
 
     dom.CheckboxInputElement _inputElement = null;
 
-    MaterialSwitch.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialSwitch.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }
@@ -243,7 +243,7 @@ class MaterialSwitch extends MdlComponent with FallbackFormatter {
 
 /// creates MdlConfig for MaterialSwitch
 MdlConfig materialSwitchConfig() => new MdlWidgetConfig<MaterialSwitch>(
-    _MaterialSwitchCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialSwitchCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
 => new MaterialSwitch.fromElement(element,injector));
 
 /// registration-Helper

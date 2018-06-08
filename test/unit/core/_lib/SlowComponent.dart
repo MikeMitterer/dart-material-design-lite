@@ -37,14 +37,14 @@ class SlowComponentModule  extends di.Module {
 /// Controller-View for <test-component></test-component>
 ///
 /// Use this Component to test slow rendering
-@Model
+@Model @inject
 class SlowComponent extends MdlTemplateComponent {
     /// Make rendering really! slow
     static const Duration RENDER_DELAY = const Duration(milliseconds: 400);
 
     static const _SlowComponentCssClasses _cssClasses = const _SlowComponentCssClasses();
 
-    SlowComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    SlowComponent.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }
@@ -99,7 +99,7 @@ class SlowComponent extends MdlTemplateComponent {
 void registerSlowComponent() {
     final MdlConfig config = new MdlWidgetConfig<SlowComponent>(
         _SlowComponentConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new SlowComponent.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new SlowComponent.fromElement(element,injector)
     );
     
     // If you want <test-component></test-component> set selectorType to SelectorType.TAG.

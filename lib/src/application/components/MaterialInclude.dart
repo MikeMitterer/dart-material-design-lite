@@ -32,7 +32,7 @@ class _MaterialIncludeCssClasses {
 
 /// creates MdlConfig for MaterialInclude
 MdlConfig materialIncludeConfig() => new MdlWidgetConfig<MaterialInclude>(
-    _MaterialIncludeCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialIncludeCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
     => new MaterialInclude.fromElement(element,injector));
 
 /// registration-Helper
@@ -57,7 +57,7 @@ class MaterialInclude extends MdlComponent {
     /// Everyone can listen to this {onLoadEnd} stream
     Stream<MaterialContentEvent> onLoadEnd;
 
-    MaterialInclude.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialInclude.fromElement(final dom.HtmlElement element,final Injector injector)
         : _renderer = injector.getInstance(DomRenderer), super(element,injector) {
 
         onLoadEnd = _controller.stream as Stream<MaterialContentEvent>;

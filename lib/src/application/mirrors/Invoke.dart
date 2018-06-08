@@ -31,7 +31,7 @@ class Invoke {
     dynamic function(final StringToFunction stringToFunction, { final Map<String,dynamic> varsToReplace: const {} }) {
         Validate.notNull(stringToFunction);
 
-        final InstanceMirror myClassInstanceMirror = reflect(_scope.context);
+        final InstanceMirror myClassInstanceMirror = inject.reflect(_scope.context);
         final Symbol myFunction = stringToFunction.function;
 
         final List params = new List();
@@ -56,7 +56,9 @@ class Invoke {
 
         _logger.fine("Function: ${stringToFunction.functionAsString}(${params})");
 
-        final InstanceMirror im = myClassInstanceMirror.invoke(myFunction,params);
+        final InstanceMirror im = myClassInstanceMirror.invoke(
+            stringToFunction.functionAsString,params);
+
         return im.reflectee;
     }
 
@@ -75,22 +77,27 @@ class Invoke {
         final List<String> names = fieldname.split(".");
 
         names.forEach((final String name) {
-            final InstanceMirror myClassInstanceMirror = reflect(context);
+            final InstanceMirror myClassInstanceMirror = inject.reflect(context);
 
             if(!name.contains(new RegExp(r"\[[^\]]*\]$"))) {
 
-                final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(name));
-                context = getField.reflectee;
+                //final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(name));
+                //context = getField.reflectee;
+
+                context = myClassInstanceMirror.invokeGetter(name);
 
             } else {
                 final List<String> parts = name.trim().split(new RegExp(r"(\[|\])"));
                 //_logger.info("FFFFFx $name >${parts[1]}<, ${parts.length}");
 
-                final InstanceMirror instanceMirror = myClassInstanceMirror.getField(new Symbol(parts[0]));
-                final Symbol function = new Symbol("[]");
+                //final InstanceMirror instanceMirror = myClassInstanceMirror.getField(new Symbol(parts[0]));
+                //final Symbol function = new Symbol("[]");
 
-                final InstanceMirror getField = instanceMirror.invoke(function,[ int.parse(parts[1]) ]);
-                context = getField.reflectee;
+                //final InstanceMirror getField = instanceMirror.invoke("[]",[ int.parse(parts[1]) ]);
+                //context = getField.reflectee;
+
+                final InstanceMirror instanceMirror = myClassInstanceMirror.invokeGetter(parts[0]);
+                context = instanceMirror.invoke("[]",[ int.parse(parts[1]) ]);
                 // _logger.info("Value $context");
             }
 

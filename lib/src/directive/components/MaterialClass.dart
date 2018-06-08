@@ -39,7 +39,7 @@ part of mdldirective;
  *        </label>
  *    </div>
  *
- *    @Component @di.injectable
+ *    @Component @inject
  *    class Application extends MaterialApplication {
  *          ...
  *          final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);
@@ -54,7 +54,7 @@ class MaterialClass extends MdlComponent {
 
     bool _isElementAWidget = null;
 
-    MaterialClass.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialClass.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
     }
     
@@ -151,7 +151,7 @@ class MaterialClass extends MdlComponent {
 void registerMaterialClass() {
     final MdlConfig config = new MdlConfig<MaterialClass>(
         _MaterialClassConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialClass.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialClass.fromElement(element,injector)
     );
     
     // If you want <mdl-class></mdl-class> set selectorType to SelectorType.TAG.

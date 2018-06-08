@@ -58,7 +58,7 @@ class MaterialDropZone extends MdlComponent {
 
     Scope scope;
 
-    MaterialDropZone.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialDropZone.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
     }
     
@@ -169,7 +169,7 @@ class _MdlAcceptor extends Acceptor {
 void registerMaterialDropZone() {
     final MdlConfig config = new MdlConfig<MaterialDropZone>(
         _MaterialDropZoneConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new MaterialDropZone.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new MaterialDropZone.fromElement(element,injector)
     );
     
     config.selectorType = SelectorType.TAG;

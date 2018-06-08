@@ -24,13 +24,13 @@ part of mdlcore;
 ///
 ///     setUp(() {
 ///         mdlmock.setUpInjector();
-///         mdlmock.module((final di.Module module) {
+///         mdlmock.module((final Module module) {
 ///             module.bind(SignalService, toImplementation: SignalServiceImpl);
 ///             module.bind(Translator, toValue: _translator);
 ///         });
 ///         mockComponentHandler(mdlmock.injector(),componentFactory());
 ///     });
 ///
-void mockComponentHandler(final di.Injector injector,final MdlComponentHandler componentHandler) {
+void mockComponentHandler(final Injector injector,final MdlComponentHandler componentHandler) {
     componentHandler._injector = injector;
 }

@@ -32,7 +32,7 @@ class MaterialProgress extends MdlComponent {
     dom.DivElement _bufferbar;
     dom.DivElement _auxbar;
 
-    MaterialProgress.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialProgress.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         _init();
     }
@@ -97,7 +97,7 @@ class MaterialProgress extends MdlComponent {
 
 /// creates MdlConfig for MaterialProgress
 MdlConfig materialProgressConfig() => new MdlWidgetConfig<MaterialProgress>(
-    _MaterialProgressCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialProgressCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
 => new MaterialProgress.fromElement(element,injector));
 
 /// registration-Helper

@@ -49,7 +49,7 @@ class MaterialAccordion extends MdlComponent {
 
     dom.HtmlElement _group = null;
 
-    MaterialAccordion.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    MaterialAccordion.fromElement(final dom.HtmlElement element,final Injector injector)
         : super(element,injector) {
         //_init();
     }
@@ -186,7 +186,7 @@ class MaterialAccordion extends MdlComponent {
 
 /// creates MdlConfig for MaterialAccordion
 MdlConfig materialAccordionConfig() => new MdlWidgetConfig<MaterialAccordion>(
-    _MaterialAccordionCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final di.Injector injector)
+    _MaterialAccordionCssClasses.MAIN_CLASS, (final dom.HtmlElement element,final Injector injector)
 => new MaterialAccordion.fromElement(element,injector));
 
 /// registration-Helper

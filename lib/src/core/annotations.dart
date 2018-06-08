@@ -21,7 +21,7 @@
 ///
 /// Makes it better testable.
 ///
-///     @Component @di.injectable
+///     @Component @inject
 ///     class Person {
 ///         final String id;
 ///         String name;
@@ -52,9 +52,9 @@ class MdlComponentModelAnnotation {
 ///                </div>""";
 ///     mustache.render(model);
 ///
-/// For 'class Application...' use @di.injectable
+/// For 'class Application...' use @inject
 ///
-///     @di.injectable
+///     @inject
 ///     class Application extends MaterialApplication {
 ///         ...
 ///     }

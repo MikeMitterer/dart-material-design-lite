@@ -19,8 +19,8 @@
 
 library mdltemplate;
 
-@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
-import 'dart:mirrors';
+//@MirrorsUsed(metaTargets: const [ MdlComponentModelAnnotation ])
+//import 'dart:mirrors';
 
 import 'dart:html' as dom;
 import 'dart:async';
@@ -28,7 +28,7 @@ import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 import 'package:mustache/mustache.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 //import 'package:mdl/mustache.dart';
 
@@ -48,7 +48,7 @@ part "src/template/modules/Renderer.dart";
 part "src/template/modules/TemplateRenderer.dart";
 part "src/template/modules/ListRenderer.dart";
 
-class MdlTemplateModule extends di.Module {
+class MdlTemplateModule extends Module {
     configure() {
         bind(TemplateRenderer);
         bind(ListRenderer);

@@ -21,7 +21,7 @@ part of mdlcore;
 
 typedef void MdlCallback(final dom.HtmlElement element);
 
-typedef MdlComponent MdlComponentFactory(final dom.HtmlElement element,final di.Injector injector);
+typedef MdlComponent MdlComponentFactory(final dom.HtmlElement element,final Injector injector);
 
 enum SelectorType { CLASS, TAG, ATTRIBUTE }
 
@@ -53,7 +53,7 @@ class MdlConfig<T extends MdlComponent> {
     /// {_componentFactory} is more or less a function that constructs the appropriate
     /// Object.
     /// Sample:
-    ///     (final dom.HtmlElement element,final di.Injector injector)
+    ///     (final dom.HtmlElement element,final Injector injector)
     ///         => new MaterialAccordion.fromElement(element,injector));
     ///
     final MdlComponentFactory _componentFactory;
@@ -96,7 +96,7 @@ class MdlConfig<T extends MdlComponent> {
     /// Avoids problems with Components and Helpers like MaterialRipple
     final bool isWidget;
 
-    MdlConfig(this._selector, T componentFactory(final dom.HtmlElement element,final di.Injector injector),
+    MdlConfig(this._selector, T componentFactory(final dom.HtmlElement element,final Injector injector),
               { final bool isWidget: false }) : _componentFactory = componentFactory, this.isWidget = isWidget {
 
         Validate.isTrue(T != "dynamic", "Add a type-information to your MdlConfig like new MdlConfig<MaterialButton>()");
@@ -108,7 +108,7 @@ class MdlConfig<T extends MdlComponent> {
 
     Type get type => T;
 
-    MdlComponent newComponent(final dom.HtmlElement element,final di.Injector injector) {
+    MdlComponent newComponent(final dom.HtmlElement element,final Injector injector) {
         return _componentFactory(element,injector);
     }
 
@@ -123,7 +123,7 @@ class MdlConfig<T extends MdlComponent> {
 /// (MdlComponent) properties!
 class MdlWidgetConfig<T extends MdlComponent> extends MdlConfig<T> {
     MdlWidgetConfig(final String selector,
-                    T componentFactory(final dom.HtmlElement element,final di.Injector injector)) :
+                    T componentFactory(final dom.HtmlElement element,final Injector injector)) :
                         super(selector, componentFactory, isWidget: true) {
 
     priority = RegistrationPriority.WIDGET;

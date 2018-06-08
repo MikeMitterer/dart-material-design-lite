@@ -23,9 +23,9 @@ import 'dart:html' as dom;
 import 'dart:math' as Math;
 import 'dart:async';
 import 'package:logging/logging.dart';
-import 'package:browser_detect/browser_detect.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 import 'package:validate/validate.dart';
+import 'package:platform_detect/platform_detect.dart';
 
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlformatter.dart";
