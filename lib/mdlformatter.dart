@@ -42,40 +42,41 @@ part 'src/formatter/LowerCaseFormatter.dart';
 part 'src/formatter/NumberFormatter.dart';
 part 'src/formatter/UpperCaseFormatter.dart';
 
-/**
- * Formatter ist a collection of formatters.
- * To add your own formatter follow the sample below
- *
- *      @Directive
- *      class MyFormatter extends Formatter {
- *
- *          // Your super cool formatter
- *          final TestFormatter test = new TestFormatter();
- *      }
- *
- *      class MyFormatterModule extends Module {
- *          MyFormatterModule() {
- *              bind(Formatter, ,toImplementation: MyFormatter);
- *          }
- *      }
- *
- *      main() {
- *          ...
- *            componentFactory().rootContext(Application).
- *               addModule(new StyleguideModule()).run()
- *                  .then((final MaterialApplication application) {
- *
- *                application.run();
- *          });
- *
- *          ...
- *      }
- *
- * HTML:
- *      <span mdl-observe="pi | test(value)"></span>
- *      or
- *      <div class="mdl-labelfield" mdl-formatter="uppercase(value)">...</div>
- */
+/// Formatter ist a collection of formatters.
+///
+/// By convention the instance name must be the name of the formatter string.
+/// E.g. if the string ist 'uppercase' then the instance in 'Formatter' must be named 'uppercase'
+/// 
+/// To add your own formatter follow the sample below
+///      @Directive
+///      class MyFormatter extends Formatter {
+///
+///          // Your super cool formatter
+///          final TestFormatter test = new TestFormatter();
+///      }
+///
+///      class MyFormatterModule extends Module {
+///          MyFormatterModule() {
+///              bind(Formatter, ,toImplementation: MyFormatter);
+///          }
+///      }
+///
+///      main() {
+///          ...
+///            componentFactory().rootContext(Application).
+///               addModule(new StyleguideModule()).run()
+///                  .then((final MaterialApplication application) {
+///
+///                application.run();
+///          });
+///
+///          ...
+///      }
+///
+/// HTML:
+///      <span mdl-observe="pi | test(value)"></span>
+///      or
+///      <div class="mdl-labelfield" mdl-formatter="uppercase(value)">...</div>
 @inject
 class Formatter {
     final NumberFormatter    number = new NumberFormatter();

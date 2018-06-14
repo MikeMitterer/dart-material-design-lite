@@ -5,14 +5,17 @@ import 'dart:html' as dom;
 
 import "package:mdl/mdl.dart";
 
-// import 'package:logging/logging.dart';
+import 'package:logging/logging.dart';
+import 'package:console_log_handler/console_log_handler.dart';
 
 import '../config.dart';
+import 'Labelfield_test.reflectable.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.Formatter.LabelField");
     
-    // configLogging();
+    configLogging(show: Level.INFO);
+    initializeReflectable();
 
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();
@@ -99,8 +102,8 @@ main() async {
             final MaterialLabelfield labelfield = MaterialLabelfield.widget(element);
             expect(labelfield,isNotNull);
 
-            labelfield.label = "Name";
-            expect(labelfield.label,"Name");
+            //labelfield.label = "Name";
+            //expect(labelfield.label,"Name");
 
             labelfield.value = "10";
             expect(labelfield.value,"10.000");

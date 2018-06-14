@@ -23,7 +23,7 @@ part of mdlformatter;
 ///
 ///     <span mdl-observe="name | lowercase(value)"></span>
 ///
-@Directive
+@Directive @inject
 class LowerCaseFormatter {
     String lowercase(final String value) {
         return value.toLowerCase();

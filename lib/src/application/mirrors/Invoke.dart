@@ -34,8 +34,9 @@ class Invoke {
         final InstanceMirror myClassInstanceMirror = inject.reflect(_scope.context);
         final Symbol myFunction = stringToFunction.function;
 
-        final List params = new List();
+        final params = new List<String>();
         stringToFunction.params.forEach( (final String paramName) {
+
             //_logger.info("Param: $paramName");
 
             if(varsToReplace.containsKey(paramName)) {
@@ -54,12 +55,20 @@ class Invoke {
             }
         });
 
-        _logger.fine("Function: ${stringToFunction.functionAsString}(${params})");
+        _logger.info("Invoke: ${myClassInstanceMirror.type.qualifiedName}.${stringToFunction.functionAsString}(${params})");
 
-        final InstanceMirror im = myClassInstanceMirror.invoke(
-            stringToFunction.functionAsString,params);
+        final result = myClassInstanceMirror.invoke(
+            "${stringToFunction.functionAsString}",params);
 
-        return im.reflectee;
+        _logger.info("Result: $result");
+        
+        return result;
+
+//        final InstanceMirror im = myClassInstanceMirror.invoke(
+//            stringToFunction.functionAsString,params);
+//
+//        _logger.info("Function2: ${stringToFunction.functionAsString}(${params})");
+//        return im.reflectee;
     }
 
     /// Returns the object for the given [fieldname]. If [fieldname] is separated with dots

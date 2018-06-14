@@ -53,7 +53,8 @@ main() async {
             final MaterialButton button = MaterialButton.widget(element.querySelector("#second"));
 
             expect(button,isNotNull);
-
+            button.downgrade();
+            
         }); // end of 'Registration' test
 
         test('> SlowComponent', () async {
@@ -73,6 +74,8 @@ main() async {
                 //_logger.info(component.element.innerHtml);
                 expect(component,isNotNull);
             }));
+
+            component.downgrade();
 
         }); // end of 'SlowComponent' test
 

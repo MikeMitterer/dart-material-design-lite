@@ -64,7 +64,7 @@ class StringToFunction {
     String get functionAsString => _match.group(1);
 
     List<String> get params {
-        final List _params = new List();
+        final _params = new List<String>();
 
         // first group is function name, second - params
         if(_match.groupCount == 2) {

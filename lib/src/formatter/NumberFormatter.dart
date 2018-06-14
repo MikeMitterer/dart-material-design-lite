@@ -24,31 +24,20 @@ part of mdlformatter;
  *
  *      <span mdl-observe="pi | number(value,2)"></span>
  */
-@Directive
+@Directive @inject
 class NumberFormatter {
-    // final Logger _logger = new Logger('mdlformatter.NumberFormatter');
-
-    final Map<String,Map<num, NumberFormat>> _nfs = new Map<String, Map<num, NumberFormat>>();
+    final Logger _logger = new Logger('mdlformatter.NumberFormatter');
 
     /// 'number' is the formatter name. [fractionSize] defines the number of digits
     /// after the decimal point
-    String number(final double value, [ int fractionSize = 2]) {
+    String number(final dynamicValue, [ final dynamicFractionSize ]) {
+        final double value = ConvertValue.toDouble(dynamicValue);
+        final int fractionSize = ConvertValue.toInt(dynamicFractionSize != null ? dynamicFractionSize : 2);
         final String verifiedLocale = Intl.verifiedLocale(Intl.getCurrentLocale(), NumberFormat.localeExists);
 
-        _nfs.putIfAbsent(verifiedLocale, () => new Map<num, NumberFormat>());
+        final pattern = fractionSize > 0 ? "${'#.'.padRight(fractionSize + 2,"0")}" : "#";
+        final nf = new NumberFormat(pattern,verifiedLocale);
 
-        NumberFormat nf = _nfs[verifiedLocale][fractionSize];
-        if (nf == null) {
-            nf = new NumberFormat()..maximumIntegerDigits = 2;
-            if (fractionSize != null) {
-                nf.minimumFractionDigits = fractionSize;
-                nf.maximumFractionDigits = fractionSize;
-            }
-            _nfs[verifiedLocale][fractionSize] = nf;
-        }
-
-        //nf = new NumberFormat()..maximumIntegerDigits = 2;
-        //_logger.info("Called number $value value");
         return nf.format(value);
     }
 

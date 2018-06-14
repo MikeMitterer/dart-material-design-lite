@@ -15,7 +15,7 @@ import "package:mdl/mdl.dart";
 import '../../../config.dart';
 import 'Observable_test.reflectable.dart';
 
-@inject @Model
+@Model @inject
 class TestApplication extends MaterialApplication {
     final ObservableProperty<String> clientName = new ObservableProperty<String>("789",observeViaTimer: true);
 
@@ -48,7 +48,7 @@ main() async {
         </div>
     '''.trim().replaceAll(new RegExp(r"\s+")," ");
 
-    group('Observe', () {
+    group('Observez', () {
         setUp(() async {
             await prepareMdlTest( () async {
                 componentHandler().rootContext(TestApplication).addModule(new TestModule());

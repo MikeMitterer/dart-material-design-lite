@@ -17,3 +17,4 @@ syncsite
 site/downloads/
 doc/api/
 TODO.txt
+*.reflectable.dart

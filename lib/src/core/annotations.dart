@@ -21,7 +21,7 @@
 ///
 /// Makes it better testable.
 ///
-///     @Component @inject
+///     @Component
 ///     class Person {
 ///         final String id;
 ///         String name;
@@ -34,12 +34,12 @@
 library mdlcore.annotations;
 
 /// Mustache (+mirrors) needs to know which classes to include
-class MdlComponentModelAnnotation {
-    const MdlComponentModelAnnotation();
+class MdlAnnotation {
+    const MdlAnnotation();
 }
 
 
-/// Helps mustache to know which vars are available to render
+/// Helps dryice to know which vars are available to render
 ///
 /// Sample:
 ///     @Component
@@ -59,16 +59,20 @@ class MdlComponentModelAnnotation {
 ///         ...
 ///     }
 @deprecated
-const MdlComponentModelAnnotation MdlComponentModel = const MdlComponentModelAnnotation();
+const MdlAnnotation MdlComponentModel = const MdlAnnotation();
 
 /// All MDLComponents
-const MdlComponentModelAnnotation Component = const MdlComponentModelAnnotation();
+const MdlAnnotation Component = const MdlAnnotation();
 
 /// Usually used for Templates
-const MdlComponentModelAnnotation Model = const MdlComponentModelAnnotation();
+const MdlAnnotation Model = const MdlAnnotation();
+//const InjectAnnotation model = const InjectAnnotation();
+//const MdlComponentModelAnnotation Model = const MdlComponentModelAnnotation();
 
 /// Directives like [Formatter]
-const MdlComponentModelAnnotation Directive = const MdlComponentModelAnnotation();
+const MdlAnnotation Directive = const MdlAnnotation();
+//const InjectAnnotation directive = const InjectAnnotation();
+//const MdlComponentModelAnnotation Directive = const MdlComponentModelAnnotation();
 
 /**
  * Helper for Transformer to generate documentation

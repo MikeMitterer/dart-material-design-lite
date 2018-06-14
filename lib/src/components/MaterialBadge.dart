@@ -22,6 +22,7 @@ part of mdlcomponents;
 /// Controller-View for
 ///     <div class="mdl-badge" data-badge="1"></div>
 ///
+@Component @inject
 class MaterialBadge extends MdlComponent {
     final Logger _logger = new Logger('mdlcomponents.MaterialBadge');
 

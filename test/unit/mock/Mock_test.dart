@@ -8,6 +8,7 @@ import 'package:mdl/mdlmock.dart' as mdlmock;
 // import 'package:logging/logging.dart';
 
 import '../config.dart';
+import 'Mock_test.reflectable.dart';
 
 typedef String TestCallback(final String name);
 
@@ -20,6 +21,7 @@ class SimpleService {
     }
 }
 
+@inject
 class MockedService extends SimpleService{
 
     @override
@@ -30,6 +32,7 @@ class MockedService extends SimpleService{
     }
 }
 
+@inject
 class AnotherMockedService extends SimpleService {
     @override
     Future<String> connectToServer(final TestCallback callback) {
@@ -47,7 +50,7 @@ class MockModule extends Module {
 
 class MockModule2 extends Module {
     configure() {
-        register(SimpleService).toType(MockedService);
+        register(SimpleService).to(MockedService);
     }
 }
 
@@ -55,7 +58,8 @@ main() async {
     // final Logger _logger = new Logger("test.Mock");
     
     // configLogging();
-
+    initializeReflectable();
+    
     group('Injection', () {
         setUp(() {
             mdlmock.setUpInjector();
@@ -115,11 +119,22 @@ main() async {
         test('> Mocked injection', () async {
             final callback = expectAsync1((final String name) => name.toUpperCase());
 
-            mdlmock.inject((final SimpleService service) async {
-                expect(service, isNotNull);
+            final SimpleService service = mdlmock.injector().get(SimpleService);
+            expect(service, isNotNull);
+            expect(service is MockedService, isTrue);
 
+            final String result = await service.connectToServer(callback);
+            expect(result,"mocked-SIMPLE");
+            
+            mdlmock.inject(<Type>[SimpleService].toSet(),(final Map<Type,dynamic> injected) async {
+                expect(injected[SimpleService], isNotNull);
+                expect(injected[SimpleService] is MockedService, isTrue);
+
+                final SimpleService service = injected[SimpleService];
                 final String result = await service.connectToServer(callback);
+                
                 expect(result,"mocked-SIMPLE");
+
             });
 
         }); // end of 'Mocked injection' test

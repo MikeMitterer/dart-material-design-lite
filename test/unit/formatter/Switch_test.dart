@@ -8,11 +8,13 @@ import "package:mdl/mdl.dart";
 // import 'package:logging/logging.dart';
 
 import '../config.dart';
+import 'Switch_test.reflectable.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.Formatter.Switch");
     
     // configLogging();
+    initializeReflectable();
 
     final DomRenderer renderer = new DomRenderer();
     final dom.DivElement parent = new dom.DivElement();

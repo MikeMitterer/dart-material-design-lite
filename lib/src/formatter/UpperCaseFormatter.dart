@@ -29,12 +29,12 @@ part of mdlformatter;
 ///         ...
 ///     </div>
 ///
-@Directive
+@Directive @inject
 class UpperCaseFormatter {
     String uppercase(final String value) {
         return value.toUpperCase();
     }
 
-    /// Called by the framework - sanitizes input. (In reality params are not strong typed!)
+    // Called by the framework - sanitizes input. (In reality params are not strong typed!)
     String call(dynamic value) => uppercase(ConvertValue.toSanitizeString(value));
 }

@@ -39,7 +39,7 @@ part of mdldirective;
  *        </label>
  *    </div>
  *
- *    @Component @inject
+ *    @Component
  *    class Application extends MaterialApplication {
  *          ...
  *          final ObservableProperty<bool> checkBorder = new ObservableProperty<bool>(false);

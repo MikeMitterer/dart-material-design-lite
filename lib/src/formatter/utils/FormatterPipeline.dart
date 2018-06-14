@@ -82,11 +82,14 @@ class FormatterPipeline {
 
             add( (dynamic val) {
 
-                final String formatter = part.trim();
-                final StringToFunction stf = new StringToFunction(formatter);
+                final String formatter = part.trim(); // e.g. uppercase(value)
+                final StringToFunction stf = new StringToFunction(formatter); // e.g. uppercase
+
+                // Instance of uppercase from Formatter (e.g. _formatter.uppercase)
+                final concreteFormatter = new Invoke(new Scope(_formatter,null)).field(stf.functionAsString);
 
                 // Parent-Scope null is OK here because we don't need it
-                final Invoke formatterFunction = new Invoke(new Scope(new Formatter(),null));
+                final Invoke formatterFunction = new Invoke(new Scope(concreteFormatter,null));
 
                 try {
                     val = formatterFunction.function(stf,varsToReplace: { "value" : val });

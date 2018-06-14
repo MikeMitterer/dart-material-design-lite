@@ -36,6 +36,7 @@ part of mdlformatter;
 ///         }
 ///
 ///
+@inject
 abstract class FallbackFormatter {
 
     /// Checks if [inquirer] has a [MaterialFormatter] and returns the Formatter.

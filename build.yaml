@@ -3,5 +3,10 @@ targets:
   $default:
     builders:
       reflectable:
+        generate_for:
+          exclude:
+            - tool/**
+            - test/visual/config.dart
+        #  - test/unit/directive/**.dart
         options:
           formatted: true

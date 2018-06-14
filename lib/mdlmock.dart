@@ -60,10 +60,11 @@ class _MdlInjector {
         }
     }
 
-    inject(final Function function) {
+    /*
+        inject(final Function function) {
         _create();
 
-        final ClosureMirror cm = di.inject.reflect(function);
+        final ClosureMirror cm = reflect(function);
         final MethodMirror mm = cm.function;
 
         final List args = mm.parameters.map( (final ParameterMirror parameter) {
@@ -74,7 +75,19 @@ class _MdlInjector {
 
         }).toList();
 
-        return cm.apply(args);
+        return cm.apply(args).reflectee;
+    }
+    */
+
+    inject(final Set<Type> types, void Function(final Map<Type,dynamic>) callback) {
+        _create();
+
+        final params = new Map<Type,dynamic>();
+        types.forEach((final Type type) {
+            params[type] = _injector.get(type);
+        });
+
+        callback(params);
     }
 
     // - private -------------------------------------------------------------------------------------------------------
@@ -111,11 +124,25 @@ void module(final di.Module module) {
     _mdlInjector.addModule(module);
 }
 
-void inject(Function fn) {
+/// Inject a Map of [Type]s
+/// 
+/// Usage:
+///     import 'package:mdl/mdlmock.dart' as mdlmock;
+///     
+///     mdlmock.inject(<Type>[SimpleService].toSet(),(final Map<Type,dynamic> injected) async {
+///         expect(injected[SimpleService], isNotNull);
+///         expect(injected[SimpleService] is MockedService, isTrue);
+///     
+///         final SimpleService service = injected[SimpleService];
+///         final String result = await service.connectToServer(callback);
+///         
+///         expect(result,"mocked-SIMPLE");
+///     });
+void inject(final Set<Type> types, void Function(final Map<Type,dynamic>) callback) {
     if(_mdlInjector == null) {
         setUpInjector();
     }
-    _mdlInjector.inject(fn);
+    _mdlInjector.inject(types,callback);
 }
 
 /// Call this method in your test harness [tearDown] method to cleanup the injector.

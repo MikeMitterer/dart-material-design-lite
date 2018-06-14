@@ -28,9 +28,11 @@ paths:
 override_platforms:
   chrome:
     settings:
+      headless: false
       # Funkt nicht: --headless
       # https://github.com/dart-lang/test/issues/730
-      arguments: --window-position=5000,5000 --window-size=1,1 --disable-gpu
+      #arguments: --window-position=5000,5000 --window-size=1,1 --disable-gpu
+      arguments: --window-position=10,0 --window-size=1000,800
 
 on_os:
   linux:
