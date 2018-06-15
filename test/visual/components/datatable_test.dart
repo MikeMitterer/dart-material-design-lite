@@ -22,14 +22,18 @@
 import 'package:test/test.dart';
 
 import 'dart:html' as dom;
+import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
 
 import '../config.dart';
+import 'datatable_test.reflectable.dart';
 
 main() async {
-    // final Logger _logger = new Logger("test.DataTable");
-    // configLogging();
+    final Logger _logger = new Logger("test.DataTable");
+    configLogging();
+
+    initializeReflectable();
 
     registerMdl();
     await initComponents();

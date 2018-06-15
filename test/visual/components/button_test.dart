@@ -26,10 +26,13 @@ import 'dart:html' as dom;
 import 'package:mdl/mdl.dart';
 
 import '../config.dart';
+import 'button_test.reflectable.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.Button");
     // configLogging();
+
+    initializeReflectable();
 
     registerMdl();
     await initComponents();

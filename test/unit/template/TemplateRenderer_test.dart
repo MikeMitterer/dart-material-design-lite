@@ -4,22 +4,24 @@ import 'package:test/test.dart';
 import 'dart:html' as dom;
 import 'dart:async';
 
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 import "package:mdl/mdl.dart";
 import 'package:mdl/mdlmock.dart' as mdlmock;
 
+import 'package:mustache/mustache.dart';
 //import 'package:logging/logging.dart';
 
 import '../config.dart';
+import 'TemplateRenderer_test.reflectable.dart';
 
-@Component
+@Component @inject @mustache
 class TestComponent extends MdlTemplateComponent {
     static const String WIDGET_SELECTOR = "test-component";
 
     final String name = "Mike";
 
-    TestComponent.fromElement(final dom.HtmlElement element, final di.Injector injector)
+    TestComponent.fromElement(final dom.HtmlElement element, final Injector injector)
         : super(element, injector) {
 
         _init();
@@ -46,7 +48,7 @@ class TestComponent extends MdlTemplateComponent {
 void registerTestComponent() {
     final MdlConfig config = new MdlWidgetConfig<TestComponent>(
         TestComponent.WIDGET_SELECTOR,
-        (final dom.HtmlElement element,final di.Injector injector) => new  TestComponent.fromElement(element,injector)
+        (final dom.HtmlElement element,final Injector injector) => new  TestComponent.fromElement(element,injector)
     );
 
     // If you want <test-component></test-component> set selectorType to SelectorType.TAG.
@@ -59,8 +61,10 @@ void registerTestComponent() {
 
 main() async {
     //final Logger _logger = new Logger("test.TemplateRenderer");
-    // configLogging();
 
+    // configLogging();
+    initializeReflectable();
+    
     final DomRenderer renderer = new DomRenderer();
 
     group('TemplateRenderer', () {

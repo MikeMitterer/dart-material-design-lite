@@ -26,11 +26,14 @@ import 'dart:html' as dom;
 import 'package:mdl/mdl.dart';
 
 import '../config.dart';
+import 'parent_test.reflectable.dart';
 
 /// Search next MDL-Parent in MDL-Component-Tree
 main() async {
     // final Logger _logger = new Logger("test.Parent");
     // configLogging();
+
+    initializeReflectable();
 
     registerMdl();
     await initComponents();

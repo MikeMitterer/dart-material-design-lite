@@ -26,10 +26,13 @@ import 'dart:html' as dom;
 import 'package:mdl/mdl.dart';
 
 import '../config.dart';
+import 'checkbox_test.reflectable.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.Checkbox");
     // configLogging();
+
+    initializeReflectable();
 
     registerMdl();
     await initComponents();

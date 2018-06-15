@@ -74,8 +74,8 @@ class MaterialDataTable extends MdlComponent {
 
         final dom.HtmlElement firstHeader = element.querySelector('th');
 
-        final List<dom.TableRowElement> bodyRows = element.querySelectorAll('tbody tr') as List<dom.TableRowElement>;
-        final List<dom.TableRowElement> footRows = element.querySelectorAll('tfoot tr') as List<dom.TableRowElement>;
+        final bodyRows = element.querySelectorAll('tbody tr').map((final dom.Element e) => e as dom.TableRowElement);
+        final footRows = element.querySelectorAll('tfoot tr').map((final dom.Element e) => e as dom.TableRowElement);
 
         final List<dom.TableRowElement> rows = new List<dom.TableRowElement>.from(bodyRows);
         rows.addAll(footRows);

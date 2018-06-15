@@ -26,9 +26,12 @@ import 'dart:html' as dom;
 import 'package:mdl/mdl.dart';
 
 import '../config.dart';
+import 'labelfield_test.reflectable.dart';
 
 main() async {
     // configLogging();
+
+    initializeReflectable();
 
     registerMdl();
     await initComponents();

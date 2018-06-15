@@ -30,6 +30,7 @@ part of mdlcomponents;
 ///    final MaterialCheckbox checkbox = MaterialCheckbox.widget(querySelector(".mdl-checkbox"));
 ///    checkbox.checked = true;
 ///
+@inject @mustache
 class MaterialCheckbox extends MdlComponent with FallbackFormatter {
     final Logger _logger = new Logger('mdlcomponents.MaterialCheckbox');
 

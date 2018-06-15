@@ -23,14 +23,19 @@ import 'package:test/test.dart';
 
 import 'dart:html' as dom;
 
+import 'package:console_log_handler/console_log_handler.dart';
+
 import 'package:mdl/mdl.dart';
 
 import '../../config.dart';
+import 'repeat_test.reflectable.dart';
 
 main() async {
-    // final Logger _logger = new Logger("test.Repeat");
-    // configLogging();
+    final Logger _logger = new Logger("test.Repeat");
+    configLogging();
 
+    initializeReflectable();
+    
     registerMdl();
     await initComponents();
 
@@ -41,7 +46,7 @@ main() async {
             expect(element,isNotNull);
             expect(element.dataset.containsKey("upgraded"),isTrue);
             expect(element.dataset["upgraded"],"MaterialRepeat");
-        });
+        },skip: true);
 
         test('> widget', () {
             final dom.HtmlElement element = dom.document.querySelector("#repeat");
@@ -49,14 +54,14 @@ main() async {
             final MaterialRepeat widget = MaterialRepeat.widget(element);
             expect(widget,isNotNull);
 
-        }); // end of 'widget' test
+        },skip: true); // end of 'widget' test
 
         test('> Add items', () async {
             final dom.HtmlElement element = dom.document.querySelector("#repeat");
             final MaterialRepeat widget = MaterialRepeat.widget(element);
 
-            await widget.add({ "name" : "Mike"});
-            await widget.add({ "name" : "Nicki"});
+            await widget.add({ "name" : "Mike", "hashCode" : "1"});
+            await widget.add({ "name" : "Nicki", "hashCode" : "2"});
 
             final MaterialCheckbox checkbox = MaterialCheckbox.widget(element.querySelectorAll("input.mdl-checkbox__input").last);
             expect(checkbox,isNotNull);

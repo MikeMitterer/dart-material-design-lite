@@ -98,7 +98,21 @@ class EventCompiler {
      */
     Future compileElement(final Object scope,final dom.Element element) async {
 
-        final InstanceMirror myClassInstanceMirror = inject.reflect(scope);
+//        _logger.warning("OBJ ${scope.runtimeType}");
+////        final map = scope as Map<String,String>;
+////        map.forEach((final String key, final String value) {
+////            _logger.warning("Map k:$key, v$value");
+////        });
+//
+//        InstanceMirror myClassInstanceMirror;
+//        dynamic reflectionError;
+//
+//        try {
+//            myClassInstanceMirror = inject.reflect(scope);
+//        } catch(error, stacktrace) {
+//            reflectionError = error;
+//            _logger.shout(error, stacktrace);
+//        }
 
         datasets.keys.forEach((final String dataset) {
 
@@ -125,7 +139,7 @@ class EventCompiler {
 
                 String getFunctionNameAsString() => match.group(1);
 
-               ; List getParams() {
+                List getParams() {
                     final List params = new List();
 
                     // first group is function name, second - params
@@ -138,9 +152,20 @@ class EventCompiler {
                     return params;
                 }
 
+                final myClassInstanceMirror = inject.reflect(scope);
+
                 // If, e.g. dataset is 'mdl-click', it calls _onClick(element,() { ... });
                 datasets[dataset](element,(final dom.Event event) {
-                    //_logger.info("Compiled ${datasets[dataset]} for $element...");
+
+//                    if(myClassInstanceMirror == null) {
+//                        _logger.shout("Unable to call ${getFunctionNameAsString()} on ${scope.runtimeType} "
+//                            "because $scope could not be reflected! (${datasets[dataset]} for $element)");
+//
+//                        reflectionError = error;
+//                        _logger.shout(reflectionError, stacktrace);
+//
+//                    } else {
+//                    }
                     _invokeFunction(myClassInstanceMirror,getFunctionNameAsString(),getParams(),event);
                 });
             });

@@ -26,10 +26,13 @@ import 'dart:html' as dom;
 import 'package:mdl/mdl.dart';
 
 import '../config.dart';
+import 'menu_test.reflectable.dart';
 
 main() async {
     // final Logger _logger = new Logger("test.Menu");
     // configLogging();
+
+    initializeReflectable();
 
     registerMdl();
     await initComponents();

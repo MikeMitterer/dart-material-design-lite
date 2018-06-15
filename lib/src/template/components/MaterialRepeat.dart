@@ -1,20 +1,20 @@
 /*
- * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
- * IT-Consulting and Development Limited.
- * 
- * All Rights Reserved.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *    http://www.apache.org/licenses/LICENSE-2.0
+/// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+/// IT-Consulting and Development Limited.
+/// 
+/// All Rights Reserved.
+/// 
+/// Licensed under the Apache License, Version 2.0 (the "License");
+/// you may not use this file except in compliance with the License.
+/// You may obtain a copy of the License at
+/// 
+///    http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/// Unless required by applicable law or agreed to in writing, software
+/// distributed under the License is distributed on an "AS IS" BASIS,
+/// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+/// See the License for the specific language governing permissions and
+/// limitations under the License.
  */
 part of mdltemplate;
 
@@ -25,30 +25,29 @@ typedef void PostRenderingCallback(final dom.HtmlElement element);
 /// Default implementation for [PostRenderingCallback] does nothing
 void _defaultPostRenderingCallback(final dom.HtmlElement element) {}
 
-/**
- * Iterates through a [ObservableList]
- * Sample:
- *      HTML:
- *          <div mdl-repeat="job in jobs">
- *              {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
- *              <template>
- *                  <div class="mdl-accordion mdl-js-accordion">
- *                    <label class="mdl-accordion__label">{{job.ID}}
- *                        <jobtoolbar job-id="{{job.ID}}" class="jobtoolbar--right"></jobtoolbar>
- *
- *                        <i class="material-icons indicator">chevron_right</i></label>
- *
- *                        <div class="mdl-accordion--content">
- *                           <p class="mdl-accordion--body">
- *                             <jobedit job-id="{{job.ID}}"></jobedit>
- *                           </p>
- *                        </div>
- *                </div>
- *             </template>
- *             |= {{ }} =| {{! ----- Turn on mustache ---- }}
- *        </div>
- */
-@Component
+/// Iterates through a [ObservableList]
+/// Sample:
+///      HTML:
+///          <div mdl-repeat="job in jobs">
+///              {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+///              <template>
+///                  <div class="mdl-accordion mdl-js-accordion">
+///                    <label class="mdl-accordion__label">{{job.ID}}
+///                        <jobtoolbar job-id="{{job.ID}}" class="jobtoolbar--right"></jobtoolbar>
+///
+///                        <i class="material-icons indicator">chevron_right</i></label>
+///
+///                        <div class="mdl-accordion--content">
+///                           <p class="mdl-accordion--body">
+///                             <jobedit job-id="{{job.ID}}"></jobedit>
+///                           </p>
+///                        </div>
+///                </div>
+///             </template>
+///             |= {{ }} =| {{! ----- Turn on mustache ---- }}
+///        </div>
+
+//@inject @mustache
 class MaterialRepeat extends MdlTemplateComponent {
     static final Logger _logger = new Logger('mdltemplate.MaterialRepeat');
 
@@ -440,19 +439,19 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     /**
-     * Used if child is a 'MdlDataConsumer' - e.g. MaterialDraggable
+    /// Used if child is a 'MdlDataConsumer' - e.g. MaterialDraggable
      *
-     *      <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
-     *          {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
-     *          <mdl-draggable template class="language" consumes="language" drop-zone="trash">
-     *              {{language.name}}
-     *          </mdl-draggable>
-     *          |= {{ }} =| {{! ----- Turn on mustache ---- }}
-     *      </div>
+    ///      <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
+    ///          {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+    ///          <mdl-draggable template class="language" consumes="language" drop-zone="trash">
+    ///              {{language.name}}
+    ///          </mdl-draggable>
+    ///          |= {{ }} =| {{! ----- Turn on mustache ---- }}
+    ///      </div>
      *
-     *      class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
-     *          ...
-     *      }
+    ///      class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
+    ///          ...
+    ///      }
      */
     void _addDataToDataConsumer(final dom.HtmlElement element, final item) {
         Validate.notNull(element);
@@ -525,19 +524,19 @@ class _MaterialRepeatConstant {
     static const String WIDGET_SELECTOR = "mdl-repeat";
 
     /**
-     * Used if child is a 'MdlDataConsumer' - e.g. MaterialDraggable
+    /// Used if child is a 'MdlDataConsumer' - e.g. MaterialDraggable
      *
-     *      <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
-     *          {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
-     *          <mdl-draggable template class="language" consumes="language" drop-zone="trash">
-     *              {{language.name}}
-     *          </mdl-draggable>
-     *          |= {{ }} =| {{! ----- Turn on mustache ---- }}
-     *      </div>
+    ///      <div mdl-repeat="language in programming" class="mdl-dnd__drag-container">
+    ///          {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+    ///          <mdl-draggable template class="language" consumes="language" drop-zone="trash">
+    ///              {{language.name}}
+    ///          </mdl-draggable>
+    ///          |= {{ }} =| {{! ----- Turn on mustache ---- }}
+    ///      </div>
      *
-     *      class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
-     *          ...
-     *      }
+    ///      class MaterialDraggable extends MdlComponent implements MdlDataConsumer {
+    ///          ...
+    ///      }
      */
     final String CONSUMES = "consumes";
 

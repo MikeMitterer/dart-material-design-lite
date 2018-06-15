@@ -140,6 +140,8 @@ abstract class MdlComponent extends Object with MdlEventListener {
             return child;
         }
 
+        _logger.warning("Waiting for '$selector' within $element...");
+        
         int iterationCounter = 0;
         await Future.doWhile( () async {
             await new Future.delayed(wait, () {
@@ -155,6 +157,7 @@ abstract class MdlComponent extends Object with MdlEventListener {
                 "Could not find '$selector' within ${element}, "
                     "gave up after $maxIterations retries!");
         }
+        _logger.warning("Found $child with '$selector' within $element...");
         return child;
     }
 

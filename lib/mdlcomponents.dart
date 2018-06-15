@@ -24,6 +24,7 @@ import 'dart:math' as Math;
 import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:dryice/dryice.dart';
+import 'package:mustache/mustache.dart';
 import 'package:validate/validate.dart';
 import 'package:platform_detect/platform_detect.dart';
 
@@ -63,9 +64,11 @@ void registerMdlComponents() {
     registerMaterialBadge();
     registerMaterialButton();
     registerMaterialCheckbox();
+    registerMaterialDataTable();
+    registerMaterialDivDataTable();
     registerMaterialIconToggle();
-    registerMaterialLayout();
     registerMaterialLabelfield();
+    registerMaterialLayout();
     registerMaterialMenu();
     registerMaterialProgress();
     registerMaterialProgressVertical();
@@ -77,8 +80,6 @@ void registerMdlComponents() {
     registerMaterialTabs();
     registerMaterialTextfield();
     registerMaterialTooltip();
-    registerMaterialDataTable();
-    registerMaterialDivDataTable();
 
     // should be the last registration
     registerMaterialRipple();

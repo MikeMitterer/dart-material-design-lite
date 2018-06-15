@@ -117,12 +117,14 @@ main() async {
         });
 
         test('> Mocked injection', () async {
-            final callback = expectAsync1((final String name) => name.toUpperCase());
+            // Nr of calls - see below
+            final callback = expectAsync1((final String name) => name.toUpperCase(),count: 2);
 
             final SimpleService service = mdlmock.injector().get(SimpleService);
             expect(service, isNotNull);
             expect(service is MockedService, isTrue);
 
+            // Call 1
             final String result = await service.connectToServer(callback);
             expect(result,"mocked-SIMPLE");
             
@@ -131,6 +133,8 @@ main() async {
                 expect(injected[SimpleService] is MockedService, isTrue);
 
                 final SimpleService service = injected[SimpleService];
+
+                // Call 2
                 final String result = await service.connectToServer(callback);
                 
                 expect(result,"mocked-SIMPLE");
