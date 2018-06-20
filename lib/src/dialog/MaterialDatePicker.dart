@@ -20,7 +20,7 @@ part of mdldialog;
 ///     Intl.defaultLocale = locale;
 ///     initializeDateFormatting(locale);
 ///
-@Component
+@Component @inject @mustache
 class MaterialDatePicker extends MaterialDialog {
     static final Logger _logger = new Logger('mdldialog.MaterialDatePicker');
 

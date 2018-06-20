@@ -94,6 +94,10 @@ class MaterialDropZone extends MdlComponent {
                 final Invoke invoke = new Invoke(scope);
                 final StringToFunction stf = new StringToFunction(functionToCall);
 
+                //_logger.info("FunctionToCall ${functionToCall}");
+                //_logger.info("STF ${stf.functionAsString}");
+                //_logger.info("Scope ${scope.rootContext}");
+                //_logger.info("Scope ${scope.rootContext}");
                 invoke.function(stf,varsToReplace: { "data" : data });
             };
         }

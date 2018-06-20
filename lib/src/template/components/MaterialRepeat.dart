@@ -47,7 +47,7 @@ void _defaultPostRenderingCallback(final dom.HtmlElement element) {}
 ///             |= {{ }} =| {{! ----- Turn on mustache ---- }}
 ///        </div>
 
-//@inject @mustache
+//@inject //@mustache
 class MaterialRepeat extends MdlTemplateComponent {
     static final Logger _logger = new Logger('mdltemplate.MaterialRepeat');
 
@@ -89,7 +89,6 @@ class MaterialRepeat extends MdlTemplateComponent {
         Validate.notNull(item);
         Validate.notNull(_mustacheTemplate);
 
-        // _logger.info("Add: ${item}");
         _items.add(item);
         // _logger.shout("Item added to internal list... (Type: ${item}) ID: ${item["device"]}");
 

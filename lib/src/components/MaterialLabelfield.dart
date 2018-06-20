@@ -66,10 +66,12 @@ class MaterialLabelfield extends MdlComponent with FallbackFormatter {
         Validate.notNull(v);
 
         final dom.HtmlElement _text = element.querySelector(".${_cssClasses.TEXT}");
-        final formatter = formatterFor(_text,element);
+        if(_text != null) {
+            final formatter = formatterFor(_text,element);
 
-        _logger.info("Formatter: ${formatter.runtimeType}");
-        _text?.text = formatter.format(v);
+            _logger.info("Formatter: ${formatter.runtimeType}");
+            _text?.text = formatter.format(v);
+        }
     }
 
     // - EventHandler -----------------------------------------------------------------------------

@@ -53,6 +53,7 @@ class MaterialApplication {
  * Sample-Component:
  *      [MaterialModel]
  */
+@inject
 abstract class RefreshableComponent {
     void refresh();
 }

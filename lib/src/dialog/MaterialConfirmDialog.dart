@@ -1,6 +1,6 @@
 part of mdldialog;
 
-@Component
+@Component @inject @mustache
 class MdlConfirmDialog extends MaterialDialog {
     static final Logger _logger = new Logger('mdldialog.MdlConfirmDialog');
 

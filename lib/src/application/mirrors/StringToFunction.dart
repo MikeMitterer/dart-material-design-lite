@@ -39,7 +39,7 @@ part of mdlapplication;
  *
  */
 class StringToFunction {
-    //final Logger _logger = new Logger('mdlapplication.StringToFunction');
+    final Logger _logger = new Logger('mdlapplication.StringToFunction');
 
     final String _functionAsString;
 

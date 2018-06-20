@@ -20,7 +20,7 @@ part of mdldialog;
 ///     Intl.defaultLocale = locale;
 ///     initializeDateFormatting(locale);
 ///
-@Component
+@Component @inject @mustache
 class MaterialTimePicker extends MaterialDialog {
     static final Logger _logger = new Logger('mdldialog.MaterialTimePicker');
 
@@ -120,6 +120,7 @@ class MaterialTimePicker extends MaterialDialog {
     void set _minute(final String year) => _elementMinute.text = year;
 
     /// Called by the framework after the dialog was rendered but still invisible
+    @override
     Future _init(_) async {
 
         _hours.clear();

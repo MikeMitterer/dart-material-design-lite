@@ -25,16 +25,16 @@ part of mdlformatter;
 ///     <span mdl-observe="isNameNull | choose(value, '(Name-Object is null!)','')"></span>
 @Directive @inject
 class ChooseFormatter {
-    // final Logger _logger = new Logger('mdlformatter.ChooseFormatter');
+    final Logger _logger = new Logger('mdlformatter.ChooseFormatter');
 
-    String choose(final bool value,[ final String option1 = "Yes",final String option2 = "No" ]) {
-        return (value ? option1 : option2);
+    String choose(final dynamic value,[ final String option1 = "Yes",final String option2 = "No" ]) {
+        //_logger.shout("V $value, O1 $option1, O2, $option2");
+        
+        return (ConvertValue.toBool(value)
+            ? ConvertValue.toSanitizeString(option1)
+            : ConvertValue.toSanitizeString(option2));
     }
 
-    /// Called by the framework - sanitizes input. (In reality params are not strong typed!)
-    String call(final value,[ final String option1 = "Yes",final String option2 =  "No" ])
-        => choose(ConvertValue.toBool(value),
-            ConvertValue.toSanitizeString(option1),ConvertValue.toSanitizeString(option2));
 
     //- private -----------------------------------------------------------------------------------
 

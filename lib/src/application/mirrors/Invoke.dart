@@ -34,7 +34,7 @@ class Invoke {
         final InstanceMirror myClassInstanceMirror = inject.reflect(_scope.context);
         final Symbol myFunction = stringToFunction.function;
 
-        final params = new List<String>();
+        final params = new List<dynamic>();
         stringToFunction.params.forEach( (final String paramName) {
 
             //_logger.info("Param: $paramName");
@@ -60,15 +60,8 @@ class Invoke {
         final result = myClassInstanceMirror.invoke(
             "${stringToFunction.functionAsString}",params);
 
-        _logger.info("Result: $result");
-        
+        _logger.info("Result (return value): $result");
         return result;
-
-//        final InstanceMirror im = myClassInstanceMirror.invoke(
-//            stringToFunction.functionAsString,params);
-//
-//        _logger.info("Function2: ${stringToFunction.functionAsString}(${params})");
-//        return im.reflectee;
     }
 
     /// Returns the object for the given [fieldname]. If [fieldname] is separated with dots
@@ -88,6 +81,7 @@ class Invoke {
         names.forEach((final String name) {
             final InstanceMirror myClassInstanceMirror = inject.reflect(context);
 
+            // No list
             if(!name.contains(new RegExp(r"\[[^\]]*\]$"))) {
 
                 //final InstanceMirror getField = myClassInstanceMirror.getField(new Symbol(name));
@@ -95,18 +89,18 @@ class Invoke {
 
                 context = myClassInstanceMirror.invokeGetter(name);
 
-            } else {
+            }
+            // List - e.g. (HTML)
+            // <span class="mdl-color-text--accent-500 mdl-observe is-upgraded"
+            //      mdl-observe="modelTest.lights[0]" data-upgraded="MaterialObserve">???
+            // </span>
+            else {
                 final List<String> parts = name.trim().split(new RegExp(r"(\[|\])"));
-                //_logger.info("FFFFFx $name >${parts[1]}<, ${parts.length}");
+                final List list = myClassInstanceMirror.invokeGetter(parts[0]);
+                //_logger.info("LIST: ${list.runtimeType}");
 
-                //final InstanceMirror instanceMirror = myClassInstanceMirror.getField(new Symbol(parts[0]));
-                //final Symbol function = new Symbol("[]");
+                context = list[int.parse(parts[1])];
 
-                //final InstanceMirror getField = instanceMirror.invoke("[]",[ int.parse(parts[1]) ]);
-                //context = getField.reflectee;
-
-                final InstanceMirror instanceMirror = myClassInstanceMirror.invokeGetter(parts[0]);
-                context = instanceMirror.invoke("[]",[ int.parse(parts[1]) ]);
                 // _logger.info("Value $context");
             }
 

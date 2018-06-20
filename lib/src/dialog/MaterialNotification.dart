@@ -26,7 +26,7 @@ enum NotificationType {
 }
 
 /// MaterialNotification
-@Component
+@Component @inject @mustache
 class MaterialNotification extends MaterialDialog {
     static final Logger _logger = new Logger('mdldialog.MaterialNotification');
 

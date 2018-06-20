@@ -99,8 +99,9 @@ class MaterialDivDataTable extends MdlComponent {
     }
 
     List<MaterialDivDataTableRow> get _rows {
-        final List<dom.HtmlElement> tempRows = new List.from(
-            element.querySelectorAll(".${_cssClasses.ROW}") as List<dom.HtmlElement>);
+        final List<dom.HtmlElement> tempRows = element.querySelectorAll(".${_cssClasses.ROW}")
+            .map((final element) => element as dom.HtmlElement).toList();
+
         tempRows.removeWhere((final dom.HtmlElement element) => element.classes.contains(_cssClasses.HEAD));
 
         final List<MaterialDivDataTableRow> rows = new List<MaterialDivDataTableRow>();

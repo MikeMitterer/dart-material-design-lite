@@ -38,7 +38,7 @@ class SnackbarPosition {
 }
 
 /// MaterialSnackbarComponent
-@Component
+@Component @inject @mustache
 class MaterialSnackbar extends MaterialDialog {
     static final Logger _logger = new Logger('mdldialog.MaterialSnackbar');
 

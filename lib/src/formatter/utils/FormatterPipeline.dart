@@ -88,11 +88,13 @@ class FormatterPipeline {
                 // Instance of uppercase from Formatter (e.g. _formatter.uppercase)
                 final concreteFormatter = new Invoke(new Scope(_formatter,null)).field(stf.functionAsString);
 
+                //_logger.warning("Calling $concreteFormatter with function: ${stf.functionAsString}($val)");
+
                 // Parent-Scope null is OK here because we don't need it
                 final Invoke formatterFunction = new Invoke(new Scope(concreteFormatter,null));
 
                 try {
-                    val = formatterFunction.function(stf,varsToReplace: { "value" : val });
+                    val = formatterFunction.function(stf,varsToReplace: { "value" : val.toString() });
                     return val;
 
                 } catch(e) {

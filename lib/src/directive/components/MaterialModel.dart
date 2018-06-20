@@ -46,7 +46,7 @@ part of mdldirective;
 ///         application.run();
 ///     }
 ///     
-@Component
+@Component @inject @mustache
 class MaterialModel extends MdlComponent implements RefreshableComponent {
     final Logger _logger = new Logger('mdldirective.MaterialModel');
 
@@ -69,10 +69,11 @@ class MaterialModel extends MdlComponent implements RefreshableComponent {
         } on NoSuchMethodError catch(e,stacktrace) {
             // It's possible that at this moment the requested fieldname is not yet available
             // MaterialDialog is a candidate for this.
-            // If MaterialDialog pops up attached() is called but only then the parent-scope is set
+            // If MaterialDialog pops up, attached() is called but only then the parent-scope is set
             // via dialogComponent.parentScope = this;
 
             if(!(_scope.parentContext is HasDynamicParentScope)) {
+                _logger.shout("ParentScop. ${_scope.parentContext}");
                 _logger.shout(e.toString(),e,stacktrace);
             }
         }

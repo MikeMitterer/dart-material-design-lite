@@ -84,7 +84,7 @@ class MaterialObserve extends MdlComponent implements ScopeAware {
              }
 
             scope.context = scope.parentContext;
-            //_logger.info(scope.context);
+            //_logger.shout("Context: ${scope.context}");
 
             final val = (new Invoke(scope)).field(fieldname);
 

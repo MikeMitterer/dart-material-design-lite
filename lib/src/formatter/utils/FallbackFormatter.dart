@@ -45,7 +45,10 @@ abstract class FallbackFormatter {
     /// E.G. In the above sample the mdl-textfield__input would be the
     /// [baseElement] ([MdlComponent#element])
     MaterialFormatter formatterFor(final dom.Element inquirer,final dom.Element baseElement) {
-        Validate.notNull(inquirer);
+        if(inquirer == null) {
+            var attributes = baseElement.attributes.entries.map((final MapEntry e) => "${e.value}=\"${e.key}\"}").toList().join(",");
+            throw "inquirer for ${baseElement} (${baseElement.classes.join(', ')} / $attributes) is null!";
+        }
 
         MaterialFormatter formatter = MaterialFormatter.widget(inquirer);
         if(formatter is MaterialDummyFormatter) {

@@ -25,6 +25,8 @@ part of mdlanimation;
 /// Callback function type
 typedef void MdlAnimationComplete();
 
+typedef dynamic MdlAnimationStream(final StreamSubscription<dom.EventListener> subscription);
+
 /// Timing constants
 class AnimationTiming {
     final String function;
@@ -276,7 +278,7 @@ class MdlAnimation {
         final dom.ShadowRoot shadow: null }) {
 
         final Completer completer = new Completer();
-        new Future(() {
+        new Future( () {
 
             // Check if style is already in the DOM, either in header or in Shadow-DOM
             if (_style.parent == null) {
@@ -287,7 +289,7 @@ class MdlAnimation {
             // Animation is already running!
             if (element.style.animationName == _animationName) {
                 _logger.shout("Animation ${_animationName} is alredy running...");
-                return;
+                return false;
             }
 
             final Duration _duration = _stockanimation != null ? _stockanimation.duration : duration;
@@ -304,8 +306,8 @@ class MdlAnimation {
 
             if (iterations > 0) {
 
-                StreamSubscription<dom.EventListener> subscription;
-                void _onAnimationEnd(_) {
+                StreamSubscription<dom.Event> subscription;
+                void _onAnimationEnd() {
                     if (persist) {
                         final Map<String, Object> map = (alternate && (iterations % 2) == 0)
                             ? _keyframes[0]
@@ -315,12 +317,16 @@ class MdlAnimation {
                     }
 
                     element.style.animation = 'none';
-                    subscription.cancel();
+                    subscription?.cancel();
 
                     completer.complete();
+                    return;
                 };
-                subscription = element.on["animationend"].listen(_onAnimationEnd) as StreamSubscription<dom.EventListener>;
+
+                subscription = element.on["animationend"].listen((final event) => _onAnimationEnd());
             }
+
+            return true;
         });
 
         return completer.future;

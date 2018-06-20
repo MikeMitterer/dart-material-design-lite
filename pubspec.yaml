@@ -24,7 +24,8 @@ dependencies:
     path: /Volumes/Daten/DevLocal/DevDart/mustache
     #git: git://github.com/xxgreg/mustache
 
-  dnd: ^0.4.0
+  dnd: ^1.0.0
+    # path: /Volumes/Daten/DevLocal/DevDart/dart-dnd
 
   dryice: # ^2.0.0
     path: /Volumes/Daten/DevLocal/DevDart/dryice

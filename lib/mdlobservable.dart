@@ -24,6 +24,8 @@ import 'dart:collection';
 import 'dart:html' as dom;
 
 import 'package:dryice/dryice.dart';
+import 'package:mustache/mustache.dart';
+
 import 'package:logging/logging.dart';
 import "package:mdl/mdlcore.dart";
 
