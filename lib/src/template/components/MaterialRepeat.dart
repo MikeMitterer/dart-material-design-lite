@@ -68,7 +68,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     String _template = "<div>not set</div>";
 
     /// {_items} holds all the items to render
-    final List<Map<String, dynamic>> _items = new List();
+    final _items = new List<Map<String, dynamic>>();
 
     /// Checks if Component is fully initialized
     bool _initialized = false;
@@ -92,8 +92,10 @@ class MaterialRepeat extends MdlTemplateComponent {
         _items.add(item);
         // _logger.shout("Item added to internal list... (Type: ${item}) ID: ${item["device"]}");
 
-        final dom.HtmlElement renderedChild = await _repeatRenderer.render(element,
-            _mustacheTemplate.renderString(item), replaceNode: false);
+        final String template = _mustacheTemplate.renderString(item);
+
+        final dom.HtmlElement renderedChild =
+            await _repeatRenderer.render(element, template , replaceNode: false);
 
         _logger.fine("Adding data to consumer");
         _addDataToDataConsumer(renderedChild, item);
@@ -137,11 +139,30 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     /// Removes item from DOM
-    Future<int> remove(final item) async {
-        Validate.notNull(item);
+    Future<int> remove(final itemToRemove) async {
+        Validate.notNull(itemToRemove);
 
-        // _logger.info("Remove: ${item}");
-        final int index = _items.indexOf(item);
+        var item = itemToRemove;
+        int index = _items.indexOf(item);
+
+        // First try failed (-1)
+        if(index == -1 && item is Map<String,dynamic> && item.length == 1) {
+            final String itemName = item.keys.first;
+            final dynamic entry = item[itemName];
+
+            // Search for
+            item = _items.firstWhere((final Map<String,dynamic> items) {
+                final values = items.values.toList();
+                for(int index = 0;index < values.length; index++) {
+                    if(values[index] == entry) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+
+            index = _items.indexOf(item);
+        }
 
         if (index != -1) {
             final dom.HtmlElement child = element.children[index];
@@ -292,6 +313,19 @@ class MaterialRepeat extends MdlTemplateComponent {
         }
     }
 
+    /// Returns first entry for [item] from internal List
+    ///
+    /// Items are stored internally as { itemName : item }
+    Map _getItemFromInternalList(final String itemName, final item) {
+        _logger.info("I--- ${item.runtimeType} N: ${itemName} #element: ${_items.length} ID: ${element.id}");
+
+        final Map map = _items.firstWhere((final Map<String, dynamic> map) {
+            return map.containsKey(itemName) && map[itemName] == item;
+        });
+
+        return map;
+    }
+
     Future _initListFromParentContext() async {
         Validate.isTrue(element.attributes[_MaterialRepeatConstant.WIDGET_SELECTOR].isNotEmpty);
         Validate.isTrue(element.attributes[_MaterialRepeatConstant.WIDGET_SELECTOR].contains(new RegExp(r" in ")));
@@ -312,17 +346,6 @@ class MaterialRepeat extends MdlTemplateComponent {
         final String itemName = dataset
             .split(" ")
             .first; // e.g. job
-
-        // Items are stored internally as { itemName : item }
-        Map _getItemFromInternalList(final item) {
-            //_logger.info("I--- ${item.runtimeType} N: ${itemName} #element: ${_items.length} ID: ${element.id}");
-
-            final Map map = _items.firstWhere((final Map<String, dynamic> map) {
-                return map.containsKey(itemName) && map[itemName] == item;
-            });
-
-            return map;
-        }
 
         scope.context = scope.parentContext;
 
@@ -354,7 +377,7 @@ class MaterialRepeat extends MdlTemplateComponent {
                     case ListChangeType.INSERT:
                         int index = 0;
                         if (event.prevItem != null) {
-                            final Map prevItem = _getItemFromInternalList(event.prevItem);
+                            final Map prevItem = _getItemFromInternalList(itemName, event.prevItem);
                             index = _items.indexOf(prevItem);
                         }
                         await insert(index, { itemName: event.item},
@@ -374,7 +397,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
                         try {
                             if(index == -1 || index >= _items.length) {
-                                final Map itemToRemove = _getItemFromInternalList(event.prevItem);
+                                final Map itemToRemove = _getItemFromInternalList(itemName, event.prevItem);
                                 index = _items.indexOf(itemToRemove);
                             }
 
@@ -425,7 +448,7 @@ class MaterialRepeat extends MdlTemplateComponent {
                         break;
 
                     case ListChangeType.REMOVE:
-                        final Map itemToRemove = _getItemFromInternalList(event.item);
+                        final Map itemToRemove = _getItemFromInternalList(itemName, event.item);
                         remove(itemToRemove);
                         break;
                 }

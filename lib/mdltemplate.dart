@@ -27,7 +27,7 @@ import 'dart:async';
 
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 import 'package:dryice/dryice.dart';
 import 'package:reflectable/reflectable.dart';
 

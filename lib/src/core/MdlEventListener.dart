@@ -38,7 +38,7 @@ part of mdlcore;
 ///     }
 abstract class MdlEventListener {
 
-    /// All the registered Events - helpful for automatically downgrading the element
+    /// Collects all the registered Events - helpful for downgrading an element
     /// Sample:
     ///     eventStreams.add(input.onFocus.listen( _onFocus));
     final List<StreamSubscription> eventStreams = new List<StreamSubscription>();

@@ -55,12 +55,12 @@ class Invoke {
             }
         });
 
-        _logger.info("Invoke: ${myClassInstanceMirror.type.qualifiedName}.${stringToFunction.functionAsString}(${params})");
+        //_logger.info("Invoke: ${myClassInstanceMirror.type.qualifiedName}.${stringToFunction.functionAsString}(${params})");
 
         final result = myClassInstanceMirror.invoke(
             "${stringToFunction.functionAsString}",params);
 
-        _logger.info("Result (return value): $result");
+        //_logger.info("Result (return value): $result");
         return result;
     }
 

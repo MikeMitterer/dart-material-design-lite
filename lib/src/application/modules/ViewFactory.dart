@@ -48,17 +48,17 @@ class ViewFactory {
 
     MaterialController _previousController;
 
-//    RouteEnterEventHandler call(final String url, final MaterialController controller, { final String selector: "#main"}) {
-//        return (final RouteEnterEvent event) => _enterHandler(event, url, controller, selector);
-//    }
-
-    void call(final String url, final MaterialController controller, { final String selector: "#main"}) {
-         _enterHandler( url, controller, selector);
+    RouteEnterCallback call(final String url, final MaterialController controller, { final String selector: "#main"}) {
+        return (final RouteEvent event) => _enterHandler(event, url, controller, selector);
     }
+
+//    void call(final String url, final MaterialController controller, { final String selector: "#main"}) {
+//         _enterHandler( url, controller, selector);
+//    }
 
     //- private -----------------------------------------------------------------------------------
 
-    void _enterHandler(/*final RouteEnterEvent event, */final String url,
+    void _enterHandler(final RouteEvent event, final String url,
                        final MaterialController controller, final String selector) {
 
         //Validate.notNull(event);
@@ -66,6 +66,7 @@ class ViewFactory {
         Validate.notNull(controller);
         Validate.notBlank(selector);
 
+        final Stopwatch stopwatch = new Stopwatch();
         final dom.HttpRequest request = new dom.HttpRequest();
         final dom.Element contentElement = dom.querySelector(selector);
 
@@ -88,6 +89,7 @@ class ViewFactory {
                 final String content = _sanitizeResponseText(request.responseText);
                 final MaterialContent main = MaterialContent.widget(contentElement);
 
+
                 if(controller is ScopeAware) {
                     // If you have observable-Properties in your Controller it must be
                     // marked as [@mdl.Model]
@@ -101,12 +103,15 @@ class ViewFactory {
                 main.render(content).then( (_) {
 
                     controller.injector = main.injector;
+                    controller.loaded(event);
 
-                    //controller.loaded(event.route);
+                    stopwatch.stop();
+                    _logger.info("Page load and rendering took ${stopwatch.elapsedMilliseconds}ms");
                 });
             }
         });
 
+        stopwatch.start();
         request.send();
     }
 

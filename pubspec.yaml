@@ -18,11 +18,17 @@ dependencies:
   console_log_handler: ^1.0.0
 
 #  route_hierarchical: ^0.7.0
-  angel_route: ^2.0.0
+#  angel_route: ^2.0.0
 
-  mustache: # ^0.2.0
-    path: /Volumes/Daten/DevLocal/DevDart/mustache
-    #git: git://github.com/xxgreg/mustache
+  m4d_router: ^0.2.0
+    # path: /Volumes/Daten/DevLocal/DevDart/m4d/m4d_router
+
+  reflected_mustache:
+    path: /Volumes/Daten/DevLocal/DevDart/reflected_mustache
+    
+  #mustache: # ^0.2.0
+    # path: /Volumes/Daten/DevLocal/DevDart/mustache
+    # git: git://github.com/xxgreg/mustache
 
   dnd: ^1.0.0
     # path: /Volumes/Daten/DevLocal/DevDart/dart-dnd
@@ -36,12 +42,17 @@ dependencies:
   l10n: #">=1.2.7 <2.0.0"
     path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
 
+#dependency_overrides:
+#  build_runner: ^0.9.1
+#  build_config: ^0.3.0
+#  front_end: ^0.1.2
+
 dev_dependencies:
   test: any
 
-  build_runner: ^0.8.0
-  build_test: ^0.10.0
-  build_web_compilers: ^0.4.0
+  build_runner: any
+  build_test: any
+  build_web_compilers: any
     
   args: any
   material_icons: any
@@ -57,8 +68,8 @@ dev_dependencies:
 #  - $dart2js:
 #      commandLineOptions: [--enable-experimental-mirrors]
 
-web:
-  compiler:
-    debug: dartdevc
+#web:
+#  compiler:
+#    debug: dartdevc
 
 

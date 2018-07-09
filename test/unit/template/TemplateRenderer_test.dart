@@ -9,7 +9,7 @@ import 'package:dryice/dryice.dart';
 import "package:mdl/mdl.dart";
 import 'package:mdl/mdlmock.dart' as mdlmock;
 
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 //import 'package:logging/logging.dart';
 
 import '../config.dart';

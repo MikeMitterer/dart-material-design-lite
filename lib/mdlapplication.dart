@@ -34,7 +34,7 @@ import 'package:validate/validate.dart';
 import 'package:reflectable/reflectable.dart';
 import 'package:dryice/dryice.dart';
 
-import 'package:angel_route/angel_route.dart';
+import 'package:m4d_router/browser.dart';
 
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlcomponents.dart";

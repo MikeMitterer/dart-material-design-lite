@@ -26,7 +26,7 @@ import 'package:intl/date_symbol_data_local.dart';
 
 
 import 'package:logging/logging.dart';
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 import 'package:validate/validate.dart';
 import 'package:dryice/dryice.dart';
 

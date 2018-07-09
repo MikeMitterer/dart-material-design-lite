@@ -137,7 +137,7 @@ class EventCompiler {
                 // from the above sample this would be: check
                 Symbol getFunctionName() => new Symbol(match.group(1));
 
-                String getFunctionNameAsString() => match.group(1);
+                String getFunctionNameAsString() => match.group(1).split(".").last;
 
                 List getParams() {
                     final List params = new List();
@@ -152,20 +152,19 @@ class EventCompiler {
                     return params;
                 }
 
-                final myClassInstanceMirror = inject.reflect(scope);
+                InstanceMirror myClassInstanceMirror = null;
+                //_logger.info("Scope: $scope, FunctionName: ${getFunctionNameAsString()}");
+
+                // TODO: Quite a hack - necessary for MaterialRepeat if value comes as a map
+                // TODO: (e.g. await repeater.add({ "nfrs" : new NameForRepeatSample("A - Nicki II",removeCallback)});)
+                if(scope is Map) {
+                    myClassInstanceMirror = inject.reflect(scope.values.first);
+                } else {
+                    myClassInstanceMirror = inject.reflect(scope);
+                }
 
                 // If, e.g. dataset is 'mdl-click', it calls _onClick(element,() { ... });
                 datasets[dataset](element,(final dom.Event event) {
-
-//                    if(myClassInstanceMirror == null) {
-//                        _logger.shout("Unable to call ${getFunctionNameAsString()} on ${scope.runtimeType} "
-//                            "because $scope could not be reflected! (${datasets[dataset]} for $element)");
-//
-//                        reflectionError = error;
-//                        _logger.shout(reflectionError, stacktrace);
-//
-//                    } else {
-//                    }
                     _invokeFunction(myClassInstanceMirror,getFunctionNameAsString(),getParams(),event);
                 });
             });
@@ -195,6 +194,7 @@ class EventCompiler {
             //event.preventDefault();
             //event.stopPropagation();
         }
+        _logger.info("Invoke: ${myClassInstanceMirror.type.runtimeType}/${function}(${params})");
         myClassInstanceMirror.invoke(function, _replaceEventInParams(params,event));
     }
 

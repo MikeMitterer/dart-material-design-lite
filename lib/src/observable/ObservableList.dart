@@ -99,7 +99,7 @@ class ListChangedEvent<T> {
 ///         final String template = "...";
 ///     }
 ///
-@Directive
+@Directive //@inject
 class ObservableList<T> extends ListBase<T> {
     final Logger _logger = new Logger('mdlobservable.ObservableList');
 
@@ -108,12 +108,16 @@ class ObservableList<T> extends ListBase<T> {
 
     StreamController<ListChangedEvent<T>> _onChange;
 
-    final UpdateItem _updateCallback;
+    UpdateItem _updateCallback;
 
     /// If [updateCallback] is given it will be called from [MaterialRepeat]
     /// if the list updates
-    ObservableList({final UpdateItem updateCallback: _defaultUpdateCallback })
-        : _updateCallback = updateCallback;
+    ObservableList({final UpdateItem updateCallback /*: _defaultUpdateCallback*/ })
+        : _updateCallback = updateCallback {
+        if(_updateCallback == null) {
+            _updateCallback = _defaultUpdateCallback;
+        }
+    }
 
     /// Propagated Event-Listener
     Stream<ListChangedEvent<T>> get onChange {

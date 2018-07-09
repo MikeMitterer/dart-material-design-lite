@@ -95,7 +95,6 @@ class DomRenderer {
                         parent.classes.add(_cssClasses.LOADED);
 
                         completer.complete(child);
-
                     });
 
                 });

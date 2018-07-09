@@ -27,10 +27,12 @@ class PropertyChangeEvent<T> {
 }
 
 typedef T ResetObserver<T>();
+
+// TODO: Funktioniert nur mit dart2js - nicht mit ddc: https://github.com/dart-lang/sdk/issues/33552
 typedef String FormatObservedValue<T>(final T value, final original);
 typedef T StaticCast<T>(final value);
 
-@Directive
+@Directive 
 class ObservableProperty<T> {
     static const String _DEFAULT_NAME = "<undefinded>";
 
@@ -89,7 +91,7 @@ class ObservableProperty<T> {
      */
     ObservableProperty(this._value,{ T observe(), final Duration interval,
         final String name: ObservableProperty._DEFAULT_NAME, final bool observeViaTimer: true,
-            final bool treatAsDouble: false, final FormatObservedValue formatter } )
+            final bool treatAsDouble: false, final FormatObservedValue<T> formatter } )
                 : _name = name, _treatAsDouble = treatAsDouble, _observeViaTimer = observeViaTimer,
                     _formatter = formatter, _inputValue = _value {
 
@@ -231,14 +233,14 @@ class ObservableProperty<T> {
     ///
     /// Call this method manually if observeViaTimer (Constructor) is
     /// set to false
-    void update() {
+    void update({final bool force: false}) {
         if(_observe != null) {
             final T newValue = _observe() as T;
-            if(newValue != _value) {
+            if(newValue != _value || force) {
+                // value triggers PropertyChangeEvent
                 value = newValue;
             }
         }
-        _fire(new PropertyChangeEvent(_value,_value));
     }
 
     /// Converts [value] to bool. If [value] is a String, "true", "on", "1" are valid boolean values

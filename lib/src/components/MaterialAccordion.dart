@@ -175,7 +175,9 @@ class MaterialAccordion extends MdlComponent {
 
     /// If this is a radio-style-accordion [_uncheckOthers] closes (unchecks) siblings
     void _uncheckOthers(final dom.InputElement elementToExclude) {
-        final List<dom.InputElement> checkboxes = group.querySelectorAll("[name=${_groupName}]") as List<dom.InputElement>;
+        final List<dom.InputElement> checkboxes = group.querySelectorAll("[name=${_groupName}]")
+            .map((final dom.Element element) => element as dom.InputElement).toList();
+        
         checkboxes.forEach((final dom.InputElement checkbox) {
             if(checkbox != elementToExclude) {
                 checkbox.checked = false;

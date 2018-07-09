@@ -34,7 +34,7 @@ abstract class MaterialController {
     /// [loaded] is called after [ViewFactory] received the onLoadEnd-Event
     ///
     /// At this point the Template is already rendered
-    void loaded(final Route route);
+    void loaded(final RouteEnterEvent event);
 
     /// Called before the next controller is loaded
     void unload() {}
@@ -44,8 +44,8 @@ class DummyController extends MaterialController {
     final Logger _logger = new Logger('mdlapplication.DummyController');
 
     @override
-    void loaded(final Route route) {
-        _logger.info("View loaded! (Route: ${route.name})");
+    void loaded(final RouteEnterEvent event) {
+        _logger.info("View loaded! (Route: ${event.route})");
     }
 
     @override
