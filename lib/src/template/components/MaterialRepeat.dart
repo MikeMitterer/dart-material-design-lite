@@ -163,14 +163,23 @@ class MaterialRepeat extends MdlTemplateComponent {
 
         final int index = _getIndex(item);
 
+        void _logItems() {
+            _logger.warning("# of items in list: ${_items.length}");
+            _items.forEach((final Pair<String,dynamic> _item)
+                => _logger.warning("Name: ${_item.key}, Value: ${_item.value.toString()}"));
+        }
+
         if (index != -1) {
             final dom.HtmlElement child = element.children[index];
 
             if (child == null) {
                 _logger.warning(
-                    "Could not find $item in DOM-Tree (${_MaterialRepeatConstant.WIDGET_SELECTOR})"
-                        ", so nothing to remove here...");
-                throw "Could not find $item in DOM-Tree!";
+                    "Could not find ${item.key} in DOM-Tree (${_MaterialRepeatConstant.WIDGET_SELECTOR})"
+                        ", so nothing to remove here..."
+                );
+
+                _logItems();
+                throw "Could not find ${item.key} in DOM-Tree!";
             }
 
             _addBorderIfInDebugMode(child, "red");
@@ -192,7 +201,9 @@ class MaterialRepeat extends MdlTemplateComponent {
         }
         else {
             _logger.warning(
-                "Could not find $item in ${_MaterialRepeatConstant.WIDGET_SELECTOR}, so nothing to remove here...");
+                "Could not find ${item.key} in ${_MaterialRepeatConstant.WIDGET_SELECTOR}, so nothing to remove here...");
+
+            _logItems();
 
             //_logger.warning("Number of items in list: ${_items.length}, First: ${_items.first.client_name}");
             throw "Could not find $item in internal item list!";
@@ -316,7 +327,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     ///
     /// Items are stored internally as { itemName : item }
     Pair<String,dynamic> _getItemFromInternalList(final String itemName, final item) {
-        _logger.info("I--- ${item.runtimeType} N: ${itemName} #element: ${_items.length} ID: ${element.id}");
+        _logger.fine("I--- ${item.runtimeType} N: ${itemName} #element: ${_items.length} ID: ${element.id}");
 
         final Pair<String,dynamic> pair = _items.firstWhere((final Pair<String,dynamic> pair) {
             return pair.key == itemName && pair.value == item;
@@ -328,24 +339,25 @@ class MaterialRepeat extends MdlTemplateComponent {
     /// Search for [itemToSearch] in internal [_items]-List
     ///
     /// Items are stored as Key-Value pair
-    int _getIndex(final itemToSearch) {
+    int _getIndex(final Pair<String,dynamic> itemToSearch) {
         var item = itemToSearch;
         int index = _items.indexOf(item);
 
+        _logger.fine("$index - ${itemToSearch.key}/${itemToSearch.value}");
         // First try failed (-1)
-        if(index == -1 && item is Pair<String,dynamic>) {
-            final String itemName = (item as Pair<String,dynamic>).key;
-            final dynamic entry = (item as Pair<String,dynamic>).value;
-
-            // Search for
-            item = _items.firstWhere((final Pair<String,dynamic> item)
-                => item.key == itemName && item.value == entry,
-                    orElse: () => null);
-
-            if(item != null) {
-                index = _items.indexOf(item);
-            }
-        }
+//        if(index == -1) {
+//            final String itemName = item.key;
+//            final dynamic entry = item.value;
+//
+//            // Search for
+//            item = _items.firstWhere((final Pair<String,dynamic> item)
+//                => item.key == itemName && item.value == entry,
+//                    orElse: () => null);
+//
+//            if(item != null) {
+//                index = _items.indexOf(item);
+//            }
+//        }
 
         return index;
     }
@@ -500,14 +512,14 @@ class MaterialRepeat extends MdlTemplateComponent {
     ///          ...
     ///      }
      */
-    void _addDataToDataConsumer(final dom.HtmlElement element, final item) {
+    void _addDataToDataConsumer(final dom.HtmlElement element, final Pair<String,dynamic> item) {
         Validate.notNull(element);
 
         if (!element.attributes.containsKey(_constant.CONSUMES)) {
             return;
         }
 
-        Validate.isTrue(item is Map, "Datatype for $item must be 'Map' but was '${item.runtimeType}'");
+        Validate.isTrue(item is Pair<String,dynamic>, "Datatype for $item must be a 'Pair' but was '${item.runtimeType}'");
 
         final MdlComponent component = mdlComponent(element, null);
         if (component == null) {
@@ -519,9 +531,9 @@ class MaterialRepeat extends MdlTemplateComponent {
             final MdlDataConsumer consumer = component as MdlDataConsumer;
             final String consume = element.attributes[_constant.CONSUMES];
 
-            if ((item as Map).containsKey(consume)) {
-                final data = (item as Map)[consume];
-                consumer.consume(data);
+            _logger.fine("Want to consume: $consume - ${item.key}:${item.value}");
+            if (item.key == consume) {
+                consumer.consume(item.value);
             }
             else {
                 _logger.warning("Could not find '$consume' in $item - so no data was added to $element");
