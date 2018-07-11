@@ -25,6 +25,27 @@ typedef void PostRenderingCallback(final dom.HtmlElement element);
 /// Default implementation for [PostRenderingCallback] does nothing
 void _defaultPostRenderingCallback(final dom.HtmlElement element) {}
 
+@inject @mustache
+class Pair<K,V> {
+    final K key;
+    final V value;
+
+    Pair(this.key, this.value);
+
+    @override
+    bool operator ==(final Object other) =>
+        identical(this, other) ||
+            other is Pair &&
+                runtimeType == other.runtimeType &&
+                key == other.key &&
+                value == other.value;
+
+    @override
+    int get hashCode =>
+        key.hashCode ^
+        value.hashCode;
+}
+
 /// Iterates through a [ObservableList]
 /// Sample:
 ///      HTML:
@@ -46,8 +67,6 @@ void _defaultPostRenderingCallback(final dom.HtmlElement element) {}
 ///             </template>
 ///             |= {{ }} =| {{! ----- Turn on mustache ---- }}
 ///        </div>
-
-//@inject //@mustache
 class MaterialRepeat extends MdlTemplateComponent {
     static final Logger _logger = new Logger('mdltemplate.MaterialRepeat');
 
@@ -68,7 +87,8 @@ class MaterialRepeat extends MdlTemplateComponent {
     String _template = "<div>not set</div>";
 
     /// {_items} holds all the items to render
-    final _items = new List<Map<String, dynamic>>();
+    //final _items = new List<Map<String, dynamic>>();
+    final _items = new List<Pair<String, dynamic>>();
 
     /// Checks if Component is fully initialized
     bool _initialized = false;
@@ -84,12 +104,13 @@ class MaterialRepeat extends MdlTemplateComponent {
         mdlComponent(element, MaterialRepeat) as MaterialRepeat;
 
     /// Adds {item} to DOM, inside of {element}
-    Future<int> add(final item,
+    Future<int> add(final Pair<String,dynamic> item,
         { final PostRenderingCallback callback: _defaultPostRenderingCallback, var scope }) async {
         Validate.notNull(item);
         Validate.notNull(_mustacheTemplate);
 
         _items.add(item);
+
         // _logger.shout("Item added to internal list... (Type: ${item}) ID: ${item["device"]}");
 
         final String template = _mustacheTemplate.renderString(item);
@@ -97,14 +118,12 @@ class MaterialRepeat extends MdlTemplateComponent {
         final dom.HtmlElement renderedChild =
             await _repeatRenderer.render(element, template , replaceNode: false);
 
-        _logger.fine("Adding data to consumer");
         _addDataToDataConsumer(renderedChild, item);
-        _logger.fine("Data added to consumer");
 
         scope = scope != null ? scope : item;
         await _eventCompiler.compileElement(scope, renderedChild);
 
-        _logger.fine("Renderer $item Nr.of items: ${_items.length} ID: ${element.id}");
+        // _logger.info("Renderer $item Nr.of items: ${_items.length} ID: ${element.id}");
         // _logger.info("${item} Added!");
 
         callback(renderedChild);
@@ -112,7 +131,7 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     /// Inserts [item] at position [index]
-    Future<int> insert(final int index, final item,
+    Future<int> insert(final int index, final Pair<String,dynamic> item,
         { final PostRenderingCallback callback: _defaultPostRenderingCallback, var scope }) async {
         Validate.notNull(item);
 
@@ -139,30 +158,10 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     /// Removes item from DOM
-    Future<int> remove(final itemToRemove) async {
-        Validate.notNull(itemToRemove);
+    Future<int> remove(final Pair<String,dynamic> item) async {
+        Validate.notNull(item);
 
-        var item = itemToRemove;
-        int index = _items.indexOf(item);
-
-        // First try failed (-1)
-        if(index == -1 && item is Map<String,dynamic> && item.length == 1) {
-            final String itemName = item.keys.first;
-            final dynamic entry = item[itemName];
-
-            // Search for
-            item = _items.firstWhere((final Map<String,dynamic> items) {
-                final values = items.values.toList();
-                for(int index = 0;index < values.length; index++) {
-                    if(values[index] == entry) {
-                        return true;
-                    }
-                }
-                return false;
-            });
-
-            index = _items.indexOf(item);
-        }
+        final int index = _getIndex(item);
 
         if (index != -1) {
             final dom.HtmlElement child = element.children[index];
@@ -204,12 +203,12 @@ class MaterialRepeat extends MdlTemplateComponent {
     }
 
     /// Swaps [item1] and [item2]
-    void swap(final item1, final item2) {
+    void swap(final Pair<String,dynamic> item1, final Pair<String,dynamic> item2) {
         Validate.notNull(item1);
         Validate.notNull(item2);
 
-        final int index1 = _items.indexOf(item1);
-        final int index2 = _items.indexOf(item2);
+        final int index1 = _getIndex(item1);
+        final int index2 = _getIndex(item2);
 
         //_logger.fine("Swap: ${item1.client_name} ($index1) -> ${item2.client_name} ($index2)");
 
@@ -316,14 +315,39 @@ class MaterialRepeat extends MdlTemplateComponent {
     /// Returns first entry for [item] from internal List
     ///
     /// Items are stored internally as { itemName : item }
-    Map _getItemFromInternalList(final String itemName, final item) {
+    Pair<String,dynamic> _getItemFromInternalList(final String itemName, final item) {
         _logger.info("I--- ${item.runtimeType} N: ${itemName} #element: ${_items.length} ID: ${element.id}");
 
-        final Map map = _items.firstWhere((final Map<String, dynamic> map) {
-            return map.containsKey(itemName) && map[itemName] == item;
+        final Pair<String,dynamic> pair = _items.firstWhere((final Pair<String,dynamic> pair) {
+            return pair.key == itemName && pair.value == item;
         });
 
-        return map;
+        return pair;
+    }
+
+    /// Search for [itemToSearch] in internal [_items]-List
+    ///
+    /// Items are stored as Key-Value pair
+    int _getIndex(final itemToSearch) {
+        var item = itemToSearch;
+        int index = _items.indexOf(item);
+
+        // First try failed (-1)
+        if(index == -1 && item is Pair<String,dynamic>) {
+            final String itemName = (item as Pair<String,dynamic>).key;
+            final dynamic entry = (item as Pair<String,dynamic>).value;
+
+            // Search for
+            item = _items.firstWhere((final Pair<String,dynamic> item)
+                => item.key == itemName && item.value == entry,
+                    orElse: () => null);
+
+            if(item != null) {
+                index = _items.indexOf(item);
+            }
+        }
+
+        return index;
     }
 
     Future _initListFromParentContext() async {
@@ -343,6 +367,7 @@ class MaterialRepeat extends MdlTemplateComponent {
         final String listName = dataset
             .split(" ")
             .last; // e.g. jobs
+
         final String itemName = dataset
             .split(" ")
             .first; // e.g. job
@@ -355,7 +380,7 @@ class MaterialRepeat extends MdlTemplateComponent {
             // Add all the items from scope-list to internal list and to DOM
             // { itemName : item } -> job.item -> which the DomRenderer resolves as {{job.item.xyz}}
             await Future.forEach(list, (final item) async {
-                await add({ itemName: item},
+                await add(new Pair( itemName, item),
                     callback: (final dom.HtmlElement element) => list.update(element, item),
                     scope: scope.context);
             });
@@ -369,7 +394,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
                 switch (event.changetype) {
                     case ListChangeType.ADD:
-                        await add({ itemName: event.item},
+                        await add(new Pair(itemName , event.item) ,
                             callback: (final dom.HtmlElement element) => list.update(element, event.item),
                             scope: scope.context);
                         break;
@@ -377,10 +402,10 @@ class MaterialRepeat extends MdlTemplateComponent {
                     case ListChangeType.INSERT:
                         int index = 0;
                         if (event.prevItem != null) {
-                            final Map prevItem = _getItemFromInternalList(itemName, event.prevItem);
+                            final Pair<String,dynamic> prevItem = _getItemFromInternalList(itemName, event.prevItem);
                             index = _items.indexOf(prevItem);
                         }
-                        await insert(index, { itemName: event.item},
+                        await insert(index,new Pair(itemName,event.item),
                             callback: (final dom.HtmlElement element) => list.update(element, event.item),
                             scope: scope.context);
 
@@ -397,7 +422,7 @@ class MaterialRepeat extends MdlTemplateComponent {
 
                         try {
                             if(index == -1 || index >= _items.length) {
-                                final Map itemToRemove = _getItemFromInternalList(itemName, event.prevItem);
+                                final Pair<String,dynamic> itemToRemove = _getItemFromInternalList(itemName, event.prevItem);
                                 index = _items.indexOf(itemToRemove);
                             }
 
@@ -408,11 +433,11 @@ class MaterialRepeat extends MdlTemplateComponent {
                             if (list.update(child, event.item)) {
                                 // Update internal list
                                 // { itemName : item } -> job.item -> which the DomRenderer resolves as {{job.item.xyz}}
-                                _items[index] = { itemName: event.item};
+                                _items[index] = new Pair(itemName, event.item );
                             }
                             else {
                                 //final Map itemToRemove = _getItemFromInternalList(event.prevItem);
-                                final Map itemToRemove = _items[index];
+                                final Pair<String,dynamic> itemToRemove = _items[index];
                                 index = _items.indexOf(itemToRemove);
                                 
                                 // _logger.fine("Index to remove: ${index}");
@@ -423,7 +448,7 @@ class MaterialRepeat extends MdlTemplateComponent {
                                 // or not (new item will be inserted)
                                 if (indexRemoved < _items.length) {
                                     // _logger.fine("Insert: ${indexRemoved}");
-                                    await insert(indexRemoved, { itemName: event.item},
+                                    await insert(indexRemoved, new Pair(itemName, event.item),
                                         callback: (final dom.HtmlElement element) => list.update(element, event.item),
                                         scope: scope.context);
 
@@ -431,7 +456,7 @@ class MaterialRepeat extends MdlTemplateComponent {
                                 }
                                 else {
                                     // _logger.fine("Add: ${indexRemoved}");
-                                    await add({ itemName: event.item},
+                                    await add(new Pair(itemName, event.item),
                                         callback: (final dom.HtmlElement element) => list.update(element, event.item),
                                         scope: scope.context);
                                     //_logger.fine("Index added: ${indexAdded}/${_items.length}");
@@ -448,7 +473,7 @@ class MaterialRepeat extends MdlTemplateComponent {
                         break;
 
                     case ListChangeType.REMOVE:
-                        final Map itemToRemove = _getItemFromInternalList(itemName, event.item);
+                        final Pair<String,dynamic> itemToRemove = _getItemFromInternalList(itemName, event.item);
                         remove(itemToRemove);
                         break;
                 }

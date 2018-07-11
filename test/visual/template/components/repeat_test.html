@@ -12,21 +12,21 @@
         <!-- {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}} -->
         <template>
             <div class="row">
-                <label class="mdl-checkbox mdl-ripple-effect" for="check-{{hashCode}}">
-                    <input type="checkbox" id="check-{{hashCode}}" class="mdl-checkbox__input" />
-                    <span class="mdl-checkbox__label">Repeat me: <strong>{{name}}</strong></span>
+                <label class="mdl-checkbox mdl-ripple-effect" for="check-{{name.hashCode}}">
+                    <input type="checkbox" id="check-{{name.hashCode}}" class="mdl-checkbox__input" />
+                    <span class="mdl-checkbox__label">Repeat me: <strong>{{name.firstname}}</strong></span>
                 </label>
 
-                <label class="mdl-radio mdl-ripple-effect" for="wifi1-{{hashCode}}">
-                    <input type="radio" id="wifi1-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="1" />
+                <label class="mdl-radio mdl-ripple-effect" for="wifi1-{{name.hashCode}}">
+                    <input type="radio" id="wifi1-{{name.hashCode}}" class="mdl-radio__button" name="wifi[]-{{name.hashCode}}" value="1" />
                     <span class="mdl-radio__label">Always</span>
                 </label>
-                <label class="mdl-radio mdl-ripple-effect" for="wifi2-{{hashCode}}">
-                    <input type="radio" id="wifi2-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="2" />
+                <label class="mdl-radio mdl-ripple-effect" for="wifi2-{{name.hashCode}}">
+                    <input type="radio" id="wifi2-{{name.hashCode}}" class="mdl-radio__button" name="wifi[]-{{name.hashCode}}" value="2" />
                     <span class="mdl-radio__label">Only when plugged in</span>
                 </label>
-                <label class="mdl-radio mdl-ripple-effect" for="wifi3-{{hashCode}}">
-                    <input type="radio" id="wifi3-{{hashCode}}" class="mdl-radio__button" name="wifi[]-{{hashCode}}" value="3" />
+                <label class="mdl-radio mdl-ripple-effect" for="wifi3-{{name.hashCode}}">
+                    <input type="radio" id="wifi3-{{name.hashCode}}" class="mdl-radio__button" name="wifi[]-{{name.hashCode}}" value="3" />
                     <span class="mdl-radio__label">Never</span>
                 </label>
             </div>

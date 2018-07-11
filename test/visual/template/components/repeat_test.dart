@@ -46,7 +46,7 @@ main() async {
             expect(element,isNotNull);
             expect(element.dataset.containsKey("upgraded"),isTrue);
             expect(element.dataset["upgraded"],"MaterialRepeat");
-        },skip: true);
+        });
 
         test('> widget', () {
             final dom.HtmlElement element = dom.document.querySelector("#repeat");
@@ -54,14 +54,14 @@ main() async {
             final MaterialRepeat widget = MaterialRepeat.widget(element);
             expect(widget,isNotNull);
 
-        },skip: true); // end of 'widget' test
+        }); // end of 'widget' test
 
         test('> Add items', () async {
             final dom.HtmlElement element = dom.document.querySelector("#repeat");
             final MaterialRepeat widget = MaterialRepeat.widget(element);
 
-            await widget.add({ "name" : "Mike", "hashCode" : "1"});
-            await widget.add({ "name" : "Nicki", "hashCode" : "2"});
+            await widget.add(new Pair("name" , { "firstname" : "Mike", "hashCode" : "1"}));
+            await widget.add(new Pair("name" , { "firstname" : "Nicki", "hashCode" : "2"}));
 
             final MaterialCheckbox checkbox = MaterialCheckbox.widget(element.querySelectorAll("input.mdl-checkbox__input").last);
             expect(checkbox,isNotNull);

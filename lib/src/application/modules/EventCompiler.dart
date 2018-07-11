@@ -152,20 +152,26 @@ class EventCompiler {
                     return params;
                 }
 
-                InstanceMirror myClassInstanceMirror = null;
-                //_logger.info("Scope: $scope, FunctionName: ${getFunctionNameAsString()}");
+                InstanceMirror instanceMirror = inject.reflect(scope);
+                _logger.info("Scope: $scope, IM-Type ${instanceMirror.type.reflectedType}, FunctionName: ${getFunctionNameAsString()}");
 
-                // TODO: Quite a hack - necessary for MaterialRepeat if value comes as a map
-                // TODO: (e.g. await repeater.add({ "nfrs" : new NameForRepeatSample("A - Nicki II",removeCallback)});)
-                if(scope is Map) {
-                    myClassInstanceMirror = inject.reflect(scope.values.first);
-                } else {
-                    myClassInstanceMirror = inject.reflect(scope);
+                // Check if we have a key/value pair
+                // This is the case if we get something vom MaterialRepeater
+                // e.g:
+                //      final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector("#main"));
+                //      await repeater.add(
+                //          new Pair("nfrs", new NameForRepeatSample("A - Nicki",removeCallback))
+                //      );
+                if((instanceMirror.type.instanceMembers["key"]?.isGetter ?? false)
+                    && (instanceMirror.type.instanceMembers["value"]?.isGetter ?? false)) {
+
+                    final value = instanceMirror.invokeGetter("value");
+                    instanceMirror = inject.reflect(value);
                 }
 
                 // If, e.g. dataset is 'mdl-click', it calls _onClick(element,() { ... });
                 datasets[dataset](element,(final dom.Event event) {
-                    _invokeFunction(myClassInstanceMirror,getFunctionNameAsString(),getParams(),event);
+                    _invokeFunction(instanceMirror,getFunctionNameAsString(),getParams(),event);
                 });
             });
 
