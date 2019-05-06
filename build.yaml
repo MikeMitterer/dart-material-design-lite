@@ -5,6 +5,7 @@ targets:
       reflectable:
         generate_for:
           exclude:
+            - lib/**
             - tool/**
             - test/visual/config.dart
         #  - test/unit/directive/**.dart

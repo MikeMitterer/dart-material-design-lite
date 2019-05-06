@@ -90,7 +90,7 @@ class MdlModule extends Module {
 
 final MdlModule _mdlmodule = new MdlModule();
 
-MdlComponentHandler componentFactory() => componentHandler();
+//MdlComponentHandler componentFactory() => componentHandler();
 
 void registerApplicationComponents() {
 

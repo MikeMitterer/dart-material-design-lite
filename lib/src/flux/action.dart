@@ -115,7 +115,7 @@ abstract class JsonAction<T extends ToJson> extends Action implements ToJson {
 
     @override
     String toString() {
-        return JSON.encode(toJson());
+        return json.encode(toJson());
     }
 
     /// JSON-String wird eingerückt!

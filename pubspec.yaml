@@ -5,7 +5,7 @@ author: Mike Mitterer <office@mikemitterer.at>
 homepage: http://www.material-design-lite.pub
 
 environment:
-  sdk: ">=1.8.0 <2.0.0"
+  sdk: ">=2.0.0 <3.0.0"
 
 dependencies:
   intl: ^0.15.0
@@ -23,8 +23,8 @@ dependencies:
   m4d_router: ^0.2.0
     # path: /Volumes/Daten/DevLocal/DevDart/m4d/m4d_router
 
-  reflected_mustache:
-    path: /Volumes/Daten/DevLocal/DevDart/reflected_mustache
+  reflected_mustache: ^1.0.0
+    # path: /Volumes/Daten/DevLocal/DevDart/reflected_mustache
     
   #mustache: # ^0.2.0
     # path: /Volumes/Daten/DevLocal/DevDart/mustache
@@ -33,14 +33,13 @@ dependencies:
   dnd: ^1.0.0
     # path: /Volumes/Daten/DevLocal/DevDart/dart-dnd
 
-  dryice: # ^2.0.0
-    path: /Volumes/Daten/DevLocal/DevDart/dryice
-
+  dryice: ^2.0.0
+    # path: /Volumes/Daten/DevLocal/DevDart/dryice
 
   path: ^1.4.0
 
-  l10n: #">=1.2.7 <2.0.0"
-    path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
+  l10n: ^2.0.0
+    # path: /Volumes/Daten/DevLocal/DevDart/L10N4Dart
 
 #dependency_overrides:
 #  build_runner: ^0.9.1
@@ -55,7 +54,7 @@ dev_dependencies:
   build_web_compilers: any
     
   args: any
-  material_icons: any
+#  material_icons: any
   grinder: any
   mdl_grinder:
     # git: https://github.com/MikeMitterer/dart-mdl-grinder

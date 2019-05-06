@@ -24,7 +24,7 @@ Object mdlRootContext() {
 
     Object rootContext;
     try {
-        rootContext = componentFactory().injector.getInstance(MaterialApplication);
+        rootContext = componentFactory().injector.resolve(MaterialApplication);
     }
     on Error catch(e,stack) {
         _logger.shout(e,stack);

@@ -83,8 +83,8 @@ class MaterialDatePicker extends MaterialDialog {
         _logger.fine("onClickLeft");
 
         dateTime = new DateTime(
-            dateTime.month == DateTime.JANUARY ? dateTime.year - 1 : dateTime.year,
-            dateTime.month == DateTime.JANUARY ? 12 : dateTime.month - 1,
+            dateTime.month == DateTime.january ? dateTime.year - 1 : dateTime.year,
+            dateTime.month == DateTime.january ? 12 : dateTime.month - 1,
             dateTime.day,dateTime.hour, dateTime.minute, dateTime.second);
 
         _elementMonth.text = month;
@@ -97,8 +97,8 @@ class MaterialDatePicker extends MaterialDialog {
         _logger.fine("onClickRight1");
 
         dateTime = new DateTime(
-            dateTime.month == DateTime.DECEMBER ? dateTime.year + 1 : dateTime.year,
-            dateTime.month == DateTime.DECEMBER ? 1 : dateTime.month + 1,
+            dateTime.month == DateTime.december ? dateTime.year + 1 : dateTime.year,
+            dateTime.month == DateTime.december ? 1 : dateTime.month + 1,
             dateTime.day, dateTime.hour, dateTime.minute, dateTime.second);
 
         _elementMonth.text = month;

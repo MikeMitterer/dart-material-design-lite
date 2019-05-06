@@ -52,11 +52,11 @@ part "src/components/MaterialTabs.dart";
 part "src/components/MaterialTextfield.dart";
 part "src/components/MaterialTooltip.dart";
 
-final MdlComponentHandler _componenthandler = new MdlComponentHandler();
-
-MdlComponentHandler componentHandler() {
-    return _componenthandler;
-}
+//final MdlComponentHandler _componenthandler = new MdlComponentHandler();
+//
+//MdlComponentHandler componentHandler() {
+//    return _componenthandler;
+//}
 
 void registerMdlComponents() {
 

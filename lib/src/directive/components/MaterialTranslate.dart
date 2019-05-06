@@ -31,10 +31,9 @@ class MaterialTranslate extends MdlComponent {
     static const _MaterialTranslateCssClasses _cssClasses = const _MaterialTranslateCssClasses();
 
     String _idToTranslate = "";
-    final Translator translator;
 
     MaterialTranslate.fromElement(final dom.HtmlElement element,final Injector injector)
-        : translator = injector.get(Translator), super(element,injector) {
+        : super(element,injector) {
 
         _init();
     }
@@ -68,7 +67,7 @@ class MaterialTranslate extends MdlComponent {
         // If attribute is set to true or if attribute is available but has no
         // value set
         if(_fieldvalue) {
-            final String translation = translator.translate(new L10N(_idToTranslate));
+            final String translation = l10n(_idToTranslate);
             element.text = translation;
         } else {
             element.text = _idToTranslate;

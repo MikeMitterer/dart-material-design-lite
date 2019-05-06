@@ -170,7 +170,8 @@ class _RadioObserver implements ModelObserver {
             final ObservableProperty prop = val;
 
             _subscriptions.add(
-                _radioGroup.onGroupChange.listen((_) => _radioGroup.hasValue ? prop.value = _radioGroup.value : prop.value = ""));
+                _radioGroup.onGroupChange.listen(
+                        (_) => _radioGroup.hasValue ? prop.value = _radioGroup.value : prop.value = ""));
 
             _subscriptions.add(
                 prop.onChange.listen( (final PropertyChangeEvent event) => _radioGroup.value = prop.toString()));

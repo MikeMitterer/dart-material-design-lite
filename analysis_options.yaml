@@ -5,6 +5,11 @@ analyzer:
   strong-mode: true
 
   exclude:
+    # Dart I
+    - lib
+    - off
+    - test
+
     - lib/_templates/**
     - tool/demobase/**
     - tool/jsbase/**
