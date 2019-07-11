@@ -1,4 +1,10 @@
-# Material Design for Dart
+# depreciated
+I'm moving all my packages to TypeScript!
+
+**Thank God I finally made this decision...**
+---
+
+## Material Design for Dart
 > A User Interface Library / GUI-Framework to   
 > develop *__Progressive Web Apps (PWA)__* in Dart.  
 
